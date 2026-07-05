@@ -10,6 +10,7 @@ import { MATH_FICHES } from "@/lib/maths-fiches";
 import { HISTOIRE_FICHES } from "@/lib/histoire-fiches";
 import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
 import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
+import { SVT_FICHES } from "@/lib/svt-fiches";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -78,6 +79,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Pages de fiches de SVT (une par notion).
+  const svtPages = SVT_FICHES.map((f) => ({
+    url: `${base}/fiches/svt/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...resourcePages,
@@ -85,5 +94,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...histPages,
     ...anglaisPages,
     ...espagnolPages,
+    ...svtPages,
   ];
 }

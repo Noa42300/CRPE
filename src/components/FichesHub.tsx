@@ -19,10 +19,13 @@ import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
 import { ANGLAIS_META } from "@/lib/anglais-fiches/types";
 import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
 import { ESPAGNOL_META } from "@/lib/espagnol-fiches/types";
+import { SVT_FICHES } from "@/lib/svt-fiches";
+import { SVT_THEMES, type SvtTheme } from "@/lib/svt-fiches/types";
 
-type Matiere = "francais" | "maths" | "histoire" | "anglais" | "espagnol";
+type Matiere = "francais" | "maths" | "histoire" | "anglais" | "espagnol" | "svt";
 const MATH_ORDER: MathBloc[] = ["nombres", "algebre", "geometrie", "grandeurs"];
 const HIST_ORDER: HistoireBloc[] = ["monde-1945", "france-1945", "europe", "guerres-mondiales"];
+const SVT_ORDER: SvtTheme[] = ["vivant", "corps", "genetique"];
 
 export function FichesHub() {
   const params = useSearchParams();
@@ -36,7 +39,9 @@ export function FichesHub() {
           ? "anglais"
           : p === "espagnol"
             ? "espagnol"
-            : "francais";
+            : p === "svt"
+              ? "svt"
+              : "francais";
   const [tab, setTab] = useState<Matiere>(urlMatiere);
 
   useEffect(() => {
@@ -61,6 +66,9 @@ export function FichesHub() {
         </TabButton>
         <TabButton active={tab === "espagnol"} onClick={() => setTab("espagnol")}>
           🇪🇸 Espagnol <Count>{ESPAGNOL_FICHES.length}</Count>
+        </TabButton>
+        <TabButton active={tab === "svt"} onClick={() => setTab("svt")}>
+          🟢 SVT <Count>{SVT_FICHES.length}</Count>
         </TabButton>
       </div>
 
@@ -88,9 +96,20 @@ export function FichesHub() {
       {tab === "espagnol" && (
         <LangueList fiches={ESPAGNOL_FICHES} meta={ESPAGNOL_META} basePath="/fiches/espagnol" />
       )}
+      {tab === "svt" && (
+        <ChapterList
+          order={SVT_ORDER}
+          meta={svtMeta}
+          fiches={SVT_FICHES.map((f) => ({ ...f, bloc: f.theme }))}
+          basePath="/fiches/svt"
+        />
+      )}
     </div>
   );
 }
+
+// Adapte SVT_THEMES au format attendu par ChapterList (clé "bloc").
+const svtMeta = SVT_THEMES;
 
 /** Liste des fiches d'une langue (anglais, espagnol… un seul bloc). */
 function LangueList({
