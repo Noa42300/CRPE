@@ -11,6 +11,7 @@ import { HISTOIRE_FICHES } from "@/lib/histoire-fiches";
 import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
 import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
 import { SVT_FICHES } from "@/lib/svt-fiches";
+import { PHYS_FICHES } from "@/lib/physique-fiches";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -87,6 +88,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Pages de fiches de physique-chimie (une par notion).
+  const physPages = PHYS_FICHES.map((f) => ({
+    url: `${base}/fiches/physique-chimie/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...resourcePages,
@@ -95,5 +104,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...anglaisPages,
     ...espagnolPages,
     ...svtPages,
+    ...physPages,
   ];
 }

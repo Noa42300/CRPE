@@ -255,6 +255,7 @@ const SECTIONS = [
   { href: "/fiches?matiere=anglais", category: "Fiches", title: "Fiches Anglais", text: "Verbes, temps, vocabulaire, objectif B2." },
   { href: "/fiches?matiere=espagnol", category: "Fiches", title: "Fiches Espagnol", text: "Ser/estar, temps, vocabulaire, objectif B1." },
   { href: "/fiches?matiere=svt", category: "Fiches", title: "Fiches SVT", text: "Le vivant, le corps humain, génétique." },
+  { href: "/fiches?matiere=physique-chimie", category: "Fiches", title: "Fiches Physique-Chimie", text: "Matière, énergie, électricité, forces." },
   { href: "/conseils", category: CATEGORY_LABELS.conseils, title: "Conseils de Noa", text: "Vidéos, textes et PDF de préparation." },
   { href: "/epreuves-ecrites", category: CATEGORY_LABELS.ecrites, title: "Épreuves écrites", text: "Français, maths, HG-EMC, arts, musique, langues." },
   { href: "/epreuves-orales", category: CATEGORY_LABELS.orales, title: "Épreuves orales", text: "Oral de leçon Français, EPS & Valeurs." },

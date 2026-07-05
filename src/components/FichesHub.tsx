@@ -21,11 +21,15 @@ import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
 import { ESPAGNOL_META } from "@/lib/espagnol-fiches/types";
 import { SVT_FICHES } from "@/lib/svt-fiches";
 import { SVT_THEMES, type SvtTheme } from "@/lib/svt-fiches/types";
+import { PHYS_FICHES } from "@/lib/physique-fiches";
+import { PHYS_BLOCS, type PhysBloc } from "@/lib/physique-fiches/types";
 
-type Matiere = "francais" | "maths" | "histoire" | "anglais" | "espagnol" | "svt";
+type Matiere =
+  | "francais" | "maths" | "histoire" | "anglais" | "espagnol" | "svt" | "physique-chimie";
 const MATH_ORDER: MathBloc[] = ["nombres", "algebre", "geometrie", "grandeurs"];
 const HIST_ORDER: HistoireBloc[] = ["monde-1945", "france-1945", "europe", "guerres-mondiales"];
 const SVT_ORDER: SvtTheme[] = ["vivant", "corps", "genetique"];
+const PHYS_ORDER: PhysBloc[] = ["matiere", "energie", "electricite", "mouvement"];
 
 export function FichesHub() {
   const params = useSearchParams();
@@ -41,7 +45,9 @@ export function FichesHub() {
             ? "espagnol"
             : p === "svt"
               ? "svt"
-              : "francais";
+              : p === "physique-chimie"
+                ? "physique-chimie"
+                : "francais";
   const [tab, setTab] = useState<Matiere>(urlMatiere);
 
   useEffect(() => {
@@ -69,6 +75,9 @@ export function FichesHub() {
         </TabButton>
         <TabButton active={tab === "svt"} onClick={() => setTab("svt")}>
           🟢 SVT <Count>{SVT_FICHES.length}</Count>
+        </TabButton>
+        <TabButton active={tab === "physique-chimie"} onClick={() => setTab("physique-chimie")}>
+          🟦 Physique-Chimie <Count>{PHYS_FICHES.length}</Count>
         </TabButton>
       </div>
 
@@ -102,6 +111,14 @@ export function FichesHub() {
           meta={svtMeta}
           fiches={SVT_FICHES.map((f) => ({ ...f, bloc: f.theme }))}
           basePath="/fiches/svt"
+        />
+      )}
+      {tab === "physique-chimie" && (
+        <ChapterList
+          order={PHYS_ORDER}
+          meta={PHYS_BLOCS}
+          fiches={PHYS_FICHES}
+          basePath="/fiches/physique-chimie"
         />
       )}
     </div>
