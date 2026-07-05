@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fiches de révision Français · CRPE avec Noa</title>
+<meta name="description" content="42 fiches de révision CRPE Français : grammaire, conjugaison, lexique et analyse de texte.">
+</head>
+<body>
+<style>
+  :root {
+    --bg: #f1f3f9;
+    --surface: #ffffff;
+    --ink: #171b24;
+    --muted: #5c6472;
+    --line: #e6e9f2;
+    --shadow: 0 1px 2px rgba(20,26,40,.05), 0 12px 28px -14px rgba(20,26,40,.22);
+    --shadow-hover: 0 4px 10px rgba(20,26,40,.08), 0 24px 44px -16px rgba(20,26,40,.30);
+    --tint: 12%;
+    /* Accents des 4 blocs */
+    --b0: #2563eb; /* Grammaire */
+    --b1: #0d9488; /* Conjugaison */
+    --b2: #ea580c; /* Lexique */
+    --b3: #7c3aed; /* Stylistique */
+    /* Couleurs sémantiques des 5 rubriques */
+    --rDef: #4f46e5;
+    --rPts: #0e9f6e;
+    --rEx:  #d97706;
+    --rPie: #e11d48;
+    --rRet: #7c3aed;
+    --radius: 20px;
+    --font-display: ui-rounded, "SF Pro Rounded", "Segoe UI Rounded", "Nunito", "Segoe UI", system-ui, sans-serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1017;
+      --surface: #161b25;
+      --ink: #e9edf4;
+      --muted: #98a2b3;
+      --line: #232b38;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 30px -16px rgba(0,0,0,.6);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,.4), 0 26px 48px -18px rgba(0,0,0,.7);
+      --tint: 20%;
+      --b0: #60a5fa; --b1: #2dd4bf; --b2: #fb923c; --b3: #a78bfa;
+      --rDef: #818cf8; --rPts: #34d399; --rEx: #fbbf24; --rPie: #fb7185; --rRet: #a78bfa;
+    }
+  }
+  /* Le sélecteur de thème du lecteur doit gagner dans les deux sens */
+  :root[data-theme="light"] {
+    --bg: #f1f3f9; --surface: #ffffff; --ink: #171b24; --muted: #5c6472; --line: #e6e9f2;
+    --shadow: 0 1px 2px rgba(20,26,40,.05), 0 12px 28px -14px rgba(20,26,40,.22);
+    --shadow-hover: 0 4px 10px rgba(20,26,40,.08), 0 24px 44px -16px rgba(20,26,40,.30);
+    --tint: 12%;
+    --b0: #2563eb; --b1: #0d9488; --b2: #ea580c; --b3: #7c3aed;
+    --rDef: #4f46e5; --rPts: #0e9f6e; --rEx: #d97706; --rPie: #e11d48; --rRet: #7c3aed;
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1017; --surface: #161b25; --ink: #e9edf4; --muted: #98a2b3; --line: #232b38;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 14px 30px -16px rgba(0,0,0,.6);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,.4), 0 26px 48px -18px rgba(0,0,0,.7);
+    --tint: 20%;
+    --b0: #60a5fa; --b1: #2dd4bf; --b2: #fb923c; --b3: #a78bfa;
+    --rDef: #818cf8; --rPts: #34d399; --rEx: #fbbf24; --rPie: #fb7185; --rRet: #a78bfa;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------------- En-tête ---------------- */
+  .hero {
+    background:
+      radial-gradient(120% 140% at 12% -10%, color-mix(in srgb, var(--b0) 18%, transparent), transparent 60%),
+      radial-gradient(120% 140% at 100% 0%, color-mix(in srgb, var(--b3) 16%, transparent), transparent 55%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 44px 24px 20px;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted);
+    background: color-mix(in srgb, var(--b0) var(--tint), var(--surface));
+    border: 1px solid var(--line);
+    padding: 6px 12px; border-radius: 999px;
+  }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--b0); }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin: 16px 0 8px;
+  }
+  h1 .accent {
+    background: linear-gradient(90deg, var(--b0), var(--b3));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .lede { color: var(--muted); font-size: 17px; max-width: 58ch; margin: 0; }
+
+  /* ---------------- Barre de contrôle collante ---------------- */
+  .controls {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .controls-inner {
+    max-width: 1180px; margin: 0 auto; padding: 14px 24px;
+    display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+  }
+  .search {
+    position: relative; flex: 1 1 260px; min-width: 220px;
+  }
+  .search svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+  .search input {
+    width: 100%; font: inherit; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+    padding: 11px 16px 11px 42px; outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  .search input:focus-visible {
+    border-color: var(--b0);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--b0) 25%, transparent);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+    color: var(--muted); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 14px; display: inline-flex; align-items: center; gap: 7px;
+    transition: color .15s, border-color .15s, background .15s, transform .1s;
+  }
+  .chip .cnt {
+    font-size: 12px; font-weight: 700; color: var(--muted);
+    background: color-mix(in srgb, var(--muted) 16%, var(--surface));
+    padding: 1px 7px; border-radius: 999px;
+  }
+  .chip .swatch { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--muted)); }
+  .chip:hover { color: var(--ink); border-color: color-mix(in srgb, var(--c, var(--muted)) 45%, var(--line)); }
+  .chip[aria-pressed="true"] {
+    color: #fff; background: var(--c, var(--ink)); border-color: transparent;
+  }
+  .chip[aria-pressed="true"] .cnt { color: #fff; background: rgba(255,255,255,.22); }
+  .chip[aria-pressed="true"] .swatch { background: #fff; }
+  :root[data-theme="dark"] .chip[aria-pressed="true"],
+  @media (prefers-color-scheme: dark) { }
+
+  /* ---------------- Grille des fiches (masonry) ---------------- */
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 26px 24px 80px; }
+  .count { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+  .grid { column-gap: 22px; column-count: 3; }
+  @media (max-width: 1000px) { .grid { column-count: 2; } }
+  @media (max-width: 640px)  { .grid { column-count: 1; } }
+
+  .card {
+    break-inside: avoid;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 18px 20px;
+    margin: 0 0 22px;
+    box-shadow: var(--shadow);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .card.hide { display: none; }
+
+  .card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+  .pill {
+    font-size: 12px; font-weight: 700; letter-spacing: .02em;
+    color: var(--c); background: color-mix(in srgb, var(--c) var(--tint), var(--surface));
+    border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+    padding: 4px 11px; border-radius: 999px;
+  }
+  .num { font-size: 12px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 20px; line-height: 1.2; letter-spacing: -0.01em;
+    text-wrap: balance; margin: 2px 0 14px;
+  }
+
+  /* ---------------- Rubriques ---------------- */
+  .rub { margin-top: 12px; }
+  .rub-h {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--c); margin-bottom: 5px;
+  }
+  .rub-h svg { width: 15px; height: 15px; flex: none; }
+  .rub-b { font-size: 14.5px; color: var(--ink); margin: 0; }
+  .rub-b.muted-def { color: color-mix(in srgb, var(--ink) 88%, var(--muted)); }
+
+  ul.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+  ul.list li { position: relative; padding-left: 18px; font-size: 14.5px; }
+  ul.list li::before {
+    content: ""; position: absolute; left: 3px; top: 8px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--c);
+  }
+  ul.warn li::before {
+    content: "!"; background: none; color: var(--c); font-weight: 900; font-size: 12px;
+    left: 2px; top: 0; width: auto; height: auto; line-height: 1.5;
+  }
+
+  .ex {
+    background: color-mix(in srgb, var(--c) var(--tint), var(--surface));
+    border: 1px solid color-mix(in srgb, var(--c) 26%, transparent);
+    border-radius: 12px; padding: 9px 12px;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .ex .line { font-size: 14px; }
+  .ex .line.head { font-style: italic; color: color-mix(in srgb, var(--ink) 90%, var(--c)); }
+
+  .retenir {
+    margin-top: 14px;
+    background: color-mix(in srgb, var(--rRet) var(--tint), var(--surface));
+    border: 1px solid color-mix(in srgb, var(--rRet) 28%, transparent);
+    border-radius: 12px; padding: 11px 13px;
+  }
+  .retenir .rub-h { color: var(--rRet); margin-bottom: 4px; }
+  .retenir .rub-b { font-weight: 600; }
+
+  strong { font-weight: 700; color: var(--ink); }
+
+  .empty { text-align: center; color: var(--muted); padding: 60px 0; }
+
+  footer {
+    max-width: 1180px; margin: 0 auto; padding: 0 24px 60px;
+    color: var(--muted); font-size: 13px; text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<!-- Icônes (définies une fois, réutilisées par les rubriques) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-def" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v16h5.5a2.5 2.5 0 0 1 2.5 2.5z"/>
+  </symbol>
+  <symbol id="i-pts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="m3 6 1.2 1.2L6.5 5"/><circle cx="4.2" cy="12" r="1.2"/><circle cx="4.2" cy="18" r="1.2"/>
+  </symbol>
+  <symbol id="i-ex" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/>
+  </symbol>
+  <symbol id="i-pie" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/>
+  </symbol>
+  <symbol id="i-ret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/>
+  </symbol>
+</svg>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span> CRPE avec Noa · Français</span>
+    <h1>Fiches de révision <span class="accent">Français</span></h1>
+    <p class="lede">42 fiches claires et autonomes — grammaire, conjugaison, lexique et analyse de texte. Chaque couleur correspond à une rubrique : repère-les d'un coup d'œil.</p>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="q" type="search" placeholder="Rechercher une notion (ex : subjonctif, métaphore…)" aria-label="Rechercher une fiche">
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filtrer par bloc"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <p class="count" id="count"></p>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden>Aucune fiche ne correspond à ta recherche.</p>
+</main>
+
+<footer>
+  Fiches pédagogiques CRPE — <strong>CRPE avec Noa</strong>. Un code couleur, cinq rubriques&nbsp;: Définition · Points clés · Exemple · Pièges CRPE · À retenir.
+</footer>
+
+<script>
+  // ---- Métadonnées des 4 blocs ----
+  const BLOCS = [
+    { name: "Grammaire",   v: "--b0" },
+    { name: "Conjugaison", v: "--b1" },
+    { name: "Lexique",     v: "--b2" },
+    { name: "Stylistique", v: "--b3" },
+  ];
+
+  // ---- Les 42 fiches (b = index du bloc) ----
+  // d=définition, p=points clés, e=exemple, w=pièges, r=à retenir
+  const FICHES = [
+    // ===================== GRAMMAIRE =====================
+    { b:0, t:"Les classes de mots",
+      d:"Les classes de mots (ou natures) regroupent les mots selon leur **identité grammaticale**, indépendamment de la phrase.",
+      p:["**Variables** : nom, déterminant, adjectif, verbe, pronom.","**Invariables** : adverbe, préposition, conjonctions, interjection.","La **nature** ne change jamais (≠ la fonction)."],
+      e:["Le petit chat dort.","le → déterminant","petit → adjectif","chat → nom","dort → verbe"],
+      w:["Ne pas confondre **nature** (fixe) et **fonction** (variable).","« le » peut être déterminant ou pronom : homonymie, pas changement de nature."],
+      r:"La classe = la carte d'identité du mot : 5 variables, 5 invariables." },
+    { b:0, t:"Les fonctions grammaticales",
+      d:"La fonction est le **rôle** qu'un mot ou groupe de mots joue dans la phrase.",
+      p:["Autour du verbe : sujet, COD, COI, complément circonstanciel, attribut.","Autour du nom : épithète.","Une même classe peut occuper des fonctions différentes."],
+      e:["Le chat mange la souris.","le chat → sujet","la souris → COD (mange quoi ?)"],
+      w:["**COD** direct (voir qqn) vs **COI** avec préposition (parler à qqn).","L'**attribut** suit un verbe d'état (être, sembler, devenir)."],
+      r:"La fonction dépend de la phrase : un mot sujet ici peut être COD ailleurs." },
+    { b:0, t:"Les propositions",
+      d:"Une proposition s'organise autour d'un **verbe conjugué**. Autant de verbes conjugués = autant de propositions.",
+      p:["**Indépendante** : se suffit à elle-même.","**Principale** : commande une subordonnée.","**Subordonnée** : dépend de la principale."],
+      e:["Je pense que tu as raison.","Je pense → principale","que tu as raison → subordonnée"],
+      w:["Compter les **verbes conjugués**, pas les infinitifs.","Deux indépendantes : juxtaposées (,) ou coordonnées (et, mais…)."],
+      r:"1 verbe conjugué = 1 proposition. La subordonnée ne tient pas seule." },
+    { b:0, t:"La subordination",
+      d:"La subordination relie une **subordonnée** à une **principale** dont elle dépend, via un subordonnant.",
+      p:["Subordonnants : que, quand, lorsque, parce que, si, comme, bien que.","Elle précise la principale (temps, cause, condition…).","Supprimée, la principale reste correcte."],
+      e:["Je pars quand tu arrives.","Je pars → principale","quand tu arrives → subordonnée de temps"],
+      w:["« que » conjonction (Je crois que…) ≠ « que » pronom relatif (le livre que je lis).","Subordination (dépendance) ≠ coordination (égalité)."],
+      r:"Le subordonnant accroche la subordonnée à la principale." },
+    { b:0, t:"Les types de phrases",
+      d:"Le type de phrase exprime l'**intention de communication**. Une phrase a un seul type.",
+      p:["**Déclarative** : informe.","**Interrogative** : questionne.","**Impérative** : ordonne, conseille.","**Exclamative** : exprime une émotion."],
+      e:["Tu viens. → déclarative","Viens-tu ? → interrogative","Viens ! → impérative","Comme tu es grand ! → exclamative"],
+      w:["Analyser l'**intention**, pas seulement la ponctuation.","Type (4, obligatoire) ≠ forme (qui s'ajoute)."],
+      r:"4 types = 4 intentions. Un seul type, mais plusieurs formes cumulables." },
+    { b:0, t:"Les formes de phrases",
+      d:"La forme modifie le sens et **s'ajoute** au type. Une phrase combine plusieurs formes.",
+      p:["Affirmative / négative.","Active / passive.","Neutre / emphatique (mise en relief : C'est… que)."],
+      e:["Le chat mange la souris. → active, affirmative, neutre","La souris est mangée par le chat. → passive","C'est le chat qui mange… → emphatique"],
+      w:["Les formes se **cumulent** (négative + passive + emphatique).","Forme négative ≠ type interrogatif."],
+      r:"Le type dit l'intention ; les formes précisent la construction." },
+    { b:0, t:"L'accord dans le groupe nominal",
+      d:"Dans le GN, déterminant et adjectif s'accordent en **genre** et en **nombre** avec le nom noyau.",
+      p:["Chaîne d'accord : déterminant + adjectif + nom.","Le nom noyau commande tout le groupe.","L'adjectif s'accorde même éloigné du nom."],
+      e:["un petit chat → des petits chats","Les élèves, attentifs, écoutent."],
+      w:["L'adjectif détaché ou attribut s'accorde même à distance.","Couleurs dérivées de noms : souvent invariables (des yeux marron)."],
+      r:"Tout le GN s'aligne sur le nom noyau, en genre et en nombre." },
+    { b:0, t:"Voix active et voix passive",
+      d:"La voix indique si le sujet **fait** l'action (active) ou la **subit** (passive).",
+      p:["Active : le sujet est l'agent.","Passive : le sujet subit ; agent introduit par « par ».","Passif = être + participe passé, accordé avec le sujet.","Seuls les verbes à COD se mettent au passif."],
+      e:["Le chien mord l'homme. → active","L'homme est mordu par le chien. → passive"],
+      w:["Au passif, le COD de l'actif devient sujet.","Passif (est mordu) ≠ verbe d'état + attribut (est fatigué)."],
+      r:"Active = le sujet agit ; passive = le sujet subit (être + participe passé + par)." },
+
+    // ===================== CONJUGAISON =====================
+    { b:1, t:"Les valeurs des temps",
+      d:"La valeur d'un temps indique **comment et pourquoi** il est employé, au-delà de sa place chronologique.",
+      p:["Présent : actualité, vérité générale, habitude.","Imparfait : description, habitude passée, arrière-plan.","Passé simple : action ponctuelle achevée (récit).","Passé composé : action passée reliée au présent.","Conditionnel : hypothèse, politesse ; subjonctif : doute, souhait."],
+      e:["Il pleut. → présent d'actualité","Il pleuvait. → imparfait descriptif","Il pleut toujours en avril. → habitude"],
+      w:["Un temps a **plusieurs valeurs** : justifier par le contexte.","Imparfait / passé simple structurent le récit (décor vs événement)."],
+      r:"Le temps situe l'action ; la valeur explique l'intention." },
+    { b:1, t:"Le présent de l'indicatif",
+      d:"Le présent exprime une action qui se déroule **au moment où l'on parle**.",
+      p:["1er groupe : -e, -es, -e, -ons, -ez, -ent.","2e groupe (finir) : -is, -is, -it, -issons, -issez, -issent.","3e groupe : irrégulier."],
+      e:["je mange (1er)","tu finis (2e)","il prend (3e)"],
+      w:["Valeurs : actualité, habitude, vérité générale (L'eau bout à 100 °C).","Verbes en -ger/-cer : nous mangeons, nous plaçons."],
+      r:"Présent = maintenant, mais aussi habitude et vérité générale." },
+    { b:1, t:"L'imparfait de l'indicatif",
+      d:"L'imparfait exprime une action passée **non achevée**, descriptive ou habituelle.",
+      p:["Terminaisons pour tous : -ais, -ais, -ait, -ions, -iez, -aient.","Radical = présent en « nous » (nous finiss-ons → je finiss-ais).","Valeurs : description, habitude, arrière-plan."],
+      e:["je mangeais","nous parlions","Il faisait beau et les oiseaux chantaient."],
+      w:["Ne pas oublier le **i** : nous étudiions, vous criiez.","Imparfait (durée) ≠ passé simple (événement bref)."],
+      r:"L'imparfait plante le décor : mêmes terminaisons partout (-ais…)." },
+    { b:1, t:"Le passé composé",
+      d:"Action passée **terminée** ayant un lien avec le présent.",
+      p:["**avoir** ou **être** au présent + participe passé.","Être : verbes de mouvement/état et pronominaux.","Valeurs : action ponctuelle, résultat actuel."],
+      e:["j'ai mangé","je suis allé(e)"],
+      w:["Accord : avec **être** → sujet ; avec **avoir** → COD placé avant.","Sans COD antéposé (avoir) : participe invariable."],
+      r:"avoir/être + participe passé. Accord selon l'auxiliaire." },
+    { b:1, t:"Le passé simple",
+      d:"Action **brève, unique et achevée** dans un récit.",
+      p:["Temps du **récit littéraire**, couplé à l'imparfait.","Terminaisons selon le groupe : -a/-èrent, -it/-irent, -ut/-urent.","Exprime l'événement de premier plan."],
+      e:["il mangea","il partit","Il faisait nuit quand il arriva."],
+      w:["Rare à l'oral, surtout dans les textes narratifs.","il chanta (passé simple) ≠ il chantait (imparfait)."],
+      r:"Le passé simple = l'action qui surgit dans le récit." },
+    { b:1, t:"Le futur simple",
+      d:"Action qui **aura lieu plus tard**.",
+      p:["Terminaisons : -ai, -as, -a, -ons, -ez, -ont.","Ajoutées le plus souvent à l'infinitif (manger → je mangerai).","Valeurs : projet, prévision, certitude."],
+      e:["je mangerai","nous finirons"],
+      w:["Garder le **-r-** : je mangerai (futur) ≠ je mangerais (conditionnel).","Radicaux irréguliers : j'irai, je ferai, je verrai."],
+      r:"Futur = -r- + terminaisons de « avoir » (-ai, -as, -a…)." },
+    { b:1, t:"Le futur antérieur",
+      d:"Action future **accomplie avant** une autre action future.",
+      p:["Auxiliaire au **futur** + participe passé.","Marque l'antériorité entre deux faits à venir.","Peut exprimer une supposition (il aura oublié)."],
+      e:["J'aurai fini quand tu arriveras.","Nous serons partis avant midi."],
+      w:["Mêmes règles d'accord que le passé composé.","Le futur antérieur se produit **avant** le futur simple."],
+      r:"Auxiliaire au futur + participe passé = fini avant une autre action future." },
+    { b:1, t:"Le conditionnel présent",
+      d:"Exprime une **hypothèse**, une action sous condition ou une demande **polie**.",
+      p:["Radical du **futur** + terminaisons de l'**imparfait**.","Valeurs : hypothèse, politesse, incertitude.","Principale d'un système : Si + imparfait, … conditionnel."],
+      e:["je mangerais","Je voudrais un café. (politesse)","Si j'avais le temps, je viendrais."],
+      w:["je mangerais (hypothèse) ≠ je mangerai (certitude).","Après « si » de condition : jamais de conditionnel (Si j'avais)."],
+      r:"Conditionnel = radical du futur + terminaisons de l'imparfait." },
+    { b:1, t:"Le conditionnel passé",
+      d:"Action **non réalisée** dans le passé : hypothèse passée ou regret.",
+      p:["Auxiliaire au **conditionnel présent** + participe passé.","Valeurs : regret, reproche, hypothèse passée.","Système : Si + plus-que-parfait, … conditionnel passé."],
+      e:["j'aurais mangé","Si tu m'avais prévenu, je serais venu."],
+      w:["Mêmes règles d'accord que les temps composés.","Exprime souvent le **regret** (j'aurais dû…)."],
+      r:"Auxiliaire au conditionnel + participe passé = ce qui aurait pu être." },
+    { b:1, t:"Le subjonctif présent",
+      d:"Action **envisagée** : incertaine, souhaitée, nécessaire.",
+      p:["Introduit par « que » (il faut que, vouloir que, bien que).","Terminaisons : -e, -es, -e, -ions, -iez, -ent.","Valeurs : obligation, doute, souhait, but."],
+      e:["Il faut que je vienne.","Il faut qu'il fasse ses devoirs."],
+      w:["Volonté/doute/sentiment → subjonctif ; certitude → indicatif (Je pense qu'il vient).","Irréguliers : aille, fasse, soit, ait, puisse."],
+      r:"Le subjonctif = le monde du possible et du voulu, après « que »." },
+    { b:1, t:"Le subjonctif passé",
+      d:"Action **incertaine ou souhaitée déjà accomplie**.",
+      p:["Auxiliaire au **subjonctif présent** + participe passé.","Marque l'antériorité sur le verbe principal.","Mêmes déclencheurs que le subjonctif présent."],
+      e:["Je doute qu'il soit venu.","Bien qu'il ait fini, il continue."],
+      w:["Action **antérieure** à celle de la principale.","Accord du participe comme aux temps composés."],
+      r:"Subjonctif de avoir/être + participe passé = envisagé mais déjà fait." },
+    { b:1, t:"L'impératif présent",
+      d:"Exprime un **ordre, un conseil ou une interdiction**.",
+      p:["3 personnes seulement ; **pas de sujet**.","1er groupe : pas de -s à la 2e sing. (mange).","Sauf devant en/y : manges-en."],
+      e:["Viens !","Finissons !","Écoutez bien."],
+      w:["Pas de -s : mange, va, ouvre (mais finis, prends).","Pronoms après le verbe : Donne-le-moi."],
+      r:"Ordre sans sujet, 3 personnes. Pas de -s aux verbes en -er." },
+    { b:1, t:"L'impératif passé",
+      d:"Ordre à avoir **accompli avant** un moment donné (forme rare).",
+      p:["Auxiliaire **avoir/être** à l'impératif + participe passé.","Action à terminer avant une échéance.","Sans sujet, 3 personnes."],
+      e:["Sois parti avant 8 h.","Ayez fini pour demain."],
+      w:["Ne pas confondre avec le passé composé.","Accord du participe avec « être »."],
+      r:"avoir/être à l'impératif + participe passé = accompli avant une échéance." },
+    { b:1, t:"L'infinitif",
+      d:"Forme **non conjuguée** du verbe ; c'est la forme du dictionnaire.",
+      p:["Classe les groupes (-er, -ir, -re/-oir).","Présent (manger) ou passé (avoir mangé).","Fonctionne comme un nom (sujet, COD…)."],
+      e:["manger, finir, prendre","J'aime lire. (infinitif COD)"],
+      w:["-er (infinitif) vs -é (participe) : test « prendre/pris » (Il va manger → il va prendre ✔).","Après une préposition : infinitif (avant de partir)."],
+      r:"Forme de base invariable. Astuce prendre/pris pour -er / -é." },
+    { b:1, t:"Le participe présent",
+      d:"Forme verbale **invariable** en -ant, action simultanée au verbe principal.",
+      p:["Terminaison : -ant.","Précédé de « en » = gérondif (en mangeant).","À distinguer de l'adjectif verbal (variable)."],
+      e:["Les enfants courant dans la cour rient. (invariable)","Une eau courante. (adjectif verbal)"],
+      w:["Participe présent **invariable** ; adjectif verbal **s'accorde**.","Orthographe : fatigant (adj.) / fatiguant (part.)."],
+      r:"-ant invariable comme verbe ; avec « en » = gérondif." },
+    { b:1, t:"Le participe passé",
+      d:"Forme utilisée dans les **temps composés** et la **voix passive** ; il peut s'accorder.",
+      p:["Formes : -é, -i, ou irrégulières (pris, fait, mis).","Employé avec être, avoir, ou seul (adjectif).","L'accord dépend de l'auxiliaire."],
+      e:["mangé, fini, pris","Les fleurs coupées. (accordé)"],
+      w:["Accord : être → sujet ; avoir → COD antéposé ; seul → comme un adjectif.","-é (participe) vs -er (infinitif) : test pris/prendre."],
+      r:"Brique des temps composés. Accord = repérer l'auxiliaire." },
+
+    // ===================== LEXIQUE =====================
+    { b:2, t:"Les préfixes",
+      d:"Élément placé **au début** d'un mot pour en modifier le sens, sans changer sa classe.",
+      p:["Négation : in-, im-, il-, ir-, dé-, a- (possible → impossible).","Répétition : re- (faire → refaire).","Intensité/position : anti-, hyper-, sur-, pré-, trans-."],
+      e:["légal → illégal","charger → décharger","actif → hyperactif"],
+      w:["Le préfixe **ne change pas la classe** (faire/refaire restent des verbes).","in- s'adapte : im-, il-, ir- selon la consonne."],
+      r:"Préfixe = devant le radical, modifie le sens, pas la nature." },
+    { b:2, t:"Les suffixes",
+      d:"Élément placé **à la fin** d'un mot ; modifie le sens et souvent la **classe**.",
+      p:["Action : -tion, -sion, -ment, -age.","Manière (adverbe) : -ment.","Possibilité (adjectif) : -able, -ible.","Agent : -eur, -euse, -iste."],
+      e:["rapide → rapidement (adj. → adverbe)","lire → lecture (verbe → nom)"],
+      w:["Le suffixe **change souvent la classe** (contrairement au préfixe).","Un radical reçoit plusieurs suffixes (terre → terrestre, terrien)."],
+      r:"Suffixe = après le radical ; modifie le sens ET souvent la nature." },
+    { b:2, t:"Les racines grecques et latines",
+      d:"Éléments anciens, grecs ou latins, qui servent à construire de nombreux mots.",
+      p:["Latin : aqua (eau), scribere (écrire), portare (porter).","Grec : bio (vie), phon (son), graph (écrire).","Se combinent avec préfixes et suffixes."],
+      e:["bio + graph + ie → biographie","aqua + duc → aqueduc"],
+      w:["Les racines aident à **deviner le sens** d'un mot inconnu.","Mots hybrides : télé (grec) + vision (latin)."],
+      r:"Décomposer en racines = une clé du vocabulaire savant." },
+    { b:2, t:"La formation des mots",
+      d:"Les **procédés** de création de mots à partir d'éléments existants.",
+      p:["**Dérivation** : préfixe + radical + suffixe.","**Composition** : plusieurs mots (porte + feuille).","**Conversion** : changement de classe sans changer la forme."],
+      e:["manger → mangeable (dérivation)","chemin de fer (composition)","le rire (conversion)"],
+      w:["Famille de mots (même radical) ≠ champ lexical (même thème).","Composition : soudée, avec trait d'union ou séparée."],
+      r:"3 procédés : dérivation, composition, conversion." },
+    { b:2, t:"Le champ lexical",
+      d:"Ensemble des mots se rapportant à un **même thème** dans un texte.",
+      p:["Mots de **classes différentes** (noms, verbes, adjectifs).","Révèle le thème et l'atmosphère.","Outil clé de l'analyse de texte."],
+      e:["Mer : vague, océan, plage, sable, marin, écume."],
+      w:["Champ lexical (thème) ≠ famille de mots (radical).","Aide à identifier l'**intention** de l'auteur."],
+      r:"Champ lexical = des mots variés autour d'un même thème." },
+    { b:2, t:"Le champ sémantique",
+      d:"Les **différents sens** d'un **seul mot** selon les contextes.",
+      p:["Concerne un mot **polysémique**.","Le contexte sélectionne le sens.","À distinguer du champ lexical."],
+      e:["feuille d'arbre","feuille de papier","feuille de route"],
+      w:["Champ sémantique = 1 mot / plusieurs sens.","Champ lexical = plusieurs mots / 1 thème."],
+      r:"Champ sémantique = les multiples sens d'un seul mot (polysémie)." },
+    { b:2, t:"Les synonymes",
+      d:"Mots de **sens proche**, de même classe grammaticale.",
+      p:["Évitent les répétitions, nuancent.","L'intensité/le registre varie (content < heureux < ravi).","Jamais parfaitement interchangeables."],
+      e:["beau → joli","rapide → vif, prompt"],
+      w:["Registres différents : maison / demeure / baraque.","Le bon synonyme dépend du **contexte**."],
+      r:"Sens proche, jamais identique : le contexte départage." },
+    { b:2, t:"Les antonymes",
+      d:"Mots de **sens opposé**, de même classe grammaticale.",
+      p:["Mot différent (grand/petit) ou préfixe (possible/impossible).","Servent à construire des oppositions.","Dépendent parfois du contexte."],
+      e:["grand / petit","chaud / froid","heureux / malheureux"],
+      w:["Un mot polysémique a plusieurs antonymes (léger ≠ lourd ou sérieux).","Antonyme lexical (jour/nuit) vs par préfixe (faire/défaire)."],
+      r:"Sens opposés, même classe. Le contraire peut dépendre du sens." },
+    { b:2, t:"Les homonymes",
+      d:"Mots qui se **prononcent** et/ou s'**écrivent** pareil, mais de sens différents.",
+      p:["Homophones : même son (mer/mère/maire).","Homographes : même orthographe, sens différent.","Le contexte lève l'ambiguïté."],
+      e:["mer / mère / maire","ver / vers / verre / vert"],
+      w:["Cœur de l'orthographe : a/à, et/est, son/sont, ces/ses, ou/où.","S'appuyer sur le sens et la classe."],
+      r:"Même son (ou graphie), sens différents : le contexte tranche." },
+    { b:2, t:"Les paronymes",
+      d:"Mots qui se **ressemblent** par la forme, mais de sens différents.",
+      p:["Différence d'une ou deux lettres.","Source d'erreurs fréquentes.","Testés dans les questions pièges."],
+      e:["collision / collusion","conjecture / conjoncture","éminent / imminent"],
+      w:["Bien vérifier le **sens** de chacun.","Très fréquents à l'oral du CRPE."],
+      r:"Formes voisines, sens éloignés (collision ≠ collusion)." },
+    { b:2, t:"Les figures de style (introduction)",
+      d:"Procédés d'expression qui rendent un texte plus imagé et expressif.",
+      p:["Comparaison : outil (comme, tel que).","Métaphore : comparaison **sans** outil.","Personnification : traits humains.","Hyperbole : exagération ; anaphore : répétition en tête."],
+      e:["Il est fort comme un lion. (comparaison)","Cette montagne est un géant. (métaphore)","Le vent hurlait. (personnification)"],
+      w:["Comparaison vs métaphore : présence de l'**outil**.","Au CRPE : identifier **et** expliquer l'effet."],
+      r:"Outil « comme » = comparaison ; sans outil = métaphore." },
+
+    // ===================== STYLISTIQUE =====================
+    { b:3, t:"Les registres de langue",
+      d:"Manière de s'exprimer adaptée à la **situation de communication**.",
+      p:["**Familier** : oral, entre proches, relâché.","**Courant** : neutre, quotidien, correct.","**Soutenu** : écrit/formel, recherché."],
+      e:["J'suis crevé. (familier)","Je suis fatigué. (courant)","Je suis extrêmement las. (soutenu)"],
+      w:["Identifier via le **contexte** (qui, à qui, où).","Marques **lexicales** et **syntaxiques**."],
+      r:"3 registres : familier, courant, soutenu. Le contexte guide." },
+    { b:3, t:"Les types de discours",
+      d:"Façon dont un texte **rapporte les paroles ou les pensées**.",
+      p:["**Direct** : paroles citées (guillemets, verbe introducteur).","**Indirect** : intégrées en subordonnée « que ».","**Indirect libre** : sans introducteur, fondu dans le récit."],
+      e:["Il dit : « Je viens demain. » (direct)","Il dit qu'il viendra demain. (indirect)","Il viendrait demain. C'était décidé. (indirect libre)"],
+      w:["Direct → indirect : changements de temps, pronoms, marqueurs (demain → le lendemain).","L'indirect libre est fréquent chez les romanciers."],
+      r:"Direct = citation ; indirect = « que » ; indirect libre = fondu dans le récit." },
+    { b:3, t:"Les figures de style (approfondissement)",
+      d:"Procédés d'écriture créant images, oppositions et effets sonores.",
+      p:["Comparaison / métaphore / personnification.","Hyperbole (exagération) / anaphore (répétition en tête).","**Antithèse** : deux termes opposés."],
+      e:["Je vis, je meurs. (antithèse)","Je meurs de faim. (hyperbole)","Toujours debout, toujours prêt. (anaphore)"],
+      w:["Antithèse (mots opposés) ≠ oxymore (contraires dans le même groupe : une obscure clarté).","Identifier **puis** expliquer l'effet."],
+      r:"Au CRPE, identifier ne suffit pas : justifier l'effet." },
+    { b:3, t:"La tonalité d'un texte",
+      d:"L'**émotion** ou l'impression que le texte cherche à produire.",
+      p:["Comique / ironique (se moque).","Tragique (fatalité) / pathétique (émeut).","Lyrique (émotions perso) / épique (grandeur)."],
+      e:["Il pleut encore… quelle surprise ! (ironique)","Ô temps, suspends ton vol ! (lyrique)"],
+      w:["Tonalité (effet) ≠ type de texte (narratif…).","L'ironie = décalage entre le dit et le pensé."],
+      r:"La tonalité = l'émotion visée ; plusieurs peuvent se mêler." },
+    { b:3, t:"L'analyse de texte (méthode CRPE)",
+      d:"Démarche organisée pour **comprendre et interpréter** un texte à partir d'indices.",
+      p:["1. Lire le texte en entier.","2. Identifier le type de texte.","3. Repérer registre et tonalité.","4. Relever figures de style et temps verbaux.","5. Dégager l'intention de l'auteur."],
+      e:["Roman : narratif + imparfait/passé simple + champ lexical de la peur → atmosphère angoissante."],
+      w:["Toujours **justifier avec des citations**.","Ne pas paraphraser : interpréter."],
+      r:"Une analyse = des observations justifiées par le texte." },
+    { b:3, t:"Les types de textes",
+      d:"La **visée dominante** d'un texte : raconter, décrire, convaincre ou expliquer.",
+      p:["**Narratif** : raconte.","**Descriptif** : décrit.","**Argumentatif** : défend une opinion.","**Explicatif** : fait comprendre."],
+      e:["Roman → narratif","Article scientifique → explicatif","Discours → argumentatif"],
+      w:["Textes mixtes : identifier la visée **dominante**.","Type de texte (visée) ≠ genre (roman, poème…)."],
+      r:"4 visées : narrer, décrire, argumenter, expliquer." },
+    { b:3, t:"Lecture et compréhension (implicite)",
+      d:"Comprendre l'**explicite** (écrit) et l'**implicite** (suggéré).",
+      p:["Repérer l'explicite (donné directement).","Déduire l'implicite (sous-entendus).","Interpréter les intentions."],
+      e:["Il a fermé la porte sans un mot.","→ Implicite : colère ou tristesse."],
+      w:["L'implicite se **déduit d'indices**, ne s'invente pas.","Présupposé (admis) vs sous-entendu (à interpréter)."],
+      r:"Bien lire = comprendre l'explicite ET déduire l'implicite." },
+  ];
+
+  // ---- Petit formateur : échappe le HTML puis applique **gras** ----
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function fmt(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>"); }
+
+  const RUBS = [
+    { key:"d", label:"Définition",  icon:"i-def", c:"--rDef" },
+    { key:"p", label:"Points clés", icon:"i-pts", c:"--rPts" },
+    { key:"e", label:"Exemple",     icon:"i-ex",  c:"--rEx"  },
+    { key:"w", label:"Pièges CRPE", icon:"i-pie", c:"--rPie" },
+  ];
+
+  // ---- Construit une fiche ----
+  function cardHTML(f, numDansBloc){
+    const bloc = BLOCS[f.b];
+    let rubs = "";
+
+    // Définition (paragraphe)
+    rubs += `<div class="rub" style="--c:var(--rDef)">
+      <div class="rub-h"><svg><use href="#i-def"/></svg>Définition</div>
+      <p class="rub-b muted-def">${fmt(f.d)}</p></div>`;
+
+    // Points clés (liste)
+    rubs += `<div class="rub" style="--c:var(--rPts)">
+      <div class="rub-h"><svg><use href="#i-pts"/></svg>Points clés</div>
+      <ul class="list rub-b">${f.p.map(x=>`<li>${fmt(x)}</li>`).join("")}</ul></div>`;
+
+    // Exemple (bloc teinté) — la 1re ligne est mise en avant si c'est une phrase
+    const exLines = f.e.map((x,i)=>`<span class="line${i===0&&f.e.length>1?" head":""}">${fmt(x)}</span>`).join("");
+    rubs += `<div class="rub" style="--c:var(--rEx)">
+      <div class="rub-h"><svg><use href="#i-ex"/></svg>Exemple</div>
+      <div class="rub-b ex">${exLines}</div></div>`;
+
+    // Pièges CRPE (liste avertissements)
+    rubs += `<div class="rub" style="--c:var(--rPie)">
+      <div class="rub-h"><svg><use href="#i-pie"/></svg>Pièges CRPE</div>
+      <ul class="list warn rub-b">${f.w.map(x=>`<li>${fmt(x)}</li>`).join("")}</ul></div>`;
+
+    // À retenir (callout violet)
+    rubs += `<div class="retenir">
+      <div class="rub-h"><svg><use href="#i-ret"/></svg>À retenir</div>
+      <p class="rub-b">${fmt(f.r)}</p></div>`;
+
+    const searchText = (f.t+" "+f.d+" "+f.p.join(" ")+" "+f.e.join(" ")+" "+f.w.join(" ")+" "+f.r+" "+bloc.name).toLowerCase();
+    return `<article class="card" data-bloc="${f.b}" data-text="${esc(searchText)}">
+      <div class="card-top">
+        <span class="pill" style="--c:var(${bloc.v})">${bloc.name}</span>
+        <span class="num">Fiche ${String(numDansBloc).padStart(2,"0")}</span>
+      </div>
+      <h3 class="card-title">${esc(f.t)}</h3>
+      ${rubs}
+    </article>`;
+  }
+
+  // ---- Rendu initial ----
+  const grid = document.getElementById("grid");
+  const counters = [0,0,0,0];
+  grid.innerHTML = FICHES.map(f => cardHTML(f, ++counters[f.b])).join("");
+
+  // ---- Filtres (chips par bloc) ----
+  const chipsEl = document.getElementById("chips");
+  const totals = [0,0,0,0];
+  FICHES.forEach(f => totals[f.b]++);
+  const chipDefs = [{name:"Tout", v:null, n:FICHES.length}].concat(
+    BLOCS.map((b,i)=>({name:b.name, v:b.v, i, n:totals[i]}))
+  );
+  chipsEl.innerHTML = chipDefs.map((c,idx)=>`
+    <button class="chip" role="button" aria-pressed="${idx===0}" data-bloc="${c.i??''}"
+      style="${c.v?`--c:var(${c.v})`:''}">
+      ${c.v?`<span class="swatch"></span>`:""}${c.name}<span class="cnt">${c.n}</span>
+    </button>`).join("");
+
+  let activeBloc = null;
+  const q = document.getElementById("q");
+  const countEl = document.getElementById("count");
+  const emptyEl = document.getElementById("empty");
+
+  function apply(){
+    const term = q.value.trim().toLowerCase();
+    let shown = 0;
+    document.querySelectorAll(".card").forEach(card=>{
+      const okBloc = activeBloc===null || card.dataset.bloc===String(activeBloc);
+      const okTerm = !term || card.dataset.text.includes(term);
+      const show = okBloc && okTerm;
+      card.classList.toggle("hide", !show);
+      if(show) shown++;
+    });
+    countEl.textContent = shown + (shown>1?" fiches":" fiche") + " affichée" + (shown>1?"s":"");
+    emptyEl.hidden = shown>0;
+  }
+
+  chipsEl.addEventListener("click", e=>{
+    const btn = e.target.closest(".chip");
+    if(!btn) return;
+    chipsEl.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed","false"));
+    btn.setAttribute("aria-pressed","true");
+    activeBloc = btn.dataset.bloc==="" ? null : Number(btn.dataset.bloc);
+    apply();
+  });
+  q.addEventListener("input", apply);
+  apply();
+</script>
+</body>
+</html>

@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Pages principales
   const staticPages = [
     "",
+    "/fiches",
     "/conseils",
     "/epreuves-ecrites",
     "/epreuves-orales",

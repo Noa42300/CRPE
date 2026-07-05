@@ -85,17 +85,34 @@ export default async function HomePage() {
       {/* ==================== POINTS FORTS ==================== */}
       <section className="container-page py-12 sm:py-16">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {FEATURES.map((f) => (
-            <div key={f.title} className="card card-hover">
-              <div className="text-3xl">{f.emoji}</div>
-              <h3 className="mt-4 text-lg font-semibold text-navy-900">
-                {f.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-navy-500">
-                {f.text}
-              </p>
-            </div>
-          ))}
+          {FEATURES.map((f) => {
+            const inner = (
+              <>
+                <div className="text-3xl">{f.emoji}</div>
+                <h3 className="mt-4 flex items-center gap-1.5 text-lg font-semibold text-navy-900">
+                  {f.title}
+                  {f.href && (
+                    <span className="text-navy-300 transition group-hover:translate-x-0.5 group-hover:text-sky-500">
+                      →
+                    </span>
+                  )}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-navy-500">
+                  {f.text}
+                </p>
+              </>
+            );
+            // Si la carte a un lien, elle devient cliquable.
+            return f.href ? (
+              <Link key={f.title} href={f.href} className="card card-hover group">
+                {inner}
+              </Link>
+            ) : (
+              <div key={f.title} className="card card-hover group">
+                {inner}
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -225,11 +242,11 @@ export default async function HomePage() {
 
 // ------------------- Contenus de la page (faciles à modifier) -------------------
 const FEATURES = [
-  { emoji: "📄", title: "Fiches claires", text: "Des fiches synthétiques prêtes à réviser, en PDF." },
+  { emoji: "📄", title: "Fiches claires", text: "42 fiches synthétiques prêtes à réviser. Clique pour les explorer.", href: "/fiches" },
   { emoji: "🎥", title: "Vidéos explicatives", text: "Des explications simples pour tout comprendre." },
   { emoji: "📝", title: "Sujets blancs", text: "Entraîne-toi dans les conditions du concours." },
   { emoji: "🧠", title: "Méthodologie", text: "Organisation, planning et gestion du stress." },
-];
+] as { emoji: string; title: string; text: string; href?: string }[];
 
 const SECTIONS = [
   { href: "/conseils", category: CATEGORY_LABELS.conseils, title: "Conseils de Noa", text: "Vidéos, textes et PDF de préparation." },
