@@ -252,6 +252,7 @@ const SECTIONS = [
   { href: "/fiches", category: "Fiches", title: "Fiches Français", text: "Grammaire, conjugaison, lexique et analyse." },
   { href: "/fiches?matiere=maths", category: "Fiches", title: "Fiches Maths", text: "Nombres, algèbre, géométrie, grandeurs." },
   { href: "/fiches?matiere=histoire", category: "Fiches", title: "Fiches Histoire", text: "Guerre froide, France, Europe, guerres mondiales." },
+  { href: "/fiches?matiere=anglais", category: "Fiches", title: "Fiches Anglais", text: "Verbes, temps, vocabulaire, objectif B2." },
   { href: "/conseils", category: CATEGORY_LABELS.conseils, title: "Conseils de Noa", text: "Vidéos, textes et PDF de préparation." },
   { href: "/epreuves-ecrites", category: CATEGORY_LABELS.ecrites, title: "Épreuves écrites", text: "Français, maths, HG-EMC, arts, musique, langues." },
   { href: "/epreuves-orales", category: CATEGORY_LABELS.orales, title: "Épreuves orales", text: "Oral de leçon Français, EPS & Valeurs." },

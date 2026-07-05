@@ -15,15 +15,18 @@ import { MATH_FICHES } from "@/lib/maths-fiches";
 import { MATH_BLOCS, type MathBloc } from "@/lib/maths-fiches/types";
 import { HISTOIRE_FICHES } from "@/lib/histoire-fiches";
 import { HISTOIRE_BLOCS, type HistoireBloc } from "@/lib/histoire-fiches/types";
+import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
+import { ANGLAIS_META } from "@/lib/anglais-fiches/types";
 
-type Matiere = "francais" | "maths" | "histoire";
+type Matiere = "francais" | "maths" | "histoire" | "anglais";
 const MATH_ORDER: MathBloc[] = ["nombres", "algebre", "geometrie", "grandeurs"];
 const HIST_ORDER: HistoireBloc[] = ["monde-1945", "france-1945", "europe", "guerres-mondiales"];
 
 export function FichesHub() {
   const params = useSearchParams();
   const p = params.get("matiere");
-  const urlMatiere: Matiere = p === "maths" ? "maths" : p === "histoire" ? "histoire" : "francais";
+  const urlMatiere: Matiere =
+    p === "maths" ? "maths" : p === "histoire" ? "histoire" : p === "anglais" ? "anglais" : "francais";
   const [tab, setTab] = useState<Matiere>(urlMatiere);
 
   useEffect(() => {
@@ -42,6 +45,9 @@ export function FichesHub() {
         </TabButton>
         <TabButton active={tab === "histoire"} onClick={() => setTab("histoire")}>
           🌍 Histoire <Count>{HISTOIRE_FICHES.length}</Count>
+        </TabButton>
+        <TabButton active={tab === "anglais"} onClick={() => setTab("anglais")}>
+          🇬🇧 Anglais <Count>{ANGLAIS_FICHES.length}</Count>
         </TabButton>
       </div>
 
@@ -63,6 +69,40 @@ export function FichesHub() {
           basePath="/fiches/histoire"
         />
       )}
+      {tab === "anglais" && <AnglaisList />}
+    </div>
+  );
+}
+
+/** Liste des 6 fiches d'anglais (un seul bloc). */
+function AnglaisList() {
+  const sorted = [...ANGLAIS_FICHES].sort((a, b) => a.numero - b.numero);
+  return (
+    <div>
+      <h2 className="mb-4 flex items-center gap-2 text-xl font-bold tracking-tight text-navy-900">
+        <span aria-hidden>{ANGLAIS_META.emoji}</span> {ANGLAIS_META.label}
+        <span className="ml-1 rounded-full bg-navy-100 px-2.5 py-0.5 text-sm font-semibold text-navy-500">
+          {sorted.length}
+        </span>
+      </h2>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {sorted.map((f) => (
+          <Link
+            key={f.slug}
+            href={`/fiches/anglais/${f.slug}`}
+            className="card card-hover group flex items-start justify-between gap-3"
+          >
+            <div>
+              <span className={`badge border ${ANGLAIS_META.pill}`}>Fiche {f.numero}</span>
+              <h3 className="mt-2 text-lg font-semibold text-navy-900">{f.titre}</h3>
+              <p className="mt-1 line-clamp-2 text-sm text-navy-500">{f.intro}</p>
+            </div>
+            <span className="mt-1 flex-none text-navy-300 transition group-hover:translate-x-1 group-hover:text-sky-500">
+              →
+            </span>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
