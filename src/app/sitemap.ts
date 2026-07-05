@@ -9,6 +9,7 @@ import { getAllResources } from "@/lib/resources";
 import { MATH_FICHES } from "@/lib/maths-fiches";
 import { HISTOIRE_FICHES } from "@/lib/histoire-fiches";
 import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
+import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -69,5 +70,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...resourcePages, ...mathPages, ...histPages, ...anglaisPages];
+  // Pages de fiches d'espagnol (une par fiche).
+  const espagnolPages = ESPAGNOL_FICHES.map((f) => ({
+    url: `${base}/fiches/espagnol/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [
+    ...staticPages,
+    ...resourcePages,
+    ...mathPages,
+    ...histPages,
+    ...anglaisPages,
+    ...espagnolPages,
+  ];
 }

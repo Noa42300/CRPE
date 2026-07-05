@@ -17,8 +17,10 @@ import { HISTOIRE_FICHES } from "@/lib/histoire-fiches";
 import { HISTOIRE_BLOCS, type HistoireBloc } from "@/lib/histoire-fiches/types";
 import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
 import { ANGLAIS_META } from "@/lib/anglais-fiches/types";
+import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
+import { ESPAGNOL_META } from "@/lib/espagnol-fiches/types";
 
-type Matiere = "francais" | "maths" | "histoire" | "anglais";
+type Matiere = "francais" | "maths" | "histoire" | "anglais" | "espagnol";
 const MATH_ORDER: MathBloc[] = ["nombres", "algebre", "geometrie", "grandeurs"];
 const HIST_ORDER: HistoireBloc[] = ["monde-1945", "france-1945", "europe", "guerres-mondiales"];
 
@@ -26,7 +28,15 @@ export function FichesHub() {
   const params = useSearchParams();
   const p = params.get("matiere");
   const urlMatiere: Matiere =
-    p === "maths" ? "maths" : p === "histoire" ? "histoire" : p === "anglais" ? "anglais" : "francais";
+    p === "maths"
+      ? "maths"
+      : p === "histoire"
+        ? "histoire"
+        : p === "anglais"
+          ? "anglais"
+          : p === "espagnol"
+            ? "espagnol"
+            : "francais";
   const [tab, setTab] = useState<Matiere>(urlMatiere);
 
   useEffect(() => {
@@ -49,6 +59,9 @@ export function FichesHub() {
         <TabButton active={tab === "anglais"} onClick={() => setTab("anglais")}>
           🇬🇧 Anglais <Count>{ANGLAIS_FICHES.length}</Count>
         </TabButton>
+        <TabButton active={tab === "espagnol"} onClick={() => setTab("espagnol")}>
+          🇪🇸 Espagnol <Count>{ESPAGNOL_FICHES.length}</Count>
+        </TabButton>
       </div>
 
       {/* ---------- Contenu de l'onglet ---------- */}
@@ -69,18 +82,31 @@ export function FichesHub() {
           basePath="/fiches/histoire"
         />
       )}
-      {tab === "anglais" && <AnglaisList />}
+      {tab === "anglais" && (
+        <LangueList fiches={ANGLAIS_FICHES} meta={ANGLAIS_META} basePath="/fiches/anglais" />
+      )}
+      {tab === "espagnol" && (
+        <LangueList fiches={ESPAGNOL_FICHES} meta={ESPAGNOL_META} basePath="/fiches/espagnol" />
+      )}
     </div>
   );
 }
 
-/** Liste des 6 fiches d'anglais (un seul bloc). */
-function AnglaisList() {
-  const sorted = [...ANGLAIS_FICHES].sort((a, b) => a.numero - b.numero);
+/** Liste des fiches d'une langue (anglais, espagnol… un seul bloc). */
+function LangueList({
+  fiches,
+  meta,
+  basePath,
+}: {
+  fiches: { slug: string; numero: number; titre: string; intro: string }[];
+  meta: { label: string; emoji: string; pill: string };
+  basePath: string;
+}) {
+  const sorted = [...fiches].sort((a, b) => a.numero - b.numero);
   return (
     <div>
       <h2 className="mb-4 flex items-center gap-2 text-xl font-bold tracking-tight text-navy-900">
-        <span aria-hidden>{ANGLAIS_META.emoji}</span> {ANGLAIS_META.label}
+        <span aria-hidden>{meta.emoji}</span> {meta.label}
         <span className="ml-1 rounded-full bg-navy-100 px-2.5 py-0.5 text-sm font-semibold text-navy-500">
           {sorted.length}
         </span>
@@ -89,11 +115,11 @@ function AnglaisList() {
         {sorted.map((f) => (
           <Link
             key={f.slug}
-            href={`/fiches/anglais/${f.slug}`}
+            href={`${basePath}/${f.slug}`}
             className="card card-hover group flex items-start justify-between gap-3"
           >
             <div>
-              <span className={`badge border ${ANGLAIS_META.pill}`}>Fiche {f.numero}</span>
+              <span className={`badge border ${meta.pill}`}>Fiche {f.numero}</span>
               <h3 className="mt-2 text-lg font-semibold text-navy-900">{f.titre}</h3>
               <p className="mt-1 line-clamp-2 text-sm text-navy-500">{f.intro}</p>
             </div>
