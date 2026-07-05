@@ -6,6 +6,7 @@
 export const NAV_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/fiches", label: "Fiches" },
+  { href: "/fiches-maths", label: "Maths" },
   { href: "/conseils", label: "Conseils" },
   { href: "/epreuves-ecrites", label: "Épreuves écrites" },
   { href: "/epreuves-orales", label: "Épreuves orales" },

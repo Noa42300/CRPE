@@ -6,6 +6,7 @@
  */
 import type { MetadataRoute } from "next";
 import { getAllResources } from "@/lib/resources";
+import { MATH_FICHES } from "@/lib/maths-fiches";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -14,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     "",
     "/fiches",
+    "/fiches-maths",
     "/conseils",
     "/epreuves-ecrites",
     "/epreuves-orales",
@@ -41,5 +43,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     }));
 
-  return [...staticPages, ...resourcePages];
+  // Pages de fiches de maths (une par notion).
+  const mathPages = MATH_FICHES.map((f) => ({
+    url: `${base}/fiches-maths/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...resourcePages, ...mathPages];
 }

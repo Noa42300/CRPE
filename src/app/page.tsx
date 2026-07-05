@@ -249,6 +249,8 @@ const FEATURES = [
 ] as { emoji: string; title: string; text: string; href?: string }[];
 
 const SECTIONS = [
+  { href: "/fiches", category: "Fiches", title: "Fiches Français", text: "Grammaire, conjugaison, lexique et analyse." },
+  { href: "/fiches-maths", category: "Fiches", title: "Fiches Maths", text: "Nombres, algèbre, géométrie, grandeurs." },
   { href: "/conseils", category: CATEGORY_LABELS.conseils, title: "Conseils de Noa", text: "Vidéos, textes et PDF de préparation." },
   { href: "/epreuves-ecrites", category: CATEGORY_LABELS.ecrites, title: "Épreuves écrites", text: "Français, maths, HG-EMC, arts, musique, langues." },
   { href: "/epreuves-orales", category: CATEGORY_LABELS.orales, title: "Épreuves orales", text: "Oral de leçon Français, EPS & Valeurs." },
