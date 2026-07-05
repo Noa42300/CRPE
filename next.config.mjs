@@ -14,6 +14,14 @@ const nextConfig = {
       { protocol: "https", hostname: "**" },
     ],
   },
+  // Les anciennes URLs /fiches-maths redirigent vers la nouvelle structure
+  // /fiches/maths (aucune page cassée, aucun lien perdu).
+  async redirects() {
+    return [
+      { source: "/fiches-maths", destination: "/fiches?matiere=maths", permanent: true },
+      { source: "/fiches-maths/:slug", destination: "/fiches/maths/:slug", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -1,27 +1,33 @@
 /**
- * PAGE — FICHES CLAIRES
- * Les 42 fiches de révision Français, claires et prêtes à réviser.
+ * PAGE — FICHES (Français + Maths)
+ * Un seul endroit, deux onglets : Français (42) et Maths (32).
+ * On peut arriver directement sur l'onglet Maths via /fiches?matiere=maths
+ * (l'onglet initial est lu côté client dans FichesHub).
  */
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageHeader } from "@/components/PageHeader";
-import { FichesExplorer } from "@/components/FichesExplorer";
+import { FichesHub } from "@/components/FichesHub";
 
 export const metadata: Metadata = {
-  title: "Fiches claires",
+  title: "Fiches de révision",
   description:
-    "42 fiches de révision Français claires et synthétiques pour le CRPE : grammaire, conjugaison, lexique et analyse de texte.",
+    "Toutes les fiches de révision CRPE : 42 fiches de Français (grammaire, conjugaison, lexique, analyse) et les fiches de Maths (nombres, algèbre, géométrie, grandeurs).",
 };
 
 export default function FichesPage() {
   return (
     <div>
       <PageHeader
-        eyebrow="Fiches claires"
-        title="Des fiches claires, prêtes à réviser"
-        subtitle="42 fiches synthétiques en Français — grammaire, conjugaison, lexique et analyse de texte. Chaque couleur correspond à une rubrique : repère-les d'un coup d'œil."
+        eyebrow="Fiches de révision"
+        title="Toutes tes fiches, au même endroit"
+        subtitle="Français et Maths réunis : des fiches claires et colorées pour comprendre vite et mémoriser facilement. Choisis ta matière ci-dessous."
       />
       <section className="container-page py-12">
-        <FichesExplorer />
+        {/* Suspense requis car FichesHub lit la matière dans l'URL. */}
+        <Suspense fallback={null}>
+          <FichesHub />
+        </Suspense>
       </section>
     </div>
   );
