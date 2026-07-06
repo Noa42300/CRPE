@@ -133,7 +133,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
           {
             type: "list",
             items: [
-              "60 % des filles viennent à pied.",
+              "Les deux tiers des filles viennent à pied.",
               "Les garçons venant à pied représentent 66 élèves.",
             ],
           },
@@ -347,20 +347,20 @@ export const MATHS_SUJETS: SujetBlanc[] = [
             question: "Compléter le tableau.",
             reponse: [
               "Nombre de filles : 45 % de 240 = 0,45 × 240 = 108. Nombre de garçons : 240 − 108 = 132.",
-              "Filles à pied : 60 % de 108 = 0,60 × 108 = 64,8… → l'énoncé conduit à 65 filles environ ; on retient l'effectif cohérent : 60 % × 108 = 64,8, arrondi impossible en effectif → on garde le calcul exact 64,8. **En pratique on prend 65** (voir remarque).",
-              "Garçons à pied : 66 (donné). Total à pied = filles à pied + 66.",
-              "Autre mode : par différence sur chaque colonne.",
+              "Filles à pied : les deux tiers de 108 = (108 ÷ 3) × 2 = 72. Garçons à pied : 66 (donné). Total à pied = 72 + 66 = 138.",
+              "Autre mode par différence : filles = 108 − 72 = 36 ; garçons = 132 − 66 = 66 ; total « autre mode » = 240 − 138 = 102.",
             ],
             attendu:
-              "Méthode : calculer d'abord filles (108) et garçons (132), puis remplir chaque colonne par les pourcentages donnés, et compléter par soustraction. La cohérence du tableau (les totaux) est le critère principal.",
+              "Méthode : calculer d'abord filles (108) et garçons (132), remplir les cases connues (fractions, valeur donnée), puis compléter par différence. La cohérence des totaux est le critère principal.",
           },
           {
-            type: "note",
-            variant: "attention",
-            titre: "Remarque de correction (valeurs)",
-            lines: [
-              "60 % de 108 = 64,8 : un effectif devant être entier, un sujet de concours choisit des données qui « tombent juste ». On acceptera ici la valeur 65 (arrondi) OU un raisonnement mené proprement en pourcentages. L'important est la méthode : filles = 108, garçons = 132, remplissage par pourcentages puis différences.",
-              "Tableau cohérent retenu : Filles à pied ≈ 65, Garçons à pied = 66, Total à pied ≈ 131 ; Autre mode : filles ≈ 43, garçons = 66, total ≈ 109.",
+            type: "table",
+            titre: "Tableau complété",
+            entetes: ["", "Filles", "Garçons", "Total"],
+            lignes: [
+              ["Viennent à pied", "72", "66", "138"],
+              ["Autre mode", "36", "66", "102"],
+              ["Total", "108", "132", "240"],
             ],
           },
           {
@@ -369,7 +369,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
             points: 1,
             question: "Pourcentage d'élèves venant à pied.",
             reponse: [
-              "Total à pied ≈ 131 sur 240. Pourcentage = 131 ÷ 240 ≈ 0,546 ≈ **54,6 %** (environ 55 %).",
+              "Total à pied = 138 sur 240. Pourcentage = 138 ÷ 240 = 0,575 = **57,5 %**.",
             ],
           },
           {
@@ -378,7 +378,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
             points: 1,
             question: "Parmi les élèves à pied, pourcentage de filles.",
             reponse: [
-              "Filles à pied ÷ total à pied ≈ 65 ÷ 131 ≈ 0,496 ≈ **50 %** (arrondi à l'unité).",
+              "Filles à pied ÷ total à pied = 72 ÷ 138 ≈ 0,522 ≈ **52 %** (arrondi à l'unité).",
             ],
           },
         ],
