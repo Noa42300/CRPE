@@ -28,9 +28,6 @@ export type Subject =
 // Le type de ressource.
 export type ResourceType = "video" | "pdf" | "texte";
 
-// Niveau de difficulté (surtout utile pour les sujets blancs).
-export type Difficulty = "facile" | "moyen" | "difficile";
-
 /**
  * Une "ressource" = un contenu du site (une fiche, une vidéo, un sujet blanc...).
  * C'est l'objet central de la plateforme. Il correspond à la table
@@ -44,7 +41,6 @@ export interface Resource {
   subject: Subject;
   type: ResourceType;
   url: string; // Lien vers la vidéo / le PDF, ou le texte lui-même
-  difficulty?: Difficulty | null; // Optionnel (utilisé pour les sujets blancs)
   correction_url?: string | null; // Optionnel : lien de correction (sujets blancs)
   created_at?: string;
 }
@@ -78,12 +74,6 @@ export const SUBJECT_LABELS: Record<Subject, string> = {
   "oral-lecon": "Oral de leçon",
   eps: "EPS & Valeurs de la République",
   general: "Général",
-};
-
-export const DIFFICULTY_LABELS: Record<Difficulty, string> = {
-  facile: "Facile",
-  moyen: "Moyen",
-  difficile: "Difficile",
 };
 
 export const TYPE_LABELS: Record<ResourceType, string> = {

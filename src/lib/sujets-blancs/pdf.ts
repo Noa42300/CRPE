@@ -184,6 +184,20 @@ function writeText(
   ctx.y += opts.gap ?? 1.4;
 }
 
+/** Bandeau de séparation d'une grande partie (Méthodologie, Erreurs…). */
+function bandeau(ctx: Ctx, title: string) {
+  const { doc, M, W } = ctx;
+  ensure(ctx, 14);
+  ctx.y += 3;
+  doc.setFillColor(...SKY);
+  doc.roundedRect(M, ctx.y - 4, W - 2 * M, 8, 1.2, 1.2, "F");
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(10.5);
+  doc.setTextColor(255, 255, 255);
+  doc.text(plain(title), W / 2, ctx.y + 1.6, { align: "center" });
+  ctx.y += 10;
+}
+
 function sectionHeading(ctx: Ctx, title: string, points?: number) {
   const { doc, M, W } = ctx;
   ensure(ctx, 14);
@@ -206,6 +220,34 @@ function blockToPdf(ctx: Ctx, block: Block) {
     case "p":
       writeText(ctx, block.text);
       break;
+
+    case "intro": {
+      const top = ctx.y;
+      if (block.citation) {
+        writeText(ctx, `« ${block.citation} »`, {
+          style: "italic",
+          size: 11,
+          color: [22, 36, 77],
+          indent: 4,
+        });
+        if (block.auteur) {
+          writeText(ctx, `— ${block.auteur}`, {
+            size: 9,
+            color: GREY,
+            indent: 4,
+            gap: 2,
+          });
+        }
+        // Filet bleu à gauche de la citation.
+        doc.setDrawColor(...SKY);
+        doc.setLineWidth(0.8);
+        doc.line(M + 1.5, top, M + 1.5, ctx.y - 2);
+        doc.setLineWidth(0.2);
+      }
+      for (const p of block.paragraphs) writeText(ctx, p);
+      ctx.y += 1;
+      break;
+    }
 
     case "consigne":
       writeText(ctx, block.text, { size: 9, style: "italic", color: GREY });
@@ -569,7 +611,14 @@ async function buildDoc(
 ): Promise<import("jspdf").jsPDF> {
   const { jsPDF } = await import("jspdf");
   const doc = new jsPDF({ unit: "mm", format: "a4" });
-  const sections = kind === "sujet" ? sujet.sujet : sujet.correction;
+  const sections =
+    kind === "sujet"
+      ? sujet.sujet
+      : [
+          ...sujet.correction,
+          ...(sujet.methodologie ?? []),
+          ...(sujet.erreursFrequentes ?? []),
+        ];
   const images = await prepareImages(sections);
   const ctx: Ctx = {
     doc,
@@ -609,6 +658,17 @@ async function buildDoc(
       });
     }
     renderSections(ctx, sujet.correction);
+
+    if (sujet.methodologie?.length) {
+      ctx.y += 3;
+      bandeau(ctx, "MÉTHODOLOGIE");
+      renderSections(ctx, sujet.methodologie);
+    }
+    if (sujet.erreursFrequentes?.length) {
+      ctx.y += 3;
+      bandeau(ctx, "ERREURS FRÉQUENTES");
+      renderSections(ctx, sujet.erreursFrequentes);
+    }
   }
 
   drawFooter(ctx);

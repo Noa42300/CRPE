@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VideoEmbed } from "@/components/VideoEmbed";
-import { DifficultyBadge, TypeBadge } from "@/components/Badges";
+import { TypeBadge } from "@/components/Badges";
 import { getResourceById } from "@/lib/resources";
 import { SUBJECT_LABELS, CATEGORY_LABELS, type Resource } from "@/lib/types";
 
@@ -44,7 +44,6 @@ export default async function ResourcePage({
       {/* En-tête */}
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <TypeBadge type={resource.type} />
-        {resource.difficulty && <DifficultyBadge difficulty={resource.difficulty} />}
         <span className="badge bg-navy-50 text-navy-600">
           {SUBJECT_LABELS[resource.subject]}
         </span>

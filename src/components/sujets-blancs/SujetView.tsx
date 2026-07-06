@@ -13,10 +13,9 @@
 import { useState } from "react";
 import { BlockRenderer } from "./BlockRenderer";
 import { DownloadButtons } from "./DownloadButtons";
-import { DifficultyBadge } from "@/components/Badges";
 import { SUJET_MATIERES, type SujetBlanc, type SujetSection } from "@/lib/sujets-blancs/types";
 
-type Tab = "sujet" | "correction" | "bareme";
+type Tab = "sujet" | "correction" | "methodo" | "erreurs" | "bareme";
 
 function SectionBlock({ section }: { section: SujetSection }) {
   return (
@@ -42,6 +41,8 @@ function SectionBlock({ section }: { section: SujetSection }) {
 export function SujetView({ sujet }: { sujet: SujetBlanc }) {
   const [tab, setTab] = useState<Tab>("sujet");
   const meta = SUJET_MATIERES[sujet.matiere];
+  const hasMethodo = !!sujet.methodologie?.length;
+  const hasErreurs = !!sujet.erreursFrequentes?.length;
 
   return (
     <div className="mx-auto max-w-4xl">
@@ -52,7 +53,6 @@ export function SujetView({ sujet }: { sujet: SujetBlanc }) {
         <div className="flex flex-wrap items-center gap-2 text-sm font-semibold">
           <span className="text-3xl">{meta.emoji}</span>
           <span className="uppercase tracking-wide">{meta.label}</span>
-          <DifficultyBadge difficulty={sujet.difficulty} />
         </div>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
           {sujet.titre}
@@ -85,14 +85,24 @@ export function SujetView({ sujet }: { sujet: SujetBlanc }) {
       </div>
 
       {/* ---------- Onglets ---------- */}
-      <div className="sticky top-16 z-10 mt-8 -mx-2 rounded-full bg-white/85 px-2 py-2 backdrop-blur">
-        <div className="flex gap-1.5 rounded-full bg-navy-50 p-1.5">
+      <div className="sticky top-16 z-10 mt-8 -mx-2 rounded-2xl bg-white/85 px-2 py-2 backdrop-blur">
+        <div className="flex flex-wrap gap-1.5 rounded-2xl bg-navy-50 p-1.5">
           <TabBtn active={tab === "sujet"} onClick={() => setTab("sujet")}>
             📝 Sujet
           </TabBtn>
           <TabBtn active={tab === "correction"} onClick={() => setTab("correction")}>
             ✅ Correction
           </TabBtn>
+          {hasMethodo && (
+            <TabBtn active={tab === "methodo"} onClick={() => setTab("methodo")}>
+              🧭 Méthodologie
+            </TabBtn>
+          )}
+          {hasErreurs && (
+            <TabBtn active={tab === "erreurs"} onClick={() => setTab("erreurs")}>
+              ⚠️ Erreurs fréquentes
+            </TabBtn>
+          )}
           <TabBtn active={tab === "bareme"} onClick={() => setTab("bareme")}>
             📊 Barème
           </TabBtn>
@@ -134,6 +144,38 @@ export function SujetView({ sujet }: { sujet: SujetBlanc }) {
               </div>
             )}
             {sujet.correction.map((s, i) => (
+              <SectionBlock key={i} section={s} />
+            ))}
+          </div>
+        )}
+
+        {tab === "methodo" && hasMethodo && (
+          <div className="space-y-10">
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 px-5 py-4">
+              <p className="mb-2 text-sm font-bold text-sky-800">
+                🧭 Méthodologie
+              </p>
+              <p className="text-[15px] leading-relaxed text-navy-700">
+                Comment aborder ce sujet efficacement, étape par étape.
+              </p>
+            </div>
+            {sujet.methodologie!.map((s, i) => (
+              <SectionBlock key={i} section={s} />
+            ))}
+          </div>
+        )}
+
+        {tab === "erreurs" && hasErreurs && (
+          <div className="space-y-10">
+            <div className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4">
+              <p className="mb-2 text-sm font-bold text-rose-800">
+                ⚠️ Erreurs fréquentes
+              </p>
+              <p className="text-[15px] leading-relaxed text-navy-700">
+                Les pièges les plus courants et comment les éviter.
+              </p>
+            </div>
+            {sujet.erreursFrequentes!.map((s, i) => (
               <SectionBlock key={i} section={s} />
             ))}
           </div>

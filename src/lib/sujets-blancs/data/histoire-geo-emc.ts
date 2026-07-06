@@ -18,7 +18,6 @@ export const HGEMC_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — Habiter la ville, vivre en République",
     description:
       "Géographie de l'urbanisation, symboles et valeurs de la République, et étude de la Révolution française à partir de documents. Un sujet complet couvrant les trois disciplines.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,
@@ -211,7 +210,6 @@ export const HGEMC_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — Se déplacer, s'engager, comprendre le passé",
     description:
       "Géographie des mobilités et des transports, engagement et responsabilité en EMC, et étude de la monarchie absolue de Louis XIV. Sujet exigeant sur les trois disciplines.",
-    difficulty: "difficile",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,
@@ -398,7 +396,6 @@ export const HGEMC_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — Environnement, liberté d'expression et grandes découvertes",
     description:
       "Géographie des risques et du développement durable, liberté d'expression et médias en EMC, et étude des grandes découvertes au XVᵉ-XVIᵉ siècle. Trois disciplines articulées.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,
@@ -570,6 +567,470 @@ export const HGEMC_SUJETS: SujetBlanc[] = [
             reponse: [
               "Les peuples d'Amérique subissent la **colonisation** : conquêtes, domination, travail forcé, et surtout des **maladies** apportées par les Européens qui déciment les populations. Les civilisations amérindiennes sont bouleversées.",
               "On accepte aussi : les échanges de produits (le « grand échange » : maïs, pomme de terre… / chevaux, blé), l'esclavage.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 4 — Nourrir, s'engager, se souvenir
+  // ======================================================================
+  {
+    slug: "hgemc-4-nourrir-s-engager-se-souvenir",
+    matiere: "histoire-geo-emc",
+    titre: "Sujet blanc n°4 — Nourrir le monde, s'engager, se souvenir",
+    description:
+      "Géographie de l'alimentation mondiale, égalité entre les filles et les garçons en EMC, et étude de la Première Guerre mondiale à partir d'un document. Réponses argumentées.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
+    duree: "1 h 20 conseillée",
+    totalPoints: 20,
+    consignes: [
+      "Répondre de façon claire, structurée et argumentée.",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Géographie — Nourrir une population mondiale croissante",
+        points: 7,
+        blocks: [
+          {
+            type: "p",
+            text: "La population mondiale dépasse 8 milliards d'habitants et continue d'augmenter. Nourrir tous les hommes est un défi majeur.",
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Définir les termes « agriculture vivrière » et « agriculture productiviste ».", points: 2 },
+              { num: "2.", text: "Citer deux défis liés à l'alimentation d'une population mondiale croissante.", points: 3 },
+              { num: "3.", text: "Qu'appelle-t-on une agriculture « durable » ? Donner deux exemples de pratiques.", points: 2 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "EMC — L'égalité entre les filles et les garçons",
+        points: 6,
+        blocks: [
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Rappeler ce que dit la loi française sur l'égalité entre les femmes et les hommes.", points: 2 },
+              { num: "2.", text: "En quoi l'école a-t-elle un rôle particulier pour construire l'égalité entre les filles et les garçons ? Répondre par un court développement argumenté.", points: 4 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Histoire — La Première Guerre mondiale (CM2)",
+        points: 7,
+        blocks: [
+          {
+            type: "document",
+            titre: "Document — Lettre d'un soldat (adaptée)",
+            source: "Texte original s'inspirant des lettres de poilus, composé pour ce sujet.",
+            lines: [
+              "« Ma chère Louise, voilà trois jours que nous tenons la tranchée sous la pluie et les obus. La boue nous monte aux genoux, le froid nous transperce, et le sommeil nous fuit. Nous attendons la relève en pensant à vous. Ne t'inquiète pas : je tiens bon, comme tous les camarades. Embrasse les enfants pour moi. Ton Émile, ce 12 novembre 1916. »",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "À partir du document, décrire les conditions de vie des soldats dans les tranchées.", points: 3 },
+              { num: "2.", text: "Situer la Première Guerre mondiale dans le temps (dates de début et de fin) et nommer ce type de guerre.", points: 2 },
+              { num: "3.", text: "Que doivent retenir les élèves de ce conflit ?", points: 2 },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Discipline", "Compétences évaluées", "Points"],
+      lignes: [
+        ["Géographie", "Notions agricoles, défis alimentaires, durabilité", "7"],
+        ["EMC", "Égalité femmes-hommes, rôle de l'école, argumentation", "6"],
+        ["Histoire", "Exploitation de document, repères, mise en perspective", "7"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend des définitions précises, des repères datés exacts et, pour la question développée d'EMC, une introduction construite avant l'argumentation.",
+    correction: [
+      {
+        titre: "Géographie — Nourrir une population mondiale croissante",
+        points: 7,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 2,
+            question: "Agriculture vivrière / productiviste.",
+            reponse: [
+              "**Agriculture vivrière** : agriculture destinée d'abord à nourrir le producteur et sa famille (autoconsommation), avec de faibles surplus.",
+              "**Agriculture productiviste** : agriculture qui cherche à produire le plus possible pour le marché, en utilisant des machines, des engrais et des rendements élevés.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 3,
+            question: "Deux défis alimentaires.",
+            reponse: [
+              "Nourrir davantage de personnes tout en préservant l'environnement (sols, eau, biodiversité).",
+              "Réduire les inégalités : la faim persiste dans certaines régions tandis que le gaspillage existe ailleurs. (On accepte aussi : s'adapter au changement climatique.)",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 2,
+            question: "Agriculture durable et pratiques.",
+            reponse: [
+              "Une **agriculture durable** répond aux besoins alimentaires sans épuiser les ressources ni dégrader l'environnement, pour préserver l'avenir.",
+              "Exemples : limiter les pesticides (agriculture biologique), pratiquer la rotation des cultures, économiser l'eau, favoriser les circuits courts.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "EMC — L'égalité entre les filles et les garçons",
+        points: 6,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 2,
+            question: "Ce que dit la loi.",
+            reponse: [
+              "L'égalité entre les femmes et les hommes est un **principe fondamental de la République** : la loi garantit les mêmes droits (voter, travailler, être payé également, accéder aux mêmes fonctions).",
+              "Toute discrimination fondée sur le sexe est interdite ; l'égalité est inscrite dans la Constitution et dans de nombreuses lois.",
+            ],
+          },
+          {
+            type: "intro",
+            citation: "On ne naît pas femme : on le devient.",
+            auteur: "Simone de Beauvoir (1908-1986), Le Deuxième Sexe (1949)",
+            paragraphs: [
+              "Par cette phrase célèbre, la philosophe Simone de Beauvoir affirme que les différences de rôles entre femmes et hommes ne sont pas « naturelles » mais construites par l'éducation et la société.",
+              "Cette idée éclaire le rôle de l'école : si les inégalités s'apprennent, elles peuvent aussi se défaire par l'éducation. C'est ce que le développement va montrer.",
+            ],
+          },
+          {
+            type: "p",
+            text: "**1. L'école transmet l'égalité en droit et en acte.** Elle accueille filles et garçons dans les mêmes classes, leur propose les mêmes activités et les mêmes exigences, et lutte contre les stéréotypes (« les maths pour les garçons », « la danse pour les filles »).",
+          },
+          {
+            type: "p",
+            text: "**2. Elle agit sur les représentations.** Par le choix des exemples, des métiers présentés, des responsabilités confiées, l'enseignant montre que toutes les voies sont ouvertes aux deux sexes. L'école prévient aussi les violences et le sexisme (respect mutuel, coéducation).",
+          },
+          {
+            type: "note",
+            variant: "attendu",
+            lines: [
+              "Barème : introduction construite avec citation intégrée (1,5) ; deux arguments développés (2) ; exemples scolaires concrets (0,5).",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Histoire — La Première Guerre mondiale",
+        points: 7,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 3,
+            question: "Conditions de vie dans les tranchées.",
+            reponse: [
+              "Le document montre des conditions très dures : la **boue**, la **pluie**, le **froid**, le manque de sommeil, le danger permanent des obus, l'attente de la relève.",
+              "Les soldats (les « poilus ») vivent dans la peur et l'inconfort, loin de leur famille, à laquelle ils pensent (« en pensant à vous »).",
+            ],
+            attendu: "S'appuyer sur des éléments précis du texte pour décrire le quotidien du front.",
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 2,
+            question: "Dates et type de guerre.",
+            reponse: [
+              "La Première Guerre mondiale se déroule de **1914 à 1918**.",
+              "C'est une **guerre totale** (elle mobilise toute la société : soldats, économie, civils) et, sur le front ouest, une **guerre de position** (guerre des tranchées).",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 2,
+            question: "Ce que les élèves doivent retenir.",
+            reponse: [
+              "Un conflit d'une violence inédite (des millions de morts), qui a marqué durablement les familles et les paysages.",
+              "L'importance du devoir de mémoire (le 11 novembre, les monuments aux morts) pour se souvenir et comprendre la valeur de la paix.",
+            ],
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Histoire-Géographie EMC",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Définir précisément** les notions demandées avant de les illustrer.",
+              "**Dater et situer** systématiquement (une réponse d'histoire sans repères chronologiques est incomplète).",
+              "**Exploiter les documents** : citer/reformuler des éléments précis, ne pas plaquer ses connaissances sans lien avec le texte.",
+              "**Pour une question « développée »**, construire une courte introduction (amorce, éventuelle citation, problématique) puis deux arguments.",
+              "**Pour les réponses « pour les élèves »**, hiérarchiser l'essentiel et rester simple.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Oublier les dates** (1914-1918) ou les confondre avec la Seconde Guerre mondiale (1939-1945).",
+              "**Recopier le document** au lieu d'en extraire et reformuler les informations.",
+              "**Rester vague en EMC** : il faut nommer le principe (égalité) et donner des exemples concrets.",
+              "**Commencer la question développée directement par la réponse**, sans introduction.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 5 — Littoraux, droits de l'enfant, Moyen Âge
+  // ======================================================================
+  {
+    slug: "hgemc-5-littoraux-droits-moyen-age",
+    matiere: "histoire-geo-emc",
+    titre: "Sujet blanc n°5 — Littoraux, droits de l'enfant et Moyen Âge",
+    description:
+      "Géographie du tourisme et des littoraux, droits de l'enfant en EMC, et étude de la société féodale au Moyen Âge à partir d'un document. Trois disciplines articulées.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
+    duree: "1 h 20 conseillée",
+    totalPoints: 20,
+    consignes: [
+      "Répondre de façon claire, structurée et argumentée.",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Géographie — Aménager et protéger les littoraux",
+        points: 7,
+        blocks: [
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Pourquoi les littoraux attirent-ils autant de population et d'activités ? Donner deux raisons.", points: 2 },
+              { num: "2.", text: "Quels problèmes le tourisme de masse peut-il poser sur un littoral ? Citer deux exemples.", points: 3 },
+              { num: "3.", text: "Comment peut-on concilier fréquentation touristique et protection de l'environnement littoral ?", points: 2 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "EMC — Les droits de l'enfant",
+        points: 6,
+        blocks: [
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Qu'est-ce que la Convention internationale des droits de l'enfant ? Citer deux droits fondamentaux qu'elle garantit.", points: 3 },
+              { num: "2.", text: "En quoi le droit à l'éducation est-il essentiel pour un enfant ? Répondre par un court développement argumenté.", points: 3 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Histoire — La société féodale (CM1)",
+        points: 7,
+        blocks: [
+          {
+            type: "document",
+            titre: "Document — La société au Moyen Âge (adapté)",
+            source: "Texte de synthèse original, composé pour ce sujet.",
+            lines: [
+              "Au Moyen Âge, la société est très hiérarchisée. Au sommet, le roi ; puis les seigneurs, qui possèdent des terres, des châteaux et commandent des chevaliers. L'Église, très puissante, encadre la vie religieuse. Enfin, la grande majorité de la population est constituée de paysans qui cultivent la terre du seigneur et lui doivent des redevances et des corvées. En échange de sa protection, le seigneur exige fidélité et travail.",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "À partir du document, présenter les différents groupes qui composent la société féodale.", points: 3 },
+              { num: "2.", text: "Expliquer ce qu'est le lien entre un seigneur et ses paysans (droits et devoirs de chacun).", points: 2 },
+              { num: "3.", text: "Formuler ce que les élèves doivent retenir de cette organisation sociale.", points: 2 },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Discipline", "Compétences évaluées", "Points"],
+      lignes: [
+        ["Géographie", "Attractivité des littoraux, tourisme, protection", "7"],
+        ["EMC", "Droits de l'enfant, droit à l'éducation, argumentation", "6"],
+        ["Histoire", "Société féodale, exploitation de document, repères", "7"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On valorise des définitions rigoureuses, l'exploitation du document historique, et une question d'EMC introduite avant d'être développée.",
+    correction: [
+      {
+        titre: "Géographie — Aménager et protéger les littoraux",
+        points: 7,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 2,
+            question: "Attractivité des littoraux.",
+            reponse: [
+              "Les littoraux offrent des activités économiques (ports, pêche, commerce, industries) et de nombreux emplois.",
+              "Ils attirent aussi le tourisme et les loisirs (plages, climat, paysages), ce qui explique la forte concentration de population (littoralisation).",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 3,
+            question: "Problèmes du tourisme de masse.",
+            reponse: [
+              "Pression sur l'environnement : bétonnage du littoral, pollution, dégradation des dunes et des milieux naturels.",
+              "Saturation : embouteillages, hausse des prix du logement, manque d'eau en saison, déchets. (On accepte aussi : conflits d'usage.)",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 2,
+            question: "Concilier tourisme et protection.",
+            reponse: [
+              "Créer des espaces protégés (réserves, sentiers balisés), limiter la construction, développer un tourisme plus respectueux (transports doux, sensibilisation).",
+              "L'objectif est un développement durable du littoral : accueillir les visiteurs sans détruire ce qui les attire.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "EMC — Les droits de l'enfant",
+        points: 6,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 3,
+            question: "La Convention et deux droits.",
+            reponse: [
+              "La **Convention internationale des droits de l'enfant** (adoptée par l'ONU en 1989) est un texte signé par la quasi-totalité des pays, qui reconnaît des droits propres à tous les enfants du monde.",
+              "Exemples de droits : le droit à l'**éducation**, à la **santé**, à la **protection** (contre la violence, l'exploitation), à un nom et une nationalité, aux loisirs et au jeu.",
+            ],
+          },
+          {
+            type: "intro",
+            paragraphs: [
+              "L'éducation est souvent présentée comme le premier des droits, car il conditionne l'accès à tous les autres. Priver un enfant d'école, c'est limiter son avenir.",
+              "On peut donc se demander en quoi le droit à l'éducation est essentiel — c'est l'objet de ce court développement.",
+            ],
+          },
+          {
+            type: "p",
+            text: "**1. L'éducation émancipe.** Apprendre à lire, écrire, compter et raisonner permet à l'enfant de comprendre le monde, d'exercer son esprit critique et de faire des choix libres plus tard (métier, citoyenneté).",
+          },
+          {
+            type: "p",
+            text: "**2. L'éducation protège et rassemble.** Elle offre une protection contre l'exploitation (travail des enfants) et réduit les inégalités : l'école de la République accueille tous les enfants et transmet des valeurs communes. C'est un droit mais aussi une chance.",
+          },
+          {
+            type: "note",
+            variant: "attendu",
+            lines: [
+              "Barème : introduction qui pose l'enjeu (1) ; deux arguments développés (1,5) ; exemple ou ouverture (0,5).",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Histoire — La société féodale",
+        points: 7,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 3,
+            question: "Les groupes de la société féodale.",
+            reponse: [
+              "D'après le document : au sommet, le **roi** ; les **seigneurs**, qui possèdent des terres et des châteaux et commandent les **chevaliers** ; l'**Église** (le clergé), qui encadre la vie religieuse ; et la grande majorité, les **paysans**, qui cultivent la terre.",
+              "La société est donc très **hiérarchisée**, chacun ayant une place définie.",
+            ],
+            attendu: "Distinguer les groupes en s'appuyant sur le document ; employer le mot « hiérarchie ».",
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 2,
+            question: "Le lien seigneur / paysans.",
+            reponse: [
+              "Les paysans cultivent la terre du seigneur et lui doivent des **redevances** (une part des récoltes) et des **corvées** (travaux gratuits).",
+              "En échange, le seigneur leur assure sa **protection**. C'est un rapport de dépendance : devoirs des paysans, protection (et exigences) du seigneur.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 2,
+            question: "Ce que les élèves doivent retenir.",
+            reponse: [
+              "Au Moyen Âge, la société est organisée en groupes hiérarchisés (roi, seigneurs, clergé, paysans).",
+              "Elle repose sur la possession de la terre et sur des liens de dépendance entre seigneurs et paysans.",
+            ],
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Structurer ses réponses",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Lire attentivement le document** et en extraire les informations utiles avant de rédiger.",
+              "**Employer le vocabulaire spécifique** (littoralisation, hiérarchie, redevance, corvée…).",
+              "**Introduire les questions développées** (EMC) au lieu de répondre d'emblée.",
+              "**Distinguer droits et devoirs** quand la question l'exige (lien seigneur/paysans, droits de l'enfant).",
+              "**Adapter les réponses « pour les élèves »** à leur niveau (CM1/CM2).",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Oublier de dater la Convention des droits de l'enfant** (1989) ou de citer des droits concrets.",
+              "**Confondre les groupes sociaux du Moyen Âge** ou oublier l'Église.",
+              "**Ne voir que les avantages du tourisme** sans en montrer les limites environnementales.",
+              "**Répondre sans structure** aux questions demandant un développement argumenté.",
             ],
           },
         ],

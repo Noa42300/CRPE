@@ -16,8 +16,6 @@
  *     "Sujets blancs" sont générés automatiquement.
  */
 
-import type { Difficulty } from "@/lib/types";
-
 /** Matières couvertes par les sujets blancs. */
 export type SujetMatiere =
   | "francais"
@@ -49,6 +47,18 @@ export type NoteVariant =
 export type Block =
   /** Paragraphe simple. */
   | { type: "p"; text: string }
+  /**
+   * Introduction académique rédigée (pour les corrections de questions de
+   * rédaction). Peut s'ouvrir sur une citation authentique et attribuée,
+   * suivie de l'explication (auteur, sens, pertinence) puis de la transition
+   * vers le développement.
+   */
+  | {
+      type: "intro";
+      citation?: string; // ex : "On ne se baigne jamais deux fois dans le même fleuve."
+      auteur?: string; // ex : "Héraclite (VIᵉ–Vᵉ s. av. J.-C.)"
+      paragraphs: string[]; // amorce, glose de la citation, annonce du plan
+    }
   /** Consigne officielle (encadré sobre, style "conditions de l'épreuve"). */
   | { type: "consigne"; text: string }
   /** Document support (texte littéraire, article, données…) dans un cadre. */
@@ -116,7 +126,6 @@ export interface SujetBlanc {
   matiere: SujetMatiere;
   titre: string; // ex : "Sujet blanc n°1 — Autour du portrait"
   description: string; // 1-2 phrases pour la carte de la rubrique
-  difficulty: Difficulty;
   epreuve: string; // ex : "Première épreuve d'admissibilité — Partie A"
   duree: string; // ex : "2 h conseillées"
   totalPoints: number; // ex : 20
@@ -125,6 +134,8 @@ export interface SujetBlanc {
   bareme: Bareme; // le barème indicatif
   correctionIntro?: string; // chapeau pédagogique de la correction
   correction: SujetSection[]; // la correction complète
+  methodologie?: SujetSection[]; // conseils de méthode (onglet dédié)
+  erreursFrequentes?: SujetSection[]; // pièges et erreurs fréquentes (onglet dédié)
 }
 
 // ---------------------------------------------------------------------------

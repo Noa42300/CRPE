@@ -19,7 +19,6 @@ export const FRANCAIS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — La lampe du soir",
     description:
       "Étude de la langue, lexique et rédaction autour d'un portrait touchant. Un sujet complet de français dans les conditions de la première épreuve.",
-    difficulty: "moyen",
     epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
     duree: "2 h conseillées",
     totalPoints: 20,
@@ -266,7 +265,6 @@ export const FRANCAIS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — L'arrivée en ville",
     description:
       "Un texte descriptif sur le choc de la grande ville au XIXᵉ siècle. Étude de la langue exigeante, travail sur le lexique de la perception et rédaction argumentée.",
-    difficulty: "difficile",
     epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
     duree: "2 h conseillées",
     totalPoints: 20,
@@ -508,7 +506,6 @@ export const FRANCAIS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — La lettre retrouvée",
     description:
       "Un récit à la première personne mêlant émotion et suspense. Réécriture au passé, analyse du discours rapporté et réflexion sur la mémoire et l'écrit.",
-    difficulty: "moyen",
     epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
     duree: "2 h conseillées",
     totalPoints: 20,
@@ -723,6 +720,515 @@ export const FRANCAIS_SUJETS: SujetBlanc[] = [
             lines: [
               "Barème : problématisation et plan (3) ; exploitation du texte (3) ; exemples personnels/culturels et nuance (2) ; langue (2).",
               "On valorise la copie qui met en tension pouvoir et limites de l'écrit, sans se contenter de paraphraser la citation.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 4 — La bibliothèque du grand-père
+  // ======================================================================
+  {
+    slug: "francais-4-la-bibliotheque-du-grand-pere",
+    matiere: "francais",
+    titre: "Sujet blanc n°4 — La bibliothèque du grand-père",
+    description:
+      "Un récit d'enfance sur la découverte de la lecture. Étude de la langue, lexique du livre et rédaction argumentée sur la lecture comme évasion et liberté.",
+    epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
+    duree: "2 h conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Cette partie est indépendante de la partie mathématiques.",
+      "Le barème est indicatif et établi sur 20 points.",
+      "Il sera tenu compte de la correction de la langue et de la clarté de la rédaction.",
+    ],
+    sujet: [
+      {
+        titre: "Texte support",
+        blocks: [
+          {
+            type: "document",
+            titre: "Texte (362 mots)",
+            source: "Texte original, composé pour ce sujet blanc.",
+            lines: [
+              "Il y avait, tout au fond de la maison de mon grand-père, une pièce où je n'entrais qu'avec respect. On l'appelait la bibliothèque, et ce seul mot suffisait à m'intimider. Des rayonnages de bois sombre montaient jusqu'au plafond, chargés de livres si nombreux que personne, disait-on, ne les avait jamais tous lus.",
+              "Quand la pluie m'empêchait de sortir, je m'y réfugiais. Je choisissais un volume au hasard, je l'ouvrais, et aussitôt le monde extérieur cessait d'exister. Les heures passaient sans que je m'en aperçusse ; ma grand-mère devait venir me chercher pour le repas, car j'avais oublié jusqu'à la faim.",
+              "Je ne comprenais pas toujours ce que je lisais. Certains mots m'échappaient, certaines phrases restaient obscures ; mais cela ne me décourageait pas. Il me semblait, au contraire, que ces livres gardaient pour plus tard une part de leur secret, et qu'un jour je serais assez grand pour le percer.",
+              "Mon grand-père, lui, ne disait rien. Il me regardait lire par-dessus ses lunettes, et je devinais qu'il était heureux. Un soir, il posa la main sur un vieux livre relié de cuir et me dit doucement : « Prends-en soin, il a plus voyagé que moi. » Je ne compris que bien plus tard ce qu'il voulait dire : qu'un livre est une mémoire, et qu'en le lisant, on continue le voyage de tous ceux qui l'ont tenu avant nous.",
+              "Aujourd'hui, la bibliothèque n'existe plus, et les livres se sont dispersés. Mais il m'en reste quelques-uns, et lorsque je les ouvre, je retrouve intacte l'odeur du papier et le silence de cette pièce où, enfant, j'ai appris que lire, c'est voyager sans quitter sa chaise.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.1 — Syntaxe, grammaire, orthographe",
+        points: 6,
+        blocks: [
+          {
+            type: "questions",
+            items: [
+              {
+                num: "1.",
+                text: "Réécrivez le passage « Quand la pluie m'empêchait de sortir, je m'y réfugiais. Je choisissais un volume au hasard, je l'ouvrais » en remplaçant « je » par « nous ».",
+                points: 2,
+              },
+              {
+                num: "2.",
+                text: "Dans la phrase « Des rayonnages de bois **sombre** montaient jusqu'au plafond, **chargés** de livres que personne ne **les** avait tous lus », donnez la nature et la fonction des trois mots en gras.",
+                points: 2,
+              },
+              {
+                num: "3.",
+                text: "Analysez (nature et fonction) les deux propositions subordonnées : « où je n'entrais qu'avec respect » et « que personne ne les avait jamais tous lus » (dans « si nombreux que… »).",
+                points: 2,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.2 — Lexique",
+        points: 4,
+        blocks: [
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Analysez la formation du mot « rayonnages » : radical et suffixe, et sens apporté par le suffixe.", points: 1.5 },
+              { num: "2.", text: "Relevez le champ lexical du livre et de la lecture dans le texte (au moins quatre termes) et montrez l'importance qu'il donne à cet univers.", points: 1.5 },
+              { num: "3.", text: "Expliquez le sens du verbe « percer » dans « je serais assez grand pour le percer » et proposez un synonyme.", points: 1 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.3 — Expression écrite",
+        points: 10,
+        blocks: [
+          {
+            type: "note",
+            variant: "info",
+            titre: "Consigne de rédaction",
+            lines: [
+              "En quoi la lecture peut-elle être à la fois une évasion et une source de liberté ?",
+              "Votre réponse prendra la forme d'un développement structuré et argumenté d'une trentaine de lignes, appuyé sur le texte et sur votre culture personnelle.",
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Partie", "Compétences évaluées", "Points"],
+      lignes: [
+        ["A.1", "Réécriture, classes et fonctions, analyse des subordonnées", "6"],
+        ["A.2", "Formation des mots, champ lexical, sens en contexte", "4"],
+        ["A.3", "Réflexion argumentée, structure, langue", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend une terminologie grammaticale exacte et, pour la rédaction, une introduction construite (amorce, éventuelle citation, problématique) avant un développement appuyé sur des relevés précis.",
+    correction: [
+      {
+        titre: "Partie A.1 — Syntaxe, grammaire, orthographe",
+        points: 6,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 2,
+            question: "Réécriture avec « nous ».",
+            reponse: [
+              "**« Quand la pluie nous empêchait de sortir, nous nous y réfugiions. Nous choisissions un volume au hasard, nous l'ouvrions. »**",
+              "Points de vigilance : « je m'y réfugiais » → « nous nous y réfugiions » (double « nous » : sujet + pronom réfléchi, imparfait en -iions) ; « je choisissais » → « nous choisissions » ; « je l'ouvrais » → « nous l'ouvrions ».",
+            ],
+            attendu:
+              "Le piège est l'imparfait des verbes en -ier/-yer et le « nous nous » réfléchi : deux i à « réfugiions » et « choisissions » prend bien un seul s… attention à l'orthographe verbale.",
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 2,
+            question: "Nature et fonction de « sombre », « chargés », « les ».",
+            reponse: [
+              "**sombre** : adjectif qualificatif ; fonction : épithète du nom « bois ».",
+              "**chargés** : participe passé employé comme adjectif ; fonction : épithète détachée (apposée) se rapportant à « rayonnages ».",
+              "**les** : pronom personnel (3ᵉ pers. pluriel) ; fonction : COD du verbe « avait lus » (et il commande l'accord du participe : « lus »).",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 2,
+            question: "Analyse des deux subordonnées.",
+            reponse: [
+              "« où je n'entrais qu'avec respect » : proposition subordonnée **relative** (introduite par le pronom relatif « où »), complément de l'antécédent « pièce ».",
+              "« que personne ne les avait jamais tous lus » : proposition subordonnée **conjonctive circonstancielle de conséquence** (corrélation « si nombreux… que »), complément circonstanciel de conséquence.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.2 — Lexique",
+        points: 4,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1.5,
+            question: "Formation de « rayonnages ».",
+            reponse: [
+              "Radical : « rayon » ; suffixe : « -age » (ici valeur collective : un ensemble de rayons formant une étagère).",
+              "Le suffixe « -age » forme un nom désignant un ensemble ou le résultat d'une action ; « rayonnage » = l'ensemble des rayons d'une bibliothèque.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1.5,
+            question: "Champ lexical du livre et de la lecture.",
+            reponse: [
+              "Relevés : « bibliothèque », « rayonnages », « livres », « volume », « lire / lisais », « relié de cuir », « papier ».",
+              "Ce champ lexical, très présent, fait de la lecture le cœur du texte : l'univers du livre est associé au respect, au secret et au voyage intérieur.",
+            ],
+            attendu: "Nommer le champ lexical ET l'interpréter (valorisation de la lecture).",
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1,
+            question: "Sens de « percer ».",
+            reponse: [
+              "« Percer » un secret signifie, au sens figuré, le **découvrir**, l'élucider, le comprendre enfin.",
+              "Synonymes : « découvrir », « élucider », « pénétrer ».",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.3 — Expression écrite",
+        points: 10,
+        blocks: [
+          {
+            type: "intro",
+            citation:
+              "Je n'ai jamais eu de chagrin qu'une heure de lecture n'ait dissipé.",
+            auteur: "Montesquieu (1689-1755), Mes pensées",
+            paragraphs: [
+              "Montesquieu, écrivain et philosophe des Lumières, reconnaît ici à la lecture un pouvoir de consolation et d'évasion : elle nous arrache à nos soucis.",
+              "Cette expérience rejoint celle du narrateur, pour qui « le monde extérieur cessait d'exister » dès qu'il ouvrait un livre. On peut alors se demander en quoi la lecture est à la fois une évasion — une sortie hors du réel — et, paradoxalement, une source de liberté.",
+            ],
+          },
+          {
+            type: "list",
+            items: [
+              "**La lecture comme évasion.** Le livre transporte ailleurs : le narrateur oublie « jusqu'à la faim ». Lire permet de voyager « sans quitter sa chaise », de vivre d'autres vies, d'autres époques. On peut évoquer le roman d'aventures, l'imaginaire, l'évasion hors du quotidien.",
+              "**La lecture comme liberté.** Lire, c'est choisir « un volume au hasard », se former un jugement, accéder à des idées : la lecture émancipe. Elle nourrit l'esprit critique et l'autonomie de pensée ; d'où son rôle à l'école et le combat historique pour l'accès de tous à la lecture.",
+              "**Une évasion qui n'est pas une fuite.** Le texte suggère que lire relie aux autres (« on continue le voyage de tous ceux qui l'ont tenu avant nous ») : loin d'isoler, la lecture ouvre au monde et à la culture partagée. L'évasion devient ainsi enrichissement.",
+            ],
+          },
+          {
+            type: "note",
+            variant: "attendu",
+            lines: [
+              "Barème : introduction construite avec problématique — la citation, bien intégrée, est valorisée (2) ; exploitation précise du texte (3) ; culture personnelle et exemples (2) ; organisation (1) ; langue et orthographe (2).",
+              "La citation n'est jamais obligatoire : elle ne compte que si elle est authentique, bien attribuée et réellement mise au service du propos.",
+            ],
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — La rédaction de la partie A.3",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Analyser la question** : repérer les mots-clés (ici « évasion » et « liberté ») et le lien à interroger entre eux.",
+              "**Construire une introduction** : une amorce (fait, expérience ou citation pertinente), la reformulation de la question, puis l'annonce d'un fil directeur. Ne jamais commencer par la réponse brute.",
+              "**Développer en 2 ou 3 parties**, chacune appuyée sur un relevé précis du texte ET un exemple personnel ou culturel.",
+              "**Conclure** par un bilan nuancé, éventuellement une ouverture.",
+              "**Soigner la langue** : la correction de l'orthographe et de la syntaxe fait partie de la note.",
+            ],
+          },
+          {
+            type: "note",
+            variant: "methode",
+            titre: "Bien utiliser une citation",
+            lines: [
+              "Une citation n'a de valeur que si elle est authentique, correctement attribuée et expliquée : on dit qui en est l'auteur, ce qu'elle signifie, et pourquoi elle éclaire le sujet.",
+              "Mieux vaut aucune citation qu'une citation approximative ou plaquée artificiellement.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Paraphraser le texte** au lieu de l'analyser : le correcteur attend une réflexion, pas un résumé.",
+              "**Commencer directement par « oui, la lecture est une évasion »** sans introduction ni problématique.",
+              "**Oublier les accords** dans la réécriture (imparfait en -iions, participe passé avec « avoir » et COD antéposé).",
+              "**Confondre subordonnée relative et conjonctive** : « où » introduit une relative ; « si… que » introduit une conséquence.",
+              "**Citer de mémoire une phrase inexacte** ou mal attribuée : c'est contre-productif.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 5 — Les mains du potier
+  // ======================================================================
+  {
+    slug: "francais-5-les-mains-du-potier",
+    matiere: "francais",
+    titre: "Sujet blanc n°5 — Les mains du potier",
+    description:
+      "Un portrait d'artisan au travail. Étude de la langue, lexique du geste et rédaction sur la valeur du travail manuel et de la transmission d'un savoir-faire.",
+    epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
+    duree: "2 h conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Cette partie est indépendante de la partie mathématiques.",
+      "Le barème est indicatif et établi sur 20 points.",
+      "Il sera tenu compte de la clarté et de la correction de la langue.",
+    ],
+    sujet: [
+      {
+        titre: "Texte support",
+        blocks: [
+          {
+            type: "document",
+            titre: "Texte (368 mots)",
+            source: "Texte original, composé pour ce sujet blanc.",
+            lines: [
+              "Le vieux potier travaillait sans hâte, dans l'atelier que la lumière du matin traversait de part en part. Devant lui, sur le tour qui tournait avec un ronronnement régulier, une boule d'argile informe attendait de prendre vie. Il y posa ses mains, larges et calleuses, et aussitôt la matière parut lui obéir.",
+              "Je le regardais faire, fasciné. Ses doigts pressaient, remontaient, creusaient ; le vase naissait sous mes yeux comme s'il avait toujours existé et qu'il suffisait de le révéler. Pas un geste n'était inutile. On sentait que ces mains avaient répété le même mouvement des milliers de fois, jusqu'à ce qu'il devînt aussi naturel que la respiration.",
+              "« Ce n'est pas la force qui compte, me dit-il sans lever les yeux, c'est l'écoute. Il faut sentir ce que la terre veut devenir. » Je ne comprenais pas encore ces paroles, mais je devinais qu'elles contenaient toute la sagesse d'un métier appris auprès de son père, qui l'avait lui-même appris du sien.",
+              "Quand le vase fut terminé, il l'examina longuement, puis, d'un geste tranquille, l'écrasa. Je poussai un cri. « Il n'était pas juste, dit-il simplement. On ne garde que ce qui est bien fait. » Et il recommença, avec la même patience, comme si le temps n'avait aucune importance.",
+              "Je compris ce jour-là que ce vieil homme ne fabriquait pas seulement des objets : il transmettait, sans le dire, une manière d'être au monde — l'exigence, la patience, le respect de la matière. Aujourd'hui encore, chaque fois que je vois un objet fait à la main, je pense à lui, et à ces mains qui savaient écouter la terre.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.1 — Syntaxe, grammaire, orthographe",
+        points: 6,
+        blocks: [
+          {
+            type: "questions",
+            items: [
+              {
+                num: "1.",
+                text: "Réécrivez la phrase « Ses doigts pressaient, remontaient, creusaient ; le vase naissait sous mes yeux » au passé composé.",
+                points: 2,
+              },
+              {
+                num: "2.",
+                text: "Donnez la nature et la fonction des mots en gras : « Il **y** posa ses mains, **larges** et calleuses, et aussitôt la matière parut **lui** obéir. »",
+                points: 2,
+              },
+              {
+                num: "3.",
+                text: "Analysez la proposition subordonnée « jusqu'à ce qu'il devînt aussi naturel que la respiration » : nature et fonction. Justifiez le mode employé.",
+                points: 2,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.2 — Lexique",
+        points: 4,
+        blocks: [
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Analysez la formation de l'adjectif « informe » : préfixe et radical, et sens apporté par le préfixe.", points: 1.5 },
+              { num: "2.", text: "Relevez le champ lexical du geste et du travail de la main (au moins quatre termes) et montrez ce qu'il révèle du savoir-faire de l'artisan.", points: 1.5 },
+              { num: "3.", text: "Donnez un synonyme et un antonyme de l'adjectif « calleuses ».", points: 1 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.3 — Expression écrite",
+        points: 10,
+        blocks: [
+          {
+            type: "note",
+            variant: "info",
+            titre: "Consigne de rédaction",
+            lines: [
+              "En quoi le travail manuel et la transmission d'un savoir-faire gardent-ils une valeur essentielle dans notre société ?",
+              "Votre réponse prendra la forme d'un développement structuré et argumenté d'une trentaine de lignes, appuyé sur le texte et sur votre réflexion personnelle.",
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Partie", "Compétences évaluées", "Points"],
+      lignes: [
+        ["A.1", "Transposition au passé composé, classes et fonctions, subjonctif", "6"],
+        ["A.2", "Dérivation (préfixe privatif), champ lexical, synonyme/antonyme", "4"],
+        ["A.3", "Réflexion argumentée sur le travail manuel et la transmission", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "L'enjeu grammatical central est l'accord du participe passé au passé composé et la justification du subjonctif. La rédaction doit s'ouvrir par une introduction construite et dépasser l'éloge convenu de l'artisanat.",
+    correction: [
+      {
+        titre: "Partie A.1 — Syntaxe, grammaire, orthographe",
+        points: 6,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 2,
+            question: "Passage au passé composé.",
+            reponse: [
+              "**« Ses doigts ont pressé, ont remonté, ont creusé ; le vase est né sous mes yeux. »**",
+              "Auxiliaire « avoir » pour presser, remonter, creuser (participes en -é, invariables ici car pas de COD antéposé) ; auxiliaire « être » pour « naître » → « est né » (accord avec le sujet « le vase », masculin singulier).",
+            ],
+            attendu:
+              "Choisir le bon auxiliaire (naître se conjugue avec être) et accorder le participe avec le sujet dans ce cas.",
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 2,
+            question: "Nature et fonction de « y », « larges », « lui ».",
+            reponse: [
+              "**y** : pronom personnel adverbial, mis pour « sur la boule d'argile » ; fonction : complément circonstanciel de lieu de « posa ».",
+              "**larges** : adjectif qualificatif ; fonction : épithète (détachée) se rapportant à « mains ».",
+              "**lui** : pronom personnel (3ᵉ pers. singulier) ; fonction : complément d'objet second / complément du verbe « obéir » (obéir à quelqu'un).",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 2,
+            question: "Analyse de « jusqu'à ce qu'il devînt… ».",
+            reponse: [
+              "Nature : proposition subordonnée conjonctive circonstancielle de temps (locution « jusqu'à ce que »).",
+              "Fonction : complément circonstanciel de temps.",
+              "Mode : le **subjonctif** (« devînt », subjonctif imparfait) est imposé par la locution « jusqu'à ce que », qui exprime un but/une limite temporelle envisagée, non un fait constaté.",
+            ],
+            attendu: "« jusqu'à ce que » entraîne toujours le subjonctif.",
+          },
+        ],
+      },
+      {
+        titre: "Partie A.2 — Lexique",
+        points: 4,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1.5,
+            question: "Formation de « informe ».",
+            reponse: [
+              "Préfixe « in- » (valeur privative, « sans ») ; radical « -forme » (du latin *forma*).",
+              "« Informe » signifie « qui n'a pas de forme définie ». Le préfixe « in- » nie la qualité exprimée par le radical (comme dans « incapable », « invisible »).",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1.5,
+            question: "Champ lexical du geste et de la main.",
+            reponse: [
+              "Relevés : « mains », « doigts », « pressaient », « remontaient », « creusaient », « geste », « fait à la main ».",
+              "Ce champ lexical met en valeur la précision et la maîtrise du geste : chaque mouvement est « utile », répété « des milliers de fois » ; il donne à voir un savoir-faire incarné dans le corps.",
+            ],
+            attendu: "Relier le champ lexical à l'idée de maîtrise et d'expérience du geste.",
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1,
+            question: "Synonyme et antonyme de « calleuses ».",
+            reponse: [
+              "Synonyme : « rugueuses », « rêches », « durcies ».",
+              "Antonyme : « douces », « lisses ».",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie A.3 — Expression écrite",
+        points: 10,
+        blocks: [
+          {
+            type: "intro",
+            citation: "La main est l'outil des outils.",
+            auteur: "Aristote (384-322 av. J.-C.), De l'âme",
+            paragraphs: [
+              "Aristote, philosophe grec, voit dans la main l'instrument par excellence, celui qui permet à l'homme de fabriquer tous les autres et de transformer le monde.",
+              "Cette idée éclaire le texte, où les mains du potier « savent écouter la terre ». À l'heure des machines et du numérique, on peut se demander en quoi le travail manuel et la transmission d'un savoir-faire conservent une valeur essentielle.",
+            ],
+          },
+          {
+            type: "list",
+            items: [
+              "**Le travail manuel, une forme d'intelligence.** Loin d'être une simple exécution, le geste de l'artisan suppose écoute, patience et jugement (« ce n'est pas la force qui compte, c'est l'écoute »). Il engage le corps et l'esprit : on peut évoquer la valeur retrouvée des métiers d'art et de l'artisanat.",
+              "**La transmission d'un savoir-faire.** Le potier a appris « de son père, qui l'avait lui-même appris du sien » : ces savoirs se transmettent par l'exemple et la pratique, non par les seuls livres. Cette transmission relie les générations et préserve un patrimoine (compagnonnage, gestes menacés de disparition).",
+              "**Une leçon de vie.** En écrasant le vase imparfait, l'artisan enseigne l'exigence et le respect du travail bien fait. Le travail manuel transmet ainsi des valeurs — patience, rigueur, humilité — utiles bien au-delà de l'atelier, y compris à l'école.",
+            ],
+          },
+          {
+            type: "note",
+            variant: "attendu",
+            lines: [
+              "Barème : introduction construite et problématisée, citation valorisée si bien intégrée (2) ; exploitation du texte (3) ; culture personnelle et nuance (2) ; organisation (1) ; langue (2).",
+            ],
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Analyser le texte avant de rédiger",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Repérer la thèse implicite du texte** (ici : le travail manuel transmet des valeurs) pour ne pas se contenter de le paraphraser.",
+              "**Problématiser** : mettre en tension travail manuel et monde moderne (machines, numérique).",
+              "**Structurer** : 2 ou 3 idées, chacune reliée à un relevé du texte ET à un exemple extérieur.",
+              "**Ouvrir la conclusion** sur l'école ou la société (ce que l'on peut transmettre aux élèves).",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Mauvais auxiliaire au passé composé** : « naître » se conjugue avec être (« est né »), pas avec avoir.",
+              "**Oublier le subjonctif** après « jusqu'à ce que ».",
+              "**Confondre l'antonyme et le synonyme** demandés, ou proposer un mot d'une autre classe grammaticale.",
+              "**Réciter un éloge convenu de l'artisanat** sans problématiser ni s'appuyer sur le texte.",
             ],
           },
         ],
