@@ -308,4 +308,265 @@ export const ARTS_SUJETS: SujetBlanc[] = [
       },
     ],
   },
+
+  // ======================================================================
+  // SUJET 4 — La sculpture et le corps
+  // ======================================================================
+  {
+    slug: "arts-4-la-sculpture-et-le-corps",
+    matiere: "arts-plastiques",
+    titre: "Sujet blanc n°4 — La sculpture : donner vie à la matière",
+    description:
+      "Comment la sculpture fait-elle surgir la vie et l'émotion d'un bloc de pierre ? Analyse d'un buste sculpté et réflexion sur le volume, la lumière et le geste.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Arts plastiques)",
+    duree: "40 min conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Répondre à chaque question par une réponse courte et structurée (15 lignes maximum).",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Arts plastiques — La sculpture et le corps",
+        points: 20,
+        blocks: [
+          {
+            type: "figure",
+            illustration: "sculpture-buste",
+            titre: "Document — Un buste sculpté",
+            legende:
+              "Illustration schématique originale (support de réflexion, ne reproduit aucune œuvre existante).",
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "En quoi une sculpture ne se contente-t-elle pas de reproduire un corps, mais cherche à lui donner une présence et une vie ? Appuyez-vous sur la description.",
+                points: 10,
+              },
+              {
+                num: "b.",
+                text: "Quels moyens propres à la sculpture (volume, matière, lumière, échelle) l'artiste met-il en jeu ? Comment aborder la sculpture avec des élèves par une pratique en volume ?",
+                points: 10,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Question", "Compétences évaluées", "Points"],
+      lignes: [
+        ["a.", "Analyse : la sculpture comme mise en vie du corps", "10"],
+        ["b.", "Moyens propres à la sculpture + pratique en volume", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend une lecture sensible mobilisant le vocabulaire propre à la sculpture (volume, ronde-bosse, matière, lumière) et, pour la question b, une activité réaliste de pratique en trois dimensions.",
+    correction: [
+      {
+        titre: "Arts plastiques — La sculpture et le corps",
+        points: 20,
+        blocks: [
+          {
+            type: "p",
+            text: "**a. La sculpture, entre ressemblance et présence.**",
+          },
+          {
+            type: "intro",
+            citation: "L'art ne reproduit pas le visible, il rend visible.",
+            auteur: "Paul Klee (1879-1940), Credo du créateur",
+            paragraphs: [
+              "Le peintre Paul Klee rappelle que l'art ne se réduit pas à copier la réalité : il révèle quelque chose qui, sans lui, resterait invisible.",
+              "Appliquée à la sculpture, cette idée invite à dépasser la simple ressemblance du buste pour interroger la présence, l'émotion et la vie qu'il dégage.",
+            ],
+          },
+          {
+            type: "p",
+            text: "La sculpture représente un corps, mais elle en fait surtout surgir une **présence** : le buste décrit émerge de l'ombre, son relief modelé et son regard lui donnent une intériorité. La matière (la pierre) semble animée. La sculpture ne dit pas seulement « à quoi ressemble » un être, elle lui confère une existence dans l'espace, que le spectateur peut tourner autour et éprouver.",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 10,
+            question: "Moyens de la sculpture et pratique en classe.",
+            reponse: [
+              "Moyens propres : le **volume** (œuvre en trois dimensions, ronde-bosse que l'on voit sous tous les angles) ; la **matière** (pierre, terre, bronze — chacune a sa texture et sa lumière) ; le jeu de la **lumière** sur les reliefs (creux et bosses créent des ombres) ; l'**échelle** (un buste, une statue monumentale n'ont pas le même effet).",
+              "En classe : proposer une pratique en volume — modelage en argile ou en pâte, assemblage de matériaux de récupération, sculpture sur savon — pour « faire un visage qui exprime une émotion ». Les élèves manipulent la matière, tournent autour de leur production, observent l'effet de la lumière.",
+              "On articule **rencontre d'œuvres** (bustes, statues), **pratique** en trois dimensions et **verbalisation** (décrire volumes et sensations).",
+            ],
+            attendu:
+              "Nommer les moyens spécifiques de la sculpture (volume, matière, lumière) ET proposer une réelle pratique en 3D (et non un dessin).",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Analyser une œuvre en arts plastiques",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Décrire avant d'interpréter** : ce que l'on voit (sujet, matière, lumière, format), puis ce que cela produit (émotion, sens).",
+              "**Employer le vocabulaire spécifique** au médium (pour la sculpture : volume, ronde-bosse, relief, matière, socle).",
+              "**Pour la question rédigée**, une courte introduction bien amenée (éventuelle citation d'artiste pertinente) est valorisée.",
+              "**Pour la transposition pédagogique**, proposer une vraie pratique adaptée au cycle, reliée à la rencontre d'œuvres et à la verbalisation.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Réduire la sculpture à la ressemblance** : on attend une réflexion sur la présence, le volume, la matière.",
+              "**Proposer un dessin** comme activité de sculpture : la pratique doit être en trois dimensions.",
+              "**Oublier le vocabulaire plastique** (volume, relief, lumière) au profit d'un commentaire vague.",
+              "**Plaquer une citation** sans l'expliquer ni la relier au sujet.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 5 — L'art dans la ville (street art)
+  // ======================================================================
+  {
+    slug: "arts-5-l-art-dans-la-ville",
+    matiere: "arts-plastiques",
+    titre: "Sujet blanc n°5 — L'art dans la ville",
+    description:
+      "Le street art est-il un art à part entière ? Analyse d'une fresque urbaine et réflexion sur l'art dans l'espace public et son intérêt pédagogique.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Arts plastiques)",
+    duree: "40 min conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Répondre à chaque question par une réponse courte et structurée (15 lignes maximum).",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Arts plastiques — L'art dans l'espace public",
+        points: 20,
+        blocks: [
+          {
+            type: "figure",
+            illustration: "art-urbain",
+            titre: "Document — Une fresque murale",
+            legende:
+              "Illustration schématique originale (support de réflexion, ne reproduit aucune œuvre existante).",
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "Le street art (art urbain) peut-il être considéré comme un art à part entière ? Argumentez à partir de la description et de vos connaissances.",
+                points: 10,
+              },
+              {
+                num: "b.",
+                text: "En quoi l'art présent dans l'espace public change-t-il le rapport du spectateur à l'œuvre ? Comment exploiter cette question avec une classe (par exemple lors d'une sortie) ?",
+                points: 10,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Question", "Compétences évaluées", "Points"],
+      lignes: [
+        ["a.", "Statut du street art, arguments, culture artistique", "10"],
+        ["b.", "Art et espace public + exploitation pédagogique", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend une réflexion nuancée sur le statut de l'art urbain (arguments pour, objections, dépassement) et, pour la question b, une exploitation concrète (sortie, observation, pratique).",
+    correction: [
+      {
+        titre: "Arts plastiques — L'art dans l'espace public",
+        points: 20,
+        blocks: [
+          {
+            type: "p",
+            text: "**a. Le street art est-il un art à part entière ?**",
+          },
+          {
+            type: "intro",
+            citation: "L'art est fait pour troubler, la science rassure.",
+            auteur: "Georges Braque (1882-1963), Le Jour et la Nuit",
+            paragraphs: [
+              "Le peintre Georges Braque souligne que l'art n'a pas pour fonction de conforter, mais d'interroger, de déranger nos habitudes de regard.",
+              "Cette idée éclaire le débat sur le street art : longtemps jugé illégitime, il bouscule les frontières de l'art. La question est donc de savoir à quelles conditions il peut être reconnu comme un art à part entière.",
+            ],
+          },
+          {
+            type: "p",
+            text: "**Arguments en faveur :** le street art suppose des choix plastiques (composition, couleurs, formes, techniques comme le pochoir ou la fresque), porte un message et s'adresse à un public ; certains artistes sont aujourd'hui exposés en musée. **Objection :** son caractère parfois illégal, éphémère ou commercial a fait douter de son statut. **Dépassement :** ce qui fait l'art n'est pas le lieu (rue ou musée) mais l'intention créatrice et la puissance de l'œuvre. Le street art peut donc pleinement être un art, tout en gardant sa spécificité (lien au lieu, à l'éphémère).",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 10,
+            question: "Art dans l'espace public et exploitation en classe.",
+            reponse: [
+              "Dans l'espace public, l'œuvre s'impose à tous, gratuitement, hors du cadre du musée : le spectateur la rencontre par hasard, dans son quotidien. Elle dialogue avec le lieu (le mur, la ville), peut être monumentale, et n'est pas « protégée » (elle vieillit, disparaît). Le rapport devient plus direct, parfois participatif.",
+              "En classe : organiser une **sortie** pour observer des œuvres de la commune (fresques, sculptures, monuments), faire décrire et photographier, puis proposer une pratique (concevoir une fresque collective sur un thème, sur grand format). On relie observation du réel, culture artistique et pratique.",
+            ],
+            attendu:
+              "Montrer la spécificité de l'art public (accessibilité, lien au lieu, éphémère) ET proposer une sortie/pratique concrète.",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Construire une réponse nuancée",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Problématiser** une question de type « est-ce un art ? » : arguments pour, objections, puis dépassement (ne pas se contenter d'un avis tranché).",
+              "**Appuyer chaque idée** sur la description fournie et sur des connaissances (techniques, exemples de pratiques).",
+              "**Introduire** brièvement avant de développer (une citation d'artiste bien choisie enrichit).",
+              "**Ancrer la pédagogie dans le réel** : sortie, observation du patrimoine local, pratique en lien.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Donner un avis tranché sans nuance** (« oui/non ») au lieu d'argumenter et de dépasser la question.",
+              "**Confondre street art et simple dégradation** : l'analyse doit porter sur les choix plastiques et l'intention.",
+              "**Proposer une sortie sans exploitation** (observer sans décrire, sans pratique de retour).",
+              "**Citer un artiste de façon inexacte** ou sans lien avec le propos.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];

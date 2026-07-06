@@ -76,6 +76,52 @@ const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
     `,
   },
 
+  // Buste sculpté sur un socle (support pour l'analyse de la sculpture)
+  "sculpture-buste": {
+    vb: [260, 300],
+    alt: "Buste sculpté posé sur un socle, éclairé de façon à faire ressortir le relief du visage.",
+    inner: `
+      <defs>
+        <linearGradient id="scStone" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#f2efe9"/><stop offset="0.5" stop-color="#d8d2c6"/><stop offset="1" stop-color="#a8a294"/>
+        </linearGradient>
+      </defs>
+      <rect width="260" height="300" fill="#2b2f38"/>
+      <rect x="90" y="235" width="80" height="55" fill="#6b6f78"/>
+      <rect x="82" y="228" width="96" height="10" fill="#83878f"/>
+      <path d="M96 235 Q96 175 130 168 Q164 175 164 235 Z" fill="url(#scStone)"/>
+      <ellipse cx="130" cy="130" rx="42" ry="52" fill="url(#scStone)"/>
+      <path d="M130 90 Q168 96 164 150 Q160 118 144 104 Q138 94 130 92 Z" fill="#bdb6a8"/>
+      <ellipse cx="116" cy="126" rx="6" ry="4" fill="#8a8474"/>
+      <ellipse cx="146" cy="128" rx="6" ry="4" fill="#8a8474"/>
+      <path d="M129 132 Q124 150 133 154" fill="none" stroke="#9a9384" stroke-width="2.5"/>
+      <path d="M118 168 Q130 176 143 167" fill="none" stroke="#8a8474" stroke-width="2.5"/>
+    `,
+  },
+
+  // Art urbain : une fresque colorée sur un mur de briques
+  "art-urbain": {
+    vb: [360, 240],
+    alt: "Fresque colorée peinte sur un mur de briques, mêlant formes géométriques et courbes.",
+    inner: `
+      <rect width="360" height="240" fill="#b5651d"/>
+      <g stroke="#9c561a" stroke-width="2">
+        <line x1="0" y1="40" x2="360" y2="40"/><line x1="0" y1="80" x2="360" y2="80"/>
+        <line x1="0" y1="120" x2="360" y2="120"/><line x1="0" y1="160" x2="360" y2="160"/>
+        <line x1="0" y1="200" x2="360" y2="200"/>
+        <line x1="60" y1="0" x2="60" y2="40"/><line x1="180" y1="0" x2="180" y2="40"/><line x1="300" y1="0" x2="300" y2="40"/>
+        <line x1="120" y1="40" x2="120" y2="80"/><line x1="240" y1="40" x2="240" y2="80"/>
+        <line x1="60" y1="80" x2="60" y2="120"/><line x1="180" y1="80" x2="180" y2="120"/><line x1="300" y1="80" x2="300" y2="120"/>
+        <line x1="120" y1="120" x2="120" y2="160"/><line x1="240" y1="120" x2="240" y2="160"/>
+        <line x1="60" y1="160" x2="60" y2="200"/><line x1="180" y1="160" x2="180" y2="200"/><line x1="300" y1="160" x2="300" y2="200"/>
+      </g>
+      <path d="M60 190 Q90 90 150 120 Q170 60 210 110 Q250 80 280 140 Q300 180 250 190 Z" fill="#e23b32" opacity="0.92"/>
+      <circle cx="150" cy="120" r="20" fill="#f4c430"/>
+      <path d="M120 150 Q160 130 200 160" fill="none" stroke="#2d6cdf" stroke-width="8" stroke-linecap="round"/>
+      <path d="M225 180 l10 -26 l10 26 z" fill="#2f9e44"/>
+    `,
+  },
+
   // Composition abstraite géométrique (aplats de couleurs primaires)
   "composition-abstraite": {
     vb: [320, 260],
