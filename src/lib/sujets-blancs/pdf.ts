@@ -15,6 +15,7 @@ import type {
   SujetSection,
 } from "./types";
 import { SUJET_MATIERES } from "./types";
+import { ILLUSTRATIONS, svgString } from "./illustrations";
 
 // Charte graphique (reprise du site) en composantes RVB.
 const NAVY: [number, number, number] = [11, 23, 48]; // navy-900
@@ -64,6 +65,12 @@ function plain(text: string): string {
   return out;
 }
 
+interface RasterImage {
+  data: string;
+  w: number;
+  h: number;
+}
+
 interface Ctx {
   doc: import("jspdf").jsPDF;
   y: number;
@@ -72,6 +79,53 @@ interface Ctx {
   readonly H: number;
   readonly M: number; // marge
   footer: string;
+  images: Map<string, RasterImage>; // figures rasterisées (clé → PNG)
+}
+
+/** Rasterise un SVG en PNG (data URI) via un canvas hors écran. */
+function rasterizeSvg(svg: string): Promise<RasterImage> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const scale = 2; // rendu net à l'impression
+      const w = img.width || 400;
+      const h = img.height || 300;
+      const canvas = document.createElement("canvas");
+      canvas.width = w * scale;
+      canvas.height = h * scale;
+      const c = canvas.getContext("2d");
+      if (!c) return reject(new Error("canvas context indisponible"));
+      c.fillStyle = "#ffffff";
+      c.fillRect(0, 0, canvas.width, canvas.height);
+      c.drawImage(img, 0, 0, canvas.width, canvas.height);
+      resolve({ data: canvas.toDataURL("image/png"), w, h });
+    };
+    img.onerror = () => reject(new Error("rasterisation SVG impossible"));
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  });
+}
+
+/** Rasterise à l'avance toutes les figures présentes dans les sections. */
+async function prepareImages(
+  sections: SujetSection[]
+): Promise<Map<string, RasterImage>> {
+  const map = new Map<string, RasterImage>();
+  const keys = new Set<string>();
+  for (const sec of sections) {
+    for (const b of sec.blocks) {
+      if (b.type === "figure") keys.add(b.illustration);
+    }
+  }
+  for (const key of keys) {
+    const svg = svgString(key);
+    if (!svg) continue;
+    try {
+      map.set(key, await rasterizeSvg(svg));
+    } catch {
+      // En cas d'échec, on retombera sur la description textuelle (alt).
+    }
+  }
+  return map;
 }
 
 const LH = 5.2; // interligne de base (mm)
@@ -187,6 +241,45 @@ function blockToPdf(ctx: Ctx, block: Block) {
       doc.setLineWidth(0.8);
       doc.line(M, boxTop, M, ctx.y - 1);
       doc.setLineWidth(0.2);
+      ctx.y += 2;
+      break;
+    }
+
+    case "figure": {
+      const png = ctx.images.get(block.illustration);
+      if (block.titre) {
+        writeText(ctx, block.titre, { style: "bold", size: 10, gap: 1 });
+      }
+      if (png) {
+        const maxW = 105; // mm
+        const w = maxW;
+        const h = maxW * (png.h / png.w);
+        ensure(ctx, h + 6);
+        const x = (W - w) / 2;
+        doc.addImage(png.data, "PNG", x, ctx.y, w, h);
+        // Cadre léger autour de l'illustration.
+        doc.setDrawColor(200, 206, 216);
+        doc.setLineWidth(0.3);
+        doc.rect(x, ctx.y, w, h);
+        ctx.y += h + 2;
+      } else {
+        const alt = ILLUSTRATIONS[block.illustration]?.alt ?? "Illustration";
+        writeText(ctx, `[Illustration : ${alt}]`, {
+          style: "italic",
+          size: 9,
+          color: GREY,
+        });
+      }
+      if (block.legende) {
+        writeText(ctx, block.legende, {
+          style: "italic",
+          size: 9,
+          color: GREY,
+        });
+      }
+      if (block.source) {
+        writeText(ctx, block.source, { size: 8, style: "italic", color: GREY });
+      }
       ctx.y += 2;
       break;
     }
@@ -476,6 +569,8 @@ async function buildDoc(
 ): Promise<import("jspdf").jsPDF> {
   const { jsPDF } = await import("jspdf");
   const doc = new jsPDF({ unit: "mm", format: "a4" });
+  const sections = kind === "sujet" ? sujet.sujet : sujet.correction;
+  const images = await prepareImages(sections);
   const ctx: Ctx = {
     doc,
     y: 16,
@@ -487,6 +582,7 @@ async function buildDoc(
       kind === "sujet"
         ? "Sujet blanc CRPE"
         : "Corrigé — Sujet blanc CRPE",
+    images,
   };
 
   coverBlock(ctx, sujet, kind);

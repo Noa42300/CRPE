@@ -7,6 +7,7 @@
  * donc aucune duplication.
  */
 import { RichText } from "@/components/RichText";
+import { ILLUSTRATIONS, svgString } from "@/lib/sujets-blancs/illustrations";
 import type { Block, NoteVariant } from "@/lib/sujets-blancs/types";
 
 const NOTE_STYLES: Record<
@@ -77,6 +78,42 @@ function OneBlock({ block }: { block: Block }) {
           )}
         </figure>
       );
+
+    case "figure": {
+      const svg = svgString(block.illustration);
+      const alt = ILLUSTRATIONS[block.illustration]?.alt ?? "Illustration";
+      return (
+        <figure className="overflow-hidden rounded-2xl border border-navy-200 bg-white shadow-sm">
+          {block.titre && (
+            <figcaption className="border-b border-navy-100 bg-navy-50 px-5 py-2.5 text-sm font-semibold text-navy-800">
+              🖼️ {block.titre}
+            </figcaption>
+          )}
+          <div className="flex justify-center bg-navy-50/40 p-4">
+            {svg ? (
+              <div
+                role="img"
+                aria-label={alt}
+                className="w-full max-w-md [&>svg]:h-auto [&>svg]:w-full [&>svg]:rounded-lg"
+                dangerouslySetInnerHTML={{ __html: svg }}
+              />
+            ) : (
+              <p className="text-sm text-navy-400">{alt}</p>
+            )}
+          </div>
+          {block.legende && (
+            <p className="px-5 py-2 text-center text-sm text-navy-600">
+              {block.legende}
+            </p>
+          )}
+          {block.source && (
+            <p className="border-t border-navy-100 px-5 py-2 text-right text-xs italic text-navy-400">
+              {block.source}
+            </p>
+          )}
+        </figure>
+      );
+    }
 
     case "questions":
       return (

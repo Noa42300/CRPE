@@ -58,6 +58,18 @@ export type Block =
       source?: string; // ex : "D'après Guy de Maupassant, La Parure (1884)"
       lines: string[]; // un élément = un paragraphe
     }
+  /**
+   * Illustration originale (SVG) servant de support visuel — notamment
+   * pour les arts plastiques. La clé renvoie à lib/sujets-blancs/illustrations.
+   * Affichée sur le web (SVG) et intégrée aux PDF (rasterisée).
+   */
+  | {
+      type: "figure";
+      illustration: string; // clé dans ILLUSTRATIONS
+      titre?: string;
+      legende?: string;
+      source?: string;
+    }
   /** Série de questions numérotées. */
   | { type: "questions"; items: QuestionItem[] }
   /** Tableau (données, QCM, tableau à compléter…). */

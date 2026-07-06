@@ -32,9 +32,16 @@ export const ARTS_SUJETS: SujetBlanc[] = [
         points: 20,
         blocks: [
           {
+            type: "figure",
+            illustration: "portrait-clair-obscur",
+            titre: "Document — Portrait en clair-obscur",
+            legende:
+              "Illustration schématique originale (support de réflexion, ne reproduit aucune œuvre existante).",
+          },
+          {
             type: "document",
-            titre: "Œuvre décrite",
-            source: "Description d'un autoportrait de la tradition occidentale (support de réflexion).",
+            titre: "Description de l'œuvre",
+            source: "Support de réflexion.",
             lines: [
               "On considère un autoportrait peint : l'artiste se représente de trois-quarts, le regard tourné vers le spectateur. Le visage émerge d'un fond sombre, éclairé par une lumière latérale qui accentue les traits et laisse une partie du visage dans l'ombre. Les vêtements sont sobres ; rien ne détourne l'attention du visage et surtout des yeux, qui semblent fixer celui qui regarde.",
             ],
@@ -126,9 +133,16 @@ export const ARTS_SUJETS: SujetBlanc[] = [
         points: 20,
         blocks: [
           {
+            type: "figure",
+            illustration: "paysage-plans",
+            titre: "Document — Paysage en plans successifs",
+            legende:
+              "Illustration schématique originale (support de réflexion, ne reproduit aucune œuvre existante).",
+          },
+          {
             type: "document",
-            titre: "Œuvre décrite",
-            source: "Description d'un paysage peint (support de réflexion).",
+            titre: "Description de l'œuvre",
+            source: "Support de réflexion.",
             lines: [
               "On considère un paysage peint : au premier plan, quelques arbres sombres encadrent la scène ; au second plan, une rivière serpente vers un village ; à l'arrière-plan, des collines s'estompent dans une brume bleutée. Le ciel occupe la moitié supérieure du tableau, traversé d'une lumière dorée de fin de journée. Les touches sont plus nettes au premier plan, plus floues au loin.",
             ],
@@ -220,9 +234,16 @@ export const ARTS_SUJETS: SujetBlanc[] = [
         points: 20,
         blocks: [
           {
+            type: "figure",
+            illustration: "composition-abstraite",
+            titre: "Document — Composition abstraite géométrique",
+            legende:
+              "Illustration schématique originale (support de réflexion, ne reproduit aucune œuvre existante).",
+          },
+          {
             type: "document",
-            titre: "Œuvre décrite",
-            source: "Description d'une composition abstraite du XXᵉ siècle (support de réflexion).",
+            titre: "Description de l'œuvre",
+            source: "Support de réflexion.",
             lines: [
               "On considère une composition abstraite : de grands aplats de couleurs vives (rouge, jaune, bleu) s'organisent en formes géométriques séparées par des lignes noires épaisses. Aucun objet reconnaissable n'est représenté. L'équilibre naît du rapport entre les surfaces colorées et les vides blancs.",
             ],
