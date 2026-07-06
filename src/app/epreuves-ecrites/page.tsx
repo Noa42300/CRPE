@@ -7,7 +7,6 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { ResourceExplorer } from "@/components/ResourceExplorer";
 import { getResourcesByCategory } from "@/lib/resources";
-import { isCurrentUserPremium } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Épreuves écrites",
@@ -17,7 +16,6 @@ export const metadata: Metadata = {
 
 export default async function EcritesPage() {
   const resources = await getResourcesByCategory("ecrites");
-  const hasAccess = await isCurrentUserPremium();
 
   return (
     <div>
@@ -27,7 +25,7 @@ export default async function EcritesPage() {
         subtitle="Français, Mathématiques, Histoire-Géo EMC, Arts plastiques, Musique et Langues. Filtre par matière pour trouver tes fiches et vidéos."
       />
       <section className="container-page py-12">
-        <ResourceExplorer resources={resources} hasAccess={hasAccess} />
+        <ResourceExplorer resources={resources} />
       </section>
     </div>
   );

@@ -11,10 +11,9 @@ export function filterResources(
   options: {
     query?: string;
     subject?: Subject | "all";
-    access?: "all" | "free" | "premium";
   }
 ): Resource[] {
-  const { query = "", subject = "all", access = "all" } = options;
+  const { query = "", subject = "all" } = options;
   const q = query.trim().toLowerCase();
 
   return resources.filter((r) => {
@@ -27,13 +26,7 @@ export function filterResources(
     // Filtre par matière
     const matchesSubject = subject === "all" || r.subject === subject;
 
-    // Filtre gratuit / premium
-    const matchesAccess =
-      access === "all" ||
-      (access === "free" && !r.is_premium) ||
-      (access === "premium" && r.is_premium);
-
-    return matchesQuery && matchesSubject && matchesAccess;
+    return matchesQuery && matchesSubject;
   });
 }
 

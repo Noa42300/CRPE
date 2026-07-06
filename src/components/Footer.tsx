@@ -51,8 +51,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/premium" className="text-sm text-navy-500 hover:text-navy-900">
-                  Passer Premium
+                <Link href="/soutenir" className="text-sm text-navy-500 hover:text-navy-900">
+                  💛 Soutenir le projet
                 </Link>
               </li>
               <li>

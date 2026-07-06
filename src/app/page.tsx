@@ -5,24 +5,22 @@
  *  - le grand "hero" (titre + boutons)
  *  - la vidéo de présentation de Noa
  *  - les points forts de la plateforme
- *  - la comparaison Gratuit / Premium
  *  - un aperçu de quelques ressources
  *  - un appel à l'action final
+ *
+ * Le site est 100% gratuit : aucun contenu n'est verrouillé.
  */
 import Link from "next/link";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { ResourceCard } from "@/components/ResourceCard";
 import { getAllResources } from "@/lib/resources";
-import { isCurrentUserPremium } from "@/lib/auth";
-import { PREMIUM_PRICE_EUR } from "@/lib/stripe";
 import { CATEGORY_LABELS } from "@/lib/types";
 
 export default async function HomePage() {
   const resources = await getAllResources();
-  const hasAccess = await isCurrentUserPremium();
 
-  // On sélectionne quelques ressources gratuites à mettre en avant.
-  const highlights = resources.filter((r) => !r.is_premium).slice(0, 3);
+  // Quelques ressources à mettre en avant.
+  const highlights = resources.slice(0, 3);
 
   return (
     <div>
@@ -44,12 +42,15 @@ export default async function HomePage() {
               Révise efficacement le CRPE grâce à des fiches, vidéos et méthodes
               issues de mon expérience personnelle (admis avec 16/20).
             </p>
-            <div className="animate-fade-up mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/inscription" className="btn-primary px-8 py-4 text-base">
-                👉 Commencer
+            <p className="animate-fade-up mt-3 text-sm font-medium text-sky-600">
+              100% gratuit — aucune inscription payante.
+            </p>
+            <div className="animate-fade-up mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href="/fiches" className="btn-primary px-8 py-4 text-base">
+                👉 Commencer à réviser
               </Link>
-              <Link href="/premium" className="btn-secondary px-8 py-4 text-base">
-                Découvrir le Premium — {PREMIUM_PRICE_EUR}€ à vie
+              <Link href="/recherche" className="btn-secondary px-8 py-4 text-base">
+                Explorer les ressources
               </Link>
             </div>
           </div>
@@ -141,61 +142,21 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ==================== GRATUIT / PREMIUM ==================== */}
+      {/* ==================== 100% GRATUIT ==================== */}
       <section className="container-page py-12 sm:py-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-            Commence gratuitement, débloque tout quand tu veux
+        <div className="mx-auto max-w-2xl rounded-3xl border border-navy-100 bg-navy-50/50 p-8 text-center sm:p-12">
+          <span className="text-3xl">💛</span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+            Tout est 100% gratuit
           </h2>
           <p className="mt-3 text-navy-500">
-            Un seul paiement de {PREMIUM_PRICE_EUR}€, un accès à vie. Sans
-            abonnement.
+            Toutes les fiches, vidéos, méthodes et sujets blancs sont accessibles
+            librement, sans abonnement ni paiement. Si le projet t'aide, tu peux
+            le soutenir — c'est totalement facultatif.
           </p>
-        </div>
-
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
-          {/* Carte Gratuit */}
-          <div className="card flex flex-col">
-            <h3 className="text-xl font-semibold text-navy-900">🔓 Gratuit</h3>
-            <p className="mt-1 text-sm text-navy-500">Pour découvrir la plateforme.</p>
-            <ul className="mt-6 space-y-3 text-sm text-navy-600">
-              <Feature ok>Accès à des vidéos gratuites</Feature>
-              <Feature ok>Certains conseils personnels</Feature>
-              <Feature ok>Aperçu des fiches</Feature>
-              <Feature ok>Création de compte</Feature>
-              <Feature>Toutes les fiches et vidéos</Feature>
-              <Feature>Sujets blancs complets</Feature>
-              <Feature>Téléchargement PDF</Feature>
-            </ul>
-            <Link href="/inscription" className="btn-secondary mt-8 w-full">
-              Créer un compte gratuit
-            </Link>
-          </div>
-
-          {/* Carte Premium (mise en avant) */}
-          <div className="card relative flex flex-col border-2 border-navy-900 bg-navy-900 text-white">
-            <span className="absolute -top-3 right-6 badge bg-sky-400 text-navy-900">
-              Recommandé
-            </span>
-            <h3 className="text-xl font-semibold">🔒 Premium</h3>
-            <p className="mt-1 text-sm text-navy-200">
-              {PREMIUM_PRICE_EUR}€ à vie — paiement unique.
-            </p>
-            <ul className="mt-6 space-y-3 text-sm text-navy-100">
-              <Feature ok light>Accès complet à toutes les fiches</Feature>
-              <Feature ok light>Accès à toutes les vidéos</Feature>
-              <Feature ok light>Tous les sujets blancs et corrections</Feature>
-              <Feature ok light>Toutes les méthodes complètes</Feature>
-              <Feature ok light>Téléchargement des PDF</Feature>
-              <Feature ok light>Accès illimité, à vie</Feature>
-            </ul>
-            <Link
-              href="/premium"
-              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-navy-900 transition hover:bg-sky-50"
-            >
-              Passer Premium
-            </Link>
-          </div>
+          <Link href="/soutenir" className="btn-secondary mt-6">
+            💛 Soutenir le projet
+          </Link>
         </div>
       </section>
 
@@ -212,7 +173,7 @@ export default async function HomePage() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((r) => (
-              <ResourceCard key={r.id} resource={r} hasAccess={hasAccess} />
+              <ResourceCard key={r.id} resource={r} />
             ))}
           </div>
         </section>
@@ -226,11 +187,11 @@ export default async function HomePage() {
             Prêt à réussir le CRPE ?
           </h2>
           <p className="relative mx-auto mt-4 max-w-xl text-navy-200">
-            Rejoins la plateforme, commence gratuitement et passe Premium quand
-            tu te sens prêt.
+            Toutes les ressources sont gratuites. Commence à réviser dès
+            maintenant, sans inscription payante.
           </p>
           <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/inscription" className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-navy-900 transition hover:bg-sky-50">
+            <Link href="/fiches" className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-navy-900 transition hover:bg-sky-50">
               👉 Commencer maintenant
             </Link>
           </div>
@@ -263,25 +224,3 @@ const SECTIONS = [
   { href: "/sujets-blancs", category: CATEGORY_LABELS["sujets-blancs"], title: "Sujets blancs", text: "Sujets + corrections + vidéos d'explication." },
   { href: "/recherche", category: "Recherche", title: "Tout explorer", text: "Cherche et filtre parmi toutes les ressources." },
 ];
-
-// Ligne de la liste de fonctionnalités (avec ✓ ou ✕).
-function Feature({
-  children,
-  ok = false,
-  light = false,
-}: {
-  children: React.ReactNode;
-  ok?: boolean;
-  light?: boolean;
-}) {
-  return (
-    <li className="flex items-start gap-2.5">
-      <span className={ok ? (light ? "text-sky-300" : "text-sky-500") : "text-navy-300"}>
-        {ok ? "✓" : "✕"}
-      </span>
-      <span className={ok ? "" : "text-navy-400 line-through decoration-navy-200"}>
-        {children}
-      </span>
-    </li>
-  );
-}

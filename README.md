@@ -1,7 +1,7 @@
 # 🎓 CRPE avec Noa
 
 Plateforme web moderne de révision pour le **CRPE** (Concours de Recrutement de Professeurs des Écoles).
-Fiches, vidéos, méthodes et sujets blancs — avec un espace **gratuit** et un accès **Premium** (paiement unique à vie).
+Fiches, vidéos, méthodes et sujets blancs — **100% gratuit**, sans abonnement ni contenu verrouillé. Un simple bouton « Soutenir le projet » (Tipeee) permet un don volontaire.
 
 > Ce guide est écrit pour un **débutant total**. Suis les étapes dans l'ordre, sans en sauter. 🙂
 
@@ -14,7 +14,7 @@ Fiches, vidéos, méthodes et sujets blancs — avec un espace **gratuit** et un
 3. [Installation sur ton ordinateur](#3-installation-sur-ton-ordinateur)
 4. [Lancer le site en local](#4-lancer-le-site-en-local)
 5. [Connecter Supabase (base de données + comptes)](#5-connecter-supabase)
-6. [Connecter Stripe (paiement)](#6-connecter-stripe)
+6. [Soutenir le projet (Tipeee)](#6-soutenir-le-projet-tipeee)
 7. [Ajouter / modifier du contenu](#7-ajouter--modifier-du-contenu)
 8. [Modifier l'apparence du site](#8-modifier-lapparence-du-site)
 9. [Déployer en ligne avec Vercel](#9-déployer-en-ligne-avec-vercel)
@@ -28,13 +28,13 @@ Fiches, vidéos, méthodes et sujets blancs — avec un espace **gratuit** et un
 
 - 🏠 **Page d'accueil** avec présentation de Noa et vidéo.
 - 📖 **5 sections de contenu** : Conseils, Épreuves écrites, Épreuves orales, Méthodologie, Sujets blancs.
-- 🔎 **Recherche globale** et filtres (par matière, gratuit/premium).
-- 🔓 **Accès gratuit** : une partie du contenu est visible sans payer.
-- 🔒 **Accès Premium** : paiement unique (10 € par défaut) → accès à **tout**, à vie.
-- 👤 **Comptes utilisateurs** (inscription / connexion) via Supabase.
-- 💳 **Paiement sécurisé** via Stripe.
+- 📚 **7 matières de fiches** (Français, Maths, Histoire, Anglais, Espagnol, SVT, Physique-Chimie).
+- 🔎 **Recherche globale** et filtres par matière.
+- 🆓 **Tout est gratuit** : aucun contenu n'est verrouillé, aucun paiement.
+- 👤 **Comptes utilisateurs** (inscription / connexion) via Supabase — facultatif.
+- 💛 **Page « Soutenir le projet »** avec un lien Tipeee (don volontaire).
 
-> ✅ **Bonne nouvelle** : le site **fonctionne immédiatement** avec des contenus de démonstration, **même sans configurer** Supabase ni Stripe. Tu peux donc le lancer et le regarder tout de suite, puis brancher la base de données et le paiement quand tu es prêt.
+> ✅ **Bonne nouvelle** : le site **fonctionne immédiatement** avec des contenus de démonstration, **même sans configurer** Supabase. Il n'y a aucun système de paiement à installer.
 
 ---
 
@@ -45,8 +45,8 @@ Fiches, vidéos, méthodes et sujets blancs — avec un espace **gratuit** et un
 | **Next.js** | Le "moteur" du site (pages, navigation). |
 | **TypeScript** | Le langage de programmation (JavaScript amélioré). |
 | **Tailwind CSS** | Le style / le design. |
-| **Supabase** | La base de données + les comptes utilisateurs. |
-| **Stripe** | Le paiement en ligne. |
+| **Supabase** | La base de données + les comptes utilisateurs (optionnel). |
+| **Tipeee** | Le don volontaire (lien externe, aucun paiement sur le site). |
 | **Vercel** | L'hébergement (mettre le site en ligne). |
 
 Tu n'as pas besoin de tout comprendre pour utiliser le site !
@@ -151,53 +151,32 @@ Maintenant, les comptes et le vrai contenu de la base sont actifs 🎉.
 
 ---
 
-## 6. Connecter Stripe
+## 6. Soutenir le projet (Tipeee)
 
-Stripe gère le **paiement** du Premium.
+Le site est **100% gratuit** : il n'y a **aucun système de paiement** à configurer.
+La seule monétisation est un **don volontaire** via Tipeee, proposé sur la page
+**« Soutenir le projet »** (`/soutenir`).
 
-### Étape 1 — Créer un compte Stripe
+### Mettre ton lien Tipeee
 
-1. Va sur [https://stripe.com](https://stripe.com) et crée un compte.
-2. Tu peux tout tester en **mode test** (aucune vraie carte nécessaire).
+Tu as **deux façons** de renseigner ton lien Tipeee :
 
-### Étape 2 — Récupérer tes clés
+**Option A (la plus simple)** — modifie directement le fichier
+`src/app/soutenir/page.tsx` et remplace la valeur de `TIPEEE_URL` par ton lien :
 
-1. Dans Stripe, va dans **"Developers"** → **"API keys"**.
-2. Note :
-   - **Publishable key** → `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
-   - **Secret key** → `STRIPE_SECRET_KEY`
-3. Ajoute-les dans `.env.local`.
-
-### Étape 3 — Configurer le webhook (IMPORTANT)
-
-Le webhook, c'est ce qui **active automatiquement le Premium** après un paiement.
-
-**Pour tester en local**, installe la CLI Stripe : [https://stripe.com/docs/stripe-cli](https://stripe.com/docs/stripe-cli), puis :
-
-```bash
-stripe listen --forward-to localhost:3000/api/stripe/webhook
+```ts
+const TIPEEE_URL = "https://fr.tipeee.com/ton-compte";
 ```
 
-La commande affiche un **secret** qui commence par `whsec_...`. Copie-le dans `.env.local` :
+**Option B (via variable d'environnement)** — ajoute dans `.env.local`
+(et dans Vercel pour la production) :
 
 ```bash
-STRIPE_WEBHOOK_SECRET=whsec_...
+NEXT_PUBLIC_TIPEEE_URL=https://fr.tipeee.com/ton-compte
 ```
 
-**Pour la production** (site en ligne) :
-
-1. Stripe → **"Developers"** → **"Webhooks"** → **"Add endpoint"**.
-2. URL : `https://TON-DOMAINE.com/api/stripe/webhook`
-3. Événement à écouter : **`checkout.session.completed`**.
-4. Copie le **"Signing secret"** (`whsec_...`) et mets-le dans les variables d'environnement de Vercel (voir section 9).
-
-### Tester un paiement
-
-Sur la page **Premium**, clique sur payer. Utilise la carte de test Stripe :
-- Numéro : `4242 4242 4242 4242`
-- Date : n'importe quelle date future — CVC : n'importe quel nombre.
-
-Après paiement, ton compte passe automatiquement en **Premium** ✅.
+C'est tout : le bouton « Soutenir sur Tipeee » redirige alors vers ta page.
+Aucun paiement n'a lieu sur le site lui-même.
 
 ---
 
@@ -218,7 +197,6 @@ Tout le contenu du site vit dans la table **`resources`** de Supabase.
 | `subject` | La matière | `maths` |
 | `type` | Le format | `video`, `pdf` ou `texte` |
 | `url` | Lien de la vidéo/PDF (ou le texte si type=texte) | `https://...` |
-| `is_premium` | Réservé aux Premium ? | `true` ou `false` |
 | `difficulty` | (Sujets blancs) | `facile`, `moyen`, `difficile` |
 | `correction_url` | (Sujets blancs) lien de correction | `https://...` |
 
@@ -241,7 +219,7 @@ Tout le contenu du site vit dans la table **`resources`** de Supabase.
 - **Les couleurs** : fichier `tailwind.config.ts` (cherche `navy` = bleu foncé, `sky` = bleu clair).
 - **Le menu** : fichier `src/lib/nav.ts`.
 - **Les textes de la page d'accueil** : fichier `src/app/page.tsx`.
-- **Le prix du Premium** : variable `NEXT_PUBLIC_PREMIUM_PRICE_EUR` dans `.env.local` (ex : `10`).
+- **Le lien Tipeee** : fichier `src/app/soutenir/page.tsx` (variable `TIPEEE_URL`).
 - **La vidéo de présentation** : dans `src/app/page.tsx`, cherche `Vidéo de présentation` et remplace l'URL.
 
 Chaque fichier est **commenté en français** pour te guider.
@@ -256,7 +234,7 @@ Chaque fichier est **commenté en français** pour te guider.
 4. Dans **"Environment Variables"**, ajoute **toutes** les variables de ton `.env.local` (mêmes noms, mêmes valeurs). ⚠️ N'oublie pas `NEXT_PUBLIC_SITE_URL` avec l'adresse finale (ex : `https://crpe-avec-noa.vercel.app`).
 5. Clique sur **"Deploy"**. Attends quelques minutes → ton site est en ligne ! 🚀
 
-> Après le déploiement, retourne dans Stripe pour créer le **webhook de production** (section 6, étape 3) avec ta vraie URL.
+> Pense à renseigner `NEXT_PUBLIC_TIPEEE_URL` dans Vercel si tu utilises la page « Soutenir le projet ».
 
 ---
 
@@ -265,11 +243,10 @@ Chaque fichier est **commenté en français** pour te guider.
 Dans Supabase :
 
 - **Voir les inscrits** : menu **"Authentication"** → **"Users"**.
-- **Voir / modifier les statuts** : menu **"Table Editor"** → table **`profiles`**.
-- **Rendre quelqu'un Premium manuellement** : dans `profiles`, passe sa colonne `is_premium` à `true`.
-- **Retirer le Premium** : repasse `is_premium` à `false`.
+- **Voir les profils** : menu **"Table Editor"** → table **`profiles`**.
 
-> 🔒 Pour la **sécurité**, un utilisateur ne peut **jamais** se déclarer Premium tout seul : seul le webhook Stripe (après un vrai paiement) ou toi (manuellement dans Supabase) pouvez l'activer.
+> ℹ️ Tout le contenu est gratuit : il n'y a aucun statut « premium » à gérer.
+> Les comptes servent seulement à la connexion (facultative).
 
 ---
 
@@ -287,13 +264,13 @@ CRPE/
 │   │   ├── sujets-blancs/      # Page Sujets blancs
 │   │   ├── recherche/          # Recherche globale
 │   │   ├── ressource/[id]/     # Détail d'une ressource
-│   │   ├── premium/            # Page de paiement
+│   │   ├── fiches/             # Fiches par matière (Français, Maths, SVT...)
+│   │   ├── soutenir/           # Page "Soutenir le projet" (Tipeee)
 │   │   ├── connexion/          # Connexion
 │   │   ├── inscription/        # Inscription
-│   │   ├── profil/             # Espace utilisateur
-│   │   └── api/stripe/         # Paiement + webhook
+│   │   └── profil/             # Espace utilisateur
 │   ├── components/             # Éléments réutilisables (boutons, cartes...)
-│   └── lib/                    # Logique (Supabase, Stripe, données...)
+│   └── lib/                    # Logique (Supabase, fiches, données...)
 │       └── demo-data.ts        # Contenus de démonstration
 ├── supabase/schema.sql         # À exécuter dans Supabase pour créer la base
 ├── .env.example                # Modèle des clés secrètes
@@ -307,14 +284,11 @@ CRPE/
 **Le site affiche des contenus de démo ?**
 C'est normal tant que Supabase n'est pas connecté. Suis la [section 5](#5-connecter-supabase).
 
-**Je vois "Connexion non configurée" quand je clique sur Premium.**
-Tu dois d'abord connecter Supabase (section 5) puis Stripe (section 6).
+**Le contenu est-il payant ?**
+Non : tout est **100% gratuit**. Il n'y a aucun paywall ni abonnement.
 
-**Comment changer le prix ?**
-Modifie `NEXT_PUBLIC_PREMIUM_PRICE_EUR` dans `.env.local` (et dans Vercel pour la prod).
-
-**Le paiement ne rend pas Premium.**
-Vérifie que le **webhook Stripe** est bien configuré (section 6, étape 3) et que `SUPABASE_SERVICE_ROLE_KEY` est bien renseignée.
+**Comment mettre mon lien Tipeee ?**
+Modifie `TIPEEE_URL` dans `src/app/soutenir/page.tsx`, ou définis `NEXT_PUBLIC_TIPEEE_URL` (voir [section 6](#6-soutenir-le-projet-tipeee)).
 
 **Mes secrets sont-ils en sécurité ?**
 Oui : le fichier `.env.local` n'est **jamais** envoyé sur GitHub (il est ignoré). Ne le partage jamais.

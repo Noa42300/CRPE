@@ -5,7 +5,7 @@
  * -----------------------------------------------------
  * Composant réutilisable qui affiche :
  *  - une barre de recherche
- *  - des filtres par matière et par accès (gratuit / premium)
+ *  - des filtres par matière
  *  - la grille des cartes de ressources
  *
  * Il est utilisé sur les pages de catégories et sur la page de recherche.
@@ -15,22 +15,17 @@ import { ResourceCard } from "./ResourceCard";
 import { filterResources } from "@/lib/filter";
 import { SUBJECT_LABELS, type Resource, type Subject } from "@/lib/types";
 
-type Access = "all" | "free" | "premium";
-
 export function ResourceExplorer({
   resources,
-  hasAccess,
   initialQuery = "",
   showSubjectFilter = true,
 }: {
   resources: Resource[];
-  hasAccess: boolean;
   initialQuery?: string;
   showSubjectFilter?: boolean;
 }) {
   const [query, setQuery] = useState(initialQuery);
   const [subject, setSubject] = useState<Subject | "all">("all");
-  const [access, setAccess] = useState<Access>("all");
 
   // Matières réellement présentes dans cette liste (pour ne pas afficher
   // des filtres inutiles).
@@ -42,8 +37,8 @@ export function ResourceExplorer({
 
   // Application des filtres (recalculée à chaque changement).
   const filtered = useMemo(
-    () => filterResources(resources, { query, subject, access }),
-    [resources, query, subject, access]
+    () => filterResources(resources, { query, subject }),
+    [resources, query, subject]
   );
 
   return (
@@ -62,23 +57,9 @@ export function ResourceExplorer({
         />
       </div>
 
-      {/* ---------- Filtres ---------- */}
-      <div className="mt-5 flex flex-wrap items-center gap-2">
-        {/* Filtre accès */}
-        <FilterGroup>
-          <FilterChip active={access === "all"} onClick={() => setAccess("all")}>
-            Tout
-          </FilterChip>
-          <FilterChip active={access === "free"} onClick={() => setAccess("free")}>
-            Gratuit
-          </FilterChip>
-          <FilterChip active={access === "premium"} onClick={() => setAccess("premium")}>
-            Premium
-          </FilterChip>
-        </FilterGroup>
-
-        {/* Filtre matière */}
-        {showSubjectFilter && subjects.length > 1 && (
+      {/* ---------- Filtres par matière ---------- */}
+      {showSubjectFilter && subjects.length > 1 && (
+        <div className="mt-5 flex flex-wrap items-center gap-2">
           <FilterGroup>
             <FilterChip active={subject === "all"} onClick={() => setSubject("all")}>
               Toutes les matières
@@ -89,8 +70,8 @@ export function ResourceExplorer({
               </FilterChip>
             ))}
           </FilterGroup>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* ---------- Résultats ---------- */}
       <p className="mt-6 text-sm text-navy-400">
@@ -104,7 +85,7 @@ export function ResourceExplorer({
       ) : (
         <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((r) => (
-            <ResourceCard key={r.id} resource={r} hasAccess={hasAccess} />
+            <ResourceCard key={r.id} resource={r} />
           ))}
         </div>
       )}

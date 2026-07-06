@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { ResourceExplorer } from "@/components/ResourceExplorer";
 import { getAllResources } from "@/lib/resources";
-import { isCurrentUserPremium } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Recherche",
@@ -21,17 +20,16 @@ export default async function RecherchePage({
 }) {
   const { q = "" } = await searchParams;
   const resources = await getAllResources();
-  const hasAccess = await isCurrentUserPremium();
 
   return (
     <div>
       <PageHeader
         eyebrow="Recherche"
         title="Trouve exactement ce que tu cherches"
-        subtitle="Cherche par mot-clé, puis filtre par matière ou par accès (gratuit / premium)."
+        subtitle="Cherche par mot-clé, puis filtre par matière. Tout est gratuit."
       />
       <section className="container-page py-12">
-        <ResourceExplorer resources={resources} hasAccess={hasAccess} initialQuery={q} />
+        <ResourceExplorer resources={resources} initialQuery={q} />
       </section>
     </div>
   );

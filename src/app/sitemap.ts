@@ -20,14 +20,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     "",
     "/fiches",
-    "/fiches-maths",
     "/conseils",
     "/epreuves-ecrites",
     "/epreuves-orales",
     "/methodologie",
     "/sujets-blancs",
     "/recherche",
-    "/premium",
+    "/soutenir",
     "/connexion",
     "/inscription",
   ].map((path) => ({
@@ -37,16 +36,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  // Pages de ressources (uniquement les contenus gratuits, indexables)
+  // Pages de ressources (tout est gratuit et indexable).
   const resources = await getAllResources();
-  const resourcePages = resources
-    .filter((r) => !r.is_premium)
-    .map((r) => ({
-      url: `${base}/ressource/${r.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    }));
+  const resourcePages = resources.map((r) => ({
+    url: `${base}/ressource/${r.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
 
   // Pages de fiches de maths (une par notion).
   const mathPages = MATH_FICHES.map((f) => ({

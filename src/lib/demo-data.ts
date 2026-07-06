@@ -24,7 +24,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "general",
     type: "video",
     url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    is_premium: false,
   },
   {
     id: "demo-conseil-2",
@@ -35,7 +34,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "general",
     type: "texte",
     url: "Beaucoup de candidats échouent non pas par manque de travail, mais à cause d'erreurs de méthode : réviser sans planning, négliger l'oral jusqu'au dernier moment, apprendre par cœur sans comprendre... Dans cette fiche, je détaille les 5 erreurs à éviter absolument.",
-    is_premium: false,
   },
   {
     id: "demo-conseil-3",
@@ -46,7 +44,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "general",
     type: "pdf",
     url: "https://www.africau.edu/images/default/sample.pdf",
-    is_premium: true,
   },
 
   // ------------------------- ÉPREUVES ÉCRITES --------------------------
@@ -59,7 +56,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "francais",
     type: "pdf",
     url: "https://www.africau.edu/images/default/sample.pdf",
-    is_premium: false,
   },
   {
     id: "demo-ecrit-fr-2",
@@ -70,7 +66,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "francais",
     type: "video",
     url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    is_premium: true,
   },
   {
     id: "demo-ecrit-math-1",
@@ -81,7 +76,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "maths",
     type: "video",
     url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    is_premium: false,
   },
   {
     id: "demo-ecrit-math-2",
@@ -91,7 +85,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "maths",
     type: "pdf",
     url: "https://www.africau.edu/images/default/sample.pdf",
-    is_premium: true,
   },
   {
     id: "demo-ecrit-hg-1",
@@ -101,7 +94,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "histoire-geo-emc",
     type: "texte",
     url: "L'Histoire-Géographie et l'EMC demandent surtout de la méthode et quelques repères solides. Cette fiche regroupe les grandes périodes historiques, les repères géographiques essentiels et les valeurs de la République attendues.",
-    is_premium: false,
   },
   {
     id: "demo-ecrit-arts-1",
@@ -111,7 +103,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "arts-plastiques",
     type: "pdf",
     url: "https://www.africau.edu/images/default/sample.pdf",
-    is_premium: true,
   },
   {
     id: "demo-ecrit-musique-1",
@@ -121,7 +112,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "musique",
     type: "texte",
     url: "La musique au CRPE ne demande pas d'être musicien. Il faut maîtriser un vocabulaire de base : le rythme, la pulsation, le tempo, la hauteur, le timbre... Cette fiche te donne toutes les définitions clés avec des exemples simples.",
-    is_premium: false,
   },
   {
     id: "demo-ecrit-langues-1",
@@ -131,7 +121,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "langues",
     type: "video",
     url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    is_premium: true,
   },
 
   // -------------------------- ÉPREUVES ORALES --------------------------
@@ -144,7 +133,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "oral-lecon",
     type: "video",
     url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    is_premium: false,
   },
   {
     id: "demo-oral-2",
@@ -154,7 +142,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "oral-lecon",
     type: "pdf",
     url: "https://www.africau.edu/images/default/sample.pdf",
-    is_premium: true,
   },
   {
     id: "demo-oral-3",
@@ -165,7 +152,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "eps",
     type: "video",
     url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    is_premium: false,
   },
   {
     id: "demo-oral-4",
@@ -175,7 +161,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "eps",
     type: "texte",
     url: "Le jury de l'oral d'EPS aime tester ta capacité à réagir. Voici les questions qui reviennent le plus souvent, et comment j'y ai répondu le jour de mon oral pour obtenir 16.",
-    is_premium: true,
   },
 
   // --------------------------- MÉTHODOLOGIE ----------------------------
@@ -188,7 +173,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "general",
     type: "video",
     url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    is_premium: false,
   },
   {
     id: "demo-methodo-2",
@@ -199,7 +183,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "general",
     type: "texte",
     url: "Le stress est normal, mais il se gère. Respiration, préparation mentale, sommeil, organisation de la veille... Voici tout ce que j'ai mis en place pour arriver serein le jour du concours.",
-    is_premium: false,
   },
   {
     id: "demo-methodo-3",
@@ -210,7 +193,6 @@ export const DEMO_RESOURCES: Resource[] = [
     subject: "general",
     type: "pdf",
     url: "https://www.africau.edu/images/default/sample.pdf",
-    is_premium: true,
   },
 
   // --------------------------- SUJETS BLANCS ---------------------------
@@ -224,7 +206,6 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.africau.edu/images/default/sample.pdf",
     difficulty: "moyen",
-    is_premium: false,
   },
   {
     id: "demo-sb-math",
@@ -236,7 +217,6 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     difficulty: "difficile",
-    is_premium: true,
   },
   {
     id: "demo-sb-hg",
@@ -248,7 +228,6 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.africau.edu/images/default/sample.pdf",
     difficulty: "moyen",
-    is_premium: true,
   },
   {
     id: "demo-sb-arts",
@@ -260,7 +239,6 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.africau.edu/images/default/sample.pdf",
     difficulty: "facile",
-    is_premium: true,
   },
   {
     id: "demo-sb-musique",
@@ -272,7 +250,6 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.africau.edu/images/default/sample.pdf",
     difficulty: "facile",
-    is_premium: true,
   },
   {
     id: "demo-sb-langues",
@@ -284,7 +261,6 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.africau.edu/images/default/sample.pdf",
     difficulty: "moyen",
-    is_premium: true,
   },
   {
     id: "demo-sb-oral",
@@ -296,7 +272,6 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     difficulty: "difficile",
-    is_premium: true,
   },
   {
     id: "demo-sb-eps",
@@ -308,6 +283,5 @@ export const DEMO_RESOURCES: Resource[] = [
     url: "https://www.africau.edu/images/default/sample.pdf",
     correction_url: "https://www.africau.edu/images/default/sample.pdf",
     difficulty: "moyen",
-    is_premium: true,
   },
 ];

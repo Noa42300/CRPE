@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { ResourceExplorer } from "@/components/ResourceExplorer";
 import { getResourcesByCategory } from "@/lib/resources";
-import { isCurrentUserPremium } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Épreuves orales",
@@ -16,7 +15,6 @@ export const metadata: Metadata = {
 
 export default async function OralesPage() {
   const resources = await getResourcesByCategory("orales");
-  const hasAccess = await isCurrentUserPremium();
 
   return (
     <div>
@@ -28,7 +26,7 @@ export default async function OralesPage() {
       <section className="container-page py-12">
         {/* On garde le filtre par matière : il permet de basculer entre
             "Oral de leçon" et "EPS & Valeurs de la République". */}
-        <ResourceExplorer resources={resources} hasAccess={hasAccess} />
+        <ResourceExplorer resources={resources} />
       </section>
     </div>
   );

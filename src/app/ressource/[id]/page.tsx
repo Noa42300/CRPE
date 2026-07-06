@@ -1,16 +1,14 @@
 /**
  * PAGE — DÉTAIL D'UNE RESSOURCE
  * Affiche le contenu complet d'une ressource (vidéo, PDF ou texte).
- * Gère l'accès Premium : si la ressource est réservée et que l'utilisateur
- * n'est pas Premium, on affiche un message d'invitation à s'abonner.
+ * Tout le contenu est gratuit et accessible sans restriction.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { VideoEmbed } from "@/components/VideoEmbed";
-import { AccessBadge, DifficultyBadge, TypeBadge } from "@/components/Badges";
+import { DifficultyBadge, TypeBadge } from "@/components/Badges";
 import { getResourceById } from "@/lib/resources";
-import { isCurrentUserPremium } from "@/lib/auth";
 import { SUBJECT_LABELS, CATEGORY_LABELS, type Resource } from "@/lib/types";
 
 // Génère un titre de page adapté à la ressource (bon pour le SEO).
@@ -34,9 +32,6 @@ export default async function ResourcePage({
   const resource = await getResourceById(id);
   if (!resource) notFound();
 
-  const hasAccess = await isCurrentUserPremium();
-  const locked = resource.is_premium && !hasAccess;
-
   return (
     <article className="container-page py-12 sm:py-16">
       {/* Fil d'Ariane */}
@@ -49,7 +44,6 @@ export default async function ResourcePage({
       {/* En-tête */}
       <div className="mt-4 flex flex-wrap items-center gap-2">
         <TypeBadge type={resource.type} />
-        <AccessBadge isPremium={resource.is_premium} />
         {resource.difficulty && <DifficultyBadge difficulty={resource.difficulty} />}
         <span className="badge bg-navy-50 text-navy-600">
           {SUBJECT_LABELS[resource.subject]}
@@ -63,9 +57,9 @@ export default async function ResourcePage({
         {resource.description}
       </p>
 
-      {/* Contenu ou paywall */}
+      {/* Contenu (toujours accessible) */}
       <div className="mt-10">
-        {locked ? <Paywall /> : <ResourceContent resource={resource} />}
+        <ResourceContent resource={resource} />
       </div>
     </article>
   );
@@ -126,31 +120,6 @@ function ContentBlock({
       <p className="whitespace-pre-line text-lg leading-relaxed text-navy-700">
         {url}
       </p>
-    </div>
-  );
-}
-
-/** Message affiché quand la ressource est réservée aux membres Premium. */
-function Paywall() {
-  return (
-    <div className="mx-auto max-w-xl rounded-3xl border-2 border-navy-900 bg-navy-900 p-10 text-center text-white">
-      <div className="text-4xl">🔒</div>
-      <h2 className="mt-4 text-2xl font-bold">Contenu réservé aux membres Premium</h2>
-      <p className="mt-3 text-navy-200">
-        Débloque cette ressource et TOUT le contenu de la plateforme avec un
-        paiement unique, à vie.
-      </p>
-      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Link
-          href="/premium"
-          className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-navy-900 transition hover:bg-sky-50"
-        >
-          Passer Premium
-        </Link>
-        <Link href="/connexion" className="text-sm font-medium text-navy-200 hover:text-white">
-          J'ai déjà un compte
-        </Link>
-      </div>
     </div>
   );
 }

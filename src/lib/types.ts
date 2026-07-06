@@ -44,7 +44,6 @@ export interface Resource {
   subject: Subject;
   type: ResourceType;
   url: string; // Lien vers la vidéo / le PDF, ou le texte lui-même
-  is_premium: boolean; // true = réservé aux membres Premium
   difficulty?: Difficulty | null; // Optionnel (utilisé pour les sujets blancs)
   correction_url?: string | null; // Optionnel : lien de correction (sujets blancs)
   created_at?: string;
@@ -54,7 +53,6 @@ export interface Resource {
 export interface Profile {
   id: string;
   email: string;
-  is_premium: boolean;
   created_at?: string;
 }
 

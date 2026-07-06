@@ -1,6 +1,6 @@
 /**
  * PAGE — PROFIL UTILISATEUR
- * Affiche les informations du compte et le statut (Gratuit / Premium).
+ * Affiche les informations du compte.
  * Prévoit un emplacement pour la future "progression".
  */
 import type { Metadata } from "next";
@@ -48,31 +48,12 @@ export default async function ProfilPage() {
             </div>
             <div>
               <p className="font-semibold text-navy-900">{profile.email}</p>
-              {profile.is_premium ? (
-                <span className="badge mt-1 bg-navy-900 text-white">✨ Membre Premium</span>
-              ) : (
-                <span className="badge mt-1 bg-sky-100 text-sky-800">Compte gratuit</span>
-              )}
+              <span className="badge mt-1 bg-sky-100 text-sky-800">
+                Accès complet et gratuit
+              </span>
             </div>
           </div>
         </div>
-
-        {/* Encart Premium si pas encore membre */}
-        {!profile.is_premium && (
-          <div className="card mt-6 border-2 border-navy-900 bg-navy-900 text-white">
-            <h2 className="text-xl font-semibold">Passe au niveau supérieur 🚀</h2>
-            <p className="mt-2 text-navy-200">
-              Débloque toutes les fiches, vidéos, sujets blancs et méthodes avec
-              un paiement unique, à vie.
-            </p>
-            <Link
-              href="/premium"
-              className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-navy-900 transition hover:bg-sky-50"
-            >
-              Découvrir le Premium
-            </Link>
-          </div>
-        )}
 
         {/* Emplacement "progression" (fonctionnalité future) */}
         <div className="card mt-6">

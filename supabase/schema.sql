@@ -16,11 +16,9 @@
 --  1. TABLE "profiles" — les utilisateurs
 -- =====================================================================
 --  Chaque utilisateur inscrit (via Supabase Auth) aura une ligne ici.
---  La colonne "is_premium" indique s'il a payé l'accès Premium.
 create table if not exists public.profiles (
   id          uuid primary key references auth.users (id) on delete cascade,
   email       text,
-  is_premium  boolean not null default false,
   created_at  timestamptz not null default now()
 );
 
@@ -42,7 +40,6 @@ create table if not exists public.resources (
   type            text not null,
   -- Lien vers la vidéo/PDF, OU le texte lui-même si type = 'texte'
   url             text not null default '',
-  is_premium      boolean not null default false,
   -- Optionnel (sujets blancs) : facile / moyen / difficile
   difficulty      text,
   -- Optionnel (sujets blancs) : lien vers la correction
@@ -65,21 +62,14 @@ create policy "profiles_select_own"
   on public.profiles for select
   using (auth.uid() = id);
 
--- Un utilisateur peut MODIFIER son propre profil (sauf is_premium, voir note).
+-- Un utilisateur peut MODIFIER son propre profil.
 drop policy if exists "profiles_update_own" on public.profiles;
 create policy "profiles_update_own"
   on public.profiles for update
   using (auth.uid() = id);
 
--- NOTE : le passage en Premium (is_premium = true) est fait UNIQUEMENT par
--- le webhook Stripe, qui utilise la clé "service role" et contourne ces
--- règles en toute sécurité. Les utilisateurs ne peuvent donc pas se
--- déclarer Premium eux-mêmes.
-
 -- ---- Règles pour "resources" ----
--- TOUT LE MONDE peut LIRE les ressources (le contenu premium est masqué
--- côté application, pas ici — les liens premium restent protégés par le
--- fait que l'utilisateur doit être Premium pour voir la page de détail).
+-- TOUT LE MONDE peut LIRE les ressources : le site est 100% gratuit.
 drop policy if exists "resources_select_all" on public.resources;
 create policy "resources_select_all"
   on public.resources for select
@@ -97,8 +87,8 @@ language plpgsql
 security definer set search_path = public
 as $$
 begin
-  insert into public.profiles (id, email, is_premium)
-  values (new.id, new.email, false)
+  insert into public.profiles (id, email)
+  values (new.id, new.email)
   on conflict (id) do nothing;
   return new;
 end;
@@ -115,15 +105,15 @@ create trigger on_auth_user_created
 -- =====================================================================
 --  Quelques ressources pour démarrer. Tu peux les supprimer et ajouter
 --  les tiennes via le menu "Table Editor" → "resources" → "Insert row".
-insert into public.resources (title, description, category, subject, type, url, is_premium, difficulty, correction_url)
+insert into public.resources (title, description, category, subject, type, url, difficulty, correction_url)
 values
-  ('Par où commencer ta préparation au CRPE', 'Ma feuille de route complète pour organiser tes révisions sur toute l''année.', 'conseils', 'general', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', false, null, null),
-  ('Ma routine de révision (fiche PDF)', 'Le planning exact que j''ai suivi semaine par semaine.', 'conseils', 'general', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', true, null, null),
-  ('Français — La grammaire essentielle', 'Fiche synthèse des notions de grammaire attendues à l''écrit.', 'ecrites', 'francais', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', false, null, null),
-  ('Maths — Géométrie : fiche complète', 'Théorèmes, formules et exercices corrigés.', 'ecrites', 'maths', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', true, null, null),
-  ('Oral de leçon Français — La méthode complète', 'La structure exacte d''une bonne leçon de français.', 'orales', 'oral-lecon', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', false, null, null),
-  ('EPS + Valeurs de la République — Réussir l''entretien', 'Comment structurer ton oral d''EPS.', 'orales', 'eps', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', false, null, null),
-  ('Construire un planning de révision efficace', 'La méthode pour planifier tes semaines sans t''épuiser.', 'methodo', 'general', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', false, null, null),
-  ('Sujet blanc — Français', 'Un sujet complet de français dans les conditions du concours.', 'sujets-blancs', 'francais', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', false, 'moyen', 'https://www.africau.edu/images/default/sample.pdf'),
-  ('Sujet blanc — Mathématiques', 'Sujet type maths avec correction détaillée en vidéo.', 'sujets-blancs', 'maths', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', true, 'difficile', 'https://www.youtube.com/embed/dQw4w9WgXcQ')
+  ('Par où commencer ta préparation au CRPE', 'Ma feuille de route complète pour organiser tes révisions sur toute l''année.', 'conseils', 'general', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', null, null),
+  ('Ma routine de révision (fiche PDF)', 'Le planning exact que j''ai suivi semaine par semaine.', 'conseils', 'general', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', null, null),
+  ('Français — La grammaire essentielle', 'Fiche synthèse des notions de grammaire attendues à l''écrit.', 'ecrites', 'francais', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', null, null),
+  ('Maths — Géométrie : fiche complète', 'Théorèmes, formules et exercices corrigés.', 'ecrites', 'maths', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', null, null),
+  ('Oral de leçon Français — La méthode complète', 'La structure exacte d''une bonne leçon de français.', 'orales', 'oral-lecon', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', null, null),
+  ('EPS + Valeurs de la République — Réussir l''entretien', 'Comment structurer ton oral d''EPS.', 'orales', 'eps', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', null, null),
+  ('Construire un planning de révision efficace', 'La méthode pour planifier tes semaines sans t''épuiser.', 'methodo', 'general', 'video', 'https://www.youtube.com/embed/dQw4w9WgXcQ', null, null),
+  ('Sujet blanc — Français', 'Un sujet complet de français dans les conditions du concours.', 'sujets-blancs', 'francais', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', 'moyen', 'https://www.africau.edu/images/default/sample.pdf'),
+  ('Sujet blanc — Mathématiques', 'Sujet type maths avec correction détaillée en vidéo.', 'sujets-blancs', 'maths', 'pdf', 'https://www.africau.edu/images/default/sample.pdf', 'difficile', 'https://www.youtube.com/embed/dQw4w9WgXcQ')
 on conflict do nothing;
