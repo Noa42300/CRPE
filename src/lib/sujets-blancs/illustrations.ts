@@ -21,7 +21,12 @@ export interface Illustration {
   alt: string;
 }
 
-export const ILLUSTRATIONS: Record<string, Illustration> = {
+// Les illustrations spécifiques aux maths et aux sciences sont définies dans
+// leurs propres fichiers puis fusionnées ci-dessous (voir bas du fichier).
+import { MATHS_ILLUSTRATIONS } from "./illustrations-maths";
+import { SCIENCES_ILLUSTRATIONS } from "./illustrations-sciences";
+
+const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
   // Portrait en clair-obscur (support pour l'analyse du portrait)
   "portrait-clair-obscur": {
     vb: [400, 300],
@@ -91,6 +96,13 @@ export const ILLUSTRATIONS: Record<string, Illustration> = {
       </g>
     `,
   },
+};
+
+/** Registre complet : arts + maths + sciences. */
+export const ILLUSTRATIONS: Record<string, Illustration> = {
+  ...ARTS_ILLUSTRATIONS,
+  ...MATHS_ILLUSTRATIONS,
+  ...SCIENCES_ILLUSTRATIONS,
 };
 
 /** Reconstruit un SVG complet (avec xmlns, requis pour la rasterisation). */

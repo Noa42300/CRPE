@@ -1013,4 +1013,738 @@ export const MATHS_SUJETS: SujetBlanc[] = [
       },
     ],
   },
+
+  // ======================================================================
+  // SUJET 4 — Le nouveau stade (figures : graphique, diagramme, triangle)
+  // ======================================================================
+  {
+    slug: "maths-4-le-nouveau-stade",
+    matiere: "maths",
+    titre: "Sujet blanc n°4 — Le nouveau stade",
+    description:
+      "Un sujet très visuel : fractions et pourcentages, lecture d'un graphique de tarifs, géométrie du triangle rectangle et exploitation d'un diagramme en barres.",
+    epreuve: "Première épreuve d'admissibilité — Partie B (Mathématiques)",
+    duree: "2 h conseillées",
+    totalPoints: 20,
+    consignes: [
+      "L'usage de la calculatrice est autorisé.",
+      "Il sera tenu compte de la clarté des raisonnements et de la qualité de la rédaction.",
+      "Chaque exercice est indépendant. Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Exercice 1 — La billetterie",
+        points: 4,
+        blocks: [
+          {
+            type: "p",
+            text: "Un stade contient 4 500 places. Lors d'un match, 3/5 des places sont occupées par des adultes, 20 % par des enfants, et le reste des places est vide.",
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Calculer le nombre de places occupées par des adultes.", points: 1 },
+              { num: "2.", text: "Calculer le nombre de places occupées par des enfants.", points: 1 },
+              { num: "3.", text: "En déduire le nombre de places vides.", points: 1 },
+              { num: "4.", text: "Quel pourcentage des places du stade est vide ?", points: 1 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 2 — Deux formules d'abonnement",
+        points: 5,
+        intro: "Toutes les réponses devront être justifiées.",
+        blocks: [
+          {
+            type: "p",
+            text: "Un supporter peut assister aux matchs de la saison selon deux formules :",
+          },
+          {
+            type: "list",
+            items: [
+              "**Formule A** : 8 € par match, sans abonnement.",
+              "**Formule B** : un abonnement de 30 € pour la saison, puis 5 € par match.",
+            ],
+          },
+          {
+            type: "figure",
+            illustration: "maths-graph-tarifs",
+            titre: "Document — Coût des deux formules selon le nombre de matchs",
+            legende:
+              "La droite bleue représente la formule A, la droite rouge la formule B (illustration originale).",
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "1.",
+                text: "Par lecture graphique, estimer le nombre de matchs à partir duquel la formule B devient plus avantageuse que la formule A.",
+                points: 1.5,
+              },
+              {
+                num: "2.",
+                text: "Retrouver ce résultat par le calcul (on pourra exprimer le coût de chaque formule en fonction du nombre n de matchs).",
+                points: 2,
+              },
+              {
+                num: "3.",
+                text: "Un supporter prévoit d'assister à 12 matchs. Quelle formule doit-il choisir ? Justifier par le calcul.",
+                points: 1.5,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 3 — Le panneau d'affichage",
+        points: 4,
+        intro: "Toutes les réponses devront être justifiées.",
+        blocks: [
+          {
+            type: "p",
+            text: "Un panneau publicitaire a la forme d'un triangle ABC rectangle en A, avec AB = 3 m et AC = 4 m.",
+          },
+          {
+            type: "figure",
+            illustration: "maths-triangle-rectangle",
+            titre: "Document — Le panneau triangulaire ABC",
+            legende: "Figure non à l'échelle (illustration originale).",
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Calculer la longueur de l'hypoténuse BC.", points: 2 },
+              { num: "2.", text: "Calculer l'aire du panneau triangulaire.", points: 1 },
+              {
+                num: "3.",
+                text: "On réalise une maquette du panneau à l'échelle 1/50. Donner les longueurs des trois côtés de la maquette, en centimètres.",
+                points: 1,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 4 — Comment viennent les élèves ?",
+        points: 4,
+        blocks: [
+          {
+            type: "p",
+            text: "Une enquête est menée auprès des 120 élèves qui fréquentent le stade scolaire. Le diagramme en barres ci-dessous donne leur mode de déplacement principal.",
+          },
+          {
+            type: "figure",
+            illustration: "maths-graph-barres",
+            titre: "Document — Mode de déplacement des 120 élèves",
+            legende: "Diagramme en barres (illustration originale).",
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "1.",
+                text: "Lire, pour chaque mode de déplacement, le nombre d'élèves concernés. Vérifier que le total est bien 120.",
+                points: 1.5,
+              },
+              { num: "2.", text: "Quel pourcentage des élèves vient à pied ?", points: 1 },
+              {
+                num: "3.",
+                text: "On veut représenter ces données par un diagramme circulaire. Calculer la mesure de l'angle du secteur correspondant aux élèves venant à vélo.",
+                points: 1.5,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 5 — QCM",
+        points: 3,
+        intro: "Une seule réponse exacte par question. Aucune justification n'est demandée.",
+        blocks: [
+          {
+            type: "table",
+            entetes: ["Question", "A", "B", "C", "D"],
+            lignes: [
+              ["1. 3/5 de 4 500 :", "900", "1 500", "2 700", "3 600"],
+              ["2. Un angle plat mesure :", "90°", "180°", "270°", "360°"],
+              ["3. √49 =", "6", "7", "8", "24,5"],
+              ["4. 0,2 exprimé en pourcentage :", "2 %", "20 %", "0,2 %", "200 %"],
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Exercice", "Domaine", "Points"],
+      lignes: [
+        ["1", "Fractions, pourcentages d'un effectif", "4"],
+        ["2", "Fonctions affines, lecture graphique, comparaison", "5"],
+        ["3", "Théorème de Pythagore, aire, échelle", "4"],
+        ["4", "Lecture de diagramme, pourcentages, angles", "4"],
+        ["5", "QCM (fractions, angles, racines, pourcentages)", "3"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "Sujet volontairement illustré (graphique, diagramme, figure). On valorise l'articulation entre lecture graphique et vérification par le calcul, ainsi que le soin apporté aux unités.",
+    correction: [
+      {
+        titre: "Exercice 1 — La billetterie",
+        points: 4,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1,
+            question: "Places occupées par des adultes.",
+            reponse: ["3/5 de 4 500 = (4 500 ÷ 5) × 3 = 900 × 3 = **2 700 adultes**."],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1,
+            question: "Places occupées par des enfants.",
+            reponse: ["20 % de 4 500 = 0,20 × 4 500 = **900 enfants**."],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1,
+            question: "Nombre de places vides.",
+            reponse: ["4 500 − 2 700 − 900 = **900 places vides**."],
+          },
+          {
+            type: "qa",
+            num: "4.",
+            points: 1,
+            question: "Pourcentage de places vides.",
+            reponse: [
+              "900 ÷ 4 500 = 0,20 = **20 %**. (On pouvait aussi remarquer : 3/5 = 60 % d'adultes, + 20 % d'enfants = 80 %, donc 20 % de places vides.)",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 2 — Deux formules d'abonnement",
+        points: 5,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1.5,
+            question: "Lecture graphique du seuil.",
+            reponse: [
+              "Les deux droites se croisent au point entouré : à gauche de ce point, la droite bleue (formule A) est en dessous (moins chère) ; à droite, la droite rouge (formule B) passe en dessous.",
+              "On lit une intersection **aux alentours de 10 matchs** : au-delà, la formule B devient plus avantageuse.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 2,
+            question: "Vérification par le calcul.",
+            reponse: [
+              "Pour n matchs : coût A = 8n ; coût B = 30 + 5n.",
+              "B est plus avantageuse quand 30 + 5n < 8n, soit 30 < 3n, soit n > 10.",
+              "La formule B devient plus avantageuse **à partir de 11 matchs** (à 10 matchs, les deux coûtent 80 €).",
+            ],
+            attendu:
+              "Poser les deux expressions, résoudre l'inéquation, puis interpréter avec un nombre entier de matchs. Le graphique et le calcul se confirment.",
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1.5,
+            question: "Choix pour 12 matchs.",
+            reponse: [
+              "Coût A = 8 × 12 = 96 €. Coût B = 30 + 5 × 12 = 30 + 60 = 90 €.",
+              "90 € < 96 € : il doit choisir la **formule B** (économie de 6 €).",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 3 — Le panneau d'affichage",
+        points: 4,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 2,
+            question: "Longueur de l'hypoténuse BC.",
+            reponse: [
+              "Le triangle est rectangle en A, donc BC est l'hypoténuse. D'après le théorème de Pythagore : BC² = AB² + AC² = 3² + 4² = 9 + 16 = 25.",
+              "BC = √25 = **5 m**.",
+            ],
+            attendu: "Nommer le théorème, identifier l'hypoténuse (opposée à l'angle droit).",
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1,
+            question: "Aire du panneau.",
+            reponse: [
+              "Aire = (AB × AC) ÷ 2 = (3 × 4) ÷ 2 = 12 ÷ 2 = **6 m²**.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1,
+            question: "Dimensions de la maquette (échelle 1/50).",
+            reponse: [
+              "À l'échelle 1/50, chaque longueur réelle est divisée par 50. 3 m = 300 cm → 6 cm ; 4 m = 400 cm → 8 cm ; 5 m = 500 cm → 10 cm.",
+              "Maquette : **6 cm, 8 cm et 10 cm**.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 4 — Comment viennent les élèves ?",
+        points: 4,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1.5,
+            question: "Lecture des effectifs.",
+            reponse: [
+              "À pied : 60 élèves ; à vélo : 40 élèves ; en voiture : 20 élèves.",
+              "Vérification : 60 + 40 + 20 = **120 élèves**. ✔",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1,
+            question: "Pourcentage venant à pied.",
+            reponse: ["60 ÷ 120 = 0,5 = **50 %**."],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1.5,
+            question: "Angle du secteur « vélo » (diagramme circulaire).",
+            reponse: [
+              "Le disque entier (360°) représente 120 élèves. Les 40 élèves à vélo correspondent à : (40 ÷ 120) × 360° = (1/3) × 360° = **120°**.",
+            ],
+            attendu:
+              "Utiliser la proportionnalité entre effectif et angle (360° pour l'effectif total).",
+          },
+        ],
+      },
+      {
+        titre: "Exercice 5 — QCM",
+        points: 3,
+        blocks: [
+          {
+            type: "table",
+            titre: "Réponses",
+            entetes: ["Question", "Réponse", "Justification rapide"],
+            lignes: [
+              ["1", "**C** (2 700)", "3/5 × 4 500 = 2 700."],
+              ["2", "**B** (180°)", "Un angle plat est un demi-tour."],
+              ["3", "**B** (7)", "7 × 7 = 49."],
+              ["4", "**B** (20 %)", "0,2 = 20/100 = 20 %."],
+            ],
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Réussir un sujet de mathématiques du CRPE",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Lire tout l'exercice avant de commencer** : repérer les données, ce qui est cherché, et l'unité attendue dans la réponse.",
+              "**Justifier chaque étape** : le barème valorise le raisonnement autant que le résultat. Une réponse juste non justifiée perd des points.",
+              "**Soigner les unités** : convertir avant de calculer (m ↔ cm, m³ ↔ L), et vérifier l'unité finale.",
+              "**Distinguer lecture graphique et calcul** : quand un graphique est fourni, la lecture donne une estimation ; le calcul la confirme de façon exacte.",
+              "**Vérifier la vraisemblance** : un effectif est un entier ; une probabilité est comprise entre 0 et 1 ; une aire s'exprime en unités².",
+            ],
+          },
+          {
+            type: "note",
+            variant: "methode",
+            titre: "Pour la géométrie",
+            lines: [
+              "Avant d'appliquer le théorème de Pythagore, vérifier que le triangle est rectangle et identifier l'hypoténuse (le côté opposé à l'angle droit, toujours le plus long).",
+              "Pour un agrandissement/réduction de rapport k : les longueurs sont multipliées par k, les aires par k², les volumes par k³.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Confondre « fraction de » et pourcentage** : 3/5 = 60 %, pas 35 %.",
+              "**Oublier de convertir les unités** avant un calcul d'échelle (3 m = 300 cm avant de diviser par 50).",
+              "**Appliquer le rapport d'échelle aux aires comme aux longueurs** : à l'échelle 1/50, l'aire est divisée par 50² = 2 500, pas par 50.",
+              "**Arrondir trop tôt** : conserver les valeurs exactes le plus longtemps possible, n'arrondir qu'à la fin.",
+              "**Répondre sans unité** : « 5 » au lieu de « 5 m » est pénalisé.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 5 — L'aménagement de la cour (figures : terrain, plan)
+  // ======================================================================
+  {
+    slug: "maths-5-l-amenagement-de-la-cour",
+    matiere: "maths",
+    titre: "Sujet blanc n°5 — L'aménagement de la cour",
+    description:
+      "Aire d'une figure composée, plan à l'échelle et diagonale (Pythagore), volume d'un bac à sable et proportionnalité d'une recette. Un sujet riche en figures.",
+    epreuve: "Première épreuve d'admissibilité — Partie B (Mathématiques)",
+    duree: "2 h conseillées",
+    totalPoints: 20,
+    consignes: [
+      "L'usage de la calculatrice est autorisé.",
+      "La clarté des raisonnements et la qualité de la rédaction sont évaluées.",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Exercice 1 — Le nouvel espace vert",
+        points: 5,
+        intro: "Toutes les réponses devront être justifiées.",
+        blocks: [
+          {
+            type: "p",
+            text: "L'école aménage un espace vert dont la forme est un rectangle surmonté d'un triangle, comme sur le schéma ci-dessous.",
+          },
+          {
+            type: "figure",
+            illustration: "maths-terrain-composite",
+            titre: "Document — Plan de l'espace vert",
+            legende: "Figure non à l'échelle (illustration originale).",
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Calculer l'aire de la partie rectangulaire.", points: 1 },
+              { num: "2.", text: "Calculer l'aire de la partie triangulaire.", points: 1.5 },
+              { num: "3.", text: "En déduire l'aire totale de l'espace vert.", points: 1 },
+              {
+                num: "4.",
+                text: "On veut recouvrir tout l'espace vert de gazon vendu 8 € le m². Quel sera le coût total ?",
+                points: 1.5,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 2 — Le plan de la cour",
+        points: 5,
+        intro: "Toutes les réponses devront être justifiées.",
+        blocks: [
+          {
+            type: "p",
+            text: "La cour de récréation est représentée par un rectangle sur un plan à l'échelle 1/200. Une allée relie deux coins opposés (voir le schéma).",
+          },
+          {
+            type: "figure",
+            illustration: "maths-plan-cour",
+            titre: "Document — Plan de la cour (échelle 1/200)",
+            legende: "Illustration originale.",
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Déterminer les dimensions réelles de la cour, en mètres.", points: 2 },
+              { num: "2.", text: "Calculer l'aire réelle de la cour, en m².", points: 1.5 },
+              {
+                num: "3.",
+                text: "Calculer la longueur réelle de l'allée diagonale, arrondie au mètre.",
+                points: 1.5,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 3 — Le bac à sable",
+        points: 4,
+        intro: "Toutes les réponses devront être justifiées.",
+        blocks: [
+          {
+            type: "p",
+            text: "Un bac à sable a la forme d'un pavé droit de 3 m de long, 2 m de large et 0,4 m de haut.",
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Calculer le volume du bac à sable, en m³.", points: 1.5 },
+              { num: "2.", text: "Exprimer ce volume en litres (rappel : 1 m³ = 1 000 L).", points: 1 },
+              {
+                num: "3.",
+                text: "On remplit le bac de sable aux trois quarts de sa hauteur. Quel volume de sable, en m³, faut-il ?",
+                points: 1.5,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 4 — La recette de la kermesse",
+        points: 3,
+        blocks: [
+          {
+            type: "p",
+            text: "Une recette de gâteau pour 4 personnes nécessite 200 g de farine. On suppose la quantité de farine proportionnelle au nombre de personnes.",
+          },
+          {
+            type: "table",
+            titre: "Tableau à compléter",
+            entetes: ["Nombre de personnes", "4", "6", "10"],
+            lignes: [["Farine (g)", "200", "…", "…"]],
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "1.", text: "Compléter le tableau de proportionnalité.", points: 1.5 },
+              { num: "2.", text: "Quel est le coefficient de proportionnalité (masse de farine par personne) ?", points: 1 },
+              { num: "3.", text: "Avec 750 g de farine, pour combien de personnes peut-on préparer le gâteau ?", points: 0.5 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 5 — QCM",
+        points: 3,
+        intro: "Une seule réponse exacte par question.",
+        blocks: [
+          {
+            type: "table",
+            entetes: ["Question", "A", "B", "C", "D"],
+            lignes: [
+              ["1. 2,4 m³ en litres :", "24 L", "240 L", "2 400 L", "24 000 L"],
+              ["2. Aire d'un rectangle 20 m × 12 m :", "64 m²", "120 m²", "240 m²", "32 m²"],
+              ["3. √(30² + 40²) =", "50", "70", "35", "1 250"],
+              ["4. Les 3/4 de 0,4 m :", "0,1 m", "0,3 m", "0,12 m", "0,75 m"],
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Exercice", "Domaine", "Points"],
+      lignes: [
+        ["1", "Aire d'une figure composée, coût", "5"],
+        ["2", "Échelle, aire, diagonale (Pythagore)", "5"],
+        ["3", "Volume d'un pavé, conversions, fraction", "4"],
+        ["4", "Proportionnalité", "3"],
+        ["5", "QCM (conversions, aires, Pythagore, fractions)", "3"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "Sujet appuyé sur des figures. On attend un découpage clair des figures composées, une gestion rigoureuse des échelles et des unités, et l'emploi du théorème de Pythagore pour la diagonale.",
+    correction: [
+      {
+        titre: "Exercice 1 — Le nouvel espace vert",
+        points: 5,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1,
+            question: "Aire de la partie rectangulaire.",
+            reponse: ["Aire du rectangle = longueur × largeur = 20 × 12 = **240 m²**."],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1.5,
+            question: "Aire de la partie triangulaire.",
+            reponse: [
+              "Le triangle a pour base 20 m (le haut du rectangle) et pour hauteur 9 m.",
+              "Aire du triangle = (base × hauteur) ÷ 2 = (20 × 9) ÷ 2 = 180 ÷ 2 = **90 m²**.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1,
+            question: "Aire totale.",
+            reponse: ["Aire totale = 240 + 90 = **330 m²**."],
+            attendu: "Additionner les aires des deux figures simples qui composent la surface.",
+          },
+          {
+            type: "qa",
+            num: "4.",
+            points: 1.5,
+            question: "Coût du gazon.",
+            reponse: ["Coût = 330 m² × 8 €/m² = **2 640 €**."],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 2 — Le plan de la cour",
+        points: 5,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 2,
+            question: "Dimensions réelles.",
+            reponse: [
+              "Échelle 1/200 : 1 cm sur le plan représente 200 cm = 2 m en réalité.",
+              "Longueur : 15 cm × 200 = 3 000 cm = 30 m. Largeur : 9 cm × 200 = 1 800 cm = 18 m.",
+              "La cour mesure **30 m sur 18 m**.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1.5,
+            question: "Aire réelle.",
+            reponse: ["Aire = 30 × 18 = **540 m²**."],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1.5,
+            question: "Longueur réelle de l'allée diagonale.",
+            reponse: [
+              "L'allée est la diagonale du rectangle : elle forme l'hypoténuse d'un triangle rectangle de côtés 30 m et 18 m.",
+              "Pythagore : diagonale² = 30² + 18² = 900 + 324 = 1 224. Diagonale = √1 224 ≈ 34,99 m ≈ **35 m**.",
+            ],
+            attendu:
+              "Reconnaître que la diagonale est l'hypoténuse d'un triangle rectangle et appliquer Pythagore.",
+          },
+        ],
+      },
+      {
+        titre: "Exercice 3 — Le bac à sable",
+        points: 4,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1.5,
+            question: "Volume du bac.",
+            reponse: ["Volume d'un pavé = L × l × h = 3 × 2 × 0,4 = **2,4 m³**."],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1,
+            question: "Volume en litres.",
+            reponse: ["2,4 m³ × 1 000 = **2 400 L**."],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 1.5,
+            question: "Volume de sable (aux trois quarts).",
+            reponse: [
+              "Trois quarts du volume : 3/4 × 2,4 = (2,4 ÷ 4) × 3 = 0,6 × 3 = **1,8 m³** de sable.",
+            ],
+            attendu:
+              "« Aux trois quarts de la hauteur » revient ici à prendre les 3/4 du volume, car seule la hauteur de remplissage varie proportionnellement.",
+          },
+        ],
+      },
+      {
+        titre: "Exercice 4 — La recette de la kermesse",
+        points: 3,
+        blocks: [
+          {
+            type: "qa",
+            num: "1.",
+            points: 1.5,
+            question: "Compléter le tableau.",
+            reponse: [
+              "La farine est proportionnelle au nombre de personnes. Pour 6 personnes : 200 × 6 ÷ 4 = 300 g. Pour 10 personnes : 200 × 10 ÷ 4 = 500 g.",
+              "Tableau : 4 → 200 g ; 6 → **300 g** ; 10 → **500 g**.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "2.",
+            points: 1,
+            question: "Coefficient de proportionnalité.",
+            reponse: ["200 ÷ 4 = **50 g de farine par personne**."],
+          },
+          {
+            type: "qa",
+            num: "3.",
+            points: 0.5,
+            question: "Avec 750 g de farine.",
+            reponse: ["750 ÷ 50 = **15 personnes**."],
+          },
+        ],
+      },
+      {
+        titre: "Exercice 5 — QCM",
+        points: 3,
+        blocks: [
+          {
+            type: "table",
+            titre: "Réponses",
+            entetes: ["Question", "Réponse", "Justification rapide"],
+            lignes: [
+              ["1", "**C** (2 400 L)", "2,4 × 1 000 = 2 400."],
+              ["2", "**C** (240 m²)", "20 × 12 = 240."],
+              ["3", "**A** (50)", "30² + 40² = 2 500 ; √2 500 = 50."],
+              ["4", "**B** (0,3 m)", "3/4 × 0,4 = 0,3."],
+            ],
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Figures, échelles et volumes",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Décomposer une figure complexe** en figures simples (rectangle, triangle) dont on sait calculer l'aire, puis additionner (ou soustraire).",
+              "**Faire une phrase-réponse** avec l'unité correcte à chaque question.",
+              "**Échelle** : écrire la relation « 1 unité sur le plan → tant en réalité », convertir en une seule unité, puis multiplier ou diviser.",
+              "**Diagonale d'un rectangle** : c'est l'hypoténuse d'un triangle rectangle → penser à Pythagore.",
+              "**Volumes** : bien identifier la formule (pavé : L × l × h) et l'unité (m³, puis conversion en litres si demandé).",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Oublier de diviser par 2** dans l'aire du triangle.",
+              "**Confondre 1 m³ et 1 L** : 1 m³ = 1 000 L (et 1 L = 1 dm³).",
+              "**Prendre la mauvaise échelle** : à l'échelle 1/200, la réalité est 200 fois plus grande que le plan.",
+              "**Additionner les longueurs pour la diagonale** (30 + 18 = 48) au lieu d'appliquer Pythagore (√(30² + 18²) ≈ 35).",
+              "**Confondre m² et m³** : une aire est en m², un volume en m³.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
