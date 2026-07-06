@@ -287,4 +287,268 @@ export const MUSIQUE_SUJETS: SujetBlanc[] = [
       },
     ],
   },
+
+  // ======================================================================
+  // SUJET 4 — La voix et le chant choral
+  // ======================================================================
+  {
+    slug: "musique-4-la-voix-et-le-chant-choral",
+    matiere: "musique",
+    titre: "Sujet blanc n°4 — La voix, premier instrument",
+    description:
+      "La voix comme instrument universel et le chant choral. Réflexion sur les registres vocaux et sur les bienfaits de la pratique chorale à l'école.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Éducation musicale)",
+    duree: "40 min conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Répondre par des réponses courtes et structurées (15 lignes maximum).",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Éducation musicale — La voix et le chant choral",
+        points: 20,
+        blocks: [
+          {
+            type: "document",
+            titre: "Citation",
+            source: "Formulation originale (support de réflexion).",
+            lines: [
+              "« La voix est le seul instrument que chacun porte en soi : avant de jouer d'un instrument, l'enfant chante ; avant de lire une note, il fredonne. »",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "En quoi la voix peut-elle être considérée comme un instrument à part entière ? Vous évoquerez les registres vocaux et la spécificité du chant choral.",
+                points: 10,
+              },
+              {
+                num: "b.",
+                text: "Quels sont les bienfaits de la pratique du chant choral à l'école ? Comment mettre en place un projet de chorale avec une classe ?",
+                points: 10,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Question", "Compétences évaluées", "Points"],
+      lignes: [
+        ["a.", "La voix comme instrument, registres, chant choral", "10"],
+        ["b.", "Bienfaits et mise en œuvre d'une chorale de classe", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend un vocabulaire vocal correct (registres, polyphonie, a cappella) et, pour la question b, une mise en œuvre réaliste articulant apprentissage, écoute et plaisir de chanter ensemble.",
+    correction: [
+      {
+        titre: "Éducation musicale — La voix et le chant choral",
+        points: 20,
+        blocks: [
+          {
+            type: "p",
+            text: "**a. La voix, un instrument à part entière.**",
+          },
+          {
+            type: "intro",
+            citation:
+              "La musique exprime ce qui ne peut être dit et sur quoi il est impossible de rester silencieux.",
+            auteur: "Victor Hugo (1802-1885), William Shakespeare",
+            paragraphs: [
+              "Victor Hugo reconnaît à la musique le pouvoir de dire l'indicible, ce que les mots seuls ne peuvent atteindre.",
+              "Or la voix est le premier moyen par lequel l'être humain accède à cette expression : instrument intime et universel, elle mérite d'être considérée comme un instrument de musique à part entière.",
+            ],
+          },
+          {
+            type: "p",
+            text: "La voix produit des sons de hauteurs et de timbres variés ; elle possède des **registres** (grave, médium, aigu) et se décline selon les tessitures (soprano, alto, ténor, basse). Elle peut chanter seule ou en groupe, avec ou sans accompagnement (**a cappella**). Le **chant choral** en fait un instrument collectif : plusieurs voix se superposent (unisson, puis **polyphonie** à plusieurs parties) pour former un ensemble harmonieux, exigeant écoute mutuelle et justesse.",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 10,
+            question: "Bienfaits et mise en œuvre d'une chorale de classe.",
+            reponse: [
+              "Bienfaits : le chant choral développe l'**oreille** et la justesse, la **mémoire**, la **respiration** et la maîtrise du corps ; il apprend à **écouter les autres** et à tenir sa place dans un groupe (coopération, cohésion) ; il procure le plaisir de chanter ensemble et la confiance en soi.",
+              "Mise en œuvre : choisir un répertoire adapté à l'âge, apprendre le chant par imitation (phrase par phrase), travailler la posture et la respiration, commencer à l'unisson avant d'introduire éventuellement un canon ou une deuxième voix, et fixer un objectif (un petit concert, une fête d'école) qui motive les élèves.",
+            ],
+            attendu:
+              "Citer plusieurs bienfaits (musicaux, corporels, sociaux) ET décrire une démarche progressive et motivante.",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Éducation musicale",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Mobiliser le vocabulaire précis** (registre, tessiture, unisson, polyphonie, a cappella).",
+              "**Distinguer les plans** : la voix comme instrument (technique) et le chant choral (pratique collective).",
+              "**Introduire la réponse rédigée** par une amorce (une citation d'artiste ou d'écrivain bien choisie est valorisée).",
+              "**Pour la mise en œuvre**, proposer une démarche progressive (imitation, unisson puis polyphonie) et un objectif motivant.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Confondre hauteur (grave/aigu) et intensité (fort/doux)** en décrivant la voix.",
+              "**Négliger la dimension collective** du chant choral (écoute mutuelle, polyphonie).",
+              "**Proposer un répertoire inadapté** à l'âge des élèves.",
+              "**Commencer directement par la réponse** sans introduction construite.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 5 — Les musiques du monde
+  // ======================================================================
+  {
+    slug: "musique-5-les-musiques-du-monde",
+    matiere: "musique",
+    titre: "Sujet blanc n°5 — Les musiques du monde",
+    description:
+      "Diversité et métissage des musiques du monde. Réflexion sur ce qu'elles apportent et sur l'ouverture culturelle qu'elles permettent à l'école.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Éducation musicale)",
+    duree: "40 min conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Répondre par des réponses courtes et structurées (15 lignes maximum).",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Éducation musicale — Diversité des musiques du monde",
+        points: 20,
+        blocks: [
+          {
+            type: "document",
+            titre: "Citation",
+            source: "Formulation originale (support de réflexion).",
+            lines: [
+              "« Chaque peuple a inventé ses instruments, ses rythmes et ses chants ; réunies, ces musiques dessinent la carte sonore de l'humanité. »",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "Qu'appelle-t-on « musiques du monde » ? Montrez, à l'aide d'exemples, la diversité des instruments et des traditions musicales selon les cultures.",
+                points: 10,
+              },
+              {
+                num: "b.",
+                text: "En quoi faire découvrir les musiques du monde à l'école contribue-t-il à l'ouverture culturelle des élèves ? Proposez une activité d'écoute.",
+                points: 10,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Question", "Compétences évaluées", "Points"],
+      lignes: [
+        ["a.", "Notion de musiques du monde, diversité, exemples", "10"],
+        ["b.", "Ouverture culturelle + activité d'écoute", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend des exemples précis et variés (instruments, aires culturelles) et, pour la question b, une activité d'écoute active reliant musique et ouverture au monde.",
+    correction: [
+      {
+        titre: "Éducation musicale — Diversité des musiques du monde",
+        points: 20,
+        blocks: [
+          {
+            type: "p",
+            text: "**a. Les musiques du monde et leur diversité.**",
+          },
+          {
+            type: "intro",
+            citation: "La musique est la langue universelle de l'humanité.",
+            auteur: "Henry Wadsworth Longfellow (1807-1882), Outre-Mer",
+            paragraphs: [
+              "L'écrivain américain Longfellow voit dans la musique une langue que tous les peuples partagent, par-delà les frontières et les mots.",
+              "Les musiques du monde illustrent ce paradoxe : elles sont à la fois très diverses selon les cultures et universellement compréhensibles comme expression humaine. C'est cette diversité que le développement va montrer.",
+            ],
+          },
+          {
+            type: "p",
+            text: "On appelle « **musiques du monde** » l'ensemble des musiques traditionnelles et populaires des différentes cultures, souvent transmises oralement. Leur diversité est immense : instruments propres à chaque aire (djembé et kora en Afrique de l'Ouest, sitar et tablas en Inde, gamelan en Indonésie, cornemuse en Écosse, guitare flamenca en Espagne), rythmes et échelles particuliers, fonctions variées (fête, rituel, danse, travail). Les musiques actuelles naissent souvent du **métissage** de ces traditions (jazz, musiques latines).",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 10,
+            question: "Ouverture culturelle et activité d'écoute.",
+            reponse: [
+              "Découvrir les musiques du monde développe la **curiosité** et le **respect de la diversité** : les élèves entendent d'autres timbres, d'autres langues, d'autres façons de faire de la musique, et comprennent que chaque culture a sa richesse. Cela favorise l'ouverture et lutte contre les préjugés.",
+              "Activité d'écoute : faire écouter deux extraits de régions différentes, faire **repérer les instruments**, décrire le rythme et l'ambiance avec des mots, situer la musique sur une carte, éventuellement accompagner par des percussions corporelles. On relie écoute active, vocabulaire et culture (lien possible avec la géographie).",
+            ],
+            attendu:
+              "Justifier l'apport culturel ET proposer une activité d'écoute active (repérer, décrire, situer), pas seulement « écouter ».",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Parler des musiques du monde",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Donner des exemples précis et variés** (instruments, aires culturelles) plutôt que des généralités.",
+              "**Employer un vocabulaire juste** (timbre, rythme, tradition orale, métissage).",
+              "**Introduire la réponse** par une amorce pertinente (citation bien choisie).",
+              "**Proposer une écoute active** : toujours associer l'écoute à une tâche (repérer, décrire, comparer, situer).",
+              "**Croiser les disciplines** (géographie, langues, EMC) pour l'ouverture culturelle.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Rester dans le vague** (« il y a beaucoup de musiques ») sans exemples concrets d'instruments ou de cultures.",
+              "**Proposer une écoute passive** sans tâche précise pour les élèves.",
+              "**Réduire les musiques du monde à un folklore figé** : montrer aussi les métissages et la vitalité actuelle.",
+              "**Plaquer une citation** sans l'expliquer ni la relier au propos.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];

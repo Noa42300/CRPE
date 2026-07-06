@@ -424,4 +424,350 @@ export const LANGUES_SUJETS: SujetBlanc[] = [
       },
     ],
   },
+
+  // ======================================================================
+  // SUJET 4 — Anglais : School meals and healthy eating
+  // ======================================================================
+  {
+    slug: "langues-4-anglais-school-meals",
+    matiere: "langues",
+    titre: "Sujet blanc n°4 — Anglais : School meals and healthy eating",
+    description:
+      "Compréhension d'un texte anglais sur les repas scolaires et l'alimentation, puis expression écrite (~120 mots). Niveau B1.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 4 (Langue vivante : anglais)",
+    duree: "45 min conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Answer the comprehension questions in your own words, in English.",
+      "Write about 120 words for the expression task.",
+      "Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Reading — What's on the school plate?",
+        points: 10,
+        blocks: [
+          {
+            type: "document",
+            titre: "Text (about 190 words)",
+            source: "Original text written for this mock exam.",
+            lines: [
+              "For many children, the meal they eat at school is the most important one of their day. A good school lunch gives them the energy to learn, to play and to concentrate in the afternoon.",
+              "In recent years, many schools have tried to improve what they offer. They serve more fresh vegetables and fruit, cook with less salt and sugar, and sometimes grow their own herbs in a small garden. Some schools even invite pupils to help prepare simple dishes, so that they discover new tastes without fear.",
+              "Yet challenges remain. Healthy food can be more expensive, and some children refuse anything they do not already know. Teachers also notice that habits learnt at home are hard to change. This is why food education matters: when children understand where food comes from and why balance is important, they make better choices.",
+              "Sharing a meal is not only about eating. Around the table, children learn to wait, to talk and to respect others. A calm, pleasant lunchtime is, in its own way, a lesson for life.",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "a.", text: "Why is the school meal so important for many children, according to the text?", points: 2 },
+              { num: "b.", text: "What have schools done to improve what they offer? (Give two examples.)", points: 3 },
+              { num: "c.", text: "According to the text, what challenges make healthy eating difficult at school? (Give two.)", points: 3 },
+              { num: "d.", text: "The text says lunchtime is « a lesson for life ». Explain what the author means.", points: 2 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Writing — Expression (about 120 words)",
+        points: 10,
+        blocks: [
+          {
+            type: "note",
+            variant: "info",
+            titre: "Task",
+            lines: [
+              "How can schools help children eat better and enjoy mealtimes? Give examples from your own experience.",
+              "Write about 120 words in English.",
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Partie", "Compétences évaluées", "Points"],
+      lignes: [
+        ["Compréhension", "Repérage et reformulation (a-d)", "10"],
+        ["Expression", "Contenu, lexique, correction grammaticale (B1)", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On valorise la reformulation personnelle en compréhension et, en expression, un texte cohérent d'environ 120 mots au niveau B1, avec un lexique adapté au thème.",
+    correction: [
+      {
+        titre: "Reading — Éléments de réponse attendus",
+        points: 10,
+        blocks: [
+          {
+            type: "qa",
+            num: "a.",
+            points: 2,
+            question: "Why is the school meal so important?",
+            reponse: [
+              "For many children it is **the most important meal of their day**; it gives them the **energy to learn, play and concentrate** in the afternoon.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 3,
+            question: "Two improvements made by schools.",
+            reponse: [
+              "They serve **more fresh fruit and vegetables** and cook with **less salt and sugar**.",
+              "Some **grow their own herbs** or **invite pupils to help prepare dishes** to discover new tastes.",
+            ],
+            attendu: "Deux exemples distincts, reformulés.",
+          },
+          {
+            type: "qa",
+            num: "c.",
+            points: 3,
+            question: "Two challenges.",
+            reponse: [
+              "Healthy food can be **more expensive**, and some children **refuse food they do not know**.",
+              "**Habits learnt at home** are hard to change.",
+            ],
+          },
+          {
+            type: "qa",
+            num: "d.",
+            points: 2,
+            question: "« A lesson for life » — meaning.",
+            reponse: [
+              "Lunchtime is not only about eating: around the table, children **learn to wait, to talk and to respect others**. These social skills are useful throughout life, hence « a lesson for life ».",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Writing — Proposition de production (~120 mots)",
+        points: 10,
+        blocks: [
+          {
+            type: "note",
+            variant: "attendu",
+            titre: "Critères d'évaluation",
+            lines: [
+              "Contenu et pertinence (4 pts) ; richesse du lexique (3 pts) ; correction grammaticale et cohérence, niveau B1 (3 pts).",
+            ],
+          },
+          {
+            type: "p",
+            text: "**Exemple de production :** *Schools can do a lot to help children eat better and enjoy their meals. First, they should offer fresh and varied food, including fruit and vegetables that look colourful and tasty. Explaining where food comes from also helps: when children visit a garden or cook a simple dish, they are more willing to try new tastes. In my experience, children eat better when the atmosphere is calm and pleasant, so lunchtime should not be rushed. Teachers can encourage pupils to talk quietly and to respect others at the table. Finally, involving families is important, because eating habits begin at home. Step by step, school can turn a simple meal into a real moment of learning and sharing.* (≈ 120 mots)",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — L'épreuve de langue vivante (B1)",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Lire le texte deux fois** : une fois pour le sens général, une fois pour repérer les informations précises.",
+              "**Reformuler** dans la langue cible plutôt que recopier des phrases entières du texte.",
+              "**Répondre en phrases complètes** et correctes, même courtes.",
+              "**Pour l'expression**, faire un brouillon rapide (2-3 idées), respecter le nombre de mots, varier le vocabulaire et les connecteurs (first, then, however, finally).",
+              "**Se relire** pour corriger les accords, les temps et l'orthographe.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Recopier des phrases du texte** au lieu de reformuler (« in your own words » est explicitement demandé).",
+              "**Ne pas respecter le nombre de mots** (≈ 120) : trop court ou trop long est pénalisé.",
+              "**Oublier les connecteurs logiques** : le texte doit être structuré.",
+              "**Négliger la relecture** : erreurs de conjugaison (present/past), oubli du « s » à la 3ᵉ personne, faux amis.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+
+  // ======================================================================
+  // SUJET 5 — Espagnol : Los oficios de antes
+  // ======================================================================
+  {
+    slug: "langues-5-espagnol-oficios-de-antes",
+    matiere: "langues",
+    titre: "Sujet blanc n°5 — Espagnol : Los oficios de antes",
+    description:
+      "Compréhension d'un texte espagnol sur les métiers d'autrefois et la transmission, puis expression écrite (~120 mots). Niveau B1.",
+    epreuve: "Seconde épreuve d'admissibilité — Domaine 4 (Langue vivante : espagnol)",
+    duree: "45 min conseillées",
+    totalPoints: 20,
+    consignes: [
+      "Responda a las preguntas de comprensión en español, con sus propias palabras.",
+      "Escriba unas 120 palabras para la expresión.",
+      "Baremo indicativo, sobre 20 puntos.",
+    ],
+    sujet: [
+      {
+        titre: "Comprensión — Los oficios de antes",
+        points: 10,
+        blocks: [
+          {
+            type: "document",
+            titre: "Texto (unas 180 palabras)",
+            source: "Texto original escrito para este examen de prueba.",
+            lines: [
+              "En muchos pueblos, todavía se recuerda a los artesanos de antes: el herrero, el zapatero, el panadero que abría su horno antes del amanecer. Eran oficios duros, aprendidos poco a poco, casi siempre transmitidos de padres a hijos.",
+              "Hoy, muchos de esos oficios han desaparecido o han cambiado por completo. Las máquinas fabrican en unas horas lo que antes costaba días de trabajo. Sin embargo, algo se ha perdido con ellos: el gesto preciso de la mano, el conocimiento de los materiales, el orgullo del trabajo bien hecho.",
+              "Por suerte, en los últimos años, muchos jóvenes vuelven a interesarse por estos saberes. Aprenden a trabajar la madera, el cuero o la cerámica, y descubren el placer de crear algo con sus propias manos. Algunas escuelas organizan talleres con artesanos para que los niños comprendan de dónde vienen los objetos que usan cada día.",
+              "Recordar los oficios de antes no significa vivir en el pasado, sino valorar un saber que merece ser transmitido.",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              { num: "a.", text: "¿Cómo se aprendían, según el texto, los oficios de antes?", points: 2 },
+              { num: "b.", text: "¿Qué se ha perdido con la desaparición de esos oficios? Cite dos elementos.", points: 3 },
+              { num: "c.", text: "¿Por qué vuelven a interesarse los jóvenes por estos saberes? (Dé dos razones.)", points: 3 },
+              { num: "d.", text: "Explique la última frase del texto con sus propias palabras.", points: 2 },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Expresión — (unas 120 palabras)",
+        points: 10,
+        blocks: [
+          {
+            type: "note",
+            variant: "info",
+            titre: "Tarea",
+            lines: [
+              "En su opinión, ¿por qué es importante conservar y transmitir los saberes tradicionales? Dé ejemplos concretos.",
+              "Escriba unas 120 palabras en español.",
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Partie", "Compétences évaluées", "Points"],
+      lignes: [
+        ["Compréhension", "Repérage et reformulation (a-d)", "10"],
+        ["Expression", "Contenu, lexique, correction grammaticale (B1)", "10"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On valorise la reformulation en espagnol et, en expression, un texte cohérent d'environ 120 mots au niveau B1, avec un lexique adapté au thème de la transmission.",
+    correction: [
+      {
+        titre: "Comprensión — Éléments de réponse attendus",
+        points: 10,
+        blocks: [
+          {
+            type: "qa",
+            num: "a.",
+            points: 2,
+            question: "¿Cómo se aprendían los oficios de antes?",
+            reponse: [
+              "Se aprendían **poco a poco** y **se transmitían de padres a hijos** (de generación en generación).",
+            ],
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 3,
+            question: "¿Qué se ha perdido?",
+            reponse: [
+              "**El gesto preciso de la mano** y **el conocimiento de los materiales**.",
+              "También **el orgullo del trabajo bien hecho**.",
+            ],
+            attendu: "Deux éléments distincts, reformulés.",
+          },
+          {
+            type: "qa",
+            num: "c.",
+            points: 3,
+            question: "¿Por qué vuelven a interesarse los jóvenes?",
+            reponse: [
+              "Descubren el **placer de crear algo con sus propias manos** y aprenden a trabajar la madera, el cuero o la cerámica.",
+              "Buscan recuperar un **saber** y un valor que se estaba perdiendo (el trabajo manual, el trabajo bien hecho).",
+            ],
+          },
+          {
+            type: "qa",
+            num: "d.",
+            points: 2,
+            question: "Explicar la última frase.",
+            reponse: [
+              "Recordar los oficios de antes **no es querer vivir en el pasado**, sino **reconocer el valor de un saber** que merece ser conservado y transmitido a las nuevas generaciones.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Expresión — Proposition de production (~120 mots)",
+        points: 10,
+        blocks: [
+          {
+            type: "note",
+            variant: "attendu",
+            titre: "Critères d'évaluation",
+            lines: [
+              "Contenu et pertinence (4 pts) ; lexique adapté (3 pts) ; correction grammaticale et cohérence, niveau B1 (3 pts).",
+            ],
+          },
+          {
+            type: "p",
+            text: "**Ejemplo de producción :** *Para mí, conservar los saberes tradicionales es muy importante, porque forman parte de nuestra historia y de nuestra identidad. Cuando un oficio desaparece, se pierde también una manera de trabajar y de crear que tardó siglos en construirse. Por ejemplo, saber trabajar la madera o la cerámica no solo es útil, sino que enseña paciencia y respeto por los materiales. Además, transmitir estos saberes a los niños les permite comprender de dónde vienen los objetos y valorar el trabajo manual. En mi opinión, la escuela puede ayudar organizando talleres con artesanos. Así, el pasado y el presente se unen, y un saber antiguo sigue vivo en las manos de los más jóvenes.* (≈ 120 palabras)",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — L'épreuve de langue vivante (B1)",
+        blocks: [
+          {
+            type: "list",
+            ordered: true,
+            items: [
+              "**Repérer les mots-clés** de chaque question et retrouver la zone du texte concernée.",
+              "**Reformuler avec ses propres mots** plutôt que recopier.",
+              "**Soigner les temps du passé** (pretérito, imperfecto) et les accords.",
+              "**Pour l'expression**, structurer avec des connecteurs (primero, además, por ejemplo, en mi opinión) et respecter le nombre de mots.",
+              "**Se relire** pour corriger conjugaisons, accords et orthographe (accents).",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Recopier des phrases du texte** au lieu de reformuler.",
+              "**Oublier les accents** et la ponctuation espagnole.",
+              "**Confondre ser et estar**, ou pretérito et imperfecto.",
+              "**Ne pas respecter la longueur** (≈ 120 mots) ou oublier les connecteurs logiques.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
