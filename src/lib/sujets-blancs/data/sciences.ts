@@ -18,7 +18,6 @@ export const SCIENCES_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — L'eau dans tous ses états",
     description:
       "États et changements d'état, dissolution, cycle de l'eau et raisonnement d'élèves. Un sujet de sciences complet abordant physique-chimie et démarche d'investigation.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 1 (Sciences et technologie)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,
@@ -212,7 +211,6 @@ export const SCIENCES_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — Le vivant et son environnement",
     description:
       "Caractéristiques du vivant, classification, chaînes alimentaires et respiration. Sujet de SVT centré sur le raisonnement scientifique et les conceptions des élèves.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 1 (Sciences et technologie)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,
@@ -405,7 +403,6 @@ export const SCIENCES_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — Énergie et objets techniques",
     description:
       "Circuits électriques, sources et formes d'énergie, fonctions d'un objet technique et lecture d'un algorithme simple. Un sujet orienté physique et technologie.",
-    difficulty: "difficile",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 1 (Sciences et technologie)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,

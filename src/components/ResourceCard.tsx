@@ -5,7 +5,7 @@
  * Tout le contenu est gratuit : la carte mène directement à la ressource.
  */
 import Link from "next/link";
-import { DifficultyBadge, TypeBadge } from "./Badges";
+import { TypeBadge } from "./Badges";
 import { SUBJECT_LABELS, type Resource } from "@/lib/types";
 
 export function ResourceCard({ resource }: { resource: Resource }) {
@@ -14,9 +14,6 @@ export function ResourceCard({ resource }: { resource: Resource }) {
       {/* En-tête : badges */}
       <div className="mb-4 flex flex-wrap items-center gap-2">
         <TypeBadge type={resource.type} />
-        {resource.difficulty && (
-          <DifficultyBadge difficulty={resource.difficulty} />
-        )}
       </div>
 
       {/* Matière */}

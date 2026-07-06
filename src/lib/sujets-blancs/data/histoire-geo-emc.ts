@@ -18,7 +18,6 @@ export const HGEMC_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — Habiter la ville, vivre en République",
     description:
       "Géographie de l'urbanisation, symboles et valeurs de la République, et étude de la Révolution française à partir de documents. Un sujet complet couvrant les trois disciplines.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,
@@ -211,7 +210,6 @@ export const HGEMC_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — Se déplacer, s'engager, comprendre le passé",
     description:
       "Géographie des mobilités et des transports, engagement et responsabilité en EMC, et étude de la monarchie absolue de Louis XIV. Sujet exigeant sur les trois disciplines.",
-    difficulty: "difficile",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,
@@ -398,7 +396,6 @@ export const HGEMC_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — Environnement, liberté d'expression et grandes découvertes",
     description:
       "Géographie des risques et du développement durable, liberté d'expression et médias en EMC, et étude des grandes découvertes au XVᵉ-XVIᵉ siècle. Trois disciplines articulées.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 3 (Histoire-Géographie EMC)",
     duree: "1 h 20 conseillée",
     totalPoints: 20,

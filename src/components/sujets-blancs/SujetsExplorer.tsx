@@ -12,19 +12,16 @@
  */
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { DifficultyBadge } from "@/components/Badges";
 import {
   SUJET_MATIERES,
   SUJET_MATIERE_ORDER,
   type SujetBlanc,
   type SujetMatiere,
 } from "@/lib/sujets-blancs/types";
-import { DIFFICULTY_LABELS, type Difficulty } from "@/lib/types";
 
 export function SujetsExplorer({ sujets }: { sujets: SujetBlanc[] }) {
   const [query, setQuery] = useState("");
   const [matiere, setMatiere] = useState<SujetMatiere | "all">("all");
-  const [diff, setDiff] = useState<Difficulty | "all">("all");
 
   const matieres = useMemo(
     () =>
@@ -40,10 +37,9 @@ export function SujetsExplorer({ sujets }: { sujets: SujetBlanc[] }) {
         s.titre.toLowerCase().includes(q) ||
         s.description.toLowerCase().includes(q);
       const okMatiere = matiere === "all" || s.matiere === matiere;
-      const okDiff = diff === "all" || s.difficulty === diff;
-      return okQuery && okMatiere && okDiff;
+      return okQuery && okMatiere;
     });
-  }, [sujets, query, matiere, diff]);
+  }, [sujets, query, matiere]);
 
   // Regroupement par matière pour un affichage clair.
   const grouped = useMemo(() => {
@@ -87,18 +83,6 @@ export function SujetsExplorer({ sujets }: { sujets: SujetBlanc[] }) {
             </Chip>
           ))}
         </div>
-      </div>
-
-      {/* Filtres difficulté */}
-      <div className="mt-3 flex flex-wrap items-center gap-1.5 rounded-full bg-navy-50 p-1.5 sm:w-fit">
-        <Chip active={diff === "all"} onClick={() => setDiff("all")}>
-          Tous niveaux
-        </Chip>
-        {(["facile", "moyen", "difficile"] as Difficulty[]).map((d) => (
-          <Chip key={d} active={diff === d} onClick={() => setDiff(d)}>
-            {DIFFICULTY_LABELS[d]}
-          </Chip>
-        ))}
       </div>
 
       <p className="mt-6 text-sm text-navy-400">
@@ -151,7 +135,6 @@ function SujetCard({ sujet }: { sujet: SujetBlanc }) {
         <span className={`badge border ${meta.pill}`}>
           {meta.emoji} {meta.label}
         </span>
-        <DifficultyBadge difficulty={sujet.difficulty} />
       </div>
       <h3 className="text-lg font-semibold leading-snug text-navy-900">
         {sujet.titre}

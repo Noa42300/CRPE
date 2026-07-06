@@ -18,7 +18,6 @@ export const MATHS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — La coopérative scolaire",
     description:
       "Cinq exercices indépendants : rangement de nombres et probabilités, comparaison de tarifs, aire d'une figure, statistiques d'une enquête et QCM. Niveau conforme à la partie B.",
-    difficulty: "moyen",
     epreuve: "Première épreuve d'admissibilité — Partie B (Mathématiques)",
     duree: "2 h conseillées",
     totalPoints: 20,
@@ -412,7 +411,6 @@ export const MATHS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — Le jardin pédagogique",
     description:
       "Problème filé et exercices : proportionnalité et pourcentages, périmètre et aire, vitesse et durée, programme de calcul et QCM. Un sujet exigeant et progressif.",
-    difficulty: "difficile",
     epreuve: "Première épreuve d'admissibilité — Partie B (Mathématiques)",
     duree: "2 h conseillées",
     totalPoints: 20,
@@ -739,7 +737,6 @@ export const MATHS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — La kermesse",
     description:
       "Proportionnalité et échelle, probabilités d'une roue, géométrie du triangle rectangle (Pythagore), gestion d'un budget et QCM. Sujet complet et varié.",
-    difficulty: "moyen",
     epreuve: "Première épreuve d'admissibilité — Partie B (Mathématiques)",
     duree: "2 h conseillées",
     totalPoints: 20,

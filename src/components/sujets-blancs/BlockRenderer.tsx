@@ -49,6 +49,31 @@ function OneBlock({ block }: { block: Block }) {
         </p>
       );
 
+    case "intro":
+      return (
+        <div className="rounded-2xl border border-navy-100 bg-gradient-to-br from-navy-50/70 to-white p-5">
+          {block.citation && (
+            <blockquote className="mb-3 border-l-4 border-sky-400 pl-4">
+              <p className="text-lg italic leading-relaxed text-navy-800">
+                «&nbsp;{block.citation}&nbsp;»
+              </p>
+              {block.auteur && (
+                <footer className="mt-1 text-sm font-medium text-navy-500">
+                  — {block.auteur}
+                </footer>
+              )}
+            </blockquote>
+          )}
+          <div className="space-y-2.5 text-[15px] leading-relaxed text-navy-700">
+            {block.paragraphs.map((p, i) => (
+              <p key={i}>
+                <RichText text={p} />
+              </p>
+            ))}
+          </div>
+        </div>
+      );
+
     case "consigne":
       return (
         <p className="rounded-2xl border border-navy-100 bg-navy-50/60 px-4 py-3 text-sm italic leading-relaxed text-navy-600">

@@ -17,7 +17,6 @@ export const MUSIQUE_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — L'orchestre et les timbres",
     description:
       "Familles d'instruments, notion de timbre et rôle de l'orchestre. Deux questions courtes mêlant culture musicale et transposition pédagogique.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Éducation musicale)",
     duree: "40 min conseillées",
     totalPoints: 20,
@@ -111,7 +110,6 @@ export const MUSIQUE_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — Le rythme, la pulsation, le corps",
     description:
       "Notions fondamentales du langage musical : pulsation, tempo, rythme. Réflexion sur la place du corps dans l'apprentissage musical à l'école.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Éducation musicale)",
     duree: "40 min conseillées",
     totalPoints: 20,
@@ -206,7 +204,6 @@ export const MUSIQUE_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — Musique et émotion à l'époque baroque",
     description:
       "Comment la musique cherche à émouvoir : l'exemple de la période baroque. Réflexion sur les moyens musicaux de l'expression et sur l'écoute sensible.",
-    difficulty: "difficile",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Éducation musicale)",
     duree: "40 min conseillées",
     totalPoints: 20,

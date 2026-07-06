@@ -18,7 +18,6 @@ export const ARTS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — Le portrait et le regard",
     description:
       "Questionner ce qu'un portrait donne à voir : ressemblance, intériorité, mise en scène. Deux questions d'analyse courtes autour de l'autoportrait et du portrait peint.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Arts plastiques)",
     duree: "40 min conseillées",
     totalPoints: 20,
@@ -119,7 +118,6 @@ export const ARTS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — Le paysage et le point de vue",
     description:
       "Le paysage n'est jamais une simple copie du réel : cadrage, lumière et composition traduisent un regard. Analyse d'une œuvre paysagère et réflexion sur la représentation.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Arts plastiques)",
     duree: "40 min conseillées",
     totalPoints: 20,
@@ -220,7 +218,6 @@ export const ARTS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — La couleur et l'abstraction",
     description:
       "Quand l'art se libère de la ressemblance : formes, couleurs et émotions. Analyse d'une œuvre abstraite et réflexion sur ce que « comprendre » une œuvre veut dire.",
-    difficulty: "difficile",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 2 (Arts plastiques)",
     duree: "40 min conseillées",
     totalPoints: 20,

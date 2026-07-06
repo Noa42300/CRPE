@@ -19,7 +19,6 @@ export const FRANCAIS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — La lampe du soir",
     description:
       "Étude de la langue, lexique et rédaction autour d'un portrait touchant. Un sujet complet de français dans les conditions de la première épreuve.",
-    difficulty: "moyen",
     epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
     duree: "2 h conseillées",
     totalPoints: 20,
@@ -266,7 +265,6 @@ export const FRANCAIS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — L'arrivée en ville",
     description:
       "Un texte descriptif sur le choc de la grande ville au XIXᵉ siècle. Étude de la langue exigeante, travail sur le lexique de la perception et rédaction argumentée.",
-    difficulty: "difficile",
     epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
     duree: "2 h conseillées",
     totalPoints: 20,
@@ -508,7 +506,6 @@ export const FRANCAIS_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — La lettre retrouvée",
     description:
       "Un récit à la première personne mêlant émotion et suspense. Réécriture au passé, analyse du discours rapporté et réflexion sur la mémoire et l'écrit.",
-    difficulty: "moyen",
     epreuve: "Première épreuve d'admissibilité — Partie A (Français)",
     duree: "2 h conseillées",
     totalPoints: 20,

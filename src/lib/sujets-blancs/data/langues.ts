@@ -18,7 +18,6 @@ export const LANGUES_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°1 — Anglais : Children and screen time",
     description:
       "Compréhension d'un texte anglais sur les écrans et l'enfance, puis expression écrite (~120 mots). Niveau B1, ancré dans le débat éducatif britannique.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 4 (Langue vivante : anglais)",
     duree: "45 min conseillées",
     totalPoints: 20,
@@ -160,7 +159,6 @@ export const LANGUES_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°2 — Espagnol : La naturaleza en la ciudad",
     description:
       "Compréhension d'un texte espagnol sur la végétalisation des villes, puis expression écrite (~120 mots). Niveau B1, thème environnemental.",
-    difficulty: "moyen",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 4 (Langue vivante : espagnol)",
     duree: "45 min conseillées",
     consignes: [
@@ -298,7 +296,6 @@ export const LANGUES_SUJETS: SujetBlanc[] = [
     titre: "Sujet blanc n°3 — Anglais : Learning through sport",
     description:
       "Compréhension d'un texte anglais sur le rôle du sport à l'école, puis expression écrite (~120 mots). Niveau B1, thème du bien-être et de la coopération.",
-    difficulty: "difficile",
     epreuve: "Seconde épreuve d'admissibilité — Domaine 4 (Langue vivante : anglais)",
     duree: "45 min conseillées",
     totalPoints: 20,
