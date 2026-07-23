@@ -25,13 +25,13 @@ export interface LinkGroup {
 export const ECRITES_SUJETS: ExternalLink[] = [
   {
     label: "Sujet 0 — Épreuve écrite 1 (Français)",
-    url: "https://www.devenirenseignant.gouv.fr/media/18094/download",
-    note: "PDF officiel — devenirenseignant.gouv.fr",
+    url: "https://www.devenirenseignant.gouv.fr/les-sujets-des-epreuves-ecrites-et-rapports-des-jurys-des-crpe-1163",
+    note: "Sujets officiels — devenirenseignant.gouv.fr",
   },
   {
     label: "Sujet 0 — Épreuve écrite 2 (Mathématiques)",
     url: "https://www.devenirenseignant.gouv.fr/les-sujets-des-epreuves-ecrites-et-rapports-des-jurys-des-crpe-1163",
-    note: "Sujet officiel — devenirenseignant.gouv.fr",
+    note: "Sujets officiels — devenirenseignant.gouv.fr",
   },
   {
     label: "Tous les sujets officiels (concours bac+3)",
@@ -63,13 +63,13 @@ export const ORALES_SUJETS: ExternalLink[] = [
 export const YOUTUBE_CHANNELS: LinkGroup[] = [
   {
     heading: "Mathématiques",
-    links: [{ label: "Yvan Monka", url: "https://www.youtube.com/@YvanMonka" }],
+    links: [{ label: "Yvan Monka", url: "https://www.youtube.com/@YMONKA" }],
   },
   {
     heading: "Français",
     links: [
-      { label: "Le français by Johann", url: "https://www.youtube.com/@lefrancaisbyjohann" },
-      { label: "Projet Voltaire", url: "https://www.youtube.com/@ProjetVoltaire" },
+      { label: "Le français by Johann", url: "https://www.youtube.com/@francaisauthentique" },
+      { label: "Projet Voltaire", url: "https://www.youtube.com/@ProjetVoltaireOrthographe" },
       { label: "Les Bons Profs", url: "https://www.youtube.com/@LesBonsProfs" },
     ],
   },
@@ -79,15 +79,14 @@ export const YOUTUBE_CHANNELS: LinkGroup[] = [
       { label: "Les Bons Profs", url: "https://www.youtube.com/@LesBonsProfs" },
       { label: "L'Histoire nous le dira", url: "https://www.youtube.com/@LHistoirenousledira" },
       { label: "Histony", url: "https://www.youtube.com/@Histony" },
-      { label: "Lumni", url: "https://www.youtube.com/@lumni" },
+      { label: "Lumni", url: "https://www.youtube.com/@lumnifr" },
     ],
   },
   {
     heading: "SVT",
     links: [
       { label: "Les Bons Profs", url: "https://www.youtube.com/@LesBonsProfs" },
-      { label: "Bio Logique", url: "https://www.youtube.com/@BioLogique" },
-      { label: "e-thinking", url: "https://www.youtube.com/@e-thinking" },
+      { label: "Bio Logique", url: "https://www.youtube.com/@Bio_logique" },
     ],
   },
   {
@@ -101,17 +100,15 @@ export const YOUTUBE_CHANNELS: LinkGroup[] = [
   {
     heading: "Arts plastiques",
     links: [
-      { label: "Le Dessin", url: "https://www.youtube.com/@Le_Dessin" },
       { label: "Centre Pompidou", url: "https://www.youtube.com/@CentrePompidou" },
-      { label: "Lumni", url: "https://www.youtube.com/@lumni" },
+      { label: "Lumni", url: "https://www.youtube.com/@lumnifr" },
     ],
   },
   {
     heading: "Éducation musicale",
     links: [
       { label: "Philharmonie de Paris", url: "https://www.youtube.com/@philharmoniedeparis" },
-      { label: "Lumni", url: "https://www.youtube.com/@lumni" },
-      { label: "MusicTheoryForGuitar", url: "https://www.youtube.com/@MusicTheoryForGuitar" },
+      { label: "Lumni", url: "https://www.youtube.com/@lumnifr" },
     ],
   },
   {
