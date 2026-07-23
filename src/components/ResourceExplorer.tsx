@@ -19,10 +19,12 @@ export function ResourceExplorer({
   resources,
   initialQuery = "",
   showSubjectFilter = true,
+  showSearch = true,
 }: {
   resources: Resource[];
   initialQuery?: string;
   showSubjectFilter?: boolean;
+  showSearch?: boolean;
 }) {
   const [query, setQuery] = useState(initialQuery);
   const [subject, setSubject] = useState<Subject | "all">("all");
@@ -44,22 +46,24 @@ export function ResourceExplorer({
   return (
     <div>
       {/* ---------- Barre de recherche ---------- */}
-      <div className="relative">
-        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-navy-300">
-          <SearchIcon />
-        </span>
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Rechercher une fiche, une vidéo, un sujet..."
-          className="w-full rounded-full border border-navy-200 bg-white py-3.5 pl-12 pr-4 text-navy-900 shadow-sm outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
-        />
-      </div>
+      {showSearch && (
+        <div className="relative">
+          <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-navy-300">
+            <SearchIcon />
+          </span>
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Rechercher une fiche, une vidéo, un sujet..."
+            className="w-full rounded-full border border-navy-200 bg-white py-3.5 pl-12 pr-4 text-navy-900 shadow-sm outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
+          />
+        </div>
+      )}
 
       {/* ---------- Filtres par matière ---------- */}
       {showSubjectFilter && subjects.length > 1 && (
-        <div className="mt-5 flex flex-wrap items-center gap-2">
+        <div className={`flex flex-wrap items-center gap-2 ${showSearch ? "mt-5" : ""}`}>
           <FilterGroup>
             <FilterChip active={subject === "all"} onClick={() => setSubject("all")}>
               Toutes les matières

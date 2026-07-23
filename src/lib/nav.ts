@@ -9,6 +9,6 @@ export const NAV_LINKS = [
   { href: "/conseils", label: "Conseils" },
   { href: "/epreuves-ecrites", label: "Épreuves écrites" },
   { href: "/epreuves-orales", label: "Épreuves orales" },
-  { href: "/methodologie", label: "Méthodologie" },
   { href: "/sujets-blancs", label: "Sujets blancs" },
+  { href: "/soutenir", label: "Soutenir le site" },
 ];
