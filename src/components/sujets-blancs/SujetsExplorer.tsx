@@ -3,9 +3,8 @@
 /**
  * SujetsExplorer
  * --------------
- * Explorateur des sujets blancs : recherche plein texte + filtres par
- * matière + filtres par difficulté, puis grille de cartes. Chaque carte
- * mène à la page du sujet (/sujets-blancs/[slug]).
+ * Explorateur des sujets blancs : filtres par matière puis grille de
+ * cartes. Chaque carte mène à la page du sujet (/sujets-blancs/[slug]).
  *
  * Les filtres n'affichent que les matières réellement présentes : ajouter
  * un sujet suffit à le faire apparaître, sans toucher à ce composant.
@@ -20,7 +19,6 @@ import {
 } from "@/lib/sujets-blancs/types";
 
 export function SujetsExplorer({ sujets }: { sujets: SujetBlanc[] }) {
-  const [query, setQuery] = useState("");
   const [matiere, setMatiere] = useState<SujetMatiere | "all">("all");
 
   const matieres = useMemo(
@@ -29,17 +27,10 @@ export function SujetsExplorer({ sujets }: { sujets: SujetBlanc[] }) {
     [sujets]
   );
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return sujets.filter((s) => {
-      const okQuery =
-        !q ||
-        s.titre.toLowerCase().includes(q) ||
-        s.description.toLowerCase().includes(q);
-      const okMatiere = matiere === "all" || s.matiere === matiere;
-      return okQuery && okMatiere;
-    });
-  }, [sujets, query, matiere]);
+  const filtered = useMemo(
+    () => sujets.filter((s) => matiere === "all" || s.matiere === matiere),
+    [sujets, matiere]
+  );
 
   // Regroupement par matière pour un affichage clair.
   const grouped = useMemo(() => {
@@ -53,22 +44,8 @@ export function SujetsExplorer({ sujets }: { sujets: SujetBlanc[] }) {
 
   return (
     <div>
-      {/* Recherche */}
-      <div className="relative">
-        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-navy-300">
-          <SearchIcon />
-        </span>
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Rechercher un sujet blanc…"
-          className="w-full rounded-full border border-navy-200 bg-white py-3.5 pl-12 pr-4 text-navy-900 shadow-sm outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
-        />
-      </div>
-
       {/* Filtres matière */}
-      <div className="mt-5 flex flex-wrap items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <div className="flex flex-wrap items-center gap-1.5 rounded-full bg-navy-50 p-1.5">
           <Chip active={matiere === "all"} onClick={() => setMatiere("all")}>
             Toutes les matières
@@ -92,7 +69,7 @@ export function SujetsExplorer({ sujets }: { sujets: SujetBlanc[] }) {
 
       {filtered.length === 0 ? (
         <div className="mt-6 rounded-3xl border border-dashed border-navy-200 py-16 text-center text-navy-400">
-          Aucun sujet ne correspond à ta recherche.
+          Aucun sujet dans cette matière pour le moment.
         </div>
       ) : (
         <div className="mt-6 space-y-12">
@@ -173,22 +150,5 @@ function Chip({
     >
       {children}
     </button>
-  );
-}
-
-function SearchIcon() {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    >
-      <circle cx="11" cy="11" r="7" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
   );
 }
