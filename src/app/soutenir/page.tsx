@@ -10,7 +10,7 @@ import Link from "next/link";
 
 // Lien Tipeee (modifiable ici ou via la variable d'environnement).
 const TIPEEE_URL =
-  process.env.NEXT_PUBLIC_TIPEEE_URL ?? "https://fr.tipeee.com/";
+  process.env.NEXT_PUBLIC_TIPEEE_URL ?? "https://fr.tipeee.com/noa-revision-crpe/";
 
 export const metadata: Metadata = {
   title: "Soutenir le projet",
