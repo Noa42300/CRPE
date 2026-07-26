@@ -7,7 +7,9 @@
  *  - Pièges CRPE (rose) · À retenir (violet)
  */
 import { RichText } from "./RichText";
+import { FichePdfButton } from "./FichePdfButton";
 import { FICHE_BLOCS, type Fiche } from "@/lib/fiches-data";
+import { slugify } from "@/lib/slugify";
 
 export function FicheCard({ fiche, numero }: { fiche: Fiche; numero: number }) {
   const bloc = FICHE_BLOCS[fiche.bloc];
@@ -81,6 +83,11 @@ export function FicheCard({ fiche, numero }: { fiche: Fiche; numero: number }) {
         <p className="mt-1 text-[15px] font-medium leading-relaxed text-navy-800">
           <RichText text={fiche.retenir} />
         </p>
+      </div>
+
+      {/* Téléchargement PDF */}
+      <div className="mt-4">
+        <FichePdfButton matiere="francais" slug={slugify(fiche.titre)} full />
       </div>
     </article>
   );

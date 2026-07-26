@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MathFicheView } from "@/components/maths/MathFicheView";
+import { FichePdfButton } from "@/components/FichePdfButton";
 import { MATH_FICHES, getMathFiche, getMathFichesByBloc } from "@/lib/maths-fiches";
 import { MATH_BLOCS } from "@/lib/maths-fiches/types";
 
@@ -51,6 +52,10 @@ export default async function FicheMathPage({
         <span className="mx-2">/</span>
         <span className="text-navy-600">{fiche.titre}</span>
       </nav>
+
+      <div className="mb-6 flex justify-end">
+        <FichePdfButton matiere="maths" slug={fiche.slug} />
+      </div>
 
       <MathFicheView fiche={fiche} />
 

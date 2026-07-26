@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EspagnolFicheView } from "@/components/espagnol/EspagnolFicheView";
+import { FichePdfButton } from "@/components/FichePdfButton";
 import { ESPAGNOL_FICHES, getEspagnolFiche } from "@/lib/espagnol-fiches";
 
 export function generateStaticParams() {
@@ -50,6 +51,10 @@ export default async function FicheEspagnolPage({
         <span className="mx-2">/</span>
         <span className="text-navy-600">{fiche.titre}</span>
       </nav>
+
+      <div className="mb-6 flex justify-end">
+        <FichePdfButton matiere="espagnol" slug={fiche.slug} />
+      </div>
 
       <EspagnolFicheView fiche={fiche} />
 

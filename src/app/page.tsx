@@ -61,6 +61,19 @@ export default function HomePage() {
               Dans cette plateforme, je partage toutes mes méthodes, fiches et
               conseils pour t'aider à réussir le concours plus rapidement.
             </p>
+            <p>
+              Retrouve également davantage de conseils, d'explications et de
+              vidéos sur mon TikTok :{" "}
+              <a
+                href="https://www.tiktok.com/@noadcst"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-sky-600 underline-offset-2 hover:underline"
+              >
+                @noadcst
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -167,7 +180,7 @@ export default function HomePage() {
 // ------------------- Contenus de la page (faciles à modifier) -------------------
 const FEATURES = [
   { emoji: "📄", title: "Fiches claires", text: "42 fiches synthétiques prêtes à réviser. Clique pour les explorer.", href: "/fiches" },
-  { emoji: "📝", title: "Sujets blancs", text: "Entraîne-toi dans les conditions du concours." },
+  { emoji: "📝", title: "Sujets blancs", text: "Entraîne-toi dans les conditions du concours. Clique pour les découvrir.", href: "/sujets-blancs" },
 ] as { emoji: string; title: string; text: string; href?: string }[];
 
 const SECTIONS = [
@@ -181,7 +194,5 @@ const SECTIONS = [
   { href: "/conseils", category: CATEGORY_LABELS.conseils, title: "Conseils de Noa", text: "Vidéos, textes et PDF de préparation." },
   { href: "/epreuves-ecrites", category: CATEGORY_LABELS.ecrites, title: "Épreuves écrites", text: "Français, maths, HG-EMC, arts, musique, langues." },
   { href: "/epreuves-orales", category: CATEGORY_LABELS.orales, title: "Épreuves orales", text: "Oral de leçon Français, EPS & Valeurs." },
-  { href: "/methodologie", category: CATEGORY_LABELS.methodo, title: "Méthodologie", text: "Planning, méthodes de travail, stratégies." },
   { href: "/sujets-blancs", category: CATEGORY_LABELS["sujets-blancs"], title: "Sujets blancs", text: "Sujets + corrections + vidéos d'explication." },
-  { href: "/recherche", category: "Recherche", title: "Tout explorer", text: "Cherche et filtre parmi toutes les ressources." },
 ];

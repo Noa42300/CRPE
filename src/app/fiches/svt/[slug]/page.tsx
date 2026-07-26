@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SvtFicheView } from "@/components/svt/SvtFicheView";
+import { FichePdfButton } from "@/components/FichePdfButton";
 import { SVT_FICHES, getSvtFiche, getSvtFichesByTheme } from "@/lib/svt-fiches";
 
 export function generateStaticParams() {
@@ -50,6 +51,10 @@ export default async function FicheSvtPage({
         <span className="mx-2">/</span>
         <span className="text-navy-600">{fiche.titre}</span>
       </nav>
+
+      <div className="mb-6 flex justify-end">
+        <FichePdfButton matiere="svt" slug={fiche.slug} />
+      </div>
 
       <SvtFicheView fiche={fiche} />
 

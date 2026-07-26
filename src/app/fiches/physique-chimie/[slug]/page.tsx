@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PhysFicheView } from "@/components/physique/PhysFicheView";
+import { FichePdfButton } from "@/components/FichePdfButton";
 import { PHYS_FICHES, getPhysFiche, getPhysFichesByBloc } from "@/lib/physique-fiches";
 
 export function generateStaticParams() {
@@ -50,6 +51,10 @@ export default async function FichePhysPage({
         <span className="mx-2">/</span>
         <span className="text-navy-600">{fiche.titre}</span>
       </nav>
+
+      <div className="mb-6 flex justify-end">
+        <FichePdfButton matiere="physique-chimie" slug={fiche.slug} />
+      </div>
 
       <PhysFicheView fiche={fiche} />
 

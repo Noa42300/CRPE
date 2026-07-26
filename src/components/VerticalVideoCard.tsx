@@ -12,7 +12,7 @@ export function VerticalVideoCard({
 }: {
   src: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }) {
   return (
     <figure className="card card-hover flex flex-col items-center p-4">
@@ -32,7 +32,9 @@ export function VerticalVideoCard({
       {/* Titre + note */}
       <figcaption className="mt-4 text-center">
         <h3 className="text-lg font-semibold text-navy-900">{title}</h3>
-        <span className="badge mt-2 bg-sky-100 text-sky-800">🎓 {subtitle}</span>
+        {subtitle && (
+          <span className="badge mt-2 bg-sky-100 text-sky-800">🎓 {subtitle}</span>
+        )}
       </figcaption>
     </figure>
   );

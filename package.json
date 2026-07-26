@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fiche-pdfs": "node scripts/generate-fiche-pdfs.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.2",

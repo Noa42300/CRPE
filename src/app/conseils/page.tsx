@@ -4,6 +4,7 @@
  */
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
+import { VerticalVideoCard } from "@/components/VerticalVideoCard";
 
 export const metadata: Metadata = {
   title: "Conseils",
@@ -19,6 +20,16 @@ export default function ConseilsPage() {
         title="Mes conseils pour préparer le CRPE"
         subtitle="Vidéos, textes et fiches issus de mon expérience. De nouveaux conseils arriveront bientôt."
       />
+
+      {/* Vidéo verticale (format TikTok / Reel) : les conseils d'un lauréat */}
+      <section className="container-page py-12">
+        <div className="mx-auto max-w-[360px]">
+          <VerticalVideoCard
+            src="/videos/conseils-crpe-laureat.mp4"
+            title="Les conseils d'un lauréat"
+          />
+        </div>
+      </section>
     </div>
   );
 }

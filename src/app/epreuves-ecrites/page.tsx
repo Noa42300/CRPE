@@ -29,9 +29,16 @@ const ECRITES_CARDS: ExamCard[] = [
       {
         heading: "Contenu",
         items: [
-          "Partie français : à partir d'un texte (roman, nouvelle, essai…) de 500 mots maximum.",
+          "Partie français : à partir d'un texte support (roman, nouvelle, essai…) de 500 mots maximum.",
           "Partie mathématiques : plusieurs exercices ou problèmes.",
           "Les deux parties sont indépendantes.",
+        ],
+      },
+      {
+        heading: "La partie français en détail (sur 10 points)",
+        items: [
+          "5 points : grammaire et lexique.",
+          "5 points : dissertation (rédaction argumentée à partir du texte).",
         ],
       },
       {
