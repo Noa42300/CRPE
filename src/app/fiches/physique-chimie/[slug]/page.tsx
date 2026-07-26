@@ -53,7 +53,7 @@ export default async function FichePhysPage({
       </nav>
 
       <div className="mb-6 flex justify-end">
-        <FichePdfButton matiere="physique-chimie" slug={fiche.slug} />
+        <FichePdfButton data={{ matiere: "physique-chimie", fiche }} />
       </div>
 
       <PhysFicheView fiche={fiche} />

@@ -57,7 +57,7 @@ export default async function FicheHistoirePage({
       </nav>
 
       <div className="mb-6 flex justify-end">
-        <FichePdfButton matiere="histoire" slug={fiche.slug} />
+        <FichePdfButton data={{ matiere: "histoire", fiche }} />
       </div>
 
       <HistoireFicheView fiche={fiche} />

@@ -53,7 +53,7 @@ export default async function FicheSvtPage({
       </nav>
 
       <div className="mb-6 flex justify-end">
-        <FichePdfButton matiere="svt" slug={fiche.slug} />
+        <FichePdfButton data={{ matiere: "svt", fiche }} />
       </div>
 
       <SvtFicheView fiche={fiche} />

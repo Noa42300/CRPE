@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { VerticalVideoCard } from "@/components/VerticalVideoCard";
+import { ConseilsSection } from "@/components/conseils/ConseilsSection";
 
 export const metadata: Metadata = {
   title: "Conseils",
@@ -30,6 +31,9 @@ export default function ConseilsPage() {
           />
         </div>
       </section>
+
+      {/* Grande section textuelle : tous les conseils (accordéons) */}
+      <ConseilsSection />
     </div>
   );
 }

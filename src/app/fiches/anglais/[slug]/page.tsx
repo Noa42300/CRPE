@@ -53,7 +53,7 @@ export default async function FicheAnglaisPage({
       </nav>
 
       <div className="mb-6 flex justify-end">
-        <FichePdfButton matiere="anglais" slug={fiche.slug} />
+        <FichePdfButton data={{ matiere: "anglais", fiche }} />
       </div>
 
       <AnglaisFicheView fiche={fiche} />

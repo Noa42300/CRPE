@@ -55,9 +55,9 @@ const ORALES_CARDS: ExamCard[] = [
   {
     titre: "2. Seconde épreuve orale : EPS + entretien",
     resume:
-      "Elle comporte deux parties : l'éducation physique et sportive, puis un entretien avec le jury incluant les valeurs de la République.",
+      "Elle comporte trois temps : l'éducation physique et sportive, un entretien sur ta motivation et ton parcours, puis un échange sur les valeurs de la République et des mises en situation professionnelles.",
     stats: [
-      { label: "Durée", value: "35 min" },
+      { label: "Durée", value: "≈ 55 min" },
       { label: "Coefficient", value: "3" },
       { label: "Notation", value: "/20" },
     ],
@@ -70,17 +70,24 @@ const ORALES_CARDS: ExamCard[] = [
         ],
       },
       {
-        heading: "Partie 2 — Entretien (≈ 15 min)",
+        heading: "Partie 2 — Entretien de motivation (≈ 15 min)",
         items: [
           "5 minutes de présentation de ta motivation et de ton parcours (études, stages, engagements…).",
-          "10 minutes d'échange avec le jury, dont une question sur les valeurs de la République et la laïcité.",
+          "10 minutes d'échange avec le jury sur ton projet et ton rapport au métier de professeur des écoles.",
+        ],
+      },
+      {
+        heading: "Partie 3 — Valeurs de la République (≈ 20 min)",
+        items: [
+          "Après l'EPS et l'entretien de motivation, il reste encore 20 minutes consacrées aux questions sur les valeurs de la République et à des mises en situation professionnelles.",
+          "Le jury te propose des situations concrètes de la vie de l'école (laïcité, égalité, gestion de conflits…) et évalue ta capacité à y réagir en futur enseignant.",
         ],
       },
       {
         heading: "Ce qui est évalué",
         items: [
           "Ta connaissance de l'EPS à l'école et de ses enjeux.",
-          "Ta motivation, ta réflexion et ta capacité à incarner les valeurs de la République (note 0 éliminatoire).",
+          "Ta motivation, ta réflexion et ta capacité à incarner les valeurs de la République dans des mises en situation professionnelles (note 0 éliminatoire).",
         ],
       },
     ],
