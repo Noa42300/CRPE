@@ -2,26 +2,17 @@
  * PAGE D'ACCUEIL
  * --------------
  * Première page du site. Contient :
- *  - le grand "hero" (titre + boutons)
- *  - la vidéo de présentation de Noa
+ *  - le grand "hero" (titre + bouton)
+ *  - la présentation de Noa
  *  - les points forts de la plateforme
- *  - un aperçu de quelques ressources
  *  - un appel à l'action final
  *
  * Le site est 100% gratuit : aucun contenu n'est verrouillé.
  */
 import Link from "next/link";
-import { VideoEmbed } from "@/components/VideoEmbed";
-import { ResourceCard } from "@/components/ResourceCard";
-import { getAllResources } from "@/lib/resources";
 import { CATEGORY_LABELS } from "@/lib/types";
 
-export default async function HomePage() {
-  const resources = await getAllResources();
-
-  // Quelques ressources à mettre en avant.
-  const highlights = resources.slice(0, 3);
-
+export default function HomePage() {
   return (
     <div>
       {/* ============================= HERO ============================= */}
@@ -49,43 +40,34 @@ export default async function HomePage() {
               <Link href="/fiches" className="btn-primary px-8 py-4 text-base">
                 👉 Commencer à réviser
               </Link>
-              <Link href="/recherche" className="btn-secondary px-8 py-4 text-base">
-                Explorer les ressources
-              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==================== VIDÉO DE PRÉSENTATION ==================== */}
+      {/* ==================== PRÉSENTATION ==================== */}
       <section className="container-page py-12 sm:py-16">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-sky-600">
-              Bienvenue
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-sky-600">
+            Bienvenue
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
+            Quelques mots de présentation
+          </h2>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-navy-600">
+            <p>Bonjour, je m'appelle Noa, j'ai 21 ans.</p>
+            <p>J'ai obtenu le CRPE avec la note de 16.</p>
+            <p>
+              Dans cette plateforme, je partage toutes mes méthodes, fiches et
+              conseils pour t'aider à réussir le concours plus rapidement.
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-              Quelques mots de présentation
-            </h2>
-            <div className="mt-6 space-y-4 text-lg leading-relaxed text-navy-600">
-              <p>Bonjour, je m'appelle Noa, j'ai 21 ans.</p>
-              <p>J'ai obtenu le CRPE avec la note de 16.</p>
-              <p>
-                Dans cette plateforme, je partage toutes mes méthodes, fiches et
-                conseils pour t'aider à réussir le concours plus rapidement.
-              </p>
-            </div>
           </div>
-          <VideoEmbed
-            url="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Vidéo de présentation de Noa"
-          />
         </div>
       </section>
 
       {/* ==================== POINTS FORTS ==================== */}
       <section className="container-page py-12 sm:py-16">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2">
           {FEATURES.map((f) => {
             const inner = (
               <>
@@ -160,25 +142,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ==================== APERÇU DES RESSOURCES ==================== */}
-      {highlights.length > 0 && (
-        <section className="container-page py-12 sm:py-16">
-          <div className="flex items-end justify-between">
-            <h2 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
-              À découvrir gratuitement
-            </h2>
-            <Link href="/recherche" className="hidden text-sm font-semibold text-sky-600 hover:text-sky-700 sm:block">
-              Tout voir →
-            </Link>
-          </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {highlights.map((r) => (
-              <ResourceCard key={r.id} resource={r} />
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* ==================== APPEL À L'ACTION FINAL ==================== */}
       <section className="container-page py-16 sm:py-24">
         <div className="relative overflow-hidden rounded-3xl bg-navy-900 px-8 py-16 text-center text-white sm:px-16">
@@ -204,9 +167,7 @@ export default async function HomePage() {
 // ------------------- Contenus de la page (faciles à modifier) -------------------
 const FEATURES = [
   { emoji: "📄", title: "Fiches claires", text: "42 fiches synthétiques prêtes à réviser. Clique pour les explorer.", href: "/fiches" },
-  { emoji: "🎥", title: "Vidéos explicatives", text: "Des explications simples pour tout comprendre." },
   { emoji: "📝", title: "Sujets blancs", text: "Entraîne-toi dans les conditions du concours." },
-  { emoji: "🧠", title: "Méthodologie", text: "Organisation, planning et gestion du stress." },
 ] as { emoji: string; title: string; text: string; href?: string }[];
 
 const SECTIONS = [
