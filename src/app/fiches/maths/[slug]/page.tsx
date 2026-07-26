@@ -54,7 +54,7 @@ export default async function FicheMathPage({
       </nav>
 
       <div className="mb-6 flex justify-end">
-        <FichePdfButton matiere="maths" slug={fiche.slug} />
+        <FichePdfButton data={{ matiere: "maths", fiche }} />
       </div>
 
       <MathFicheView fiche={fiche} />

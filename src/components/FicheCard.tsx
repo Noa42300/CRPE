@@ -9,7 +9,6 @@
 import { RichText } from "./RichText";
 import { FichePdfButton } from "./FichePdfButton";
 import { FICHE_BLOCS, type Fiche } from "@/lib/fiches-data";
-import { slugify } from "@/lib/slugify";
 
 export function FicheCard({ fiche, numero }: { fiche: Fiche; numero: number }) {
   const bloc = FICHE_BLOCS[fiche.bloc];
@@ -87,7 +86,7 @@ export function FicheCard({ fiche, numero }: { fiche: Fiche; numero: number }) {
 
       {/* Téléchargement PDF */}
       <div className="mt-4">
-        <FichePdfButton matiere="francais" slug={slugify(fiche.titre)} full />
+        <FichePdfButton data={{ matiere: "francais", fiche }} full />
       </div>
     </article>
   );
