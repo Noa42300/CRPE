@@ -9,9 +9,5 @@ le site via le composant `VerticalVideoCard`.
 | `oral-eps-entretien.mp4`         | Épreuves orales | Mon passage à l'oral d'EPS / Valeurs de la République |
 | `conseils-crpe-laureat.mp4`      | Conseils        | Les conseils d'un lauréat                            |
 
-## À ajouter
-
-Le fichier **`conseils-crpe-laureat.mp4`** est attendu par la page
-« Conseils ». Dépose ici ta vidéo (« conseils crpe lauréat compressed »)
-en la renommant exactement `conseils-crpe-laureat.mp4` — la page
-l'affichera automatiquement, aucun changement de code n'est nécessaire.
+Pour remplacer une vidéo : dépose le nouveau fichier ici en conservant le
+même nom — la page l'affichera automatiquement, sans changement de code.
