@@ -130,14 +130,14 @@ export default function OralesPage() {
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {/* Ressource officielle (éduscol) */}
           <a
-            href="https://eduscol.education.fr/259/education-physique-et-sportive-cycle-3"
+            href="https://eduscol.education.gouv.fr/5724/ressources-d-accompagnement-du-programme-d-education-physique-et-sportive-au-cycle-4"
             target="_blank"
             rel="noopener noreferrer"
             className="card card-hover group flex items-start justify-between gap-3 p-4"
           >
             <div>
               <p className="font-semibold text-navy-900">
-                Les champs d&apos;apprentissage en EPS
+                Les champs d&apos;apprentissage en EPS (cycle 4)
               </p>
               <p className="mt-1 text-xs text-navy-400">
                 Ressource officielle — éduscol (Éducation nationale)
