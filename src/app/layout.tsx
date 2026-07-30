@@ -6,6 +6,7 @@
  */
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { getCurrentProfile } from "@/lib/auth";
@@ -63,6 +64,7 @@ export default async function RootLayout({
         <Navbar profile={profile} />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
