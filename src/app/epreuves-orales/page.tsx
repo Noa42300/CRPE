@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { LinksSection } from "@/components/LinksSection";
 import { ExamInfoSection, type ExamCard } from "@/components/ExamInfoSection";
-import { VerticalVideoCard } from "@/components/VerticalVideoCard";
+import { TikTokCard } from "@/components/TikTokCard";
 import { ORALES_SUJETS } from "@/lib/official-links";
 
 export const metadata: Metadata = {
@@ -117,26 +117,92 @@ export default function OralesPage() {
         cards={ORALES_CARDS}
       />
 
-      {/* Retours d'expérience : mes passages aux oraux (format vertical) */}
+      {/* Ressources — Oral 2 : EPS / Valeurs de la République */}
+      <section className="container-page py-10">
+        <h2 className="text-2xl font-bold tracking-tight text-navy-900 sm:text-3xl">
+          Ressources — Oral 2 : EPS / Valeurs de la République
+        </h2>
+        <p className="mt-2 max-w-2xl text-navy-500">
+          Pour approfondir la seconde épreuve orale : une ressource officielle
+          sur l&apos;EPS et un document pour t&apos;entraîner aux questions du jury.
+        </p>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          {/* Ressource officielle (éduscol) */}
+          <a
+            href="https://eduscol.education.fr/259/education-physique-et-sportive-cycle-3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card card-hover group flex items-start justify-between gap-3 p-4"
+          >
+            <div>
+              <p className="font-semibold text-navy-900">
+                Les champs d&apos;apprentissage en EPS
+              </p>
+              <p className="mt-1 text-xs text-navy-400">
+                Ressource officielle — éduscol (Éducation nationale)
+              </p>
+            </div>
+            <span className="mt-0.5 flex-none text-navy-300 transition group-hover:translate-x-0.5 group-hover:text-sky-500">
+              ↗
+            </span>
+          </a>
+
+          {/* Document PDF téléchargeable */}
+          <a
+            href="/docs/questions-possibles-oral-eps.pdf"
+            download
+            className="card card-hover group flex items-start justify-between gap-3 p-4"
+          >
+            <div>
+              <p className="font-semibold text-navy-900">
+                Questions possibles à l&apos;oral
+              </p>
+              <p className="mt-1 text-xs text-navy-400">
+                PDF à télécharger — laïcité &amp; valeurs de la République
+              </p>
+            </div>
+            <span className="mt-0.5 flex-none text-navy-300 transition group-hover:translate-y-0.5 group-hover:text-sky-500">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M12 3v12" />
+                <path d="m7 10 5 5 5-5" />
+                <path d="M5 21h14" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      {/* Mes passages à l'oral : liens vers mes vidéos TikTok */}
       <section className="container-page py-12">
         <h2 className="text-2xl font-bold tracking-tight text-navy-900 sm:text-3xl">
           Mes passages à l&apos;oral
         </h2>
         <p className="mt-2 max-w-2xl text-navy-500">
-          Mes retours d&apos;expérience filmés, pour te montrer concrètement à quoi
+          Mes retours d&apos;expérience en vidéo, pour te montrer concrètement à quoi
           ressemblent les épreuves orales du CRPE.
         </p>
 
-        <div className="mx-auto mt-8 grid max-w-3xl gap-8 sm:grid-cols-2">
-          <VerticalVideoCard
-            src="/videos/oral-lecon-francais.mp4"
-            title="Mon passage à l'oral de leçon"
-            subtitle="Note obtenue : 15/20"
-          />
-          <VerticalVideoCard
-            src="/videos/oral-eps-entretien.mp4"
-            title="Mon passage à l'oral d'EPS / Valeurs de la République"
+        <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          <TikTokCard
+            href="https://vm.tiktok.com/ZN8eQdwkF/"
+            title="Mon passage à l'oral EPS / Valeurs de la République"
             subtitle="Note obtenue : 20/20"
+          />
+          <TikTokCard
+            href="https://vm.tiktok.com/ZN8exTcUQ/"
+            title="Mon passage à l'oral de français"
+            subtitle="Note obtenue : 15/20"
           />
         </div>
       </section>

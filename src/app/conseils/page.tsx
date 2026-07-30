@@ -4,7 +4,7 @@
  */
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
-import { VerticalVideoCard } from "@/components/VerticalVideoCard";
+import { TikTokCard } from "@/components/TikTokCard";
 import { ConseilsSection } from "@/components/conseils/ConseilsSection";
 
 export const metadata: Metadata = {
@@ -22,12 +22,13 @@ export default function ConseilsPage() {
         subtitle="Vidéos, textes et fiches issus de mon expérience. De nouveaux conseils arriveront bientôt."
       />
 
-      {/* Vidéo verticale (format TikTok / Reel) : les conseils d'un lauréat */}
+      {/* Lien TikTok : mes conseils en vidéo */}
       <section className="container-page py-12">
-        <div className="mx-auto max-w-[360px]">
-          <VerticalVideoCard
-            src="/videos/conseils-crpe-laureat.mp4"
-            title="Les conseils d'un lauréat"
+        <div className="mx-auto max-w-md">
+          <TikTokCard
+            href="https://vm.tiktok.com/ZN8extx4k/"
+            title="4 conseils CRPE"
+            subtitle="Mes conseils pour préparer le CRPE, en vidéo sur TikTok."
           />
         </div>
       </section>
