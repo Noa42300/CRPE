@@ -13,8 +13,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // On n'indexe pas les pages personnelles.
-      disallow: ["/profil"],
     },
     sitemap: `${base}/sitemap.xml`,
   };

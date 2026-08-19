@@ -13,6 +13,7 @@ import type { SujetBlanc, SujetMatiere } from "./types";
 import { SUJET_MATIERE_ORDER } from "./types";
 import { FRANCAIS_SUJETS } from "./data/francais";
 import { MATHS_SUJETS } from "./data/maths";
+import { MATHS_CRPE_SUJETS } from "./data/maths-crpe";
 import { SCIENCES_SUJETS } from "./data/sciences";
 import { HGEMC_SUJETS } from "./data/histoire-geo-emc";
 import { ARTS_SUJETS } from "./data/arts-plastiques";
@@ -23,6 +24,7 @@ import { LANGUES_SUJETS } from "./data/langues";
 export const ALL_SUJETS: SujetBlanc[] = [
   ...FRANCAIS_SUJETS,
   ...MATHS_SUJETS,
+  ...MATHS_CRPE_SUJETS,
   ...SCIENCES_SUJETS,
   ...HGEMC_SUJETS,
   ...ARTS_SUJETS,
@@ -47,5 +49,5 @@ export function getMatieresPresentes(): SujetMatiere[] {
   );
 }
 
-export type { SujetBlanc, SujetMatiere } from "./types";
-export { SUJET_MATIERES, SUJET_MATIERE_ORDER } from "./types";
+export type { SujetBlanc, SujetMatiere, SujetNiveau } from "./types";
+export { SUJET_MATIERES, SUJET_MATIERE_ORDER, SUJET_NIVEAUX } from "./types";

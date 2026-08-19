@@ -36,20 +36,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Compte */}
+          {/* Le site */}
           <div>
-            <h3 className="text-sm font-semibold text-navy-900">Mon compte</h3>
+            <h3 className="text-sm font-semibold text-navy-900">Le site</h3>
             <ul className="mt-4 space-y-2">
-              <li>
-                <Link href="/connexion" className="text-sm text-navy-500 hover:text-navy-900">
-                  Connexion
-                </Link>
-              </li>
-              <li>
-                <Link href="/inscription" className="text-sm text-navy-500 hover:text-navy-900">
-                  Créer un compte
-                </Link>
-              </li>
               <li>
                 <Link href="/soutenir" className="text-sm text-navy-500 hover:text-navy-900">
                   💛 Soutenir le projet

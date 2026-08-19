@@ -900,7 +900,7 @@ export const PHYS_FICHES: PhysFiche[] = [
     ],
     quiz: [
       { question: "Quelle est l'unité du poids ?", correction: "Le newton (N)." },
-      { question: "Sur la Lune, la masse change-t-elle ?", correction: "Non, seule le poids diminue." },
+      { question: "Sur la Lune, la masse change-t-elle ?", correction: "Non, seul le poids diminue." },
     ],
   },
   {

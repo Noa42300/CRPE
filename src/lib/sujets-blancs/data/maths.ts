@@ -15,6 +15,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
   {
     slug: "maths-1-la-cooperative-scolaire",
     matiere: "maths",
+    niveau: "simple",
     titre: "Sujet blanc n°1 — La coopérative scolaire",
     description:
       "Cinq exercices indépendants : rangement de nombres et probabilités, comparaison de tarifs, aire d'une figure, statistiques d'une enquête et QCM. Niveau conforme à la partie B.",
@@ -408,6 +409,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
   {
     slug: "maths-2-le-jardin-pedagogique",
     matiere: "maths",
+    niveau: "simple",
     titre: "Sujet blanc n°2 — Le jardin pédagogique",
     description:
       "Problème filé et exercices : proportionnalité et pourcentages, périmètre et aire, vitesse et durée, programme de calcul et QCM. Un sujet exigeant et progressif.",
@@ -734,6 +736,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
   {
     slug: "maths-3-la-kermesse",
     matiere: "maths",
+    niveau: "simple",
     titre: "Sujet blanc n°3 — La kermesse",
     description:
       "Proportionnalité et échelle, probabilités d'une roue, géométrie du triangle rectangle (Pythagore), gestion d'un budget et QCM. Sujet complet et varié.",
@@ -1020,6 +1023,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
   {
     slug: "maths-4-le-nouveau-stade",
     matiere: "maths",
+    niveau: "simple",
     titre: "Sujet blanc n°4 — Le nouveau stade",
     description:
       "Un sujet très visuel : fractions et pourcentages, lecture d'un graphique de tarifs, géométrie du triangle rectangle et exploitation d'un diagramme en barres.",
@@ -1406,6 +1410,7 @@ export const MATHS_SUJETS: SujetBlanc[] = [
   {
     slug: "maths-5-l-amenagement-de-la-cour",
     matiere: "maths",
+    niveau: "simple",
     titre: "Sujet blanc n°5 — L'aménagement de la cour",
     description:
       "Aire d'une figure composée, plan à l'échelle et diagonale (Pythagore), volume d'un bac à sable et proportionnalité d'une recette. Un sujet riche en figures.",
