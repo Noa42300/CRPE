@@ -101,6 +101,13 @@ export const MATHS_CRPE_SUJETS: SujetBlanc[] = [
             text: "Les deux hélicoptères volent à la même altitude et les deux motos roulent sur une route horizontale. On donne : AL = AH = 720 m, LH = 270 m et AN = AM = 1 km.",
           },
           {
+            type: "figure",
+            illustration: "crpe-thales-course",
+            titre: "Schéma — La captation de la course",
+            legende:
+              "Figure non à l'échelle. A, L, N sont alignés ; A, H, M sont alignés ; (LH) // (MN).",
+          },
+          {
             type: "questions",
             items: [
               {
@@ -484,6 +491,13 @@ export const MATHS_CRPE_SUJETS: SujetBlanc[] = [
             text: "Un chocolatier a fabriqué 2 622 œufs et 2 530 poissons en chocolat. Il souhaite préparer des assortiments identiques (même composition dans chaque paquet) en utilisant tous les chocolats, sans qu'il en reste.",
           },
           {
+            type: "figure",
+            illustration: "crpe-chocolats",
+            titre: "Les chocolats fabriqués",
+            legende:
+              "Illustration de contexte : œufs et poissons en chocolat.",
+          },
+          {
             type: "questions",
             items: [
               {
@@ -571,6 +585,13 @@ export const MATHS_CRPE_SUJETS: SujetBlanc[] = [
           {
             type: "p",
             text: "On note c la longueur (en cm) du côté d'un petit triangle équilatéral. Chaque côté du grand triangle est ainsi partagé en trois parties : c, puis (6 − 2c), puis c.",
+          },
+          {
+            type: "figure",
+            illustration: "crpe-triangle-hexagone",
+            titre: "Figure — Les découpes dans le triangle",
+            legende:
+              "Le grand triangle est équilatéral (côté 6 cm). Les trois triangles des coins (en pointillés) ont pour côté c ; l'hexagone gris est la figure restante. Figure non à l'échelle.",
           },
           {
             type: "questions",
@@ -847,6 +868,13 @@ export const MATHS_CRPE_SUJETS: SujetBlanc[] = [
             text: "Un flacon a la forme d'une pyramide SABC de sommet S et de base le triangle ABC, rectangle et isocèle en A. On donne AB = AC = 7,5 cm. La hauteur [AS] de la pyramide est perpendiculaire à la base et mesure AS = 15 cm.",
           },
           {
+            type: "figure",
+            illustration: "crpe-pyramide-sabc",
+            titre: "Figure — La pyramide SABC et sa section",
+            legende:
+              "Base ABC rectangle et isocèle en A ; hauteur [AS] perpendiculaire à la base ; section S'MN parallèle à la base. Figure non à l'échelle.",
+          },
+          {
             type: "questions",
             items: [
               {
@@ -878,6 +906,13 @@ export const MATHS_CRPE_SUJETS: SujetBlanc[] = [
             text: "Une pyramide régulière a pour base un carré ABCD de côté 35,50 m. Ses quatre arêtes issues du sommet S mesurent chacune 33,14 m. On note H le centre du carré (intersection des diagonales), pied de la hauteur [SH].",
           },
           {
+            type: "figure",
+            illustration: "crpe-pyramide-carree",
+            titre: "Figure — La pyramide à base carrée",
+            legende:
+              "Base carrée ABCD, sommet S, centre H et hauteur [SH]. Figure non à l'échelle.",
+          },
+          {
             type: "questions",
             items: [
               {
@@ -907,6 +942,13 @@ export const MATHS_CRPE_SUJETS: SujetBlanc[] = [
           {
             type: "p",
             text: "Un aquarium a la forme d'un pavé droit de dimensions 1,2 m × 0,8 m × 0,5 m.",
+          },
+          {
+            type: "figure",
+            illustration: "crpe-pave-aquarium",
+            titre: "Figure — L'aquarium",
+            legende:
+              "Pavé droit : longueur 1,2 m, profondeur 0,8 m, hauteur 0,5 m. Figure non à l'échelle.",
           },
           {
             type: "questions",
@@ -1569,6 +1611,12 @@ export const MATHS_CRPE_SUJETS: SujetBlanc[] = [
           {
             type: "p",
             text: "On étudie un carré de côté c (en cm). Un tableur calcule, pour différentes valeurs de c, le périmètre P et l'aire A du carré.",
+          },
+          {
+            type: "figure",
+            illustration: "crpe-carre-cote-c",
+            titre: "Figure — Le carré étudié",
+            legende: "Carré de côté c (support de la feuille de calcul).",
           },
           {
             type: "table",

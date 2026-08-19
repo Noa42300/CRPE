@@ -24,6 +24,7 @@ export interface Illustration {
 // Les illustrations spécifiques aux maths et aux sciences sont définies dans
 // leurs propres fichiers puis fusionnées ci-dessous (voir bas du fichier).
 import { MATHS_ILLUSTRATIONS } from "./illustrations-maths";
+import { MATHS_CRPE_ILLUSTRATIONS } from "./illustrations-maths-crpe";
 import { SCIENCES_ILLUSTRATIONS } from "./illustrations-sciences";
 
 const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
@@ -148,6 +149,7 @@ const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
 export const ILLUSTRATIONS: Record<string, Illustration> = {
   ...ARTS_ILLUSTRATIONS,
   ...MATHS_ILLUSTRATIONS,
+  ...MATHS_CRPE_ILLUSTRATIONS,
   ...SCIENCES_ILLUSTRATIONS,
 };
 

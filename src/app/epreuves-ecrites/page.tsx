@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { LinksSection } from "@/components/LinksSection";
 import { ExamInfoSection, type ExamCard } from "@/components/ExamInfoSection";
+import { ArtsProgramSection } from "@/components/ArtsProgramSection";
 import { ECRITES_SUJETS, YOUTUBE_CHANNELS } from "@/lib/official-links";
 
 export const metadata: Metadata = {
@@ -123,6 +124,9 @@ export default function EcritesPage() {
         description="Des chaînes officielles pour approfondir chaque matière."
         groups={YOUTUBE_CHANNELS}
       />
+
+      {/* Programme limitatif du domaine Arts (sessions 2027-2029) */}
+      <ArtsProgramSection />
     </div>
   );
 }
