@@ -13,7 +13,9 @@
 export type ConseilBlock =
   | { type: "p"; text: string }
   | { type: "list"; ordered?: boolean; items: string[] }
-  | { type: "subheading"; text: string };
+  | { type: "subheading"; text: string }
+  // Lien mis en avant (bouton), avec une courte description facultative.
+  | { type: "link"; href: string; label: string; description?: string };
 
 export interface Conseil {
   id: string;
@@ -187,6 +189,13 @@ export const CONSEILS: Conseil[] = [
       {
         type: "p",
         text: "À partir de février-mars, j'ai réalisé pratiquement tous les sujets de brevet depuis 2010 (France, Pondichéry, Amérique du Nord, etc.). Deux à trois brevets par semaine.",
+      },
+      {
+        type: "link",
+        href: "https://www.apmep.fr/Brevet-2015#Serie-generale",
+        label: "Tous les sujets de brevet + corrigés (APMEP)",
+        description:
+          "Le site de l'APMEP regroupe gratuitement les sujets du brevet et leurs corrigés, année par année. Parfait pour s'entraîner comme je le conseille.",
       },
       { type: "p", text: "À force :" },
       {

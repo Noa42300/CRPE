@@ -8,7 +8,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { getCurrentProfile } from "@/lib/auth";
 
 // Adresse publique du site (utilisée pour le SEO).
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -49,18 +48,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // On récupère le profil pour afficher le bon menu (connecté ou non).
-  const profile = await getCurrentProfile();
-
   return (
     <html lang="fr">
       <body className="flex min-h-screen flex-col">
-        <Navbar profile={profile} />
+        <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

@@ -137,6 +137,46 @@ function ConseilBlockView({ block }: { block: ConseilBlock }) {
     );
   }
 
+  if (block.type === "link") {
+    return (
+      <a
+        href={block.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group mt-1 flex items-start gap-3 rounded-2xl border border-sky-200 bg-sky-50 px-4 py-3 transition-colors hover:border-sky-300 hover:bg-sky-100"
+      >
+        <span
+          className="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white text-sky-600 shadow-sm"
+          aria-hidden
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+          </svg>
+        </span>
+        <span className="min-w-0">
+          <span className="block text-[15px] font-semibold text-sky-800 group-hover:text-sky-900">
+            {block.label}
+          </span>
+          {block.description && (
+            <span className="mt-0.5 block text-sm leading-snug text-navy-500">
+              {block.description}
+            </span>
+          )}
+        </span>
+      </a>
+    );
+  }
+
   if (block.type === "list") {
     if (block.ordered) {
       return (

@@ -14,7 +14,7 @@ import type {
   SujetBlanc,
   SujetSection,
 } from "./types";
-import { SUJET_MATIERES } from "./types";
+import { SUJET_MATIERES, SUJET_NIVEAUX } from "./types";
 import { ILLUSTRATIONS, svgString } from "./illustrations";
 
 // Charte graphique (reprise du site) en composantes RVB.
@@ -555,8 +555,11 @@ function coverBlock(
   doc.setFont("helvetica", "bold");
   doc.setFontSize(9);
   doc.setTextColor(...[150, 190, 245]);
+  const niveauSuffix = sujet.niveau
+    ? ` · ${SUJET_NIVEAUX[sujet.niveau].label}`
+    : "";
   doc.text(
-    `CRPE avec Noa · Sujet blanc · ${meta.label}`.toUpperCase(),
+    `CRPE avec Noa · Sujet blanc · ${meta.label}${niveauSuffix}`.toUpperCase(),
     M + 6,
     ctx.y + 9
   );

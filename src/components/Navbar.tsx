@@ -3,33 +3,18 @@
 /**
  * Barre de navigation
  * -------------------
- * Affichée en haut de toutes les pages. Gère :
- *  - le menu principal (bureau + mobile)
- *  - le bouton Connexion / Profil selon que l'utilisateur est connecté
+ * Affichée en haut de toutes les pages. Gère le menu principal
+ * (bureau + mobile) et l'accès à la recherche.
  */
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "./Logo";
 import { NAV_LINKS } from "@/lib/nav";
-import { createClient } from "@/lib/supabase/client";
-import { isSupabaseConfigured } from "@/lib/supabase/config";
-import type { Profile } from "@/lib/types";
 
-export function Navbar({ profile }: { profile: Profile | null }) {
+export function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
   const [open, setOpen] = useState(false); // menu mobile ouvert ?
-
-  // Déconnexion
-  async function handleSignOut() {
-    if (isSupabaseConfigured()) {
-      const supabase = createClient();
-      await supabase.auth.signOut();
-    }
-    router.push("/");
-    router.refresh();
-  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy-100 bg-white/80 backdrop-blur-md">
@@ -61,20 +46,9 @@ export function Navbar({ profile }: { profile: Profile | null }) {
           <Link href="/recherche" aria-label="Rechercher" className="rounded-full p-2 text-navy-600 hover:bg-navy-50">
             <SearchIcon />
           </Link>
-          {profile ? (
-            <>
-              <Link href="/profil" className="btn-secondary px-4 py-2">
-                Mon profil
-              </Link>
-              <button onClick={handleSignOut} className="text-sm font-medium text-navy-500 hover:text-navy-900">
-                Déconnexion
-              </button>
-            </>
-          ) : (
-            <Link href="/connexion" className="btn-primary px-5 py-2">
-              Connexion
-            </Link>
-          )}
+          <Link href="/soutenir" className="btn-primary px-5 py-2">
+            💛 Soutenir
+          </Link>
         </div>
 
         {/* ---------- Bouton menu mobile ---------- */}
@@ -108,22 +82,6 @@ export function Navbar({ profile }: { profile: Profile | null }) {
             >
               Rechercher
             </Link>
-            <div className="mt-2 flex flex-col gap-2 border-t border-navy-100 pt-4">
-              {profile ? (
-                <>
-                  <Link href="/profil" onClick={() => setOpen(false)} className="btn-secondary">
-                    Mon profil
-                  </Link>
-                  <button onClick={handleSignOut} className="btn-secondary">
-                    Déconnexion
-                  </button>
-                </>
-              ) : (
-                <Link href="/connexion" onClick={() => setOpen(false)} className="btn-primary">
-                  Connexion
-                </Link>
-              )}
-            </div>
           </div>
         </div>
       )}

@@ -26,6 +26,14 @@ export type SujetMatiere =
   | "musique"
   | "langues";
 
+/**
+ * Niveau de difficulté d'un sujet blanc.
+ *  - "simple" : sujet d'entraînement accessible (bases solides) ;
+ *  - "crpe"   : sujet exigeant, proche d'un véritable sujet du concours.
+ * Champ facultatif : si absent, aucun badge de niveau n'est affiché.
+ */
+export type SujetNiveau = "simple" | "crpe";
+
 // ---------------------------------------------------------------------------
 // Blocs de contenu (communs au sujet ET à la correction)
 // ---------------------------------------------------------------------------
@@ -124,6 +132,7 @@ export interface Bareme {
 export interface SujetBlanc {
   slug: string; // identifiant unique dans l'URL
   matiere: SujetMatiere;
+  niveau?: SujetNiveau; // difficulté (badge "Simple" / "Niveau CRPE")
   titre: string; // ex : "Sujet blanc n°1 — Autour du portrait"
   description: string; // 1-2 phrases pour la carte de la rubrique
   epreuve: string; // ex : "Première épreuve d'admissibilité — Partie A"
@@ -187,6 +196,21 @@ export const SUJET_MATIERES: Record<
     emoji: "🌍",
     pill: "bg-teal-100 text-teal-700 border-teal-200",
     swatch: "bg-teal-500",
+  },
+};
+
+/** Libellés et couleurs des niveaux de difficulté (badges). */
+export const SUJET_NIVEAUX: Record<
+  SujetNiveau,
+  { label: string; pill: string }
+> = {
+  simple: {
+    label: "Simple",
+    pill: "bg-emerald-100 text-emerald-700 border-emerald-200",
+  },
+  crpe: {
+    label: "Niveau CRPE",
+    pill: "bg-rose-100 text-rose-700 border-rose-200",
   },
 };
 

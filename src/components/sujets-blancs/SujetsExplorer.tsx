@@ -14,6 +14,7 @@ import Link from "next/link";
 import {
   SUJET_MATIERES,
   SUJET_MATIERE_ORDER,
+  SUJET_NIVEAUX,
   type SujetBlanc,
   type SujetMatiere,
 } from "@/lib/sujets-blancs/types";
@@ -112,6 +113,11 @@ function SujetCard({ sujet }: { sujet: SujetBlanc }) {
         <span className={`badge border ${meta.pill}`}>
           {meta.emoji} {meta.label}
         </span>
+        {sujet.niveau && (
+          <span className={`badge border ${SUJET_NIVEAUX[sujet.niveau].pill}`}>
+            {SUJET_NIVEAUX[sujet.niveau].label}
+          </span>
+        )}
       </div>
       <h3 className="text-lg font-semibold leading-snug text-navy-900">
         {sujet.titre}

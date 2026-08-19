@@ -13,7 +13,12 @@
 import { useState } from "react";
 import { BlockRenderer } from "./BlockRenderer";
 import { DownloadButtons } from "./DownloadButtons";
-import { SUJET_MATIERES, type SujetBlanc, type SujetSection } from "@/lib/sujets-blancs/types";
+import {
+  SUJET_MATIERES,
+  SUJET_NIVEAUX,
+  type SujetBlanc,
+  type SujetSection,
+} from "@/lib/sujets-blancs/types";
 
 type Tab = "sujet" | "correction" | "methodo" | "erreurs" | "bareme";
 
@@ -53,6 +58,13 @@ export function SujetView({ sujet }: { sujet: SujetBlanc }) {
         <div className="flex flex-wrap items-center gap-2 text-sm font-semibold">
           <span className="text-3xl">{meta.emoji}</span>
           <span className="uppercase tracking-wide">{meta.label}</span>
+          {sujet.niveau && (
+            <span
+              className={`badge border ${SUJET_NIVEAUX[sujet.niveau].pill}`}
+            >
+              {SUJET_NIVEAUX[sujet.niveau].label}
+            </span>
+          )}
         </div>
         <h1 className="mt-3 text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl">
           {sujet.titre}

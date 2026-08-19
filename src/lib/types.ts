@@ -45,13 +45,6 @@ export interface Resource {
   created_at?: string;
 }
 
-/** Le profil d'un utilisateur connecté. Correspond à la table "profiles". */
-export interface Profile {
-  id: string;
-  email: string;
-  created_at?: string;
-}
-
 // ---------------------------------------------------------------------------
 // Libellés lisibles (pour afficher joliment les catégories et matières)
 // ---------------------------------------------------------------------------
