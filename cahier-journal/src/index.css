@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                              */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper-light text-slate-800 antialiased dark:bg-paper-dark dark:text-slate-100;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  /* Champs de saisie lisibles et cohérents en clair/sombre */
+  ::placeholder {
+    @apply text-slate-400 dark:text-slate-500;
+  }
+  * {
+    scrollbar-width: thin;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Composants réutilisables                                          */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-paper-card shadow-soft dark:border-slate-700/60 dark:bg-paper-dark-card;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3.5 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-ink-600 text-white hover:bg-ink-700 active:bg-ink-800;
+  }
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800;
+  }
+  .btn-outline {
+    @apply btn border border-slate-300 bg-transparent text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800;
+  }
+  .btn-danger {
+    @apply btn bg-rose-600 text-white hover:bg-rose-700;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-ink-500 focus:ring-2 focus:ring-ink-500/20 dark:border-slate-600 dark:bg-slate-900/40 dark:text-slate-100;
+  }
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400;
+  }
+
+  /* Puce cliquable (multi-sélection organisation/rôle) */
+  .toggle-chip {
+    @apply cursor-pointer select-none rounded-full border px-3 py-1 text-xs font-medium transition-colors;
+  }
+  .toggle-chip-off {
+    @apply border-slate-300 text-slate-500 hover:border-slate-400 hover:text-slate-700 dark:border-slate-600 dark:text-slate-400 dark:hover:text-slate-200;
+  }
+  .toggle-chip-on {
+    @apply border-ink-500 bg-ink-50 text-ink-700 dark:border-ink-400 dark:bg-ink-500/15 dark:text-ink-200;
+  }
+
+  /* Badge de niveau (CE1 / CE2 / classe) */
+  .niveau-badge {
+    @apply inline-flex items-center rounded-md px-1.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Zone de texte auto-agrandissante                                  */
+/* ------------------------------------------------------------------ */
+.autogrow {
+  field-sizing: content; /* navigateurs récents */
+  min-height: 2.5rem;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Impression                                                        */
+/*  On masque l'app et on n'affiche que le conteneur d'impression     */
+/*  actif (#print-area), via la technique de visibilité.              */
+/* ------------------------------------------------------------------ */
+.print-area {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 210mm;
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+  html,
+  body {
+    background: #fff !important;
+  }
+  body.printing .app-shell {
+    display: none !important;
+  }
+  body.printing .print-area.active {
+    position: static;
+    left: 0;
+    width: auto;
+  }
+  .print-area {
+    color: #111;
+  }
+  .print-avoid-break {
+    break-inside: avoid;
+  }
+}
