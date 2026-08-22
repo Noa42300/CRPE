@@ -6,7 +6,7 @@ name: Déployer le Cahier Journal (GitHub Pages)
 
 on:
   push:
-    branches: [claude/cahier-journal-app-tjfewn]
+    branches: [main]
     paths:
       - "cahier-journal/**"
       - ".github/workflows/pages-cahier-journal.yml"
