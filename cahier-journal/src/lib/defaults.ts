@@ -90,21 +90,25 @@ export const DISCIPLINE_COLORS: Record<
 
 export const COLOR_KEYS = Object.keys(DISCIPLINE_COLORS) as DisciplineColorKey[];
 
-/** Disciplines par défaut (modifiables). */
+/**
+ * Disciplines par défaut (modifiables).
+ * Les identifiants sont STABLES (mêmes sur tous les appareils) : cela permet
+ * d'importer des séances préparées ailleurs sans casser les correspondances.
+ */
 export function defaultDisciplines(): Discipline[] {
-  const base: Array<[string, DisciplineColorKey]> = [
-    ["Français", "blue"],
-    ["Mathématiques", "green"],
-    ["Questionner le monde", "orange"],
-    ["Anglais", "purple"],
-    ["EPS", "yellow"],
-    ["Arts", "red"],
-    ["EMC", "pink"],
-    ["Récréation", "gray"],
-    ["Cantine", "gray"],
-    ["Autre", "gray"],
+  const base: Array<[string, string, DisciplineColorKey]> = [
+    ["francais", "Français", "blue"],
+    ["maths", "Mathématiques", "green"],
+    ["qlm", "Questionner le monde", "orange"],
+    ["anglais", "Anglais", "purple"],
+    ["eps", "EPS", "yellow"],
+    ["arts", "Arts", "red"],
+    ["emc", "EMC", "pink"],
+    ["recreation", "Récréation", "gray"],
+    ["cantine", "Cantine", "gray"],
+    ["autre", "Autre", "gray"],
   ];
-  return base.map(([label, color], i) => ({ id: uid(), label, color, order: i }));
+  return base.map(([id, label, color], i) => ({ id, label, color, order: i }));
 }
 
 /** Niveaux par défaut : double niveau CE1-CE2 + groupe classe. */

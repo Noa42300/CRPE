@@ -73,7 +73,12 @@ export function parseBackup(text: string): ParsedBackup {
 
 /**
  * Écrit une sauvegarde importée dans la base.
- * mode "replace" : remplace tout. mode "merge" : fusionne les journées.
+ *
+ * mode "replace" : efface tout et restaure intégralement (réglages compris).
+ * mode "merge"   : NON destructif — conserve tes réglages actuels (profil,
+ *                  classe, thème, périodes) et ajoute seulement les journées
+ *                  importées ainsi que les disciplines/niveaux manquants dont
+ *                  ces journées ont besoin. Idéal pour recevoir des séances.
  */
 export async function restoreBackup(
   parsed: ParsedBackup,
@@ -82,8 +87,26 @@ export async function restoreBackup(
   if (mode === "replace") {
     await daysDB.clear();
     await templatesDB.clear();
+    await settingsDB.put({ ...parsed.settings, key: "app" });
+  } else {
+    const current = (await settingsDB.get()) ?? parsed.settings;
+    const discIds = new Set(current.disciplines.map((d) => d.id));
+    const nivIds = new Set(current.niveaux.map((n) => n.id));
+    const mergedDisciplines = [
+      ...current.disciplines,
+      ...parsed.settings.disciplines.filter((d) => !discIds.has(d.id)),
+    ];
+    const mergedNiveaux = [
+      ...current.niveaux,
+      ...parsed.settings.niveaux.filter((n) => !nivIds.has(n.id)),
+    ];
+    await settingsDB.put({
+      ...current,
+      key: "app",
+      disciplines: mergedDisciplines,
+      niveaux: mergedNiveaux,
+    });
   }
-  await settingsDB.put({ ...parsed.settings, key: "app" });
   for (const day of parsed.days) await daysDB.put(day);
   for (const t of parsed.templates) await templatesDB.put(t);
 }
