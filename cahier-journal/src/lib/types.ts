@@ -1,0 +1,189 @@
+/**
+ * Modèles de données du Cahier Journal
+ * ------------------------------------
+ * Toutes les structures TypeScript utilisées par l'application.
+ * Ces données vivent UNIQUEMENT dans IndexedDB (navigateur local).
+ * Rien n'est envoyé sur un serveur.
+ */
+
+/** Version du schéma de données — sert aux migrations lors des imports. */
+export const SCHEMA_VERSION = 1;
+
+/** Un niveau concerné par une activité. Extensible (groupes personnalisés). */
+export type NiveauId = string; // ex : "CE1", "CE2", "classe", ou id de groupe perso
+
+/** Étape du déroulement d'une séance (modifiable, facultative). */
+export interface Step {
+  id: string;
+  label: string;
+  note?: string;
+}
+
+/** Événement exceptionnel de la journée. */
+export interface DayEvent {
+  id: string;
+  type:
+    | "sortie"
+    | "intervenant"
+    | "remplacement"
+    | "reunion"
+    | "particulier"
+    | "autre";
+  note: string;
+}
+
+/**
+ * Une activité concrète à l'intérieur d'un créneau.
+ * Un créneau peut contenir 1 activité (commune) ou 2 (CE1 / CE2) pour le
+ * double niveau — voir Slot.activities.
+ */
+export interface Activity {
+  id: string;
+  /** Niveaux concernés : ex ["classe"], ["CE1"], ["CE2"], ["CE1","CE2"]. */
+  niveaux: NiveauId[];
+  /** Intitulé court, ex : « Lecture — Comprendre un texte documentaire ». */
+  title: string;
+
+  objectif: string;
+  competence: string;
+  competenceRef: string;
+
+  /** Programmation / progression. */
+  progPeriode: string;
+  progDomaine: string;
+  progSequence: string;
+  progSeance: string;
+  progRef: string;
+
+  /** Modalités (cases multiples possibles). */
+  organisation: string[];
+  roleEnseignant: string[];
+
+  /** Déroulement en étapes, entièrement modifiable. */
+  deroulement: Step[];
+
+  materiel: string;
+
+  /** Différenciation. */
+  differenciation: string;
+  depassement: string;
+
+  /** Suivi après la séance. */
+  bilan: string;
+  aReprendre: string;
+  devoirs: string;
+  notesProchaine: string;
+}
+
+/** Un créneau horaire de la journée. Contient une ou plusieurs activités. */
+export interface Slot {
+  id: string;
+  start: string; // "HH:MM"
+  end: string; // "HH:MM"
+  disciplineId: string; // référence Discipline.id
+  /**
+   * 1 activité = créneau commun ; 2+ = organisation double niveau
+   * (ex : CE1 avec l'enseignant / CE2 en autonomie).
+   */
+  activities: Activity[];
+}
+
+/** Informations générales d'une journée. */
+export interface DayInfo {
+  effectifPrevu: number | null;
+  presents: number | null;
+  absents: number | null;
+  absentsNames: string;
+  events: DayEvent[];
+}
+
+/** Une journée complète du cahier journal. Clé = date ISO (AAAA-MM-JJ). */
+export interface Day {
+  date: string; // "AAAA-MM-JJ"  (clé primaire)
+  info: DayInfo;
+  slots: Slot[];
+  createdAt: number;
+  updatedAt: number;
+}
+
+/** Une discipline paramétrable, avec sa couleur. */
+export interface Discipline {
+  id: string;
+  label: string;
+  /** Clé de couleur (voir DISCIPLINE_COLORS). */
+  color: DisciplineColorKey;
+  order: number;
+}
+
+export type DisciplineColorKey =
+  | "blue"
+  | "green"
+  | "orange"
+  | "purple"
+  | "yellow"
+  | "red"
+  | "pink"
+  | "teal"
+  | "gray";
+
+/** Une période de l'année scolaire. */
+export interface Period {
+  id: string;
+  number: number;
+  name: string;
+  start: string; // "AAAA-MM-JJ"
+  end: string; // "AAAA-MM-JJ"
+}
+
+/** Un niveau / groupe déclaré dans les paramètres. */
+export interface NiveauDef {
+  id: NiveauId;
+  label: string;
+  /** true pour "classe entière" (groupe commun). */
+  isGroupeClasse?: boolean;
+}
+
+/** Profil enseignant + réglages généraux. */
+export interface Settings {
+  key: "app"; // clé fixe
+  schemaVersion: number;
+
+  profile: {
+    prenom: string;
+    nom: string;
+    ecole: string;
+    classe: string;
+    annee: string; // ex : "2026-2027"
+  };
+  classe: {
+    effectif: number | null;
+    eleves: string[];
+  };
+  niveaux: NiveauDef[];
+  disciplines: Discipline[];
+  periods: Period[];
+
+  theme: "light" | "dark" | "auto";
+  /** Jours travaillés (0=dimanche … 6=samedi). */
+  joursTravailles: number[];
+}
+
+/** Un modèle réutilisable (séance ou journée). */
+export interface Template {
+  id: string;
+  kind: "seance" | "journee";
+  name: string;
+  /** Pour "seance" : Activity partielle. Pour "journee" : Slot[]. */
+  data: unknown;
+  createdAt: number;
+}
+
+/** Structure d'un fichier de sauvegarde exporté. */
+export interface BackupFile {
+  app: "cahier-journal";
+  schemaVersion: number;
+  exportedAt: string;
+  settings: Settings;
+  days: Day[];
+  templates: Template[];
+}
