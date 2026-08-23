@@ -5,16 +5,17 @@
  * L'export déclenche un téléchargement ; l'import lit un fichier choisi par
  * l'utilisateur. Rien ne transite par le réseau.
  */
-import type { BackupFile, Day, Settings, Template } from "./types";
+import type { BackupFile, Day, Plan, Settings, Template } from "./types";
 import { SCHEMA_VERSION } from "./types";
-import { daysDB, settingsDB, templatesDB } from "./db";
+import { daysDB, plansDB, settingsDB, templatesDB } from "./db";
 import { todayISO } from "./dates";
 
 /** Construit l'objet de sauvegarde à partir de la base. */
 export async function buildBackup(settings: Settings): Promise<BackupFile> {
-  const [days, templates] = await Promise.all([
+  const [days, templates, plans] = await Promise.all([
     daysDB.getAll(),
     templatesDB.getAll(),
+    plansDB.getAll(),
   ]);
   return {
     app: "cahier-journal",
@@ -23,6 +24,39 @@ export async function buildBackup(settings: Settings): Promise<BackupFile> {
     settings,
     days,
     templates,
+    plans,
+  };
+}
+
+/**
+ * GARDE-FOU DE CONFIDENTIALITÉ
+ * ---------------------------
+ * Produit une version « publiable » d'une sauvegarde : retire TOUTE donnée
+ * pouvant identifier un élève (liste d'élèves, noms d'absents, bilans
+ * nominatifs). À utiliser avant de publier quoi que ce soit en ligne
+ * (fichier cloud public). Ne modifie jamais tes données locales.
+ */
+export function sanitizeForPublic(backup: BackupFile): BackupFile {
+  return {
+    ...backup,
+    settings: {
+      ...backup.settings,
+      classe: { ...backup.settings.classe, eleves: [] },
+    },
+    days: backup.days.map((d) => ({
+      ...d,
+      info: { ...d.info, absentsNames: "" },
+      slots: d.slots.map((s) => ({
+        ...s,
+        activities: s.activities.map((a) => ({
+          ...a,
+          // On garde la préparation, on vide les champs de suivi nominatif.
+          bilan: "",
+          aReprendre: "",
+          notesProchaine: "",
+        })),
+      })),
+    })),
   };
 }
 
@@ -47,6 +81,7 @@ export interface ParsedBackup {
   settings: Settings;
   days: Day[];
   templates: Template[];
+  plans: Plan[];
 }
 
 /** Analyse et valide le contenu d'un fichier de sauvegarde. */
@@ -68,6 +103,7 @@ export function parseBackup(text: string): ParsedBackup {
     settings: b.settings,
     days: b.days,
     templates: Array.isArray(b.templates) ? b.templates : [],
+    plans: Array.isArray(b.plans) ? b.plans : [],
   };
 }
 
@@ -87,6 +123,7 @@ export async function restoreBackup(
   if (mode === "replace") {
     await daysDB.clear();
     await templatesDB.clear();
+    await plansDB.clear();
     await settingsDB.put({ ...parsed.settings, key: "app" });
   } else {
     const current = (await settingsDB.get()) ?? parsed.settings;
@@ -109,6 +146,7 @@ export async function restoreBackup(
   }
   for (const day of parsed.days) await daysDB.put(day);
   for (const t of parsed.templates) await templatesDB.put(t);
+  for (const p of parsed.plans) await plansDB.put(p);
 }
 
 /** Lit un File (input type=file) en texte. */

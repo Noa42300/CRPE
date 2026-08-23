@@ -16,11 +16,12 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Day, Settings, Template } from "./types";
+import type { Day, Plan, Settings, Template } from "./types";
 import { SCHEMA_VERSION } from "./types";
 import {
   daysDB,
   isStorageAvailable,
+  plansDB,
   settingsDB,
   templatesDB,
   wipeAll,
@@ -36,6 +37,7 @@ interface StoreValue {
   settings: Settings;
   daysMap: Record<string, Day>;
   templates: Template[];
+  plans: Plan[];
   saveStatus: SaveStatus;
 
   saveSettings: (next: Settings) => void;
@@ -43,6 +45,8 @@ interface StoreValue {
   removeDay: (date: string) => Promise<void>;
   saveTemplate: (t: Template) => Promise<void>;
   removeTemplate: (id: string) => Promise<void>;
+  savePlan: (p: Plan) => void;
+  removePlan: (id: string) => Promise<void>;
   flush: () => Promise<void>;
   reloadAll: () => Promise<void>;
   resetEverything: () => Promise<void>;
@@ -64,12 +68,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<Settings>(defaultSettings());
   const [daysMap, setDaysMap] = useState<Record<string, Day>>({});
   const [templates, setTemplates] = useState<Template[]>([]);
+  const [plans, setPlans] = useState<Plan[]>([]);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [lastCloudSync, setLastCloudSync] = useState<number | null>(null);
   const autoSyncDone = useRef(false);
 
   // --- File d'attente d'autosave (anti-rebond) ---
   const pendingDays = useRef<Map<string, Day>>(new Map());
+  const pendingPlans = useRef<Map<string, Plan>>(new Map());
   const pendingSettings = useRef<Settings | null>(null);
   const timer = useRef<number | null>(null);
 
@@ -79,12 +85,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       timer.current = null;
     }
     const days = Array.from(pendingDays.current.values());
+    const plansList = Array.from(pendingPlans.current.values());
     const s = pendingSettings.current;
     pendingDays.current.clear();
+    pendingPlans.current.clear();
     pendingSettings.current = null;
-    if (days.length === 0 && !s) return;
+    if (days.length === 0 && plansList.length === 0 && !s) return;
     try {
       for (const d of days) await daysDB.put(d);
+      for (const p of plansList) await plansDB.put(p);
       if (s) await settingsDB.put(s);
       setSaveStatus("saved");
     } catch {
@@ -111,15 +120,17 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     }
     // Migration légère : complète les champs manquants d'anciens schémas.
     s = { ...defaultSettings(), ...s, schemaVersion: SCHEMA_VERSION, key: "app" };
-    const [allDays, allTemplates] = await Promise.all([
+    const [allDays, allTemplates, allPlans] = await Promise.all([
       daysDB.getAll(),
       templatesDB.getAll(),
+      plansDB.getAll(),
     ]);
     const map: Record<string, Day> = {};
     for (const d of allDays) map[d.date] = d;
     setSettings(s);
     setDaysMap(map);
     setTemplates(allTemplates);
+    setPlans(allPlans);
     setReady(true);
   }, []);
 
@@ -130,7 +141,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   // Sauvegarde avant fermeture de l'onglet (sécurité anti-perte).
   useEffect(() => {
     const handler = () => {
-      if (pendingDays.current.size > 0 || pendingSettings.current) {
+      if (
+        pendingDays.current.size > 0 ||
+        pendingPlans.current.size > 0 ||
+        pendingSettings.current
+      ) {
         void flush();
       }
     };
@@ -197,6 +212,25 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setTemplates((prev) => prev.filter((x) => x.id !== id));
   }, []);
 
+  const savePlan = useCallback(
+    (p: Plan) => {
+      const stamped = { ...p, updatedAt: Date.now() };
+      setPlans((prev) => {
+        const others = prev.filter((x) => x.id !== stamped.id);
+        return [...others, stamped];
+      });
+      pendingPlans.current.set(stamped.id, stamped);
+      scheduleFlush();
+    },
+    [scheduleFlush],
+  );
+
+  const removePlan = useCallback(async (id: string) => {
+    pendingPlans.current.delete(id);
+    await plansDB.delete(id);
+    setPlans((prev) => prev.filter((x) => x.id !== id));
+  }, []);
+
   const resetEverything = useCallback(async () => {
     await wipeAll();
     const s = defaultSettings();
@@ -204,6 +238,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setSettings(s);
     setDaysMap({});
     setTemplates([]);
+    setPlans([]);
   }, []);
 
   const syncCloud = useCallback(
@@ -240,12 +275,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       settings,
       daysMap,
       templates,
+      plans,
       saveStatus,
       saveSettings,
       saveDay,
       removeDay,
       saveTemplate,
       removeTemplate,
+      savePlan,
+      removePlan,
       flush,
       reloadAll,
       resetEverything,
@@ -258,12 +296,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       settings,
       daysMap,
       templates,
+      plans,
       saveStatus,
       saveSettings,
       saveDay,
       removeDay,
       saveTemplate,
       removeTemplate,
+      savePlan,
+      removePlan,
       flush,
       reloadAll,
       resetEverything,

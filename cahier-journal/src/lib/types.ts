@@ -178,6 +178,37 @@ export interface Template {
   createdAt: number;
 }
 
+/**
+ * Documents de planification annuelle (Programmations / Progressions).
+ * Ce sont des documents PÉDAGOGIQUES : ils ne contiennent aucune donnée
+ * élève et peuvent donc être synchronisés sans risque de confidentialité.
+ */
+export type PlanKind = "programmation" | "progression";
+export type PlanStatus = "prevu" | "encours" | "fait";
+
+export interface PlanItem {
+  id: string;
+  /** Période associée (id de Period) — facultatif. */
+  periodeId: string;
+  /** Domaine / sous-domaine (ex : « Grammaire »). */
+  domaine: string;
+  /** Séquence (programmation) ou notion (progression). */
+  intitule: string;
+  objectif: string;
+  statut: PlanStatus;
+  order: number;
+}
+
+export interface Plan {
+  /** id déterministe : `${kind}:${disciplineId}:${niveauId}`. */
+  id: string;
+  kind: PlanKind;
+  disciplineId: string;
+  niveauId: NiveauId;
+  items: PlanItem[];
+  updatedAt: number;
+}
+
 /** Structure d'un fichier de sauvegarde exporté. */
 export interface BackupFile {
   app: "cahier-journal";
@@ -186,4 +217,6 @@ export interface BackupFile {
   settings: Settings;
   days: Day[];
   templates: Template[];
+  /** Programmations & progressions (facultatif pour compat. ascendante). */
+  plans?: Plan[];
 }

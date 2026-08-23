@@ -4,8 +4,53 @@
  * Crée des structures vides (journée, créneau, séance, étape) prêtes à être
  * éditées. Centralisé ici pour rester cohérent partout.
  */
-import type { Activity, Day, DayEvent, Slot, Step } from "./types";
+import type {
+  Activity,
+  Day,
+  DayEvent,
+  Plan,
+  PlanItem,
+  PlanKind,
+  Slot,
+  Step,
+} from "./types";
 import { uid } from "./dates";
+
+/** id déterministe d'un plan (un document par kind × discipline × niveau). */
+export function planId(
+  kind: PlanKind,
+  disciplineId: string,
+  niveauId: string,
+): string {
+  return `${kind}:${disciplineId}:${niveauId}`;
+}
+
+export function emptyPlanItem(order: number): PlanItem {
+  return {
+    id: uid(),
+    periodeId: "",
+    domaine: "",
+    intitule: "",
+    objectif: "",
+    statut: "prevu",
+    order,
+  };
+}
+
+export function emptyPlan(
+  kind: PlanKind,
+  disciplineId: string,
+  niveauId: string,
+): Plan {
+  return {
+    id: planId(kind, disciplineId, niveauId),
+    kind,
+    disciplineId,
+    niveauId,
+    items: [],
+    updatedAt: Date.now(),
+  };
+}
 
 export function emptyStep(label = ""): Step {
   return { id: uid(), label, note: "" };

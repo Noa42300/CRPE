@@ -4,3 +4,11 @@ dist-ssr
 *.local
 .DS_Store
 .vite
+
+# Confidentialité : ne jamais versionner d'export de données local
+# (les sauvegardes contiennent potentiellement des données élèves).
+# NB : public/journal.json est volontairement suivi et ne contient que
+# de la préparation (garde-fou sanitizeForPublic).
+*sauvegarde*.json
+*.local.json
+cahier-journal-sauvegarde-*.json
