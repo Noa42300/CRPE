@@ -9,45 +9,23 @@ import type {
   Day,
   DayEvent,
   Plan,
-  PlanItem,
   PlanKind,
   Slot,
   Step,
 } from "./types";
 import { uid } from "./dates";
 
-/** id déterministe d'un plan (un document par kind × discipline × niveau). */
-export function planId(
-  kind: PlanKind,
-  disciplineId: string,
-  niveauId: string,
-): string {
-  return `${kind}:${disciplineId}:${niveauId}`;
+/** id déterministe d'un plan (un document par kind × discipline). */
+export function planId(kind: PlanKind, disciplineId: string): string {
+  return `${kind}:${disciplineId}`;
 }
 
-export function emptyPlanItem(order: number): PlanItem {
+export function emptyPlan(kind: PlanKind, disciplineId: string): Plan {
   return {
-    id: uid(),
-    periodeId: "",
-    domaine: "",
-    intitule: "",
-    objectif: "",
-    statut: "prevu",
-    order,
-  };
-}
-
-export function emptyPlan(
-  kind: PlanKind,
-  disciplineId: string,
-  niveauId: string,
-): Plan {
-  return {
-    id: planId(kind, disciplineId, niveauId),
+    id: planId(kind, disciplineId),
     kind,
     disciplineId,
-    niveauId,
-    items: [],
+    zones: {},
     updatedAt: Date.now(),
   };
 }
