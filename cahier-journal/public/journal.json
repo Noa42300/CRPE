@@ -1,0 +1,1009 @@
+{
+  "app": "cahier-journal",
+  "schemaVersion": 1,
+  "exportedAt": "2026-08-22T13:03:28.613Z",
+  "settings": {
+    "key": "app",
+    "schemaVersion": 1,
+    "profile": {
+      "prenom": "",
+      "nom": "",
+      "ecole": "",
+      "classe": "CE1-CE2",
+      "annee": "2026-2027"
+    },
+    "classe": {
+      "effectif": 25,
+      "eleves": []
+    },
+    "niveaux": [
+      {
+        "id": "CE1",
+        "label": "CE1"
+      },
+      {
+        "id": "CE2",
+        "label": "CE2"
+      },
+      {
+        "id": "classe",
+        "label": "Groupe classe",
+        "isGroupeClasse": true
+      }
+    ],
+    "disciplines": [
+      {
+        "id": "francais",
+        "label": "Français",
+        "color": "blue",
+        "order": 0
+      },
+      {
+        "id": "maths",
+        "label": "Mathématiques",
+        "color": "green",
+        "order": 1
+      },
+      {
+        "id": "qlm",
+        "label": "Questionner le monde",
+        "color": "orange",
+        "order": 2
+      },
+      {
+        "id": "anglais",
+        "label": "Anglais",
+        "color": "purple",
+        "order": 3
+      },
+      {
+        "id": "eps",
+        "label": "EPS",
+        "color": "yellow",
+        "order": 4
+      },
+      {
+        "id": "arts",
+        "label": "Arts",
+        "color": "red",
+        "order": 5
+      },
+      {
+        "id": "emc",
+        "label": "EMC",
+        "color": "pink",
+        "order": 6
+      },
+      {
+        "id": "recreation",
+        "label": "Récréation",
+        "color": "gray",
+        "order": 7
+      },
+      {
+        "id": "cantine",
+        "label": "Cantine",
+        "color": "gray",
+        "order": 8
+      },
+      {
+        "id": "autre",
+        "label": "Autre",
+        "color": "gray",
+        "order": 9
+      }
+    ],
+    "periods": [
+      {
+        "id": "per1",
+        "number": 1,
+        "name": "Période 1",
+        "start": "2026-09-01",
+        "end": "2026-10-17"
+      },
+      {
+        "id": "per2",
+        "number": 2,
+        "name": "Période 2",
+        "start": "2026-11-03",
+        "end": "2026-12-19"
+      },
+      {
+        "id": "per3",
+        "number": 3,
+        "name": "Période 3",
+        "start": "2027-01-05",
+        "end": "2027-02-13"
+      },
+      {
+        "id": "per4",
+        "number": 4,
+        "name": "Période 4",
+        "start": "2027-03-02",
+        "end": "2027-04-10"
+      },
+      {
+        "id": "per5",
+        "number": 5,
+        "name": "Période 5",
+        "start": "2027-04-27",
+        "end": "2027-07-06"
+      }
+    ],
+    "theme": "auto",
+    "joursTravailles": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "days": [
+    {
+      "date": "2026-09-01",
+      "info": {
+        "effectifPrevu": 25,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "events": [
+          {
+            "id": "ev1x",
+            "type": "particulier",
+            "note": "Jour de rentrée — objectifs : que chaque élève reparte serein, connaître 25 prénoms, réactiver les acquis."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "id": "sa",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a6",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Accueil, installation & mot de bienvenue",
+              "objectif": "Poser un cadre rassurant : chaque élève trouve sa place et comprend le déroulé de la journée.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "st7",
+                  "label": "Accueil dans la cour",
+                  "note": "Pancarte « CE1–CE2 », bonjour à chaque enfant en le regardant."
+                },
+                {
+                  "id": "st8",
+                  "label": "Entrée et installation",
+                  "note": "« Cherche ton prénom sur une table, installe-toi, tu ne touches à rien. » Observer qui trouve sa place seul."
+                },
+                {
+                  "id": "st9",
+                  "label": "Mot de bienvenue (≈3 min)",
+                  "note": "Debout, au centre, sans papier. Assumer le trac de la 1re année. Lecture du programme écrit au tableau."
+                }
+              ],
+              "materiel": "Étiquettes prénoms sur les tables, badges, programme de la journée écrit au tableau.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Barrer le programme au tableau au fil de la journée : installe le rituel de l'emploi du temps."
+            }
+          ]
+        },
+        {
+          "id": "sg",
+          "start": "08:45",
+          "end": "09:10",
+          "disciplineId": "emc",
+          "activities": [
+            {
+              "id": "ab",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Fiche 1 — La toile d'araignée",
+              "objectif": "Faire connaissance et éprouver physiquement l'interdépendance du groupe ; mémoriser les prénoms.",
+              "competence": "Coopérer, prendre sa place dans un groupe (EMC — la sensibilité, le collectif).",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Vivre ensemble / EMC",
+              "progSequence": "Cohésion de classe",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "découverte",
+                "observation"
+              ],
+              "deroulement": [
+                {
+                  "id": "stc",
+                  "label": "Mise en cercle (3 min)",
+                  "note": "Tout le monde assis par terre en cercle. L'enseignant est un maillon, dans le cercle."
+                },
+                {
+                  "id": "std",
+                  "label": "Construction de la toile (15 min)",
+                  "note": "Chacun dit son prénom + une chose qu'il aime, garde son fil tendu et envoie la pelote. Le fil ne revient jamais deux fois à la même personne."
+                },
+                {
+                  "id": "ste",
+                  "label": "Les trois révélations (5 min)",
+                  "note": "a) un élève tire doucement → tous le sentent. b) un élève lâche → la toile s'affaisse. c) « Qu'est-ce que ça veut dire pour notre classe ? » — laisser le silence, ils trouvent."
+                },
+                {
+                  "id": "stf",
+                  "label": "Rembobinage (2 min)",
+                  "note": "On renvoie la pelote à l'envoi précédent en redisant le prénom : jeu de mémoire gratuit."
+                }
+              ],
+              "materiel": "Une pelote de laine épaisse (le seul achat du jour, ≈3 €).",
+              "differenciation": "Aucune distinction CE1/CE2 : tout le monde est à égalité. L'élève qui ne veut pas parler dit seulement son prénom, ou l'enseignant le dit pour lui, sans insister.",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Observer : qui prend la parole, les premières affinités, qui reste en attente (prénoms à noter). Réutiliser la toile pour construire les règles de la classe en fin de matinée."
+            }
+          ]
+        },
+        {
+          "id": "sm",
+          "start": "09:10",
+          "end": "09:40",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "ah",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Fiche 2 — Le nombre du jour (version rentrée)",
+              "objectif": "Réactiver la numération de position et le calcul à partir du nombre d'élèves de la classe (25).",
+              "competence": "CE1 : décomposer un nombre < 100. CE2 : produire plusieurs écritures d'un nombre, dont une multiplicative.",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Nombres et calcul — numération",
+              "progSequence": "Le nombre du jour",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "ateliers",
+                "groupe"
+              ],
+              "roleEnseignant": [
+                "guidage",
+                "différenciation"
+              ],
+              "deroulement": [
+                {
+                  "id": "sti",
+                  "label": "Combien sommes-nous ? (8 min, collectif)",
+                  "note": "Faire tester deux méthodes (un par un, puis par îlots) → 25, écrit en très grand dans un rond au tableau."
+                },
+                {
+                  "id": "stj",
+                  "label": "La fleur du nombre (12 min, par îlot)",
+                  "note": "Chaque îlot remplit les pétales avec des écritures différentes de 25. CE1 : 3 écritures. CE2 : 5 dont une multiplication. Relancer : « Et avec une soustraction ? »"
+                },
+                {
+                  "id": "stk",
+                  "label": "Mise en commun (8 min)",
+                  "note": "Chaque îlot écrit une trouvaille autour du rond ; on vérifie, on barre les doublons. Devient le 1er affichage de l'année."
+                },
+                {
+                  "id": "stl",
+                  "label": "Bilan (2 min)",
+                  "note": "« Combien d'écritures pour un seul nombre ? » → un nombre a une infinité de visages."
+                }
+              ],
+              "materiel": "Tableau, une fiche « fleur du nombre » par élève (triée en piles CE1/CE2), ardoises.",
+              "differenciation": "CE1 : décompositions dizaines/unités, sommes simples. CE2 : différences, multiplication (5×5), monnaie, double/moitié.",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Observer : qui reste bloqué sur une seule forme, qui confond dizaines/unités, le CE2 sans multiplication (tables non installées). Recopier la fleur géante sur une grande feuille le soir."
+            }
+          ]
+        },
+        {
+          "id": "so",
+          "start": "09:40",
+          "end": "10:00",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "an",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Respiration — rangement & toilettes",
+              "objectif": "Transition calme ; installer les déplacements en rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "—",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Ne jamais compter moins de 10 min pour ce temps le premier jour."
+            }
+          ]
+        },
+        {
+          "id": "sq",
+          "start": "10:00",
+          "end": "10:30",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "ap",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "Observer les regroupements spontanés dans la cour (renseignement précieux).",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "autonomie"
+              ],
+              "roleEnseignant": [
+                "observation"
+              ],
+              "deroulement": [],
+              "materiel": "—",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "ss",
+          "start": "10:30",
+          "end": "10:35",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "ar",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituel de la date",
+              "objectif": "Installer le rituel : jour, date, météo.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Rituels",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Aujourd'hui c'est l'enseignant qui le fait ; dès demain, un élève."
+            }
+          ]
+        },
+        {
+          "id": "sy",
+          "start": "10:35",
+          "end": "10:55",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "at",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Fiche 3 — Devine mon nombre",
+              "objectif": "Comparer et encadrer un nombre ; distinguer raisonnement (dichotomie) et devinette au hasard.",
+              "competence": "CE1 : comparer/encadrer < 100. CE2 : idem jusqu'à 1000 et poser une question qui fait avancer.",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Comparaison, encadrement, vocabulaire du nombre",
+              "progSequence": "Devine mon nombre",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "étayage",
+                "observation"
+              ],
+              "deroulement": [
+                {
+                  "id": "stu",
+                  "label": "Règle du jeu",
+                  "note": "Nombre écrit caché et posé en vue. Réponses par OUI/NON uniquement. 12 questions maximum."
+                },
+                {
+                  "id": "stv",
+                  "label": "Manche 1 — CE1 (nombre entre 0 et 100, ex. 37)",
+                  "note": "Tenir l'encadrement à jour au tableau ; les CE2 notent l'intervalle sur l'ardoise."
+                },
+                {
+                  "id": "stw",
+                  "label": "Manche 2 — CE2 (nombre entre 0 et 1000, ex. 428)",
+                  "note": "Même principe, intervalles plus larges."
+                },
+                {
+                  "id": "stx",
+                  "label": "La relance clé",
+                  "note": "Après une question inutile : « Est-ce que ça nous a fait avancer ? Quelle question aurait éliminé plus de nombres ? »"
+                }
+              ],
+              "materiel": "Aucun — le tableau suffit.",
+              "differenciation": "Les CE2 restent actifs pendant la manche CE1 (ardoise d'intervalle).",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Observer : qui pose des questions de dichotomie, qui maîtrise le vocabulaire (pair/impair, entre, chiffre des dizaines), qui écoute les réponses précédentes."
+            }
+          ]
+        },
+        {
+          "id": "s12",
+          "start": "10:55",
+          "end": "11:25",
+          "disciplineId": "emc",
+          "activities": [
+            {
+              "id": "az",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Les règles de la classe",
+              "objectif": "Construire avec les élèves les premières règles de la classe (moment le plus structurant de la matinée).",
+              "competence": "Comprendre les raisons de l'obéissance aux règles ; participer à leur élaboration.",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "EMC — la règle et le droit",
+              "progSequence": "Vivre ensemble",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "st10",
+                  "label": "Rappel de la toile",
+                  "note": "« Ce matin, quand une personne a tiré sur son fil, que s'est-il passé ? » → un élève qui perturbe perturbe toute la classe."
+                },
+                {
+                  "id": "st11",
+                  "label": "Formulation des règles",
+                  "note": "Faire énoncer les règles par les élèves, les reformuler positivement."
+                }
+              ],
+              "materiel": "Tableau ; affichage à constituer.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Priorité absolue : ne jamais sacrifier ce temps ni la toile, même en cas de retard."
+            }
+          ]
+        },
+        {
+          "id": "s14",
+          "start": "11:25",
+          "end": "11:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a13",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement et sortie",
+              "objectif": "Installer le rituel de sortie : chaises sur les tables, silence, rang par îlots appelés un par un.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "s16",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "a15",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "Repas et pause.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "autonomie"
+              ],
+              "roleEnseignant": [
+                "observation"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "s18",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a17",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Accueil & lecture offerte",
+              "objectif": "Retour au calme d'après-cantine par la lecture à voix haute d'un album (aucun travail derrière).",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Langage oral / littérature",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "découverte"
+              ],
+              "deroulement": [],
+              "materiel": "Un album.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "s1d",
+          "start": "13:45",
+          "end": "14:10",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a19",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Fiche 4 — La dictée muette",
+              "objectif": "Distinguer chez chaque élève ce qui relève du code (encodage) et de la mémoire orthographique.",
+              "competence": "CE1 : encoder un mot de 1–2 syllabes. CE2 : encoder un mot de 2–4 syllabes à graphies complexes.",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Étude de la langue — encodage & orthographe",
+              "progSequence": "Dictée muette",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "observation",
+                "différenciation"
+              ],
+              "deroulement": [
+                {
+                  "id": "st1a",
+                  "label": "Principe",
+                  "note": "Montrer un objet sans le nommer ; les élèves écrivent le mot sur l'ardoise, la retournent, lèvent tous ensemble au signal."
+                },
+                {
+                  "id": "st1b",
+                  "label": "Dix objets",
+                  "note": "CE1 : gomme, livre, règle, chaise, porte, crayon, cahier, stylo, table, sac. CE2 : trousse, ardoise, feutre, tableau, fenêtre, ciseaux, classeur, armoire, ordinateur, étiquette."
+                },
+                {
+                  "id": "st1c",
+                  "label": "Correction (≈3 min)",
+                  "note": "Écrire le mot en découpant les syllabes à voix haute (« gom/me »), une seule difficulté par mot. Ne rien noter, ne rien compter."
+                }
+              ],
+              "materiel": "Une ardoise + un feutre par élève ; les objets de la classe.",
+              "differenciation": "Lecture des résultats : « gome » = orthographe d'usage à mémoriser ; « gonm/om » = le code, à retravailler vite ; ardoise vide = alerte, entretien individuel dans la semaine.",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Objectif non anxiogène : « personne ne se moque, j'ai besoin de voir ce que vous entendez »."
+            }
+          ]
+        },
+        {
+          "id": "s1j",
+          "start": "14:10",
+          "end": "14:40",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a1e",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Fiche 5 — La phrase cassée",
+              "objectif": "Réactiver la notion de phrase (majuscule, point, ordre des mots), 1er objet d'étude de la P1.",
+              "competence": "CE1 : reconstituer une phrase de 5–6 mots avec majuscule et point. CE2 : phrase de 8–9 mots, plusieurs ordres corrects.",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Étude de la langue — la phrase",
+              "progSequence": "La phrase",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "binôme",
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "étayage",
+                "observation"
+              ],
+              "deroulement": [
+                {
+                  "id": "st1f",
+                  "label": "Modelage (5 min)",
+                  "note": "Démonstration au tableau avec 3 mots ; penser à voix haute : le mot à majuscule = 1er, le mot au point = dernier."
+                },
+                {
+                  "id": "st1g",
+                  "label": "Recherche par binôme (15 min)",
+                  "note": "Chaque binôme reconstitue sa phrase sans coller, puis la lit à voix haute (1re observation de fluence). CE1 : 5–6 mots ; CE2 : 8–9 mots."
+                },
+                {
+                  "id": "st1h",
+                  "label": "Mise en commun (8 min)",
+                  "note": "Une phrase CE2 à plusieurs solutions : « Est-ce que ça veut dire exactement la même chose ? »"
+                },
+                {
+                  "id": "st1i",
+                  "label": "Bilan (2 min)",
+                  "note": "« Comment reconnaît-on le début et la fin d'une phrase ? » → 1re trace écrite d'étude de la langue."
+                }
+              ],
+              "materiel": "Enveloppes d'étiquettes-mots découpées la veille (une par îlot).",
+              "differenciation": "CE1 : une seule solution correcte, indices majuscule/point sur les étiquettes. CE2 : plusieurs ordres possibles.",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Branche directement sur le rituel « phrase du jour »."
+            }
+          ]
+        },
+        {
+          "id": "s1l",
+          "start": "14:40",
+          "end": "15:00",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a1k",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Matériel et cahiers",
+              "objectif": "Distribution LIMITÉE : le cahier du jour, la chemise jaune, le badge. Rien d'autre.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "Cahier du jour, chemise jaune, badge.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "L'étiquetage est un exercice de copie déguisé."
+            }
+          ]
+        },
+        {
+          "id": "s1n",
+          "start": "15:00",
+          "end": "15:30",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a1m",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "Pause.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "autonomie"
+              ],
+              "roleEnseignant": [
+                "observation"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "s1q",
+          "start": "15:30",
+          "end": "15:50",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a1o",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Fiche 6 — Vrai ou faux (français + maths)",
+              "objectif": "Diagnostic rapide et ludique : 20 affirmations, ardoises « vrai / faux » levées ensemble.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Français et mathématiques (diagnostic)",
+              "progSequence": "Vrai ou faux",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "observation"
+              ],
+              "deroulement": [
+                {
+                  "id": "st1p",
+                  "label": "Principe",
+                  "note": "Vingt affirmations mêlant français et maths ; tout le monde lève l'ardoise en même temps."
+                }
+              ],
+              "materiel": "Affiche VRAI/FAUX au tableau ; ardoises.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Le meilleur rendement diagnostic de la journée. Sacrifiable en cas de retard (après la visite de classe)."
+            }
+          ]
+        },
+        {
+          "id": "s1s",
+          "start": "15:50",
+          "end": "16:05",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a1r",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Visite de la classe",
+              "objectif": "Repérer où est quoi, où va le travail terminé, où sont les feutres ; présenter le tableau des responsabilités.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Attribution des responsabilités demain, par tirage au sort."
+            }
+          ]
+        },
+        {
+          "id": "s1u",
+          "start": "16:05",
+          "end": "16:20",
+          "disciplineId": "emc",
+          "activities": [
+            {
+              "id": "a1t",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Bilan de la journée",
+              "objectif": "« Une chose que j'ai aimée, une chose que je n'ai pas comprise » (bâton de parole).",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "EMC — langage & collectif",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [],
+              "materiel": "Bâton de parole ; mot aux familles à distribuer.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Distribution du mot aux familles."
+            }
+          ]
+        },
+        {
+          "id": "s1w",
+          "start": "16:20",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a1v",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement et sortie",
+              "objectif": "Même rituel que le matin ; accompagner les élèves jusqu'à la sortie.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1787403808613,
+      "updatedAt": 1787403808613
+    }
+  ],
+  "templates": []
+}
