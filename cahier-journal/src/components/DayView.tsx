@@ -11,7 +11,7 @@ import {
   addDays,
   cap,
   formatLong,
-  isoWeek,
+  ecoleWeekNumber,
   todayISO,
 } from "../lib/dates";
 import { periodForDate } from "../lib/lookup";
@@ -166,7 +166,7 @@ export function DayView({
           className="mt-1 flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
         >
           <span>
-            Semaine {isoWeek(date)}
+            Semaine {ecoleWeekNumber(date, settings.periods)}
             {period ? ` · ${period.name}` : ""}
           </span>
           <span className="text-slate-300">·</span>

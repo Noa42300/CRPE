@@ -9,7 +9,7 @@ import {
   addDays,
   cap,
   formatShort,
-  isoWeek,
+  ecoleWeekNumber,
   jourNom,
   mondayOf,
   todayISO,
@@ -44,12 +44,12 @@ export function WeekView({
             <ChevronLeft />
           </button>
           <h1 className="px-2 text-xl font-bold text-slate-900 dark:text-white">
-            Semaine {isoWeek(monday)}
+            Semaine {ecoleWeekNumber(monday, settings.periods)}
           </h1>
           <button onClick={() => onChangeDate(addDays(monday, 7))} className="btn-ghost px-2" title="Semaine suivante">
             <ChevronRight />
           </button>
-          {isoWeek(monday) !== isoWeek(todayISO()) && (
+          {mondayOf(monday) !== mondayOf(todayISO()) && (
             <button onClick={() => onChangeDate(todayISO())} className="btn-ghost text-xs">
               Cette semaine
             </button>
@@ -124,7 +124,7 @@ export function WeekView({
       {/* Impression de la semaine */}
       <div id="print-week" className="print-area bg-white p-2 text-[12px] text-black">
         <h1 className="mb-3 border-b-2 border-black pb-1 text-lg font-bold">
-          Semaine {isoWeek(monday)}
+          Semaine {ecoleWeekNumber(monday, settings.periods)}
         </h1>
         <div className="space-y-4">
           {dates.map((d) =>
