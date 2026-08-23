@@ -15,11 +15,15 @@ import { CalendarView } from "./components/CalendarView";
 import { SearchView } from "./components/SearchView";
 import { SettingsView } from "./components/SettingsView";
 import { BackupView } from "./components/BackupView";
+import { PlansView } from "./components/PlansView";
+import { LockScreen } from "./components/LockScreen";
+import { hasPin } from "./lib/lock";
 
 export function App() {
   const { ready, storageOK, flush } = useStore();
   const [view, setView] = useState<ViewId>("today");
   const [date, setDate] = useState<string>(todayISO());
+  const [locked, setLocked] = useState<boolean>(() => hasPin());
 
   // Ouvre une date précise dans la vue Jour (depuis calendrier/semaine/recherche).
   const openDate = useCallback((iso: string) => {
@@ -64,6 +68,10 @@ export function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, [flush, view]);
 
+  if (locked) {
+    return <LockScreen onUnlock={() => setLocked(false)} />;
+  }
+
   if (!ready) {
     return (
       <div className="flex h-screen items-center justify-center text-slate-400">
@@ -96,6 +104,8 @@ export function App() {
             {view === "calendar" && (
               <CalendarView date={date} onOpenDate={openDate} />
             )}
+            {view === "programmations" && <PlansView kind="programmation" />}
+            {view === "progressions" && <PlansView kind="progression" />}
             {view === "search" && <SearchView onOpenDate={openDate} />}
             {view === "settings" && <SettingsView />}
             {view === "backup" && <BackupView />}

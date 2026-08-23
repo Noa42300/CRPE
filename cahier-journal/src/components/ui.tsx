@@ -123,6 +123,16 @@ export const ChevronLeft = ({ className = "h-4 w-4" }: IconProps) => (
     <polyline points="15 6 9 12 15 18" />
   </svg>
 );
+export const ChevronUp = ({ className = "h-4 w-4" }: IconProps) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="6 15 12 9 18 15" />
+  </svg>
+);
+export const ChevronDown = ({ className = "h-4 w-4" }: IconProps) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+);
 export const Plus = ({ className = "h-4 w-4" }: IconProps) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
     <line x1="12" y1="5" x2="12" y2="19" />

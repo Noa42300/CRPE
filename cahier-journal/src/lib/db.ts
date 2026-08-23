@@ -9,12 +9,12 @@
  *   - "settings"   : réglages, clé fixe "app"
  *   - "templates"  : modèles réutilisables, clé = id
  */
-import type { Day, Settings, Template } from "./types";
+import type { Day, Plan, Settings, Template } from "./types";
 
 const DB_NAME = "cahier-journal";
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 
-type StoreName = "days" | "settings" | "templates";
+type StoreName = "days" | "settings" | "templates" | "plans";
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -39,6 +39,9 @@ function openDB(): Promise<IDBDatabase> {
       }
       if (!db.objectStoreNames.contains("templates")) {
         db.createObjectStore("templates", { keyPath: "id" });
+      }
+      if (!db.objectStoreNames.contains("plans")) {
+        db.createObjectStore("plans", { keyPath: "id" });
       }
     };
     req.onsuccess = () => resolve(req.result);
@@ -93,10 +96,20 @@ export const templatesDB = {
   clear: () => tx<undefined>("templates", "readwrite", (s) => s.clear()),
 };
 
-/** Supprime toutes les journées et modèles (les réglages sont gérés à part). */
+// ---------------------------------------------------------------- Plans
+export const plansDB = {
+  getAll: () => tx<Plan[]>("plans", "readonly", (s) => s.getAll()),
+  put: (p: Plan) => tx<IDBValidKey>("plans", "readwrite", (s) => s.put(p)),
+  delete: (id: string) =>
+    tx<undefined>("plans", "readwrite", (s) => s.delete(id)),
+  clear: () => tx<undefined>("plans", "readwrite", (s) => s.clear()),
+};
+
+/** Supprime toutes les journées, modèles et plans (réglages gérés à part). */
 export async function wipeAll(): Promise<void> {
   await daysDB.clear();
   await templatesDB.clear();
+  await plansDB.clear();
 }
 
 /** Indique si IndexedDB est disponible (utile pour un message d'alerte). */

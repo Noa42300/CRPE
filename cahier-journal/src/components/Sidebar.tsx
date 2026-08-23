@@ -9,6 +9,8 @@ export type ViewId =
   | "today"
   | "week"
   | "calendar"
+  | "programmations"
+  | "progressions"
   | "search"
   | "settings"
   | "backup";
@@ -17,6 +19,8 @@ const ITEMS: { id: ViewId; label: string; icon: string }[] = [
   { id: "today", label: "Aujourd'hui", icon: "📅" },
   { id: "week", label: "Semaine", icon: "📆" },
   { id: "calendar", label: "Calendrier", icon: "🗓️" },
+  { id: "programmations", label: "Programmations", icon: "📚" },
+  { id: "progressions", label: "Progressions", icon: "📈" },
   { id: "search", label: "Recherche", icon: "🔍" },
   { id: "settings", label: "Paramètres", icon: "⚙️" },
   { id: "backup", label: "Sauvegarde", icon: "💾" },
@@ -80,19 +84,19 @@ export function Sidebar({
       </aside>
 
       {/* ---------- Mobile : barre d'onglets en bas ---------- */}
-      <nav className="fixed inset-x-0 bottom-0 z-40 flex justify-around border-t border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95 md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-40 flex overflow-x-auto border-t border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95 md:hidden">
         {ITEMS.map((it) => (
           <button
             key={it.id}
             onClick={() => onChange(it.id)}
-            className={`flex flex-1 flex-col items-center gap-0.5 py-2 text-[10px] font-medium ${
+            className={`flex min-w-[68px] shrink-0 flex-1 flex-col items-center gap-0.5 py-2 text-[10px] font-medium ${
               view === it.id
                 ? "text-ink-600 dark:text-ink-300"
                 : "text-slate-500 dark:text-slate-400"
             }`}
           >
             <span className="text-lg leading-none">{it.icon}</span>
-            {it.label}
+            <span className="whitespace-nowrap">{it.label}</span>
           </button>
         ))}
       </nav>

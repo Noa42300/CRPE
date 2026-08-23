@@ -9,6 +9,8 @@ import type { Discipline, NiveauDef, Period, Settings } from "../lib/types";
 import { COLOR_KEYS, DISCIPLINE_COLORS } from "../lib/defaults";
 import { uid } from "../lib/dates";
 import { Field, Plus, Trash } from "./ui";
+import { useState } from "react";
+import { clearPin, hasPin, setPin } from "../lib/lock";
 
 const DAY_LABELS = [
   { d: 1, l: "Lun" },
@@ -127,6 +129,11 @@ export function SettingsView() {
         </div>
       </Card>
 
+      {/* Sécurité — code d'accès */}
+      <Card title="Sécurité — code d'accès" subtitle="Protège l'ouverture de l'application sur cet appareil. Seule une empreinte du code est stockée localement.">
+        <SecurityCard />
+      </Card>
+
       {/* Jours travaillés */}
       <Card title="Jours travaillés" subtitle="Affichés dans la semaine et le calendrier.">
         <div className="flex flex-wrap gap-2">
@@ -170,6 +177,90 @@ function Card({
       {subtitle && <p className="mb-3 mt-0.5 text-xs text-slate-400">{subtitle}</p>}
       <div className={subtitle ? "" : "mt-3"}>{children}</div>
     </section>
+  );
+}
+
+function SecurityCard() {
+  const [pinSet, setPinSet] = useState(hasPin());
+  const [editing, setEditing] = useState(false);
+  const [value, setValue] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [msg, setMsg] = useState<string | null>(null);
+
+  const activate = async () => {
+    if (value.length < 4) {
+      setMsg("Choisis un code d'au moins 4 caractères.");
+      return;
+    }
+    if (value !== confirm) {
+      setMsg("Les deux codes ne correspondent pas.");
+      return;
+    }
+    await setPin(value);
+    setPinSet(true);
+    setEditing(false);
+    setValue("");
+    setConfirm("");
+    setMsg("Code enregistré. Il sera demandé à la prochaine ouverture.");
+  };
+
+  const remove = () => {
+    if (window.confirm("Retirer le code d'accès ?")) {
+      clearPin();
+      setPinSet(false);
+      setMsg("Code retiré.");
+    }
+  };
+
+  return (
+    <div className="space-y-3">
+      {msg && <p className="text-xs text-emerald-600 dark:text-emerald-400">{msg}</p>}
+
+      {pinSet && !editing ? (
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="niveau-badge bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300">
+            🔒 Code actif
+          </span>
+          <button onClick={() => setEditing(true)} className="btn-outline py-1 text-xs">
+            Changer le code
+          </button>
+          <button onClick={remove} className="btn-ghost py-1 text-xs text-rose-500">
+            Retirer le code
+          </button>
+        </div>
+      ) : (
+        <div className="space-y-2">
+          <div className="grid gap-2 sm:grid-cols-2">
+            <input
+              type="password"
+              inputMode="numeric"
+              className="input"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              placeholder="Nouveau code (min. 4)"
+            />
+            <input
+              type="password"
+              inputMode="numeric"
+              className="input"
+              value={confirm}
+              onChange={(e) => setConfirm(e.target.value)}
+              placeholder="Confirmer le code"
+            />
+          </div>
+          <div className="flex gap-2">
+            <button onClick={activate} className="btn-primary py-1.5 text-sm">
+              {pinSet ? "Enregistrer le nouveau code" : "Activer le code"}
+            </button>
+            {editing && (
+              <button onClick={() => setEditing(false)} className="btn-ghost py-1.5 text-sm">
+                Annuler
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

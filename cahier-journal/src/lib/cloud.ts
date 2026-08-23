@@ -10,7 +10,7 @@
  * modifications locales restent locales et ne sont jamais envoyées en ligne.
  */
 import { parseBackup } from "./backup";
-import { daysDB, settingsDB } from "./db";
+import { daysDB, plansDB, settingsDB } from "./db";
 import { defaultSettings } from "./defaults";
 
 /** Fichier servi à côté de l'application (même origine). */
@@ -65,5 +65,13 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
     if (existing) updated++;
     else added++;
   }
+
+  // Programmations / progressions (pédagogie, sans donnée élève).
+  const existingPlanIds = new Set((await plansDB.getAll()).map((p) => p.id));
+  for (const plan of parsed.plans) {
+    if (existingPlanIds.has(plan.id) && !overwrite) continue;
+    await plansDB.put(plan);
+  }
+
   return { added, updated, skipped };
 }
