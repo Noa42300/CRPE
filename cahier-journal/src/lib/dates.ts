@@ -115,3 +115,47 @@ export function cap(s: string): string {
 
 export const MONTH_NAMES = MOIS;
 export const DAY_NAMES = JOURS;
+
+const MOIS_ABBR = [
+  "janv.", "févr.", "mars", "avr.", "mai", "juin",
+  "juil.", "août", "sept.", "oct.", "nov.", "déc.",
+];
+
+/** Formate une plage de dates courte, ex "1–4 sept." ou "28 sept.–2 oct.". */
+export function formatDayRange(aISO: string, bISO: string): string {
+  const a = fromISODate(aISO);
+  const b = fromISODate(bISO);
+  const ma = MOIS_ABBR[a.getMonth()];
+  const mb = MOIS_ABBR[b.getMonth()];
+  if (a.getMonth() === b.getMonth())
+    return `${a.getDate()}–${b.getDate()} ${mb}`;
+  return `${a.getDate()} ${ma}–${b.getDate()} ${mb}`;
+}
+
+export interface PeriodWeek {
+  index: number; // 1-based
+  key: string; // "S1", "S2"…
+  label: string; // "1–4 sept."
+}
+
+/**
+ * Découpe une période (dates ISO) en semaines de travail (lundi→vendredi),
+ * bornées par les dates de la période. Sert à afficher, dans chaque période,
+ * « Semaine 1 · 1–4 sept. », etc.
+ */
+export function weeksOfPeriod(startISO: string, endISO: string): PeriodWeek[] {
+  if (!startISO || !endISO || startISO > endISO) return [];
+  const weeks: PeriodWeek[] = [];
+  let monday = mondayOf(startISO);
+  let i = 1;
+  // garde-fou : 20 semaines max
+  while (monday <= endISO && i <= 20) {
+    const wkStart = monday < startISO ? startISO : monday;
+    const friday = addDays(monday, 4);
+    const wkEnd = friday > endISO ? endISO : friday;
+    weeks.push({ index: i, key: `S${i}`, label: formatDayRange(wkStart, wkEnd) });
+    monday = addDays(monday, 7);
+    i++;
+  }
+  return weeks;
+}

@@ -16,6 +16,7 @@ import { useStore } from "../lib/store";
 import type { Plan, PlanKind } from "../lib/types";
 import { emptyPlan, planId } from "../lib/factory";
 import { disciplineColor } from "../lib/lookup";
+import { weeksOfPeriod } from "../lib/dates";
 import { BO, BO_SOURCE } from "../lib/bo";
 import { printArea } from "../lib/print";
 import { AutoTextarea, ChevronRight, Printer } from "./ui";
@@ -60,14 +61,20 @@ export function PlansView({ kind }: { kind: PlanKind }) {
   const isProg = kind === "programmation";
   const title = isProg ? "Programmations" : "Progressions";
 
-  // Sections : une (annuelle) pour la programmation, une par période (P1…P5)
-  // pour la progression. Clé stable = "annuel" ou "P<numéro>".
-  const sections = isProg
-    ? [{ key: "annuel", label: "Vue annuelle" }]
-    : settings.periods
-        .slice()
-        .sort((a, b) => a.number - b.number)
-        .map((p) => ({ key: `P${p.number}`, label: p.name }));
+  // Progression : chaque période est découpée en semaines (clé stable
+  // "P<num>:S<index>"), avec un encart « cadre » par période ("P<num>:cadre").
+  const progPeriods = settings.periods
+    .slice()
+    .sort((a, b) => a.number - b.number)
+    .map((p) => ({
+      num: p.number,
+      label: p.name,
+      cadreKey: `P${p.number}:cadre`,
+      weeks: weeksOfPeriod(p.start, p.end).map((w) => ({
+        sectionKey: `P${p.number}:${w.key}`,
+        label: `Semaine ${w.index} · ${w.label}`,
+      })),
+    }));
 
   const disc = teaching.find((d) => d.id === disciplineId);
 
@@ -101,6 +108,34 @@ export function PlansView({ kind }: { kind: PlanKind }) {
       </div>
     );
   };
+
+  const CadreZone = ({ zoneKey }: { zoneKey: string }) => (
+    <details className="mb-3 rounded-2xl border border-slate-200 bg-slate-50/60 p-3 dark:border-slate-700 dark:bg-slate-800/40">
+      <summary className="cursor-pointer text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        Cadre & points de vigilance
+      </summary>
+      <AutoTextarea
+        className="mt-2 min-h-[90px] bg-white/70 text-[13px] dark:bg-slate-900/40"
+        value={zones[zoneKey] ?? ""}
+        onChange={(e) => setZone(zoneKey, e.target.value)}
+        placeholder="Cadre de travail, supports, points de vigilance de la période…"
+      />
+    </details>
+  );
+
+  // Rendu d'une semaine (ou section annuelle) : CE1 + CE2.
+  const ZonesBlock = ({ sectionKey }: { sectionKey: string }) =>
+    overview ? (
+      <div className="space-y-3">
+        <Zone sectionKey={sectionKey} niv="CE1" big />
+        <Zone sectionKey={sectionKey} niv="CE2" big />
+      </div>
+    ) : (
+      <div className="grid gap-3 md:grid-cols-2">
+        <Zone sectionKey={sectionKey} niv="CE1" />
+        <Zone sectionKey={sectionKey} niv="CE2" />
+      </div>
+    );
 
   return (
     <div className={overview ? "" : "lg:flex lg:gap-5"}>
@@ -168,30 +203,30 @@ export function PlansView({ kind }: { kind: PlanKind }) {
         </div>
 
         {/* Contenu */}
-        {overview ? (
-          <div className="space-y-6">
-            {sections.map((sec) => (
-              <section key={sec.key}>
-                <h2 className="mb-2 border-b border-slate-200 pb-1 text-base font-bold text-slate-800 dark:border-slate-700 dark:text-slate-100">
-                  {sec.label}
-                </h2>
-                <div className="space-y-3">
-                  <Zone sectionKey={sec.key} niv="CE1" big />
-                  <Zone sectionKey={sec.key} niv="CE2" big />
-                </div>
-              </section>
-            ))}
-          </div>
+        {isProg ? (
+          <section>
+            <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+              Vue annuelle
+            </h2>
+            <ZonesBlock sectionKey="annuel" />
+          </section>
         ) : (
-          <div className="space-y-5">
-            {sections.map((sec) => (
-              <section key={sec.key}>
-                <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                  {sec.label}
+          <div className="space-y-8">
+            {progPeriods.map((per) => (
+              <section key={per.num}>
+                <h2 className="mb-2 border-b border-slate-200 pb-1 text-base font-bold text-slate-800 dark:border-slate-700 dark:text-slate-100">
+                  {per.label}
                 </h2>
-                <div className="grid gap-3 md:grid-cols-2">
-                  <Zone sectionKey={sec.key} niv="CE1" />
-                  <Zone sectionKey={sec.key} niv="CE2" />
+                <CadreZone zoneKey={per.cadreKey} />
+                <div className="space-y-4">
+                  {per.weeks.map((wk) => (
+                    <div key={wk.sectionKey}>
+                      <h3 className="mb-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                        {wk.label}
+                      </h3>
+                      <ZonesBlock sectionKey={wk.sectionKey} />
+                    </div>
+                  ))}
                 </div>
               </section>
             ))}
@@ -204,22 +239,54 @@ export function PlansView({ kind }: { kind: PlanKind }) {
         <h1 className="mb-2 border-b-2 border-black pb-1 text-lg font-bold">
           {title} — {disc?.label}
         </h1>
-        {sections.map((sec) => (
-          <div key={sec.key} className="mb-3 print-avoid-break">
-            <h2 className="font-bold underline">{sec.label}</h2>
-            {(["CE1", "CE2"] as const).map((niv) => {
-              const v = zones[`${sec.key}:${niv}`];
-              if (!v) return null;
-              return (
-                <div key={niv} className="mt-1">
-                  <b>{NIVEAU_STYLE[niv].label} :</b>
-                  <div className="whitespace-pre-wrap">{v}</div>
+        {isProg ? (
+          <PrintZones zones={zones} sectionKey="annuel" label="Vue annuelle" />
+        ) : (
+          progPeriods.map((per) => (
+            <div key={per.num} className="mb-3">
+              <h2 className="font-bold underline">{per.label}</h2>
+              {zones[per.cadreKey] && (
+                <div className="whitespace-pre-wrap text-[11px] italic">
+                  {zones[per.cadreKey]}
                 </div>
-              );
-            })}
-          </div>
-        ))}
+              )}
+              {per.weeks.map((wk) => (
+                <PrintZones key={wk.sectionKey} zones={zones} sectionKey={wk.sectionKey} label={wk.label} />
+              ))}
+            </div>
+          ))
+        )}
       </div>
+    </div>
+  );
+}
+
+/** Bloc d'impression pour une section (CE1 + CE2). */
+function PrintZones({
+  zones,
+  sectionKey,
+  label,
+}: {
+  zones: Record<string, string>;
+  sectionKey: string;
+  label: string;
+}) {
+  const ce1 = zones[`${sectionKey}:CE1`];
+  const ce2 = zones[`${sectionKey}:CE2`];
+  if (!ce1 && !ce2) return null;
+  return (
+    <div className="mb-2 print-avoid-break">
+      <div className="font-semibold">{label}</div>
+      {ce1 && (
+        <div>
+          <b>CE1/commun :</b> <span className="whitespace-pre-wrap">{ce1}</span>
+        </div>
+      )}
+      {ce2 && (
+        <div>
+          <b>CE2 :</b> <span className="whitespace-pre-wrap">{ce2}</span>
+        </div>
+      )}
     </div>
   );
 }
