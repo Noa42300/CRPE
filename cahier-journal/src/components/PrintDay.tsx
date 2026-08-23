@@ -8,7 +8,7 @@
 import type { Day, Settings } from "../lib/types";
 import {
   formatLong,
-  isoWeek,
+  ecoleWeekNumber,
   cap,
 } from "../lib/dates";
 import {
@@ -55,7 +55,7 @@ export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
           </div>
         </div>
         <div className="mt-1 text-[11px]">
-          Semaine {isoWeek(day.date)}
+          Semaine {ecoleWeekNumber(day.date, settings.periods)}
           {period ? ` · ${period.name}` : ""}
           {day.info.presents != null || day.info.absents != null
             ? ` · ${day.info.presents ?? "?"} présents · ${day.info.absents ?? "?"} absents`

@@ -16,7 +16,7 @@ import { useStore } from "../lib/store";
 import type { Plan, PlanKind } from "../lib/types";
 import { emptyPlan, planId } from "../lib/factory";
 import { disciplineColor } from "../lib/lookup";
-import { weeksOfPeriod } from "../lib/dates";
+import { ecoleWeekNumber, weeksOfPeriod } from "../lib/dates";
 import { BO, BO_SOURCE } from "../lib/bo";
 import { printArea } from "../lib/print";
 import { AutoTextarea, ChevronRight, Printer } from "./ui";
@@ -72,7 +72,7 @@ export function PlansView({ kind }: { kind: PlanKind }) {
       cadreKey: `P${p.number}:cadre`,
       weeks: weeksOfPeriod(p.start, p.end).map((w) => ({
         sectionKey: `P${p.number}:${w.key}`,
-        label: `Semaine ${w.index} · ${w.label}`,
+        label: `Semaine ${ecoleWeekNumber(w.mondayISO, settings.periods)} · ${w.label}`,
       })),
     }));
 
@@ -204,12 +204,16 @@ export function PlansView({ kind }: { kind: PlanKind }) {
 
         {/* Contenu */}
         {isProg ? (
-          <section>
-            <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-              Vue annuelle
-            </h2>
-            <ZonesBlock sectionKey="annuel" />
-          </section>
+          <div className="space-y-6">
+            {progPeriods.map((per) => (
+              <section key={per.num}>
+                <h2 className="mb-2 border-b border-slate-200 pb-1 text-base font-bold text-slate-800 dark:border-slate-700 dark:text-slate-100">
+                  {per.label}
+                </h2>
+                <ZonesBlock sectionKey={`P${per.num}`} />
+              </section>
+            ))}
+          </div>
         ) : (
           <div className="space-y-8">
             {progPeriods.map((per) => (
@@ -239,23 +243,23 @@ export function PlansView({ kind }: { kind: PlanKind }) {
         <h1 className="mb-2 border-b-2 border-black pb-1 text-lg font-bold">
           {title} — {disc?.label}
         </h1>
-        {isProg ? (
-          <PrintZones zones={zones} sectionKey="annuel" label="Vue annuelle" />
-        ) : (
-          progPeriods.map((per) => (
-            <div key={per.num} className="mb-3">
-              <h2 className="font-bold underline">{per.label}</h2>
-              {zones[per.cadreKey] && (
-                <div className="whitespace-pre-wrap text-[11px] italic">
-                  {zones[per.cadreKey]}
-                </div>
-              )}
-              {per.weeks.map((wk) => (
-                <PrintZones key={wk.sectionKey} zones={zones} sectionKey={wk.sectionKey} label={wk.label} />
-              ))}
-            </div>
-          ))
-        )}
+        {isProg
+          ? progPeriods.map((per) => (
+              <PrintZones key={per.num} zones={zones} sectionKey={`P${per.num}`} label={per.label} />
+            ))
+          : progPeriods.map((per) => (
+              <div key={per.num} className="mb-3">
+                <h2 className="font-bold underline">{per.label}</h2>
+                {zones[per.cadreKey] && (
+                  <div className="whitespace-pre-wrap text-[11px] italic">
+                    {zones[per.cadreKey]}
+                  </div>
+                )}
+                {per.weeks.map((wk) => (
+                  <PrintZones key={wk.sectionKey} zones={zones} sectionKey={wk.sectionKey} label={wk.label} />
+                ))}
+              </div>
+            ))}
       </div>
     </div>
   );

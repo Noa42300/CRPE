@@ -1028,7 +1028,7 @@
         "P1:S7:CE1": "• EDL — BILAN P1 (fiches d'évaluation MDI, 2 niveaux) : phrase, nom, verbe.\n• Lecture — Fin de l'album : débat interprétatif ; bilan fluence individuel : restitution orale de l'histoire.\n• Écrire — Réécriture après retour de l'enseignant : améliorer 2 points ciblés.",
         "P1:S7:CE2": "• EDL — Phrase, GN, verbe, sujet, présent en -er.\n• Lecture — Résumé écrit en 3 phrases.\n• Écrire — Améliorer 3 points ciblés + relecture orthographique."
       },
-      "updatedAt": 1787521516477
+      "updatedAt": 1787522417388
     },
     {
       "id": "progression:maths",
@@ -1051,7 +1051,7 @@
         "P1:S7:CE1": "• Nombres — BILAN P1 (évaluation Tandem, 2 niveaux) : numération < 100, addition, longueurs.\n• Calcul mental — Bilan « Mon carnet de calcul mental ».\n• Problèmes — Évaluation : 3 problèmes différenciés.\n• Géométrie — Bilan géométrie (cahier Tandem).",
         "P1:S7:CE2": "• Nombres — Numération < 1 000, addition posée, longueurs."
       },
-      "updatedAt": 1787521516478
+      "updatedAt": 1787522417388
     },
     {
       "id": "progression:anglais",
@@ -1074,7 +1074,7 @@
         "P1:S7:CE1": "TÂCHE FINALE — se présenter à l'oral : « Hello, my name is… I'm 7. » (évaluation en petit groupe).",
         "P1:S7:CE2": "+ « I'm fine, my favourite colour is… »."
       },
-      "updatedAt": 1787521516478
+      "updatedAt": 1787522417388
     },
     {
       "id": "progression:eps",
@@ -1091,7 +1091,7 @@
         "P1:S6:CE1": "• A — Lancer loin : différents engins, différentes techniques.\n• B — Ateliers cibles, se fixer un défi personnel.",
         "P1:S7:CE1": "• A — Rencontre-bilan : parcours athlétique par équipes.\n• B — Bilan oral : ce que j'ai appris, ce que je dois encore progresser."
       },
-      "updatedAt": 1787521516478
+      "updatedAt": 1787522417388
     },
     {
       "id": "progression:qlm",
@@ -1111,7 +1111,57 @@
         "P1:S6:CE2": "Lire et produire un plan simple, avec légende.",
         "P1:S7:CE1": "Bilan — Trace écrite et bilan de période : affiche collective + bilan oral (commun)."
       },
-      "updatedAt": 1787521516478
+      "updatedAt": 1787522417388
+    },
+    {
+      "id": "programmation:francais",
+      "kind": "programmation",
+      "disciplineId": "francais",
+      "zones": {
+        "P1:CE1": "Étude de la langue : la phrase (majuscule / point) ; le nom & le déterminant ; le verbe ; le sujet ; le temps du verbe (passé / présent / futur).\nLecture : album commun (compréhension orale, questions littérales) + atelier fluence (textes 1→4, évaluation n°1 ; objectif 70 mots/min).\nÉcriture : « carte d'identité d'élève », portrait, souvenir de vacances ; copie experte + dictée hebdomadaire.",
+        "P1:CE2": "En plus (CE2) : types de phrases ; groupe nominal (dét + nom + adjectif) ; verbe conjugué / infinitif ; accord sujet-verbe ; présent des verbes en -er ; justifier en citant le texte ; objectif 90 mots/min."
+      },
+      "updatedAt": 1787522417388
+    },
+    {
+      "id": "programmation:maths",
+      "kind": "programmation",
+      "disciplineId": "maths",
+      "zones": {
+        "P1:CE1": "Nombres & calcul : numération (< 100), comparer / ranger / encadrer, calcul additif (additions en ligne, passage de la dizaine).\nCalcul mental : compléments à 10, doubles & moitiés, ± 10, ± 9.\nRésolution de problèmes : additifs (ajouter, réunir), retrait, à une étape, de mesure.\nGrandeurs & géométrie : longueurs (cm), repérage & quadrillage, tracés à la règle, reproduction de figures.",
+        "P1:CE2": "En plus (CE2) : numération (< 1 000), addition posée avec retenue, tables de 2 et 5, ×2 / ×5 / ×10 ; longueurs (m, dm, cm/mm, conversions simples) ; problèmes à deux étapes ; alignement et tracés de précision."
+      },
+      "updatedAt": 1787522417388
+    },
+    {
+      "id": "programmation:anglais",
+      "kind": "programmation",
+      "disciplineId": "anglais",
+      "zones": {
+        "P1:CE1": "Séquence « Hello! Nice to meet you » : salutations, se présenter (name), classroom language (Simon says), how are you, numbers 1–10, colours. Tâche finale : se présenter à l'oral.",
+        "P1:CE2": "En plus (CE2) : production en phrase complète (âge, émotions, couleur préférée) ; nombres 1–12."
+      },
+      "updatedAt": 1787522417388
+    },
+    {
+      "id": "programmation:eps",
+      "kind": "programmation",
+      "disciplineId": "eps",
+      "zones": {
+        "P1:CE1": "Activités athlétiques : courir vite / courir longtemps, lancer loin & lancer précis (bilan par parcours). Jeux collectifs : déménageurs, épervier, queue du diable, balles brûlantes. Priorité de la période : fabriquer le groupe classe et installer les règles de sécurité.",
+        "P1:CE2": "Équipes mixtes CE1/CE2 ; différenciation par le rôle et par le défi personnel (pas de contenu distinct)."
+      },
+      "updatedAt": 1787522417388
+    },
+    {
+      "id": "programmation:qlm",
+      "kind": "programmation",
+      "disciplineId": "qlm",
+      "zones": {
+        "P1:CE1": "EMC : construire les règles de la classe, les responsabilités. Temps : le calendrier, l'emploi du temps, se repérer dans le temps. Espace : le plan de la classe et de l'école. Une affiche produite sur la période.",
+        "P1:CE2": "En plus (CE2) : lire un calendrier (mois / trimestres / année) ; construire l'emploi du temps de la semaine ; frise chronologique de l'année ; produire un plan simple avec légende."
+      },
+      "updatedAt": 1787522417388
     }
   ]
 }

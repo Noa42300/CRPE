@@ -132,10 +132,30 @@ export function formatDayRange(aISO: string, bISO: string): string {
   return `${a.getDate()} ${ma}–${b.getDate()} ${mb}`;
 }
 
+/**
+ * Numéro de semaine "de rentrée" : la semaine contenant le début de la
+ * première période = Semaine 1, puis +1 par semaine calendaire.
+ * (Numérotation relative à la rentrée, et non semaine ISO.)
+ */
+export function ecoleWeekNumber(
+  iso: string,
+  periods: { start: string }[],
+): number {
+  const starts = periods
+    .map((p) => p.start)
+    .filter(Boolean)
+    .sort();
+  if (starts.length === 0) return isoWeek(iso);
+  const ref = fromISODate(mondayOf(starts[0])).getTime();
+  const cur = fromISODate(mondayOf(iso)).getTime();
+  return Math.round((cur - ref) / (7 * 24 * 3600 * 1000)) + 1;
+}
+
 export interface PeriodWeek {
-  index: number; // 1-based
-  key: string; // "S1", "S2"…
+  index: number; // 1-based, relatif à la période
+  key: string; // "S1", "S2"… (clé stable)
   label: string; // "1–4 sept."
+  mondayISO: string; // lundi de la semaine (pour le n° de semaine de rentrée)
 }
 
 /**
@@ -153,7 +173,12 @@ export function weeksOfPeriod(startISO: string, endISO: string): PeriodWeek[] {
     const wkStart = monday < startISO ? startISO : monday;
     const friday = addDays(monday, 4);
     const wkEnd = friday > endISO ? endISO : friday;
-    weeks.push({ index: i, key: `S${i}`, label: formatDayRange(wkStart, wkEnd) });
+    weeks.push({
+      index: i,
+      key: `S${i}`,
+      label: formatDayRange(wkStart, wkEnd),
+      mondayISO: monday,
+    });
     monday = addDays(monday, 7);
     i++;
   }

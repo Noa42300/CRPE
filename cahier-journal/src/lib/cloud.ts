@@ -67,9 +67,17 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
   }
 
   // Programmations / progressions (pédagogie, sans donnée élève).
-  const existingPlanIds = new Set((await plansDB.getAll()).map((p) => p.id));
+  // Mise à jour si la version cloud est plus récente (par updatedAt), afin
+  // que le contenu publié te parvienne, sans écraser tes retouches locales
+  // plus récentes.
+  const existingPlans = new Map(
+    (await plansDB.getAll()).map((p) => [p.id, p]),
+  );
   for (const plan of parsed.plans) {
-    if (existingPlanIds.has(plan.id) && !overwrite) continue;
+    const existing = existingPlans.get(plan.id);
+    const cloudNewer =
+      !existing || (plan.updatedAt ?? 0) > (existing.updatedAt ?? 0);
+    if (existing && !overwrite && !cloudNewer) continue;
     await plansDB.put(plan);
   }
 
