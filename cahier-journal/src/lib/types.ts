@@ -184,28 +184,21 @@ export interface Template {
  * élève et peuvent donc être synchronisés sans risque de confidentialité.
  */
 export type PlanKind = "programmation" | "progression";
-export type PlanStatus = "prevu" | "encours" | "fait";
 
-export interface PlanItem {
-  id: string;
-  /** Période associée (id de Period) — facultatif. */
-  periodeId: string;
-  /** Domaine / sous-domaine (ex : « Grammaire »). */
-  domaine: string;
-  /** Séquence (programmation) ou notion (progression). */
-  intitule: string;
-  objectif: string;
-  statut: PlanStatus;
-  order: number;
-}
-
+/**
+ * Un document de planification par discipline (CE1 et CE2 réunis).
+ * Le contenu est libre : une carte de zones de texte, éditables directement.
+ *
+ * Clés de `zones` :
+ *   - Programmation (vue annuelle)  : "annuel:CE1", "annuel:CE2"
+ *   - Progression (par période)     : "<periodId>:CE1", "<periodId>:CE2"
+ */
 export interface Plan {
-  /** id déterministe : `${kind}:${disciplineId}:${niveauId}`. */
+  /** id déterministe : `${kind}:${disciplineId}`. */
   id: string;
   kind: PlanKind;
   disciplineId: string;
-  niveauId: NiveauId;
-  items: PlanItem[];
+  zones: Record<string, string>;
   updatedAt: number;
 }
 
