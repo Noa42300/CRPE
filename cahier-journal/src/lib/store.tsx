@@ -26,6 +26,7 @@ import {
   wipeAll,
 } from "./db";
 import { defaultSettings } from "./defaults";
+import { syncFromCloud, type SyncResult } from "./cloud";
 
 export type SaveStatus = "idle" | "saving" | "saved" | "error";
 
@@ -45,6 +46,8 @@ interface StoreValue {
   flush: () => Promise<void>;
   reloadAll: () => Promise<void>;
   resetEverything: () => Promise<void>;
+  syncCloud: (overwrite?: boolean) => Promise<SyncResult>;
+  lastCloudSync: number | null;
 }
 
 const StoreContext = createContext<StoreValue | null>(null);
@@ -62,6 +65,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [daysMap, setDaysMap] = useState<Record<string, Day>>({});
   const [templates, setTemplates] = useState<Template[]>([]);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
+  const [lastCloudSync, setLastCloudSync] = useState<number | null>(null);
+  const autoSyncDone = useRef(false);
 
   // --- File d'attente d'autosave (anti-rebond) ---
   const pendingDays = useRef<Map<string, Day>>(new Map());
@@ -201,6 +206,33 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setTemplates([]);
   }, []);
 
+  const syncCloud = useCallback(
+    async (overwrite = false): Promise<SyncResult> => {
+      const result = await syncFromCloud(overwrite);
+      setLastCloudSync(Date.now());
+      if (result.added > 0 || result.updated > 0) {
+        await reloadAll();
+      }
+      return result;
+    },
+    [reloadAll],
+  );
+
+  // Synchronisation automatique (silencieuse) au démarrage : récupère les
+  // nouvelles journées publiées, sans écraser les modifications locales.
+  useEffect(() => {
+    if (!ready || autoSyncDone.current) return;
+    autoSyncDone.current = true;
+    void syncFromCloud(false)
+      .then((r) => {
+        setLastCloudSync(Date.now());
+        if (r.added > 0 || r.updated > 0) void reloadAll();
+      })
+      .catch(() => {
+        /* hors ligne ou pas de fichier : on ignore silencieusement */
+      });
+  }, [ready, reloadAll]);
+
   const value = useMemo<StoreValue>(
     () => ({
       ready,
@@ -217,6 +249,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       flush,
       reloadAll,
       resetEverything,
+      syncCloud,
+      lastCloudSync,
     }),
     [
       ready,
@@ -233,6 +267,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       flush,
       reloadAll,
       resetEverything,
+      syncCloud,
+      lastCloudSync,
     ],
   );
 

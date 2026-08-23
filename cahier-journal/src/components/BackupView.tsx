@@ -14,11 +14,34 @@ import {
 } from "../lib/backup";
 
 export function BackupView() {
-  const { settings, daysMap, reloadAll, resetEverything } = useStore();
+  const { settings, daysMap, reloadAll, resetEverything, syncCloud } = useStore();
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const [syncing, setSyncing] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const importMode = useRef<"merge" | "replace">("merge");
   const dayCount = Object.keys(daysMap).length;
+
+  const onSync = async (overwrite: boolean) => {
+    setSyncing(true);
+    try {
+      const r = await syncCloud(overwrite);
+      const parts = [];
+      if (r.added) parts.push(`${r.added} ajoutée(s)`);
+      if (r.updated) parts.push(`${r.updated} mise(s) à jour`);
+      if (r.skipped) parts.push(`${r.skipped} déjà présente(s)`);
+      setMsg({
+        ok: true,
+        text:
+          parts.length > 0
+            ? `Synchronisation : ${parts.join(", ")}.`
+            : "Déjà à jour — rien de nouveau.",
+      });
+    } catch (e) {
+      setMsg({ ok: false, text: (e as Error).message });
+    } finally {
+      setSyncing(false);
+    }
+  };
 
   const onExport = async () => {
     try {
@@ -81,6 +104,38 @@ export function BackupView() {
           {msg.text}
         </div>
       )}
+
+      {/* Synchronisation cloud (GitHub) */}
+      <section className="card p-4">
+        <h2 className="text-sm font-bold text-slate-800 dark:text-slate-100">
+          ☁️ Synchronisation
+        </h2>
+        <p className="mb-3 mt-0.5 text-xs text-slate-400">
+          Récupère les journées préparées et publiées pour toi. La
+          synchronisation est automatique à l'ouverture ; ce bouton force une
+          vérification immédiate. Elle <b>n'écrase pas</b> les journées que tu as
+          déjà modifiées.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <button onClick={() => onSync(false)} disabled={syncing} className="btn-primary">
+            {syncing ? "Synchronisation…" : "🔄 Synchroniser maintenant"}
+          </button>
+          <button
+            onClick={() => {
+              if (
+                window.confirm(
+                  "Forcer la mise à jour depuis le cloud ? Les journées portant la même date seront remplacées (tu perdrais tes bilans locaux sur ces journées).",
+                )
+              )
+                void onSync(true);
+            }}
+            disabled={syncing}
+            className="btn-outline"
+          >
+            Forcer la mise à jour…
+          </button>
+        </div>
+      </section>
 
       {/* Export */}
       <section className="card p-4">
