@@ -1005,5 +1005,57 @@
       "updatedAt": 1787403808613
     }
   ],
-  "templates": []
+  "templates": [],
+  "plans": [
+    {
+      "id": "progression:francais",
+      "kind": "progression",
+      "disciplineId": "francais",
+      "zones": {
+        "P1:CE1": "FRANÇAIS — 5 h/sem. Répartition : étude de la langue 1h30 · lecture-compréhension 1h · fluence & lecture offerte 40 min · production d'écrit 45 min · copie & dictée 50 min.\nManuel : « 1,2,3 Parcours Étude de la langue CE » (MDI). Rituel « la phrase du jour ».\n\nS1 (1–4 sept)\n• Étude de la langue — Rituel « la phrase du jour » (mise en place). CE1 : qu'est-ce qu'une phrase ? Majuscule et point.\n• Lecture — Lecture offerte quotidienne (10 min). CE1 : tour de lecture individuel diagnostique (voix haute, 1 min).\n• Écrire — « Ma carte d'identité d'élève ». CE1 : compléter 3 amorces de phrases.\n\nS2 (7–11 sept) — ⚠ Évaluations nationales CE1/CE2 (7–18 sept)\n• Étude de la langue — CE1 : reconstituer une phrase (mots étiquettes).\n\nS3 (14–18 sept) — ⚠ évaluations (suite)\n• Étude de la langue — Le verbe. CE1 : trouver le mot qui dit ce qu'on fait.\n• Lecture — Lancement de l'atelier fluence (texte 1, chronométrage). CE1 : texte 5–7 lignes, relecture préparée. / Album : entrée dans l'œuvre, compréhension orale collective. CE1 : répondre à des questions littérales.\n• Écrire — Rituel de copie experte (10 min × 2). CE1 : copier 1 phrase sans erreur.\n\nS4 (21–25 sept)\n• Étude de la langue — Le nom. CE1 : nom commun / nom propre ; le déterminant devant le nom.\n• Lecture — Fluence texte 2 ; album épisode 2. CE1 : décodage des graphies complexes (révision CP).\n• Écrire — Production courte à partir de l'album. CE1 : 3 phrases. / Dictée de phrases hebdo (mise en place). CE1 : dictée de 4–5 mots outils + 1 phrase.\n\nS5 (28/09–2/10)\n• Étude de la langue — Le sujet du verbe. CE1 : de qui, de quoi parle-t-on ?\n• Lecture — Fluence texte 3 ; album épisode 3. CE1 : vocabulaire, l'ordre alphabétique.\n• Écrire — Écrire le portrait d'un personnage. CE1 : phrases guidées par une trame.\n\nS6 (5–9 oct)\n• Étude de la langue — Le temps du verbe. CE1 : passé / présent / futur (classer des phrases).\n• Lecture — Fluence texte 4 + ÉVALUATION DE FLUENCE n°1. CE1 : repère 70 mots/min visés en fin de CE1.\n• Écrire — Écrire un souvenir de vacances (au passé). CE1 : 3–4 phrases. / Réécriture après retour de l'enseignant. CE1 : améliorer 2 points ciblés.\n\nS7 (12–16 oct)\n• Étude de la langue — BILAN P1 (fiches MDI, 2 niveaux). CE1 : phrase, nom, verbe.\n• Lecture — Fin de l'album : débat interprétatif ; bilan fluence individuel. CE1 : restitution orale de l'histoire.",
+        "P1:CE2": "Ce qui va plus loin (CE2) — même progression, exigence supérieure.\n\nS1 • EDL : repérer et compter les phrases d'un texte. • Lecture : idem CE1 + repérage des élèves fragiles en fluence. • Écrire : écrire 4 à 5 phrases autonomes.\nS2 • EDL : les types de phrases (déclarative / interrogative).\nS3 • EDL : verbe conjugué / verbe à l'infinitif. • Lecture : texte 10 lignes, respect de la ponctuation ; justifier en citant le texte. • Écrire : copier 2–3 phrases en un minimum de regards.\nS4 • EDL : le groupe nominal (déterminant + nom + adjectif). • Lecture : lecture silencieuse puis restitution. • Écrire : 5 phrases + relecture guidée ; dictée de 2 phrases, accords dans le GN.\nS5 • EDL : identifier le sujet — sensibilisation à l'accord sujet/verbe. • Lecture : chercher un mot dans le dictionnaire. • Écrire : texte de 5–6 phrases, emploi d'adjectifs.\nS6 • EDL : le présent des verbes en -er. • Lecture : repère 90 mots/min visés en fin de CE2. • Écrire : texte structuré, connecteurs temporels ; améliorer 3 points + relecture orthographique.\nS7 • EDL : phrase, GN, verbe, sujet, présent en -er. • Lecture : résumé écrit en 3 phrases."
+      },
+      "updatedAt": 1787516538170
+    },
+    {
+      "id": "progression:maths",
+      "kind": "progression",
+      "disciplineId": "maths",
+      "zones": {
+        "P1:CE1": "MATHÉMATIQUES — 2h30/sem. Répartition : calcul mental 30 min (2×15) · missions Tandem 1h30 · résolution de problèmes 30 min.\nManuel : Tandem Maths CE1/CE2 (Nathan). Rituel « le problème du jour » (à partager avec le binôme des 2 autres jours).\n\nS1 (1–4 sept)\n• Nombres — Séance diagnostique « Combien sommes-nous ? ». CE1 : nombres < 100, dizaines et unités.\n• Calcul mental — Compléments à 10 (ardoise, 15 min).\n• Problèmes — Découverte du rituel « le problème du jour » (oral).\n• Grandeurs & géométrie — Repérage dans l'espace de la classe (plan, gauche/droite).\n\nS2 (7–11 sept)\n• Nombres — Tandem mission 1. CE1 : lire, écrire, décomposer les nombres jusqu'à 100.\n• Calcul mental — Compléments à 10 (automatisation) ; doubles jusqu'à 10.\n• Problèmes — Problèmes additifs simples : ajouter, réunir.\n• Grandeurs — Comparer des longueurs sans mesurer.\n\nS3 (14–18 sept)\n• Nombres — Tandem mission 2 : comparer et ranger. CE1 : comparer, ranger, encadrer < 100 ; la droite numérique.\n• Calcul mental — Ajouter / retirer 10 ; doubles et moitiés.\n• Problèmes — Problèmes de retrait ; schématiser avec la barre.\n• Grandeurs — La règle graduée : mesurer en cm.\n\nS4 (21–25 sept)\n• Nombres — Le calcul additif. CE1 : additions en ligne, passage de la dizaine.\n• Calcul mental — Ajouter / retirer 9.\n• Problèmes — Problèmes à une étape (CE1).\n• Grandeurs — Mesurer en cm.\n\nS5 (28/09–2/10)\n• Grandeurs et mesures — Les longueurs. CE1 : le centimètre, mesurer un segment.\n• Calcul mental — Répertoire additif.\n• Problèmes — Problèmes de mesure (comparaison de longueurs).\n• Géométrie — Tracer un segment de longueur donnée.\n\nS6 (5–9 oct)\n• Espace et géométrie. CE1 : points, lignes droites/courbes ; se repérer sur un quadrillage.\n• Calcul mental — Bilan des automatismes de la période (dictée de calculs).\n• Problèmes — Problèmes de synthèse (les 3 types travaillés).\n• Géométrie — Reproduction de figures sur quadrillage.\n\nS7 (12–16 oct)\n• BILAN P1 — évaluation Tandem, 2 niveaux. CE1 : numération < 100, addition, longueurs.\n• Calcul mental — Bilan « Mon carnet de calcul mental ».\n• Problèmes — Évaluation : 3 problèmes différenciés.\n• Géométrie — Bilan géométrie (cahier Tandem).",
+        "P1:CE2": "Ce qui va plus loin (CE2).\n\nS1 • Nombres < 1 000 : centaines / dizaines / unités.\nS2 • Lire, écrire, décomposer les nombres jusqu'à 999.\nS3 • Comparer, ranger, encadrer < 1 000.\nS4 • Addition posée avec retenue (consolidation). • Calcul mental : table de 2 et de 5. • Problèmes à deux étapes.\nS5 • Le mètre, le décimètre, conversions simples. • Calcul mental : ×2, ×5, ×10.\nS6 • Segment, alignement, tracer à la règle avec précision. • Mesurer en cm et mm (cahier de géométrie Tandem).\nS7 • Numération < 1 000, addition posée, longueurs."
+      },
+      "updatedAt": 1787516538170
+    },
+    {
+      "id": "progression:anglais",
+      "kind": "progression",
+      "disciplineId": "anglais",
+      "zones": {
+        "P1:CE1": "ANGLAIS — 1h30/sem (3×30 min). Séquence P1 : « Hello! Nice to meet you » — se présenter et vivre la classe en anglais. Tout en classe entière ; différenciation sur l'exigence de production (mot isolé au CE1).\n\nS1 — Hello! / Goodbye! (hello, goodbye, my name is…). Rituel de salutation installé dès le jour 1, répété à chaque séance. CE1 : répondre par un mot.\nS2 — What's your name? — My name is… Jeu de la balle ; flashcards prénoms.\nS3 — Classroom language : stand up, sit down, listen, look, be quiet. « Simon says » (compréhension par le corps, aucun écrit).\nS4 — How are you? — I'm fine / happy / sad / tired. Roue des émotions, intégrée au rituel du matin.\nS5 — Numbers 1–12 / How old are you? — I'm 7 / 8 / 9. Bingo des nombres. CE1 : 1–10.\nS6 — Colours : What colour is it? — It's red / blue… Jeu « Touch something blue ».\nS7 — TÂCHE FINALE : se présenter à l'oral. CE1 : « Hello, my name is… I'm 7. » (évaluation en petit groupe).",
+        "P1:CE2": "Ce qui va plus loin (CE2) — phrase complète attendue.\n\nS1 : phrase complète (« Hello, my name is… »).\nS5 : nombres 1–12 + âge en phrase complète.\nS7 : + « I'm fine, my favourite colour is… »."
+      },
+      "updatedAt": 1787516538170
+    },
+    {
+      "id": "progression:eps",
+      "kind": "progression",
+      "disciplineId": "eps",
+      "zones": {
+        "P1:CE1": "EPS — 1h30/sem (2×45 min). Deux champs en parallèle : activités athlétiques + jeux collectifs. Priorité P1 : fabriquer le groupe classe et installer les règles de sécurité. À adapter aux installations disponibles.\n\nS1 — A (athlétisme) : jeux de connaissance en mouvement (« le déménagement des prénoms », rondes).\nS2 — A : test de course longue (nombre de tours en 5 min, repère de départ). B (jeux collectifs) : les déménageurs (coopération, règles).\nS3 — A : courir vite (ateliers de départ, la ligne d'arrivée). B : l'épervier (esquive, respect de l'espace).\nS4 — A : courir vite, relais simples en équipes mixtes. B : la queue du diable.\nS5 — A : courir longtemps, gérer son allure, courir 6 min. B : les balles brûlantes.\nS6 — A : lancer loin (engins/techniques variés) ; lancer précis (ateliers cibles, défi). B : jeu collectif de synthèse au choix des élèves.\nS7 — A : rencontre-bilan, parcours athlétique par équipes. B : bilan oral (ce que j'ai appris).",
+        "P1:CE2": "Double niveau : équipes mixtes CE1/CE2, pas de différenciation de contenu en P1 ; ajuster l'exigence individuellement (distance, allure, précision)."
+      },
+      "updatedAt": 1787516538170
+    },
+    {
+      "id": "progression:qlm",
+      "kind": "progression",
+      "disciplineId": "qlm",
+      "zones": {
+        "P1:CE1": "QUESTIONNER LE MONDE & EMC — 45 min/sem. Une règle : un seul objet par semaine, une trace écrite par quinzaine.\nRéf. : EMC nouveau programme au CE2 (sept. 2026) ; CE1 sur le programme antérieur. QLM : programme 2020 (CE1 et CE2 jusqu'en 2027).\n\nS1 — EMC : construire les règles de la classe. Débat réglé, formulation positive, affichage co-construit.\nS2 — EMC : les responsabilités de la classe. Tableau des responsabilités, rotation hebdomadaire.\nS3 — Temps : le calendrier. CE1 : jours de la semaine, mois de l'année, se repérer dans la semaine.\nS4 — Temps : l'emploi du temps. CE1 : la journée (matin, après-midi, moments-clés).\nS5 — Temps : se repérer dans le temps. CE1 : hier / aujourd'hui / demain ; la ligne du temps de la semaine.\nS6 — Espace : le plan de la classe et de l'école. CE1 : se repérer, reconnaître les lieux, vocabulaire spatial.\nS7 — Bilan : affiche collective de la période + petite évaluation orale.",
+        "P1:CE2": "Ce qui va plus loin (CE2).\n\nS3 : lire un calendrier ; mois / trimestres / année scolaire.\nS4 : lire et construire l'emploi du temps de la semaine.\nS5 : frise chronologique de l'année scolaire, repérer des événements.\nS6 : lire et produire un plan simple, avec légende."
+      },
+      "updatedAt": 1787516538170
+    }
+  ]
 }

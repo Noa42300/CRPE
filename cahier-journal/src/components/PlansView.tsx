@@ -4,8 +4,12 @@
  * - CE1 et CE2 réunis dans la même vue, distingués par un code couleur
  *   (🟦 CE1/commun · 🟪 CE2, ce qui va plus loin).
  * - Zones de texte LIBRES, éditables directement.
- * - Programmation : vue annuelle globale. Progression : découpée par périodes.
+ * - Programmation : vue annuelle. Progression : découpée par périodes (P1→P5).
  * - Bascule par discipline + volet latéral rétractable « BO ».
+ * - Mode « Vue d'ensemble » : tout le contenu d'une matière en grand format.
+ *
+ * Les sections de période sont indexées par NUMÉRO (P1…P5), stable sur tous
+ * les appareils → le contenu importé/synchronisé retombe au bon endroit.
  */
 import { useMemo, useState } from "react";
 import { useStore } from "../lib/store";
@@ -16,7 +20,6 @@ import { BO, BO_SOURCE } from "../lib/bo";
 import { printArea } from "../lib/print";
 import { AutoTextarea, ChevronRight, Printer } from "./ui";
 
-/** Styles des deux niveaux (code couleur bien distinct). */
 const NIVEAU_STYLE = {
   CE1: {
     label: "CE1 / commun",
@@ -44,6 +47,7 @@ export function PlansView({ kind }: { kind: PlanKind }) {
 
   const [disciplineId, setDisciplineId] = useState(teaching[0]?.id ?? "");
   const [showBO, setShowBO] = useState(true);
+  const [overview, setOverview] = useState(false);
 
   const id = planId(kind, disciplineId);
   const stored = plans.find((p) => p.id === id);
@@ -56,30 +60,69 @@ export function PlansView({ kind }: { kind: PlanKind }) {
   const isProg = kind === "programmation";
   const title = isProg ? "Programmations" : "Progressions";
 
-  // Sections : une seule (annuelle) pour la programmation, une par période
-  // pour la progression.
+  // Sections : une (annuelle) pour la programmation, une par période (P1…P5)
+  // pour la progression. Clé stable = "annuel" ou "P<numéro>".
   const sections = isProg
     ? [{ key: "annuel", label: "Vue annuelle" }]
     : settings.periods
         .slice()
         .sort((a, b) => a.number - b.number)
-        .map((p) => ({ key: p.id, label: p.name }));
+        .map((p) => ({ key: `P${p.number}`, label: p.name }));
 
   const disc = teaching.find((d) => d.id === disciplineId);
 
-  return (
-    <div className="lg:flex lg:gap-5">
-      {/* Volet BO */}
-      {showBO && <BOPanel disciplineId={disciplineId} onClose={() => setShowBO(false)} />}
+  const Zone = ({
+    sectionKey,
+    niv,
+    big,
+  }: {
+    sectionKey: string;
+    niv: "CE1" | "CE2";
+    big?: boolean;
+  }) => {
+    const style = NIVEAU_STYLE[niv];
+    const zoneKey = `${sectionKey}:${niv}`;
+    return (
+      <div className={`rounded-2xl border p-3 ${style.card}`}>
+        <div className={`mb-1.5 flex items-center gap-1.5 text-xs font-bold ${style.head}`}>
+          <span className={`h-2 w-2 rounded-full ${style.dot}`} />
+          {style.label}
+        </div>
+        <AutoTextarea
+          className={`${big ? "min-h-[180px] text-[13px] leading-relaxed" : "min-h-[140px]"} bg-white/70 dark:bg-slate-900/40`}
+          value={zones[zoneKey] ?? ""}
+          onChange={(e) => setZone(zoneKey, e.target.value)}
+          placeholder={
+            isProg
+              ? `Programmation ${niv} — ${disc?.label}`
+              : `${niv} — notions, objectifs, séquences…`
+          }
+        />
+      </div>
+    );
+  };
 
-      {/* Contenu principal */}
+  return (
+    <div className={overview ? "" : "lg:flex lg:gap-5"}>
+      {/* Volet BO (masqué en vue d'ensemble pour la largeur) */}
+      {showBO && !overview && (
+        <BOPanel disciplineId={disciplineId} onClose={() => setShowBO(false)} />
+      )}
+
       <div className="min-w-0 flex-1">
+        {/* En-tête */}
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <h1 className="text-xl font-bold text-slate-900 dark:text-white">{title}</h1>
-          <div className="flex items-center gap-1">
-            {!showBO && (
+          <div className="flex flex-wrap items-center gap-1">
+            <button
+              onClick={() => setOverview((v) => !v)}
+              className={`btn-outline py-1.5 text-xs ${overview ? "border-ink-500 text-ink-700 dark:text-ink-200" : ""}`}
+            >
+              {overview ? "🗂️ Vue cartes" : "🔍 Vue d'ensemble"}
+            </button>
+            {!showBO && !overview && (
               <button onClick={() => setShowBO(true)} className="btn-outline py-1.5 text-xs">
-                📖 Afficher le BO
+                📖 BO
               </button>
             )}
             <button onClick={() => printArea("print-plan")} className="btn-ghost px-2" title="Imprimer">
@@ -89,9 +132,11 @@ export function PlansView({ kind }: { kind: PlanKind }) {
         </div>
 
         <p className="mb-3 text-sm text-slate-500 dark:text-slate-400">
-          {isProg
-            ? "Répartition annuelle par discipline. CE1 et CE2 côte à côte."
-            : "Progression découpée par période. CE1 et CE2 côte à côte."}
+          {overview
+            ? `Vue complète de « ${disc?.label} » — toute la ${isProg ? "programmation" : "progression"}, en grand.`
+            : isProg
+              ? "Répartition annuelle par discipline. CE1 et CE2 côte à côte."
+              : "Progression par période. CE1 et CE2 côte à côte."}
         </p>
 
         {/* Bascule discipline */}
@@ -112,7 +157,7 @@ export function PlansView({ kind }: { kind: PlanKind }) {
           })}
         </div>
 
-        {/* Légende couleurs */}
+        {/* Légende */}
         <div className="mb-4 flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
           <span className="flex items-center gap-1.5">
             <span className="h-3 w-3 rounded bg-sky-400" /> {NIVEAU_STYLE.CE1.label}
@@ -122,40 +167,36 @@ export function PlansView({ kind }: { kind: PlanKind }) {
           </span>
         </div>
 
-        {/* Sections */}
-        <div className="space-y-5">
-          {sections.map((sec) => (
-            <section key={sec.key}>
-              <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                {sec.label}
-              </h2>
-              <div className="grid gap-3 md:grid-cols-2">
-                {(["CE1", "CE2"] as const).map((niv) => {
-                  const zoneKey = `${sec.key}:${niv}`;
-                  const style = NIVEAU_STYLE[niv];
-                  return (
-                    <div key={niv} className={`rounded-2xl border p-3 ${style.card}`}>
-                      <div className={`mb-1.5 flex items-center gap-1.5 text-xs font-bold ${style.head}`}>
-                        <span className={`h-2 w-2 rounded-full ${style.dot}`} />
-                        {style.label}
-                      </div>
-                      <AutoTextarea
-                        className="min-h-[120px] bg-white/70 dark:bg-slate-900/40"
-                        value={zones[zoneKey] ?? ""}
-                        onChange={(e) => setZone(zoneKey, e.target.value)}
-                        placeholder={
-                          isProg
-                            ? `Programmation ${niv} — ${disc?.label}\nex : P1 : phrase, GN ; P2 : le verbe…`
-                            : `${sec.label} — ${niv}\nNotions, objectifs, séquences…`
-                        }
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          ))}
-        </div>
+        {/* Contenu */}
+        {overview ? (
+          <div className="space-y-6">
+            {sections.map((sec) => (
+              <section key={sec.key}>
+                <h2 className="mb-2 border-b border-slate-200 pb-1 text-base font-bold text-slate-800 dark:border-slate-700 dark:text-slate-100">
+                  {sec.label}
+                </h2>
+                <div className="space-y-3">
+                  <Zone sectionKey={sec.key} niv="CE1" big />
+                  <Zone sectionKey={sec.key} niv="CE2" big />
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-5">
+            {sections.map((sec) => (
+              <section key={sec.key}>
+                <h2 className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  {sec.label}
+                </h2>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <Zone sectionKey={sec.key} niv="CE1" />
+                  <Zone sectionKey={sec.key} niv="CE2" />
+                </div>
+              </section>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Impression */}
@@ -183,7 +224,6 @@ export function PlansView({ kind }: { kind: PlanKind }) {
   );
 }
 
-/** Volet latéral « Textes & Programmes Officiels (BO) ». */
 function BOPanel({
   disciplineId,
   onClose,
@@ -210,9 +250,7 @@ function BOPanel({
         <p className="mb-3 text-[11px] text-slate-400">Cycle 2 · CE1-CE2</p>
 
         {!data ? (
-          <p className="text-xs text-slate-400">
-            Aucun repère pour cette discipline.
-          </p>
+          <p className="text-xs text-slate-400">Aucun repère pour cette discipline.</p>
         ) : (
           <div className="space-y-1">
             {data.intro && (
