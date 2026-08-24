@@ -10,12 +10,11 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-paper-light text-slate-800 antialiased dark:bg-paper-dark dark:text-slate-100;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    @apply bg-paper-light text-stone-800 antialiased dark:bg-paper-dark dark:text-stone-100;
   }
   /* Champs de saisie lisibles et cohérents en clair/sombre */
   ::placeholder {
-    @apply text-slate-400 dark:text-slate-500;
+    @apply text-stone-400 dark:text-stone-500;
   }
   * {
     scrollbar-width: thin;
@@ -27,7 +26,7 @@
 /* ------------------------------------------------------------------ */
 @layer components {
   .card {
-    @apply rounded-2xl border border-slate-200 bg-paper-card shadow-soft dark:border-slate-700/60 dark:bg-paper-dark-card;
+    @apply rounded-2xl border border-stone-200 bg-paper-card shadow-soft dark:border-stone-700/60 dark:bg-paper-dark-card;
   }
 
   .btn {
@@ -37,20 +36,20 @@
     @apply btn bg-ink-600 text-white hover:bg-ink-700 active:bg-ink-800;
   }
   .btn-ghost {
-    @apply btn text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800;
+    @apply btn text-stone-600 hover:bg-stone-100 dark:text-stone-300 dark:hover:bg-stone-800;
   }
   .btn-outline {
-    @apply btn border border-slate-300 bg-transparent text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800;
+    @apply btn border border-stone-300 bg-transparent text-stone-700 hover:bg-stone-50 dark:border-stone-600 dark:text-stone-200 dark:hover:bg-stone-800;
   }
   .btn-danger {
     @apply btn bg-rose-600 text-white hover:bg-rose-700;
   }
 
   .input {
-    @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-ink-500 focus:ring-2 focus:ring-ink-500/20 dark:border-slate-600 dark:bg-slate-900/40 dark:text-slate-100;
+    @apply w-full rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-ink-500 focus:ring-2 focus:ring-ink-500/20 dark:border-stone-600 dark:bg-stone-900/40 dark:text-stone-100;
   }
   .label {
-    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400;
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400;
   }
 
   /* Puce cliquable (multi-sélection organisation/rôle) */
@@ -58,7 +57,7 @@
     @apply cursor-pointer select-none rounded-full border px-3 py-1 text-xs font-medium transition-colors;
   }
   .toggle-chip-off {
-    @apply border-slate-300 text-slate-500 hover:border-slate-400 hover:text-slate-700 dark:border-slate-600 dark:text-slate-400 dark:hover:text-slate-200;
+    @apply border-stone-300 text-stone-500 hover:border-stone-400 hover:text-stone-700 dark:border-stone-600 dark:text-stone-400 dark:hover:text-stone-200;
   }
   .toggle-chip-on {
     @apply border-ink-500 bg-ink-50 text-ink-700 dark:border-ink-400 dark:bg-ink-500/15 dark:text-ink-200;

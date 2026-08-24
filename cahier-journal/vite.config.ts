@@ -28,8 +28,8 @@ export default defineConfig({
         description:
           "Cahier journal personnel d'enseignant — local, privé et hors ligne.",
         lang: "fr",
-        theme_color: "#3b5bdb",
-        background_color: "#f7f7f5",
+        theme_color: "#c9481f",
+        background_color: "#faf4ec",
         display: "standalone",
         start_url: "./",
         scope: "./",

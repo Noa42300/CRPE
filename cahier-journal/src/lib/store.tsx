@@ -16,12 +16,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Day, Plan, Settings, Template } from "./types";
+import type { Day, Plan, Sequence, Settings, Template } from "./types";
 import { SCHEMA_VERSION } from "./types";
 import {
   daysDB,
   isStorageAvailable,
   plansDB,
+  sequencesDB,
   settingsDB,
   templatesDB,
   wipeAll,
@@ -38,6 +39,7 @@ interface StoreValue {
   daysMap: Record<string, Day>;
   templates: Template[];
   plans: Plan[];
+  sequences: Sequence[];
   saveStatus: SaveStatus;
 
   saveSettings: (next: Settings) => void;
@@ -47,6 +49,8 @@ interface StoreValue {
   removeTemplate: (id: string) => Promise<void>;
   savePlan: (p: Plan) => void;
   removePlan: (id: string) => Promise<void>;
+  saveSequence: (s: Sequence) => void;
+  removeSequence: (id: string) => Promise<void>;
   flush: () => Promise<void>;
   reloadAll: () => Promise<void>;
   resetEverything: () => Promise<void>;
@@ -69,6 +73,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [daysMap, setDaysMap] = useState<Record<string, Day>>({});
   const [templates, setTemplates] = useState<Template[]>([]);
   const [plans, setPlans] = useState<Plan[]>([]);
+  const [sequences, setSequences] = useState<Sequence[]>([]);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [lastCloudSync, setLastCloudSync] = useState<number | null>(null);
   const autoSyncDone = useRef(false);
@@ -76,6 +81,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   // --- File d'attente d'autosave (anti-rebond) ---
   const pendingDays = useRef<Map<string, Day>>(new Map());
   const pendingPlans = useRef<Map<string, Plan>>(new Map());
+  const pendingSequences = useRef<Map<string, Sequence>>(new Map());
   const pendingSettings = useRef<Settings | null>(null);
   const timer = useRef<number | null>(null);
 
@@ -86,14 +92,18 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     }
     const days = Array.from(pendingDays.current.values());
     const plansList = Array.from(pendingPlans.current.values());
+    const seqList = Array.from(pendingSequences.current.values());
     const s = pendingSettings.current;
     pendingDays.current.clear();
     pendingPlans.current.clear();
+    pendingSequences.current.clear();
     pendingSettings.current = null;
-    if (days.length === 0 && plansList.length === 0 && !s) return;
+    if (days.length === 0 && plansList.length === 0 && seqList.length === 0 && !s)
+      return;
     try {
       for (const d of days) await daysDB.put(d);
       for (const p of plansList) await plansDB.put(p);
+      for (const seq of seqList) await sequencesDB.put(seq);
       if (s) await settingsDB.put(s);
       setSaveStatus("saved");
     } catch {
@@ -120,10 +130,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     }
     // Migration légère : complète les champs manquants d'anciens schémas.
     s = { ...defaultSettings(), ...s, schemaVersion: SCHEMA_VERSION, key: "app" };
-    const [allDays, allTemplates, allPlans] = await Promise.all([
+    const [allDays, allTemplates, allPlans, allSequences] = await Promise.all([
       daysDB.getAll(),
       templatesDB.getAll(),
       plansDB.getAll(),
+      sequencesDB.getAll(),
     ]);
     const map: Record<string, Day> = {};
     for (const d of allDays) map[d.date] = d;
@@ -131,6 +142,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setDaysMap(map);
     setTemplates(allTemplates);
     setPlans(allPlans);
+    setSequences(allSequences);
     setReady(true);
   }, []);
 
@@ -144,6 +156,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       if (
         pendingDays.current.size > 0 ||
         pendingPlans.current.size > 0 ||
+        pendingSequences.current.size > 0 ||
         pendingSettings.current
       ) {
         void flush();
@@ -231,6 +244,25 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setPlans((prev) => prev.filter((x) => x.id !== id));
   }, []);
 
+  const saveSequence = useCallback(
+    (seq: Sequence) => {
+      const stamped = { ...seq, updatedAt: Date.now() };
+      setSequences((prev) => {
+        const others = prev.filter((x) => x.id !== stamped.id);
+        return [...others, stamped];
+      });
+      pendingSequences.current.set(stamped.id, stamped);
+      scheduleFlush();
+    },
+    [scheduleFlush],
+  );
+
+  const removeSequence = useCallback(async (id: string) => {
+    pendingSequences.current.delete(id);
+    await sequencesDB.delete(id);
+    setSequences((prev) => prev.filter((x) => x.id !== id));
+  }, []);
+
   const resetEverything = useCallback(async () => {
     await wipeAll();
     const s = defaultSettings();
@@ -239,6 +271,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setDaysMap({});
     setTemplates([]);
     setPlans([]);
+    setSequences([]);
   }, []);
 
   const syncCloud = useCallback(
@@ -276,6 +309,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       daysMap,
       templates,
       plans,
+      sequences,
       saveStatus,
       saveSettings,
       saveDay,
@@ -284,6 +318,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeTemplate,
       savePlan,
       removePlan,
+      saveSequence,
+      removeSequence,
       flush,
       reloadAll,
       resetEverything,
@@ -297,6 +333,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       daysMap,
       templates,
       plans,
+      sequences,
       saveStatus,
       saveSettings,
       saveDay,
@@ -305,6 +342,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeTemplate,
       savePlan,
       removePlan,
+      saveSequence,
+      removeSequence,
       flush,
       reloadAll,
       resetEverything,

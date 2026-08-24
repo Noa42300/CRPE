@@ -14,9 +14,9 @@ const OUT = join(__dirname, "..", "public");
 mkdirSync(OUT, { recursive: true });
 
 // Couleurs (RVB)
-const BG = [59, 91, 219]; // #3b5bdb
-const PAGE1 = [255, 255, 255];
-const PAGE2 = [219, 225, 247]; // #dbe1f7
+const BG = [201, 72, 31]; // #c9481f terracotta
+const PAGE1 = [255, 253, 248]; // #fffdf8
+const PAGE2 = [251, 230, 218]; // #fbe6da
 
 function crc32(buf) {
   let c = ~0;

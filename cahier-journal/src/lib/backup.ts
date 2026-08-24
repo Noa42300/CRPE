@@ -5,17 +5,25 @@
  * L'export déclenche un téléchargement ; l'import lit un fichier choisi par
  * l'utilisateur. Rien ne transite par le réseau.
  */
-import type { BackupFile, Day, Plan, Settings, Template } from "./types";
+import type {
+  BackupFile,
+  Day,
+  Plan,
+  Sequence,
+  Settings,
+  Template,
+} from "./types";
 import { SCHEMA_VERSION } from "./types";
-import { daysDB, plansDB, settingsDB, templatesDB } from "./db";
+import { daysDB, plansDB, sequencesDB, settingsDB, templatesDB } from "./db";
 import { todayISO } from "./dates";
 
 /** Construit l'objet de sauvegarde à partir de la base. */
 export async function buildBackup(settings: Settings): Promise<BackupFile> {
-  const [days, templates, plans] = await Promise.all([
+  const [days, templates, plans, sequences] = await Promise.all([
     daysDB.getAll(),
     templatesDB.getAll(),
     plansDB.getAll(),
+    sequencesDB.getAll(),
   ]);
   return {
     app: "cahier-journal",
@@ -25,6 +33,7 @@ export async function buildBackup(settings: Settings): Promise<BackupFile> {
     days,
     templates,
     plans,
+    sequences,
   };
 }
 
@@ -82,6 +91,7 @@ export interface ParsedBackup {
   days: Day[];
   templates: Template[];
   plans: Plan[];
+  sequences: Sequence[];
 }
 
 /** Analyse et valide le contenu d'un fichier de sauvegarde. */
@@ -104,6 +114,7 @@ export function parseBackup(text: string): ParsedBackup {
     days: b.days,
     templates: Array.isArray(b.templates) ? b.templates : [],
     plans: Array.isArray(b.plans) ? b.plans : [],
+    sequences: Array.isArray(b.sequences) ? b.sequences : [],
   };
 }
 
@@ -124,6 +135,7 @@ export async function restoreBackup(
     await daysDB.clear();
     await templatesDB.clear();
     await plansDB.clear();
+    await sequencesDB.clear();
     await settingsDB.put({ ...parsed.settings, key: "app" });
   } else {
     const current = (await settingsDB.get()) ?? parsed.settings;
@@ -147,6 +159,7 @@ export async function restoreBackup(
   for (const day of parsed.days) await daysDB.put(day);
   for (const t of parsed.templates) await templatesDB.put(t);
   for (const p of parsed.plans) await plansDB.put(p);
+  for (const seq of parsed.sequences) await sequencesDB.put(seq);
 }
 
 /** Lit un File (input type=file) en texte. */
