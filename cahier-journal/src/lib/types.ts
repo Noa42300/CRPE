@@ -202,6 +202,21 @@ export interface Plan {
   updatedAt: number;
 }
 
+/**
+ * Séquence réutilisable (Bibliothèque). Regroupe des séances (Activity) que
+ * l'on peut ensuite POSER sur un jour ou INTÉGRER dans une progression.
+ * Contenu 100 % pédagogique (aucune donnée élève).
+ */
+export interface Sequence {
+  id: string;
+  title: string;
+  disciplineId: string;
+  niveaux: NiveauId[];
+  objectif: string;
+  seances: Activity[];
+  updatedAt: number;
+}
+
 /** Structure d'un fichier de sauvegarde exporté. */
 export interface BackupFile {
   app: "cahier-journal";
@@ -212,4 +227,6 @@ export interface BackupFile {
   templates: Template[];
   /** Programmations & progressions (facultatif pour compat. ascendante). */
   plans?: Plan[];
+  /** Bibliothèque de séquences (facultatif). */
+  sequences?: Sequence[];
 }

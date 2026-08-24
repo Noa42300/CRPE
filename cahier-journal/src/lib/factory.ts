@@ -60,6 +60,27 @@ export function emptyActivity(niveaux: string[] = ["classe"]): Activity {
   };
 }
 
+/** Copie profonde d'une séance (Activity) avec de nouveaux identifiants. */
+export function cloneActivity(a: Activity): Activity {
+  return {
+    ...a,
+    id: uid(),
+    deroulement: a.deroulement.map((s) => ({ ...s, id: uid() })),
+  };
+}
+
+export function emptySequence(disciplineId: string): import("./types").Sequence {
+  return {
+    id: uid(),
+    title: "",
+    disciplineId,
+    niveaux: ["classe"],
+    objectif: "",
+    seances: [],
+    updatedAt: Date.now(),
+  };
+}
+
 export function emptySlot(
   disciplineId: string,
   start = "08:30",

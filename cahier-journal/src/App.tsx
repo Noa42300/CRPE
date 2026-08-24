@@ -16,6 +16,7 @@ import { SearchView } from "./components/SearchView";
 import { SettingsView } from "./components/SettingsView";
 import { BackupView } from "./components/BackupView";
 import { PlansView } from "./components/PlansView";
+import { SequencesView } from "./components/SequencesView";
 import { LockScreen } from "./components/LockScreen";
 import { hasPin } from "./lib/lock";
 
@@ -106,6 +107,7 @@ export function App() {
             )}
             {view === "programmations" && <PlansView kind="programmation" />}
             {view === "progressions" && <PlansView kind="progression" />}
+            {view === "library" && <SequencesView />}
             {view === "search" && <SearchView onOpenDate={openDate} />}
             {view === "settings" && <SettingsView />}
             {view === "backup" && <BackupView />}

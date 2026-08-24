@@ -15,31 +15,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Accent principal — bleu encre, sobre et professionnel.
+        // Accent principal — terracotta chaud (crème & terracotta).
         ink: {
-          50: "#eef1fb",
-          100: "#dbe1f7",
-          200: "#bcc7ef",
-          300: "#93a4e3",
-          400: "#6b80d4",
-          500: "#4c62c4",
-          600: "#3b5bdb",
-          700: "#32409e",
-          800: "#2b3780",
-          900: "#283264",
-          950: "#1a1f3d",
+          50: "#fdf4ef",
+          100: "#fbe6da",
+          200: "#f6c9b3",
+          300: "#efa484",
+          400: "#e67d55",
+          500: "#dd5c32",
+          600: "#c9481f",
+          700: "#a5391a",
+          800: "#84301b",
+          900: "#6c2b1a",
+          950: "#3a140b",
         },
-        // Gris chauds pour les fonds et textes.
+        // Fonds crème / ivoire chauds.
         paper: {
-          light: "#f7f7f5",
-          card: "#ffffff",
-          dark: "#14151a",
-          "dark-card": "#1c1e26",
+          light: "#faf4ec",
+          card: "#fffdf8",
+          dark: "#181410",
+          "dark-card": "#221d16",
         },
       },
       fontFamily: {
         sans: [
-          "Inter",
+          "Nunito",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
