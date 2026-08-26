@@ -16,12 +16,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Day, Plan, Sequence, Settings, Template } from "./types";
+import type { Day, Plan, Ritual, Sequence, Settings, Template } from "./types";
 import { SCHEMA_VERSION } from "./types";
 import {
   daysDB,
   isStorageAvailable,
   plansDB,
+  ritualsDB,
   sequencesDB,
   settingsDB,
   templatesDB,
@@ -40,6 +41,7 @@ interface StoreValue {
   templates: Template[];
   plans: Plan[];
   sequences: Sequence[];
+  rituals: Ritual[];
   saveStatus: SaveStatus;
 
   saveSettings: (next: Settings) => void;
@@ -51,6 +53,8 @@ interface StoreValue {
   removePlan: (id: string) => Promise<void>;
   saveSequence: (s: Sequence) => void;
   removeSequence: (id: string) => Promise<void>;
+  saveRitual: (r: Ritual) => void;
+  removeRitual: (id: string) => Promise<void>;
   flush: () => Promise<void>;
   reloadAll: () => Promise<void>;
   resetEverything: () => Promise<void>;
@@ -74,6 +78,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [templates, setTemplates] = useState<Template[]>([]);
   const [plans, setPlans] = useState<Plan[]>([]);
   const [sequences, setSequences] = useState<Sequence[]>([]);
+  const [rituals, setRituals] = useState<Ritual[]>([]);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [lastCloudSync, setLastCloudSync] = useState<number | null>(null);
   const autoSyncDone = useRef(false);
@@ -82,6 +87,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const pendingDays = useRef<Map<string, Day>>(new Map());
   const pendingPlans = useRef<Map<string, Plan>>(new Map());
   const pendingSequences = useRef<Map<string, Sequence>>(new Map());
+  const pendingRituals = useRef<Map<string, Ritual>>(new Map());
   const pendingSettings = useRef<Settings | null>(null);
   const timer = useRef<number | null>(null);
 
@@ -93,17 +99,26 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     const days = Array.from(pendingDays.current.values());
     const plansList = Array.from(pendingPlans.current.values());
     const seqList = Array.from(pendingSequences.current.values());
+    const ritList = Array.from(pendingRituals.current.values());
     const s = pendingSettings.current;
     pendingDays.current.clear();
     pendingPlans.current.clear();
     pendingSequences.current.clear();
+    pendingRituals.current.clear();
     pendingSettings.current = null;
-    if (days.length === 0 && plansList.length === 0 && seqList.length === 0 && !s)
+    if (
+      days.length === 0 &&
+      plansList.length === 0 &&
+      seqList.length === 0 &&
+      ritList.length === 0 &&
+      !s
+    )
       return;
     try {
       for (const d of days) await daysDB.put(d);
       for (const p of plansList) await plansDB.put(p);
       for (const seq of seqList) await sequencesDB.put(seq);
+      for (const r of ritList) await ritualsDB.put(r);
       if (s) await settingsDB.put(s);
       setSaveStatus("saved");
     } catch {
@@ -130,12 +145,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     }
     // Migration légère : complète les champs manquants d'anciens schémas.
     s = { ...defaultSettings(), ...s, schemaVersion: SCHEMA_VERSION, key: "app" };
-    const [allDays, allTemplates, allPlans, allSequences] = await Promise.all([
-      daysDB.getAll(),
-      templatesDB.getAll(),
-      plansDB.getAll(),
-      sequencesDB.getAll(),
-    ]);
+    const [allDays, allTemplates, allPlans, allSequences, allRituals] =
+      await Promise.all([
+        daysDB.getAll(),
+        templatesDB.getAll(),
+        plansDB.getAll(),
+        sequencesDB.getAll(),
+        ritualsDB.getAll(),
+      ]);
     const map: Record<string, Day> = {};
     for (const d of allDays) map[d.date] = d;
     setSettings(s);
@@ -143,6 +160,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setTemplates(allTemplates);
     setPlans(allPlans);
     setSequences(allSequences);
+    setRituals(allRituals);
     setReady(true);
   }, []);
 
@@ -157,6 +175,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         pendingDays.current.size > 0 ||
         pendingPlans.current.size > 0 ||
         pendingSequences.current.size > 0 ||
+        pendingRituals.current.size > 0 ||
         pendingSettings.current
       ) {
         void flush();
@@ -263,6 +282,25 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setSequences((prev) => prev.filter((x) => x.id !== id));
   }, []);
 
+  const saveRitual = useCallback(
+    (r: Ritual) => {
+      const stamped = { ...r, updatedAt: Date.now() };
+      setRituals((prev) => {
+        const others = prev.filter((x) => x.id !== stamped.id);
+        return [...others, stamped];
+      });
+      pendingRituals.current.set(stamped.id, stamped);
+      scheduleFlush();
+    },
+    [scheduleFlush],
+  );
+
+  const removeRitual = useCallback(async (id: string) => {
+    pendingRituals.current.delete(id);
+    await ritualsDB.delete(id);
+    setRituals((prev) => prev.filter((x) => x.id !== id));
+  }, []);
+
   const resetEverything = useCallback(async () => {
     await wipeAll();
     const s = defaultSettings();
@@ -272,6 +310,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setTemplates([]);
     setPlans([]);
     setSequences([]);
+    setRituals([]);
   }, []);
 
   const syncCloud = useCallback(
@@ -310,6 +349,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       templates,
       plans,
       sequences,
+      rituals,
       saveStatus,
       saveSettings,
       saveDay,
@@ -320,6 +360,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removePlan,
       saveSequence,
       removeSequence,
+      saveRitual,
+      removeRitual,
       flush,
       reloadAll,
       resetEverything,
@@ -334,6 +376,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       templates,
       plans,
       sequences,
+      rituals,
       saveStatus,
       saveSettings,
       saveDay,
@@ -344,6 +387,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removePlan,
       saveSequence,
       removeSequence,
+      saveRitual,
+      removeRitual,
       flush,
       reloadAll,
       resetEverything,

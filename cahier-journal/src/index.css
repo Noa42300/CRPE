@@ -70,6 +70,49 @@
 }
 
 /* ------------------------------------------------------------------ */
+/*  Écriture « PE » (manuscrite) & lignes Seyès                        */
+/* ------------------------------------------------------------------ */
+.font-ecole {
+  font-family: "Caveat", "Dancing Script", "Segoe Script", cursive;
+}
+.font-cursive {
+  font-family: "Dancing Script", "Caveat", cursive;
+}
+
+/* Réglure façon cahier Seyès. --il = interligne (dépend de la taille). */
+.seyes {
+  --il: 18px;
+  background-color: #ffffff;
+  background-image:
+    /* interlignes clairs tous les --il */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 calc(var(--il) - 1px),
+      #d6e6f6 calc(var(--il) - 1px) var(--il)
+    ),
+    /* ligne d'écriture forte tous les 4 interlignes */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 calc(var(--il) * 4 - 1.5px),
+      #7fb0dd calc(var(--il) * 4 - 1.5px) calc(var(--il) * 4)
+    ),
+    /* marges verticales roses discrètes */
+    repeating-linear-gradient(
+      to right,
+      transparent 0 calc(var(--il) * 4 - 1px),
+      #f2dede calc(var(--il) * 4 - 1px) calc(var(--il) * 4)
+    );
+}
+
+/* Overlay plein écran pour projeter au tableau. */
+.board-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  overflow: auto;
+}
+
+/* ------------------------------------------------------------------ */
 /*  Zone de texte auto-agrandissante                                  */
 /* ------------------------------------------------------------------ */
 .autogrow {

@@ -217,6 +217,19 @@ export interface Sequence {
   updatedAt: number;
 }
 
+/**
+ * Rituel rangé par période, affichable en grand au tableau (écriture PE).
+ * Pédagogique (aucune donnée élève).
+ */
+export interface Ritual {
+  id: string;
+  periodNumber: number;
+  title: string;
+  content: string;
+  order: number;
+  updatedAt: number;
+}
+
 /** Structure d'un fichier de sauvegarde exporté. */
 export interface BackupFile {
   app: "cahier-journal";
@@ -229,4 +242,6 @@ export interface BackupFile {
   plans?: Plan[];
   /** Bibliothèque de séquences (facultatif). */
   sequences?: Sequence[];
+  /** Rituels par période (facultatif). */
+  rituals?: Ritual[];
 }
