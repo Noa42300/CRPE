@@ -79,9 +79,12 @@
   font-family: "Dancing Script", "Caveat", cursive;
 }
 
-/* Réglure façon cahier Seyès. --il = interligne (dépend de la taille). */
+/* Réglure façon cahier Seyès. --il = interligne (dépend de la taille).
+   --seyes-shift : décalage vertical du lignage pour que l'écriture repose
+   pile sur la ligne d'écriture forte (dépend des métriques de la police). */
 .seyes {
   --il: 18px;
+  --seyes-shift: 0px;
   background-color: #ffffff;
   background-image:
     /* interlignes clairs tous les --il */
@@ -102,6 +105,31 @@
       transparent 0 calc(var(--il) * 4 - 1px),
       #f2dede calc(var(--il) * 4 - 1px) calc(var(--il) * 4)
     );
+  background-position:
+    0 var(--seyes-shift),
+    0 var(--seyes-shift),
+    0 0;
+}
+
+/* Effet « stylo qui trace » : la lettre en cours d'écriture se dévoile de
+   gauche à droite, comme tracée à la main, pour montrer le geste. */
+@keyframes cj-trace {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.trace-char {
+  display: inline-block;
+  white-space: pre;
+  animation: cj-trace 0.32s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .trace-char {
+    animation: none;
+  }
 }
 
 /* Overlay plein écran pour projeter au tableau. */
