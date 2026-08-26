@@ -10,7 +10,7 @@
  * modifications locales restent locales et ne sont jamais envoyées en ligne.
  */
 import { parseBackup } from "./backup";
-import { daysDB, plansDB, sequencesDB, settingsDB } from "./db";
+import { daysDB, plansDB, ritualsDB, sequencesDB, settingsDB } from "./db";
 import { defaultSettings } from "./defaults";
 
 /** Fichier servi à côté de l'application (même origine). */
@@ -91,6 +91,16 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
       !existing || (seq.updatedAt ?? 0) > (existing.updatedAt ?? 0);
     if (existing && !overwrite && !cloudNewer) continue;
     await sequencesDB.put(seq);
+  }
+
+  // Rituels — même règle de mise à jour par updatedAt.
+  const existingRit = new Map((await ritualsDB.getAll()).map((r) => [r.id, r]));
+  for (const rit of parsed.rituals) {
+    const existing = existingRit.get(rit.id);
+    const cloudNewer =
+      !existing || (rit.updatedAt ?? 0) > (existing.updatedAt ?? 0);
+    if (existing && !overwrite && !cloudNewer) continue;
+    await ritualsDB.put(rit);
   }
 
   return { added, updated, skipped };

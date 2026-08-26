@@ -9,21 +9,30 @@ import type {
   BackupFile,
   Day,
   Plan,
+  Ritual,
   Sequence,
   Settings,
   Template,
 } from "./types";
 import { SCHEMA_VERSION } from "./types";
-import { daysDB, plansDB, sequencesDB, settingsDB, templatesDB } from "./db";
+import {
+  daysDB,
+  plansDB,
+  ritualsDB,
+  sequencesDB,
+  settingsDB,
+  templatesDB,
+} from "./db";
 import { todayISO } from "./dates";
 
 /** Construit l'objet de sauvegarde à partir de la base. */
 export async function buildBackup(settings: Settings): Promise<BackupFile> {
-  const [days, templates, plans, sequences] = await Promise.all([
+  const [days, templates, plans, sequences, rituals] = await Promise.all([
     daysDB.getAll(),
     templatesDB.getAll(),
     plansDB.getAll(),
     sequencesDB.getAll(),
+    ritualsDB.getAll(),
   ]);
   return {
     app: "cahier-journal",
@@ -34,6 +43,7 @@ export async function buildBackup(settings: Settings): Promise<BackupFile> {
     templates,
     plans,
     sequences,
+    rituals,
   };
 }
 
@@ -92,6 +102,7 @@ export interface ParsedBackup {
   templates: Template[];
   plans: Plan[];
   sequences: Sequence[];
+  rituals: Ritual[];
 }
 
 /** Analyse et valide le contenu d'un fichier de sauvegarde. */
@@ -115,6 +126,7 @@ export function parseBackup(text: string): ParsedBackup {
     templates: Array.isArray(b.templates) ? b.templates : [],
     plans: Array.isArray(b.plans) ? b.plans : [],
     sequences: Array.isArray(b.sequences) ? b.sequences : [],
+    rituals: Array.isArray(b.rituals) ? b.rituals : [],
   };
 }
 
@@ -136,6 +148,7 @@ export async function restoreBackup(
     await templatesDB.clear();
     await plansDB.clear();
     await sequencesDB.clear();
+    await ritualsDB.clear();
     await settingsDB.put({ ...parsed.settings, key: "app" });
   } else {
     const current = (await settingsDB.get()) ?? parsed.settings;
@@ -160,6 +173,7 @@ export async function restoreBackup(
   for (const t of parsed.templates) await templatesDB.put(t);
   for (const p of parsed.plans) await plansDB.put(p);
   for (const seq of parsed.sequences) await sequencesDB.put(seq);
+  for (const r of parsed.rituals) await ritualsDB.put(r);
 }
 
 /** Lit un File (input type=file) en texte. */
