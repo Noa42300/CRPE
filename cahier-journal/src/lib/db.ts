@@ -9,10 +9,19 @@
  *   - "settings"   : réglages, clé fixe "app"
  *   - "templates"  : modèles réutilisables, clé = id
  */
-import type { Day, Plan, Ritual, Sequence, Settings, Template } from "./types";
+import type {
+  Attachment,
+  AttachmentMeta,
+  Day,
+  Plan,
+  Ritual,
+  Sequence,
+  Settings,
+  Template,
+} from "./types";
 
 const DB_NAME = "cahier-journal";
-const DB_VERSION = 4;
+const DB_VERSION = 5;
 
 type StoreName =
   | "days"
@@ -20,7 +29,8 @@ type StoreName =
   | "templates"
   | "plans"
   | "sequences"
-  | "rituals";
+  | "rituals"
+  | "attachments";
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -54,6 +64,10 @@ function openDB(): Promise<IDBDatabase> {
       }
       if (!db.objectStoreNames.contains("rituals")) {
         db.createObjectStore("rituals", { keyPath: "id" });
+      }
+      if (!db.objectStoreNames.contains("attachments")) {
+        const st = db.createObjectStore("attachments", { keyPath: "id" });
+        st.createIndex("refId", "refId", { unique: false });
       }
     };
     req.onsuccess = () => resolve(req.result);
@@ -136,13 +150,48 @@ export const ritualsDB = {
   clear: () => tx<undefined>("rituals", "readwrite", (s) => s.clear()),
 };
 
-/** Supprime journées, modèles, plans, séquences et rituels. */
+// ------------------------------------------------------------ Documents joints
+/**
+ * Documents (PDF, images) rattachés à une séance ou à une journée, à imprimer.
+ * Stockés en base64 dans IndexedDB — 100 % locaux, jamais synchronisés ni
+ * publiés (ils peuvent contenir des supports d'élèves).
+ * `refId` : "activity:<id>" ou "day:<AAAA-MM-JJ>".
+ */
+function txIndex<T>(fn: (idx: IDBIndex) => IDBRequest): Promise<T> {
+  return openDB().then(
+    (db) =>
+      new Promise<T>((resolve, reject) => {
+        const transaction = db.transaction("attachments", "readonly");
+        const req = fn(transaction.objectStore("attachments").index("refId"));
+        req.onsuccess = () => resolve(req.result as T);
+        req.onerror = () => reject(req.error);
+      }),
+  );
+}
+
+export const attachmentsDB = {
+  /** Métadonnées (sans les données lourdes) pour une référence donnée. */
+  listMeta: (refId: string) =>
+    txIndex<Attachment[]>((idx) => idx.getAll(refId)).then((recs) =>
+      recs.map(({ data: _data, ...meta }) => meta as AttachmentMeta),
+    ),
+  get: (id: string) =>
+    tx<Attachment | undefined>("attachments", "readonly", (s) => s.get(id)),
+  put: (a: Attachment) =>
+    tx<IDBValidKey>("attachments", "readwrite", (s) => s.put(a)),
+  delete: (id: string) =>
+    tx<undefined>("attachments", "readwrite", (s) => s.delete(id)),
+  clear: () => tx<undefined>("attachments", "readwrite", (s) => s.clear()),
+};
+
+/** Supprime journées, modèles, plans, séquences, rituels et documents joints. */
 export async function wipeAll(): Promise<void> {
   await daysDB.clear();
   await templatesDB.clear();
   await plansDB.clear();
   await sequencesDB.clear();
   await ritualsDB.clear();
+  await attachmentsDB.clear();
 }
 
 /** Indique si IndexedDB est disponible (utile pour un message d'alerte). */

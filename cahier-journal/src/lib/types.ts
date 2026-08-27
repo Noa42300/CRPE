@@ -230,6 +230,24 @@ export interface Ritual {
   updatedAt: number;
 }
 
+/**
+ * Document (PDF / image) rattaché à une séance ou à une journée, à imprimer.
+ * 100 % local (IndexedDB), jamais synchronisé ni publié.
+ */
+export interface AttachmentMeta {
+  id: string;
+  /** "activity:<id>" ou "day:<AAAA-MM-JJ>". */
+  refId: string;
+  name: string;
+  mime: string;
+  size: number;
+  createdAt: number;
+}
+export interface Attachment extends AttachmentMeta {
+  /** Contenu du fichier encodé en data URL (base64). */
+  data: string;
+}
+
 /** Structure d'un fichier de sauvegarde exporté. */
 export interface BackupFile {
   app: "cahier-journal";

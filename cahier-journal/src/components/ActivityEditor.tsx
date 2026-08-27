@@ -14,6 +14,7 @@ import {
 import { niveauBadgeClass } from "../lib/lookup";
 import { emptyStep } from "../lib/factory";
 import { AutoTextarea, ChipGroup, Disclosure, Field, Plus, Trash } from "./ui";
+import { Attachments } from "./Attachments";
 
 export function ActivityEditor({
   settings,
@@ -267,6 +268,9 @@ export function ActivityEditor({
           </div>
         </div>
       </Disclosure>
+
+      {/* Documents à imprimer pour la séance */}
+      <Attachments refId={`activity:${activity.id}`} title="Documents de la séance à imprimer" />
     </div>
   );
 }
