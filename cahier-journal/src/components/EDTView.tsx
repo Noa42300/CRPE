@@ -89,17 +89,19 @@ export function EDTView() {
       )}
 
       {board && (
-        <BoardOverlay onClose={() => setBoard(false)}>
-          <div className="mb-6 text-center opacity-80" style={{ fontSize: "0.7em" }}>
-            {cap(formatLong(date))}
-          </div>
-          <div className="space-y-4">
-            {rows.map((r) => (
-              <div key={r.id} className="flex items-baseline gap-6">
-                <span className="shrink-0 opacity-70" style={{ fontSize: "0.6em" }}>{r.time}</span>
-                <span>{r.label}</span>
-              </div>
-            ))}
+        <BoardOverlay onClose={() => setBoard(false)} fit>
+          <div className="text-center">
+            <div className="mb-8 opacity-70" style={{ fontSize: "0.5em" }}>
+              {cap(formatLong(date))}
+            </div>
+            <div className="space-y-5">
+              {rows.map((r) => (
+                <div key={r.id} className="flex items-center justify-center gap-5 whitespace-nowrap">
+                  <span className={`h-4 w-4 shrink-0 rounded-full ${r.dot}`} />
+                  <span>{r.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </BoardOverlay>
       )}

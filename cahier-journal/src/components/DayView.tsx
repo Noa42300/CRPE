@@ -24,6 +24,7 @@ import {
 } from "../lib/factory";
 import type { Day, DayEvent, Slot } from "../lib/types";
 import { SlotCard } from "./SlotCard";
+import { Attachments } from "./Attachments";
 import { PrintDay } from "./PrintDay";
 import { printArea } from "../lib/print";
 import {
@@ -211,6 +212,11 @@ export function DayView({
           </button>
         </div>
       )}
+
+      {/* Documents de la journée à imprimer (organisation de journée) */}
+      <div className="mt-4">
+        <Attachments refId={`day:${date}`} title="Documents de la journée à imprimer" />
+      </div>
 
       {/* Dupliquer la journée */}
       {exists && (
