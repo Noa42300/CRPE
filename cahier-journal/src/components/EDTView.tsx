@@ -11,6 +11,32 @@ import { disciplineColor, disciplineLabel } from "../lib/lookup";
 import { ChevronLeft, ChevronRight } from "./ui";
 import { BoardOverlay } from "./BoardOverlay";
 
+/** Une colonne de l'emploi du temps projeté (matin ou après-midi). */
+function BoardColumn({
+  title,
+  rows,
+}: {
+  title: string;
+  rows: { id: string; label: string; dot: string }[];
+}) {
+  if (rows.length === 0) return null;
+  return (
+    <div className="text-left">
+      <div className="mb-5 border-b-2 border-stone-300 pb-1 font-semibold uppercase tracking-wide opacity-60 dark:border-stone-600" style={{ fontSize: "0.42em" }}>
+        {title}
+      </div>
+      <div className="space-y-5">
+        {rows.map((r) => (
+          <div key={r.id} className="flex items-center gap-4 whitespace-nowrap">
+            <span className={`h-[0.35em] w-[0.35em] shrink-0 rounded-full ${r.dot}`} />
+            <span>{r.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /** "08:30" → "8h30". */
 function h(hhmm: string): string {
   const [hh, mm] = hhmm.split(":");
@@ -27,10 +53,25 @@ export function EDTView() {
 
   const rows = slots.map((s) => ({
     id: s.id,
+    start: s.start,
     time: `${h(s.start)} → ${h(s.end)}`,
     label: disciplineLabel(settings, s.disciplineId),
     dot: disciplineColor(settings, s.disciplineId).dot,
   }));
+
+  // Repérage de la pause repas pour couper matin / après-midi.
+  const REPAS_RE = /repas|cantine|déjeuner|dejeuner|méridienne|meridienne|pause du midi|self|midi/i;
+  const repasIdx = rows.findIndex((r) => REPAS_RE.test(r.label));
+  let matin: typeof rows, aprem: typeof rows, repas: (typeof rows)[number] | null;
+  if (repasIdx >= 0) {
+    matin = rows.slice(0, repasIdx);
+    repas = rows[repasIdx];
+    aprem = rows.slice(repasIdx + 1);
+  } else {
+    matin = rows.filter((r) => r.start < "12:00");
+    aprem = rows.filter((r) => r.start >= "12:00");
+    repas = null;
+  }
 
   return (
     <div>
@@ -91,16 +132,18 @@ export function EDTView() {
       {board && (
         <BoardOverlay onClose={() => setBoard(false)} fit>
           <div className="text-center">
-            <div className="mb-8 opacity-70" style={{ fontSize: "0.5em" }}>
+            <div className="mb-6 opacity-70" style={{ fontSize: "0.45em" }}>
               {cap(formatLong(date))}
             </div>
-            <div className="space-y-5">
-              {rows.map((r) => (
-                <div key={r.id} className="flex items-center justify-center gap-5 whitespace-nowrap">
-                  <span className={`h-4 w-4 shrink-0 rounded-full ${r.dot}`} />
-                  <span>{r.label}</span>
+            <div className="flex items-stretch justify-center gap-12">
+              <BoardColumn title="Matin" rows={matin} />
+              {repas && (
+                <div className="flex flex-col items-center justify-center self-stretch border-x-2 border-dashed border-stone-300 px-6 dark:border-stone-600">
+                  <div style={{ fontSize: "1.1em" }}>🍽️</div>
+                  <div className="mt-2" style={{ fontSize: "0.7em" }}>{repas.label}</div>
                 </div>
-              ))}
+              )}
+              <BoardColumn title="Après-midi" rows={aprem} />
             </div>
           </div>
         </BoardOverlay>
