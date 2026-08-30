@@ -18,6 +18,7 @@ import { BackupView } from "./components/BackupView";
 import { PlansView } from "./components/PlansView";
 import { SequencesView } from "./components/SequencesView";
 import { RitualsView } from "./components/RitualsView";
+import { ProjetsView } from "./components/ProjetsView";
 import { EDTView } from "./components/EDTView";
 import { TableauView } from "./components/TableauView";
 import { LockScreen } from "./components/LockScreen";
@@ -112,6 +113,7 @@ export function App() {
             {view === "progressions" && <PlansView kind="progression" />}
             {view === "library" && <SequencesView />}
             {view === "rituals" && <RitualsView />}
+            {view === "projets" && <ProjetsView />}
             {view === "edt" && <EDTView />}
             {view === "tableau" && <TableauView />}
             {view === "search" && <SearchView onOpenDate={openDate} />}
