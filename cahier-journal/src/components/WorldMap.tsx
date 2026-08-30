@@ -1,103 +1,101 @@
 /**
- * Planisphère clair et épuré (projection Equal Earth), 100 % autonome.
- * Le pays cible est mis en couleur, la France en bleu, et un repère marque
- * précisément chaque position (utile pour les petits pays insulaires).
- * Données : world-atlas (bundlées) — aucune requête réseau, fonctionne hors ligne.
+ * Carte régionale « zoomée » (projection Mercator), 100 % autonome et hors ligne.
+ * On cadre serré sur la région qui contient le pays cible ET la France : pour un
+ * pays d'Europe, on obtient l'Europe occidentale/centrale (et non un planisphère).
+ * Le pays cible est en BLEU VIF, la France en ORANGE, les autres pays grisés.
+ * Données : world-atlas (bundlées).
  */
 import { useMemo } from "react";
-import { geoEqualEarth, geoPath, geoGraticule10 } from "d3-geo";
+import { geoMercator, geoPath, geoCircle } from "d3-geo";
 import { feature } from "topojson-client";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
 import worldData from "world-atlas/countries-110m.json";
 
 const W = 900;
-const H = 460;
+const H = 500;
+const TARGET = "#2563eb"; // bleu vif
+const FRANCE = "#f97316"; // orange
 
-// Extrait les frontières une seule fois (hors Antarctique, pour l'épure).
 const COUNTRIES: Feature<Geometry, { name: string }>[] = (() => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fc = feature(worldData as any, (worldData as any).objects.countries) as unknown as FeatureCollection<Geometry, { name: string }>;
   return fc.features.filter((f) => String(f.id) !== "010");
 })();
 
+const byId = (id: string) => COUNTRIES.find((f) => String(f.id) === id);
 const PARIS: [number, number] = [2.35, 48.85];
 
 export function WorldMap({
   iso,
   lat,
   lon,
-  accent = "#f97316",
   nom,
-  drapeau,
 }: {
   iso: string;
   lat: number;
   lon: number;
   accent?: string;
   nom: string;
-  drapeau: string;
+  drapeau?: string;
 }) {
-  const { paths, target, franceXY, targetXY, sphereD, graticuleD } = useMemo(() => {
-    const projection = geoEqualEarth().fitExtent(
-      [
-        [16, 16],
-        [W - 16, H - 16],
-      ],
-      { type: "Sphere" },
-    );
+  const { paths, sphere, franceXY, targetXY, proxy } = useMemo(() => {
+    const target = byId(iso);
+    // Zone à cadrer : pays cible (ou petit disque autour du point) + Paris.
+    // On cadre sur Paris (France métropolitaine) et non sur la géométrie
+    // complète de la France, qui inclut la Guyane et fausserait le zoom.
+    const proxy: Feature<Geometry, object> | null = target
+      ? null
+      : { type: "Feature", geometry: geoCircle().center([lon, lat]).radius(4)(), properties: {} };
+    const parisFocus: Feature<Geometry, object> = {
+      type: "Feature", geometry: geoCircle().center(PARIS).radius(2.5)(), properties: {},
+    };
+    const focus: Feature<Geometry, object>[] = [target, proxy, parisFocus].filter(Boolean) as Feature<Geometry, object>[];
+    const fc: FeatureCollection = { type: "FeatureCollection", features: focus };
+
+    const projection = geoMercator().fitExtent([[28, 28], [W - 28, H - 28]], fc);
     const path = geoPath(projection);
     const paths = COUNTRIES.map((f) => ({
       id: String(f.id),
       d: path(f) ?? "",
-      isFrance: String(f.id) === "250",
-      isTarget: String(f.id) === iso,
+      role: String(f.id) === "250" ? "france" : String(f.id) === iso ? "target" : "other",
     }));
     return {
       paths,
-      target: paths.find((p) => p.isTarget) ?? null,
+      sphere: proxy ? path(proxy) ?? "" : "",
       franceXY: projection(PARIS),
       targetXY: projection([lon, lat]),
-      sphereD: path({ type: "Sphere" }) ?? "",
-      graticuleD: path(geoGraticule10()) ?? "",
+      proxy,
     };
   }, [iso, lat, lon]);
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={`Carte : ${nom}`}>
-      <defs>
-        <clipPath id="sphere-clip"><path d={sphereD} /></clipPath>
-      </defs>
-      {/* océan */}
-      <path d={sphereD} fill="#dceffb" stroke="#bcdcef" strokeWidth={1.5} />
-      <g clipPath="url(#sphere-clip)">
-        <path d={graticuleD} fill="none" stroke="#c7e2f2" strokeWidth={0.5} />
-        {paths.map((p) => (
-          <path
-            key={p.id}
-            d={p.d}
-            fill={p.isTarget ? accent : p.isFrance ? "#3b82f6" : "#e7e2d8"}
-            stroke="#ffffff"
-            strokeWidth={0.4}
-          />
-        ))}
-      </g>
+      <rect x={0} y={0} width={W} height={H} fill="#dbeafe" />
+      {paths.map((p) => (
+        <path
+          key={p.id}
+          d={p.d}
+          fill={p.role === "target" ? TARGET : p.role === "france" ? FRANCE : "#e4e1d8"}
+          stroke="#ffffff"
+          strokeWidth={0.7}
+        />
+      ))}
+      {/* petit pays insulaire non cartographié : disque proxy en bleu */}
+      {proxy && <path d={sphere} fill={TARGET} stroke="#fff" strokeWidth={1} />}
 
-      {/* repère France */}
+      {/* repère + nom France */}
       {franceXY && (
         <g transform={`translate(${franceXY[0]},${franceXY[1]})`}>
-          <circle r={5} fill="#2563eb" stroke="#fff" strokeWidth={2} />
-          <text y={-9} textAnchor="middle" fontSize={15} fontWeight={700} fill="#1e3a8a" fontFamily="Lexend, system-ui" stroke="#fff" strokeWidth={3} paintOrder="stroke">France</text>
+          <circle r={5} fill={FRANCE} stroke="#fff" strokeWidth={2} />
+          <text y={-10} textAnchor="middle" fontSize={20} fontWeight={800} fill="#9a3412" fontFamily="Lexend, system-ui" stroke="#fff" strokeWidth={4} paintOrder="stroke">France</text>
         </g>
       )}
-      {/* repère pays cible */}
+      {/* repère + nom pays cible */}
       {targetXY && (
         <g transform={`translate(${targetXY[0]},${targetXY[1]})`}>
-          <circle r={6} fill={accent} stroke="#fff" strokeWidth={2} />
-          <text y={20} textAnchor="middle" fontSize={17} fontWeight={800} fill="#7c2d12" fontFamily="Lexend, system-ui" stroke="#fff" strokeWidth={3.5} paintOrder="stroke">{drapeau} {nom}</text>
+          <circle r={6} fill={TARGET} stroke="#fff" strokeWidth={2} />
+          <text y={24} textAnchor="middle" fontSize={22} fontWeight={800} fill="#1e3a8a" fontFamily="Lexend, system-ui" stroke="#fff" strokeWidth={4.5} paintOrder="stroke">{nom}</text>
         </g>
-      )}
-      {!target && targetXY && (
-        <text x={targetXY[0]} y={targetXY[1] - 12} textAnchor="middle" fontSize={11} fill="#9a3412">(petite île)</text>
       )}
     </svg>
   );
