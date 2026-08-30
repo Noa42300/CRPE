@@ -75,8 +75,30 @@
 .font-ecole {
   font-family: "Caveat", "Dancing Script", "Segoe Script", cursive;
 }
+/* Police ludique et très lisible pour le projet « Autour du monde » (primaire). */
+.font-ludique {
+  font-family: "Lexend", "Comic Neue", "Nunito", ui-rounded, system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
 .font-cursive {
   font-family: "Dancing Script", "Caveat", cursive;
+}
+
+/* Fiche « Carte d'identité » calibrée A4 portrait (écran + impression). */
+.fiche-a4 {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 16mm;
+}
+@media print {
+  @page {
+    size: A4 portrait;
+  }
+  .fiche-a4 {
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+  }
 }
 
 /* Réglure façon cahier Seyès. --il = interligne (dépend de la taille).
