@@ -23,6 +23,8 @@ export interface PaysDictee {
 }
 export interface Pays {
   id: string;
+  /** Code ISO numérique (world-atlas) pour la carte ; "" si non cartographié. */
+  iso: string;
   nom: string;
   drapeau: string; // emoji drapeau
   capitale: string;
@@ -65,7 +67,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
       "Nous commençons tout près de chez nous : l'Europe, le continent de la France. Des pays voisins, souvent accessibles en train.",
     pays: [
       {
-        id: "italie", nom: "Italie", drapeau: "🇮🇹", capitale: "Rome",
+        id: "italie", iso: "380", nom: "Italie", drapeau: "🇮🇹", capitale: "Rome",
         population: "≈ 59 millions d'habitants", lat: 41.9, lon: 12.5,
         specialite: "les pâtes et la pizza", monument: "le Colisée",
         geo: "Au sud-est de la France, de l'autre côté des Alpes. C'est le pays en forme de botte.",
@@ -76,7 +78,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Italie, je mange une bonne pizza.", ce2: "À Rome, les gladiateurs combattaient dans le Colisée, un immense monument très ancien." },
       },
       {
-        id: "espagne", nom: "Espagne", drapeau: "🇪🇸", capitale: "Madrid",
+        id: "espagne", iso: "724", nom: "Espagne", drapeau: "🇪🇸", capitale: "Madrid",
         population: "≈ 48 millions d'habitants", lat: 40.4, lon: -3.7,
         specialite: "la paella", monument: "la Sagrada Família",
         geo: "Juste au sud-ouest de la France, de l'autre côté des Pyrénées.",
@@ -87,7 +89,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Espagne, on danse le flamenco.", ce2: "La Sagrada Família est une immense église de Barcelone, commencée il y a plus de cent ans." },
       },
       {
-        id: "royaume-uni", nom: "Royaume-Uni", drapeau: "🇬🇧", capitale: "Londres",
+        id: "royaume-uni", iso: "826", nom: "Royaume-Uni", drapeau: "🇬🇧", capitale: "Londres",
         population: "≈ 68 millions d'habitants", lat: 51.5, lon: -0.1,
         specialite: "le fish and chips", monument: "Big Ben",
         geo: "Au nord-ouest de la France, sur une grande île, de l'autre côté de la Manche.",
@@ -98,7 +100,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "À Londres, les bus sont rouges.", ce2: "Big Ben est la grande horloge de Londres ; on entend sonner ses cloches très loin." },
       },
       {
-        id: "allemagne", nom: "Allemagne", drapeau: "🇩🇪", capitale: "Berlin",
+        id: "allemagne", iso: "276", nom: "Allemagne", drapeau: "🇩🇪", capitale: "Berlin",
         population: "≈ 83 millions d'habitants", lat: 52.5, lon: 13.4,
         specialite: "la saucisse et le bretzel", monument: "la porte de Brandebourg",
         geo: "À l'est de la France, c'est un pays voisin que l'on rejoint facilement en train.",
@@ -109,7 +111,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Allemagne, j'achète un bretzel.", ce2: "À Berlin, la porte de Brandebourg est un grand monument avec de hautes colonnes." },
       },
       {
-        id: "grece", nom: "Grèce", drapeau: "🇬🇷", capitale: "Athènes",
+        id: "grece", iso: "300", nom: "Grèce", drapeau: "🇬🇷", capitale: "Athènes",
         population: "≈ 10 millions d'habitants", lat: 37.98, lon: 23.7,
         specialite: "le tzatziki et les olives", monument: "le Parthénon",
         geo: "Loin au sud-est de l'Europe, au bord de la mer Méditerranée, avec des milliers d'îles.",
@@ -120,7 +122,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Grèce, je mange des olives.", ce2: "Le Parthénon est un temple très ancien construit sur une colline d'Athènes." },
       },
       {
-        id: "pays-bas", nom: "Pays-Bas", drapeau: "🇳🇱", capitale: "Amsterdam",
+        id: "pays-bas", iso: "528", nom: "Pays-Bas", drapeau: "🇳🇱", capitale: "Amsterdam",
         population: "≈ 18 millions d'habitants", lat: 52.37, lon: 4.9,
         specialite: "le fromage (gouda)", monument: "les moulins à vent",
         geo: "Au nord de la France, un pays tout plat où l'on se déplace beaucoup à vélo.",
@@ -131,7 +133,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Aux Pays-Bas, je roule à vélo.", ce2: "Aux Pays-Bas, de grands moulins à vent servaient à pomper l'eau des champs." },
       },
       {
-        id: "portugal", nom: "Portugal", drapeau: "🇵🇹", capitale: "Lisbonne",
+        id: "portugal", iso: "620", nom: "Portugal", drapeau: "🇵🇹", capitale: "Lisbonne",
         population: "≈ 10 millions d'habitants", lat: 38.7, lon: -9.14,
         specialite: "le pastel de nata", monument: "la tour de Belém",
         geo: "Tout à l'ouest de l'Europe, au bord de l'océan Atlantique, après l'Espagne.",
@@ -152,7 +154,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
       "Cap au sud : l'Afrique, un immense continent juste en dessous de l'Europe. Des déserts, des savanes et de grandes forêts.",
     pays: [
       {
-        id: "egypte", nom: "Égypte", drapeau: "🇪🇬", capitale: "Le Caire",
+        id: "egypte", iso: "818", nom: "Égypte", drapeau: "🇪🇬", capitale: "Le Caire",
         population: "≈ 111 millions d'habitants", lat: 30.0, lon: 31.2,
         specialite: "le foul (purée de fèves)", monument: "les pyramides de Gizeh",
         geo: "Au nord-est de l'Afrique, au bord de la mer Méditerranée et traversée par le fleuve Nil.",
@@ -163,7 +165,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Égypte, je vois les pyramides.", ce2: "Les pyramides d'Égypte sont d'immenses tombeaux construits il y a des milliers d'années." },
       },
       {
-        id: "maroc", nom: "Maroc", drapeau: "🇲🇦", capitale: "Rabat",
+        id: "maroc", iso: "504", nom: "Maroc", drapeau: "🇲🇦", capitale: "Rabat",
         population: "≈ 37 millions d'habitants", lat: 34.0, lon: -6.8,
         specialite: "le couscous et le tajine", monument: "la place Jemaa el-Fna",
         geo: "Au nord-ouest de l'Afrique, juste en face de l'Espagne, de l'autre côté d'un petit détroit.",
@@ -174,7 +176,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Maroc, je bois du thé à la menthe.", ce2: "À Marrakech, les marchands du souk vendent des épices, des tapis et des poteries." },
       },
       {
-        id: "senegal", nom: "Sénégal", drapeau: "🇸🇳", capitale: "Dakar",
+        id: "senegal", iso: "686", nom: "Sénégal", drapeau: "🇸🇳", capitale: "Dakar",
         population: "≈ 18 millions d'habitants", lat: 14.7, lon: -17.4,
         specialite: "le thiéboudienne (riz au poisson)", monument: "l'île de Gorée",
         geo: "Tout à l'ouest de l'Afrique, au bord de l'océan Atlantique. On y parle souvent français.",
@@ -185,7 +187,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Sénégal, on joue du djembé.", ce2: "À Dakar, on écoute le rythme des tambours appelés djembés pendant les fêtes." },
       },
       {
-        id: "kenya", nom: "Kenya", drapeau: "🇰🇪", capitale: "Nairobi",
+        id: "kenya", iso: "404", nom: "Kenya", drapeau: "🇰🇪", capitale: "Nairobi",
         population: "≈ 55 millions d'habitants", lat: -1.29, lon: 36.8,
         specialite: "l'ugali (galette de maïs)", monument: "la réserve du Masai Mara",
         geo: "À l'est de l'Afrique, tout près de l'équateur, au bord de l'océan Indien.",
@@ -196,7 +198,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Kenya, je vois des lions.", ce2: "Dans la savane du Kenya, les éléphants et les girafes vivent en liberté." },
       },
       {
-        id: "afrique-du-sud", nom: "Afrique du Sud", drapeau: "🇿🇦", capitale: "Pretoria",
+        id: "afrique-du-sud", iso: "710", nom: "Afrique du Sud", drapeau: "🇿🇦", capitale: "Pretoria",
         population: "≈ 60 millions d'habitants", lat: -25.7, lon: 28.2,
         specialite: "le braai (barbecue)", monument: "la Montagne de la Table",
         geo: "Tout au sud de l'Afrique, là où deux océans se rencontrent.",
@@ -207,7 +209,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Afrique du Sud, il fait souvent chaud.", ce2: "Au Cap, la Montagne de la Table a un sommet tout plat, comme une grande table." },
       },
       {
-        id: "mali", nom: "Mali", drapeau: "🇲🇱", capitale: "Bamako",
+        id: "mali", iso: "466", nom: "Mali", drapeau: "🇲🇱", capitale: "Bamako",
         population: "≈ 22 millions d'habitants", lat: 12.6, lon: -8.0,
         specialite: "le riz au gras", monument: "la grande mosquée de Djenné",
         geo: "Au cœur de l'Afrique de l'Ouest ; le nord du pays touche le désert du Sahara.",
@@ -218,7 +220,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Mali, le griot raconte une histoire.", ce2: "La grande mosquée de Djenné est construite en terre ; on la répare chaque année." },
       },
       {
-        id: "madagascar", nom: "Madagascar", drapeau: "🇲🇬", capitale: "Antananarivo",
+        id: "madagascar", iso: "450", nom: "Madagascar", drapeau: "🇲🇬", capitale: "Antananarivo",
         population: "≈ 30 millions d'habitants", lat: -18.9, lon: 47.5,
         specialite: "le romazava (ragoût)", monument: "l'allée des Baobabs",
         geo: "Une très grande île à l'est de l'Afrique, dans l'océan Indien.",
@@ -239,7 +241,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
       "Direction l'Asie, le plus grand continent du monde, tout à l'est. Des montagnes géantes, des mégapoles et des traditions millénaires.",
     pays: [
       {
-        id: "japon", nom: "Japon", drapeau: "🇯🇵", capitale: "Tokyo",
+        id: "japon", iso: "392", nom: "Japon", drapeau: "🇯🇵", capitale: "Tokyo",
         population: "≈ 124 millions d'habitants", lat: 35.7, lon: 139.7,
         specialite: "les sushis", monument: "le mont Fuji",
         geo: "Très loin à l'est de l'Asie, sur des îles, de l'autre côté du monde par rapport à la France.",
@@ -250,7 +252,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Japon, je mange des sushis.", ce2: "Au Japon, le mont Fuji est un volcan couvert de neige que l'on dessine souvent." },
       },
       {
-        id: "chine", nom: "Chine", drapeau: "🇨🇳", capitale: "Pékin",
+        id: "chine", iso: "156", nom: "Chine", drapeau: "🇨🇳", capitale: "Pékin",
         population: "≈ 1,4 milliard d'habitants", lat: 39.9, lon: 116.4,
         specialite: "le riz et les raviolis", monument: "la Grande Muraille",
         geo: "Un immense pays à l'est de l'Asie ; c'est l'un des pays les plus peuplés du monde.",
@@ -261,7 +263,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Chine, je mange avec des baguettes.", ce2: "La Grande Muraille de Chine est si longue qu'on met des semaines pour la parcourir." },
       },
       {
-        id: "inde", nom: "Inde", drapeau: "🇮🇳", capitale: "New Delhi",
+        id: "inde", iso: "356", nom: "Inde", drapeau: "🇮🇳", capitale: "New Delhi",
         population: "≈ 1,4 milliard d'habitants", lat: 28.6, lon: 77.2,
         specialite: "le curry et les samoussas", monument: "le Taj Mahal",
         geo: "Au sud de l'Asie, un très grand pays très peuplé, bordé par l'océan Indien.",
@@ -272,7 +274,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Inde, les couleurs sont belles.", ce2: "Le Taj Mahal est un palais tout blanc construit en marbre au bord d'une rivière." },
       },
       {
-        id: "thailande", nom: "Thaïlande", drapeau: "🇹🇭", capitale: "Bangkok",
+        id: "thailande", iso: "764", nom: "Thaïlande", drapeau: "🇹🇭", capitale: "Bangkok",
         population: "≈ 72 millions d'habitants", lat: 13.75, lon: 100.5,
         specialite: "le pad thaï", monument: "les temples de Bangkok",
         geo: "Au sud-est de l'Asie, un pays chaud avec des plages et des forêts.",
@@ -283,7 +285,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Thaïlande, je vois un éléphant.", ce2: "À Bangkok, les temples dorés brillent au soleil au bord des canaux." },
       },
       {
-        id: "indonesie", nom: "Indonésie", drapeau: "🇮🇩", capitale: "Jakarta",
+        id: "indonesie", iso: "360", nom: "Indonésie", drapeau: "🇮🇩", capitale: "Jakarta",
         population: "≈ 277 millions d'habitants", lat: -6.2, lon: 106.8,
         specialite: "le nasi goreng (riz sauté)", monument: "le temple de Borobudur",
         geo: "Au sud-est de l'Asie, un pays fait de milliers d'îles, sur l'équateur.",
@@ -294,7 +296,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Indonésie, il y a des volcans.", ce2: "Borobudur est un très grand temple de pierre construit sur l'île de Java." },
       },
       {
-        id: "nepal", nom: "Népal", drapeau: "🇳🇵", capitale: "Katmandou",
+        id: "nepal", iso: "524", nom: "Népal", drapeau: "🇳🇵", capitale: "Katmandou",
         population: "≈ 30 millions d'habitants", lat: 27.7, lon: 85.3,
         specialite: "le dal bhat (riz et lentilles)", monument: "le mont Everest",
         geo: "Au cœur de l'Asie, entre l'Inde et la Chine, dans les montagnes de l'Himalaya.",
@@ -305,7 +307,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Népal, les montagnes sont hautes.", ce2: "L'Everest, au Népal, est la plus haute montagne du monde, couverte de neige." },
       },
       {
-        id: "coree-du-sud", nom: "Corée du Sud", drapeau: "🇰🇷", capitale: "Séoul",
+        id: "coree-du-sud", iso: "410", nom: "Corée du Sud", drapeau: "🇰🇷", capitale: "Séoul",
         population: "≈ 52 millions d'habitants", lat: 37.56, lon: 126.97,
         specialite: "le bibimbap", monument: "le palais Gyeongbokgung",
         geo: "À l'est de l'Asie, sur une presqu'île, tout près du Japon.",
@@ -326,7 +328,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
       "Traversons l'océan Atlantique vers les Amériques : deux immenses continents, du grand froid du nord aux montagnes du sud.",
     pays: [
       {
-        id: "etats-unis", nom: "États-Unis", drapeau: "🇺🇸", capitale: "Washington",
+        id: "etats-unis", iso: "840", nom: "États-Unis", drapeau: "🇺🇸", capitale: "Washington",
         population: "≈ 335 millions d'habitants", lat: 38.9, lon: -77.0,
         specialite: "le hamburger", monument: "la statue de la Liberté",
         geo: "De l'autre côté de l'océan Atlantique, à l'ouest, un très grand pays d'Amérique du Nord.",
@@ -337,7 +339,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Aux États-Unis, je mange un hamburger.", ce2: "La statue de la Liberté accueille les bateaux à l'entrée du port de New York." },
       },
       {
-        id: "canada", nom: "Canada", drapeau: "🇨🇦", capitale: "Ottawa",
+        id: "canada", iso: "124", nom: "Canada", drapeau: "🇨🇦", capitale: "Ottawa",
         population: "≈ 40 millions d'habitants", lat: 45.4, lon: -75.7,
         specialite: "le sirop d'érable", monument: "les chutes du Niagara",
         geo: "Tout au nord de l'Amérique, un pays immense et froid ; on y parle aussi français au Québec.",
@@ -348,7 +350,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Canada, je goûte le sirop d'érable.", ce2: "Au Canada, les chutes du Niagara laissent tomber des tonnes d'eau dans un grand fracas." },
       },
       {
-        id: "mexique", nom: "Mexique", drapeau: "🇲🇽", capitale: "Mexico",
+        id: "mexique", iso: "484", nom: "Mexique", drapeau: "🇲🇽", capitale: "Mexico",
         population: "≈ 129 millions d'habitants", lat: 19.4, lon: -99.1,
         specialite: "les tacos", monument: "la pyramide de Chichén Itzá",
         geo: "En Amérique, juste au sud des États-Unis ; un pays chaud et coloré.",
@@ -359,7 +361,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Mexique, je mange des tacos.", ce2: "Au Mexique, les Mayas ont construit de grandes pyramides au milieu de la forêt." },
       },
       {
-        id: "bresil", nom: "Brésil", drapeau: "🇧🇷", capitale: "Brasília",
+        id: "bresil", iso: "076", nom: "Brésil", drapeau: "🇧🇷", capitale: "Brasília",
         population: "≈ 216 millions d'habitants", lat: -15.8, lon: -47.9,
         specialite: "la feijoada", monument: "le Christ Rédempteur",
         geo: "Le plus grand pays d'Amérique du Sud ; la immense forêt amazonienne s'y trouve.",
@@ -370,7 +372,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Brésil, on aime le football.", ce2: "À Rio, la grande statue du Christ veille sur la ville, les bras grands ouverts." },
       },
       {
-        id: "perou", nom: "Pérou", drapeau: "🇵🇪", capitale: "Lima",
+        id: "perou", iso: "604", nom: "Pérou", drapeau: "🇵🇪", capitale: "Lima",
         population: "≈ 34 millions d'habitants", lat: -12.05, lon: -77.04,
         specialite: "le ceviche", monument: "le Machu Picchu",
         geo: "En Amérique du Sud, au bord de l'océan Pacifique, le long de la grande cordillère des Andes.",
@@ -381,7 +383,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Pérou, je vois un lama.", ce2: "Le Machu Picchu est une ancienne cité inca cachée tout en haut des montagnes." },
       },
       {
-        id: "argentine", nom: "Argentine", drapeau: "🇦🇷", capitale: "Buenos Aires",
+        id: "argentine", iso: "032", nom: "Argentine", drapeau: "🇦🇷", capitale: "Buenos Aires",
         population: "≈ 46 millions d'habitants", lat: -34.6, lon: -58.4,
         specialite: "l'asado (viande grillée)", monument: "les chutes d'Iguazú",
         geo: "Tout au sud de l'Amérique du Sud, un long pays qui descend presque jusqu'au pôle Sud.",
@@ -392,7 +394,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Argentine, on danse le tango.", ce2: "En Argentine, les gauchos gardent d'immenses troupeaux dans la plaine de la pampa." },
       },
       {
-        id: "chili", nom: "Chili", drapeau: "🇨🇱", capitale: "Santiago",
+        id: "chili", iso: "152", nom: "Chili", drapeau: "🇨🇱", capitale: "Santiago",
         population: "≈ 20 millions d'habitants", lat: -33.45, lon: -70.6,
         specialite: "l'empanada", monument: "les moaïs de l'île de Pâques",
         geo: "Un pays tout en longueur, coincé entre la cordillère des Andes et l'océan Pacifique.",
@@ -413,7 +415,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
       "Dernière escale : l'Océanie, à l'autre bout du monde, faite d'îles perdues dans l'immense océan Pacifique.",
     pays: [
       {
-        id: "australie", nom: "Australie", drapeau: "🇦🇺", capitale: "Canberra",
+        id: "australie", iso: "036", nom: "Australie", drapeau: "🇦🇺", capitale: "Canberra",
         population: "≈ 26 millions d'habitants", lat: -35.3, lon: 149.1,
         specialite: "le barbecue (BBQ)", monument: "l'opéra de Sydney",
         geo: "Tout à l'autre bout du monde, au sud-est ; c'est à la fois un pays et un continent.",
@@ -424,7 +426,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Australie, je vois un kangourou.", ce2: "L'opéra de Sydney a un toit blanc en forme de grandes voiles de bateau." },
       },
       {
-        id: "nouvelle-zelande", nom: "Nouvelle-Zélande", drapeau: "🇳🇿", capitale: "Wellington",
+        id: "nouvelle-zelande", iso: "554", nom: "Nouvelle-Zélande", drapeau: "🇳🇿", capitale: "Wellington",
         population: "≈ 5 millions d'habitants", lat: -41.3, lon: 174.8,
         specialite: "le hangi (cuit sous terre)", monument: "les fjords de Milford Sound",
         geo: "Deux îles au sud-est de l'Australie, presque à l'opposé de la France sur le globe.",
@@ -435,7 +437,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Nouvelle-Zélande, je vois des moutons.", ce2: "Avant les matchs, les joueurs maoris dansent le haka pour se donner du courage." },
       },
       {
-        id: "fidji", nom: "Fidji", drapeau: "🇫🇯", capitale: "Suva",
+        id: "fidji", iso: "242", nom: "Fidji", drapeau: "🇫🇯", capitale: "Suva",
         population: "≈ 0,9 million d'habitants", lat: -18.1, lon: 178.4,
         specialite: "le kokoda (poisson mariné)", monument: "les lagons et les récifs",
         geo: "Un archipel d'îles perdu au milieu de l'océan Pacifique.",
@@ -446,7 +448,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Aux Fidji, l'eau est chaude.", ce2: "Les îles Fidji sont entourées de lagons bleus où nagent des poissons colorés." },
       },
       {
-        id: "samoa", nom: "Samoa", drapeau: "🇼🇸", capitale: "Apia",
+        id: "samoa", iso: "882", nom: "Samoa", drapeau: "🇼🇸", capitale: "Apia",
         population: "≈ 0,2 million d'habitants", lat: -13.8, lon: -171.8,
         specialite: "le palusami (feuilles de taro)", monument: "les cascades et les fale",
         geo: "De petites îles au milieu de l'océan Pacifique, tout près de la ligne du changement de date.",
@@ -457,7 +459,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "À Samoa, on danse sur la plage.", ce2: "À Samoa, les maisons appelées fale n'ont pas de murs pour laisser passer le vent." },
       },
       {
-        id: "papouasie", nom: "Papouasie-Nouvelle-Guinée", drapeau: "🇵🇬", capitale: "Port Moresby",
+        id: "papouasie", iso: "598", nom: "Papouasie-Nouvelle-Guinée", drapeau: "🇵🇬", capitale: "Port Moresby",
         population: "≈ 10 millions d'habitants", lat: -9.44, lon: 147.2,
         specialite: "le mumu (cuit sous terre)", monument: "la forêt tropicale",
         geo: "Une grande île au nord de l'Australie, couverte d'une épaisse forêt.",
@@ -468,7 +470,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "En Papouasie, l'oiseau est coloré.", ce2: "En Papouasie, l'oiseau de paradis déploie ses plumes colorées pour faire la parade." },
       },
       {
-        id: "vanuatu", nom: "Vanuatu", drapeau: "🇻🇺", capitale: "Port-Vila",
+        id: "vanuatu", iso: "548", nom: "Vanuatu", drapeau: "🇻🇺", capitale: "Port-Vila",
         population: "≈ 0,3 million d'habitants", lat: -17.7, lon: 168.3,
         specialite: "le lap-lap", monument: "le volcan Yasur",
         geo: "Un chapelet d'îles volcaniques dans l'océan Pacifique, à l'est de l'Australie.",
@@ -479,7 +481,7 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
         dictee: { ce1: "Au Vanuatu, le volcan gronde.", ce2: "Au Vanuatu, le volcan Yasur crache du feu et de la fumée toute l'année." },
       },
       {
-        id: "nouvelle-caledonie", nom: "Nouvelle-Calédonie", drapeau: "🇳🇨", capitale: "Nouméa",
+        id: "nouvelle-caledonie", iso: "540", nom: "Nouvelle-Calédonie", drapeau: "🇳🇨", capitale: "Nouméa",
         population: "≈ 0,3 million d'habitants", lat: -22.3, lon: 166.5,
         specialite: "le bougna", monument: "le grand lagon",
         geo: "Une île française du Pacifique, à l'est de l'Australie : on y utilise l'euro comme en métropole.",
@@ -492,6 +494,15 @@ export const AUTOUR_DU_MONDE: ContinentProjet[] = [
     ],
   },
 ];
+
+/** Thème visuel (couleurs vives) par période / continent, pour un rendu ludique. */
+export const THEMES: Record<number, { accent: string; bg: string; soft: string; emoji: string }> = {
+  1: { accent: "#3b82f6", bg: "#eff6ff", soft: "#dbeafe", emoji: "🏰" },
+  2: { accent: "#f59e0b", bg: "#fffbeb", soft: "#fef3c7", emoji: "🦁" },
+  3: { accent: "#ef4444", bg: "#fef2f2", soft: "#fee2e2", emoji: "🏮" },
+  4: { accent: "#22c55e", bg: "#f0fdf4", soft: "#dcfce7", emoji: "🗽" },
+  5: { accent: "#14b8a6", bg: "#f0fdfa", soft: "#ccfbf1", emoji: "🌴" },
+};
 
 /** Le pays associé au n-ième lundi (0-based) d'une période (boucle si besoin). */
 export function paysForIndex(cont: ContinentProjet, index: number): Pays {
