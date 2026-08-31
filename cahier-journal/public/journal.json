@@ -13,7 +13,7 @@
       "annee": "2026-2027"
     },
     "classe": {
-      "effectif": 25,
+      "effectif": 23,
       "eleves": []
     },
     "niveaux": [
@@ -143,7 +143,7 @@
     {
       "date": "2026-09-01",
       "info": {
-        "effectifPrevu": 25,
+        "effectifPrevu": 23,
         "presents": null,
         "absents": null,
         "absentsNames": "",
@@ -151,7 +151,7 @@
           {
             "id": "ev1x",
             "type": "particulier",
-            "note": "Jour de rentrée — objectifs : que chaque élève reparte serein, connaître 25 prénoms, réactiver les acquis."
+            "note": "Jour de rentrée — objectifs : que chaque élève reparte serein, connaître 23 prénoms, réactiver les acquis."
           }
         ]
       },
@@ -186,17 +186,17 @@
                 {
                   "id": "st7",
                   "label": "Accueil dans la cour",
-                  "note": "Pancarte « CE1–CE2 », bonjour à chaque enfant en le regardant."
+                  "note": "- « Bonjour ! Bienvenue en CE1-CE2. Vous vous rangez ici, devant la pancarte. »\n(Je dis bonjour à chaque enfant en le regardant.)"
                 },
                 {
                   "id": "st8",
                   "label": "Entrée et installation",
-                  "note": "« Cherche ton prénom sur une table, installe-toi, tu ne touches à rien. » Observer qui trouve sa place seul."
+                  "note": "- « Cherchez votre prénom sur une table, installez-vous, et on ne touche à rien pour l'instant. »\n(J'observe qui trouve sa place tout seul.)"
                 },
                 {
                   "id": "st9",
                   "label": "Mot de bienvenue (≈3 min)",
-                  "note": "Debout, au centre, sans papier. Assumer le trac de la 1re année. Lecture du programme écrit au tableau."
+                  "note": "- « Je suis très content(e) de vous accueillir cette année. »\n- « Voici ce qu'on va faire aujourd'hui : je vous lis le programme écrit au tableau. »\n- « À chaque fois qu'on aura terminé une activité, on la barrera ensemble. »"
                 }
               ],
               "materiel": "Étiquettes prénoms sur les tables, badges, programme de la journée écrit au tableau.",
@@ -240,22 +240,22 @@
                 {
                   "id": "stc",
                   "label": "Mise en cercle (3 min)",
-                  "note": "Tout le monde assis par terre en cercle. L'enseignant est un maillon, dans le cercle."
+                  "note": "- « On se lève doucement et on forme un grand cercle, assis par terre. »\n- « Je m'assois avec vous : je fais partie du cercle, comme un maillon. »"
                 },
                 {
                   "id": "std",
                   "label": "Construction de la toile (15 min)",
-                  "note": "Chacun dit son prénom + une chose qu'il aime, garde son fil tendu et envoie la pelote. Le fil ne revient jamais deux fois à la même personne."
+                  "note": "- « On va se présenter avec cette pelote de laine. »\n- « Chacun son tour : je dis mon prénom et une chose que j'aime, je garde bien mon fil tendu, et j'envoie la pelote à quelqu'un. »\n- « On n'envoie jamais deux fois à la même personne. »"
                 },
                 {
                   "id": "ste",
                   "label": "Les trois révélations (5 min)",
-                  "note": "a) un élève tire doucement → tous le sentent. b) un élève lâche → la toile s'affaisse. c) « Qu'est-ce que ça veut dire pour notre classe ? » — laisser le silence, ils trouvent."
+                  "note": "- « Regardez : je tire tout doucement sur mon fil… Qu'est-ce que vous sentez ? »\n- « Maintenant, si une personne lâche son fil… que se passe-t-il ? »\n- « À votre avis, qu'est-ce que ça veut dire pour notre classe ? »\n(Je laisse le silence : ils trouvent.)"
                 },
                 {
                   "id": "stf",
                   "label": "Rembobinage (2 min)",
-                  "note": "On renvoie la pelote à l'envoi précédent en redisant le prénom : jeu de mémoire gratuit."
+                  "note": "- « On va rembobiner : je renvoie la pelote à la personne qui me l'avait envoyée, en redisant son prénom. »"
                 }
               ],
               "materiel": "Une pelote de laine épaisse (le seul achat du jour, ≈3 €).",
@@ -280,7 +280,7 @@
                 "classe"
               ],
               "title": "Fiche 2 — Le nombre du jour (version rentrée)",
-              "objectif": "Réactiver la numération de position et le calcul à partir du nombre d'élèves de la classe (25).",
+              "objectif": "Réactiver la numération de position et le calcul à partir du nombre d'élèves de la classe (23).",
               "competence": "CE1 : décomposer un nombre < 100. CE2 : produire plusieurs écritures d'un nombre, dont une multiplicative.",
               "competenceRef": "",
               "progPeriode": "P1",
@@ -301,31 +301,31 @@
                 {
                   "id": "sti",
                   "label": "Combien sommes-nous ? (8 min, collectif)",
-                  "note": "Faire tester deux méthodes (un par un, puis par îlots) → 25, écrit en très grand dans un rond au tableau."
+                  "note": "- « Aujourd'hui, on va trouver le nombre de notre classe pour bien commencer l'année, et apprendre à l'écrire de plein de façons. »\n- « À votre avis, combien sommes-nous d'élèves aujourd'hui ? »\n- « On va vérifier : je compte une personne à la fois. »\n- « On recompte autrement, par îlots, pour être bien sûrs. »\n(J'écris 23 en très grand dans un rond au tableau.)"
                 },
                 {
                   "id": "stj",
                   "label": "La fleur du nombre (12 min, par îlot)",
-                  "note": "Chaque îlot remplit les pétales avec des écritures différentes de 25. CE1 : 3 écritures. CE2 : 5 dont une multiplication. Relancer : « Et avec une soustraction ? »"
+                  "note": "- « Maintenant, on joue à la fleur du nombre : sur chaque pétale, vous écrivez une écriture différente de 23. »\n- « Les CE1 : trouvez au moins 3 écritures. Les CE2 : au moins 5, dont une avec une multiplication. »\n- « Un exemple : 20 + 3… Et avec une multiplication ? (2 × 10) + 3. »\n- « Et avec une soustraction ? Par exemple 30 − 7. »"
                 },
                 {
                   "id": "stk",
                   "label": "Mise en commun (8 min)",
-                  "note": "Chaque îlot écrit une trouvaille autour du rond ; on vérifie, on barre les doublons. Devient le 1er affichage de l'année."
+                  "note": "- « Chaque îlot vient écrire une trouvaille autour du rond. »\n- « On vérifie ensemble : est-ce que ça fait bien 23 ? »\n- « On barre les écritures qui sont en double. »\n(Cet affichage devient notre premier affichage de l'année.)"
                 },
                 {
                   "id": "stl",
                   "label": "Bilan (2 min)",
-                  "note": "« Combien d'écritures pour un seul nombre ? » → un nombre a une infinité de visages."
+                  "note": "- « Combien d'écritures a-t-on trouvées pour un seul nombre ? »\n- « Un nombre a une infinité de visages ! »"
                 }
               ],
               "materiel": "Tableau, une fiche « fleur du nombre » par élève (triée en piles CE1/CE2), ardoises.",
-              "differenciation": "CE1 : décompositions dizaines/unités, sommes simples. CE2 : différences, multiplication (5×5), monnaie, double/moitié.",
+              "differenciation": "CE1 : décompositions dizaines/unités, sommes simples (20+3 ; 10+10+3). CE2 : différences (30−7), une écriture avec une multiplication ((2×10)+3), monnaie (20+2+1), doubles proches (11+11+1).",
               "depassement": "",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Observer : qui reste bloqué sur une seule forme, qui confond dizaines/unités, le CE2 sans multiplication (tables non installées). Recopier la fleur géante sur une grande feuille le soir."
+              "notesProchaine": "Observer : qui reste bloqué sur une seule forme, qui confond dizaines/unités, quel CE2 n'utilise pas de multiplication dans son écriture. Recopier la fleur géante sur une grande feuille le soir."
             }
           ]
         },
@@ -471,22 +471,22 @@
                 {
                   "id": "stu",
                   "label": "Règle du jeu",
-                  "note": "Nombre écrit caché et posé en vue. Réponses par OUI/NON uniquement. 12 questions maximum."
+                  "note": "- « On va jouer à Devine mon nombre. J'ai écrit un nombre secret, caché ici. »\n- « Vous me posez des questions, mais je ne réponds que par OUI ou par NON. »\n- « On a droit à 12 questions maximum pour le trouver. »"
                 },
                 {
                   "id": "stv",
                   "label": "Manche 1 — CE1 (nombre entre 0 et 100, ex. 37)",
-                  "note": "Tenir l'encadrement à jour au tableau ; les CE2 notent l'intervalle sur l'ardoise."
+                  "note": "- « On commence avec les CE1 : mon nombre est entre 0 et 100. »\n- « Posez une question qui élimine beaucoup de nombres d'un coup. »\n(Je tiens l'encadrement à jour au tableau ; les CE2 notent l'intervalle sur l'ardoise.)"
                 },
                 {
                   "id": "stw",
                   "label": "Manche 2 — CE2 (nombre entre 0 et 1000, ex. 428)",
-                  "note": "Même principe, intervalles plus larges."
+                  "note": "- « Au tour des CE2 : cette fois, mon nombre est entre 0 et 1000. »\n- « Même règle : des questions qui font vraiment avancer. »"
                 },
                 {
                   "id": "stx",
                   "label": "La relance clé",
-                  "note": "Après une question inutile : « Est-ce que ça nous a fait avancer ? Quelle question aurait éliminé plus de nombres ? »"
+                  "note": "- « Est-ce que cette question nous a fait avancer ? »\n- « Quelle question aurait éliminé encore plus de nombres ? »"
                 }
               ],
               "materiel": "Aucun — le tableau suffit.",
@@ -529,12 +529,12 @@
                 {
                   "id": "st10",
                   "label": "Rappel de la toile",
-                  "note": "« Ce matin, quand une personne a tiré sur son fil, que s'est-il passé ? » → un élève qui perturbe perturbe toute la classe."
+                  "note": "- « Ce matin, quand une personne a tiré sur son fil, qu'est-ce qui s'est passé ? »\n- « Et quand quelqu'un a lâché ? »\n- « Donc, dans une classe, ce que fait une personne touche tout le monde. »"
                 },
                 {
                   "id": "st11",
                   "label": "Formulation des règles",
-                  "note": "Faire énoncer les règles par les élèves, les reformuler positivement."
+                  "note": "- « De quoi a-t-on besoin pour bien travailler et se sentir bien ensemble ? »\n- « Dites-moi vos idées de règles, on va les écrire. »\n(Je reformule chaque règle de façon positive : « je lève la main » plutôt que « on ne crie pas ».)"
                 }
               ],
               "materiel": "Tableau ; affichage à constituer.",
@@ -1002,7 +1002,7 @@
         }
       ],
       "createdAt": 1787403808613,
-      "updatedAt": 1787403808613
+      "updatedAt": 1787900000000
     }
   ],
   "templates": [],

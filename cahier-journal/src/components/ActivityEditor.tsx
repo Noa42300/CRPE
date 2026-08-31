@@ -13,8 +13,11 @@ import {
 } from "../lib/defaults";
 import { niveauBadgeClass } from "../lib/lookup";
 import { emptyStep } from "../lib/factory";
-import { AutoTextarea, ChipGroup, Disclosure, Field, Plus, Trash } from "./ui";
+import { AutoTextarea, ChipGroup, Disclosure, Field, Plus, Trash, Printer } from "./ui";
 import { Attachments } from "./Attachments";
+import { FichePrepA4 } from "./FichePrepA4";
+import { PrintPortal } from "./PrintPortal";
+import { printArea } from "../lib/print";
 
 export function ActivityEditor({
   settings,
@@ -271,6 +274,23 @@ export function ActivityEditor({
 
       {/* Documents à imprimer pour la séance */}
       <Attachments refId={`activity:${activity.id}`} title="Documents de la séance à imprimer" />
+
+      {/* Télécharger la fiche de préparation en PDF */}
+      <div className="flex justify-end">
+        <button
+          type="button"
+          onClick={() => printArea(`print-prep-${activity.id}`)}
+          className="btn-outline py-1.5 text-xs"
+          title="Télécharger / imprimer la fiche de préparation (A4, PDF)"
+        >
+          <Printer className="h-3.5 w-3.5" /> Fiche de prép (PDF)
+        </button>
+      </div>
+
+      {/* Zone d'impression dédiée (A4), montée dans <body> via un portail */}
+      <PrintPortal id={`print-prep-${activity.id}`}>
+        <FichePrepA4 activity={activity} settings={settings} />
+      </PrintPortal>
     </div>
   );
 }

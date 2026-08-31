@@ -17,6 +17,7 @@ import {
   periodForDate,
 } from "../lib/lookup";
 import { EVENT_LABELS } from "../lib/defaults";
+import { PrintPortal } from "./PrintPortal";
 
 export function PrintDay({
   id = "print-area",
@@ -28,13 +29,15 @@ export function PrintDay({
   settings: Settings;
 }) {
   return (
-    <div id={id} className="print-area bg-white p-2 text-[12px] text-black">
-      {day ? (
-        <DayPrint day={day} settings={settings} />
-      ) : (
-        <p>Journée non préparée.</p>
-      )}
-    </div>
+    <PrintPortal id={id}>
+      <div className="bg-white p-2 text-[12px] text-black">
+        {day ? (
+          <DayPrint day={day} settings={settings} />
+        ) : (
+          <p>Journée non préparée.</p>
+        )}
+      </div>
+    </PrintPortal>
   );
 }
 

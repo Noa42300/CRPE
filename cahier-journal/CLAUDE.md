@@ -18,6 +18,21 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   d'IA). Le contenu doit se lire comme des notes de préparation authentiques.
 - Rester concret, pratique et fidèle au niveau CE1-CE2 et aux programmes.
 
+### Effectif de la classe
+- La classe compte **23 élèves** (14 CE1 + 9 CE2). Toute activité qui s'appuie
+  sur le nombre d'élèves (nombre du jour, fleur du nombre, problèmes…) doit
+  utiliser **23**, jamais 25.
+
+### Rédaction du déroulement d'une séance (IMPORTANT)
+- Dans le **déroulement**, chaque étape (`note`) contient, **avec des tirets**,
+  les **phrases que l'enseignant·e dira à l'oral** aux élèves (discours direct,
+  entre guillemets « … »), courtes et simples.
+- **Commencer par expliquer l'activité aux élèves** : le but et la tâche
+  (« Aujourd'hui, on va jouer aux petits chevaux pour apprendre à compter »),
+  puis la consigne concrète (« Pour jouer, on prend les dés… »).
+- Une phrase brève par tiret. Les indications qui ne se disent pas à voix haute
+  (gestes, observations) vont entre parenthèses, en aparté.
+
 ## Repères techniques
 
 - Vite + React + TypeScript + Tailwind + IndexedDB, PWA hors ligne.

@@ -12,6 +12,7 @@ import { useState } from "react";
 import type { Pays } from "../lib/projets";
 import { AUTOUR_DU_MONDE, THEMES } from "../lib/projets";
 import { printArea } from "../lib/print";
+import { PrintPortal } from "./PrintPortal";
 
 function continentDe(pays: Pays): string {
   return AUTOUR_DU_MONDE.find((c) => c.pays.some((p) => p.id === pays.id))?.continent ?? "";
@@ -115,10 +116,10 @@ export function CarteIdentiteOverlay({
         </div>
       </div>
 
-      {/* Version imprimée : même fiche, dans la zone d'impression dédiée */}
-      <div className="print-area" id="print-carte">
+      {/* Version imprimée : même fiche, montée dans <body> via un portail */}
+      <PrintPortal id="print-carte">
         <FicheA4 pays={pays} correction={correction} accent={accent} />
-      </div>
+      </PrintPortal>
     </div>
   );
 }
