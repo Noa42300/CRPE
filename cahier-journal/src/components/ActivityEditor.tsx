@@ -256,6 +256,17 @@ export function ActivityEditor({
         </div>
       </Disclosure>
 
+      <Disclosure title="✅ Correction / attendus" defaultOpen={!!activity.correction}>
+        <Field label="Correction" hint="Réponses attendues, production visée — pour la recopie collective ou la fiche de prép.">
+          <AutoTextarea
+            className="min-h-[70px]"
+            value={activity.correction ?? ""}
+            onChange={(e) => set("correction", e.target.value)}
+            placeholder="ex : 23 = 20 + 3 = 10 + 10 + 3 = 30 − 7 = 11 + 12…"
+          />
+        </Field>
+      </Disclosure>
+
       <Disclosure title="Bilan (après la séance)">
         <div className="space-y-3">
           <Field label="Bilan à chaud" hint="Ce qui a fonctionné / n'a pas fonctionné, difficultés, élèves à revoir">

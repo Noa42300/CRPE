@@ -24,14 +24,22 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   utiliser **23**, jamais 25.
 
 ### Rédaction du déroulement d'une séance (IMPORTANT)
-- Dans le **déroulement**, chaque étape (`note`) contient, **avec des tirets**,
-  les **phrases que l'enseignant·e dira à l'oral** aux élèves (discours direct,
-  entre guillemets « … »), courtes et simples.
-- **Commencer par expliquer l'activité aux élèves** : le but et la tâche
+- Dans le **déroulement**, **CHAQUE étape** (`note`) contient **5 à 6 tirets**,
+  et chaque tiret est **une phrase que l'enseignant·e dira à l'oral** aux élèves
+  (discours direct, entre guillemets « … »), courte et simple. Pas seulement la
+  première étape : **toutes** les étapes, du début à la fin de la séance.
+- La première étape **explique l'activité** : le but et la tâche
   (« Aujourd'hui, on va jouer aux petits chevaux pour apprendre à compter »),
   puis la consigne concrète (« Pour jouer, on prend les dés… »).
-- Une phrase brève par tiret. Les indications qui ne se disent pas à voix haute
-  (gestes, observations) vont entre parenthèses, en aparté.
+- Les indications qui ne se disent pas à voix haute (gestes, observations) vont
+  entre parenthèses, en aparté, à la fin de l'étape.
+- Cette règle s'applique à **toutes les séances déjà écrites et à toutes les
+  suivantes**.
+
+### Correction de chaque activité
+- Chaque activité a un champ **`correction`** (les réponses attendues / la
+  production visée). Le remplir dès que l'activité a des réponses ; il s'affiche
+  dans un onglet « Correction » de la séance et sur la fiche de préparation.
 
 ## Repères techniques
 

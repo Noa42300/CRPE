@@ -186,12 +186,12 @@
                 {
                   "id": "st7",
                   "label": "Accueil dans la cour",
-                  "note": "- « Bonjour ! Bienvenue en CE1-CE2. Vous vous rangez ici, devant la pancarte. »\n(Je dis bonjour à chaque enfant en le regardant.)"
+                  "note": "- « Bonjour ! Bienvenue, tu es bien en CE1-CE2 ? »\n- « Range-toi ici, devant la pancarte, on va monter tous ensemble. »\n- « On attend le signal, sans se bousculer. »\n- « Regarde bien : je vous appelle un par un pour dire bonjour. »\n- « Quand tu entends ton prénom, tu me réponds et tu avances. »\n(Je regarde chaque enfant dans les yeux et je repère qui est inquiet.)"
                 },
                 {
                   "id": "st8",
                   "label": "Entrée et installation",
-                  "note": "- « Cherchez votre prénom sur une table, installez-vous, et on ne touche à rien pour l'instant. »\n(J'observe qui trouve sa place tout seul.)"
+                  "note": "- « On monte en silence, en file, sans courir dans le couloir. »\n- « En entrant, cherche ton prénom écrit sur une table. »\n- « Quand tu l'as trouvé, tu t'installes et tu poses tes affaires par terre. »\n- « On ne touche à rien sur la table pour l'instant, on attend. »\n- « Si tu ne trouves pas ton prénom, lève la main, je viens t'aider. »\n(Je reste à la porte et j'observe qui trouve sa place seul.)"
                 },
                 {
                   "id": "st9",
@@ -205,7 +205,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Barrer le programme au tableau au fil de la journée : installe le rituel de l'emploi du temps."
+              "notesProchaine": "Barrer le programme au tableau au fil de la journée : installe le rituel de l'emploi du temps.",
+              "correction": "Pas de correction écrite. Attendu : chaque élève a trouvé sa place, s'est senti accueilli et connaît le déroulé de la journée."
             }
           ]
         },
@@ -240,7 +241,7 @@
                 {
                   "id": "stc",
                   "label": "Mise en cercle (3 min)",
-                  "note": "- « On se lève doucement et on forme un grand cercle, assis par terre. »\n- « Je m'assois avec vous : je fais partie du cercle, comme un maillon. »"
+                  "note": "- « On se lève tout doucement, sans bruit, et on recule un peu les chaises. »\n- « On va former un grand cercle, tous assis par terre. »\n- « Je m'assois avec vous, dans le cercle : je fais partie de la classe, moi aussi. »\n- « On se serre un peu pour que tout le monde se voie bien. »\n- « Regardez : d'ici, on voit le visage de chaque camarade. »"
                 },
                 {
                   "id": "std",
@@ -250,12 +251,12 @@
                 {
                   "id": "ste",
                   "label": "Les trois révélations (5 min)",
-                  "note": "- « Regardez : je tire tout doucement sur mon fil… Qu'est-ce que vous sentez ? »\n- « Maintenant, si une personne lâche son fil… que se passe-t-il ? »\n- « À votre avis, qu'est-ce que ça veut dire pour notre classe ? »\n(Je laisse le silence : ils trouvent.)"
+                  "note": "- « Maintenant, tout le monde tient bien son fil, on ne lâche pas. »\n- « Regardez : je tire tout doucement sur mon bout de fil… Qu'est-ce que vous sentez ? »\n- « Vous voyez ? Quand une seule personne bouge, tout le monde le ressent. »\n- « Maintenant, une personne va lâcher son fil… Regardez bien la toile. »\n- « Elle s'affaisse, elle s'abîme, juste parce qu'un seul fil a lâché. »\n- « À votre avis, qu'est-ce que ça nous apprend pour notre classe ? »\n(Je laisse le silence : ils trouvent que la classe tient ensemble.)"
                 },
                 {
                   "id": "stf",
                   "label": "Rembobinage (2 min)",
-                  "note": "- « On va rembobiner : je renvoie la pelote à la personne qui me l'avait envoyée, en redisant son prénom. »"
+                  "note": "- « On va tout ranger, mais en jouant à un jeu de mémoire. »\n- « Je renvoie la pelote à la personne qui me l'avait donnée. »\n- « Avant de lancer, je redis bien son prénom à voix haute. »\n- « Écoutez : on va essayer de se rappeler tous les prénoms. »\n- « Chacun refait le chemin à l'envers, jusqu'à revenir à moi. »"
                 }
               ],
               "materiel": "Une pelote de laine épaisse (le seul achat du jour, ≈3 €).",
@@ -264,7 +265,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Observer : qui prend la parole, les premières affinités, qui reste en attente (prénoms à noter). Réutiliser la toile pour construire les règles de la classe en fin de matinée."
+              "notesProchaine": "Observer : qui prend la parole, les premières affinités, qui reste en attente (prénoms à noter). Réutiliser la toile pour construire les règles de la classe en fin de matinée.",
+              "correction": "Pas de correction écrite. Attendu : chacun s'est présenté ; les élèves formulent que « si une personne bouge ou lâche son fil, toute la classe le sent » → la classe est solidaire."
             }
           ]
         },
@@ -281,7 +283,7 @@
               ],
               "title": "Fiche 2 — Le nombre du jour (version rentrée)",
               "objectif": "Réactiver la numération de position et le calcul à partir du nombre d'élèves de la classe (23).",
-              "competence": "CE1 : décomposer un nombre < 100. CE2 : produire plusieurs écritures d'un nombre, dont une multiplicative.",
+              "competence": "CE1 : décomposer un nombre < 100. CE2 : produire plusieurs écritures différentes d'un nombre.",
               "competenceRef": "",
               "progPeriode": "P1",
               "progDomaine": "Nombres et calcul — numération",
@@ -306,26 +308,27 @@
                 {
                   "id": "stj",
                   "label": "La fleur du nombre (12 min, par îlot)",
-                  "note": "- « Maintenant, on joue à la fleur du nombre : sur chaque pétale, vous écrivez une écriture différente de 23. »\n- « Les CE1 : trouvez au moins 3 écritures. Les CE2 : au moins 5, dont une avec une multiplication. »\n- « Un exemple : 20 + 3… Et avec une multiplication ? (2 × 10) + 3. »\n- « Et avec une soustraction ? Par exemple 30 − 7. »"
+                  "note": "- « Maintenant, chaque îlot reçoit des fleurs avec le nombre 23 écrit au milieu. »\n- « Sur chaque pétale, vous écrivez une façon différente d'écrire 23. »\n- « Les CE1 : vous en trouvez au moins 3. Les CE2 : au moins 5. »\n- « Attention : à chaque fois, il faut une écriture différente des autres. »\n- « Par exemple : 20 + 3… ou 30 − 7… ou encore 10 + 10 + 3. »\n- « Cherchez d'abord dans votre tête, puis écrivez sur votre fleur. »"
                 },
                 {
                   "id": "stk",
                   "label": "Mise en commun (8 min)",
-                  "note": "- « Chaque îlot vient écrire une trouvaille autour du rond. »\n- « On vérifie ensemble : est-ce que ça fait bien 23 ? »\n- « On barre les écritures qui sont en double. »\n(Cet affichage devient notre premier affichage de l'année.)"
+                  "note": "- « On s'arrête, crayons posés, tout le monde regarde le tableau. »\n- « Chaque îlot vient écrire une de ses trouvailles autour du grand rond. »\n- « On lit ensemble et on vérifie : est-ce que ça fait bien 23 ? »\n- « Si une écriture est déjà au tableau, on la barre : on ne la met pas deux fois. »\n- « Regardez tout ce qu'on a trouvé pour un seul nombre ! »\n(Cet affichage devient notre premier affichage de l'année.)"
                 },
                 {
                   "id": "stl",
                   "label": "Bilan (2 min)",
-                  "note": "- « Combien d'écritures a-t-on trouvées pour un seul nombre ? »\n- « Un nombre a une infinité de visages ! »"
+                  "note": "- « Alors, combien d'écritures différentes a-t-on trouvées pour 23 ? »\n- « Est-ce qu'on aurait pu en trouver encore d'autres ? »\n- « Oui : on pourrait continuer très, très longtemps ! »\n- « Ce qu'il faut retenir : un même nombre a plein de façons de s'écrire. »\n- « Demain, on aura un nouveau nombre du jour. »"
                 }
               ],
               "materiel": "Tableau, une fiche « fleur du nombre » par élève (triée en piles CE1/CE2), ardoises.",
-              "differenciation": "CE1 : décompositions dizaines/unités, sommes simples (20+3 ; 10+10+3). CE2 : différences (30−7), une écriture avec une multiplication ((2×10)+3), monnaie (20+2+1), doubles proches (11+11+1).",
+              "differenciation": "CE1 : décompositions dizaines/unités, sommes simples (20+3 ; 10+10+3). CE2 : au moins 5 écritures différentes — sommes, différences (30−7), monnaie (20+2+1), doubles proches (11+11+1). La multiplication est acceptée mais pas obligatoire.",
               "depassement": "",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Observer : qui reste bloqué sur une seule forme, qui confond dizaines/unités, quel CE2 n'utilise pas de multiplication dans son écriture. Recopier la fleur géante sur une grande feuille le soir."
+              "notesProchaine": "Observer : qui reste bloqué sur une seule forme, qui confond dizaines/unités, quel CE2 n'utilise pas de multiplication dans son écriture. Recopier la fleur géante sur une grande feuille le soir.",
+              "correction": "23 s'écrit par exemple : 20 + 3 · 10 + 10 + 3 · 30 − 7 · 11 + 12 · 25 − 2 · 19 + 4 · 2 dizaines et 3 unités. CE1 : au moins 3 écritures différentes. CE2 : au moins 5."
             }
           ]
         },
@@ -362,7 +365,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Ne jamais compter moins de 10 min pour ce temps le premier jour."
+              "notesProchaine": "Ne jamais compter moins de 10 min pour ce temps le premier jour.",
+              "correction": ""
             }
           ]
         },
@@ -399,7 +403,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "correction": ""
             }
           ]
         },
@@ -436,7 +441,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Aujourd'hui c'est l'enseignant qui le fait ; dès demain, un élève."
+              "notesProchaine": "Aujourd'hui c'est l'enseignant qui le fait ; dès demain, un élève.",
+              "correction": ""
             }
           ]
         },
@@ -476,17 +482,17 @@
                 {
                   "id": "stv",
                   "label": "Manche 1 — CE1 (nombre entre 0 et 100, ex. 37)",
-                  "note": "- « On commence avec les CE1 : mon nombre est entre 0 et 100. »\n- « Posez une question qui élimine beaucoup de nombres d'un coup. »\n(Je tiens l'encadrement à jour au tableau ; les CE2 notent l'intervalle sur l'ardoise.)"
+                  "note": "- « On commence par une manche pour les CE1. »\n- « Mon nombre secret est entre 0 et 100. »\n- « Les CE1, vous posez les questions ; les CE2, vous notez l'intervalle sur l'ardoise. »\n- « Rappelez-vous : je réponds seulement par OUI ou par NON. »\n- « Posez des questions qui coupent en deux, par exemple : est-il plus grand que 50 ? »\n(J'écris l'encadrement au tableau et je le resserre à chaque réponse.)"
                 },
                 {
                   "id": "stw",
                   "label": "Manche 2 — CE2 (nombre entre 0 et 1000, ex. 428)",
-                  "note": "- « Au tour des CE2 : cette fois, mon nombre est entre 0 et 1000. »\n- « Même règle : des questions qui font vraiment avancer. »"
+                  "note": "- « Au tour des CE2 : cette fois, le nombre est entre 0 et 1000. »\n- « C'est plus grand, il va falloir être encore plus malin. »\n- « Les CE1, vous aidez en écoutant bien toutes les réponses. »\n- « On garde la même règle : OUI ou NON, et 12 questions maximum. »\n- « Commencez par une grande question, par exemple : est-il plus grand que 500 ? »"
                 },
                 {
                   "id": "stx",
                   "label": "La relance clé",
-                  "note": "- « Est-ce que cette question nous a fait avancer ? »\n- « Quelle question aurait éliminé encore plus de nombres ? »"
+                  "note": "- « Attends : est-ce que cette question nous a vraiment fait avancer ? »\n- « Combien de nombres est-ce qu'elle a permis d'éliminer ? »\n- « Est-ce qu'il y avait une question plus utile à poser avant ? »\n- « Une bonne question, c'est une question qui coupe en deux ce qui reste. »\n- « Une devinette au hasard, ça nous fait perdre nos questions. »"
                 }
               ],
               "materiel": "Aucun — le tableau suffit.",
@@ -495,7 +501,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Observer : qui pose des questions de dichotomie, qui maîtrise le vocabulaire (pair/impair, entre, chiffre des dizaines), qui écoute les réponses précédentes."
+              "notesProchaine": "Observer : qui pose des questions de dichotomie, qui maîtrise le vocabulaire (pair/impair, entre, chiffre des dizaines), qui écoute les réponses précédentes.",
+              "correction": "CE1 (ex. 37) et CE2 (ex. 428) : le nombre est trouvé en 12 questions maximum grâce à des questions qui coupent en deux (« plus grand que… ? », « pair ? »). Attendu : distinguer une question qui fait avancer d'une devinette au hasard."
             }
           ]
         },
@@ -534,7 +541,7 @@
                 {
                   "id": "st11",
                   "label": "Formulation des règles",
-                  "note": "- « De quoi a-t-on besoin pour bien travailler et se sentir bien ensemble ? »\n- « Dites-moi vos idées de règles, on va les écrire. »\n(Je reformule chaque règle de façon positive : « je lève la main » plutôt que « on ne crie pas ».)"
+                  "note": "- « De quoi a-t-on besoin pour bien travailler et se sentir bien, tous ensemble ? »\n- « Levez la main, dites-moi vos idées, je les écris au tableau. »\n- « Attends : est-ce qu'on peut le dire en disant ce qu'on FAIT, pas ce qu'on ne fait pas ? »\n- « Par exemple, au lieu de \"on ne crie pas\", on dit \"je parle doucement\". »\n- « On relit toutes nos règles ensemble, à voix haute. »\n- « Ces règles, ce sont les nôtres : on va les afficher et les respecter toute l'année. »"
                 }
               ],
               "materiel": "Tableau ; affichage à constituer.",
@@ -543,7 +550,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Priorité absolue : ne jamais sacrifier ce temps ni la toile, même en cas de retard."
+              "notesProchaine": "Priorité absolue : ne jamais sacrifier ce temps ni la toile, même en cas de retard.",
+              "correction": "Pas de correction écrite. Attendu : 4 à 6 règles formulées positivement, par ex. « je lève la main pour parler », « j'écoute celui qui parle », « je range mon matériel », « je respecte les autres »."
             }
           ]
         },
@@ -580,7 +588,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "correction": ""
             }
           ]
         },
@@ -617,7 +626,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "correction": ""
             }
           ]
         },
@@ -654,7 +664,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "correction": ""
             }
           ]
         },
@@ -689,17 +700,17 @@
                 {
                   "id": "st1a",
                   "label": "Principe",
-                  "note": "Montrer un objet sans le nommer ; les élèves écrivent le mot sur l'ardoise, la retournent, lèvent tous ensemble au signal."
+                  "note": "- « Cet après-midi, on fait un jeu d'écriture : la dictée muette. »\n- « Je ne vais pas dire les mots : je vais seulement vous MONTRER des objets. »\n- « À vous d'écrire le mot tout seul, sur votre ardoise. »\n- « On écrit comme on pense que ça s'écrit ; ce n'est pas grave de se tromper. »\n- « C'est un jeu pour voir tout ce qu'on sait déjà écrire. »"
                 },
                 {
                   "id": "st1b",
                   "label": "Dix objets",
-                  "note": "CE1 : gomme, livre, règle, chaise, porte, crayon, cahier, stylo, table, sac. CE2 : trousse, ardoise, feutre, tableau, fenêtre, ciseaux, classeur, armoire, ordinateur, étiquette."
+                  "note": "- « Regardez bien le premier objet. Qu'est-ce que c'est ? Ne le dites pas à voix haute. »\n- « Dans votre tête, vous dites le mot, puis vous l'écrivez. »\n- « On écoute les sons : le début du mot, le milieu, la fin. »\n- « Quand vous avez fini, vous posez le crayon et vous levez les yeux. »\n- « On passe à l'objet suivant, et on recommence. »\n(Je montre dix objets, un par un, sans jamais donner le mot.)"
                 },
                 {
                   "id": "st1c",
                   "label": "Correction (≈3 min)",
-                  "note": "Écrire le mot en découpant les syllabes à voix haute (« gom/me »), une seule difficulté par mot. Ne rien noter, ne rien compter."
+                  "note": "- « Maintenant, on corrige ensemble, tranquillement. »\n- « Pour chaque objet, j'écris le mot juste au tableau. »\n- « Vous comparez avec votre ardoise, puis vous corrigez en dessous, en vert. »\n- « Si vous aviez bon, bravo ; si vous vous êtes trompé, ce n'est pas grave, on apprend. »\n- « On regarde surtout le début et la fin de chaque mot. »"
                 }
               ],
               "materiel": "Une ardoise + un feutre par élève ; les objets de la classe.",
@@ -708,7 +719,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Objectif non anxiogène : « personne ne se moque, j'ai besoin de voir ce que vous entendez »."
+              "notesProchaine": "Objectif non anxiogène : « personne ne se moque, j'ai besoin de voir ce que vous entendez ».",
+              "correction": "On réécrit les 10 mots justes au tableau ; l'élève corrige en vert sous son mot. Attendu : diagnostic d'encodage (sons simples et complexes, lettres muettes)."
             }
           ]
         },
@@ -744,22 +756,22 @@
                 {
                   "id": "st1f",
                   "label": "Modelage (5 min)",
-                  "note": "Démonstration au tableau avec 3 mots ; penser à voix haute : le mot à majuscule = 1er, le mot au point = dernier."
+                  "note": "- « On va jouer avec une phrase que j'ai découpée en morceaux. »\n- « Regardez : les mots sont mélangés, tout dans le désordre. »\n- « Ensemble, on va les remettre dans le bon ordre pour que la phrase veuille dire quelque chose. »\n- « On cherche d'abord le mot qui commence : il a une majuscule. »\n- « Et on cherche où mettre le point : il se met à la fin. »\n(On fait l'exemple une fois ensemble au tableau.)"
                 },
                 {
                   "id": "st1g",
                   "label": "Recherche par binôme (15 min)",
-                  "note": "Chaque binôme reconstitue sa phrase sans coller, puis la lit à voix haute (1re observation de fluence). CE1 : 5–6 mots ; CE2 : 8–9 mots."
+                  "note": "- « Maintenant, à vous de jouer, par deux. »\n- « Chaque binôme reçoit une enveloppe avec des étiquettes-mots. »\n- « Vous posez les étiquettes sur la table et vous les rangez dans le bon ordre. »\n- « Vous vérifiez : est-ce que ça commence par une majuscule et finit par un point ? »\n- « Quand vous êtes d'accord tous les deux, vous levez la main. »"
                 },
                 {
                   "id": "st1h",
                   "label": "Mise en commun (8 min)",
-                  "note": "Une phrase CE2 à plusieurs solutions : « Est-ce que ça veut dire exactement la même chose ? »"
+                  "note": "- « On s'arrête et on regarde une phrase reconstituée. »\n- « Un binôme lit sa phrase à voix haute. »\n- « Est-ce que ça veut dire quelque chose ? Est-ce qu'il manque un mot ? »\n- « On vérifie ensemble la majuscule et le point. »\n- « Est-ce que tout le monde a trouvé la même phrase ? »"
                 },
                 {
                   "id": "st1i",
                   "label": "Bilan (2 min)",
-                  "note": "« Comment reconnaît-on le début et la fin d'une phrase ? » → 1re trace écrite d'étude de la langue."
+                  "note": "- « Qu'est-ce qui nous a aidés à remettre les mots dans l'ordre ? »\n- « La majuscule, elle nous montre le début. »\n- « Le point, il nous montre la fin. »\n- « Et le sens : la phrase doit vouloir dire quelque chose. »\n- « Bravo, vous avez réparé la phrase cassée ! »"
                 }
               ],
               "materiel": "Enveloppes d'étiquettes-mots découpées la veille (une par îlot).",
@@ -768,7 +780,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Branche directement sur le rituel « phrase du jour »."
+              "notesProchaine": "Branche directement sur le rituel « phrase du jour ».",
+              "correction": "Phrase reconstituée correcte : majuscule au début, point à la fin, sens respecté (voir étiquettes de la fiche 5). Un même jeu d'étiquettes peut donner plusieurs phrases correctes."
             }
           ]
         },
@@ -805,7 +818,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "L'étiquetage est un exercice de copie déguisé."
+              "notesProchaine": "L'étiquetage est un exercice de copie déguisé.",
+              "correction": ""
             }
           ]
         },
@@ -842,7 +856,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "correction": ""
             }
           ]
         },
@@ -876,7 +891,7 @@
                 {
                   "id": "st1p",
                   "label": "Principe",
-                  "note": "Vingt affirmations mêlant français et maths ; tout le monde lève l'ardoise en même temps."
+                  "note": "- « On termine par un jeu rapide : Vrai ou Faux. »\n- « Je vais dire une phrase ; à vous de décider si c'est vrai ou si c'est faux. »\n- « Vous écrivez V pour vrai, ou F pour faux, sur votre ardoise. »\n- « On ne crie pas la réponse : on écrit, puis on lève l'ardoise quand je le dis. »\n- « On lève tous en même temps, comme ça personne ne copie sur le voisin. »\n- « Il y aura des phrases de français ET des phrases de maths : ouvrez bien les oreilles ! »"
                 }
               ],
               "materiel": "Affiche VRAI/FAUX au tableau ; ardoises.",
@@ -885,7 +900,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Le meilleur rendement diagnostic de la journée. Sacrifiable en cas de retard (après la visite de classe)."
+              "notesProchaine": "Le meilleur rendement diagnostic de la journée. Sacrifiable en cas de retard (après la visite de classe).",
+              "correction": "20 affirmations (français + maths) ; réponse V/F levée à l'ardoise, correction immédiate après chaque phrase. Attendu : réactivité et justification courte (« pourquoi c'est faux ? »)."
             }
           ]
         },
@@ -922,7 +938,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Attribution des responsabilités demain, par tirage au sort."
+              "notesProchaine": "Attribution des responsabilités demain, par tirage au sort.",
+              "correction": ""
             }
           ]
         },
@@ -959,7 +976,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Distribution du mot aux familles."
+              "notesProchaine": "Distribution du mot aux familles.",
+              "correction": ""
             }
           ]
         },
@@ -996,13 +1014,14 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "correction": ""
             }
           ]
         }
       ],
       "createdAt": 1787403808613,
-      "updatedAt": 1787900500000
+      "updatedAt": 1787901000000
     }
   ],
   "templates": [],
