@@ -161,6 +161,13 @@ export function FichePrepA4({
         </table>
       )}
 
+      {a.correction && (
+        <section style={{ marginBottom: "4mm" }}>
+          <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Correction / attendus</h2>
+          <div style={{ fontSize: "13px", lineHeight: 1.5, whiteSpace: "pre-line", background: "#f6f8f4", border: "1px solid #dfe6d8", borderRadius: "4px", padding: "3mm" }}>{a.correction}</div>
+        </section>
+      )}
+
       {/* Bilan à remplir */}
       <section>
         <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Bilan / observations (après la séance)</h2>

@@ -133,6 +133,11 @@ export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
                     <b>Matériel :</b> {a.materiel}
                   </div>
                 )}
+                {a.correction && (
+                  <div className="whitespace-pre-line">
+                    <b>Correction :</b> {a.correction}
+                  </div>
+                )}
                 {a.differenciation && (
                   <div>
                     <b>Différenciation :</b> {a.differenciation}

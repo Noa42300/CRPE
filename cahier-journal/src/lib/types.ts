@@ -68,6 +68,9 @@ export interface Activity {
   differenciation: string;
   depassement: string;
 
+  /** Correction / attendus de l'activité (réponses, production attendue). */
+  correction: string;
+
   /** Suivi après la séance. */
   bilan: string;
   aReprendre: string;
