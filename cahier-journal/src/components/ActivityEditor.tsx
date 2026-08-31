@@ -18,6 +18,8 @@ import { Attachments } from "./Attachments";
 import { FichePrepA4 } from "./FichePrepA4";
 import { PrintPortal } from "./PrintPortal";
 import { printArea } from "../lib/print";
+import { downloadElementPdf, safeFileName } from "../lib/pdf";
+import { supportsForActivity } from "./supports";
 
 export function ActivityEditor({
   settings,
@@ -25,13 +27,27 @@ export function ActivityEditor({
   onChange,
   onRemove,
   showRemove,
+  date,
+  disciplineId,
+  start,
+  end,
 }: {
   settings: Settings;
   activity: Activity;
   onChange: (a: Activity) => void;
   onRemove?: () => void;
   showRemove?: boolean;
+  date?: string;
+  disciplineId?: string;
+  start?: string;
+  end?: string;
 }) {
+  const supports = supportsForActivity(activity.id);
+
+  const downloadPdf = async (containerId: string, name: string) => {
+    const el = document.querySelector(`#${containerId} .fiche-a4`) as HTMLElement | null;
+    if (el) await downloadElementPdf(el, `${safeFileName(name)}.pdf`);
+  };
   const set = <K extends keyof Activity>(key: K, value: Activity[K]) =>
     onChange({ ...activity, [key]: value });
 
@@ -272,24 +288,55 @@ export function ActivityEditor({
         </div>
       </Disclosure>
 
-      {/* Documents à imprimer pour la séance */}
-      <Attachments refId={`activity:${activity.id}`} title="Documents de la séance à imprimer" />
+      {/* Supports élèves fournis (à imprimer / télécharger) */}
+      {supports.length > 0 && (
+        <div className="rounded-xl border border-dashed border-ink-300 bg-ink-50/40 p-3 dark:border-ink-500/40 dark:bg-ink-500/10">
+          <div className="mb-2 text-sm font-semibold text-ink-700 dark:text-ink-200">
+            📄 Supports de la séance à imprimer (fournis)
+          </div>
+          <div className="space-y-2">
+            {supports.map((sup) => {
+              const cid = `print-support-${activity.id}-${sup.key}`;
+              return (
+                <div key={sup.key} className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 dark:border-stone-700 dark:bg-stone-900/40">
+                  <span className="min-w-0 flex-1 truncate text-sm font-medium text-stone-800 dark:text-stone-100">{sup.label}</span>
+                  <button type="button" onClick={() => void downloadPdf(cid, sup.label)} className="btn-primary py-1 text-xs">⬇️ PDF</button>
+                  <button type="button" onClick={() => printArea(cid)} className="btn-outline py-1 text-xs"><Printer className="h-3.5 w-3.5" /> Imprimer</button>
+                  <PrintPortal id={cid}>{sup.node}</PrintPortal>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
-      {/* Télécharger la fiche de préparation en PDF */}
-      <div className="flex justify-end">
+      {/* Documents ajoutés par moi (PDF/images) */}
+      <Attachments refId={`activity:${activity.id}`} title="Mes documents à imprimer" />
+
+      {/* Fiche de préparation : télécharger en PDF ou imprimer */}
+      <div className="flex flex-wrap items-center justify-end gap-2">
+        <span className="mr-auto text-xs text-stone-400">Fiche de préparation (format A4)</span>
+        <button
+          type="button"
+          onClick={() => void downloadPdf(`print-prep-${activity.id}`, `Fiche prep - ${activity.title || "seance"}`)}
+          className="btn-primary py-1.5 text-xs"
+          title="Télécharger la fiche de préparation en PDF"
+        >
+          ⬇️ Télécharger PDF
+        </button>
         <button
           type="button"
           onClick={() => printArea(`print-prep-${activity.id}`)}
           className="btn-outline py-1.5 text-xs"
-          title="Télécharger / imprimer la fiche de préparation (A4, PDF)"
+          title="Imprimer la fiche de préparation"
         >
-          <Printer className="h-3.5 w-3.5" /> Fiche de prép (PDF)
+          <Printer className="h-3.5 w-3.5" /> Imprimer
         </button>
       </div>
 
       {/* Zone d'impression dédiée (A4), montée dans <body> via un portail */}
       <PrintPortal id={`print-prep-${activity.id}`}>
-        <FichePrepA4 activity={activity} settings={settings} />
+        <FichePrepA4 activity={activity} settings={settings} date={date} disciplineId={disciplineId} start={start} end={end} />
       </PrintPortal>
     </div>
   );

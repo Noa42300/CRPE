@@ -205,6 +205,7 @@ export function DayView({
               onChange={(s) => setSlot(slot.id, s)}
               onRemove={() => removeSlot(slot.id)}
               onDuplicate={() => duplicateSlot(slot.id)}
+              date={date}
             />
           ))}
           <button onClick={addSlot} className="btn-outline w-full py-2.5">

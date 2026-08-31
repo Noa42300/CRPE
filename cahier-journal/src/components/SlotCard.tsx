@@ -19,12 +19,14 @@ export function SlotCard({
   onChange,
   onRemove,
   onDuplicate,
+  date,
 }: {
   settings: Settings;
   slot: Slot;
   onChange: (s: Slot) => void;
   onRemove: () => void;
   onDuplicate: () => void;
+  date?: string;
 }) {
   const [open, setOpen] = useState(false);
   const color = disciplineColor(settings, slot.disciplineId);
@@ -162,6 +164,10 @@ export function SlotCard({
                   onChange={(next) => setActivity(a.id, next)}
                   onRemove={() => removeActivity(a.id)}
                   showRemove={slot.activities.length > 1}
+                  date={date}
+                  disciplineId={slot.disciplineId}
+                  start={slot.start}
+                  end={slot.end}
                 />
               </div>
             ))}

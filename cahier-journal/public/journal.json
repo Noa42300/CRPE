@@ -196,7 +196,7 @@
                 {
                   "id": "st9",
                   "label": "Mot de bienvenue (≈3 min)",
-                  "note": "- « Je suis très content(e) de vous accueillir cette année. »\n- « Voici ce qu'on va faire aujourd'hui : je vous lis le programme écrit au tableau. »\n- « À chaque fois qu'on aura terminé une activité, on la barrera ensemble. »"
+                  "note": "- « Bonjour à toutes et à tous, et bienvenue dans la classe de CE1-CE2 ! »\n- « Je suis très content(e) de vous accueillir : cette année, on va apprendre plein de choses ensemble, et je suis là pour vous aider. »\n- « Ici, on a le droit de se tromper : c'est même comme ça qu'on apprend. »\n- « Je vais vous expliquer comment va se passer notre première journée. »\n- « J'ai écrit le programme au tableau : je vous le lis, activité par activité. »\n- « À chaque fois qu'on aura terminé une activité, on la barrera ensemble : comme ça, vous saurez toujours où on en est. »"
                 }
               ],
               "materiel": "Étiquettes prénoms sur les tables, badges, programme de la journée écrit au tableau.",
@@ -245,7 +245,7 @@
                 {
                   "id": "std",
                   "label": "Construction de la toile (15 min)",
-                  "note": "- « On va se présenter avec cette pelote de laine. »\n- « Chacun son tour : je dis mon prénom et une chose que j'aime, je garde bien mon fil tendu, et j'envoie la pelote à quelqu'un. »\n- « On n'envoie jamais deux fois à la même personne. »"
+                  "note": "- « On va faire un jeu tous ensemble pour apprendre à se connaître et pour comprendre ce qu'est une classe. »\n- « J'ai une pelote de laine. Chacun son tour, on va se présenter. »\n- « Quand c'est ton tour, tu dis ton prénom et une chose que tu aimes. »\n- « Ensuite, tu gardes bien ton bout de fil serré dans ta main, et tu lances la pelote à quelqu'un d'autre. »\n- « On n'envoie jamais la pelote deux fois à la même personne, pour que tout le monde puisse jouer. »\n- « Petit à petit, quelque chose va apparaître entre nous : ouvrez bien les yeux. »"
                 },
                 {
                   "id": "ste",
@@ -301,7 +301,7 @@
                 {
                   "id": "sti",
                   "label": "Combien sommes-nous ? (8 min, collectif)",
-                  "note": "- « Aujourd'hui, on va trouver le nombre de notre classe pour bien commencer l'année, et apprendre à l'écrire de plein de façons. »\n- « À votre avis, combien sommes-nous d'élèves aujourd'hui ? »\n- « On va vérifier : je compte une personne à la fois. »\n- « On recompte autrement, par îlots, pour être bien sûrs. »\n(J'écris 23 en très grand dans un rond au tableau.)"
+                  "note": "- « Aujourd'hui, on commence l'année avec les mathématiques, et on va découvrir quelque chose d'important : un même nombre peut s'écrire de plein de façons différentes. »\n- « Pour ça, on va d'abord trouver le nombre de notre classe : le nombre d'élèves présents aujourd'hui. »\n- « À votre avis, combien sommes-nous ? Ne comptez pas tout de suite, essayez juste de deviner dans votre tête. »\n- « On va vérifier ensemble : je compte une personne à la fois, et tout le monde écoute. »\n- « On recompte autrement, par îlots, pour être bien sûrs de ne pas se tromper. »\n- « Voilà notre nombre du jour ! Je l'écris en très grand dans un rond au tableau. »\n(J'écris 23 dans un grand rond.)"
                 },
                 {
                   "id": "stj",
@@ -471,7 +471,7 @@
                 {
                   "id": "stu",
                   "label": "Règle du jeu",
-                  "note": "- « On va jouer à Devine mon nombre. J'ai écrit un nombre secret, caché ici. »\n- « Vous me posez des questions, mais je ne réponds que par OUI ou par NON. »\n- « On a droit à 12 questions maximum pour le trouver. »"
+                  "note": "- « Maintenant, on va jouer à un jeu qui s'appelle Devine mon nombre. »\n- « J'ai choisi un nombre secret et je l'ai écrit sur ce papier, retourné, pour que vous ne le voyiez pas. »\n- « Votre travail, c'est de le retrouver en me posant des questions. »\n- « Mais attention : je n'ai le droit de répondre que par OUI ou par NON. »\n- « On a droit à 12 questions en tout, pas une de plus : il faut donc bien réfléchir avant de demander. »\n- « Le but, c'est de poser des questions malignes, qui éliminent beaucoup de nombres d'un seul coup. »"
                 },
                 {
                   "id": "stv",
@@ -529,7 +529,7 @@
                 {
                   "id": "st10",
                   "label": "Rappel de la toile",
-                  "note": "- « Ce matin, quand une personne a tiré sur son fil, qu'est-ce qui s'est passé ? »\n- « Et quand quelqu'un a lâché ? »\n- « Donc, dans une classe, ce que fait une personne touche tout le monde. »"
+                  "note": "- « Ce matin, on a fait un jeu avec la pelote de laine, vous vous souvenez ? »\n- « Quand une seule personne tirait sur son fil, qu'est-ce que vous avez senti ? »\n- « Et quand quelqu'un lâchait son fil, qu'est-ce qui se passait pour toute la toile ? »\n- « Donc, dans une classe, ce que fait une seule personne touche tout le monde. »\n- « C'est pour ça qu'on a besoin de règles : pour bien travailler et pour que chacun se sente bien. »\n- « Ces règles, on va les construire tous ensemble, maintenant. »"
                 },
                 {
                   "id": "st11",
@@ -1002,7 +1002,7 @@
         }
       ],
       "createdAt": 1787403808613,
-      "updatedAt": 1787900000000
+      "updatedAt": 1787900500000
     }
   ],
   "templates": [],

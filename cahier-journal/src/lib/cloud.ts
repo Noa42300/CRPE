@@ -42,6 +42,12 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
   await settingsDB.put({
     ...current,
     key: "app",
+    // Effectif : on adopte la valeur publiée si tu n'en as pas encore fixé une
+    // (jamais la liste des élèves, qui est une donnée locale privée).
+    classe: {
+      ...current.classe,
+      effectif: current.classe.effectif ?? parsed.settings.classe.effectif,
+    },
     disciplines: [
       ...current.disciplines,
       ...parsed.settings.disciplines.filter((d) => !discIds.has(d.id)),
