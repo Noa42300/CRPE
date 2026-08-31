@@ -39,6 +39,12 @@
         "order": 0
       },
       {
+        "id": "sol",
+        "label": "Silence, on lit",
+        "color": "teal",
+        "order": 10
+      },
+      {
         "id": "maths",
         "label": "Mathématiques",
         "color": "green",
@@ -635,30 +641,30 @@
           "id": "s18",
           "start": "13:30",
           "end": "13:45",
-          "disciplineId": "francais",
+          "disciplineId": "sol",
           "activities": [
             {
               "id": "a17",
               "niveaux": [
                 "classe"
               ],
-              "title": "Accueil & lecture offerte",
-              "objectif": "Retour au calme d'après-cantine par la lecture à voix haute d'un album (aucun travail derrière).",
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme d'après-repas par un temps de lecture individuelle et silencieuse : chacun lit le livre de son choix, sans consigne de travail derrière.",
               "competence": "",
               "competenceRef": "",
               "progPeriode": "P1",
-              "progDomaine": "Langage oral / littérature",
+              "progDomaine": "Lecture",
               "progSequence": "",
               "progSeance": "",
               "progRef": "",
               "organisation": [
-                "collectif"
+                "individuel"
               ],
               "roleEnseignant": [
-                "découverte"
+                "guidage"
               ],
               "deroulement": [],
-              "materiel": "Un album.",
+              "materiel": "Chacun a un livre (bibliothèque de classe ou livre apporté).",
               "differenciation": "",
               "depassement": "",
               "bilan": "",
@@ -1021,7 +1027,7 @@
         }
       ],
       "createdAt": 1787403808613,
-      "updatedAt": 1788250000000
+      "updatedAt": 1788260000000
     }
   ],
   "templates": [],
