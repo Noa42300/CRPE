@@ -5,6 +5,7 @@
  * sont repliables pour garder une saisie rapide : seul l'essentiel est
  * visible par défaut.
  */
+import { useState, type ReactNode } from "react";
 import type { Activity, Settings, Step } from "../lib/types";
 import {
   ORGANISATION_OPTIONS,
@@ -13,10 +14,11 @@ import {
 } from "../lib/defaults";
 import { niveauBadgeClass } from "../lib/lookup";
 import { emptyStep } from "../lib/factory";
-import { AutoTextarea, ChipGroup, Disclosure, Field, Plus, Trash, Printer } from "./ui";
+import { AutoTextarea, ChipGroup, Disclosure, Field, Plus, Trash, Printer, Search } from "./ui";
 import { Attachments } from "./Attachments";
 import { FichePrepA4 } from "./FichePrepA4";
 import { PrintPortal } from "./PrintPortal";
+import { PreviewModal } from "./PreviewModal";
 import { printArea } from "../lib/print";
 import { downloadElementPdf, safeFileName } from "../lib/pdf";
 import { supportsForActivity } from "./supports";
@@ -43,11 +45,18 @@ export function ActivityEditor({
   end?: string;
 }) {
   const supports = supportsForActivity(activity.id);
+  const [preview, setPreview] = useState<{ title: string; node: ReactNode; cid: string; name: string } | null>(null);
 
   const downloadPdf = async (containerId: string, name: string) => {
     const el = document.querySelector(`#${containerId} .fiche-a4`) as HTMLElement | null;
     if (el) await downloadElementPdf(el, `${safeFileName(name)}.pdf`);
   };
+
+  const ficheCid = `print-prep-${activity.id}`;
+  const ficheName = `Fiche prep - ${activity.title || "seance"}`;
+  const ficheNode = (
+    <FichePrepA4 activity={activity} settings={settings} date={date} disciplineId={disciplineId} start={start} end={end} />
+  );
   const set = <K extends keyof Activity>(key: K, value: Activity[K]) =>
     onChange({ ...activity, [key]: value });
 
@@ -299,56 +308,75 @@ export function ActivityEditor({
         </div>
       </Disclosure>
 
-      {/* Supports élèves fournis (à imprimer / télécharger) */}
-      {supports.length > 0 && (
-        <div className="rounded-xl border border-dashed border-ink-300 bg-ink-50/40 p-3 dark:border-ink-500/40 dark:bg-ink-500/10">
-          <div className="mb-2 text-sm font-semibold text-ink-700 dark:text-ink-200">
-            📄 Supports de la séance à imprimer (fournis)
-          </div>
-          <div className="space-y-2">
-            {supports.map((sup) => {
-              const cid = `print-support-${activity.id}-${sup.key}`;
-              return (
-                <div key={sup.key} className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 dark:border-stone-700 dark:bg-stone-900/40">
-                  <span className="min-w-0 flex-1 truncate text-sm font-medium text-stone-800 dark:text-stone-100">{sup.label}</span>
-                  <button type="button" onClick={() => void downloadPdf(cid, sup.label)} className="btn-primary py-1 text-xs">⬇️ PDF</button>
-                  <button type="button" onClick={() => printArea(cid)} className="btn-outline py-1 text-xs"><Printer className="h-3.5 w-3.5" /> Imprimer</button>
-                  <PrintPortal id={cid}>{sup.node}</PrintPortal>
-                </div>
-              );
-            })}
-          </div>
+      {/* ---- Documents à imprimer : une seule et même rubrique ---- */}
+      <div className="rounded-xl border border-dashed border-ink-300 bg-ink-50/40 p-3 dark:border-ink-500/40 dark:bg-ink-500/10">
+        <div className="mb-2 text-sm font-semibold text-ink-700 dark:text-ink-200">
+          📄 Documents à imprimer
         </div>
-      )}
 
-      {/* Documents ajoutés par moi (PDF/images) */}
-      <Attachments refId={`activity:${activity.id}`} title="Mes documents à imprimer" />
+        <div className="space-y-2">
+          {/* Fiche de préparation (générée) */}
+          <div className="flex flex-wrap items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 dark:border-stone-700 dark:bg-stone-900/40">
+            <span className="min-w-0 flex-1 truncate text-sm font-medium text-stone-800 dark:text-stone-100">
+              Fiche de préparation (A4)
+            </span>
+            <button
+              type="button"
+              onClick={() => setPreview({ title: "Fiche de préparation", node: ficheNode, cid: ficheCid, name: ficheName })}
+              className="btn-outline py-1 text-xs"
+              title="Aperçu de la fiche"
+            >
+              <Search className="h-3.5 w-3.5" /> Aperçu
+            </button>
+            <button type="button" onClick={() => void downloadPdf(ficheCid, ficheName)} className="btn-primary py-1 text-xs">⬇️ PDF</button>
+            <button type="button" onClick={() => printArea(ficheCid)} className="btn-outline py-1 text-xs"><Printer className="h-3.5 w-3.5" /> Imprimer</button>
+          </div>
 
-      {/* Fiche de préparation : télécharger en PDF ou imprimer */}
-      <div className="flex flex-wrap items-center justify-end gap-2">
-        <span className="mr-auto text-xs text-stone-400">Fiche de préparation (format A4)</span>
-        <button
-          type="button"
-          onClick={() => void downloadPdf(`print-prep-${activity.id}`, `Fiche prep - ${activity.title || "seance"}`)}
-          className="btn-primary py-1.5 text-xs"
-          title="Télécharger la fiche de préparation en PDF"
-        >
-          ⬇️ Télécharger PDF
-        </button>
-        <button
-          type="button"
-          onClick={() => printArea(`print-prep-${activity.id}`)}
-          className="btn-outline py-1.5 text-xs"
-          title="Imprimer la fiche de préparation"
-        >
-          <Printer className="h-3.5 w-3.5" /> Imprimer
-        </button>
+          {/* Supports élèves fournis (générés) */}
+          {supports.map((sup) => {
+            const cid = `print-support-${activity.id}-${sup.key}`;
+            return (
+              <div key={sup.key} className="flex flex-wrap items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2 dark:border-stone-700 dark:bg-stone-900/40">
+                <span className="min-w-0 flex-1 truncate text-sm font-medium text-stone-800 dark:text-stone-100">{sup.label}</span>
+                <button
+                  type="button"
+                  onClick={() => setPreview({ title: sup.label, node: sup.node, cid, name: sup.label })}
+                  className="btn-outline py-1 text-xs"
+                  title="Aperçu du support"
+                >
+                  <Search className="h-3.5 w-3.5" /> Aperçu
+                </button>
+                <button type="button" onClick={() => void downloadPdf(cid, sup.label)} className="btn-primary py-1 text-xs">⬇️ PDF</button>
+                <button type="button" onClick={() => printArea(cid)} className="btn-outline py-1 text-xs"><Printer className="h-3.5 w-3.5" /> Imprimer</button>
+                <PrintPortal id={cid}>{sup.node}</PrintPortal>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Mes propres documents ajoutés (PDF/images), au même endroit */}
+        <div className="mt-3 border-t border-ink-200/70 pt-3 dark:border-ink-500/30">
+          <div className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-stone-400">
+            Mes documents ajoutés
+          </div>
+          <Attachments refId={`activity:${activity.id}`} bare />
+        </div>
       </div>
 
-      {/* Zone d'impression dédiée (A4), montée dans <body> via un portail */}
-      <PrintPortal id={`print-prep-${activity.id}`}>
-        <FichePrepA4 activity={activity} settings={settings} date={date} disciplineId={disciplineId} start={start} end={end} />
-      </PrintPortal>
+      {/* Zone d'impression dédiée (A4) de la fiche, montée dans <body> via un portail */}
+      <PrintPortal id={ficheCid}>{ficheNode}</PrintPortal>
+
+      {/* Aperçu (loupe) des documents générés */}
+      {preview && (
+        <PreviewModal
+          title={preview.title}
+          onClose={() => setPreview(null)}
+          onDownload={() => void downloadPdf(preview.cid, preview.name)}
+          onPrint={() => printArea(preview.cid)}
+        >
+          <div className="rounded-lg bg-white p-1 shadow-2xl">{preview.node}</div>
+        </PreviewModal>
+      )}
     </div>
   );
 }
