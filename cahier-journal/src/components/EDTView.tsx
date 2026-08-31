@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useStore } from "../lib/store";
 import { addDays, cap, formatLong, todayISO } from "../lib/dates";
 import { disciplineColor, disciplineLabel } from "../lib/lookup";
+import { recreLieu } from "../lib/recreDuty";
 import { ChevronLeft, ChevronRight } from "./ui";
 import { BoardOverlay } from "./BoardOverlay";
 
@@ -59,11 +60,18 @@ export function EDTView() {
     const discLabel = disciplineLabel(settings, s.disciplineId);
     const title = s.activities[0]?.title?.trim();
     const isGeneric = s.disciplineId === "autre" || discLabel === "—";
+    let label = isGeneric && title ? title : discLabel;
+    // Pour une récréation, on précise notre lieu de service (Basket, City,
+    // Préau), qui tourne selon le jour — pour savoir où se placer dans la cour.
+    if (s.disciplineId === "recreation") {
+      const lieu = recreLieu(settings, date, s.start);
+      if (lieu) label = `${label} · ${lieu}`;
+    }
     return {
       id: s.id,
       start: s.start,
       time: `${h(s.start)} → ${h(s.end)}`,
-      label: isGeneric && title ? title : discLabel,
+      label,
       dot: disciplineColor(settings, s.disciplineId).dot,
     };
   });

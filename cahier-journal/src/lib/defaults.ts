@@ -98,6 +98,7 @@ export const COLOR_KEYS = Object.keys(DISCIPLINE_COLORS) as DisciplineColorKey[]
 export function defaultDisciplines(): Discipline[] {
   const base: Array<[string, string, DisciplineColorKey]> = [
     ["francais", "Français", "blue"],
+    ["sol", "Silence, on lit", "teal"],
     ["maths", "Mathématiques", "green"],
     ["qlm", "Questionner le monde", "orange"],
     ["anglais", "Anglais", "purple"],
