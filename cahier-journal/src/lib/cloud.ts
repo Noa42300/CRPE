@@ -57,13 +57,21 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
   let skipped = 0;
   for (const day of parsed.days) {
     const existing = await daysDB.get(day.date);
-    if (existing && !overwrite) {
-      skipped++;
-      continue;
+    if (existing) {
+      // Journée déjà présente : on ne la met à jour que si la version publiée
+      // est plus récente (par updatedAt) — ainsi les corrections de contenu te
+      // parviennent, sans écraser une retouche locale plus récente.
+      const cloudNewer = (day.updatedAt ?? 0) > (existing.updatedAt ?? 0);
+      if (!overwrite && !cloudNewer) {
+        skipped++;
+        continue;
+      }
+      await daysDB.put(day);
+      updated++;
+    } else {
+      await daysDB.put(day);
+      added++;
     }
-    await daysDB.put(day);
-    if (existing) updated++;
-    else added++;
   }
 
   // Programmations / progressions (pédagogie, sans donnée élève).
