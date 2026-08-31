@@ -1,79 +1,177 @@
 /**
- * Fiche de préparation d'une séance, au format A4 portrait (impression / PDF).
- * Utilise `.fiche-a4` (+ `@media print` dans index.css) : sortie propre, sans
- * les menus de l'application. Reprend toutes les rubriques renseignées.
+ * Fiche de préparation d'une séance — format « inspecteur » classique
+ * -------------------------------------------------------------------
+ * En-tête d'identification (école, enseignant·e, classe, date, discipline,
+ * durée, effectif), objectifs et compétences, matériel, tableau de déroulement
+ * (phase · consignes orales de l'enseignant · modalité), différenciation,
+ * prolongement, et cadre bilan. Calibré A4 (`.fiche-a4` + `@media print`),
+ * imprimable ET téléchargeable en PDF. Peut tenir sur 2 pages : c'est voulu.
  */
 import type { Activity, Settings } from "../lib/types";
+import { cap, formatLong } from "../lib/dates";
+import { disciplineLabel } from "../lib/lookup";
 
 function niveauLabel(settings: Settings, id: string): string {
   return settings.niveaux.find((n) => n.id === id)?.label ?? id;
 }
-
-function Bloc({ titre, children }: { titre: string; children: React.ReactNode }) {
-  return (
-    <section style={{ marginBottom: "6mm" }}>
-      <h2 style={{ fontSize: "13px", textTransform: "uppercase", letterSpacing: "0.08em", color: "#c9481f", margin: "0 0 2mm", borderBottom: "1.5px solid #eee", paddingBottom: "1mm" }}>{titre}</h2>
-      <div style={{ fontSize: "14px", lineHeight: 1.5, color: "#222" }}>{children}</div>
-    </section>
-  );
+function dureeMin(start?: string, end?: string): string {
+  if (!start || !end) return "";
+  const [h1, m1] = start.split(":").map(Number);
+  const [h2, m2] = end.split(":").map(Number);
+  const d = h2 * 60 + m2 - (h1 * 60 + m1);
+  return d > 0 ? `${d} min` : "";
 }
 
-export function FichePrepA4({ activity, settings }: { activity: Activity; settings: Settings }) {
+const cellHead: React.CSSProperties = {
+  border: "1px solid #999", padding: "2mm 3mm", background: "#f3efe7",
+  fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.04em", color: "#555", textAlign: "left",
+};
+const cell: React.CSSProperties = { border: "1px solid #999", padding: "2mm 3mm", fontSize: "13px", verticalAlign: "top" };
+
+export function FichePrepA4({
+  activity,
+  settings,
+  date,
+  disciplineId,
+  start,
+  end,
+}: {
+  activity: Activity;
+  settings: Settings;
+  date?: string;
+  disciplineId?: string;
+  start?: string;
+  end?: string;
+}) {
   const a = activity;
-  const niveaux = a.niveaux.map((n) => niveauLabel(settings, n)).join(" · ");
-  const meta = [
-    a.progPeriode && `Période ${a.progPeriode}`,
-    a.progDomaine,
-    a.progSequence && `Séquence : ${a.progSequence}`,
-    a.progSeance && `Séance ${a.progSeance}`,
-  ].filter(Boolean).join("  ·  ");
+  const p = settings.profile;
+  const teacher = [p.prenom, p.nom].filter(Boolean).join(" ");
+  const niveaux = a.niveaux.map((n) => niveauLabel(settings, n)).join(" / ");
+  const discipline = disciplineId ? disciplineLabel(settings, disciplineId) : a.progDomaine;
+  const duree = dureeMin(start, end);
+  const effectif = settings.classe.effectif;
+
+  const Info = ({ label, value }: { label: string; value: React.ReactNode }) => (
+    <td style={cell}>
+      <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#888" }}>{label}</div>
+      <div style={{ fontWeight: 600 }}>{value || "……………"}</div>
+    </td>
+  );
 
   return (
-    <div className="fiche-a4 font-ludique" style={{ background: "#fff", color: "#111", boxSizing: "border-box" }}>
-      <div style={{ borderTop: "8px solid #c9481f", borderRadius: "4px", paddingTop: "5mm", marginBottom: "5mm" }}>
-        <div style={{ fontSize: "12px", letterSpacing: "0.16em", textTransform: "uppercase", color: "#999" }}>
-          Fiche de préparation{niveaux ? ` · ${niveaux}` : ""}
-        </div>
-        <h1 style={{ fontSize: "26px", margin: "1mm 0 0", fontWeight: 800 }}>{a.title || "Séance"}</h1>
-        {meta && <div style={{ fontSize: "12px", color: "#666", marginTop: "2mm" }}>{meta}</div>}
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      {/* Bandeau titre */}
+      <div style={{ textAlign: "center", marginBottom: "4mm" }}>
+        <div style={{ fontSize: "12px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9481f", fontWeight: 700 }}>Fiche de préparation</div>
+        <h1 style={{ fontSize: "22px", margin: "1mm 0 0", fontWeight: 800 }}>{a.title || "Séance"}</h1>
       </div>
 
-      {a.objectif && <Bloc titre="Objectif">{a.objectif}</Bloc>}
+      {/* En-tête d'identification */}
+      <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "5mm" }}>
+        <tbody>
+          <tr>
+            <Info label="École" value={p.ecole} />
+            <Info label="Enseignant·e" value={teacher} />
+            <Info label="Classe" value={p.classe} />
+            <Info label="Année" value={p.annee} />
+          </tr>
+          <tr>
+            <Info label="Date" value={date ? cap(formatLong(date)) : ""} />
+            <Info label="Discipline / domaine" value={discipline} />
+            <Info label="Niveau(x)" value={niveaux} />
+            <Info label="Durée · effectif" value={`${duree}${duree && effectif ? " · " : ""}${effectif ? `${effectif} él.` : ""}`} />
+          </tr>
+          {(a.progSequence || a.progSeance || a.progPeriode) && (
+            <tr>
+              <Info label="Période" value={a.progPeriode} />
+              <td style={cell} colSpan={2}>
+                <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#888" }}>Séquence</div>
+                <div style={{ fontWeight: 600 }}>{a.progSequence || "……………"}</div>
+              </td>
+              <Info label="Séance n°" value={a.progSeance} />
+            </tr>
+          )}
+        </tbody>
+      </table>
+
+      {/* Objectif / compétences */}
+      {a.objectif && (
+        <section style={{ marginBottom: "4mm" }}>
+          <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Objectif de la séance</h2>
+          <div style={{ fontSize: "13px", lineHeight: 1.5 }}>{a.objectif}</div>
+        </section>
+      )}
       {(a.competence || a.competenceRef) && (
-        <Bloc titre="Compétence visée">
-          {a.competence}
-          {a.competenceRef && <div style={{ color: "#666", fontSize: "12px", marginTop: "1mm" }}>{a.competenceRef}</div>}
-        </Bloc>
+        <section style={{ marginBottom: "4mm" }}>
+          <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Compétences visées (programmes)</h2>
+          <div style={{ fontSize: "13px", lineHeight: 1.5 }}>{a.competence}{a.competenceRef && <div style={{ color: "#666", fontSize: "11px" }}>{a.competenceRef}</div>}</div>
+        </section>
       )}
-      {(a.organisation.length > 0 || a.roleEnseignant.length > 0) && (
-        <Bloc titre="Organisation & rôle">
-          {a.organisation.length > 0 && <div><strong>Organisation :</strong> {a.organisation.join(", ")}</div>}
-          {a.roleEnseignant.length > 0 && <div><strong>Rôle de l'enseignant :</strong> {a.roleEnseignant.join(", ")}</div>}
-        </Bloc>
+      {a.materiel && (
+        <section style={{ marginBottom: "4mm" }}>
+          <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Matériel</h2>
+          <div style={{ fontSize: "13px", lineHeight: 1.5 }}>{a.materiel}</div>
+        </section>
       )}
 
+      {/* Déroulement en tableau */}
       {a.deroulement.length > 0 && (
-        <Bloc titre="Déroulement">
-          <ol style={{ margin: 0, paddingLeft: "6mm" }}>
-            {a.deroulement.map((s) => (
-              <li key={s.id} style={{ marginBottom: "3mm" }}>
-                <span style={{ fontWeight: 700 }}>{s.label}</span>
-                {s.note && <div style={{ whiteSpace: "pre-line", marginTop: "1mm", color: "#333" }}>{s.note}</div>}
-              </li>
-            ))}
-          </ol>
-        </Bloc>
+        <section style={{ marginBottom: "4mm" }}>
+          <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1.5mm" }}>Déroulement</h2>
+          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th style={{ ...cellHead, width: "28%" }}>Phase</th>
+                <th style={cellHead}>Consignes et rôle de l'enseignant·e</th>
+                <th style={{ ...cellHead, width: "16%" }}>Modalité</th>
+              </tr>
+            </thead>
+            <tbody>
+              {a.deroulement.map((s, i) => (
+                <tr key={s.id}>
+                  <td style={cell}><strong>{i + 1}. {s.label}</strong></td>
+                  <td style={{ ...cell, whiteSpace: "pre-line" }}>{s.note}</td>
+                  <td style={{ ...cell, fontSize: "11px", color: "#555" }}>{i === 0 ? a.organisation.join(", ") : ""}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
       )}
 
-      {a.materiel && <Bloc titre="Matériel / supports">{a.materiel}</Bloc>}
-      {a.differenciation && <Bloc titre="Différenciation">{a.differenciation}</Bloc>}
-      {a.depassement && <Bloc titre="Dépassement / autonomie">{a.depassement}</Bloc>}
+      {/* Différenciation / prolongement */}
+      {(a.differenciation || a.depassement) && (
+        <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "4mm" }}>
+          <tbody>
+            <tr>
+              {a.differenciation && (
+                <td style={cell}>
+                  <div style={{ fontSize: "10px", textTransform: "uppercase", color: "#c9481f", fontWeight: 700, marginBottom: "1mm" }}>Différenciation</div>
+                  <div style={{ fontSize: "12px", lineHeight: 1.45 }}>{a.differenciation}</div>
+                </td>
+              )}
+              {a.depassement && (
+                <td style={cell}>
+                  <div style={{ fontSize: "10px", textTransform: "uppercase", color: "#c9481f", fontWeight: 700, marginBottom: "1mm" }}>Prolongement / autonomie</div>
+                  <div style={{ fontSize: "12px", lineHeight: 1.45 }}>{a.depassement}</div>
+                </td>
+              )}
+            </tr>
+          </tbody>
+        </table>
+      )}
 
-      {/* Zone bilan à remplir à la main après la séance. */}
-      <Bloc titre="Bilan (à compléter après la séance)">
-        <div style={{ borderBottom: "1px dotted #bbb", height: "8mm" }} />
-        <div style={{ borderBottom: "1px dotted #bbb", height: "8mm" }} />
-      </Bloc>
+      {/* Bilan à remplir */}
+      <section>
+        <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Bilan / observations (après la séance)</h2>
+        <div style={{ borderBottom: "1px dotted #aaa", height: "7mm" }} />
+        <div style={{ borderBottom: "1px dotted #aaa", height: "7mm" }} />
+        <div style={{ borderBottom: "1px dotted #aaa", height: "7mm" }} />
+      </section>
+
+      <p style={{ marginTop: "6mm", fontSize: "11px", color: "#888", textAlign: "right" }}>
+        Fiche préparée par {teacher || "……………"}{date ? ` — ${cap(formatLong(date))}` : ""}
+      </p>
     </div>
   );
 }
