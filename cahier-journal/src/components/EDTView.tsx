@@ -51,13 +51,22 @@ export function EDTView() {
   const day = daysMap[date];
   const slots = day?.slots ?? [];
 
-  const rows = slots.map((s) => ({
-    id: s.id,
-    start: s.start,
-    time: `${h(s.start)} → ${h(s.end)}`,
-    label: disciplineLabel(settings, s.disciplineId),
-    dot: disciplineColor(settings, s.disciplineId).dot,
-  }));
+  const rows = slots.map((s) => {
+    // Libellé affiché aux élèves : le nom de la discipline (Français, Maths…).
+    // Mais pour un créneau « Autre » (générique, gris) — rituel, intervention,
+    // rangement… — on affiche le NOM EXACT de l'activité, jamais « Autre »,
+    // qui ne veut rien dire pour les enfants. La couleur grise, elle, reste.
+    const discLabel = disciplineLabel(settings, s.disciplineId);
+    const title = s.activities[0]?.title?.trim();
+    const isGeneric = s.disciplineId === "autre" || discLabel === "—";
+    return {
+      id: s.id,
+      start: s.start,
+      time: `${h(s.start)} → ${h(s.end)}`,
+      label: isGeneric && title ? title : discLabel,
+      dot: disciplineColor(settings, s.disciplineId).dot,
+    };
+  });
 
   // Repérage de la pause repas pour couper matin / après-midi.
   const REPAS_RE = /repas|cantine|déjeuner|dejeuner|méridienne|meridienne|pause du midi|self|midi/i;

@@ -41,6 +41,15 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   production visée). Le remplir dès que l'activité a des réponses ; il s'affiche
   dans un onglet « Correction » de la séance et sur la fiche de préparation.
 
+### Documents à imprimer (une seule rubrique)
+- Dans une séance, il n'y a **qu'une seule** rubrique « 📄 Documents à
+  imprimer » : elle réunit la fiche de préparation, les supports élèves fournis
+  (`supportsForActivity`) et les documents ajoutés par l'enseignant·e
+  (`<Attachments bare/>`). Ne pas recréer deux cases séparées.
+- Chaque document a une **loupe « Aperçu »** (`PreviewModal`) qui prévisualise
+  en plein écran **sans télécharger** ; le téléchargement PDF et l'impression se
+  font depuis la ligne du document ou depuis l'aperçu.
+
 ## Repères techniques
 
 - Vite + React + TypeScript + Tailwind + IndexedDB, PWA hors ligne.
