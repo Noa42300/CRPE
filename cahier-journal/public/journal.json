@@ -219,7 +219,7 @@
         {
           "id": "sg",
           "start": "08:45",
-          "end": "09:10",
+          "end": "09:15",
           "disciplineId": "emc",
           "activities": [
             {
@@ -278,8 +278,8 @@
         },
         {
           "id": "sm",
-          "start": "09:10",
-          "end": "09:40",
+          "start": "09:15",
+          "end": "09:50",
           "disciplineId": "maths",
           "activities": [
             {
@@ -340,8 +340,8 @@
         },
         {
           "id": "so",
-          "start": "09:40",
-          "end": "10:00",
+          "start": "09:50",
+          "end": "10:10",
           "disciplineId": "autre",
           "activities": [
             {
@@ -378,8 +378,8 @@
         },
         {
           "id": "sq",
-          "start": "10:00",
-          "end": "10:30",
+          "start": "10:10",
+          "end": "10:40",
           "disciplineId": "recreation",
           "activities": [
             {
@@ -416,8 +416,8 @@
         },
         {
           "id": "ss",
-          "start": "10:30",
-          "end": "10:35",
+          "start": "10:40",
+          "end": "10:45",
           "disciplineId": "autre",
           "activities": [
             {
@@ -454,8 +454,8 @@
         },
         {
           "id": "sy",
-          "start": "10:35",
-          "end": "10:55",
+          "start": "10:45",
+          "end": "11:00",
           "disciplineId": "maths",
           "activities": [
             {
@@ -513,227 +513,9 @@
           ]
         },
         {
-          "id": "s12",
-          "start": "10:55",
-          "end": "11:25",
-          "disciplineId": "emc",
-          "activities": [
-            {
-              "id": "az",
-              "niveaux": [
-                "classe"
-              ],
-              "title": "Les règles de la classe",
-              "objectif": "Construire avec les élèves les premières règles de la classe (moment le plus structurant de la matinée).",
-              "competence": "Comprendre les raisons de l'obéissance aux règles ; participer à leur élaboration.",
-              "competenceRef": "",
-              "progPeriode": "P1",
-              "progDomaine": "EMC — la règle et le droit",
-              "progSequence": "Vivre ensemble",
-              "progSeance": "1",
-              "progRef": "",
-              "organisation": [
-                "collectif"
-              ],
-              "roleEnseignant": [
-                "étayage"
-              ],
-              "deroulement": [
-                {
-                  "id": "st10",
-                  "label": "Rappel de la toile",
-                  "note": "- « Ce matin, on a fait un jeu avec la pelote de laine, vous vous souvenez ? »\n- « Quand une seule personne tirait sur son fil, qu'est-ce que vous avez senti ? »\n- « Et quand quelqu'un lâchait son fil, qu'est-ce qui se passait pour toute la toile ? »\n- « Donc, dans une classe, ce que fait une seule personne touche tout le monde. »\n- « C'est pour ça qu'on a besoin de règles : pour bien travailler et pour que chacun se sente bien. »\n- « Ces règles, on va les construire tous ensemble, maintenant. »"
-                },
-                {
-                  "id": "st11",
-                  "label": "Formulation des règles",
-                  "note": "- « De quoi a-t-on besoin pour bien travailler et se sentir bien, tous ensemble ? »\n- « Levez la main, dites-moi vos idées, je les écris au tableau. »\n- « Attends : est-ce qu'on peut le dire en disant ce qu'on FAIT, pas ce qu'on ne fait pas ? »\n- « Par exemple, au lieu de \"on ne crie pas\", on dit \"je parle doucement\". »\n- « On relit toutes nos règles ensemble, à voix haute. »\n- « Ces règles, ce sont les nôtres : on va les afficher et les respecter toute l'année. »"
-                }
-              ],
-              "materiel": "Tableau ; affichage à constituer.",
-              "differenciation": "",
-              "depassement": "",
-              "bilan": "",
-              "aReprendre": "",
-              "devoirs": "",
-              "notesProchaine": "Priorité absolue : ne jamais sacrifier ce temps ni la toile, même en cas de retard.",
-              "correction": "Pas de correction écrite. Attendu : 4 à 6 règles formulées positivement, par ex. « je lève la main pour parler », « j'écoute celui qui parle », « je range mon matériel », « je respecte les autres »."
-            }
-          ]
-        },
-        {
-          "id": "s14",
-          "start": "11:25",
-          "end": "11:30",
-          "disciplineId": "autre",
-          "activities": [
-            {
-              "id": "a13",
-              "niveaux": [
-                "classe"
-              ],
-              "title": "Rangement et sortie",
-              "objectif": "Installer le rituel de sortie : chaises sur les tables, silence, rang par îlots appelés un par un.",
-              "competence": "",
-              "competenceRef": "",
-              "progPeriode": "P1",
-              "progDomaine": "",
-              "progSequence": "",
-              "progSeance": "",
-              "progRef": "",
-              "organisation": [
-                "collectif"
-              ],
-              "roleEnseignant": [
-                "guidage"
-              ],
-              "deroulement": [],
-              "materiel": "",
-              "differenciation": "",
-              "depassement": "",
-              "bilan": "",
-              "aReprendre": "",
-              "devoirs": "",
-              "notesProchaine": "",
-              "correction": ""
-            }
-          ]
-        },
-        {
-          "id": "s16",
-          "start": "11:30",
-          "end": "13:30",
-          "disciplineId": "cantine",
-          "activities": [
-            {
-              "id": "a15",
-              "niveaux": [
-                "classe"
-              ],
-              "title": "Pause méridienne",
-              "objectif": "Repas et pause.",
-              "competence": "",
-              "competenceRef": "",
-              "progPeriode": "P1",
-              "progDomaine": "",
-              "progSequence": "",
-              "progSeance": "",
-              "progRef": "",
-              "organisation": [
-                "autonomie"
-              ],
-              "roleEnseignant": [
-                "observation"
-              ],
-              "deroulement": [],
-              "materiel": "",
-              "differenciation": "",
-              "depassement": "",
-              "bilan": "",
-              "aReprendre": "",
-              "devoirs": "",
-              "notesProchaine": "",
-              "correction": ""
-            }
-          ]
-        },
-        {
-          "id": "s18",
-          "start": "13:30",
-          "end": "13:45",
-          "disciplineId": "sol",
-          "activities": [
-            {
-              "id": "a17",
-              "niveaux": [
-                "classe"
-              ],
-              "title": "Silence, on lit",
-              "objectif": "Retour au calme d'après-repas par un temps de lecture individuelle et silencieuse : chacun lit le livre de son choix, sans consigne de travail derrière.",
-              "competence": "",
-              "competenceRef": "",
-              "progPeriode": "P1",
-              "progDomaine": "Lecture",
-              "progSequence": "",
-              "progSeance": "",
-              "progRef": "",
-              "organisation": [
-                "individuel"
-              ],
-              "roleEnseignant": [
-                "guidage"
-              ],
-              "deroulement": [],
-              "materiel": "Chacun a un livre (bibliothèque de classe ou livre apporté).",
-              "differenciation": "",
-              "depassement": "",
-              "bilan": "",
-              "aReprendre": "",
-              "devoirs": "",
-              "notesProchaine": "",
-              "correction": ""
-            }
-          ]
-        },
-        {
-          "id": "s1d",
-          "start": "13:45",
-          "end": "14:10",
-          "disciplineId": "francais",
-          "activities": [
-            {
-              "id": "a19",
-              "niveaux": [
-                "classe"
-              ],
-              "title": "Fiche 4 — La dictée muette",
-              "objectif": "Distinguer chez chaque élève ce qui relève du code (encodage) et de la mémoire orthographique.",
-              "competence": "CE1 : encoder un mot de 1–2 syllabes. CE2 : encoder un mot de 2–4 syllabes à graphies complexes.",
-              "competenceRef": "",
-              "progPeriode": "P1",
-              "progDomaine": "Étude de la langue — encodage & orthographe",
-              "progSequence": "Dictée muette",
-              "progSeance": "1",
-              "progRef": "",
-              "organisation": [
-                "collectif"
-              ],
-              "roleEnseignant": [
-                "observation",
-                "différenciation"
-              ],
-              "deroulement": [
-                {
-                  "id": "st1a",
-                  "label": "Principe",
-                  "note": "- « Cet après-midi, on fait un jeu d'écriture : la dictée muette. »\n- « Je ne vais pas dire les mots : je vais seulement vous MONTRER des objets. »\n- « À vous d'écrire le mot tout seul, sur votre ardoise. »\n- « On écrit comme on pense que ça s'écrit ; ce n'est pas grave de se tromper. »\n- « C'est un jeu pour voir tout ce qu'on sait déjà écrire. »"
-                },
-                {
-                  "id": "st1b",
-                  "label": "Dix objets",
-                  "note": "- « Regardez bien le premier objet. Qu'est-ce que c'est ? Ne le dites pas à voix haute. »\n- « Dans votre tête, vous dites le mot, puis vous l'écrivez. »\n- « On écoute les sons : le début du mot, le milieu, la fin. »\n- « Quand vous avez fini, vous posez le crayon et vous levez les yeux. »\n- « On passe à l'objet suivant, et on recommence. »\n(Je montre dix objets, un par un, sans jamais donner le mot.)"
-                },
-                {
-                  "id": "st1c",
-                  "label": "Correction (≈3 min)",
-                  "note": "- « Maintenant, on corrige ensemble, tranquillement. »\n- « Pour chaque objet, j'écris le mot juste au tableau. »\n- « Vous comparez avec votre ardoise, puis vous corrigez en dessous, en vert. »\n- « Si vous aviez bon, bravo ; si vous vous êtes trompé, ce n'est pas grave, on apprend. »\n- « On regarde surtout le début et la fin de chaque mot. »"
-                }
-              ],
-              "materiel": "Une ardoise + un feutre par élève ; les objets de la classe.",
-              "differenciation": "Lecture des résultats : « gome » = orthographe d'usage à mémoriser ; « gonm/om » = le code, à retravailler vite ; ardoise vide = alerte, entretien individuel dans la semaine.",
-              "depassement": "",
-              "bilan": "",
-              "aReprendre": "",
-              "devoirs": "",
-              "notesProchaine": "Objectif non anxiogène : « personne ne se moque, j'ai besoin de voir ce que vous entendez ».",
-              "correction": "On réécrit les 10 mots justes au tableau ; l'élève corrige en vert sous son mot. Attendu : diagnostic d'encodage (sons simples et complexes, lettres muettes)."
-            }
-          ]
-        },
-        {
           "id": "s1j",
-          "start": "14:10",
-          "end": "14:40",
+          "start": "11:00",
+          "end": "11:25",
           "disciplineId": "francais",
           "activities": [
             {
@@ -792,18 +574,18 @@
           ]
         },
         {
-          "id": "s1l",
-          "start": "14:40",
-          "end": "15:00",
+          "id": "s14",
+          "start": "11:25",
+          "end": "11:30",
           "disciplineId": "autre",
           "activities": [
             {
-              "id": "a1k",
+              "id": "a13",
               "niveaux": [
                 "classe"
               ],
-              "title": "Matériel et cahiers",
-              "objectif": "Distribution LIMITÉE : le cahier du jour, la chemise jaune, le badge. Rien d'autre.",
+              "title": "Rangement et sortie",
+              "objectif": "Installer le rituel de sortie : chaises sur les tables, silence, rang par îlots appelés un par un.",
               "competence": "",
               "competenceRef": "",
               "progPeriode": "P1",
@@ -812,36 +594,36 @@
               "progSeance": "",
               "progRef": "",
               "organisation": [
-                "individuel"
+                "collectif"
               ],
               "roleEnseignant": [
                 "guidage"
               ],
               "deroulement": [],
-              "materiel": "Cahier du jour, chemise jaune, badge.",
+              "materiel": "",
               "differenciation": "",
               "depassement": "",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "L'étiquetage est un exercice de copie déguisé.",
+              "notesProchaine": "",
               "correction": ""
             }
           ]
         },
         {
-          "id": "s1n",
-          "start": "15:00",
-          "end": "15:30",
-          "disciplineId": "recreation",
+          "id": "s16",
+          "start": "11:30",
+          "end": "13:15",
+          "disciplineId": "cantine",
           "activities": [
             {
-              "id": "a1m",
+              "id": "a15",
               "niveaux": [
                 "classe"
               ],
-              "title": "Récréation",
-              "objectif": "Pause.",
+              "title": "Pause méridienne",
+              "objectif": "Repas et pause.",
               "competence": "",
               "competenceRef": "",
               "progPeriode": "P1",
@@ -868,9 +650,102 @@
           ]
         },
         {
+          "id": "s18",
+          "start": "13:15",
+          "end": "13:30",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "a17",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme d'après-repas par un temps de lecture individuelle et silencieuse : chacun lit le livre de son choix, sans consigne de travail derrière.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Lecture",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "Chacun a un livre (bibliothèque de classe ou livre apporté).",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "",
+              "correction": ""
+            }
+          ]
+        },
+        {
+          "id": "s1d",
+          "start": "13:30",
+          "end": "14:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a19",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Fiche 4 — La dictée muette",
+              "objectif": "Distinguer chez chaque élève ce qui relève du code (encodage) et de la mémoire orthographique.",
+              "competence": "CE1 : encoder un mot de 1–2 syllabes. CE2 : encoder un mot de 2–4 syllabes à graphies complexes.",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "Étude de la langue — encodage & orthographe",
+              "progSequence": "Dictée muette",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "observation",
+                "différenciation"
+              ],
+              "deroulement": [
+                {
+                  "id": "st1a",
+                  "label": "Principe",
+                  "note": "- « Cet après-midi, on fait un jeu d'écriture : la dictée muette. »\n- « Je ne vais pas dire les mots : je vais seulement vous MONTRER des objets. »\n- « À vous d'écrire le mot tout seul, sur votre ardoise. »\n- « On écrit comme on pense que ça s'écrit ; ce n'est pas grave de se tromper. »\n- « C'est un jeu pour voir tout ce qu'on sait déjà écrire. »"
+                },
+                {
+                  "id": "st1b",
+                  "label": "Dix objets",
+                  "note": "- « Regardez bien le premier objet. Qu'est-ce que c'est ? Ne le dites pas à voix haute. »\n- « Dans votre tête, vous dites le mot, puis vous l'écrivez. »\n- « On écoute les sons : le début du mot, le milieu, la fin. »\n- « Quand vous avez fini, vous posez le crayon et vous levez les yeux. »\n- « On passe à l'objet suivant, et on recommence. »\n(Je montre dix objets, un par un, sans jamais donner le mot.)"
+                },
+                {
+                  "id": "st1c",
+                  "label": "Correction (≈3 min)",
+                  "note": "- « Maintenant, on corrige ensemble, tranquillement. »\n- « Pour chaque objet, j'écris le mot juste au tableau. »\n- « Vous comparez avec votre ardoise, puis vous corrigez en dessous, en vert. »\n- « Si vous aviez bon, bravo ; si vous vous êtes trompé, ce n'est pas grave, on apprend. »\n- « On regarde surtout le début et la fin de chaque mot. »"
+                }
+              ],
+              "materiel": "Une ardoise + un feutre par élève ; les objets de la classe.",
+              "differenciation": "Lecture des résultats : « gome » = orthographe d'usage à mémoriser ; « gonm/om » = le code, à retravailler vite ; ardoise vide = alerte, entretien individuel dans la semaine.",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Objectif non anxiogène : « personne ne se moque, j'ai besoin de voir ce que vous entendez ».",
+              "correction": "On réécrit les 10 mots justes au tableau ; l'élève corrige en vert sous son mot. Attendu : diagnostic d'encodage (sons simples et complexes, lettres muettes)."
+            }
+          ]
+        },
+        {
           "id": "s1q",
-          "start": "15:30",
-          "end": "15:50",
+          "start": "14:00",
+          "end": "14:30",
           "disciplineId": "autre",
           "activities": [
             {
@@ -912,9 +787,134 @@
           ]
         },
         {
+          "id": "s1l",
+          "start": "14:30",
+          "end": "14:50",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a1k",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Matériel et cahiers",
+              "objectif": "Distribution LIMITÉE : le cahier du jour, la chemise jaune, le badge. Rien d'autre.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "Cahier du jour, chemise jaune, badge.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "L'étiquetage est un exercice de copie déguisé.",
+              "correction": ""
+            }
+          ]
+        },
+        {
+          "id": "s12",
+          "start": "14:50",
+          "end": "15:10",
+          "disciplineId": "emc",
+          "activities": [
+            {
+              "id": "az",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Les règles de la classe",
+              "objectif": "Construire avec les élèves les premières règles de la classe (moment le plus structurant de la matinée).",
+              "competence": "Comprendre les raisons de l'obéissance aux règles ; participer à leur élaboration.",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "EMC — la règle et le droit",
+              "progSequence": "Vivre ensemble",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "st10",
+                  "label": "Rappel de la toile",
+                  "note": "- « Ce matin, on a fait un jeu avec la pelote de laine, vous vous souvenez ? »\n- « Quand une seule personne tirait sur son fil, qu'est-ce que vous avez senti ? »\n- « Et quand quelqu'un lâchait son fil, qu'est-ce qui se passait pour toute la toile ? »\n- « Donc, dans une classe, ce que fait une seule personne touche tout le monde. »\n- « C'est pour ça qu'on a besoin de règles : pour bien travailler et pour que chacun se sente bien. »\n- « Ces règles, on va les construire tous ensemble, maintenant. »"
+                },
+                {
+                  "id": "st11",
+                  "label": "Formulation des règles",
+                  "note": "- « De quoi a-t-on besoin pour bien travailler et se sentir bien, tous ensemble ? »\n- « Levez la main, dites-moi vos idées, je les écris au tableau. »\n- « Attends : est-ce qu'on peut le dire en disant ce qu'on FAIT, pas ce qu'on ne fait pas ? »\n- « Par exemple, au lieu de \"on ne crie pas\", on dit \"je parle doucement\". »\n- « On relit toutes nos règles ensemble, à voix haute. »\n- « Ces règles, ce sont les nôtres : on va les afficher et les respecter toute l'année. »"
+                }
+              ],
+              "materiel": "Tableau ; affichage à constituer.",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Priorité absolue : ne jamais sacrifier ce temps ni la toile, même en cas de retard.",
+              "correction": "Pas de correction écrite. Attendu : 4 à 6 règles formulées positivement, par ex. « je lève la main pour parler », « j'écoute celui qui parle », « je range mon matériel », « je respecte les autres »."
+            }
+          ]
+        },
+        {
+          "id": "s1n",
+          "start": "15:10",
+          "end": "15:40",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a1m",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "Pause.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "autonomie"
+              ],
+              "roleEnseignant": [
+                "observation"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "",
+              "correction": ""
+            }
+          ]
+        },
+        {
           "id": "s1s",
-          "start": "15:50",
-          "end": "16:05",
+          "start": "15:40",
+          "end": "16:10",
           "disciplineId": "autre",
           "activities": [
             {
@@ -951,8 +951,8 @@
         },
         {
           "id": "s1u",
-          "start": "16:05",
-          "end": "16:20",
+          "start": "16:10",
+          "end": "16:25",
           "disciplineId": "emc",
           "activities": [
             {
@@ -989,7 +989,7 @@
         },
         {
           "id": "s1w",
-          "start": "16:20",
+          "start": "16:25",
           "end": "16:30",
           "disciplineId": "autre",
           "activities": [
@@ -1027,7 +1027,7 @@
         }
       ],
       "createdAt": 1787403808613,
-      "updatedAt": 1788260000000
+      "updatedAt": 1788270000000
     }
   ],
   "templates": [],
