@@ -178,9 +178,12 @@ export function DayView({
         </button>
       </div>
 
+      {/* Appel : toujours visible, en haut de la journée */}
+      <AppelCard day={day} settings={settings} onChange={update} />
+
       {/* Informations générales (repliable) */}
       {showInfo && (
-        <DayInfoPanel day={day} settings={settings} onChange={update} />
+        <DayInfoPanel day={day} onChange={update} />
       )}
 
       {/* Créneaux */}
@@ -257,8 +260,12 @@ export function DayView({
   );
 }
 
-/** Panneau des informations générales de la journée. */
-function DayInfoPanel({
+/**
+ * Carte « Appel », toujours visible en haut de la journée : tous les prénoms
+ * pré-remplis, on clique juste sur les absents. Présents / absents / noms des
+ * absents se remplissent tout seuls dans les infos de la journée.
+ */
+function AppelCard({
   day,
   settings,
   onChange,
@@ -267,28 +274,97 @@ function DayInfoPanel({
   settings: Settings;
   onChange: (mut: (d: Day) => Day) => void;
 }) {
-  const setInfo = (patch: Partial<Day["info"]>) =>
-    onChange((d) => ({ ...d, info: { ...d.info, ...patch } }));
-
   const roster = settings.classe.roster ?? [];
   const absentIds = day.info.absentIds ?? [];
 
-  /** Recalcule présents/absents/noms à partir de la liste des absents. */
-  const applyAppel = (ids: string[]) => {
-    const set = new Set(ids);
-    const names = roster
-      .filter((s) => set.has(s.id))
-      .map((s) => `${s.prenom} ${s.nom}`.trim());
-    setInfo({
-      absentIds: ids,
-      absents: ids.length,
-      presents: roster.length - ids.length,
-      effectifPrevu: roster.length,
-      absentsNames: names.join(", "),
+  const applyAppel = (ids: string[]) =>
+    onChange((d) => {
+      const set = new Set(ids);
+      const names = roster
+        .filter((s) => set.has(s.id))
+        .map((s) => `${s.prenom} ${s.nom}`.trim());
+      return {
+        ...d,
+        info: {
+          ...d.info,
+          absentIds: ids,
+          absents: ids.length,
+          presents: roster.length - ids.length,
+          effectifPrevu: roster.length,
+          absentsNames: names.join(", "),
+        },
+      };
     });
-  };
   const toggleAbsent = (id: string) =>
     applyAppel(absentIds.includes(id) ? absentIds.filter((x) => x !== id) : [...absentIds, id]);
+
+  if (roster.length === 0) {
+    return (
+      <div className="mb-5 rounded-2xl border border-dashed border-stone-300 bg-stone-50/60 px-4 py-3 text-xs text-stone-400 dark:border-stone-700 dark:bg-stone-900/20">
+        📋 Appel : ajoute ta liste d'élèves dans <b>Paramètres → Ma classe</b> pour
+        pointer les présents d'un simple clic ici.
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-5 rounded-2xl border border-stone-200 bg-white p-4 shadow-soft dark:border-stone-700 dark:bg-stone-900/40">
+      <div className="mb-2 flex flex-wrap items-center gap-2">
+        <span className="text-sm font-bold text-stone-800 dark:text-stone-100">📋 Appel</span>
+        <span className="text-xs text-stone-500">
+          {roster.length - absentIds.length} présents · {absentIds.length} absent(s)
+        </span>
+        {absentIds.length > 0 && (
+          <button onClick={() => applyAppel([])} className="btn-ghost ml-auto py-0.5 text-xs">
+            Tous présents
+          </button>
+        )}
+      </div>
+      {(["CE1", "CE2"] as const).map((niveau) => {
+        const group = roster.filter((s) => s.niveau === niveau);
+        if (group.length === 0) return null;
+        return (
+          <div key={niveau} className="mb-2 last:mb-0">
+            <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-stone-400">{niveau}</div>
+            <div className="flex flex-wrap gap-1.5">
+              {group.map((s) => {
+                const absent = absentIds.includes(s.id);
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => toggleAbsent(s.id)}
+                    title={absent ? "Absent — cliquer pour présent" : "Présent — cliquer pour absent"}
+                    className={`rounded-full px-2.5 py-1 text-xs font-medium transition ${
+                      absent
+                        ? "bg-rose-100 text-rose-700 line-through dark:bg-rose-500/20 dark:text-rose-300"
+                        : "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300"
+                    }`}
+                  >
+                    {s.prenom || s.nom}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+      <p className="mt-1 text-[11px] text-stone-400">
+        Clique sur un absent (il passe en rouge). Compteurs et liste des absents remplis tout seuls.
+      </p>
+    </div>
+  );
+}
+
+/** Panneau des informations générales de la journée. */
+function DayInfoPanel({
+  day,
+  onChange,
+}: {
+  day: Day;
+  onChange: (mut: (d: Day) => Day) => void;
+}) {
+  const setInfo = (patch: Partial<Day["info"]>) =>
+    onChange((d) => ({ ...d, info: { ...d.info, ...patch } }));
 
   const addEvent = () =>
     onChange((d) => ({
@@ -311,59 +387,6 @@ function DayInfoPanel({
 
   return (
     <div className="card mb-5 space-y-4 p-4">
-      {/* Appel : liste nominative (locale) → présents / absents auto-remplis */}
-      {roster.length > 0 ? (
-        <div className="rounded-xl border border-stone-200 bg-white/60 p-3 dark:border-stone-700 dark:bg-stone-900/30">
-          <div className="mb-2 flex flex-wrap items-center gap-2">
-            <span className="label mb-0">📋 Appel</span>
-            <span className="text-xs text-stone-500">
-              {roster.length - absentIds.length} présents · {absentIds.length} absent(s)
-            </span>
-            {absentIds.length > 0 && (
-              <button onClick={() => applyAppel([])} className="btn-ghost ml-auto py-0.5 text-xs">
-                Tous présents
-              </button>
-            )}
-          </div>
-          {(["CE1", "CE2"] as const).map((niveau) => {
-            const group = roster.filter((s) => s.niveau === niveau);
-            if (group.length === 0) return null;
-            return (
-              <div key={niveau} className="mb-2 last:mb-0">
-                <div className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-stone-400">{niveau}</div>
-                <div className="flex flex-wrap gap-1.5">
-                  {group.map((s) => {
-                    const absent = absentIds.includes(s.id);
-                    return (
-                      <button
-                        key={s.id}
-                        onClick={() => toggleAbsent(s.id)}
-                        title={absent ? "Absent — cliquer pour présent" : "Présent — cliquer pour absent"}
-                        className={`rounded-full px-2.5 py-1 text-xs font-medium transition ${
-                          absent
-                            ? "bg-rose-100 text-rose-700 line-through dark:bg-rose-500/20 dark:text-rose-300"
-                            : "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300"
-                        }`}
-                      >
-                        {s.prenom || s.nom}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-          <p className="mt-1 text-[11px] text-stone-400">
-            Vert = présent, rouge = absent. Les compteurs et la liste des absents se remplissent tout seuls.
-          </p>
-        </div>
-      ) : (
-        <p className="text-xs text-stone-400">
-          Astuce : ajoute ta liste d'élèves dans <b>Paramètres → Ma classe</b> pour
-          faire l'appel d'un simple clic ici.
-        </p>
-      )}
-
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <NumField label="Effectif prévu" value={day.info.effectifPrevu} onChange={(v) => setInfo({ effectifPrevu: v })} />
         <NumField label="Présents" value={day.info.presents} onChange={(v) => setInfo({ presents: v })} />

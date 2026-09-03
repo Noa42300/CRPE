@@ -11,6 +11,7 @@ import { disciplineColor, disciplineLabel } from "../lib/lookup";
 import { recreLieu } from "../lib/recreDuty";
 import { ChevronLeft, ChevronRight } from "./ui";
 import { BoardOverlay } from "./BoardOverlay";
+import { KIND_EMOJI } from "./AdminView";
 
 /** Une colonne de l'emploi du temps projeté (matin ou après-midi). */
 function BoardColumn({
@@ -46,11 +47,16 @@ function h(hhmm: string): string {
 }
 
 export function EDTView() {
-  const { settings, daysMap } = useStore();
+  const { settings, daysMap, reminders, saveReminder } = useStore();
   const [date, setDate] = useState(todayISO());
   const [board, setBoard] = useState(false);
   const day = daysMap[date];
   const slots = day?.slots ?? [];
+
+  // Rappels admin du jour (papiers à donner, réunions…), triés par heure.
+  const dayReminders = reminders
+    .filter((r) => r.date === date)
+    .sort((a, b) => (a.time ?? "99:99").localeCompare(b.time ?? "99:99"));
 
   const rows = slots.map((s) => {
     // Libellé affiché aux élèves : le nom de la discipline (Français, Maths…).
@@ -123,6 +129,36 @@ export function EDTView() {
       <h2 className="mb-2 text-base font-bold capitalize text-stone-800 dark:text-stone-100">
         {cap(formatLong(date))}
       </h2>
+
+      {/* À ne pas oublier : rappels admin du jour, en dehors des heures de classe */}
+      {dayReminders.length > 0 && (
+        <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50/70 p-3 dark:border-amber-500/30 dark:bg-amber-500/10">
+          <div className="mb-1.5 text-sm font-semibold text-amber-800 dark:text-amber-200">
+            📌 À ne pas oublier
+          </div>
+          <div className="space-y-1">
+            {dayReminders.map((r) => (
+              <label key={r.id} className="flex cursor-pointer items-center gap-2 text-sm">
+                <input
+                  type="checkbox"
+                  checked={r.done}
+                  onChange={() => void saveReminder({ ...r, done: !r.done })}
+                  className="h-4 w-4 shrink-0 accent-amber-600"
+                />
+                <span className="shrink-0">{KIND_EMOJI[r.kind]}</span>
+                {r.time && (
+                  <span className="shrink-0 rounded bg-amber-200/70 px-1.5 py-0.5 text-[11px] font-semibold text-amber-800 dark:bg-amber-500/20 dark:text-amber-200">
+                    {r.time}
+                  </span>
+                )}
+                <span className={r.done ? "text-stone-400 line-through" : "text-stone-800 dark:text-stone-100"}>
+                  {r.text}
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
 
       {rows.length === 0 ? (
         <div className="card px-6 py-10 text-center text-sm text-stone-500 dark:text-stone-400">

@@ -21,6 +21,7 @@ import { RitualsView } from "./components/RitualsView";
 import { ProjetsView } from "./components/ProjetsView";
 import { EDTView } from "./components/EDTView";
 import { TableauView } from "./components/TableauView";
+import { AdminView } from "./components/AdminView";
 import { LockScreen } from "./components/LockScreen";
 import { hasPin } from "./lib/lock";
 
@@ -116,6 +117,7 @@ export function App() {
             {view === "projets" && <ProjetsView />}
             {view === "edt" && <EDTView />}
             {view === "tableau" && <TableauView />}
+            {view === "admin" && <AdminView />}
             {view === "search" && <SearchView onOpenDate={openDate} />}
             {view === "settings" && <SettingsView />}
             {view === "backup" && <BackupView />}

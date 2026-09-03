@@ -14,6 +14,7 @@ import type {
   AttachmentMeta,
   Day,
   Plan,
+  Reminder,
   Ritual,
   Sequence,
   Settings,
@@ -21,7 +22,7 @@ import type {
 } from "./types";
 
 const DB_NAME = "cahier-journal";
-const DB_VERSION = 5;
+const DB_VERSION = 6;
 
 type StoreName =
   | "days"
@@ -30,7 +31,8 @@ type StoreName =
   | "plans"
   | "sequences"
   | "rituals"
-  | "attachments";
+  | "attachments"
+  | "reminders";
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -68,6 +70,10 @@ function openDB(): Promise<IDBDatabase> {
       if (!db.objectStoreNames.contains("attachments")) {
         const st = db.createObjectStore("attachments", { keyPath: "id" });
         st.createIndex("refId", "refId", { unique: false });
+      }
+      if (!db.objectStoreNames.contains("reminders")) {
+        const st = db.createObjectStore("reminders", { keyPath: "id" });
+        st.createIndex("date", "date", { unique: false });
       }
     };
     req.onsuccess = () => resolve(req.result);
@@ -184,7 +190,17 @@ export const attachmentsDB = {
   clear: () => tx<undefined>("attachments", "readwrite", (s) => s.clear()),
 };
 
-/** Supprime journées, modèles, plans, séquences, rituels et documents joints. */
+// ------------------------------------------------------------ Rappels (admin)
+export const remindersDB = {
+  getAll: () => tx<Reminder[]>("reminders", "readonly", (s) => s.getAll()),
+  put: (r: Reminder) =>
+    tx<IDBValidKey>("reminders", "readwrite", (s) => s.put(r)),
+  delete: (id: string) =>
+    tx<undefined>("reminders", "readwrite", (s) => s.delete(id)),
+  clear: () => tx<undefined>("reminders", "readwrite", (s) => s.clear()),
+};
+
+/** Supprime journées, modèles, plans, séquences, rituels, documents, rappels. */
 export async function wipeAll(): Promise<void> {
   await daysDB.clear();
   await templatesDB.clear();
@@ -192,6 +208,7 @@ export async function wipeAll(): Promise<void> {
   await sequencesDB.clear();
   await ritualsDB.clear();
   await attachmentsDB.clear();
+  await remindersDB.clear();
 }
 
 /** Indique si IndexedDB est disponible (utile pour un message d'alerte). */
