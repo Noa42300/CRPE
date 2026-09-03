@@ -157,6 +157,11 @@ export interface Student {
   prenom: string;
   nom: string;
   niveau: "CE1" | "CE2";
+  /**
+   * Besoins particuliers / adaptations (PAP, PPRE, trouble…). DONNÉE SENSIBLE :
+   * strictement locale, jamais synchronisée ni publiée (comme tout le roster).
+   */
+  besoins?: string;
 }
 
 /** Profil enseignant + réglages généraux. */

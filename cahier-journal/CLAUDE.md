@@ -36,6 +36,19 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
 - Cette règle s'applique à **toutes les séances déjà écrites et à toutes les
   suivantes**.
 
+### Données élèves sensibles & différenciation (IMPORTANT)
+- Les **besoins particuliers** des élèves (PAP, PPRE, troubles — TDAH, TSA…) sont
+  des **données de santé sur des mineurs**. Elles vivent **uniquement** dans le
+  champ `besoins` (local) de chaque élève du roster, **jamais** dans
+  `journal.json`, dans ce fichier, ni dans aucun contenu publié
+  (`sanitizeForPublic` retire tout le roster).
+- Ne **jamais** écrire un **nom d'élève associé à un trouble/diagnostic** dans une
+  séance, une différenciation ou tout contenu synchronisé. La différenciation
+  rédigée dans les séances reste **générique et non nominative** (« pour un élève
+  à besoins attentionnels : consignes fractionnées, minuteur visuel, place au
+  calme » ; « pour un élève TSA : anticiper les changements, supports visuels,
+  espace de retour au calme »).
+
 ### Correction de chaque activité
 - Chaque activité a un champ **`correction`** (les réponses attendues / la
   production visée). Le remplir dès que l'activité a des réponses ; il s'affiche
