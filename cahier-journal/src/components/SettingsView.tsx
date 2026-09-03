@@ -5,7 +5,7 @@
  * apparence (thème), jours travaillés. Tout est enregistré automatiquement.
  */
 import { useStore } from "../lib/store";
-import type { Discipline, NiveauDef, Period, Settings } from "../lib/types";
+import type { Discipline, NiveauDef, Period, Settings, Student } from "../lib/types";
 import { COLOR_KEYS, DISCIPLINE_COLORS } from "../lib/defaults";
 import { uid } from "../lib/dates";
 import { Field, Plus, Trash } from "./ui";
@@ -73,21 +73,20 @@ export function SettingsView() {
             />
           </Field>
         </div>
-        <Field label="Liste des élèves (un par ligne, facultatif)">
-          <textarea
-            className="input h-28 resize-y"
-            value={settings.classe.eleves.join("\n")}
-            onChange={(e) =>
-              patch({
-                classe: {
-                  ...settings.classe,
-                  eleves: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean),
-                },
-              })
-            }
-            placeholder={"Camille D.\nNoah B.\n…"}
-          />
-        </Field>
+        <RosterEditor
+          roster={settings.classe.roster ?? []}
+          onChange={(roster) =>
+            patch({
+              classe: {
+                ...settings.classe,
+                roster,
+                // On garde la liste simple (prénom nom) synchronisée.
+                eleves: roster.map((s) => `${s.prenom} ${s.nom}`.trim()).filter(Boolean),
+                effectif: roster.length > 0 ? roster.length : settings.classe.effectif,
+              },
+            })
+          }
+        />
       </Card>
 
       {/* Niveaux */}
@@ -433,6 +432,121 @@ function PeriodsEditor({
       >
         <Plus className="h-3.5 w-3.5" /> Ajouter une période
       </button>
+    </div>
+  );
+}
+
+/** Éditeur de la liste nominative des élèves (prénom, nom, niveau). */
+function RosterEditor({
+  roster,
+  onChange,
+}: {
+  roster: Student[];
+  onChange: (roster: Student[]) => void;
+}) {
+  const [bulk, setBulk] = useState("");
+  const [showBulk, setShowBulk] = useState(false);
+
+  const update = (id: string, patch: Partial<Student>) =>
+    onChange(roster.map((s) => (s.id === id ? { ...s, ...patch } : s)));
+  const remove = (id: string) => onChange(roster.filter((s) => s.id !== id));
+  const add = () =>
+    onChange([...roster, { id: uid(), prenom: "", nom: "", niveau: "CE1" }]);
+
+  const importBulk = () => {
+    const parsed: Student[] = bulk
+      .split("\n")
+      .map((l) => l.trim())
+      .filter(Boolean)
+      .map((line): Student => {
+        const f = line.split(/[\t,;]/).map((x) => x.trim());
+        const niveau: Student["niveau"] = /ce2/i.test(f[2] ?? "") ? "CE2" : "CE1";
+        return { id: uid(), prenom: f[0] ?? "", nom: f[1] ?? "", niveau };
+      })
+      .filter((s) => s.prenom || s.nom);
+    if (parsed.length === 0) return;
+    onChange(parsed);
+    setBulk("");
+    setShowBulk(false);
+  };
+
+  const ce1 = roster.filter((s) => s.niveau === "CE1").length;
+  const ce2 = roster.filter((s) => s.niveau === "CE2").length;
+
+  return (
+    <div className="mt-3 space-y-2">
+      <div className="flex items-center justify-between">
+        <span className="label mb-0">
+          Élèves ({roster.length}
+          {roster.length > 0 ? ` · ${ce1} CE1 / ${ce2} CE2` : ""})
+        </span>
+        <button type="button" onClick={() => setShowBulk((v) => !v)} className="btn-ghost py-1 text-xs">
+          Coller une liste
+        </button>
+      </div>
+
+      {showBulk && (
+        <div className="rounded-lg border border-dashed border-stone-300 p-2 dark:border-stone-700">
+          <textarea
+            className="input h-28 resize-y text-[13px]"
+            value={bulk}
+            onChange={(e) => setBulk(e.target.value)}
+            placeholder={"Une ligne par élève : Prénom, NOM, Niveau\nAlyssa, AKTAS, CE1\nHugo, BRIAS, CE2"}
+          />
+          <div className="mt-2 flex items-center gap-2">
+            <button type="button" onClick={importBulk} className="btn-primary py-1 text-xs">
+              Importer (remplace la liste)
+            </button>
+            <span className="text-[11px] text-stone-400">Séparateurs acceptés : virgule, point-virgule ou tabulation.</span>
+          </div>
+        </div>
+      )}
+
+      <div className="space-y-1.5">
+        {roster.map((s) => (
+          <div key={s.id} className="flex items-center gap-2">
+            <input
+              className="input py-1.5"
+              value={s.prenom}
+              onChange={(e) => update(s.id, { prenom: e.target.value })}
+              placeholder="Prénom"
+            />
+            <input
+              className="input py-1.5"
+              value={s.nom}
+              onChange={(e) => update(s.id, { nom: e.target.value })}
+              placeholder="NOM"
+            />
+            <div className="flex shrink-0 overflow-hidden rounded-lg border border-stone-300 dark:border-stone-600">
+              {(["CE1", "CE2"] as const).map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  onClick={() => update(s.id, { niveau: n })}
+                  className={`px-2.5 py-1.5 text-xs font-semibold ${
+                    s.niveau === n
+                      ? "bg-ink-600 text-white"
+                      : "bg-white text-stone-500 dark:bg-stone-900 dark:text-stone-400"
+                  }`}
+                >
+                  {n}
+                </button>
+              ))}
+            </div>
+            <button type="button" onClick={() => remove(s.id)} className="shrink-0 text-stone-400 hover:text-rose-500" title="Retirer">
+              <Trash />
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <button type="button" onClick={add} className="btn-outline py-1 text-xs">
+        <Plus className="h-3.5 w-3.5" /> Ajouter un élève
+      </button>
+      <p className="text-[11px] text-stone-400">
+        Ces noms restent sur cet appareil (jamais envoyés ni publiés). Ils servent
+        à l'appel dans « Aujourd'hui ».
+      </p>
     </div>
   );
 }

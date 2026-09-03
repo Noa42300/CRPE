@@ -141,6 +141,7 @@ export function duplicateDay(source: Day, targetDate: string): Day {
       presents: null,
       absents: null,
       absentsNames: "",
+      absentIds: [],
       events: source.info.events.map((e) => ({ ...e, id: uid() })),
     },
     slots,

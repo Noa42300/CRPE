@@ -64,7 +64,7 @@ export function EDTView() {
     // Pour une récréation, on précise notre lieu de service (Basket, City,
     // Préau), qui tourne selon le jour — pour savoir où se placer dans la cour.
     if (s.disciplineId === "recreation") {
-      const lieu = recreLieu(settings, date, s.start);
+      const lieu = recreLieu(date, s.start);
       if (lieu) label = `${label} · ${lieu}`;
     }
     return {

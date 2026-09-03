@@ -60,11 +60,11 @@ export function sanitizeForPublic(backup: BackupFile): BackupFile {
     ...backup,
     settings: {
       ...backup.settings,
-      classe: { ...backup.settings.classe, eleves: [] },
+      classe: { ...backup.settings.classe, eleves: [], roster: [] },
     },
     days: backup.days.map((d) => ({
       ...d,
-      info: { ...d.info, absentsNames: "" },
+      info: { ...d.info, absentsNames: "", absentIds: [] },
       slots: d.slots.map((s) => ({
         ...s,
         activities: s.activities.map((a) => ({
