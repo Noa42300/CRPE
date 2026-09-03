@@ -16,12 +16,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Day, Plan, Ritual, Sequence, Settings, Template } from "./types";
+import type { Day, Plan, Reminder, Ritual, Sequence, Settings, Template } from "./types";
 import { SCHEMA_VERSION } from "./types";
 import {
   daysDB,
   isStorageAvailable,
   plansDB,
+  remindersDB,
   ritualsDB,
   sequencesDB,
   settingsDB,
@@ -42,6 +43,7 @@ interface StoreValue {
   plans: Plan[];
   sequences: Sequence[];
   rituals: Ritual[];
+  reminders: Reminder[];
   saveStatus: SaveStatus;
 
   saveSettings: (next: Settings) => void;
@@ -55,6 +57,8 @@ interface StoreValue {
   removeSequence: (id: string) => Promise<void>;
   saveRitual: (r: Ritual) => void;
   removeRitual: (id: string) => Promise<void>;
+  saveReminder: (r: Reminder) => Promise<void>;
+  removeReminder: (id: string) => Promise<void>;
   flush: () => Promise<void>;
   reloadAll: () => Promise<void>;
   resetEverything: () => Promise<void>;
@@ -79,6 +83,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [plans, setPlans] = useState<Plan[]>([]);
   const [sequences, setSequences] = useState<Sequence[]>([]);
   const [rituals, setRituals] = useState<Ritual[]>([]);
+  const [reminders, setReminders] = useState<Reminder[]>([]);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [lastCloudSync, setLastCloudSync] = useState<number | null>(null);
   const autoSyncDone = useRef(false);
@@ -145,13 +150,14 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     }
     // Migration légère : complète les champs manquants d'anciens schémas.
     s = { ...defaultSettings(), ...s, schemaVersion: SCHEMA_VERSION, key: "app" };
-    const [allDays, allTemplates, allPlans, allSequences, allRituals] =
+    const [allDays, allTemplates, allPlans, allSequences, allRituals, allReminders] =
       await Promise.all([
         daysDB.getAll(),
         templatesDB.getAll(),
         plansDB.getAll(),
         sequencesDB.getAll(),
         ritualsDB.getAll(),
+        remindersDB.getAll(),
       ]);
     const map: Record<string, Day> = {};
     for (const d of allDays) map[d.date] = d;
@@ -161,6 +167,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setPlans(allPlans);
     setSequences(allSequences);
     setRituals(allRituals);
+    setReminders(allReminders);
     setReady(true);
   }, []);
 
@@ -301,6 +308,17 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setRituals((prev) => prev.filter((x) => x.id !== id));
   }, []);
 
+  const saveReminder = useCallback(async (r: Reminder) => {
+    const stamped = { ...r, updatedAt: Date.now() };
+    await remindersDB.put(stamped);
+    setReminders((prev) => [...prev.filter((x) => x.id !== stamped.id), stamped]);
+  }, []);
+
+  const removeReminder = useCallback(async (id: string) => {
+    await remindersDB.delete(id);
+    setReminders((prev) => prev.filter((x) => x.id !== id));
+  }, []);
+
   const resetEverything = useCallback(async () => {
     await wipeAll();
     const s = defaultSettings();
@@ -311,6 +329,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setPlans([]);
     setSequences([]);
     setRituals([]);
+    setReminders([]);
   }, []);
 
   const syncCloud = useCallback(
@@ -350,6 +369,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       plans,
       sequences,
       rituals,
+      reminders,
       saveStatus,
       saveSettings,
       saveDay,
@@ -362,6 +382,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeSequence,
       saveRitual,
       removeRitual,
+      saveReminder,
+      removeReminder,
       flush,
       reloadAll,
       resetEverything,
@@ -377,6 +399,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       plans,
       sequences,
       rituals,
+      reminders,
       saveStatus,
       saveSettings,
       saveDay,
@@ -389,6 +412,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeSequence,
       saveRitual,
       removeRitual,
+      saveReminder,
+      removeReminder,
       flush,
       reloadAll,
       resetEverything,

@@ -16,6 +16,7 @@ export type ViewId =
   | "projets"
   | "edt"
   | "tableau"
+  | "admin"
   | "search"
   | "settings"
   | "backup";
@@ -31,6 +32,7 @@ const ITEMS: { id: ViewId; label: string; icon: string }[] = [
   { id: "rituals", label: "Rituels", icon: "🔔" },
   { id: "projets", label: "Projets", icon: "🌍" },
   { id: "tableau", label: "Tableau", icon: "✏️" },
+  { id: "admin", label: "Réunion / Admin", icon: "🗂️" },
   { id: "search", label: "Recherche", icon: "🔍" },
   { id: "settings", label: "Paramètres", icon: "⚙️" },
   { id: "backup", label: "Sauvegarde", icon: "💾" },

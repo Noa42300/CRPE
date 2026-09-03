@@ -266,6 +266,23 @@ export interface Attachment extends AttachmentMeta {
   data: string;
 }
 
+/**
+ * Rappel « Réunion / Administratif » : un événement daté (papier à donner,
+ * réunion, tâche à ne pas oublier). S'affiche dans l'EDT du jour concerné,
+ * en dehors des heures de classe (sauf si une heure précise est donnée).
+ * Contenu administratif : local, non publié (peut viser un élève).
+ */
+export interface Reminder {
+  id: string;
+  date: string; // "AAAA-MM-JJ"
+  time?: string; // "HH:MM" (facultatif : sinon « hors classe »)
+  text: string;
+  kind: "reunion" | "papier" | "tache" | "autre";
+  done: boolean;
+  createdAt: number;
+  updatedAt: number;
+}
+
 /** Structure d'un fichier de sauvegarde exporté. */
 export interface BackupFile {
   app: "cahier-journal";

@@ -50,6 +50,31 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   en plein écran **sans télécharger** ; le téléchargement PDF et l'impression se
   font depuis la ligne du document ou depuis l'aperçu.
 
+## Organisation matérielle de la classe (référence)
+
+Quand je rédige une séance, indiquer le bon support de rangement :
+
+- **Cahier cinéma** — sorties / films.
+- **Cahier violet** — anglais **et** évaluations de français (double usage indiqué
+  par l'enseignant·e).
+- **Cahier blanc** — poésies.
+- **Classeur** — exercices sur fiche de français / maths.
+- **Cahier rouge** — leçons de maths.
+- **Cahier bleu** — leçons de français.
+- **Cahier orange** — évaluations de maths.
+- **Cahier gris** — exercices d'entraînement.
+- **Cahier jaune** — cahier de liaison.
+- **Cahier vert** — dictées.
+- **Pochette noire** — travail en autonomie / pas fini / projet voyage.
+- **Pochette jaune** — documents.
+
+## Méthodes et manuels (2026-2027)
+
+- **Mathématiques** : méthode **Tandem**.
+- **Français** : **Graphémo** + le manuel **« 1, 2, 3… Étude de la langue »**.
+- Les programmations/progressions vont être fournies par l'enseignant·e et
+  remplaceront les contenus provisoires.
+
 ## Repères techniques
 
 - Vite + React + TypeScript + Tailwind + IndexedDB, PWA hors ligne.
