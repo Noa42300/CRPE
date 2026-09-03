@@ -97,6 +97,8 @@ export interface DayInfo {
   presents: number | null;
   absents: number | null;
   absentsNames: string;
+  /** Identifiants des élèves marqués absents lors de l'appel (100 % local). */
+  absentIds?: string[];
   events: DayEvent[];
 }
 
@@ -146,6 +148,17 @@ export interface NiveauDef {
   isGroupeClasse?: boolean;
 }
 
+/**
+ * Un élève de la classe (pour l'appel et les listes). Donnée strictement
+ * LOCALE : jamais synchronisée ni publiée (retirée par sanitizeForPublic).
+ */
+export interface Student {
+  id: string;
+  prenom: string;
+  nom: string;
+  niveau: "CE1" | "CE2";
+}
+
 /** Profil enseignant + réglages généraux. */
 export interface Settings {
   key: "app"; // clé fixe
@@ -161,6 +174,8 @@ export interface Settings {
   classe: {
     effectif: number | null;
     eleves: string[];
+    /** Liste nominative structurée (prénom, nom, niveau) pour l'appel. Local. */
+    roster?: Student[];
   };
   niveaux: NiveauDef[];
   disciplines: Discipline[];

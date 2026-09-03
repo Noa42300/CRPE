@@ -9,17 +9,21 @@
  * Rotation de la Période 1 (« SERVICES RÉCRÉATION P1 »). Le mercredi n'est pas
  * travaillé. Une case vide = pas de service ce moment-là.
  */
-import type { Settings } from "./types";
-import { periodForDate } from "./lookup";
+export type RecreLieu = "Basket" | "City" | "Préau" | "Ballon prisonnier";
 
-export type RecreLieu = "Basket" | "City" | "Préau";
-
-/** clé = jour de la semaine (1 = lundi … 5 = vendredi). */
-const DUTY_P1: Record<number, { am?: RecreLieu; pm?: RecreLieu }> = {
-  1: { am: "Basket" }, // Lundi
-  2: { am: "City", pm: "Préau" }, // Mardi
-  4: { am: "Préau", pm: "Basket" }, // Jeudi
-  5: { am: "Basket" }, // Vendredi
+/**
+ * Planning des lieux de récré de NOTRE classe (CE1-CE2).
+ * clé = jour de la semaine (1 = lundi … 5 = vendredi).
+ * Règle donnée : lundi après-midi Basket, mardi après-midi Ballon prisonnier,
+ * jeudi matin City — tout le reste au Préau.
+ */
+const DEFAUT: RecreLieu = "Préau";
+const DUTY: Record<number, { am?: RecreLieu; pm?: RecreLieu }> = {
+  1: { am: "Préau", pm: "Basket" }, // Lundi
+  2: { am: "Préau", pm: "Ballon prisonnier" }, // Mardi
+  3: { am: "Préau", pm: "Préau" }, // Mercredi
+  4: { am: "City", pm: "Préau" }, // Jeudi
+  5: { am: "Préau", pm: "Préau" }, // Vendredi
 };
 
 /** Jour de la semaine (1=lundi..7=dimanche) pour une date ISO, sans fuseau. */
@@ -31,18 +35,13 @@ function isoWeekday(iso: string): number {
 
 /**
  * Lieu de service de récré pour NOTRE classe, à une date + une heure de début
- * de créneau. Ne renvoie un lieu que pendant la Période 1 (le tableau connu) ;
- * `undefined` sinon (autre période, jour sans service…).
+ * de créneau. Renvoie toujours un lieu pour un jour d'école (« le reste » =
+ * Préau) ; `undefined` seulement le week-end.
  */
-export function recreLieu(
-  settings: Settings,
-  date: string,
-  start?: string,
-): RecreLieu | undefined {
-  const period = periodForDate(settings, date);
-  if (!period || period.number !== 1) return undefined;
-  const duty = DUTY_P1[isoWeekday(date)];
-  if (!duty) return undefined;
+export function recreLieu(date: string, start?: string): RecreLieu | undefined {
+  const wd = isoWeekday(date);
+  if (wd > 5) return undefined; // week-end
+  const duty = DUTY[wd] ?? {};
   const isMorning = !start || start < "12:00";
-  return isMorning ? duty.am : duty.pm;
+  return (isMorning ? duty.am : duty.pm) ?? DEFAUT;
 }
