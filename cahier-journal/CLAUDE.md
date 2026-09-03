@@ -19,7 +19,7 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
 - Rester concret, pratique et fidèle au niveau CE1-CE2 et aux programmes.
 
 ### Effectif de la classe
-- La classe compte **23 élèves** (14 CE1 + 9 CE2). Toute activité qui s'appuie
+- La classe compte **23 élèves** (13 CE1 + 10 CE2). Toute activité qui s'appuie
   sur le nombre d'élèves (nombre du jour, fleur du nombre, problèmes…) doit
   utiliser **23**, jamais 25.
 
