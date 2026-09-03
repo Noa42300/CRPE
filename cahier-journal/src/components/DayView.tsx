@@ -329,11 +329,15 @@ function AppelCard({
             <div className="flex flex-wrap gap-1.5">
               {group.map((s) => {
                 const absent = absentIds.includes(s.id);
+                const besoins = s.besoins?.trim();
                 return (
                   <button
                     key={s.id}
                     onClick={() => toggleAbsent(s.id)}
-                    title={absent ? "Absent — cliquer pour présent" : "Présent — cliquer pour absent"}
+                    title={
+                      (besoins ? `Besoins : ${besoins}\n` : "") +
+                      (absent ? "Absent — cliquer pour présent" : "Présent — cliquer pour absent")
+                    }
                     className={`rounded-full px-2.5 py-1 text-xs font-medium transition ${
                       absent
                         ? "bg-rose-100 text-rose-700 line-through dark:bg-rose-500/20 dark:text-rose-300"
@@ -341,6 +345,7 @@ function AppelCard({
                     }`}
                   >
                     {s.prenom || s.nom}
+                    {besoins && <span className="ml-1 text-amber-500" title={`Besoins : ${besoins}`}>★</span>}
                   </button>
                 );
               })}

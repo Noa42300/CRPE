@@ -502,40 +502,48 @@ function RosterEditor({
         </div>
       )}
 
-      <div className="space-y-1.5">
+      <div className="space-y-2.5">
         {roster.map((s) => (
-          <div key={s.id} className="flex items-center gap-2">
-            <input
-              className="input py-1.5"
-              value={s.prenom}
-              onChange={(e) => update(s.id, { prenom: e.target.value })}
-              placeholder="Prénom"
-            />
-            <input
-              className="input py-1.5"
-              value={s.nom}
-              onChange={(e) => update(s.id, { nom: e.target.value })}
-              placeholder="NOM"
-            />
-            <div className="flex shrink-0 overflow-hidden rounded-lg border border-stone-300 dark:border-stone-600">
-              {(["CE1", "CE2"] as const).map((n) => (
-                <button
-                  key={n}
-                  type="button"
-                  onClick={() => update(s.id, { niveau: n })}
-                  className={`px-2.5 py-1.5 text-xs font-semibold ${
-                    s.niveau === n
-                      ? "bg-ink-600 text-white"
-                      : "bg-white text-stone-500 dark:bg-stone-900 dark:text-stone-400"
-                  }`}
-                >
-                  {n}
-                </button>
-              ))}
+          <div key={s.id} className="space-y-1">
+            <div className="flex items-center gap-2">
+              <input
+                className="input py-1.5"
+                value={s.prenom}
+                onChange={(e) => update(s.id, { prenom: e.target.value })}
+                placeholder="Prénom"
+              />
+              <input
+                className="input py-1.5"
+                value={s.nom}
+                onChange={(e) => update(s.id, { nom: e.target.value })}
+                placeholder="NOM"
+              />
+              <div className="flex shrink-0 overflow-hidden rounded-lg border border-stone-300 dark:border-stone-600">
+                {(["CE1", "CE2"] as const).map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    onClick={() => update(s.id, { niveau: n })}
+                    className={`px-2.5 py-1.5 text-xs font-semibold ${
+                      s.niveau === n
+                        ? "bg-ink-600 text-white"
+                        : "bg-white text-stone-500 dark:bg-stone-900 dark:text-stone-400"
+                    }`}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+              <button type="button" onClick={() => remove(s.id)} className="shrink-0 text-stone-400 hover:text-rose-500" title="Retirer">
+                <Trash />
+              </button>
             </div>
-            <button type="button" onClick={() => remove(s.id)} className="shrink-0 text-stone-400 hover:text-rose-500" title="Retirer">
-              <Trash />
-            </button>
+            <input
+              className="input py-1.5 text-[13px]"
+              value={s.besoins ?? ""}
+              onChange={(e) => update(s.id, { besoins: e.target.value })}
+              placeholder="Besoins particuliers / adaptations (PAP, PPRE, trouble…) — reste local"
+            />
           </div>
         ))}
       </div>
@@ -544,8 +552,8 @@ function RosterEditor({
         <Plus className="h-3.5 w-3.5" /> Ajouter un élève
       </button>
       <p className="text-[11px] text-stone-400">
-        Ces noms restent sur cet appareil (jamais envoyés ni publiés). Ils servent
-        à l'appel dans « Aujourd'hui ».
+        🔒 Noms <b>et besoins particuliers</b> restent sur cet appareil (jamais
+        envoyés ni publiés). Ils servent à l'appel et à la différenciation.
       </p>
     </div>
   );
