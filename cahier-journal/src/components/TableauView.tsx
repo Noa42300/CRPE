@@ -100,7 +100,7 @@ function adjustMarks(marks: Mark[], oldT: string, newT: string): Mark[] {
 }
 
 export function TableauView() {
-  const [fontId, setFontId] = useState<EcritureFontId>("caveat");
+  const [fontId, setFontId] = useState<EcritureFontId>("borel");
   const [size, setSize] = useState(44);
   const [trace, setTrace] = useState(true);
   const [text, setText] = useState("");
@@ -219,6 +219,9 @@ export function TableauView() {
     wordBreak: "break-word",
     margin: 0,
     border: 0,
+    // Borel relie les lettres via les alternes contextuelles : on les active.
+    fontFeatureSettings: '"calt" 1',
+    fontVariantLigatures: "contextual",
   };
 
   // Rendu du calque : texte posé (mise en forme) + lettre en cours de tracé.
