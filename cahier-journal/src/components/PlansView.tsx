@@ -18,6 +18,14 @@ import { emptyPlan, planId } from "../lib/factory";
 import { disciplineColor } from "../lib/lookup";
 import { ecoleWeekNumber, weeksOfPeriod } from "../lib/dates";
 import { BO, BO_SOURCE } from "../lib/bo";
+import {
+  PERIODES,
+  PROG_MATHS,
+  REPART_FRANCAIS,
+  GRAPHEMO,
+  EDL_SOMMAIRE,
+  programmationTexte,
+} from "../lib/programmations";
 import { printArea } from "../lib/print";
 import { AutoTextarea, ChevronRight, Printer } from "./ui";
 
@@ -77,6 +85,27 @@ export function PlansView({ kind }: { kind: PlanKind }) {
     }));
 
   const disc = teaching.find((d) => d.id === disciplineId);
+  const hasRef = isProg && (disciplineId === "francais" || disciplineId === "maths");
+
+  // Pré-remplit les zones P1→P5 depuis la programmation officielle intégrée.
+  const prefillFromRef = () => {
+    if (
+      !window.confirm(
+        "Pré-remplir les zones P1 → P5 de cette matière avec ta programmation officielle ? Le contenu actuel de ces zones sera remplacé.",
+      )
+    )
+      return;
+    const next = { ...zones };
+    for (const per of PERIODES) {
+      if (disciplineId === "maths") {
+        next[`${per}:CE1`] = programmationTexte("maths", per, "CE1");
+        next[`${per}:CE2`] = programmationTexte("maths", per, "CE2");
+      } else {
+        next[`${per}:CE1`] = programmationTexte("francais", per, "CE1");
+      }
+    }
+    savePlan({ ...plan, zones: next });
+  };
 
   const Zone = ({
     sectionKey,
@@ -202,6 +231,27 @@ export function PlansView({ kind }: { kind: PlanKind }) {
           </span>
         </div>
 
+        {/* Référence : programmation annuelle officielle intégrée */}
+        {hasRef && (
+          <details className="group mb-5 rounded-2xl border border-ink-200 bg-ink-50/40 p-3 dark:border-ink-500/40 dark:bg-ink-500/10" open>
+            <summary className="flex cursor-pointer list-none items-center gap-2 text-sm font-bold text-ink-800 dark:text-ink-200">
+              <ChevronRight className="h-4 w-4 transition-transform group-open:rotate-90" />
+              📊 Ma programmation annuelle — {disc?.label} (référence intégrée)
+              <button
+                type="button"
+                onClick={(e) => { e.preventDefault(); prefillFromRef(); }}
+                className="btn-primary ml-auto py-1 text-xs"
+                title="Recopier cette programmation dans mes zones éditables P1→P5"
+              >
+                ✍️ Pré-remplir mes zones
+              </button>
+            </summary>
+            <div className="mt-3">
+              <ProgrammationReference disciplineId={disciplineId} />
+            </div>
+          </details>
+        )}
+
         {/* Contenu */}
         {isProg ? (
           <div className="space-y-6">
@@ -291,6 +341,83 @@ function PrintZones({
           <b>CE2 :</b> <span className="whitespace-pre-wrap">{ce2}</span>
         </div>
       )}
+    </div>
+  );
+}
+
+/** Affichage lecture seule de la programmation annuelle officielle intégrée. */
+function ProgrammationReference({ disciplineId }: { disciplineId: string }) {
+  const DomList = ({ dom }: { dom: Record<string, string[]> }) => (
+    <div className="space-y-2">
+      {Object.entries(dom)
+        .filter(([, items]) => items.length > 0)
+        .map(([d, items]) => (
+          <div key={d}>
+            <div className="text-[11px] font-bold uppercase tracking-wide text-ink-600 dark:text-ink-300">{d}</div>
+            <ul className="ml-4 list-disc text-[13px] leading-snug text-slate-700 dark:text-slate-200">
+              {items.map((it, i) => <li key={i}>{it}</li>)}
+            </ul>
+          </div>
+        ))}
+    </div>
+  );
+
+  if (disciplineId === "maths") {
+    return (
+      <div className="space-y-3">
+        {PERIODES.map((per) => (
+          <details key={per} className="rounded-xl border border-slate-200 bg-white/70 p-2.5 dark:border-slate-700 dark:bg-slate-900/40" open={per === "P1"}>
+            <summary className="cursor-pointer text-sm font-bold text-slate-800 dark:text-slate-100">{per}</summary>
+            <div className="mt-2 grid gap-3 md:grid-cols-2">
+              <div className="rounded-lg border border-sky-300 bg-sky-50/50 p-2 dark:border-sky-500/40 dark:bg-sky-500/10">
+                <div className="mb-1 text-xs font-bold text-sky-700 dark:text-sky-300">CE1</div>
+                <DomList dom={PROG_MATHS.CE1[per]} />
+              </div>
+              <div className="rounded-lg border border-violet-300 bg-violet-50/50 p-2 dark:border-violet-500/40 dark:bg-violet-500/10">
+                <div className="mb-1 text-xs font-bold text-violet-700 dark:text-violet-300">CE2</div>
+                <DomList dom={PROG_MATHS.CE2[per]} />
+              </div>
+            </div>
+          </details>
+        ))}
+        <p className="text-[11px] text-slate-400">Méthode Tandem — CE1 et CE2 en alternance (leçon guidée / travail autonome).</p>
+      </div>
+    );
+  }
+
+  // Français : répartition annuelle + dictées Graphémo + sommaire EDL.
+  return (
+    <div className="space-y-3">
+      {PERIODES.map((per) => (
+        <details key={per} className="rounded-xl border border-slate-200 bg-white/70 p-2.5 dark:border-slate-700 dark:bg-slate-900/40" open={per === "P1"}>
+          <summary className="cursor-pointer text-sm font-bold text-slate-800 dark:text-slate-100">{per}</summary>
+          <div className="mt-2 grid gap-3 md:grid-cols-2">
+            <DomList dom={REPART_FRANCAIS[per]} />
+            <div className="rounded-lg border border-teal-300 bg-teal-50/50 p-2 dark:border-teal-500/40 dark:bg-teal-500/10">
+              <div className="mb-1 text-[11px] font-bold uppercase tracking-wide text-teal-700 dark:text-teal-300">Dictées (Graphémo)</div>
+              <ul className="ml-4 list-disc text-[13px] leading-snug text-slate-700 dark:text-slate-200">
+                {GRAPHEMO[per].map((d, i) => <li key={i}>{d}</li>)}
+              </ul>
+            </div>
+          </div>
+        </details>
+      ))}
+      <details className="rounded-xl border border-slate-200 bg-white/70 p-2.5 dark:border-slate-700 dark:bg-slate-900/40">
+        <summary className="cursor-pointer text-sm font-bold text-slate-800 dark:text-slate-100">
+          Sommaire « 1, 2, 3… Étude de la langue »
+        </summary>
+        <div className="mt-2 grid gap-3 sm:grid-cols-2">
+          {Object.entries(EDL_SOMMAIRE).map(([dom, items]) => (
+            <div key={dom}>
+              <div className="text-[11px] font-bold uppercase tracking-wide text-ink-600 dark:text-ink-300">{dom}</div>
+              <ul className="ml-4 list-disc text-[12.5px] leading-snug text-slate-700 dark:text-slate-200">
+                {items.map((it, i) => <li key={i}>{it}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </details>
+      <p className="text-[11px] text-slate-400">Phonologie / lecture : GraphoGame. Dictées : Graphémo. Étude de la langue : « 1, 2, 3… ».</p>
     </div>
   );
 }

@@ -84,9 +84,23 @@ Quand je rédige une séance, indiquer le bon support de rangement :
 ## Méthodes et manuels (2026-2027)
 
 - **Mathématiques** : méthode **Tandem**.
-- **Français** : **Graphémo** + le manuel **« 1, 2, 3… Étude de la langue »**.
-- Les programmations/progressions vont être fournies par l'enseignant·e et
-  remplaceront les contenus provisoires.
+- **Français** : **Graphémo** (dictées) + **« 1, 2, 3… Étude de la langue »**.
+- **Lecture / phonologie** : **GraphoGame**.
+- **Organisation en TANDEMS** (double niveau) : un tandem CE1, un tandem CE2.
+  Alternance : pendant qu'un niveau est en **leçon guidée** avec l'enseignant·e,
+  l'autre est en **travail autonome**. En tenir compte dans le déroulement des
+  séances (qui est avec le PE / qui est en autonomie).
+- **Poésie / récitation** : quota officiel Cycle 2 ≈ **30 min/semaine** ;
+  séquences générées CE1/CE2 sans manuel.
+
+## Programmations annuelles intégrées (référence permanente)
+
+- Les programmations officielles (Français : répartition annuelle + dictées
+  Graphémo + sommaire EDL ; Maths CE1 et CE2 par période/domaine, méthode Tandem)
+  sont **ancrées dans le code** : `src/lib/programmations.ts`. Elles s'affichent
+  en lecture seule dans **Programmations** (français & maths) avec un bouton
+  « Pré-remplir mes zones ». **S'y référer** pour programmer les séances.
+- Données purement pédagogiques (aucune donnée élève) : peuvent être versionnées.
 
 ## Repères techniques
 
