@@ -419,13 +419,25 @@ function ProgrammationReference({ disciplineId }: { disciplineId: string }) {
     );
   }
 
-  // Anglais : séquences numérotées 1..N.
+  // Anglais : séquences groupées par période, séances numérotées 1..N.
   if (disciplineId === "anglais") {
+    const periodes = ["P1", "P2", "P3", "P4", "P5"];
     return (
-      <div className="space-y-3">
-        <SequenceList sequences={PROG_ANGLAIS} />
+      <div className="space-y-4">
+        {periodes.map((per) => {
+          const seqs = PROG_ANGLAIS.filter((s) => s.periode === per);
+          if (seqs.length === 0) return null;
+          return (
+            <div key={per}>
+              <h3 className="mb-1.5 text-xs font-bold uppercase tracking-wide text-purple-700 dark:text-purple-300">
+                {per}
+              </h3>
+              <SequenceList sequences={seqs} />
+            </div>
+          );
+        })}
         <p className="text-[11px] text-slate-400">
-          Entrée dans la langue par les USA (mots transparents) puis progression annuelle.
+          Ordre des séquences et séances fidèle au document ; le rattachement par période reste à confirmer.
         </p>
       </div>
     );

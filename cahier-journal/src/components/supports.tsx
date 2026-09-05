@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama } from "./AnglaisDiaporama";
+import { EpsTerrainSupport } from "./EpsTerrainSupport";
 
 export interface SupportFourni {
   key: string;
@@ -300,6 +301,55 @@ const DICTEE_MONDE1: FicheData = {
   ],
 };
 
+/* ===================== ANGLAIS — Se présenter (fiche récap) ===================== */
+
+const ANGLAIS_PRESENT_RECAP: FicheData = {
+  entete: "Fiche récapitulative (à coller — cahier violet)", titre: "Se présenter en anglais", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais",
+  blocs: [
+    { kind: "def", picto: "sourire", contenu: "Pour se présenter en anglais, on utilise de petites phrases. Voici les phrases utiles et leur traduction en français." },
+    { kind: "pictos", titre: "Les phrases (anglais = français)", items: [
+      { name: "sourire", label: "Hello! = Bonjour !" },
+      { name: "oreille", label: "What's your name? = Comment tu t'appelles ?" },
+      { name: "plume", label: "My name is… = Je m'appelle…" },
+      { name: "sourire", label: "Nice to meet you! = Enchanté(e) !" },
+      { name: "oiseau", label: "How are you? = Comment ça va ?" },
+      { name: "pomme", label: "I'm fine, thank you! = Ça va bien, merci !" },
+      { name: "valise", label: "Goodbye! = Au revoir !" },
+    ] },
+    { kind: "puces", titre: "Je m'entraîne à deux", points: [
+      "Je demande : « What's your name? »",
+      "Je réponds : « My name is … »",
+      "J'ajoute : « Nice to meet you! »",
+    ] },
+    { kind: "exemples", titre: "À écouter (chanson)", points: ["The Beatles — « Hello, Goodbye » : on repère hello et goodbye."] },
+  ],
+};
+
+/* ===================== EMC — La solidarité ===================== */
+
+const EMC_SOLIDARITE: FicheData = {
+  entete: "Séance (affichage + trace)", titre: "La solidarité", niveau: "CE1-CE2", discipline: "EMC — la sensibilité (soi et les autres)",
+  blocs: [
+    { kind: "def", picto: "sourire", contenu: "Être solidaire, c'est s'entraider : quand un camarade a besoin d'aide, je l'aide ; quand j'ai un problème, les autres m'aident. Comme la toile d'araignée de la rentrée : si un fil lâche, toute la classe le sent." },
+    { kind: "pictos", titre: "Des gestes solidaires", items: [
+      { name: "pomme", label: "partager son goûter" },
+      { name: "oreille", label: "écouter un camarade triste" },
+      { name: "cartable", label: "aider à ranger" },
+      { name: "sourire", label: "consoler quelqu'un" },
+      { name: "livre", label: "expliquer à qui n'a pas compris" },
+      { name: "fleur", label: "inviter à jouer celui qui est seul" },
+    ] },
+    { kind: "puces", titre: "Dans notre classe, je suis solidaire quand…", points: [
+      "j'aide un camarade qui n'a pas compris, sans faire à sa place ;",
+      "je prête mon matériel ;",
+      "je console quelqu'un qui a de la peine ;",
+      "je ne me moque jamais et j'invite celui qui est tout seul.",
+    ] },
+    { kind: "def", picto: "fleur", titre: "Ma trace", contenu: "Je dessine ou j'écris un geste solidaire que je peux faire cette semaine." },
+    { kind: "lignes", n: 2 },
+  ],
+};
+
 export function supportsForActivity(activityId: string): SupportFourni[] {
   switch (activityId) {
     case "ah":
@@ -346,6 +396,19 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "dictmonde":
       return [
         { key: "dictee-monde1", label: "Dictée n°1 Autour du monde — Italie (à lire)", node: ficheNode(DICTEE_MONDE1) },
+      ];
+    case "epsathle2":
+      return [
+        { key: "eps-terrain-s2", label: "Courir longtemps (séance 2) — schéma du terrain & sécurité", node: EpsTerrainSupport() },
+        { key: "eps-tours", label: "Fiche binôme — compter les tours (élève A puis B)", node: ficheNode(EPS_TOURS) },
+      ];
+    case "m9ang":
+      return [
+        { key: "ang-present-recap", label: "Se présenter en anglais — Fiche récap (EN = FR)", node: ficheNode(ANGLAIS_PRESENT_RECAP) },
+      ];
+    case "emcsolid":
+      return [
+        { key: "emc-solidarite", label: "La solidarité — Séance (affichage + trace)", node: ficheNode(EMC_SOLIDARITE) },
       ];
     case "l8ang":
       return [

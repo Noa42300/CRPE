@@ -12,6 +12,8 @@
 export interface ProgSequence {
   titre: string;
   seances: string[]; // numérotées 1..N par leur position
+  /** Période de rattachement (facultatif), ex. "P1". */
+  periode?: string;
 }
 
 /* ----------------------- Questionner le monde ----------------------- */
@@ -86,20 +88,75 @@ export const PROG_QLM: { label: string; sequences: ProgSequence[] }[] = [
 
 /* ----------------------- Anglais ----------------------- */
 
+/**
+ * Programmation d'anglais CE1 transcrite du document de l'enseignant·e
+ * (tableau 5 périodes). Séances numérotées 1..N par séquence, dans l'ordre du
+ * document. Le rattachement par période (`periode`) est ma meilleure lecture des
+ * colonnes du tableau — à confirmer/ajuster ; l'ordre des séquences et des
+ * séances, lui, suit fidèlement le document.
+ */
 export const PROG_ANGLAIS: ProgSequence[] = [
-  { titre: "Se saluer (Greetings)", seances: ["Good morning, good afternoon", "Consolidation", "Good evening, good night"] },
-  { titre: "Entrée dans les langues : les USA (verbes d'action)", seances: ["Des images des USA (mots transparents)", "La chanson rituelle", "Trois verbes d'action", "Consolidation des verbes"] },
-  { titre: "Les nombres de 1 à 10", seances: ["One, two, three, four, five", "Réviser 1 à 5", "Six, seven, eight, nine, ten", "Réviser 6 à 10", "Numbers from 1 to 10", "How many…?", "Revoir How many…?"] },
-  { titre: "Les couleurs (Colours)", seances: ["Red, blue, green, yellow", "The colour red, blue…", "This is red, blue…", "What colour is this ?", "White, grey, black", "The colour white, grey, black", "This is white, grey, black", "What colour is this ?", "Brown, orange, purple", "The colour brown, orange, purple", "This is brown, orange, purple", "What colour is this ?", "Consolidation", "Révision du module"] },
-  { titre: "Les animaux (Animals)", seances: ["A bird, a fish, a gorilla…", "Other animals", "Consolidation (snakes and ladders)"] },
-  { titre: "Halloween", seances: ["Halloween, a monster", "Scary monster, spooky…", "Scary witch, spooky…", "A Halloween card"] },
-  { titre: "Se présenter (What's your name ?)", seances: ["La nouvelle chanson", "What's your name ?", "Consolidation"] },
-  { titre: "Noël (Christmas)", seances: ["Christmas in the UK and USA", "Christmas : lexique", "What do you see ?", "Consolidation", "A Christmas card"] },
-  { titre: "La météo (Weather)", seances: ["Cold and rainy, hot and sunny", "It's cold and rainy", "It's warm but cloudy", "How's the weather ?", "Revision", "It's windy, it's snowy"] },
-  { titre: "Les vêtements (Clothes)", seances: ["Clothes", "Put on", "Consolidation", "Take off", "Consolidation", "Civilisation : vêtements", "I'm wearing a white hat"] },
-  { titre: "Les jours & St Patrick's Day", seances: ["Civilisation : St Patrick's Day", "Monday, Tuesday, Wednesday", "Consolidation", "Thursday, Friday, Saturday, Sunday", "Consolidation", "What day is it today ?", "Révision"] },
-  { titre: "La famille (Family)", seances: ["Daddy, mummy, brother, sister", "This is my mummy", "Mother's day, father's day"] },
-  { titre: "L'alphabet (facultative)", seances: ["Découverte de l'alphabet", "Épeler", "Jeux de lettres", "Consolidation"] },
+  { periode: "P1", titre: "Entrée dans la langue vivante + USA", seances: [
+    "Des images des USA", "La chanson rituelle", "Trois verbes d'action", "Consolidation des verbes d'action",
+  ] },
+  { periode: "P1", titre: "Greetings", seances: [
+    "Good morning, good afternoon", "Consolidation", "Good evening, good night",
+  ] },
+  { periode: "P1", titre: "Numbers", seances: [
+    "One, two, three, four, five", "Réviser one, two, three, four, five", "Six, seven, eight, nine, ten",
+    "Réviser six, seven, eight, nine, ten", "Numbers from 1 to 10", "How many…?", "Revoir How many…?",
+  ] },
+  { periode: "P1", titre: "Happy Halloween", seances: [
+    "Halloween, a monster, a vampire", "Scary monster, spooky vampire", "Scary witch, spooky ghost", "A Halloween card",
+  ] },
+  { periode: "P2", titre: "Colours", seances: [
+    "Red, blue, green, yellow", "The colour red, blue, green, yellow", "This is red, blue, green, yellow", "What colour is this ?",
+    "White, grey, black", "The colour white, grey, black", "This is white, grey, black", "What colour is this ?",
+    "Brown, orange, purple, pink", "The colour brown, orange, purple, pink", "This is brown, orange, purple, pink", "What colour is this ?",
+    "Consolidation + civilisation", "Révision du module",
+  ] },
+  { periode: "P2", titre: "Christmas", seances: [
+    "Christmas in the UK and in the USA", "Christmas : lexique", "What do you see ?", "Consolidation", "A Christmas card",
+  ] },
+  { periode: "P3", titre: "Feelings", seances: [
+    "Happy, angry, sleepy, hungry", "I am happy, angry, sleepy, hungry", "How are you, today ?", "Consolidation", "Sad, scared",
+  ] },
+  { periode: "P3", titre: "Clothes", seances: [
+    "Clothes", "Put on", "Consolidation", "Take off", "Consolidation", "Civilisation : vêtements typiques", "I'm wearing a white hat",
+  ] },
+  { periode: "P3", titre: "Weather", seances: [
+    "Cold and rainy, hot and sunny", "It's cold and rainy", "It's warm but cloudy", "How's the weather ?", "Revision", "It's windy, it's snowy",
+  ] },
+  { periode: "P4", titre: "School supplies", seances: [
+    "A pencil, a book, a bag", "Touch your pencil, time's up", "An eraser, a ruler, paper, glue", "Revision",
+  ] },
+  { periode: "P4", titre: "What's your name ?", seances: [
+    "La nouvelle chanson rituelle", "What's your name ?", "Consolidation",
+  ] },
+  { periode: "P4", titre: "Days of the week", seances: [
+    "Civilisation : St Patrick's day", "Monday, Tuesday, Wednesday", "Consolidation", "Thursday, Friday, Saturday",
+    "Consolidation", "What day is it, today ? Sunday", "Révision",
+  ] },
+  { periode: "P5", titre: "Family", seances: [
+    "Daddy, mummy, brother, sister", "This is my mummy", "Mother's day, father's day",
+  ] },
+  { periode: "P5", titre: "Can / Action verbs / animals", seances: [
+    "A bird, a fish, a gorilla, a buffalo", "Others animals", "Consolidation",
+    "(séquence de 7 séances — séances 4 à 7 non détaillées dans le document)",
+  ] },
+  { periode: "P5", titre: "Have / Pets", seances: [
+    "Pets", "I have a pet", "A brown dog, a black cat + civilisation",
+  ] },
+  { periode: "P5", titre: "Seasons", seances: [
+    "Spring, summer, autumn, winter", "Consolidation + civilisation", "Can you tell me what season it is ?",
+  ] },
+  { periode: "P5", titre: "Like / Food (Central Park)", seances: [
+    "Bread, ham, butter", "Lettuce, tomato, cheese", "Let's make a sandwich !", "Revision + civilisation",
+    "Lasagna, milkshakes, avocados", "Do you like ?", "Lollipops, asparagus, cake", "Revision + civilisation",
+  ] },
+  { periode: "P5", titre: "Alphabet (séquence facultative)", seances: [
+    "ABCDEFG", "HIJKLMNOP", "QRSTUV", "WXYZ",
+  ] },
 ];
 
 /* ----------------------- Graphémo (orthographe & dictées) ----------------------- */

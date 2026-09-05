@@ -98,7 +98,19 @@ Quand je rédige une séance, indiquer le bon support de rangement :
 - **Banque de fichiers autonomie CE2** : en maths, les tandems sont par classe.
   Pendant que je fais la **leçon guidée aux CE1** (projetée), les **CE2 sont en
   autonomie** sur un fichier préparé à l'avance (puis institutionnalisation). On
-  **constitue une banque** de ces fichiers autonomie CE2 (un par leçon guidée).
+  **constitue une banque** de ces fichiers autonomie CE2 qui **suit la
+  programmation de maths** (`PROG_MATHS`) : **un fichier par chapitre de chaque
+  thématique**, à préparer d'avance pour en avoir toujours d'côté.
+- **EPS — continuité des séances** : une séquence EPS **se suit** (on ne passe pas
+  d'athlétisme à jeux collectifs d'une séance à l'autre). Chaque séance poursuit
+  la précédente (P1 : « courir longtemps » S1 → S2 → …). **Chaque séance EPS a une
+  fiche qui schématise le terrain** (plots, distances idéales) et précise la
+  **sécurité active / passive / affective** (voir `EpsTerrainSupport`).
+- **Anglais** : la programmation annuelle (18 séquences) vient du document de
+  l'enseignant·e, transcrite dans `PROG_ANGLAIS` (ordre des séquences et des
+  séances fidèle au document ; rattachement par période à confirmer). Vidéos
+  anglais : **des classiques de la musique** (ex. The Beatles « Hello, Goodbye »),
+  pas de comptines trop enfantines.
 - **Organisation en TANDEMS** (double niveau) : un tandem CE1, un tandem CE2.
   Alternance : pendant qu'un niveau est en **leçon guidée** avec l'enseignant·e,
   l'autre est en **travail autonome**. En tenir compte dans le déroulement des

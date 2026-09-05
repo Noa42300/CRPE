@@ -2197,52 +2197,57 @@
           "disciplineId": "eps",
           "activities": [
             {
-              "id": "m9eps",
+              "id": "epsathle2",
               "niveaux": [
                 "classe"
               ],
-              "title": "EPS — Jeux collectifs : les déménageurs",
-              "objectif": "Coopérer et respecter des règles simples dans un jeu collectif ; occuper l'espace, transporter sans se bousculer.",
-              "competence": "Coopérer, s'opposer ; respecter les règles d'un jeu collectif.",
-              "competenceRef": "EPS — champ 3, cycle 2.",
+              "title": "EPS — Courir longtemps (séance 2)",
+              "objectif": "Tenir une allure régulière et battre son contrat de la séance 1 : courir sans s'arrêter sur une boucle balisée.",
+              "competence": "Courir longtemps ; gérer son allure et son effort sur une durée donnée.",
+              "competenceRef": "EPS — champ d'apprentissage 1, cycle 2.",
               "progPeriode": "P1",
-              "progDomaine": "EPS — jeux collectifs",
-              "progSequence": "Jeux collectifs",
-              "progSeance": "1",
+              "progDomaine": "EPS — athlétisme (courir longtemps)",
+              "progSequence": "Courir longtemps",
+              "progSeance": "2",
               "progRef": "",
               "organisation": [
                 "collectif",
-                "groupe"
+                "binômes"
               ],
               "roleEnseignant": [
                 "guidage"
               ],
+              "video": "",
               "deroulement": [
                 {
                   "id": "m9t16",
-                  "label": "Mise en train (10 min)",
-                  "note": "- « On réveille le corps : on trottine, on tourne les bras, on saute sur place. »\n- « On repère le signal d'arrêt : quand j'agite le bras, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »"
+                  "label": "Mise en train (8 min)",
+                  "note": "- « On réveille le corps : on trottine doucement autour de la boucle. »\n- « On tourne les bras, on monte les genoux, on respire par le nez. »\n- « On repère les plots : ils marquent le chemin, un tous les 25 mètres. »\n- « On revoit le signal d'arrêt : bras levé, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »"
                 },
                 {
                   "id": "m9t17",
-                  "label": "Le jeu des déménageurs (25 min)",
-                  "note": "- « Le but : votre équipe doit déménager tous les objets d'un cerceau à l'autre. »\n- « On ne prend qu'UN objet à la fois, et on ne court pas trop vite. »\n- « On attend que le camarade soit revenu pour repartir : c'est un relais. »\n- « On respecte les autres équipes, on ne se bouscule pas. »\n- « Équipes mixtes CE1-CE2 : les grands aident à expliquer les règles. »"
+                  "label": "Rappel de la séance 1 & consigne (5 min)",
+                  "note": "- « La semaine dernière, on a couru sans s'arrêter : chacun avait son contrat de tours. »\n- « Aujourd'hui, le but c'est de courir à une allure RÉGULIÈRE : ni trop vite, ni trop lentement. »\n- « Truc : tu dois pouvoir parler en courant ; si tu es essoufflé, tu ralentis. »\n- « Ton binôme compte tes tours sur la fiche et t'encourage. »\n- « On essaie de battre son contrat de la dernière fois, sans jamais s'arrêter. »"
                 },
                 {
                   "id": "m9t18",
-                  "label": "Retour au calme (10 min)",
-                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui a aidé votre équipe à gagner ? »\n- « On range le matériel tous ensemble. »"
+                  "label": "Le contrat régulier (25 min)",
+                  "note": "- « Premier groupe, prêt ? On part au signal, allure tranquille. »\n- « Observateurs, vous entourez un trait à chaque tour terminé par votre coureur. »\n- « Trop dur ? Tu passes dans la zone de marche, tu récupères, puis tu repars. »\n- « On garde la même allure du début à la fin : c'est ça, courir longtemps. »\n- « On échange les rôles : le coureur devient observateur. »\n- « On compare : as-tu tenu plus de tours que la séance 1 ? »"
+                },
+                {
+                  "id": "m9t19",
+                  "label": "Retour au calme (7 min)",
+                  "note": "- « On marche autour de la boucle pour récupérer, on respire doucement. »\n- « On étire les jambes tranquillement. »\n- « Combien de tours as-tu tenus aujourd'hui ? On note son contrat. »\n- « Qu'est-ce qui t'a aidé à ne pas t'arrêter ? »\n- « Bravo à tous : demain, on essaiera de tenir encore un peu plus longtemps. »"
                 }
               ],
-              "materiel": "Cerceaux, petits objets à transporter (foulards, balles), plots ; signal d'arrêt.",
-              "video": "",
-              "differenciation": "Équipes mixtes CE1/CE2 ; distance adaptée ; rôle d'arbitre pour un élève qui a besoin de souffler.",
-              "depassement": "",
+              "materiel": "Terrain balisé : boucle ≈ 100 m, un plot tous les 25 m, couloir de 2-3 m ; chronomètre ; fiche binôme (compter les tours) ; voir Documents à imprimer (schéma du terrain + sécurité).",
+              "differenciation": "Contrat de temps adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé (zone de marche) ; rôle d'observateur possible pour un élève qui a besoin de souffler.",
+              "depassement": "Pour les plus à l'aise : viser une allure encore plus régulière (même nombre de tours à chaque minute).",
               "correction": "",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "Séance 3 : allonger la durée du contrat (courir 8 min sans s'arrêter)."
             }
           ]
         },
@@ -2274,9 +2279,9 @@
               ],
               "deroulement": [
                 {
-                  "id": "m9t19",
-                  "label": "On écoute la chanson",
-                  "note": "- « Today, a new song! On écoute et on regarde. »\n- « You hear: What's your name? My name is… »\n- « On répète le refrain tous ensemble : What's your name? »"
+                  "id": "m9t20",
+                  "label": "On écoute un classique",
+                  "note": "- « Today, a song by a very famous group: The Beatles — “Hello, Goodbye”. »\n- « Écoutez bien : vous allez reconnaître deux petits mots. »\n- « You hear: Hello… and Goodbye! »\n- « On répète : Hello! (bonjour) … Goodbye! (au revoir). »\n- « Maintenant, une phrase nouvelle : What's your name? »"
                 },
                 {
                   "id": "m9t20",
@@ -2284,9 +2289,9 @@
                   "note": "- « I ask: What's your name? You answer: My name is… »\n- « On se lance une balle : celui qui l'attrape répond puis relance. »\n- « CE1 : réponds avec “My name is…”. CE2 : ajoute “Nice to meet you!” »\n- « On applaudit chaque camarade qui a osé parler anglais. »"
                 }
               ],
-              "materiel": "TBI (chanson) ; une balle en mousse ; flashcards prénoms.",
-              "video": "https://www.youtube.com/watch?v=zMdq9jSaNLg",
-              "differenciation": "CE1 : « My name is… ». CE2 : phrase complète + « Nice to meet you! ». Pour un élève TSA : prévenir avant de lancer la balle, tour prévisible.",
+              "materiel": "TBI (chanson des Beatles « Hello, Goodbye ») ; une balle en mousse ; fiche récapitulative « Se présenter » (EN = FR, illustrée) à coller dans le cahier violet — voir Documents à imprimer.",
+              "video": "https://www.youtube.com/watch?v=BDfRcL1ytzc",
+              "differenciation": "CE1 : « My name is… ». CE2 : phrase complète + « Nice to meet you! ». Fiche récap EN=FR pour tous. Pour un élève TSA : prévenir avant de lancer la balle, tour prévisible.",
               "depassement": "Demander « How are you? » et répondre « I'm fine! ».",
               "correction": "What's your name? → My name is … . (CE2 : + Nice to meet you!)",
               "bilan": "",
@@ -2340,10 +2345,65 @@
               "notesProchaine": ""
             }
           ]
+        },
+        {
+          "id": "m9s13",
+          "start": "16:30",
+          "end": "16:55",
+          "disciplineId": "emc",
+          "activities": [
+            {
+              "id": "emcsolid",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "EMC — La solidarité (réserve, si le temps le permet)",
+              "objectif": "Comprendre ce qu'est la solidarité et repérer des gestes d'entraide concrets dans la classe.",
+              "competence": "Identifier et partager des émotions ; coopérer, s'entraider (EMC — la sensibilité).",
+              "competenceRef": "EMC, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "EMC — la sensibilité",
+              "progSequence": "Vivre ensemble — la solidarité",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "video": "",
+              "deroulement": [
+                {
+                  "id": "m9t22",
+                  "label": "Rappel de la toile d'araignée",
+                  "note": "- « Le jour de la rentrée, on a fait la toile avec la pelote de laine, vous vous souvenez ? »\n- « Quand un fil lâchait, qu'est-ce qui se passait pour toute la toile ? »\n- « Dans une classe, c'est pareil : on a besoin les uns des autres. »\n- « Ça s'appelle être solidaire : s'entraider. »\n- « Aujourd'hui, on va chercher tous les gestes solidaires de la classe. »"
+                },
+                {
+                  "id": "m9t23",
+                  "label": "Des situations à discuter",
+                  "note": "- « J'ai perdu mon crayon : qu'est-ce qu'un camarade solidaire peut faire ? »\n- « Un enfant est tout seul dans la cour : que peut-on faire ? »\n- « Quelqu'un n'a pas compris l'exercice : comment l'aider sans faire à sa place ? »\n- « Est-ce que se moquer, c'est être solidaire ? Pourquoi ? »\n- « Levez la main, on écoute chaque idée. »"
+                },
+                {
+                  "id": "m9t24",
+                  "label": "Notre trace & notre engagement",
+                  "note": "- « On colle la leçon “La solidarité” avec les gestes en images. »\n- « Chacun choisit un geste solidaire à faire cette semaine. »\n- « Tu le dessines ou tu l'écris sur ta trace. »\n- « On affichera nos engagements à côté de la toile d'araignée. »\n- « Merci : une classe solidaire, c'est une classe où on se sent bien. »"
+                }
+              ],
+              "materiel": "Affiche de la toile d'araignée (rentrée) ; leçon « La solidarité » à coller — voir Documents à imprimer.",
+              "differenciation": "CE1 : dire un geste solidaire. CE2 : écrire une phrase d'engagement.",
+              "depassement": "",
+              "correction": "Attendus : la classe formule que la solidarité = s'entraider (aider, prêter, consoler, inclure), et chacun prend un engagement concret.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Séance de réserve : à placer un jour où un créneau se libère (EPS annulée, activité plus courte)."
+            }
+          ]
         }
       ],
       "createdAt": 1789000000000,
-      "updatedAt": 1789000000000
+      "updatedAt": 1789100000000
     }
   ],
   "templates": [],
