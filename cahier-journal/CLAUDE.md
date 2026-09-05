@@ -92,6 +92,9 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   séances (qui est avec le PE / qui est en autonomie).
 - **Poésie / récitation** : quota officiel Cycle 2 ≈ **30 min/semaine** ;
   séquences générées CE1/CE2 sans manuel.
+- **Service à mi-temps** : l'enseignant·e n'assure que le **lundi et le mardi**
+  (le reste de la semaine = complément). Ne préparer que ces deux jours
+  (`settings.joursTravailles = [1, 2]`).
 
 ## Programmations annuelles intégrées (référence permanente)
 

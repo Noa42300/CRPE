@@ -139,10 +139,7 @@
     "theme": "auto",
     "joursTravailles": [
       1,
-      2,
-      3,
-      4,
-      5
+      2
     ]
   },
   "days": [
@@ -1028,6 +1025,623 @@
       ],
       "createdAt": 1787403808613,
       "updatedAt": 1788270000000
+    },
+    {
+      "date": "2026-09-08",
+      "info": {
+        "effectifPrevu": 23,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "absentIds": [],
+        "events": [
+          {
+            "id": "l8ev1",
+            "type": "particulier",
+            "note": "Lundi de la 2e semaine — évaluations nationales le matin ; lancement du projet Autour du monde (Italie) l'après-midi."
+          }
+        ]
+      },
+      "slots": [
+        {
+          "id": "l8s1",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "l8acc",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituels du matin",
+              "objectif": "Entrer dans la journée : se dire bonjour, faire l'appel, dater le jour.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t1",
+                  "label": "Accueil & appel",
+                  "note": "- « Bonjour à tous, on accroche son manteau et on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds. »\n- « Qui n'est pas là aujourd'hui ? On le note ensemble. »"
+                },
+                {
+                  "id": "l8t2",
+                  "label": "La date & la météo",
+                  "note": "- « Quel jour sommes-nous ? On écrit : lundi 8 septembre 2026. »\n- « Hier c'était… demain ce sera… »\n- « Quel temps fait-il ce matin ? On complète la météo. »"
+                }
+              ],
+              "materiel": "Étiquettes date ; cahier de liaison (jaune) pour les mots.",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s2",
+          "start": "08:45",
+          "end": "09:25",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "l8eval",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Évaluations nationales (début CE1/CE2)",
+              "objectif": "Passation des évaluations nationales de début d'année (protocole officiel).",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t3",
+                  "label": "Passation",
+                  "note": "- « On sort son crayon et sa gomme, rien d'autre sur la table. »\n- « Je lis chaque consigne à voix haute, on avance tous ensemble. »\n- « On prend le temps ; si c'est trop dur, tu passes à la suite sans t'inquiéter. »\n(Faire respecter le temps de chaque exercice selon le protocole.)"
+                }
+              ],
+              "materiel": "Livrets d'évaluation nationale ; crayon, gomme.",
+              "differenciation": "Consignes lues pour tous, climat rassurant (pas de note). Pour un élève à besoins attentionnels : cache sur la ligne en cours, courtes pauses.",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Aucune préparation de contenu nécessaire (livrets fournis). Saisie des résultats ensuite."
+            }
+          ]
+        },
+        {
+          "id": "l8s3",
+          "start": "09:25",
+          "end": "10:15",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "l8verbe",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Grammaire — Le verbe (séance 1)",
+              "objectif": "Découvrir le verbe : le repérer dans une phrase (CE1) ; trouver son infinitif et sa variation (CE2).",
+              "competence": "Identifier le verbe (classe grammaticale).",
+              "competenceRef": "Français — étude de la langue, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "Grammaire",
+              "progSequence": "Le verbe",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "binômes"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t4",
+                  "label": "Découverte au tableau (collectif)",
+                  "note": "- « Regardez ces phrases : dans chacune, un mot dit ce qu'on FAIT. »\n- « Je redis la phrase à un autre moment : Hier, le chat… — quel mot change ? »\n- « Ce mot qui change, c'est le VERBE : on l'entoure en rouge. »\n- « On peut aussi l'encadrer par ne … pas. »"
+                },
+                {
+                  "id": "l8t5",
+                  "label": "Institutionnalisation",
+                  "note": "- « On lit ensemble l'affiche du verbe. »\n- « Chacun colle la leçon dans le cahier bleu (leçons de français). »"
+                },
+                {
+                  "id": "l8t6",
+                  "label": "Entraînement différencié",
+                  "note": "- « Les CE1 : vous entourez le verbe. Les CE2 : vous soulignez le verbe ET vous écrivez son infinitif. »\n- « On fait le premier ensemble, puis vous continuez seuls. »\n(La fiche va dans le classeur de français.)"
+                }
+              ],
+              "materiel": "Affiche « Le verbe » (TBI) ; leçon à coller (cahier bleu) ; fiches d'exercices CE1 et CE2 (classeur) — voir Documents à imprimer.",
+              "differenciation": "CE1 : repérer le verbe-action dans des phrases simples. CE2 : + infinitif et variation du verbe. Pour un élève à besoins attentionnels : phrases une par une, modèle surligné.",
+              "depassement": "",
+              "correction": "Verbes : court, prépare, écoutent, saute, pousse. CE2 — infinitifs : chanter, partir, ranger, vendre. « Hier, je mangeais à la cantine. » → le verbe a changé.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s4",
+          "start": "10:15",
+          "end": "10:30",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "l8rec1",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "Récréation du matin.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s5",
+          "start": "10:30",
+          "end": "11:30",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "l8mce1",
+              "niveaux": [
+                "CE1"
+              ],
+              "title": "Maths CE1 — Dénombrer jusqu'à 99 (dizaines/unités)",
+              "objectif": "Grouper par 10 pour dénombrer : dizaines (barres) et unités (cubes).",
+              "competence": "Dénombrer, constituer et utiliser des groupements par dizaines.",
+              "competenceRef": "Maths — Nombres, cycle 2 (Tandem).",
+              "progPeriode": "P1",
+              "progDomaine": "Nombres",
+              "progSequence": "Nombres jusqu'à 99",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "groupe guidé",
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t7",
+                  "label": "Phase 1 — Leçon guidée avec moi (25 min)",
+                  "note": "- « On a plein de haricots : comment les compter vite, sans se tromper ? »\n- « On fait des paquets de 10 : chaque paquet, c'est une dizaine. »\n- « Ce qui reste tout seul, ce sont les unités. »\n- « 4 dizaines et 6 unités, ça fait 46 : le 4 pour les dizaines, le 6 pour les unités. »\n- « On colle la leçon dans le cahier rouge. »"
+                },
+                {
+                  "id": "l8t8",
+                  "label": "Phase 2 — Autonomie (25 min)",
+                  "note": "(Pendant que je passe aux CE2.)\n- « Maintenant, la fiche d'exercices tout seuls : dizaines et unités. »\n- « Si tu bloques, prends les barres et les cubes pour t'aider. »"
+                }
+              ],
+              "materiel": "Haricots, barres et cubes (base 10) ; leçon (cahier rouge) ; fiche d'exercices (classeur).",
+              "differenciation": "Matériel de manipulation disponible ; pour les rapides : composer des nombres jusqu'à 99.",
+              "depassement": "",
+              "correction": "37 = 3 d 7 u ; 52 = 5 d 2 u ; 8 = 0 d 8 u ; 60 = 6 d 0 u. — 43 ; 29 ; 70. Rangement : 19 < 24 < 40 < 42.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            },
+            {
+              "id": "l8mce2",
+              "niveaux": [
+                "CE2"
+              ],
+              "title": "Maths CE2 — Dénombrer jusqu'à 1 000 (centaines)",
+              "objectif": "Grouper par 100, 10 et 1 pour dénombrer jusqu'à 1 000 ; décomposer un nombre.",
+              "competence": "Dénombrer et décomposer des nombres à trois chiffres.",
+              "competenceRef": "Maths — Nombres, cycle 2 (Tandem).",
+              "progPeriode": "P1",
+              "progDomaine": "Nombres",
+              "progSequence": "Nombres jusqu'à 1 000",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "individuel",
+                "groupe guidé"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t9",
+                  "label": "Phase 1 — Autonomie (25 min)",
+                  "note": "(Pendant que je suis avec les CE1.)\n- « Vous commencez le fichier autonomie : dénombrer jusqu'à 1 000. »\n- « Rappelez-vous : 100, c'est 10 dizaines ; on groupe par plaques de 100. »"
+                },
+                {
+                  "id": "l8t10",
+                  "label": "Phase 2 — Institutionnalisation guidée (25 min)",
+                  "note": "- « On corrige ensemble : comment as-tu trouvé 352 ? »\n- « 352 = 300 + 50 + 2 : 3 centaines, 5 dizaines, 2 unités. »\n- « On écrit la leçon dans le cahier rouge. »"
+                }
+              ],
+              "materiel": "Matériel base 10 (plaques/barres/cubes) ; fichier autonomie (classeur) ; leçon (cahier rouge).",
+              "differenciation": "Pour les rapides : nombres jusqu'à 2 000. Aide : matériel base 10.",
+              "depassement": "",
+              "correction": "352 ; 604 ; 289. — 582 = 500+80+2 ; 706 = 700+6 ; 250 = 200+50. — 100 → 10 dizaines ; 1 000 → 10 centaines ; 453 = 4 c 5 d 3 u. Rangement : 309 < 390 < 903 < 930.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s6",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "l8rep",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "Repas et temps méridien.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s7",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "l8sol",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme d'après-repas par la lecture individuelle et silencieuse.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t11",
+                  "label": "Installation",
+                  "note": "- « Chacun prend son livre et s'installe confortablement. »\n- « On lit dans sa tête, tout seul, sans déranger les autres. »\n- « Je lis aussi, avec vous. »"
+                }
+              ],
+              "materiel": "Livre de la bibliothèque de classe.",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s8",
+          "start": "13:45",
+          "end": "14:30",
+          "disciplineId": "qlm",
+          "activities": [
+            {
+              "id": "l8hist",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Le temps — Comment sait-on qu'une chose appartient au passé ?",
+              "objectif": "Distinguer passé / présent ; reconnaître des indices du passé (objets anciens vs modernes).",
+              "competence": "Se repérer dans le temps ; comparer des objets d'hier et d'aujourd'hui.",
+              "competenceRef": "Questionner le monde — le temps, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "Le temps",
+              "progSequence": "Se repérer dans le temps",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t12",
+                  "label": "Découverte (collectif)",
+                  "note": "- « Regardez ces objets : lesquels sont d'aujourd'hui, lesquels d'autrefois ? »\n- « Comment le sait-on ? Quels indices nous aident ? »\n- « On classe ensemble : passé / présent. »"
+                },
+                {
+                  "id": "l8t13",
+                  "label": "Trace écrite différenciée",
+                  "note": "- « On garde une trace : les mots du temps. »\n- « CE1 : passé / présent, autrefois / aujourd'hui. CE2 : + la durée, mon histoire et l'histoire de tous. »\n- « On colle la trace dans le classeur de Questionner le monde. »"
+                }
+              ],
+              "materiel": "Images d'objets anciens et modernes (affichage) ; traces écrites CE1/CE2 (voir Documents à imprimer).",
+              "differenciation": "CE1 : passé/présent, passé proche/lointain. CE2 : + notion de durée, histoire personnelle vs collective.",
+              "depassement": "",
+              "correction": "Objets anciens : lampe à huile, plume, téléphone à cadran… Objets d'aujourd'hui : lampe LED, stylo, smartphone. Indices : matière, usure, forme.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s9",
+          "start": "14:30",
+          "end": "15:15",
+          "disciplineId": "eps",
+          "activities": [
+            {
+              "id": "l8eps",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Athlétisme — Courir longtemps, à allure régulière",
+              "objectif": "Courir sans s'arrêter pendant un temps donné (course régulière) en gérant son allure.",
+              "competence": "Courir longtemps ; adapter son effort à une durée.",
+              "competenceRef": "EPS — champ 1, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "EPS",
+              "progSequence": "Courir longtemps",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "binômes"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t14",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On respire par le nez, on ne part pas trop vite. »"
+                },
+                {
+                  "id": "l8t15",
+                  "label": "Jeu du contrat (25 min)",
+                  "note": "- « Le but : courir SANS s'arrêter pendant le temps du contrat. »\n- « On commence par 4 minutes : choisis une allure que tu peux tenir. »\n- « Ton binôme compte tes tours et t'encourage. »\n- « Trop dur ? Tu ralentis mais tu continues de courir. »"
+                },
+                {
+                  "id": "l8t16",
+                  "label": "Retour au calme (10 min)",
+                  "note": "- « On marche pour récupérer, on étire doucement. »\n- « Combien de tours as-tu tenus ? On note son contrat pour la prochaine fois. »"
+                }
+              ],
+              "materiel": "Cour / terrain balisé (plots) ; chronomètre ; fiche binôme (compter les tours).",
+              "differenciation": "Contrat de temps adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé pour ceux qui en ont besoin.",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s10",
+          "start": "15:15",
+          "end": "15:30",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "l8rec2",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "Récréation de l'après-midi.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s11",
+          "start": "15:30",
+          "end": "16:15",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "l8ita",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Autour du monde — Escale 1 : l'Italie (Europe)",
+              "objectif": "Découvrir un pays d'Europe : le situer, découvrir un mode de vie et un monument.",
+              "competence": "Se repérer sur une carte ; découvrir cultures et patrimoines.",
+              "competenceRef": "QLM / Histoire des arts / Oral, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "Projet — Autour du monde",
+              "progSequence": "Europe",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "découverte"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t17",
+                  "label": "Lancement du diaporama",
+                  "note": "- « Aujourd'hui commence notre voyage : cette période, on explore l'Europe ! »\n- « Devinez le pays grâce au cryptogramme : on calcule pour trouver les lettres. »\n- « On situe le pays sur la carte, puis on découvre la vie là-bas et son monument. »"
+                },
+                {
+                  "id": "l8t18",
+                  "label": "Carte d'identité du pays",
+                  "note": "- « Chacun remplit sa carte d'identité de l'Italie : nom, capitale, drapeau à dessiner, spécialité, monument. »\n- « On la range dans la pochette noire (projet voyage). »"
+                }
+              ],
+              "materiel": "Diaporama Autour du monde (onglet Projets) ; carte d'identité Italie A4 à imprimer ; pochette noire (projet voyage).",
+              "differenciation": "CE1 : carte d'identité guidée (mots à recopier). CE2 : compléter seuls + une phrase sur le monument.",
+              "depassement": "",
+              "correction": "Italie — capitale : Rome ; monument : le Colisée ; spécialité : les pâtes / la pizza. (Mode correction du diaporama pour l'affichage.)",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s12",
+          "start": "16:15",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "l8fin",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement et sortie",
+              "objectif": "Rituel de sortie : ranger, vérifier le cahier de liaison, se mettre en rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t19",
+                  "label": "Sortie",
+                  "note": "- « On range son matériel, chaises sur les tables. »\n- « On vérifie le cahier de liaison (jaune) : mots à faire signer. »\n- « On se met en rang au signal, par îlots. »"
+                }
+              ],
+              "materiel": "Cahier de liaison (jaune).",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1788700000000,
+      "updatedAt": 1788700000000
     }
   ],
   "templates": [],
