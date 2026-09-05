@@ -17,6 +17,7 @@ export type FicheBloc =
   | { kind: "paires"; titre?: string; paires: { avant: { name: string; label: string }; apres: { name: string; label: string } }[] }
   | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string }
   | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
+  | { kind: "comparer"; a: number; b: number; signe: "<" | ">" | "="; cdu?: boolean }
   | { kind: "champs"; items: string[] }
   | { kind: "traits"; n: number }
   | { kind: "lignes"; n: number };
@@ -70,6 +71,32 @@ function Base10({ centaines = 0, dizaines, unites, legende }: { centaines?: numb
       <div style={{ fontSize: "12px", color: "#555" }}>
         {legende ?? `${centaines ? centaines + " centaine(s) · " : ""}${dizaines} dizaine(s) et ${unites} unité(s)`} = <strong style={{ color: ORANGE, fontSize: "15px" }}>{total}</strong>
       </div>
+    </div>
+  );
+}
+
+/** Carte-nombre pour la comparaison : le nombre en grand, avec option c/d/u colorés. */
+function CarteNombre({ n, cdu }: { n: number; cdu?: boolean }) {
+  const s = String(n).padStart(cdu ? 3 : String(n).length, "0");
+  const chiffres = s.split("");
+  const start = chiffres.length - 3; // colorer les 3 derniers rangs c·d·u
+  const couleur = (posFromRight: number) => (posFromRight === 2 ? "#2563eb" : posFromRight === 1 ? "#c9481f" : "#16a34a");
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5mm", minWidth: "26mm" }}>
+      {cdu ? (
+        <div style={{ display: "flex", gap: "1.5mm" }}>
+          {chiffres.map((c, i) => {
+            const posFromRight = chiffres.length - 1 - i;
+            const on = i >= start && posFromRight <= 2;
+            return (
+              <span key={i} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "9mm", height: "12mm", fontSize: "28px", fontWeight: 900, color: on ? "#fff" : "#111", background: on ? couleur(posFromRight) : "#fff", border: "1.5px solid #cbd5e1", borderRadius: "4px" }}>{c}</span>
+            );
+          })}
+        </div>
+      ) : (
+        <span style={{ fontSize: "34px", fontWeight: 900, color: "#111" }}>{n}</span>
+      )}
+      {cdu && <span style={{ fontSize: "10px", color: "#64748b", letterSpacing: "0.35em" }}>c d u</span>}
     </div>
   );
 }
@@ -201,6 +228,15 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i} style={{ border: "1px solid #e7e2d8", borderRadius: "8px", padding: "3mm" }}>
                 <Base10 centaines={b.centaines} dizaines={b.dizaines} unites={b.unites} legende={b.legende} />
+              </div>
+            );
+          }
+          if (b.kind === "comparer") {
+            return (
+              <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6mm", border: "1.5px solid #dfe6d8", background: "#f6f8f4", borderRadius: "10px", padding: "4mm" }}>
+                <CarteNombre n={b.a} cdu={b.cdu} />
+                <span style={{ fontSize: "44px", fontWeight: 900, color: ORANGE, lineHeight: 1 }}>{b.signe}</span>
+                <CarteNombre n={b.b} cdu={b.cdu} />
               </div>
             );
           }

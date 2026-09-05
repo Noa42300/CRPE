@@ -113,6 +113,12 @@ export function FichePrepA4({
           <div style={{ fontSize: "13px", lineHeight: 1.5 }}>{a.materiel}</div>
         </section>
       )}
+      {a.video && (
+        <section style={{ marginBottom: "4mm" }}>
+          <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Vidéo</h2>
+          <div style={{ fontSize: "12px", lineHeight: 1.5, wordBreak: "break-all" }}>🎬 {a.video}</div>
+        </section>
+      )}
 
       {/* Déroulement en tableau */}
       {a.deroulement.length > 0 && (

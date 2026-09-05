@@ -51,6 +51,7 @@ export function emptyActivity(niveaux: string[] = ["classe"]): Activity {
     roleEnseignant: [],
     deroulement: [],
     materiel: "",
+    video: "",
     differenciation: "",
     depassement: "",
     correction: "",
