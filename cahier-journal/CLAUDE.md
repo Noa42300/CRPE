@@ -119,6 +119,16 @@ jours. On peut réduire le reste, jamais ces deux-là.
   sont **ancrées dans le code** : `src/lib/programmations.ts`. Elles s'affichent
   en lecture seule dans **Programmations** (français & maths) avec un bouton
   « Pré-remplir mes zones ». **S'y référer** pour programmer les séances.
+- Les programmations **Questionner le monde** (Histoire, Géographie, Sciences),
+  **Anglais** et **EMC** sont dans `src/lib/progDisciplines.ts` et s'affichent en
+  référence (lecture seule) dans **Programmations**. Règles à respecter quand je
+  génère des séances :
+  - **Numéroter chaque séquence de 1 à N** (recommencer à 1 à chaque nouvelle
+    séquence), et non selon la numérotation d'origine des documents.
+  - **Histoire, géographie et sciences** entrent toutes dans « Questionner le
+    monde » (`qlm`).
+  - **Période 1 : uniquement l'HISTOIRE** ; la **séance 1 est déjà faite**
+    (commencer à la séance 2).
 - Données purement pédagogiques (aucune donnée élève) : peuvent être versionnées.
 
 ## Repères techniques
