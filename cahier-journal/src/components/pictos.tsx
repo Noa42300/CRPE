@@ -97,7 +97,19 @@ export const PictoLiberte = (p: P) => (
   <S {...p}><path d="M30 22h4v30h-4Z" fill="#5eead4" /><path d="M26 52h12v4H26Z" fill="#5eead4" /><circle cx="32" cy="18" r="5" fill="#5eead4" /><path d="M24 14l3-6 2 5 3-6 3 6 2-5 3 6Z" fill="#5eead4" /><rect x="30" y="24" width="4" height="14" fill="#0d9488" /><path d="M33 24l6-10" stroke="#5eead4" strokeWidth="3" strokeLinecap="round" /><circle cx="40" cy="13" r="3" fill="#fbbf24" /></S>
 );
 
+/* ---------------------------------------------- Mots non transparents (anglais) */
+export const PictoMaison = (p: P) => (
+  <S {...p}><path d="M32 12 8 32h6v20h36V32h6Z" fill="#f59e0b" stroke="#b45309" strokeWidth="2" strokeLinejoin="round" /><rect x="28" y="38" width="10" height="14" fill="#7c2d12" /><rect x="18" y="34" width="8" height="8" fill="#bae6fd" stroke="#0369a1" strokeWidth="1.5" /></S>
+);
+export const PictoGoutte = (p: P) => (
+  <S {...p}><path d="M32 10c10 14 14 20 14 28a14 14 0 0 1-28 0c0-8 4-14 14-28Z" fill="#38bdf8" stroke="#0284c7" strokeWidth="2" /><path d="M24 40a8 8 0 0 0 6 8" fill="none" stroke="#e0f2fe" strokeWidth="3" strokeLinecap="round" /></S>
+);
+export const PictoLivre = (p: P) => (
+  <S {...p}><path d="M10 16c8-4 14-4 22 0 8-4 14-4 22 0v34c-8-4-14-4-22 0-8-4-14-4-22 0Z" fill="#a78bfa" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round" /><path d="M32 16v34" stroke="#6d28d9" strokeWidth="2" /></S>
+);
+
 export const PICTOS: Record<string, (p: P) => React.ReactNode> = {
+  maison: PictoMaison, goutte: PictoGoutte, livre: PictoLivre,
   pomme: PictoPomme, fleur: PictoFleur, oreille: PictoOreille, saut: PictoSaut,
   oiseau: PictoOiseau, valise: PictoValise, cartable: PictoCartable, pain: PictoPain,
   casserole: PictoCasserole, chat: PictoChat, sourire: PictoSourire, chien: PictoChien,

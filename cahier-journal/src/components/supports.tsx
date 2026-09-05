@@ -6,6 +6,7 @@
 import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
+import { AnglaisDiaporama } from "./AnglaisDiaporama";
 
 export interface SupportFourni {
   key: string;
@@ -172,6 +173,11 @@ const ANGLAIS_LECON: FicheData = {
       { name: "banane", label: "a banana = une banane" }, { name: "tomate", label: "a tomato = une tomate" }, { name: "smartphone", label: "a telephone" },
     ] },
     { kind: "puces", titre: "Aux États-Unis (USA)", points: ["New York et la statue de la Liberté", "les grands taxis jaunes, le base-ball"] },
+    { kind: "def", picto: "chien", titre: "Attention !", contenu: "Tous les mots ne se ressemblent pas ! Beaucoup de mots anglais ne ressemblent pas du tout au français : il faut les apprendre." },
+    { kind: "pictos", titre: "Ces mots sont différents", items: [
+      { name: "chien", label: "a dog = un chien" }, { name: "chat", label: "a cat = un chat" }, { name: "maison", label: "a house = une maison" },
+      { name: "pomme", label: "an apple = une pomme" }, { name: "goutte", label: "water = de l'eau" }, { name: "livre", label: "a book = un livre" },
+    ] },
   ],
 };
 
@@ -181,6 +187,9 @@ const ANGLAIS_FEUILLE: FicheData = {
     { kind: "exercice", picto: "taxi", consigne: "Écris ce que veut dire chaque mot anglais.", items: [
       "a taxi → ____________", "a pizza → ____________", "a hamburger → ____________",
       "a banana → ____________", "a tomato → ____________", "a telephone → ____________",
+    ] },
+    { kind: "exercice", picto: "chien", aide: "transparent = ressemble au français", consigne: "Entoure les mots transparents (faciles à deviner). Souligne ceux qui sont différents.", items: [
+      "taxi – dog – pizza – house", "banana – cat – tomato – book",
     ] },
     { kind: "exercice", picto: "liberte", consigne: "Colorie en vert les mots que tu as devinés tout seul." },
     { kind: "exercice", picto: "pizza", consigne: "Écris deux autres mots anglais que tu connais déjà.", lignes: 2 },
@@ -218,6 +227,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "l8ang":
       return [
+        { key: "usa-diapo", label: "Let's discover the USA! — Diaporama à projeter", node: <AnglaisDiaporama /> },
         { key: "ang-lecon", label: "Les mots transparents — Leçon à coller", node: ficheNode(ANGLAIS_LECON) },
         { key: "ang-feuille", label: "Devine les mots (USA) — Feuille à distribuer", node: ficheNode(ANGLAIS_FEUILLE) },
       ];
