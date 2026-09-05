@@ -15,17 +15,37 @@ import { requestFullscreen, exitFullscreen } from "../lib/board";
 import { WorldMap } from "./WorldMap";
 import { WikiImage } from "./WikiImage";
 
-const ETAPES = ["Continent", "Énigme", "Géographie", "Découvertes"];
+const ETAPES = ["Continent", "Énigme", "Géographie", "La vie là-bas", "Le monument"];
+const LAST = ETAPES.length - 1; // 4
 
-interface Cell { type: "letter" | "space" | "sep"; letter?: string; a?: number; b?: number; ch?: string }
-function toCryptogramme(nom: string): Cell[] {
+interface Cell { type: "letter" | "space" | "sep"; letter?: string; expr?: string; ch?: string }
+
+/**
+ * Opération de calcul mental dont le résultat = position de la lettre (1..26).
+ * Elle évolue au fil de l'année : additions (P1), soustractions (P2),
+ * multiplications quand c'est possible (P3), puis mélange (P4-P5).
+ */
+function opFor(pos: number, period: number): string {
+  const mult = () => {
+    for (let d = 2; d <= 9; d++) if (pos % d === 0 && pos / d >= 2 && pos / d <= 10) return `${d} × ${pos / d}`;
+    return "";
+  };
+  const add = () => { const a = Math.ceil(pos / 2); return `${a} + ${pos - a}`; };
+  const sub = () => `${pos + 4} − 4`;
+  if (period <= 1) return add();
+  if (period === 2) return sub();
+  if (period === 3) return mult() || add();
+  if (period === 4) return pos % 2 === 0 ? sub() : add();
+  return mult() || sub(); // P5
+}
+
+function toCryptogramme(nom: string, period: number): Cell[] {
   const norm = nom.normalize("NFD").replace(/[̀-ͯ]/g, "");
   return Array.from(norm).map((ch): Cell => {
     const up = ch.toUpperCase();
     if (up >= "A" && up <= "Z") {
       const pos = up.charCodeAt(0) - 64;
-      const a = Math.ceil(pos / 2);
-      return { type: "letter", letter: up, a, b: pos - a };
+      return { type: "letter", letter: up, expr: opFor(pos, period) };
     }
     if (ch === " ") return { type: "space" };
     return { type: "sep", ch };
@@ -46,7 +66,7 @@ export function Diaporama({
   const theme = THEMES[periodNumber] ?? THEMES[1];
   const [i, setI] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const next = () => setI((n) => Math.min(3, n + 1));
+  const next = () => setI((n) => Math.min(LAST, n + 1));
   const prev = () => setI((n) => Math.max(0, n - 1));
 
   useEffect(() => {
@@ -79,16 +99,17 @@ export function Diaporama({
       <div className="grid flex-1 place-items-center overflow-auto p-4 sm:p-8">
         <div className="w-full max-w-5xl">
           {i === 0 && <SlideIntro continent={continent} periodNumber={periodNumber} theme={theme} />}
-          {i === 1 && <SlideEnigme pays={pays} theme={theme} />}
+          {i === 1 && <SlideEnigme pays={pays} theme={theme} periodNumber={periodNumber} />}
           {i === 2 && <SlideGeo pays={pays} theme={theme} />}
-          {i === 3 && <SlideDecouvertes pays={pays} theme={theme} />}
+          {i === 3 && <SlideVie pays={pays} theme={theme} />}
+          {i === 4 && <SlideMonument pays={pays} theme={theme} />}
         </div>
       </div>
 
       <div className="flex shrink-0 items-center justify-between px-6 py-3">
         <button onClick={prev} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: theme.accent, color: theme.accent }}>◀</button>
-        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/4 · {ETAPES[i]}</span>
-        <button onClick={next} disabled={i === 3} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: theme.accent }}>▶</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{ETAPES.length} · {ETAPES[i]}</span>
+        <button onClick={next} disabled={i === LAST} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: theme.accent }}>▶</button>
       </div>
     </div>
   );
@@ -119,8 +140,8 @@ function SlideIntro({ continent, periodNumber, theme }: { continent: string; per
 }
 
 /* --------------------------------------------- Slide 2 : énigme */
-function SlideEnigme({ pays, theme }: { pays: Pays; theme: Theme }) {
-  const cells = useMemo(() => toCryptogramme(pays.nom), [pays.nom]);
+function SlideEnigme({ pays, theme, periodNumber }: { pays: Pays; theme: Theme; periodNumber: number }) {
+  const cells = useMemo(() => toCryptogramme(pays.nom, periodNumber), [pays.nom, periodNumber]);
   const [revealed, setRevealed] = useState<Record<number, boolean>>({});
   const [showKey, setShowKey] = useState(false);
   const allShown = cells.every((c, k) => c.type !== "letter" || revealed[k]);
@@ -145,7 +166,7 @@ function SlideEnigme({ pays, theme }: { pays: Pays; theme: Theme }) {
             <button key={k} onClick={() => setRevealed((r) => ({ ...r, [k]: !r[k] }))}
               className="flex w-[4.5rem] flex-col items-center rounded-2xl border-2 bg-white p-1 transition hover:scale-105"
               style={{ borderColor: theme.accent }}>
-              <span className="rounded-lg px-1 text-lg font-bold" style={{ background: theme.soft, color: theme.accent }}>{c.a} + {c.b}</span>
+              <span className="rounded-lg px-1 text-lg font-bold" style={{ background: theme.soft, color: theme.accent }}>{c.expr}</span>
               <span className="mt-1 grid h-12 w-full place-items-center text-3xl font-extrabold" style={{ color: on ? theme.accent : "#d6d3d1" }}>{on ? c.letter : "?"}</span>
             </button>
           );
@@ -211,31 +232,36 @@ function Puce({ children, color }: { children: React.ReactNode; color: string })
     </li>
   );
 }
-function SlideDecouvertes({ pays, theme }: { pays: Pays; theme: Theme }) {
+/* Slide 4 : la vie là-bas (mode de vie, traditions) */
+function SlideVie({ pays, theme }: { pays: Pays; theme: Theme }) {
   return (
     <Carte theme={theme}>
-      <h2 className="mb-6 text-center text-4xl font-extrabold" style={{ color: theme.accent }}>Découvertes&nbsp;!</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {/* La vie là-bas */}
-        <div className="rounded-2xl border-2 p-4" style={{ borderColor: theme.soft }}>
-          <h3 className="mb-3 inline-block rounded-full px-4 py-1 text-lg font-extrabold text-white" style={{ background: theme.accent }}>La vie là-bas</h3>
-          <WikiImage title={pays.wikiVie} alt={`Tradition — ${pays.nom}`} accent={theme.accent} />
-          <ul className="mt-4 space-y-2">
-            <Puce color={theme.accent}>{pays.culture}</Puce>
-            <Puce color={theme.accent}><strong>Spécialité :</strong> {pays.specialite}</Puce>
-          </ul>
-        </div>
-        {/* Le monument */}
-        <div className="rounded-2xl border-2 p-4" style={{ borderColor: theme.soft }}>
-          <h3 className="mb-3 inline-block rounded-full px-4 py-1 text-lg font-extrabold text-white" style={{ background: theme.accent }}>Le monument à connaître</h3>
-          <WikiImage title={pays.wikiMonument} alt={pays.monument} accent={theme.accent} />
-          <ul className="mt-4 space-y-2">
-            <Puce color={theme.accent}><strong>{pays.monument}</strong></Puce>
-            <Puce color={theme.accent}>{pays.patrimoine}</Puce>
-          </ul>
-        </div>
+      <h2 className="mb-5 text-center text-4xl font-extrabold" style={{ color: theme.accent }}>La vie là-bas</h2>
+      <div className="mx-auto max-w-3xl">
+        <WikiImage title={pays.wikiVie} alt={`La vie quotidienne — ${pays.nom}`} accent={theme.accent} />
+        <ul className="mt-5 space-y-3">
+          <Puce color={theme.accent}>{pays.culture}</Puce>
+          <Puce color={theme.accent}><strong>Spécialité à goûter :</strong> {pays.specialite}</Puce>
+        </ul>
       </div>
-      <p className="mt-4 text-center text-xs text-stone-400">Photos : Wikipédia / Wikimedia Commons (chargées en ligne).</p>
+      <p className="mt-4 text-center text-xs text-stone-400">Photo : Wikipédia / Wikimedia Commons (chargée en ligne).</p>
+    </Carte>
+  );
+}
+
+/* Slide 5 : le monument à connaître (patrimoine) */
+function SlideMonument({ pays, theme }: { pays: Pays; theme: Theme }) {
+  return (
+    <Carte theme={theme}>
+      <h2 className="mb-5 text-center text-4xl font-extrabold" style={{ color: theme.accent }}>Le monument à connaître</h2>
+      <div className="mx-auto max-w-3xl">
+        <WikiImage title={pays.wikiMonument} alt={pays.monument} accent={theme.accent} />
+        <p className="mt-5 text-center text-3xl font-extrabold text-stone-800">{pays.monument}</p>
+        <ul className="mt-4 space-y-3">
+          <Puce color={theme.accent}>{pays.patrimoine}</Puce>
+        </ul>
+      </div>
+      <p className="mt-4 text-center text-xs text-stone-400">Photo : Wikipédia / Wikimedia Commons (chargée en ligne).</p>
     </Carte>
   );
 }

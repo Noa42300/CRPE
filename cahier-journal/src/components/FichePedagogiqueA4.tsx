@@ -12,7 +12,42 @@ export type FicheBloc =
   | { kind: "puces"; titre?: string; points: string[] }
   | { kind: "exemples"; titre?: string; points: string[] }
   | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number }
+  | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
   | { kind: "lignes"; n: number };
+
+/** Illustration base 10 : plaques (100), barres (10), cubes (1). */
+function Base10({ centaines = 0, dizaines, unites, legende }: { centaines?: number; dizaines: number; unites: number; legende?: string }) {
+  const u = "4mm"; // taille d'un cube
+  const cube = (bg: string): React.CSSProperties => ({ width: u, height: u, background: bg, border: "0.4mm solid #fff", boxSizing: "border-box" });
+  const total = centaines * 100 + dizaines * 10 + unites;
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "2mm" }}>
+      <div style={{ display: "flex", alignItems: "flex-end", gap: "4mm", flexWrap: "wrap" }}>
+        {/* Centaines : plaques 10×10 */}
+        {Array.from({ length: centaines }).map((_, i) => (
+          <div key={`c${i}`} style={{ display: "grid", gridTemplateColumns: `repeat(10, ${u})`, gridAutoRows: u, border: "0.5mm solid #2563eb" }}>
+            {Array.from({ length: 100 }).map((_, k) => <div key={k} style={cube("#93c5fd")} />)}
+          </div>
+        ))}
+        {/* Dizaines : barres verticales de 10 */}
+        {Array.from({ length: dizaines }).map((_, i) => (
+          <div key={`d${i}`} style={{ display: "grid", gridTemplateColumns: u, gridAutoRows: u, border: "0.5mm solid #c9481f" }}>
+            {Array.from({ length: 10 }).map((_, k) => <div key={k} style={cube("#f6b58f")} />)}
+          </div>
+        ))}
+        {/* Unités : cubes isolés */}
+        {unites > 0 && (
+          <div style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(unites, 5)}, ${u})`, gridAutoRows: u, gap: "1mm" }}>
+            {Array.from({ length: unites }).map((_, k) => <div key={k} style={{ ...cube("#4ade80"), border: "0.4mm solid #16a34a" }} />)}
+          </div>
+        )}
+      </div>
+      <div style={{ fontSize: "12px", color: "#555" }}>
+        {legende ?? `${centaines ? centaines + " centaine(s) · " : ""}${dizaines} dizaine(s) et ${unites} unité(s)`} = <strong style={{ color: "#c9481f", fontSize: "15px" }}>{total}</strong>
+      </div>
+    </div>
+  );
+}
 
 export interface FicheData {
   entete: string; // ex : "Leçon", "Affichage", "Exercices", "Fichier autonomie"
@@ -81,6 +116,13 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
                 <ul style={{ margin: 0, paddingLeft: "6mm", fontSize: "13.5px", lineHeight: 1.55 }}>
                   {b.points.map((p, j) => <li key={j}>{p}</li>)}
                 </ul>
+              </div>
+            );
+          }
+          if (b.kind === "base10") {
+            return (
+              <div key={i} style={{ border: "1px solid #e7e2d8", borderRadius: "6px", padding: "3mm" }}>
+                <Base10 centaines={b.centaines} dizaines={b.dizaines} unites={b.unites} legende={b.legende} />
               </div>
             );
           }
