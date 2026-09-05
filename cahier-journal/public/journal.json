@@ -1027,7 +1027,7 @@
       "updatedAt": 1788270000000
     },
     {
-      "date": "2026-09-08",
+      "date": "2026-09-07",
       "info": {
         "effectifPrevu": 23,
         "presents": null,
@@ -1038,7 +1038,7 @@
           {
             "id": "l8ev1",
             "type": "particulier",
-            "note": "Lundi de la 2e semaine — évaluations nationales le matin ; lancement du projet Autour du monde (Italie) l'après-midi."
+            "note": "Lundi de la 2e semaine : évaluations nationales le matin ; entrée en anglais et lancement du projet Autour du monde (Italie) l'après-midi."
           }
         ]
       },
@@ -1700,7 +1700,7 @@
         }
       ],
       "createdAt": 1788700000000,
-      "updatedAt": 1788760000000
+      "updatedAt": 1788820000000
     }
   ],
   "templates": [],
