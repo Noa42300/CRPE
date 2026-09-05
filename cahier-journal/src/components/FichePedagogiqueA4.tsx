@@ -17,6 +17,8 @@ export type FicheBloc =
   | { kind: "paires"; titre?: string; paires: { avant: { name: string; label: string }; apres: { name: string; label: string } }[] }
   | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string }
   | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
+  | { kind: "champs"; items: string[] }
+  | { kind: "traits"; n: number }
   | { kind: "lignes"; n: number };
 
 export interface FicheData {
@@ -172,6 +174,26 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
                     </div>
                   ))}
                 </div>
+              </div>
+            );
+          }
+          if (b.kind === "champs") {
+            return (
+              <div key={i} style={{ display: "flex", flexWrap: "wrap", gap: "6mm" }}>
+                {b.items.map((label, j) => (
+                  <div key={j} style={{ fontSize: "14px", fontWeight: 700 }}>
+                    {label} : <span style={{ display: "inline-block", minWidth: "45mm", borderBottom: "1.5px solid #94a3b8" }}>&nbsp;</span>
+                  </div>
+                ))}
+              </div>
+            );
+          }
+          if (b.kind === "traits") {
+            return (
+              <div key={i} style={{ border: "1.5px solid #94a3b8", borderRadius: "8px", padding: "4mm", display: "flex", flexWrap: "wrap", gap: "3mm 5mm" }}>
+                {Array.from({ length: b.n }).map((_, k) => (
+                  <span key={k} style={{ display: "inline-block", width: "3mm", height: "12mm", borderLeft: "2px solid #1c1917" }} />
+                ))}
               </div>
             );
           }

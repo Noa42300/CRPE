@@ -96,6 +96,22 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   (le reste de la semaine = complément). Ne préparer que ces deux jours
   (`settings.joursTravailles = [1, 2]`).
 
+## Volumes horaires hebdomadaires à respecter (IMPORTANT)
+
+Service à mi-temps : les volumes s'entendent **sur les DEUX jours (lundi + mardi)
+réunis**, pas par jour. Référence dans `src/lib/horaires.ts`.
+
+- **Français : 5 h sur les 2 jours** (~2 h 30/jour) — **IMPÉRATIF, non négociable.**
+- **Mathématiques : 2 h 15 sur les 2 jours** (~1 h 07/jour) — **IMPÉRATIF.**
+- Langue vivante (anglais) : 1 h 30 souhaité, **45 min acceptable** si besoin.
+- EPS : 1 h 30 — ajustable.
+- Questionner le monde : 45 min (histoire en P1) — ajustable.
+- **Musique : ne PAS programmer** (conservatoire dès début octobre).
+
+Règle de préparation : quand je bâtis lundi + mardi, vérifier que le cumul des
+créneaux atteint **300 min de français** et **135 min de maths** sur les deux
+jours. On peut réduire le reste, jamais ces deux-là.
+
 ## Programmations annuelles intégrées (référence permanente)
 
 - Les programmations officielles (Français : répartition annuelle + dictées
@@ -103,6 +119,16 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   sont **ancrées dans le code** : `src/lib/programmations.ts`. Elles s'affichent
   en lecture seule dans **Programmations** (français & maths) avec un bouton
   « Pré-remplir mes zones ». **S'y référer** pour programmer les séances.
+- Les programmations **Questionner le monde** (Histoire, Géographie, Sciences),
+  **Anglais** et **EMC** sont dans `src/lib/progDisciplines.ts` et s'affichent en
+  référence (lecture seule) dans **Programmations**. Règles à respecter quand je
+  génère des séances :
+  - **Numéroter chaque séquence de 1 à N** (recommencer à 1 à chaque nouvelle
+    séquence), et non selon la numérotation d'origine des documents.
+  - **Histoire, géographie et sciences** entrent toutes dans « Questionner le
+    monde » (`qlm`).
+  - **Période 1 : uniquement l'HISTOIRE** ; la **séance 1 est déjà faite**
+    (commencer à la séance 2).
 - Données purement pédagogiques (aucune donnée élève) : peuvent être versionnées.
 
 ## Repères techniques

@@ -26,6 +26,12 @@ import {
   EDL_SOMMAIRE,
   programmationTexte,
 } from "../lib/programmations";
+import {
+  PROG_QLM,
+  PROG_ANGLAIS,
+  PROG_EMC,
+  type ProgSequence,
+} from "../lib/progDisciplines";
 import { printArea } from "../lib/print";
 import { AutoTextarea, ChevronRight, Printer } from "./ui";
 
@@ -85,7 +91,14 @@ export function PlansView({ kind }: { kind: PlanKind }) {
     }));
 
   const disc = teaching.find((d) => d.id === disciplineId);
-  const hasRef = isProg && (disciplineId === "francais" || disciplineId === "maths");
+  // Matières dont j'ai intégré une programmation officielle en référence.
+  const canPrefill = disciplineId === "francais" || disciplineId === "maths";
+  const hasRef =
+    isProg &&
+    (canPrefill ||
+      disciplineId === "qlm" ||
+      disciplineId === "anglais" ||
+      disciplineId === "emc");
 
   // Pré-remplit les zones P1→P5 depuis la programmation officielle intégrée.
   const prefillFromRef = () => {
@@ -237,14 +250,16 @@ export function PlansView({ kind }: { kind: PlanKind }) {
             <summary className="flex cursor-pointer list-none items-center gap-2 text-sm font-bold text-ink-800 dark:text-ink-200">
               <ChevronRight className="h-4 w-4 transition-transform group-open:rotate-90" />
               📊 Ma programmation annuelle — {disc?.label} (référence intégrée)
-              <button
-                type="button"
-                onClick={(e) => { e.preventDefault(); prefillFromRef(); }}
-                className="btn-primary ml-auto py-1 text-xs"
-                title="Recopier cette programmation dans mes zones éditables P1→P5"
-              >
-                ✍️ Pré-remplir mes zones
-              </button>
+              {canPrefill && (
+                <button
+                  type="button"
+                  onClick={(e) => { e.preventDefault(); prefillFromRef(); }}
+                  className="btn-primary ml-auto py-1 text-xs"
+                  title="Recopier cette programmation dans mes zones éditables P1→P5"
+                >
+                  ✍️ Pré-remplir mes zones
+                </button>
+              )}
             </summary>
             <div className="mt-3">
               <ProgrammationReference disciplineId={disciplineId} />
@@ -361,6 +376,80 @@ function ProgrammationReference({ disciplineId }: { disciplineId: string }) {
         ))}
     </div>
   );
+
+  // Séquences numérotées 1..N (une liste ordonnée par séquence).
+  const SequenceList = ({ sequences }: { sequences: ProgSequence[] }) => (
+    <div className="space-y-2.5">
+      {sequences.map((seq, i) => (
+        <details
+          key={i}
+          className="rounded-xl border border-slate-200 bg-white/70 p-2.5 dark:border-slate-700 dark:bg-slate-900/40"
+          open={i === 0}
+        >
+          <summary className="cursor-pointer text-sm font-bold text-slate-800 dark:text-slate-100">
+            <span className="text-ink-600 dark:text-ink-300">Séquence {i + 1}</span> — {seq.titre}
+          </summary>
+          <ol className="ml-5 mt-2 list-decimal text-[13px] leading-snug text-slate-700 dark:text-slate-200">
+            {seq.seances.map((s, j) => <li key={j}>{s}</li>)}
+          </ol>
+        </details>
+      ))}
+    </div>
+  );
+
+  // Questionner le monde : Histoire, Géographie, Sciences (P1 = histoire seule).
+  if (disciplineId === "qlm") {
+    return (
+      <div className="space-y-4">
+        <p className="text-[12px] italic text-slate-500 dark:text-slate-400">
+          Histoire, géographie et sciences entrent toutes dans « Questionner le monde ».
+          En Période 1, je ne traite que l'histoire (la séance 1 est déjà faite).
+        </p>
+        {PROG_QLM.map((sub) => (
+          <div key={sub.label}>
+            <h3 className="mb-1.5 text-xs font-bold uppercase tracking-wide text-orange-700 dark:text-orange-300">
+              {sub.label}
+            </h3>
+            <SequenceList sequences={sub.sequences} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Anglais : séquences numérotées 1..N.
+  if (disciplineId === "anglais") {
+    return (
+      <div className="space-y-3">
+        <SequenceList sequences={PROG_ANGLAIS} />
+        <p className="text-[11px] text-slate-400">
+          Entrée dans la langue par les USA (mots transparents) puis progression annuelle.
+        </p>
+      </div>
+    );
+  }
+
+  // EMC : par période (thèmes).
+  if (disciplineId === "emc") {
+    return (
+      <div className="space-y-2.5">
+        {PROG_EMC.map((per) => (
+          <details
+            key={per.periode}
+            className="rounded-xl border border-slate-200 bg-white/70 p-2.5 dark:border-slate-700 dark:bg-slate-900/40"
+            open={per.periode === "P1"}
+          >
+            <summary className="cursor-pointer text-sm font-bold text-slate-800 dark:text-slate-100">
+              {per.periode}
+            </summary>
+            <ul className="ml-4 mt-2 list-disc text-[13px] leading-snug text-slate-700 dark:text-slate-200">
+              {per.themes.map((t, i) => <li key={i}>{t}</li>)}
+            </ul>
+          </details>
+        ))}
+      </div>
+    );
+  }
 
   if (disciplineId === "maths") {
     return (

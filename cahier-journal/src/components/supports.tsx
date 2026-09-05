@@ -196,6 +196,16 @@ const ANGLAIS_FEUILLE: FicheData = {
   ],
 };
 
+const EPS_TOURS: FicheData = {
+  entete: "Fiche binôme (à deux)", titre: "Course longue — je compte les tours de mon binôme", niveau: "CE1-CE2", discipline: "EPS — courir longtemps",
+  blocs: [
+    { kind: "champs", items: ["Coureur (celui qui court)", "Observateur (celui qui compte)"] },
+    { kind: "def", picto: "saut", contenu: "À chaque fois que ton camarade termine un tour, tu entoures un trait. À la fin, tu comptes tous les traits entourés : c'est son nombre de tours." },
+    { kind: "traits", n: 40 },
+    { kind: "champs", items: ["Total des tours entourés"] },
+  ],
+};
+
 export function supportsForActivity(activityId: string): SupportFourni[] {
   switch (activityId) {
     case "ah":
@@ -224,6 +234,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "hist-aff", label: "Objets d'hier et d'aujourd'hui — Affichage", node: ficheNode(HIST_SUPPORT) },
         { key: "hist-ce1", label: "Reconnaître le passé — Trace écrite CE1", node: ficheNode(HIST_CE1) },
         { key: "hist-ce2", label: "Reconnaître le passé — Trace écrite CE2", node: ficheNode(HIST_CE2) },
+      ];
+    case "l8eps":
+      return [
+        { key: "eps-tours", label: "Course — fiche binôme (compter les tours)", node: ficheNode(EPS_TOURS) },
       ];
     case "l8ang":
       return [
