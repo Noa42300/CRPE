@@ -8,6 +8,7 @@
  */
 import { useRef, useState } from "react";
 import { Picto } from "./pictos";
+import { WikiImage } from "./WikiImage";
 import { requestFullscreen } from "../lib/board";
 
 const BLEU = "#1d4ed8";
@@ -73,11 +74,13 @@ export function AnglaisDiaporama() {
 
       <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
         {i === 0 && (
-          <div className="text-center">
-            <div className="mx-auto mb-4 flex justify-center gap-2"><Picto name="liberte" size={120} /></div>
+          <div className="w-full text-center">
+            <div className="mx-auto mb-4 max-w-2xl">
+              <WikiImage title="Statue de la Liberté" alt="la statue de la Liberté" accent={BLEU} height="clamp(200px, 40vh, 380px)" />
+            </div>
             <h1 className="text-5xl font-extrabold" style={{ color: BLEU }}>Let's discover the USA!</h1>
-            <p className="mt-3 text-2xl font-semibold text-stone-500">On découvre l'anglais avec les États-Unis</p>
-            <div className="mx-auto mt-5 flex h-4 w-56 overflow-hidden rounded-full">
+            <p className="mt-2 text-2xl font-semibold text-stone-500">On découvre l'anglais avec les États-Unis</p>
+            <div className="mx-auto mt-4 flex h-4 w-56 overflow-hidden rounded-full">
               {[ROUGE, "#fff", BLEU].map((c) => <div key={c} className="flex-1" style={{ background: c, border: c === "#fff" ? "1px solid #e5e7eb" : "none" }} />)}
             </div>
           </div>
@@ -86,14 +89,19 @@ export function AnglaisDiaporama() {
         {i === 1 && (
           <div className="w-full text-center">
             <h2 className="mb-6 text-4xl font-extrabold" style={{ color: ROUGE }}>Welcome to the USA!</h2>
-            <div className="flex flex-wrap justify-center gap-6">
-              {[{ n: "liberte", t: "the Statue of Liberty · New York" }, { n: "taxi", t: "a yellow taxi" }, { n: "burger", t: "a hamburger" }].map((c) => (
-                <div key={c.n} className="flex w-52 flex-col items-center gap-2 rounded-2xl border-2 p-4" style={{ borderColor: BLEU }}>
-                  <Picto name={c.n} size={90} />
+            <div className="grid gap-5 sm:grid-cols-3">
+              {[
+                { title: "Statue de la Liberté", t: "the Statue of Liberty" },
+                { title: "Taxis de New York", t: "a yellow taxi" },
+                { title: "Empire State Building", t: "the big buildings" },
+              ].map((c) => (
+                <div key={c.title} className="flex flex-col items-center gap-2 rounded-2xl border-2 p-3" style={{ borderColor: BLEU }}>
+                  <WikiImage title={c.title} alt={c.t} accent={BLEU} height="clamp(150px, 26vh, 240px)" />
                   <span className="text-lg font-bold" style={{ color: BLEU }}>{c.t}</span>
                 </div>
               ))}
             </div>
+            <p className="mt-3 text-xs text-stone-400">Photos : Wikipédia / Wikimedia Commons (chargées en ligne).</p>
           </div>
         )}
 
