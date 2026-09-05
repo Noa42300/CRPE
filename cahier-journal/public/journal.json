@@ -1715,10 +1715,10 @@
           {
             "id": "m9ev1",
             "type": "particulier",
-            "note": "Mardi de la 2e semaine : dictée diagnostique Graphémo (Thème 1) le matin ; entrée dans la comparaison des nombres (Tandem, mission 2) ; 1re dictée du projet Autour du monde (Italie)."
+            "note": "Mardi de la 2e semaine : dictée diagnostique Graphémo (Thème 1) le matin ; comparaison des nombres (Tandem, mission 2) ; l'après-midi, étude de la langue avec « 1, 2, 3… » : les articles et les déterminants."
           }
         ],
-        "devoirs": "Maths : relire la leçon « Comparer les nombres » (cahier rouge). Revoir les mots de la dictée « Autour du monde » (Italie)."
+        "devoirs": "Maths : relire la leçon « Comparer les nombres » (cahier rouge). Français : relire la leçon « Les articles et les déterminants » (cahier bleu)."
       },
       "slots": [
         {
@@ -1829,7 +1829,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Reporter les réussites/erreurs dans le tableau de suivi Graphémo. Refaire cette dictée en semaine 7 pour mesurer les progrès."
+              "notesProchaine": "Reporter les réussites/erreurs dans le tableau de suivi Graphémo. Refaire cette dictée en semaine 7 pour mesurer les progrès.",
+              "obstacles": "Erreurs fréquentes :\n- L'élève reste bloqué sur un mot difficile et n'écrit plus rien.\n- Il oublie les marques du pluriel (les garçon, des blague).\n- Il transcrit un son complexe au hasard (raconter → « rakonté »).\nRemédiation rapide :\n- « Écris ce que tu entends, même si tu n'es pas sûr ; saute le mot et continue. »\n- « Combien ? plusieurs → on ajoute -s » : on cherche la marque du pluriel ensemble.\n- On segmente le mot en syllabes à voix basse avant de l'écrire.\n(Diagnostic : on dédramatise, aucun jugement.)"
             }
           ]
         },
@@ -1919,7 +1920,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "obstacles": "Erreurs fréquentes :\n- L'élève compare les unités d'abord (« 19 > 21 car 9 > 1 »).\n- Il trace le signe dans le mauvais sens ou confond < et >.\nRemédiation rapide :\n- « On regarde TOUJOURS les dizaines en premier » (cacher les unités avec le doigt).\n- Manipuler barres et cubes pour voir concrètement qui a le plus.\n- « Le bec s'ouvre vers le plus grand » : dessiner une bouche ouverte sur le signe."
             },
             {
               "id": "m2compce2",
@@ -1962,7 +1964,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Ce fichier autonomie entre dans la banque de fichiers CE2 (à réutiliser à chaque leçon guidée CE1)."
+              "notesProchaine": "Ce fichier autonomie entre dans la banque de fichiers CE2 (à réutiliser à chaque leçon guidée CE1).",
+              "obstacles": "Erreurs fréquentes :\n- L'élève regarde le nombre de chiffres à tort, ou oublie de passer aux dizaines quand les centaines sont égales.\n- Il range dans le désordre.\nRemédiation rapide :\n- Aligner les nombres en colonnes c / d / u et comparer rang par rang.\n- Rappeler : « à 3 chiffres > à 2 chiffres » (100 > 99).\n- Pour ranger : barrer à chaque étape le plus petit déjà trouvé."
             }
           ]
         },
@@ -2096,17 +2099,17 @@
           "disciplineId": "francais",
           "activities": [
             {
-              "id": "dictmonde",
+              "id": "artdet",
               "niveaux": [
                 "classe"
               ],
-              "title": "Orthographe — Dictée n°1 « Autour du monde » (l'Italie)",
-              "objectif": "Écrire une courte dictée préparée liée au projet voyage ; réinvestir majuscule, point et accords simples.",
-              "competence": "Écrire sous la dictée des mots et phrases préparés ; copier sans erreur.",
-              "competenceRef": "Français — orthographe, cycle 2.",
+              "title": "Étude de la langue — Les articles et les déterminants",
+              "objectif": "Reconnaître et utiliser les articles ; distinguer article défini / indéfini ; repérer les autres déterminants (possessifs, démonstratifs).",
+              "competence": "Se repérer dans la phrase simple ; identifier les principales classes de mots (déterminants).",
+              "competenceRef": "Français — étude de la langue, cycle 2 (« 1, 2, 3… Étude de la langue », chap. 11).",
               "progPeriode": "P1",
-              "progDomaine": "Orthographe (projet Autour du monde)",
-              "progSequence": "Dictées du voyage",
+              "progDomaine": "Grammaire — les déterminants",
+              "progSequence": "Les articles et les déterminants",
               "progSeance": "1",
               "progRef": "",
               "organisation": [
@@ -2115,39 +2118,39 @@
               ],
               "roleEnseignant": [
                 "étayage",
-                "observation"
+                "différenciation"
               ],
+              "video": "https://www.youtube.com/watch?v=vP_Hlfv0Ck4",
               "deroulement": [
                 {
                   "id": "m9t12",
-                  "label": "Je lance avec l'Italie (10 min)",
-                  "note": "- « Vous vous souvenez, hier on est partis en Italie : voici une petite vidéo du Colisée de Rome. »\n- « Cette semaine, notre dictée parle de notre voyage en Italie. »\n- « On va d'abord bien préparer les mots avant de les écrire. »\n- « Ouvrez grand les oreilles, on écoute la première phrase. »"
+                  "label": "Découverte au tableau (10 min)",
+                  "note": "- « Cet après-midi, on étudie les petits mots placés devant les noms : les déterminants. »\n- « Je montre : le lapin, la voiture, les enfants — qu'est-ce qui change devant le nom ? »\n- « On regarde une courte vidéo qui explique les articles définis et indéfinis. »\n- « le, la, les : on sait de quoi on parle. un, une, des : on ne sait pas encore. »\n- « Devant une voyelle, on écrit l' : l'école, l'aigle. »"
                 },
                 {
                   "id": "m9t13",
-                  "label": "Préparation des mots (20 min)",
-                  "note": "- « On lit ensemble les mots du voyage : l'Italie, Rome, un monument, le Colisée, des pâtes, un voyage. »\n- « Où entend-on la difficulté ? Dans “monument”, on entend “ment” à la fin. »\n- « “Italie” et “Colisée” prennent une majuscule : ce sont des noms de lieux. »\n- « On épelle deux mots ensemble, puis on les écrit sur l'ardoise. »\n- « On efface, et on réessaie de mémoire. »"
+                  "label": "Leçon projetée & institutionnalisation (10 min)",
+                  "note": "- « On lit ensemble la leçon projetée : le déterminant s'accorde avec le nom. »\n- « On observe le tableau : masculin, féminin, singulier, pluriel. »\n- « Il y a aussi les possessifs (mon, ma, mes) et les démonstratifs (ce, cette, ces). »\n- « Chacun colle la leçon dans le cahier bleu (leçons de français). »\n- « Mon astuce : je mets “le…” devant le mot ; si ça marche, c'est un article. »"
                 },
                 {
                   "id": "m9t14",
-                  "label": "La dictée (25 min)",
-                  "note": "- « On écrit maintenant, une ligne sur deux, en écriture soignée. »\n- « Première phrase : “Nous partons en voyage en Italie.” »\n- « Deuxième phrase : “À Rome, nous visitons un grand monument : le Colisée.” »\n- « Les CE2, une phrase de plus : “Le soir, nous mangeons de bonnes pâtes.” »\n- « On relit : majuscule au début, point à la fin, les majuscules aux noms de lieux. »"
+                  "label": "Entraînement différencié — Je me teste (35 min)",
+                  "note": "- « Maintenant, la fiche “Je me teste” : on commence le premier exercice ensemble. »\n- « On colorie uniquement les articles, puis on distingue masculin / féminin. »\n- « Parcours adapté : chacun sa fiche (1, 2 ou 3). »\n- « Si tu bloques, tu essaies l'astuce : “le…” devant le mot. »\n- « Correction collective : on justifie à chaque fois pourquoi c'est un article. »\n(La fiche va dans le classeur de français.)"
                 },
                 {
                   "id": "m9t15",
-                  "label": "Correction & rangement (20 min)",
-                  "note": "- « On corrige ensemble : j'écris chaque phrase juste au tableau. »\n- « Vous comparez et vous corrigez en dessous, en vert. »\n- « On regarde surtout les majuscules et les accords : les pâtes, bonnes. »\n- « On colle la dictée dans le cahier vert et la carte d'identité de l'Italie dans la pochette noire. »"
+                  "label": "Bilan (5 min)",
+                  "note": "- « À quoi sert un déterminant ? À accompagner le nom. »\n- « Défini ou indéfini : quelle différence ? »\n- « Donnez-moi un exemple de déterminant possessif. »\n- « Bravo : on saura les repérer dans nos textes maintenant. »"
                 }
               ],
-              "materiel": "Ardoises ; texte de la dictée à lire — voir Documents à imprimer ; cahier vert (dictées) ; pochette noire (projet voyage).",
-              "video": "https://www.youtube.com/watch?v=hAK-mzZnrsU",
-              "differenciation": "CE1 : les 2 premières phrases ; CE2 : les 3 phrases. Pour un élève à besoins attentionnels : mots affichés, phrases une par une.",
-              "depassement": "",
-              "correction": "« Nous partons en voyage en Italie. À Rome, nous visitons un grand monument : le Colisée. Le soir, nous mangeons de bonnes pâtes. » Attendus : majuscules à Italie, Rome, Colisée ; accords « bonnes pâtes ».",
+              "materiel": "Vidéo (Canopé) ; leçon à projeter + leçon à coller (cahier bleu) — voir Documents à imprimer ; fiches « Je me teste 1 et 2 » (1,2,3 Étude de la langue), parcours différenciés (classeur).",
+              "differenciation": "Parcours 1 : reconnaître et manipuler les articles dans des GN simples. Parcours 2 : identifier/compléter des GN avec un déterminant, accorder en genre et nombre. Parcours 3 : distinguer articles définis / indéfinis et autres déterminants dans un texte. Pour un élève à besoins attentionnels : une consigne à la fois, modèle surligné.",
+              "correction": "Je me teste 1 — Ex.1 articles : une, les, des, le. Ex.2 : féminins (bleu) la lune, une assiette, sa maîtresse ; masculins (orange) mon frère, le pays, un tigre. Ex.3 : une ceinture, l'abricot, le ballon, les chevaux. Ex.4 : Le dictionnaire… ; J'inviterai des copains… ; L'escargot Petit-Gris… ; Papa fait la vaisselle… \nJe me teste 2 — Ex.1 déterminants : l', ton, cette, un, les, notre. Ex.2 : féminins (bleu) la voiture, une chaussette, cette pizza ; masculins (orange) le chemin, son vélo, un magasin. Ex.3 (ex.) : vos affaires ; la console ; Le/Un taxi ; mon orteil. Ex.4 : « Le chat… », « L'arrivée… » → article défini ; « un motard », « des histoires » → article indéfini.",
+              "obstacles": "Erreurs fréquentes (d'après la fiche 1,2,3) :\n- L'élève confond l'article avec les autres « petits mots » (préposition, pronom, conjonction) et coche tout.\n- Il a du mal à écrire l'article élidé l' (il écrit « laigle » au lieu de « l'aigle »).\n- Il confond l'article défini (le, la) et le pronom (le, la devant un verbe).\nRemédiation rapide :\n- Test du nom : « le… / un… » se met devant un NOM → c'est un article ; devant un verbe, non (« il le mange » : le = pronom).\n- Élision : faire dire le nom à voix haute (l'|aigle) et entourer l'apostrophe.\n- Faire colorier le nom, puis vérifier que le petit mot juste devant s'accorde (le / la / les).",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "Réinvestir en repérant les déterminants dans la dictée et les textes de lecture."
             }
           ]
         },
@@ -2247,7 +2250,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Séance 3 : allonger la durée du contrat (courir 8 min sans s'arrêter)."
+              "notesProchaine": "Séance 3 : allonger la durée du contrat (courir 8 min sans s'arrêter).",
+              "obstacles": "Erreurs fréquentes :\n- L'élève part trop vite et s'arrête (ou marche) au bout d'une minute.\n- Il s'arrête net dès qu'il est essoufflé.\n- L'observateur oublie de compter un tour.\nRemédiation rapide :\n- « Choisis une allure où tu peux encore parler » ; courir à côté de lui un tour pour donner le rythme.\n- Autoriser la zone de marche puis reprendre la course, sans culpabiliser.\n- Repère simple pour l'observateur : un trait entouré à chaque passage devant le plot Départ."
             }
           ]
         },
@@ -2297,7 +2301,8 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": ""
+              "notesProchaine": "",
+              "obstacles": "Erreurs fréquentes :\n- L'élève répond en français ou reste muet.\n- Il confond « What's your name? » et « How are you? ».\n- Prononciation : « name » prononcé « nam ».\nRemédiation rapide :\n- Modèle systématique : je dis → ils répètent en chœur → puis en binôme.\n- Associer un geste à chaque question (main tendue = name ; pouce = how are you).\n- Accepter un mot isolé au CE1, valoriser toute prise de parole."
             }
           ]
         },
@@ -2397,13 +2402,14 @@
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Séance de réserve : à placer un jour où un créneau se libère (EPS annulée, activité plus courte)."
+              "notesProchaine": "Séance de réserve : à placer un jour où un créneau se libère (EPS annulée, activité plus courte).",
+              "obstacles": "Erreurs fréquentes :\n- L'élève confond « aider » et « faire à la place de ».\n- Il ne trouve pas de geste solidaire concret à proposer.\nRemédiation rapide :\n- Rejouer une situation : « montre-moi comment tu aides SANS faire à sa place ».\n- Proposer des images de gestes solidaires ; l'élève en choisit un à s'engager à faire."
             }
           ]
         }
       ],
       "createdAt": 1789000000000,
-      "updatedAt": 1789100000000
+      "updatedAt": 1789200000000
     }
   ],
   "templates": [],

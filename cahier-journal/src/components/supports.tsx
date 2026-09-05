@@ -325,6 +325,46 @@ const ANGLAIS_PRESENT_RECAP: FicheData = {
   ],
 };
 
+/* ============ FRANÇAIS — Les articles et les déterminants (1,2,3 ÉdL) ============ */
+
+const ARTDET_AFFICHE: FicheData = {
+  entete: "Leçon (à projeter)", titre: "Les articles et les déterminants", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "def", picto: "livre", contenu: "Le déterminant est un petit mot placé DEVANT le nom. Il a le même genre (masculin ou féminin) et le même nombre (singulier ou pluriel) que le nom qu'il accompagne. Ex. : le lapin, la voiture, les enfants." },
+    { kind: "tableau", titre: "Les articles", entetes: ["", "Masculin singulier", "Féminin singulier", "Pluriel"], lignes: [
+      ["Article défini", "le, l'", "la, l'", "les"],
+      ["Article indéfini", "un", "une", "des"],
+    ] },
+    { kind: "puces", titre: "Défini ou indéfini ?", points: [
+      "Article défini (le, la, les) : on sait DE QUI ou DE QUOI on parle (on en a déjà parlé). Ex. : le chien de Léa.",
+      "Article indéfini (un, une, des) : on ne sait pas encore précisément. Ex. : j'ai vu un chien.",
+      "Devant une voyelle ou un h muet, l'article s'élide : l'aigle, l'école, l'horloge.",
+    ] },
+    { kind: "tableau", titre: "Les autres déterminants", entetes: ["", "Masculin", "Féminin", "Pluriel"], lignes: [
+      ["Démonstratifs (je montre)", "ce, cet", "cette", "ces"],
+      ["Possessifs (à qui c'est)", "mon, ton, son", "ma, ta, sa", "mes, tes, ses…"],
+    ] },
+    { kind: "def", picto: "ampoule", titre: "Mon astuce", contenu: "Pour savoir si un mot est un déterminant, j'essaie de le mettre devant un nom : « le … » marche → c'est un article ; « de … » tout seul → ce n'est pas un article." },
+  ],
+};
+
+const ARTDET_LECON: FicheData = {
+  entete: "Leçon à coller (cahier bleu)", titre: "Les articles et les déterminants", niveau: "CE1-CE2", discipline: "Français — Grammaire", cursive: true,
+  blocs: [
+    { kind: "def", picto: "livre", contenu: "Le déterminant est un petit mot placé devant le nom. Il s'accorde en genre et en nombre avec le nom : le chat, la souris, les oiseaux." },
+    { kind: "tableau", entetes: ["", "Masc.", "Fém.", "Pluriel"], lignes: [
+      ["défini", "le, l'", "la, l'", "les"],
+      ["indéfini", "un", "une", "des"],
+      ["autres", "ce, mon…", "cette, ma…", "ces, mes…"],
+    ] },
+    { kind: "puces", titre: "Je retiens", points: [
+      "défini (le, la, les) = on sait de quoi on parle ;",
+      "indéfini (un, une, des) = on ne sait pas encore ;",
+      "devant une voyelle : l' (l'école).",
+    ] },
+  ],
+};
+
 /* ===================== EMC — La solidarité ===================== */
 
 const EMC_SOLIDARITE: FicheData = {
@@ -409,6 +449,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "emcsolid":
       return [
         { key: "emc-solidarite", label: "La solidarité — Séance (affichage + trace)", node: ficheNode(EMC_SOLIDARITE) },
+      ];
+    case "artdet":
+      return [
+        { key: "artdet-affiche", label: "Les articles et déterminants — Leçon à projeter", node: ficheNode(ARTDET_AFFICHE) },
+        { key: "artdet-lecon", label: "Les articles et déterminants — Leçon à coller (cursive)", node: ficheNode(ARTDET_LECON) },
       ];
     case "l8ang":
       return [

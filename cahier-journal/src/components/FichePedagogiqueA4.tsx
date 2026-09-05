@@ -18,6 +18,7 @@ export type FicheBloc =
   | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string }
   | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
   | { kind: "comparer"; a: number; b: number; signe: "<" | ">" | "="; cdu?: boolean }
+  | { kind: "tableau"; titre?: string; entetes: string[]; lignes: string[][] }
   | { kind: "champs"; items: string[] }
   | { kind: "traits"; n: number }
   | { kind: "lignes"; n: number };
@@ -228,6 +229,31 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i} style={{ border: "1px solid #e7e2d8", borderRadius: "8px", padding: "3mm" }}>
                 <Base10 centaines={b.centaines} dizaines={b.dizaines} unites={b.unites} legende={b.legende} />
+              </div>
+            );
+          }
+          if (b.kind === "tableau") {
+            return (
+              <div key={i}>
+                {b.titre && <div style={{ ...H, fontSize: "13px", marginBottom: "1.5mm" }}>{b.titre}</div>}
+                <table style={{ borderCollapse: "collapse", width: "100%", fontSize: data.cursive ? "15px" : "13.5px", fontFamily: body }}>
+                  <thead>
+                    <tr>
+                      {b.entetes.map((h, j) => (
+                        <th key={j} style={{ border: "1px solid #cbd5e1", background: "#f6f8f4", color: ORANGE, fontWeight: 800, padding: "2mm 2.5mm", textAlign: "left" }}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {b.lignes.map((row, r) => (
+                      <tr key={r}>
+                        {row.map((cell, c) => (
+                          <td key={c} style={{ border: "1px solid #cbd5e1", padding: "2mm 2.5mm", fontWeight: c === 0 ? 700 : 400, background: c === 0 ? "#fafaf9" : "#fff" }}>{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             );
           }

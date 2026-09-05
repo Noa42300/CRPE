@@ -49,6 +49,16 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   calme » ; « pour un élève TSA : anticiper les changements, supports visuels,
   espace de retour au calme »).
 
+### Erreurs fréquentes & remédiation (IMPORTANT — pour CHAQUE séance)
+- Chaque activité d'apprentissage a un champ **`obstacles`** : les **erreurs que les
+  élèves peuvent rencontrer** (les blocages du type « je n'y arrive pas ») **et la
+  remédiation rapide** pour les débloquer sur le moment. C'est **anticipé avant** la
+  séance (≠ bilan, rempli après). S'affiche dans un onglet dédié et sur la fiche de prép.
+- Le rédiger pour **toutes les séances** (pédagogiques), au format « Erreurs
+  fréquentes : … / Remédiation rapide : … », concret et actionnable en classe.
+- Quand un manuel fournit déjà « erreurs rencontrées / remédiation » (ex. « 1,2,3
+  Étude de la langue »), **s'en servir** comme source.
+
 ### Correction de chaque activité
 - Chaque activité a un champ **`correction`** (les réponses attendues / la
   production visée). Le remplir dès que l'activité a des réponses ; il s'affiche

@@ -55,6 +55,7 @@ export function emptyActivity(niveaux: string[] = ["classe"]): Activity {
     differenciation: "",
     depassement: "",
     correction: "",
+    obstacles: "",
     bilan: "",
     aReprendre: "",
     devoirs: "",
