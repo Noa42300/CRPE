@@ -174,6 +174,13 @@ export function FichePrepA4({
         </section>
       )}
 
+      {a.obstacles && (
+        <section style={{ marginBottom: "4mm" }}>
+          <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Erreurs fréquentes &amp; remédiation</h2>
+          <div style={{ fontSize: "13px", lineHeight: 1.5, whiteSpace: "pre-line", background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: "4px", padding: "3mm" }}>{a.obstacles}</div>
+        </section>
+      )}
+
       {/* Bilan à remplir */}
       <section>
         <h2 style={{ ...cellHead, background: "none", border: "none", padding: 0, color: "#c9481f", marginBottom: "1mm" }}>Bilan / observations (après la séance)</h2>

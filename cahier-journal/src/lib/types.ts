@@ -74,6 +74,13 @@ export interface Activity {
   /** Correction / attendus de l'activité (réponses, production attendue). */
   correction: string;
 
+  /**
+   * Erreurs fréquentes que les élèves peuvent rencontrer + remédiation rapide
+   * (comment débloquer un élève qui dit « je n'y arrive pas »). Anticipé AVANT
+   * la séance (à ne pas confondre avec le bilan, rempli après).
+   */
+  obstacles?: string;
+
   /** Suivi après la séance. */
   bilan: string;
   aReprendre: string;

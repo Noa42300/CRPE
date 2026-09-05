@@ -296,6 +296,17 @@ export function ActivityEditor({
         </Field>
       </Disclosure>
 
+      <Disclosure title="⚠️ Erreurs fréquentes & remédiation" defaultOpen={!!activity.obstacles}>
+        <Field label="Erreurs possibles & remédiation rapide" hint="Ce qui bloque souvent les élèves + comment les débloquer sur le moment.">
+          <AutoTextarea
+            className="min-h-[80px]"
+            value={activity.obstacles ?? ""}
+            onChange={(e) => set("obstacles", e.target.value)}
+            placeholder="ex : Erreur — l'élève confond… → Remédiation : je lui fais…"
+          />
+        </Field>
+      </Disclosure>
+
       <Disclosure title="Bilan (après la séance)">
         <div className="space-y-3">
           <Field label="Bilan à chaud" hint="Ce qui a fonctionné / n'a pas fonctionné, difficultés, élèves à revoir">
