@@ -99,6 +99,8 @@ export interface DayInfo {
   absentsNames: string;
   /** Identifiants des élèves marqués absents lors de l'appel (100 % local). */
   absentIds?: string[];
+  /** Devoirs à donner pour la prochaine fois (affiché en fin de journée). */
+  devoirs?: string;
   events: DayEvent[];
 }
 

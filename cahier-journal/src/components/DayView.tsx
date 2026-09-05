@@ -217,6 +217,17 @@ export function DayView({
         </div>
       )}
 
+      {/* Devoirs à donner (fin de journée) */}
+      <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50/60 p-4 dark:border-amber-500/30 dark:bg-amber-500/10">
+        <label className="label mb-1 flex items-center gap-2">📌 Devoirs à donner</label>
+        <textarea
+          className="input min-h-[60px]"
+          value={day.info.devoirs ?? ""}
+          onChange={(e) => update((d) => ({ ...d, info: { ...d.info, devoirs: e.target.value } }))}
+          placeholder="ex : Anglais — finir la fiche des mots transparents ; Français — relire la leçon…"
+        />
+      </div>
+
       {/* Documents de la journée à imprimer (organisation de journée) */}
       <div className="mt-4">
         <Attachments refId={`day:${date}`} title="Documents de la journée à imprimer" />

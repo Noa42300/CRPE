@@ -1040,7 +1040,8 @@
             "type": "particulier",
             "note": "Lundi de la 2e semaine : évaluations nationales le matin ; entrée en anglais et lancement du projet Autour du monde (Italie) l'après-midi."
           }
-        ]
+        ],
+        "devoirs": "Anglais : finir les exercices sur les mots transparents (à rendre lundi prochain)."
       },
       "slots": [
         {
@@ -1700,7 +1701,7 @@
         }
       ],
       "createdAt": 1788700000000,
-      "updatedAt": 1788820000000
+      "updatedAt": 1788880000000
     }
   ],
   "templates": [],
