@@ -1547,9 +1547,68 @@
           ]
         },
         {
-          "id": "l8s11",
+          "id": "l8s13",
           "start": "15:30",
-          "end": "16:15",
+          "end": "16:00",
+          "disciplineId": "anglais",
+          "activities": [
+            {
+              "id": "l8ang",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Anglais — Entrée dans les langues : les mots transparents (USA)",
+              "objectif": "Découvrir l'anglais : deviner des mots transparents à partir d'images des États-Unis.",
+              "competence": "Découvrir quelques mots d'une langue vivante ; oser répéter à l'oral.",
+              "competenceRef": "Langues vivantes étrangères, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "Anglais",
+              "progSequence": "Découverte de l'anglais",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "découverte"
+              ],
+              "deroulement": [
+                {
+                  "id": "l8t20",
+                  "label": "Hello! (mise en route)",
+                  "note": "- « Today, we start English! On commence l'anglais. »\n- « On se dit bonjour : Hello! Répétez tous : Hello! »\n- « Aujourd'hui, on voyage aux États-Unis, aux USA. »"
+                },
+                {
+                  "id": "l8t21",
+                  "label": "On regarde les images des USA",
+                  "note": "- « Regardez : New York, la statue de la Liberté, un taxi jaune, un hamburger… »\n- « Écoutez ces mots anglais… ils ressemblent au français ! taxi, pizza, hamburger… »\n- « Ce sont des mots transparents : on peut les deviner. »"
+                },
+                {
+                  "id": "l8t22",
+                  "label": "Jeu : devine le mot",
+                  "note": "- « Je montre une image ou un mot, vous devinez ce que ça veut dire. »\n- « a banana ? … une banane, bravo ! a telephone ? … un téléphone ! »\n- « On répète bien en anglais, on écoute la prononciation. »"
+                },
+                {
+                  "id": "l8t23",
+                  "label": "Trace écrite",
+                  "note": "- « On garde une trace : la leçon des mots transparents. »\n- « Chacun colle la leçon dans le cahier violet (anglais). »"
+                }
+              ],
+              "materiel": "Images / diaporama des USA (TBI) ; leçon à coller (cahier violet) ; feuille à distribuer — voir Documents à imprimer.",
+              "differenciation": "CE1 : deviner et répéter à l'oral. CE2 : + lire les mots et repérer les petites différences d'écriture. Pour un élève TSA : annoncer le déroulé, montrer les images une par une, espace calme si besoin.",
+              "depassement": "Trouver d'autres mots transparents (radio, orange, train, zoo…).",
+              "correction": "taxi → taxi ; pizza → pizza ; hamburger → hamburger ; telephone → téléphone ; banana → banane ; tomato → tomate.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "l8s11",
+          "start": "16:00",
+          "end": "16:25",
           "disciplineId": "autre",
           "activities": [
             {
@@ -1597,7 +1656,7 @@
         },
         {
           "id": "l8s12",
-          "start": "16:15",
+          "start": "16:25",
           "end": "16:30",
           "disciplineId": "autre",
           "activities": [
@@ -1641,7 +1700,7 @@
         }
       ],
       "createdAt": 1788700000000,
-      "updatedAt": 1788700000000
+      "updatedAt": 1788760000000
     }
   ],
   "templates": [],

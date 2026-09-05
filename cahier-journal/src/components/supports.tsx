@@ -42,17 +42,12 @@ const VERBE_CE2: FicheData = {
 const MATHS_CE1_LECON: FicheData = {
   entete: "Leçon", titre: "Dénombrer une collection jusqu'à 99", niveau: "CE1", discipline: "Mathématiques — Nombres",
   blocs: [
-    { kind: "def", titre: "Pour compter beaucoup d'objets", contenu: "Je fais des paquets de 10. Un paquet de 10, c'est une dizaine (une barre). Ce qui reste tout seul, ce sont les unités (des cubes)." },
-    { kind: "puces", titre: "Exemple : 46", points: ["4 paquets de 10 → 4 dizaines", "6 objets tout seuls → 6 unités", "J'écris 46 : le 4 dit les dizaines, le 6 dit les unités."] },
-    { kind: "exemples", points: ["3 dizaines et 5 unités = 35", "1 dizaine et 2 unités = 12"] },
-  ],
-};
-const MATHS_CE1_EXOS: FicheData = {
-  entete: "Exercices", titre: "Dizaines et unités", niveau: "CE1", discipline: "Mathématiques — Nombres",
-  blocs: [
-    { kind: "exercice", consigne: "Complète : combien de dizaines (d) et d'unités (u) ?", items: ["37 = ___ d et ___ u", "52 = ___ d et ___ u", "8 = ___ d et ___ u", "60 = ___ d et ___ u"] },
-    { kind: "exercice", consigne: "Écris le nombre.", items: ["4 dizaines et 3 unités = ____", "2 dizaines et 9 unités = ____", "7 dizaines et 0 unité = ____"] },
-    { kind: "exercice", consigne: "Range du plus petit au plus grand : 24 – 42 – 19 – 40.", lignes: 1 },
+    { kind: "def", titre: "Pour compter beaucoup d'objets", contenu: "Je fais des paquets de 10. Un paquet de 10, c'est une dizaine (une barre orange). Ce qui reste tout seul, ce sont les unités (des cubes verts)." },
+    { kind: "base10", dizaines: 4, unites: 6, legende: "4 barres de 10 et 6 cubes" },
+    { kind: "puces", titre: "J'écris le nombre", points: ["Il y a 4 dizaines et 6 unités.", "J'écris 46 : le 4 dit les dizaines, le 6 dit les unités.", "Je lis : quarante-six."] },
+    { kind: "def", titre: "Un autre exemple", contenu: "Je compte, je regroupe par 10, puis j'écris le nombre." },
+    { kind: "base10", dizaines: 3, unites: 5, legende: "3 barres de 10 et 5 cubes" },
+    { kind: "exemples", titre: "À retenir", points: ["Je groupe toujours par paquets de 10.", "Le chiffre de gauche = les dizaines ; le chiffre de droite = les unités."] },
   ],
 };
 const MATHS_CE2_AUTO: FicheData = {
@@ -83,6 +78,24 @@ const HIST_CE2: FicheData = {
   ],
 };
 
+const ANGLAIS_LECON: FicheData = {
+  entete: "Leçon", titre: "L'anglais : les mots transparents", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais",
+  blocs: [
+    { kind: "def", titre: "Une nouvelle langue : l'anglais", contenu: "L'anglais se parle dans beaucoup de pays, comme aux États-Unis (USA). Bonne nouvelle : certains mots anglais ressemblent beaucoup au français ! Ce sont des mots transparents : on peut deviner ce qu'ils veulent dire." },
+    { kind: "puces", titre: "Je devine (anglais → français)", points: ["a taxi → un taxi", "a pizza → une pizza", "a hamburger → un hamburger", "a restaurant → un restaurant", "a telephone → un téléphone", "a banana → une banane", "chocolate → du chocolat", "a tomato → une tomate"] },
+    { kind: "puces", titre: "Aux États-Unis (USA)", points: ["New York et la statue de la Liberté", "les grands taxis jaunes", "le base-ball, Hollywood et le cinéma"] },
+    { kind: "exemples", titre: "Attention", points: ["Ça s'écrit parfois un peu différemment (telephone / téléphone).", "On les prononce autrement : on écoute bien le maître ou la maîtresse."] },
+  ],
+};
+const ANGLAIS_FEUILLE: FicheData = {
+  entete: "Exercices", titre: "Devine les mots — voyage aux USA", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais",
+  blocs: [
+    { kind: "exercice", consigne: "Lis le mot anglais et écris ce que ça veut dire en français.", items: ["a taxi → ____________", "a pizza → ____________", "a hamburger → ____________", "a telephone → ____________", "a banana → ____________", "a tomato → ____________"] },
+    { kind: "exercice", consigne: "Colorie en vert les mots que tu as devinés tout seul.", },
+    { kind: "exercice", consigne: "Écris deux mots anglais que tu connais déjà.", lignes: 2 },
+  ],
+};
+
 export function supportsForActivity(activityId: string): SupportFourni[] {
   switch (activityId) {
     case "ah": // Fiche 2 — Le nombre du jour (fleur du nombre)
@@ -97,10 +110,14 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "verbe-ce1", label: "Le verbe — Exercices CE1", node: ficheNode(VERBE_CE1) },
         { key: "verbe-ce2", label: "Le verbe — Exercices CE2", node: ficheNode(VERBE_CE2) },
       ];
-    case "l8mce1": // Lundi 8 sept — Maths CE1 (dizaines/unités)
+    case "l8mce1": // Lundi 8 sept — Maths CE1 : leçon illustrée (base 10)
       return [
-        { key: "m-ce1-lecon", label: "Dénombrer jusqu'à 99 — Leçon CE1", node: ficheNode(MATHS_CE1_LECON) },
-        { key: "m-ce1-exos", label: "Dizaines et unités — Exercices CE1", node: ficheNode(MATHS_CE1_EXOS) },
+        { key: "m-ce1-lecon", label: "Dénombrer jusqu'à 99 — Leçon illustrée CE1", node: ficheNode(MATHS_CE1_LECON) },
+      ];
+    case "l8ang": // Lundi 8 sept — Anglais : mots transparents (USA)
+      return [
+        { key: "ang-lecon", label: "Les mots transparents — Leçon à coller", node: ficheNode(ANGLAIS_LECON) },
+        { key: "ang-feuille", label: "Devine les mots (USA) — Feuille à distribuer", node: ficheNode(ANGLAIS_FEUILLE) },
       ];
     case "l8mce2": // Lundi 8 sept — Maths CE2 (autonomie jusqu'à 1000)
       return [
