@@ -30,6 +30,8 @@ import {
   PROG_QLM,
   PROG_ANGLAIS,
   PROG_EMC,
+  PROG_GRAPHEMO,
+  PROG_GRAPHEMO_GRAMMAIRE,
   type ProgSequence,
 } from "../lib/progDisciplines";
 import { printArea } from "../lib/print";
@@ -491,9 +493,36 @@ function ProgrammationReference({ disciplineId }: { disciplineId: string }) {
           </div>
         </details>
       ))}
+      <details className="rounded-xl border border-teal-300 bg-teal-50/40 p-2.5 dark:border-teal-500/40 dark:bg-teal-500/10">
+        <summary className="cursor-pointer text-sm font-bold text-teal-800 dark:text-teal-200">
+          Programmation Graphémo — orthographe & dictées (32 semaines)
+        </summary>
+        <p className="mt-2 text-[11px] italic text-slate-500 dark:text-slate-400">
+          C'est avec Graphémo que je travaille l'orthographe et les dictées (et non « 1, 2, 3… »).
+          La dictée hebdomadaire se fait toujours sur le <b>Thème 1</b> ; S1 = dictée diagnostique, S7 = dictée diagnostique finale.
+        </p>
+        <div className="mt-2 space-y-2">
+          {PROG_GRAPHEMO.map((p) => {
+            const gram = PROG_GRAPHEMO_GRAMMAIRE.find((g) => g.periode === p.periode);
+            return (
+              <div key={p.periode}>
+                <div className="text-[11px] font-bold uppercase tracking-wide text-teal-700 dark:text-teal-300">{p.periode}</div>
+                <ul className="ml-4 list-disc text-[12.5px] leading-snug text-slate-700 dark:text-slate-200">
+                  {p.notions.map((n, i) => <li key={i}>{n}</li>)}
+                </ul>
+                {gram && (
+                  <div className="ml-4 mt-0.5 text-[11px] text-slate-500 dark:text-slate-400">
+                    Grammaire en parallèle : {gram.notions.join(" · ")}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </details>
       <details className="rounded-xl border border-slate-200 bg-white/70 p-2.5 dark:border-slate-700 dark:bg-slate-900/40">
         <summary className="cursor-pointer text-sm font-bold text-slate-800 dark:text-slate-100">
-          Sommaire « 1, 2, 3… Étude de la langue »
+          Sommaire « 1, 2, 3… Étude de la langue » (appoint grammaire)
         </summary>
         <div className="mt-2 grid gap-3 sm:grid-cols-2">
           {Object.entries(EDL_SOMMAIRE).map(([dom, items]) => (
@@ -506,7 +535,7 @@ function ProgrammationReference({ disciplineId }: { disciplineId: string }) {
           ))}
         </div>
       </details>
-      <p className="text-[11px] text-slate-400">Phonologie / lecture : GraphoGame. Dictées : Graphémo. Étude de la langue : « 1, 2, 3… ».</p>
+      <p className="text-[11px] text-slate-400">Phonologie / lecture : GraphoGame. Orthographe & dictées : Graphémo (Thème 1). Grammaire d'appoint : « 1, 2, 3… ».</p>
     </div>
   );
 }

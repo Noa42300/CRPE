@@ -248,6 +248,26 @@ export function ActivityEditor({
         />
       </Field>
 
+      <Field label="🎬 Vidéo explicative (lien)" hint="Une courte vidéo (2-3 min) qui explique la notion aux élèves — à projeter en lancement.">
+        <input
+          type="url"
+          className="input"
+          value={activity.video ?? ""}
+          onChange={(e) => set("video", e.target.value)}
+          placeholder="https://www.youtube.com/watch?v=…"
+        />
+        {activity.video && (
+          <a
+            href={activity.video}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1.5 inline-flex items-center gap-1.5 text-sm font-semibold text-ink-700 hover:underline dark:text-ink-200"
+          >
+            ▶️ Regarder la vidéo
+          </a>
+        )}
+      </Field>
+
       <Disclosure title="Différenciation">
         <div className="space-y-3">
           <Field label="Adaptations prévues" hint="PPRE, PAP, allophones, consigne simplifiée, temps supplémentaire…">

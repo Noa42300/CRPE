@@ -1702,6 +1702,648 @@
       ],
       "createdAt": 1788700000000,
       "updatedAt": 1788880000000
+    },
+    {
+      "date": "2026-09-08",
+      "info": {
+        "effectifPrevu": 23,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "absentIds": [],
+        "events": [
+          {
+            "id": "m9ev1",
+            "type": "particulier",
+            "note": "Mardi de la 2e semaine : dictée diagnostique Graphémo (Thème 1) le matin ; entrée dans la comparaison des nombres (Tandem, mission 2) ; 1re dictée du projet Autour du monde (Italie)."
+          }
+        ],
+        "devoirs": "Maths : relire la leçon « Comparer les nombres » (cahier rouge). Revoir les mots de la dictée « Autour du monde » (Italie)."
+      },
+      "slots": [
+        {
+          "id": "m9s1",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "m9acc",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituels du matin (+ Good morning)",
+              "objectif": "Entrer dans la journée : se dire bonjour, faire l'appel, dater le jour ; rituel de salutation en anglais.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t1",
+                  "label": "Accueil & appel",
+                  "note": "- « Bonjour à tous, on accroche son manteau et on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds “présent” ou “présente”. »\n- « Qui n'est pas là aujourd'hui ? On le note ensemble. »\n- « On respire un grand coup, on est prêts à travailler. »"
+                },
+                {
+                  "id": "m9t2",
+                  "label": "Date, météo & Good morning",
+                  "note": "- « Quel jour sommes-nous ? On écrit : mardi 8 septembre 2026. »\n- « Hier c'était lundi, demain ce sera mercredi. »\n- « Quel temps fait-il ce matin ? On complète la météo. »\n- « En anglais maintenant : Good morning! Répétez : Good morning! »\n- « How are you today? I'm fine, thank you! »"
+                }
+              ],
+              "materiel": "Étiquettes date ; affichage météo ; cahier de liaison (jaune).",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s2",
+          "start": "08:45",
+          "end": "10:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "dictdiag",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Orthographe — Dictée diagnostique Graphémo (Thème 1)",
+              "objectif": "Situer chaque élève en début d'année (encodage, valeurs des lettres, accords) pour orienter le parcours Graphémo.",
+              "competence": "Écrire sous la dictée ; mobiliser ses connaissances orthographiques.",
+              "competenceRef": "Français — orthographe, cycle 2 (méthode Graphémo).",
+              "progPeriode": "P1",
+              "progDomaine": "Orthographe (Graphémo)",
+              "progSequence": "Graphémo — semaine 1",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "individuel",
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "observation",
+                "différenciation"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t3",
+                  "label": "J'explique le jeu de la dictée (5 min)",
+                  "note": "- « Aujourd'hui, on commence l'orthographe avec Graphémo : on va faire une dictée un peu spéciale. »\n- « C'est une dictée pour MOI : elle me montre ce que vous savez déjà écrire, pour bien vous aider ensuite. »\n- « Il n'y a pas de note, et ce n'est pas grave de se tromper : c'est même normal en début d'année. »\n- « On écrit sur la feuille, en écriture soignée, une ligne sur deux. »\n- « Je vais lire chaque phrase deux fois, lentement : on écoute d'abord, puis on écrit. »"
+                },
+                {
+                  "id": "m9t4",
+                  "label": "Je dicte le Thème 1 (25 min)",
+                  "note": "- « Première phrase, j'écoute bien : “La classe des enfants est très belle.” »\n- « Je la relis, vous écrivez : “La classe des enfants est très belle.” »\n- « Deuxième phrase : “Les garçons racontent des blagues dans la cour de l'école.” »\n- « Troisième phrase : “Les élèves travaillent avec de beaux cahiers neufs et des trousses bien remplies.” »\n- « On relit tout doucement dans sa tête : est-ce qu'il manque un mot ? »\n(Je circule et j'observe les stratégies d'encodage, sans corriger.)"
+                },
+                {
+                  "id": "m9t5",
+                  "label": "Relecture guidée (10 min)",
+                  "note": "- « On vérifie ensemble : chaque phrase commence par une majuscule et finit par un point. »\n- « On repère les petits mots que l'on connaît déjà : la, des, est, dans, avec. »\n- « On souligne un mot dont on n'est pas sûr : je le regarderai. »\n- « On pose son crayon quand on a fini de relire. »"
+                },
+                {
+                  "id": "m9t6",
+                  "label": "Copie experte pour finir (15 min)",
+                  "note": "- « Pendant que je ramasse, on s'entraîne à copier sans erreur une phrase modèle. »\n- « On regarde le début, on cache, on écrit, on vérifie. »\n- « On compte combien de fois on a eu besoin de regarder le modèle. »\n- « Le but : copier en regardant le moins possible. »"
+                }
+              ],
+              "materiel": "Feuille de dictée (une par élève) ; texte du Thème 1 à lire — voir Documents à imprimer ; cahier vert (dictées).",
+              "video": "",
+              "differenciation": "CE1 : les 2 premières phrases si besoin ; CE2 : les 3 phrases. Pour un élève à besoins attentionnels : phrases une par une, temps supplémentaire, place au calme.",
+              "depassement": "",
+              "correction": "Texte attendu : « La classe des enfants est très belle. Les garçons racontent des blagues dans la cour de l'école. Les élèves travaillent avec de beaux cahiers neufs et des trousses bien remplies. » Analyse (repère, non noté) : encodage, valeurs de c/g/s, accords dans le GN, accord sujet-verbe.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Reporter les réussites/erreurs dans le tableau de suivi Graphémo. Refaire cette dictée en semaine 7 pour mesurer les progrès."
+            }
+          ]
+        },
+        {
+          "id": "m9s3",
+          "start": "10:00",
+          "end": "10:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "m9rec1",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "Récréation du matin.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s4",
+          "start": "10:15",
+          "end": "11:25",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "m2comp",
+              "niveaux": [
+                "CE1"
+              ],
+              "title": "Maths CE1 — Comparer les nombres (leçon guidée)",
+              "objectif": "Comparer deux nombres à 2 chiffres avec les signes < et > (comparer les dizaines, puis les unités).",
+              "competence": "Comparer, ranger des nombres ; utiliser les signes < et >.",
+              "competenceRef": "Maths — Nombres, cycle 2 (Tandem, mission 2).",
+              "progPeriode": "P1",
+              "progDomaine": "Nombres",
+              "progSequence": "Comparer les nombres",
+              "progSeance": "2",
+              "progRef": "",
+              "organisation": [
+                "groupe guidé",
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t7",
+                  "label": "Phase 1 — Leçon guidée avec moi, au tableau (25 min)",
+                  "note": "- « Aujourd'hui, on apprend à comparer les nombres : dire lequel est le plus grand, lequel est le plus petit. »\n- « Pour ça, on a deux signes : < veut dire “plus petit que” et > veut dire “plus grand que”. »\n- « Le truc : le signe est comme un bec ouvert, il s'ouvre toujours vers le plus grand nombre. »\n- « Regardez 47 et 52 : je compare d'abord les dizaines, 4 dizaines contre 5 dizaines. »\n- « 4 c'est moins que 5, donc 47 est plus petit : on écrit 47 < 52. »\n- « Et si les dizaines sont pareilles ? Alors on compare les unités : 63 et 61. »"
+                },
+                {
+                  "id": "m9t8",
+                  "label": "On s'entraîne à l'ardoise (15 min)",
+                  "note": "- « J'écris deux nombres au tableau, vous montrez le bon signe sur l'ardoise. »\n- « On dit à voix haute : le bec s'ouvre vers le plus grand. »\n- « On explique : “je regarde d'abord les dizaines”. »\n- « On colle la leçon dans le cahier rouge (leçons de maths). »\n(Je vérifie que chacun sait dans quel sens tracer le signe.)"
+                }
+              ],
+              "materiel": "TBI (leçon à projeter) ; ardoises ; barres et cubes (base 10) ; leçon à coller (cahier rouge) — voir Documents à imprimer.",
+              "video": "https://www.youtube.com/watch?v=dnnoUP7Y8l4",
+              "differenciation": "Aide : matériel base 10 pour visualiser les dizaines. Pour les rapides : comparer trois nombres et les ranger.",
+              "depassement": "",
+              "correction": "47 < 52 ; 63 > 61 ; 28 < 31 ; 90 > 89 ; 45 < 54. Méthode : dizaines d'abord, puis unités.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            },
+            {
+              "id": "m2compce2",
+              "niveaux": [
+                "CE2"
+              ],
+              "title": "Maths CE2 — Comparer les nombres jusqu'à 1 000 (autonomie)",
+              "objectif": "Comparer, ranger et encadrer des nombres à 3 chiffres (centaines, dizaines, unités) en autonomie, puis institutionnalisation.",
+              "competence": "Comparer, ranger, encadrer des nombres < 1 000 ; signes <, >, =.",
+              "competenceRef": "Maths — Nombres, cycle 2 (Tandem, mission 2).",
+              "progPeriode": "P1",
+              "progDomaine": "Nombres",
+              "progSequence": "Comparer les nombres",
+              "progSeance": "2",
+              "progRef": "",
+              "organisation": [
+                "individuel",
+                "groupe guidé"
+              ],
+              "roleEnseignant": [
+                "étayage"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t9",
+                  "label": "Phase 1 — Fichier autonomie (pendant que je suis avec les CE1) (35 min)",
+                  "note": "(Consigne donnée avant que je rejoigne les CE1.)\n- « Vous, les CE2, vous travaillez seuls sur le fichier autonomie : comparer les nombres jusqu'à 1 000. »\n- « Rappelez-vous la règle : on compare d'abord les centaines, puis les dizaines, puis les unités. »\n- « Si vous bloquez, vous passez à l'exercice suivant et vous entourez le numéro. »\n- « Vous chuchotez si vous avez besoin de votre voisin, sans déranger les CE1. »\n- « Quand vous avez fini, vous rangez le fichier dans le classeur. »"
+                },
+                {
+                  "id": "m9t10",
+                  "label": "Phase 2 — Institutionnalisation guidée avec moi (10 min)",
+                  "note": "- « On corrige ensemble : comment as-tu comparé 246 et 254 ? »\n- « Les centaines sont pareilles (2 et 2), donc je regarde les dizaines : 4 contre 5, donc 246 < 254. »\n- « Pour ranger, on cherche à chaque fois le plus petit qui reste. »\n- « Encadrer, c'est trouver la dizaine juste avant et juste après : 340 < 347 < 350. »\n- « On colle la leçon CE2 dans le cahier rouge. »"
+                }
+              ],
+              "materiel": "Fichier autonomie CE2 (classeur) ; matériel base 10 ; leçon CE2 à coller (cahier rouge) — voir Documents à imprimer (rangés avec la leçon CE1).",
+              "video": "https://www.youtube.com/watch?v=FV-uBVGKIbI",
+              "differenciation": "Aide : matériel base 10. Pour les rapides : comparer des nombres jusqu'à 2 000, inventer un encadrement.",
+              "depassement": "",
+              "correction": "Compare : 426>... non 426 < 462 ; 703 > 307 ; 289 > 156 ; 98 < 201 ; 200 < 300 ; 471 > 198 ; 777 > 707 ; 123 < 321 ; 931 > 899. Ranger : 309 < 390 < 903 < 930 ; 405 < 450 < 504 < 540. Encadrer : 340 < 347 < 350. Problème : Simon = 480 € ; Alexandra = 520 € → Simon a le moins d'argent.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": "Ce fichier autonomie entre dans la banque de fichiers CE2 (à réutiliser à chaque leçon guidée CE1)."
+            }
+          ]
+        },
+        {
+          "id": "m9s5",
+          "start": "11:25",
+          "end": "11:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "m9tr1",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement avant la cantine",
+              "objectif": "Ranger le matériel, se préparer pour la pause.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s6",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "m9rep",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "Repas et temps méridien.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s7",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "m9sol",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme d'après-repas par la lecture individuelle et silencieuse.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t11",
+                  "label": "Installation",
+                  "note": "- « Chacun prend son livre et s'installe confortablement. »\n- « On lit dans sa tête, tout seul, sans déranger les autres. »\n- « Je lis aussi, avec vous. »"
+                }
+              ],
+              "materiel": "Livre de la bibliothèque de classe.",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s8",
+          "start": "13:45",
+          "end": "15:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "dictmonde",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Orthographe — Dictée n°1 « Autour du monde » (l'Italie)",
+              "objectif": "Écrire une courte dictée préparée liée au projet voyage ; réinvestir majuscule, point et accords simples.",
+              "competence": "Écrire sous la dictée des mots et phrases préparés ; copier sans erreur.",
+              "competenceRef": "Français — orthographe, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "Orthographe (projet Autour du monde)",
+              "progSequence": "Dictées du voyage",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "individuel"
+              ],
+              "roleEnseignant": [
+                "étayage",
+                "observation"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t12",
+                  "label": "Je lance avec l'Italie (10 min)",
+                  "note": "- « Vous vous souvenez, hier on est partis en Italie : voici une petite vidéo du Colisée de Rome. »\n- « Cette semaine, notre dictée parle de notre voyage en Italie. »\n- « On va d'abord bien préparer les mots avant de les écrire. »\n- « Ouvrez grand les oreilles, on écoute la première phrase. »"
+                },
+                {
+                  "id": "m9t13",
+                  "label": "Préparation des mots (20 min)",
+                  "note": "- « On lit ensemble les mots du voyage : l'Italie, Rome, un monument, le Colisée, des pâtes, un voyage. »\n- « Où entend-on la difficulté ? Dans “monument”, on entend “ment” à la fin. »\n- « “Italie” et “Colisée” prennent une majuscule : ce sont des noms de lieux. »\n- « On épelle deux mots ensemble, puis on les écrit sur l'ardoise. »\n- « On efface, et on réessaie de mémoire. »"
+                },
+                {
+                  "id": "m9t14",
+                  "label": "La dictée (25 min)",
+                  "note": "- « On écrit maintenant, une ligne sur deux, en écriture soignée. »\n- « Première phrase : “Nous partons en voyage en Italie.” »\n- « Deuxième phrase : “À Rome, nous visitons un grand monument : le Colisée.” »\n- « Les CE2, une phrase de plus : “Le soir, nous mangeons de bonnes pâtes.” »\n- « On relit : majuscule au début, point à la fin, les majuscules aux noms de lieux. »"
+                },
+                {
+                  "id": "m9t15",
+                  "label": "Correction & rangement (20 min)",
+                  "note": "- « On corrige ensemble : j'écris chaque phrase juste au tableau. »\n- « Vous comparez et vous corrigez en dessous, en vert. »\n- « On regarde surtout les majuscules et les accords : les pâtes, bonnes. »\n- « On colle la dictée dans le cahier vert et la carte d'identité de l'Italie dans la pochette noire. »"
+                }
+              ],
+              "materiel": "Ardoises ; texte de la dictée à lire — voir Documents à imprimer ; cahier vert (dictées) ; pochette noire (projet voyage).",
+              "video": "https://www.youtube.com/watch?v=hAK-mzZnrsU",
+              "differenciation": "CE1 : les 2 premières phrases ; CE2 : les 3 phrases. Pour un élève à besoins attentionnels : mots affichés, phrases une par une.",
+              "depassement": "",
+              "correction": "« Nous partons en voyage en Italie. À Rome, nous visitons un grand monument : le Colisée. Le soir, nous mangeons de bonnes pâtes. » Attendus : majuscules à Italie, Rome, Colisée ; accords « bonnes pâtes ».",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s9",
+          "start": "15:00",
+          "end": "15:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "m9rec2",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "Récréation de l'après-midi.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s10",
+          "start": "15:15",
+          "end": "16:00",
+          "disciplineId": "eps",
+          "activities": [
+            {
+              "id": "m9eps",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "EPS — Jeux collectifs : les déménageurs",
+              "objectif": "Coopérer et respecter des règles simples dans un jeu collectif ; occuper l'espace, transporter sans se bousculer.",
+              "competence": "Coopérer, s'opposer ; respecter les règles d'un jeu collectif.",
+              "competenceRef": "EPS — champ 3, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "EPS — jeux collectifs",
+              "progSequence": "Jeux collectifs",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "groupe"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t16",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : on trottine, on tourne les bras, on saute sur place. »\n- « On repère le signal d'arrêt : quand j'agite le bras, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »"
+                },
+                {
+                  "id": "m9t17",
+                  "label": "Le jeu des déménageurs (25 min)",
+                  "note": "- « Le but : votre équipe doit déménager tous les objets d'un cerceau à l'autre. »\n- « On ne prend qu'UN objet à la fois, et on ne court pas trop vite. »\n- « On attend que le camarade soit revenu pour repartir : c'est un relais. »\n- « On respecte les autres équipes, on ne se bouscule pas. »\n- « Équipes mixtes CE1-CE2 : les grands aident à expliquer les règles. »"
+                },
+                {
+                  "id": "m9t18",
+                  "label": "Retour au calme (10 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui a aidé votre équipe à gagner ? »\n- « On range le matériel tous ensemble. »"
+                }
+              ],
+              "materiel": "Cerceaux, petits objets à transporter (foulards, balles), plots ; signal d'arrêt.",
+              "video": "",
+              "differenciation": "Équipes mixtes CE1/CE2 ; distance adaptée ; rôle d'arbitre pour un élève qui a besoin de souffler.",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s11",
+          "start": "16:00",
+          "end": "16:25",
+          "disciplineId": "anglais",
+          "activities": [
+            {
+              "id": "m9ang",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Anglais — What's your name?",
+              "objectif": "Demander et dire son prénom en anglais : « What's your name? — My name is… ».",
+              "competence": "Se présenter simplement à l'oral dans une langue vivante.",
+              "competenceRef": "Langues vivantes étrangères, cycle 2.",
+              "progPeriode": "P1",
+              "progDomaine": "Anglais",
+              "progSequence": "Se présenter",
+              "progSeance": "1",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "découverte"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t19",
+                  "label": "On écoute la chanson",
+                  "note": "- « Today, a new song! On écoute et on regarde. »\n- « You hear: What's your name? My name is… »\n- « On répète le refrain tous ensemble : What's your name? »"
+                },
+                {
+                  "id": "m9t20",
+                  "label": "On joue à se présenter",
+                  "note": "- « I ask: What's your name? You answer: My name is… »\n- « On se lance une balle : celui qui l'attrape répond puis relance. »\n- « CE1 : réponds avec “My name is…”. CE2 : ajoute “Nice to meet you!” »\n- « On applaudit chaque camarade qui a osé parler anglais. »"
+                }
+              ],
+              "materiel": "TBI (chanson) ; une balle en mousse ; flashcards prénoms.",
+              "video": "https://www.youtube.com/watch?v=zMdq9jSaNLg",
+              "differenciation": "CE1 : « My name is… ». CE2 : phrase complète + « Nice to meet you! ». Pour un élève TSA : prévenir avant de lancer la balle, tour prévisible.",
+              "depassement": "Demander « How are you? » et répondre « I'm fine! ».",
+              "correction": "What's your name? → My name is … . (CE2 : + Nice to meet you!)",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "m9s12",
+          "start": "16:25",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "m9fin",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement, devoirs et sortie",
+              "objectif": "Rituel de sortie : noter les devoirs, ranger, vérifier le cahier de liaison, se mettre en rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [
+                "collectif"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "deroulement": [
+                {
+                  "id": "m9t21",
+                  "label": "Sortie",
+                  "note": "- « On note les devoirs : relire la leçon “Comparer les nombres” (cahier rouge). »\n- « On range son matériel, chaises sur les tables. »\n- « On vérifie le cahier de liaison (jaune). »\n- « On se met en rang au signal, par îlots. »"
+                }
+              ],
+              "materiel": "Cahier rouge ; cahier de liaison (jaune).",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1789000000000,
+      "updatedAt": 1789000000000
     }
   ],
   "templates": [],

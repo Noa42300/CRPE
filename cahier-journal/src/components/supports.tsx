@@ -199,10 +199,104 @@ const ANGLAIS_FEUILLE: FicheData = {
 const EPS_TOURS: FicheData = {
   entete: "Fiche binôme (à deux)", titre: "Course longue — je compte les tours de mon binôme", niveau: "CE1-CE2", discipline: "EPS — courir longtemps",
   blocs: [
-    { kind: "champs", items: ["Coureur (celui qui court)", "Observateur (celui qui compte)"] },
-    { kind: "def", picto: "saut", contenu: "À chaque fois que ton camarade termine un tour, tu entoures un trait. À la fin, tu comptes tous les traits entourés : c'est son nombre de tours." },
+    { kind: "champs", items: ["Prénom élève A", "Prénom élève B"] },
+    { kind: "def", picto: "saut", contenu: "On court chacun son tour. Quand ton camarade termine un tour, tu entoures un trait sur SA ligne. À la fin, on compte les traits entourés : c'est son nombre de tours. Ensuite, on échange les rôles." },
+    { kind: "champs", items: ["1) Élève A court — élève B compte"] },
     { kind: "traits", n: 40 },
-    { kind: "champs", items: ["Total des tours entourés"] },
+    { kind: "champs", items: ["Total des tours de l'élève A"] },
+    { kind: "champs", items: ["2) On échange : élève B court — élève A compte"] },
+    { kind: "traits", n: 40 },
+    { kind: "champs", items: ["Total des tours de l'élève B"] },
+  ],
+};
+
+/* ===================== MATHS — Comparer les nombres ===================== */
+
+const COMP_CE1_LECON: FicheData = {
+  entete: "Leçon (à projeter)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres (Tandem)",
+  blocs: [
+    { kind: "def", titre: "Comparer, c'est quoi ?", contenu: "Comparer deux nombres, c'est dire lequel est le PLUS GRAND et lequel est le PLUS PETIT. J'utilise les signes < (plus petit que) et > (plus grand que)." },
+    { kind: "def", picto: "oiseau", titre: "Le truc du bec", contenu: "Le signe est comme un bec ouvert : il s'ouvre toujours du côté du plus grand nombre, et la pointe montre le plus petit." },
+    { kind: "base10", dizaines: 4, unites: 7, legende: "47" },
+    { kind: "base10", dizaines: 5, unites: 2, legende: "52" },
+    { kind: "comparer", a: 47, b: 52, signe: "<" },
+    { kind: "puces", titre: "Ma méthode (nombres à 2 chiffres)", points: [
+      "Je compare d'abord les DIZAINES.",
+      "Si les dizaines sont égales, je compare les UNITÉS.",
+    ] },
+    { kind: "comparer", a: 63, b: 61, signe: ">" },
+    { kind: "exemples", titre: "À retenir", points: ["< : le plus petit est à gauche.", "> : le plus grand est à gauche.", "Le bec s'ouvre vers le plus grand."] },
+  ],
+};
+
+const COMP_CE2_LECON: FicheData = {
+  entete: "Leçon (à projeter)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
+  blocs: [
+    { kind: "def", titre: "Comparer des nombres à 3 chiffres", contenu: "Pour comparer deux nombres, je regarde leurs chiffres rang par rang : les centaines, puis les dizaines, puis les unités. J'utilise les signes <, > et = (égal)." },
+    { kind: "puces", titre: "Ma méthode", points: [
+      "Je compare d'abord les CENTAINES.",
+      "Si les centaines sont égales, je compare les DIZAINES.",
+      "Si les dizaines sont égales aussi, je compare les UNITÉS.",
+    ] },
+    { kind: "comparer", a: 246, b: 254, signe: "<", cdu: true },
+    { kind: "comparer", a: 531, b: 528, signe: ">", cdu: true },
+    { kind: "def", picto: "fleche", titre: "Pour aller plus loin", contenu: "Je sais aussi RANGER une liste du plus petit au plus grand, et ENCADRER un nombre entre la dizaine juste avant et la dizaine juste après." },
+    { kind: "exemples", titre: "Exemples", points: ["Ranger : 309 < 390 < 903 < 930.", "Encadrer : 340 < 347 < 350.", "Égalité : 300 + 40 + 7 = 347."] },
+  ],
+};
+
+const COMP_CE2_AUTO: FicheData = {
+  entete: "Fichier autonomie", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
+  blocs: [
+    { kind: "exercice", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
+      "426 ____ 462", "703 ____ 307", "289 ____ 156", "98 ____ 201",
+      "200 ____ 300", "471 ____ 198", "777 ____ 707", "123 ____ 321", "931 ____ 899",
+    ] },
+    { kind: "exercice", picto: "fleche", consigne: "Complète avec un nombre qui convient.", items: [
+      "125 < ______", "142 < ______", "317 > ______", "______ < 590", "______ > 898", "267 > ______",
+    ] },
+    { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
+      "309 – 390 – 903 – 930 → ____________________",
+      "540 – 405 – 450 – 504 → ____________________",
+    ] },
+    { kind: "exercice", aide: "la dizaine avant / la dizaine après", consigne: "Encadre chaque nombre.", items: [
+      "______ < 347 < ______", "______ < 508 < ______", "______ < 690 < ______",
+    ] },
+    { kind: "exercice", picto: "valise", consigne: "Problème. Simon a 4 billets de 100 € et 4 billets de 20 €. Alexandra a 5 billets de 100 € et 2 billets de 10 €. Qui a le moins d'argent ?", lignes: 3 },
+  ],
+};
+
+/* ===================== FRANÇAIS — Dictées (Graphémo) ===================== */
+
+const DICTEE_DIAG: FicheData = {
+  entete: "Dictée diagnostique — à lire", titre: "Dictée diagnostique — Thème 1", niveau: "CE1-CE2", discipline: "Français — Orthographe (Graphémo)",
+  blocs: [
+    { kind: "def", picto: "plume", contenu: "Semaine 1 de Graphémo : la dictée diagnostique me sert à situer chaque élève. On la refera en semaine 7 pour mesurer les progrès. Je dicte lentement, deux fois ; je ne corrige pas devant eux (c'est un repère pour moi)." },
+    { kind: "puces", titre: "Le texte à dicter (Thème 1)", points: [
+      "La classe des enfants est très belle.",
+      "Les garçons racontent des blagues dans la cour de l'école.",
+      "Les élèves travaillent avec de beaux cahiers neufs et des trousses bien remplies.",
+    ] },
+    { kind: "exemples", titre: "Ce que j'observe (points évalués)", points: [
+      "Mots fréquents : la classe, un enfant, très, la cour, l'école, bien.",
+      "Valeurs des lettres c, g et s.",
+      "Graphèmes complexes : belle, raconter, travailler, rempli, neuf.",
+      "Accords dans le groupe nominal : les garçons, des blagues, de beaux cahiers neufs, des trousses remplies.",
+      "Accord sujet-verbe : la classe est ; les garçons racontent ; les élèves travaillent.",
+    ] },
+  ],
+};
+
+const DICTEE_MONDE1: FicheData = {
+  entete: "Dictée — à lire", titre: "Dictée n°1 — Autour du monde : l'Italie", niveau: "CE1-CE2", discipline: "Français — Orthographe (projet Autour du monde)",
+  blocs: [
+    { kind: "def", picto: "valise", contenu: "Chaque semaine, une petite dictée sur notre voyage. Aujourd'hui : l'Italie ! Je prépare d'abord les mots avec les élèves, puis je dicte lentement." },
+    { kind: "puces", titre: "Les mots à préparer ensemble", points: ["l'Italie", "Rome", "un monument", "le Colisée", "des pâtes", "un voyage"] },
+    { kind: "puces", titre: "La dictée (CE1 : les 2 premières phrases · CE2 : tout)", points: [
+      "Nous partons en voyage en Italie.",
+      "À Rome, nous visitons un grand monument : le Colisée.",
+      "Le soir, nous mangeons de bonnes pâtes.",
+    ] },
   ],
 };
 
@@ -238,6 +332,20 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "l8eps":
       return [
         { key: "eps-tours", label: "Course — fiche binôme (compter les tours)", node: ficheNode(EPS_TOURS) },
+      ];
+    case "m2comp":
+      return [
+        { key: "comp-ce1-lecon", label: "Comparer les nombres — Leçon CE1 (à projeter)", node: ficheNode(COMP_CE1_LECON) },
+        { key: "comp-ce2-lecon", label: "Comparer les nombres — Leçon CE2 (va plus loin)", node: ficheNode(COMP_CE2_LECON) },
+        { key: "comp-ce2-auto", label: "Comparer les nombres — Fichier autonomie CE2", node: ficheNode(COMP_CE2_AUTO) },
+      ];
+    case "dictdiag":
+      return [
+        { key: "dictee-diag", label: "Dictée diagnostique Graphémo — Thème 1 (à lire)", node: ficheNode(DICTEE_DIAG) },
+      ];
+    case "dictmonde":
+      return [
+        { key: "dictee-monde1", label: "Dictée n°1 Autour du monde — Italie (à lire)", node: ficheNode(DICTEE_MONDE1) },
       ];
     case "l8ang":
       return [

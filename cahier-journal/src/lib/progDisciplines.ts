@@ -102,6 +102,32 @@ export const PROG_ANGLAIS: ProgSequence[] = [
   { titre: "L'alphabet (facultative)", seances: ["Découverte de l'alphabet", "Épeler", "Jeux de lettres", "Consolidation"] },
 ];
 
+/* ----------------------- Graphémo (orthographe & dictées) ----------------------- */
+/**
+ * Programmation Graphémo sur 32 semaines (J. Riou, d'après les correspondances
+ * graphèmes/phonèmes et la fréquence des lettres). C'EST la méthode d'orthographe
+ * et de dictées de la classe (et NON « 1, 2, 3… Étude de la langue »).
+ * Règle de la classe : la dictée hebdomadaire se fait toujours sur le THÈME 1.
+ * Semaine 1 = dictée diagnostique ; semaine 7 = dictée diagnostique finale.
+ * Transcrit par période (les colonnes du tableau) ; données 100 % pédagogiques.
+ */
+export const PROG_GRAPHEMO: { periode: string; notions: string[] }[] = [
+  { periode: "P1", notions: ["Dictée diagnostique", "L'alphabet", "La combinaison des lettres", "Les lettres finales muettes", "La lettre r", "La lettre t"] },
+  { periode: "P2", notions: ["La lettre d", "La lettre p", "La lettre e", "La lettre e (c / ç)", "Les accents", "La lettre s"] },
+  { periode: "P3", notions: ["La lettre o", "La lettre h", "La lettre m", "La lettre c", "Les consonnes doubles", "La lettre g"] },
+  { periode: "P4", notions: ["La lettre i", "La lettre i (suite)", "Les graphies proches", "Le e final dans les noms féminins", "Le féminin des mots en -er et -ier", "Le féminin des adjectifs"] },
+  { periode: "P5", notions: ["Le nombre des noms", "Le nombre des adjectifs", "La lettre x", "Les mots dérivés", "Les accords dans le groupe nominal", "L'accord sujet-verbe", "Le genre des noms et adjectifs", "Dictée diagnostique finale"] },
+];
+
+/** Notions grammaticales travaillées en parallèle des dictées (par période). */
+export const PROG_GRAPHEMO_GRAMMAIRE: { periode: string; notions: string[] }[] = [
+  { periode: "P1", notions: ["Le nom", "Le verbe", "Le sujet", "Le présent"] },
+  { periode: "P2", notions: ["Les articles et déterminants", "Les mots invariables", "Les adjectifs"] },
+  { periode: "P3", notions: ["Les pronoms personnels sujets", "L'imparfait"] },
+  { periode: "P4", notions: ["Le groupe nominal", "Les compléments", "Le futur"] },
+  { periode: "P5", notions: ["Le passé composé", "Les régularités"] },
+];
+
 /* ----------------------- EMC (par période) ----------------------- */
 
 export const PROG_EMC: { periode: string; themes: string[] }[] = [

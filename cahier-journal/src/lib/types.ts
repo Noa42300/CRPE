@@ -64,6 +64,9 @@ export interface Activity {
 
   materiel: string;
 
+  /** Lien vidéo (YouTube…) explicatif de la notion, court et adapté aux élèves. */
+  video?: string;
+
   /** Différenciation. */
   differenciation: string;
   depassement: string;
