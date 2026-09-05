@@ -96,6 +96,22 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   (le reste de la semaine = complément). Ne préparer que ces deux jours
   (`settings.joursTravailles = [1, 2]`).
 
+## Volumes horaires hebdomadaires à respecter (IMPORTANT)
+
+Service à mi-temps : les volumes s'entendent **sur les DEUX jours (lundi + mardi)
+réunis**, pas par jour. Référence dans `src/lib/horaires.ts`.
+
+- **Français : 5 h sur les 2 jours** (~2 h 30/jour) — **IMPÉRATIF, non négociable.**
+- **Mathématiques : 2 h 15 sur les 2 jours** (~1 h 07/jour) — **IMPÉRATIF.**
+- Langue vivante (anglais) : 1 h 30 souhaité, **45 min acceptable** si besoin.
+- EPS : 1 h 30 — ajustable.
+- Questionner le monde : 45 min (histoire en P1) — ajustable.
+- **Musique : ne PAS programmer** (conservatoire dès début octobre).
+
+Règle de préparation : quand je bâtis lundi + mardi, vérifier que le cumul des
+créneaux atteint **300 min de français** et **135 min de maths** sur les deux
+jours. On peut réduire le reste, jamais ces deux-là.
+
 ## Programmations annuelles intégrées (référence permanente)
 
 - Les programmations officielles (Français : répartition annuelle + dictées
