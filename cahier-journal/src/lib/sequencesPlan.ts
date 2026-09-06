@@ -8,7 +8,7 @@
  * dans la Bibliothèque / le cahier journal. 100 % pédagogique.
  */
 import { PERIODES, REPART_FRANCAIS, GRAPHEMO, PROG_MATHS } from "./programmations";
-import { PROG_ANGLAIS, PROG_QLM, PROG_EMC } from "./progDisciplines";
+import { PROG_ANGLAIS, PROG_HISTOIRE, PROG_EMC } from "./progDisciplines";
 
 export interface PlanSeance {
   n: number;
@@ -42,11 +42,13 @@ const anglais: PlanSequence[] = PROG_ANGLAIS.map((s) => ({
   seances: num(s.seances),
 }));
 
-/* ------------------ Questionner le monde (Histoire, Géo, Sciences) ------------------ */
-const qlm: PlanSequence[] = PROG_QLM.flatMap((sub) => {
-  const dom = sub.label.split(" ")[0]; // Histoire / Géographie / Sciences
-  return sub.sequences.map((s) => ({ titre: `${dom} — ${s.titre}`, seances: num(s.seances) }));
-});
+/* ------------------ Questionner le monde — Histoire (Période 1) ------------------ */
+// En P1, seule l'histoire est traitée. Géo & sciences seront ajoutées plus tard.
+const qlm: PlanSequence[] = PROG_HISTOIRE.map((s, i) => ({
+  titre: `Histoire — ${s.titre}`,
+  periode: i === 0 ? "P1" : undefined,
+  seances: num(s.seances),
+}));
 
 /* --------------------------- EMC (par période) --------------------------- */
 const emc: PlanSequence[] = PROG_EMC.map((p) => ({

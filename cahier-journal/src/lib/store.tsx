@@ -32,6 +32,8 @@ import {
 } from "./db";
 import { defaultSettings } from "./defaults";
 import { syncFromCloud, type SyncResult } from "./cloud";
+import { SEQUENCES_PLAN } from "./sequencesPlan";
+import { emptyActivity } from "./factory";
 
 export type SaveStatus = "idle" | "saving" | "saved" | "error";
 
@@ -92,6 +94,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [lastCloudSync, setLastCloudSync] = useState<number | null>(null);
   const autoSyncDone = useRef(false);
+  const seedDone = useRef(false);
 
   // --- File d'attente d'autosave (anti-rebond) ---
   const pendingDays = useRef<Map<string, Day>>(new Map());
@@ -362,6 +365,47 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     },
     [reloadAll],
   );
+
+  // Amorçage unique : crée dans la Bibliothèque les séquences-plan (squelettes
+  // issus de la programmation) pour toutes les matières, afin qu'elles soient
+  // éditables dans la rubrique « Séquences ». Ne s'exécute qu'une seule fois.
+  useEffect(() => {
+    if (!ready || seedDone.current || settings.seqPlanSeeded) return;
+    seedDone.current = true;
+    (async () => {
+      const existingIds = new Set((await sequencesDB.getAll()).map((s) => s.id));
+      const seeded: Sequence[] = [];
+      for (const disc of SEQUENCES_PLAN) {
+        if (disc.disciplineId === "eps") continue; // EPS déjà présente (riche)
+        disc.sequences.forEach((seq, si) => {
+          const id = `plan-${disc.disciplineId}-${si}`;
+          if (existingIds.has(id)) return;
+          const seances = seq.seances.map((s) => ({
+            ...emptyActivity(["classe"]),
+            title: s.titre,
+            progPeriode: seq.periode ?? "",
+            progSeance: String(s.n),
+            progRef: s.quand ?? "",
+          }));
+          seeded.push({
+            id,
+            title: seq.titre,
+            disciplineId: disc.disciplineId,
+            niveaux: ["classe"],
+            objectif: [seq.objectif, seq.note].filter(Boolean).join(" — "),
+            seances,
+            updatedAt: Date.now(),
+          });
+        });
+      }
+      for (const s of seeded) await sequencesDB.put(s);
+      if (seeded.length > 0) setSequences((prev) => [...prev, ...seeded]);
+      saveSettings({ ...settings, seqPlanSeeded: true });
+    })().catch(() => {
+      /* échec d'amorçage : on réessaiera au prochain démarrage */
+      seedDone.current = false;
+    });
+  }, [ready, settings, saveSettings]);
 
   // Synchronisation automatique (silencieuse) au démarrage : récupère les
   // nouvelles journées publiées, sans écraser les modifications locales.
