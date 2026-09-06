@@ -406,6 +406,8 @@ const SEC_THROW = {
 // Cour en BÉTON : pas de saut avec réception (dangereux). La séquence P1 se
 // concentre sur COURIR et LANCER (compatibles béton), en découverte →
 // consolidation → évaluation. Le saut sera travaillé plus tard (tapis / herbe / salle).
+const SEC_SPRINT_ACTIVE = ["Échauffement + montées de genoux, talons-fesses.", "Départs au signal seulement (pas de faux départ dangereux).", "On ralentit APRÈS la ligne d'arrivée (plot 2 m après)."];
+
 const EPS_SEQ: Record<string, EpsFiche> = {
   epsp1s1: {
     variant: "courseLongue", titre: "EPS — Découverte : courir longtemps", sousTitre: "Athlétisme · P1 · S1 (découverte) · lun. 7 sept.",
@@ -413,31 +415,30 @@ const EPS_SEQ: Record<string, EpsFiche> = {
     ...SEC_RUN,
   },
   epsp1s2: {
-    variant: "lancer", titre: "EPS — Découverte : lancer loin", sousTitre: "Athlétisme · P1 · S2 (découverte) · mar. 8 sept.",
+    variant: "courseLongue", titre: "EPS — Consolidation : courir longtemps (allure)", sousTitre: "Athlétisme · P1 · S2 (consolidation) · mar. 8 sept.",
+    dispositif: ["Même boucle qu'en S1.", "But : tenir une allure RÉGULIÈRE et battre son contrat de S1.", "Zone de marche pour récupérer sans cesser de jouer.", "Matériel : plots, chronomètre, fiche binôme."],
+    ...SEC_RUN,
+  },
+  epsp1s3: {
+    variant: "vitesse", titre: "EPS — Découverte : courir vite", sousTitre: "Athlétisme · P1 · S3 (découverte) · lun. 14 sept.",
+    dispositif: ["3-4 couloirs parallèles de ≈ 25 m.", "Jeux de réaction : « les sorciers », départs variés (assis, dos tourné) au signal.", "Un starter, un juge d'arrivée ; on court par vagues de 3-4.", "Matériel : plots de départ/arrivée, sifflet ou cartons de couleur."],
+    active: SEC_SPRINT_ACTIVE, passive: SEC_RUN.passive, affective: SEC_RUN.affective,
+  },
+  epsp1s4: {
+    variant: "relais", titre: "EPS — Consolidation : relais (vitesse & coopération)", sousTitre: "Athlétisme · P1 · S4 (consolidation) · mar. 15 sept.",
+    dispositif: ["Relais navette par équipes mixtes CE1-CE2.", "Le témoin se passe dans la ZONE jaune (main tendue).", "Relais-défi entre 2-3 équipes.", "Matériel : témoins (foulards), plots de virage."],
+    active: ["Échauffement + passages de témoin à l'arrêt puis en marchant.", "On regarde devant en courant, on tend la main en arrière.", "Pas de bousculade dans la zone de passage."],
+    passive: SEC_RUN.passive, affective: ["Toute l'équipe gagne ensemble : on s'encourage.", "On accepte de gagner ou de perdre, on se félicite.", "Rôles équilibrés dans l'équipe."],
+  },
+  epsp1s5: {
+    variant: "lancer", titre: "EPS — Découverte : lancer loin", sousTitre: "Athlétisme · P1 · S5 (découverte) · lun. 21 sept.",
     dispositif: ["Zone d'élan derrière la ligne de lancer + arcs de distance 1-2-3.", "On découvre plusieurs engins (vortex, balle lestée, anneau).", "On lance TOUS au signal, on ramasse TOUS au signal.", "Matériel : vortex, balles lestées, plots, cordes de zones."],
     ...SEC_THROW,
   },
-  epsp1s3: {
-    variant: "vitesse", titre: "EPS — Consolidation : courir vite", sousTitre: "Athlétisme · P1 · S3 (consolidation) · lun. 14 sept.",
-    dispositif: ["3-4 couloirs parallèles de ≈ 25 m.", "Jeux de réaction : « les sorciers », départs variés (assis, dos tourné) au signal.", "Un starter, un juge d'arrivée ; on court par vagues de 3-4.", "Matériel : plots de départ/arrivée, sifflet ou cartons de couleur."],
-    active: ["Échauffement + montées de genoux, talons-fesses.", "Départs au signal seulement (pas de faux départ dangereux).", "On ralentit APRÈS la ligne d'arrivée (plot 2 m après)."],
-    passive: SEC_RUN.passive, affective: SEC_RUN.affective,
-  },
-  epsp1s4: {
-    variant: "courseLongue", titre: "EPS — Consolidation : courir longtemps (allure)", sousTitre: "Athlétisme · P1 · S4 (consolidation) · mar. 15 sept.",
-    dispositif: ["Même boucle qu'en S1.", "But : tenir une allure RÉGULIÈRE et battre son contrat.", "Zone de marche pour récupérer sans cesser de jouer.", "Matériel : plots, chronomètre, fiche binôme."],
-    ...SEC_RUN,
-  },
-  epsp1s5: {
-    variant: "lancer", titre: "EPS — Consolidation : lancer loin (technique)", sousTitre: "Athlétisme · P1 · S5 (consolidation) · lun. 21 sept.",
+  epsp1s6: {
+    variant: "lancer", titre: "EPS — Consolidation : lancer loin (technique)", sousTitre: "Athlétisme · P1 · S6 (consolidation) · mar. 22 sept.",
     dispositif: ["Ligne de lancer + zones 1-2-3.", "Geste « bras cassé », lancer haut et loin ; on vise sa meilleure zone.", "Rôles tournants : lanceur, juge de zone, ramasseur.", "Matériel : vortex, balles lestées, plots, cordes de zones."],
     ...SEC_THROW,
-  },
-  epsp1s6: {
-    variant: "relais", titre: "EPS — Consolidation : relais (vitesse & coopération)", sousTitre: "Athlétisme · P1 · S6 (consolidation) · mar. 22 sept.",
-    dispositif: ["Relais navette par équipes mixtes CE1-CE2.", "Le témoin se passe dans la ZONE jaune (main tendue).", "Relais-défi entre 2-3 équipes ; préparation de la rencontre.", "Matériel : témoins (foulards), plots de virage."],
-    active: ["Échauffement + passages de témoin à l'arrêt puis en marchant.", "On regarde devant en courant, on tend la main en arrière.", "Pas de bousculade dans la zone de passage."],
-    passive: SEC_RUN.passive, affective: ["Toute l'équipe gagne ensemble : on s'encourage.", "On accepte de gagner ou de perdre, on se félicite.", "Rôles équilibrés dans l'équipe."],
   },
   epsp1s7: {
     variant: "ateliers", titre: "EPS — Évaluation : rencontre athlétique", sousTitre: "Athlétisme · P1 · S7 (évaluation) · lun. 28 sept.",

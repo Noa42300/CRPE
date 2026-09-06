@@ -1466,7 +1466,7 @@
                 "classe"
               ],
               "title": "EPS — Découverte : courir longtemps",
-              "objectif": "Courir sans s'arrêter pendant un temps donné (jeu du contrat) ; se repérer.",
+              "objectif": "Courir sans s'arrêter pendant un temps donné (jeu du contrat).",
               "competence": "Courir longtemps ; s'engager dans un effort régulier.",
               "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
               "progPeriode": "P1",
@@ -1501,7 +1501,7 @@
                 }
               ],
               "materiel": "Boucle ≈ 100 m (plots tous les 25 m) ; chronomètre ; fiche binôme — voir Documents à imprimer.",
-              "differenciation": "Contrat adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé ; rôle d'observateur possible.",
+              "differenciation": "Contrat adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé.",
               "depassement": "",
               "correction": "Critères de réussite : courir sans s'arrêter le temps du contrat ; connaître son nombre de tours.",
               "obstacles": "Erreurs fréquentes :\n- Part trop vite et s'arrête.\n- L'observateur oublie de compter un tour.\nRemédiation :\n- « Choisis une allure où tu peux parler » ; courir un tour à côté de lui.\n- Un trait entouré à chaque passage devant le plot Départ.",
@@ -1704,7 +1704,7 @@
         }
       ],
       "createdAt": 1788700000000,
-      "updatedAt": 1789600000000
+      "updatedAt": 1789700000000
     },
     {
       "date": "2026-09-08",
@@ -2207,12 +2207,12 @@
               "niveaux": [
                 "classe"
               ],
-              "title": "EPS — Découverte : lancer loin",
-              "objectif": "Découvrir le lancer loin d'engins variés en respectant la sécurité.",
-              "competence": "Lancer loin ; respecter des règles de sécurité.",
+              "title": "EPS — Consolidation : courir longtemps (allure)",
+              "objectif": "Tenir une allure régulière et battre son contrat de S1.",
+              "competence": "Gérer son allure sur une durée.",
               "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
               "progPeriode": "P1",
-              "progDomaine": "Athlétisme — lancer",
+              "progDomaine": "Athlétisme — courir longtemps",
               "progSequence": "Athlétisme P1 — courir & lancer",
               "progSeance": "2",
               "progRef": "",
@@ -2233,13 +2233,8 @@
                 },
                 {
                   "id": "t2",
-                  "label": "Je découvre les engins (12 min)",
-                  "note": "- « On découvre plusieurs objets à lancer : vortex, balle lestée, anneau. »\n- « On lance TOUS au signal, on ramasse TOUS au signal : jamais avant. »\n- « Personne ne passe devant la ligne de lancer. »\n- « On essaie de lancer le plus loin possible. »"
-                },
-                {
-                  "id": "t3",
-                  "label": "Dans quelle zone ? (13 min)",
-                  "note": "- « On regarde dans quelle zone (1-2-3) tombe l'engin. »\n- « On essaie de dépasser la zone d'avant. »\n- « Chacun son tour : lanceur, juge, ramasseur. »\n- « On range les engins au signal. »"
+                  "label": "Contrat régulier (25 min)",
+                  "note": "- « Aujourd'hui, on garde la MÊME allure du début à la fin. »\n- « Truc : tu dois pouvoir parler en courant. »\n- « Ton binôme te dit si tu accélères trop. »\n- « On essaie de tenir plus longtemps que la dernière fois. »"
                 },
                 {
                   "id": "t9",
@@ -2247,11 +2242,11 @@
                   "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
                 }
               ],
-              "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées, anneaux ; plots, cordes — voir Documents à imprimer.",
-              "differenciation": "Engin plus ou moins léger ; distance de zones adaptée ; rôles tournants.",
+              "materiel": "Même boucle ; chronomètre ; fiche binôme — voir Documents à imprimer.",
+              "differenciation": "Contrat adapté ; zone de marche pour récupérer.",
               "depassement": "",
-              "correction": "Critères de réussite : lancer au signal, loin, en sécurité ; identifier sa zone.",
-              "obstacles": "Erreurs fréquentes :\n- Lance vers le bas / sans élan du bras.\n- Avance devant la ligne pour ramasser.\nRemédiation :\n- « Lance haut et loin, comme par-dessus un arbre » ; geste bras cassé à vide.\n- Règle stricte : on ramasse UNIQUEMENT au signal.",
+              "correction": "Critères de réussite : allure régulière ; contrat au moins égal à S1.",
+              "obstacles": "Erreurs fréquentes :\n- Accélère puis s'épuise.\n- S'arrête dès qu'il est essoufflé.\nRemédiation :\n- Donner un repère d'allure (courir à côté un tour) ; autoriser la zone de marche puis repartir.",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
@@ -2413,7 +2408,2467 @@
         }
       ],
       "createdAt": 1789000000000,
-      "updatedAt": 1789600000000
+      "updatedAt": 1789700000000
+    },
+    {
+      "date": "2026-09-14",
+      "info": {
+        "effectifPrevu": 23,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "absentIds": [],
+        "events": [
+          {
+            "id": "ev-2026-09-14",
+            "type": "particulier",
+            "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+          }
+        ],
+        "devoirs": ""
+      },
+      "slots": [
+        {
+          "id": "d2026-09-14s1",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-71089",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituels du matin",
+              "objectif": "Entrer dans la journée : bonjour, appel, date, météo.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [
+                {
+                  "id": "r1",
+                  "label": "Accueil & appel",
+                  "note": "- « Bonjour à tous, on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds. »\n- « Qui n'est pas là aujourd'hui ? »"
+                },
+                {
+                  "id": "r2",
+                  "label": "Date & météo",
+                  "note": "- « Quel jour sommes-nous ? On écrit : lundi 14 septembre 2026. »\n- « Hier c'était… demain ce sera… »\n- « Quel temps fait-il ce matin ? »"
+                }
+              ],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s2",
+          "start": "08:45",
+          "end": "10:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-85194",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (matin)",
+              "objectif": "Créneau français du matin (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s3",
+          "start": "10:00",
+          "end": "10:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s4",
+          "start": "10:15",
+          "end": "11:25",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "a-maths-9524",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Mathématiques",
+              "objectif": "Créneau maths du matin (~1h10) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s5",
+          "start": "11:25",
+          "end": "11:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-53621",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement avant la cantine",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s6",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "a-cantine-6654",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s7",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "a-sol-34653",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme par la lecture individuelle.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s8",
+          "start": "13:45",
+          "end": "15:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-7475",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (après-midi)",
+              "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s9",
+          "start": "15:00",
+          "end": "15:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s10",
+          "start": "15:15",
+          "end": "16:00",
+          "disciplineId": "eps",
+          "activities": [
+            {
+              "id": "epsp1s3",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "EPS — Découverte : courir vite",
+              "objectif": "Réagir vite à un signal et courir vite en ligne droite.",
+              "competence": "Courir vite ; réagir à un signal.",
+              "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+              "progPeriode": "P1",
+              "progDomaine": "Athlétisme — courir vite",
+              "progSequence": "Athlétisme P1 — courir & lancer",
+              "progSeance": "3",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "groupe",
+                "binômes"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "video": "",
+              "deroulement": [
+                {
+                  "id": "t1",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+                },
+                {
+                  "id": "t2",
+                  "label": "Jeux de réaction (12 min)",
+                  "note": "- « On joue aux “sorciers” : au signal, on part le plus vite possible. »\n- « On part de positions différentes : debout, assis, dos tourné. »\n- « On écoute BIEN le signal, pas de départ avant. »\n- « On court tout droit jusqu'à la ligne. »"
+                },
+                {
+                  "id": "t3",
+                  "label": "Sprints par vagues (13 min)",
+                  "note": "- « Par vagues de 3-4, vous sprintez dans votre couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Le juge d'arrivée regarde qui franchit la ligne. »\n- « On encourage les copains. »"
+                },
+                {
+                  "id": "t9",
+                  "label": "Retour au calme & bilan (7 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+                }
+              ],
+              "materiel": "3-4 couloirs ≈ 25 m ; plots (+ plot 2 m après l'arrivée) ; sifflet ou cartons — voir Documents à imprimer.",
+              "differenciation": "Distance adaptée ; départs variés ; rôle de starter/juge pour souffler.",
+              "depassement": "",
+              "correction": "Critères de réussite : partir au signal ; courir vite tout droit jusqu'au bout.",
+              "obstacles": "Erreurs fréquentes :\n- Faux départs / regarde les autres.\n- Ralentit avant la ligne.\nRemédiation :\n- Rituel « à vos marques… prêts… », signal net.\n- « Cours jusqu'au plot placé après l'arrivée ».",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s11",
+          "start": "16:00",
+          "end": "16:25",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-15452",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer",
+              "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-14s12",
+          "start": "16:25",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-85332",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement, devoirs et sortie",
+              "objectif": "Noter les devoirs, ranger, cahier de liaison, rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1789700000000,
+      "updatedAt": 1789700000000
+    },
+    {
+      "date": "2026-09-15",
+      "info": {
+        "effectifPrevu": 23,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "absentIds": [],
+        "events": [
+          {
+            "id": "ev-2026-09-15",
+            "type": "particulier",
+            "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+          }
+        ],
+        "devoirs": ""
+      },
+      "slots": [
+        {
+          "id": "d2026-09-15s1",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-71089",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituels du matin",
+              "objectif": "Entrer dans la journée : bonjour, appel, date, météo.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [
+                {
+                  "id": "r1",
+                  "label": "Accueil & appel",
+                  "note": "- « Bonjour à tous, on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds. »\n- « Qui n'est pas là aujourd'hui ? »"
+                },
+                {
+                  "id": "r2",
+                  "label": "Date & météo",
+                  "note": "- « Quel jour sommes-nous ? On écrit : mardi 15 septembre 2026. »\n- « Hier c'était… demain ce sera… »\n- « Quel temps fait-il ce matin ? »"
+                }
+              ],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s2",
+          "start": "08:45",
+          "end": "10:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-85194",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (matin)",
+              "objectif": "Créneau français du matin (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s3",
+          "start": "10:00",
+          "end": "10:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s4",
+          "start": "10:15",
+          "end": "11:25",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "a-maths-9524",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Mathématiques",
+              "objectif": "Créneau maths du matin (~1h10) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s5",
+          "start": "11:25",
+          "end": "11:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-53621",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement avant la cantine",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s6",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "a-cantine-6654",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s7",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "a-sol-34653",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme par la lecture individuelle.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s8",
+          "start": "13:45",
+          "end": "15:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-7475",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (après-midi)",
+              "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s9",
+          "start": "15:00",
+          "end": "15:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s10",
+          "start": "15:15",
+          "end": "16:00",
+          "disciplineId": "eps",
+          "activities": [
+            {
+              "id": "epsp1s4",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "EPS — Consolidation : relais (vitesse & coopération)",
+              "objectif": "Se transmettre un témoin en courant, coopérer en équipe.",
+              "competence": "Courir vite ; coopérer, transmettre un objet.",
+              "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+              "progPeriode": "P1",
+              "progDomaine": "Athlétisme — courir vite / relais",
+              "progSequence": "Athlétisme P1 — courir & lancer",
+              "progSeance": "4",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "groupe",
+                "binômes"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "video": "",
+              "deroulement": [
+                {
+                  "id": "t1",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+                },
+                {
+                  "id": "t2",
+                  "label": "Passages de témoin (10 min)",
+                  "note": "- « On passe le témoin : main tendue en arrière. »\n- « D'abord à l'arrêt, puis en marchant, puis en courant. »\n- « Le passage se fait dans la ZONE jaune seulement. »\n- « On regarde devant en courant. »"
+                },
+                {
+                  "id": "t3",
+                  "label": "Relais-défi (15 min)",
+                  "note": "- « Par équipes, course en relais navette. »\n- « On passe le témoin dans la zone, sans se bousculer. »\n- « Toute l'équipe s'encourage. »\n- « On accepte de gagner ou de perdre. »"
+                },
+                {
+                  "id": "t9",
+                  "label": "Retour au calme & bilan (7 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+                }
+              ],
+              "materiel": "2-3 couloirs ; témoins (foulards) ; plots de virage ; zone de passage matérialisée — voir Documents à imprimer.",
+              "differenciation": "Équipes mixtes CE1-CE2 ; passage à l'arrêt autorisé pour débutants ; distance adaptée.",
+              "depassement": "",
+              "correction": "Critères de réussite : témoin transmis dans la zone, sans le faire tomber ; équipe qui finit le relais.",
+              "obstacles": "Erreurs fréquentes :\n- Témoin passé hors zone ou fait tomber.\n- Bousculade au passage.\nRemédiation :\n- Matérialiser la zone au sol ; répéter le geste au ralenti.\n- Un couloir par coureur, on se croise sans se toucher.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s11",
+          "start": "16:00",
+          "end": "16:25",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-15452",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer",
+              "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-15s12",
+          "start": "16:25",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-85332",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement, devoirs et sortie",
+              "objectif": "Noter les devoirs, ranger, cahier de liaison, rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1789700000000,
+      "updatedAt": 1789700000000
+    },
+    {
+      "date": "2026-09-21",
+      "info": {
+        "effectifPrevu": 23,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "absentIds": [],
+        "events": [
+          {
+            "id": "ev-2026-09-21",
+            "type": "particulier",
+            "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+          }
+        ],
+        "devoirs": ""
+      },
+      "slots": [
+        {
+          "id": "d2026-09-21s1",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-71089",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituels du matin",
+              "objectif": "Entrer dans la journée : bonjour, appel, date, météo.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [
+                {
+                  "id": "r1",
+                  "label": "Accueil & appel",
+                  "note": "- « Bonjour à tous, on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds. »\n- « Qui n'est pas là aujourd'hui ? »"
+                },
+                {
+                  "id": "r2",
+                  "label": "Date & météo",
+                  "note": "- « Quel jour sommes-nous ? On écrit : lundi 21 septembre 2026. »\n- « Hier c'était… demain ce sera… »\n- « Quel temps fait-il ce matin ? »"
+                }
+              ],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s2",
+          "start": "08:45",
+          "end": "10:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-85194",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (matin)",
+              "objectif": "Créneau français du matin (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s3",
+          "start": "10:00",
+          "end": "10:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s4",
+          "start": "10:15",
+          "end": "11:25",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "a-maths-9524",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Mathématiques",
+              "objectif": "Créneau maths du matin (~1h10) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s5",
+          "start": "11:25",
+          "end": "11:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-53621",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement avant la cantine",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s6",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "a-cantine-6654",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s7",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "a-sol-34653",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme par la lecture individuelle.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s8",
+          "start": "13:45",
+          "end": "15:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-7475",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (après-midi)",
+              "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s9",
+          "start": "15:00",
+          "end": "15:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s10",
+          "start": "15:15",
+          "end": "16:00",
+          "disciplineId": "eps",
+          "activities": [
+            {
+              "id": "epsp1s5",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "EPS — Découverte : lancer loin",
+              "objectif": "Découvrir le lancer loin d'engins variés en respectant la sécurité.",
+              "competence": "Lancer loin ; respecter des règles de sécurité.",
+              "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+              "progPeriode": "P1",
+              "progDomaine": "Athlétisme — lancer",
+              "progSequence": "Athlétisme P1 — courir & lancer",
+              "progSeance": "5",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "groupe",
+                "binômes"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "video": "",
+              "deroulement": [
+                {
+                  "id": "t1",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+                },
+                {
+                  "id": "t2",
+                  "label": "Je découvre les engins (12 min)",
+                  "note": "- « On découvre plusieurs objets à lancer : vortex, balle lestée, anneau. »\n- « On lance TOUS au signal, on ramasse TOUS au signal : jamais avant. »\n- « Personne ne passe devant la ligne de lancer. »\n- « On essaie de lancer le plus loin possible. »"
+                },
+                {
+                  "id": "t3",
+                  "label": "Dans quelle zone ? (13 min)",
+                  "note": "- « On regarde dans quelle zone (1-2-3) tombe l'engin. »\n- « On essaie de dépasser la zone d'avant. »\n- « Chacun son tour : lanceur, juge, ramasseur. »\n- « On range les engins au signal. »"
+                },
+                {
+                  "id": "t9",
+                  "label": "Retour au calme & bilan (7 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+                }
+              ],
+              "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées, anneaux ; plots, cordes — voir Documents à imprimer.",
+              "differenciation": "Engin plus ou moins léger ; distance de zones adaptée ; rôles tournants.",
+              "depassement": "",
+              "correction": "Critères de réussite : lancer au signal, loin, en sécurité ; identifier sa zone.",
+              "obstacles": "Erreurs fréquentes :\n- Lance vers le bas / sans élan du bras.\n- Avance devant la ligne pour ramasser.\nRemédiation :\n- « Lance haut et loin, comme par-dessus un arbre » ; geste bras cassé à vide.\n- Règle stricte : on ramasse UNIQUEMENT au signal.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s11",
+          "start": "16:00",
+          "end": "16:25",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-15452",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer",
+              "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-21s12",
+          "start": "16:25",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-85332",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement, devoirs et sortie",
+              "objectif": "Noter les devoirs, ranger, cahier de liaison, rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1789700000000,
+      "updatedAt": 1789700000000
+    },
+    {
+      "date": "2026-09-22",
+      "info": {
+        "effectifPrevu": 23,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "absentIds": [],
+        "events": [
+          {
+            "id": "ev-2026-09-22",
+            "type": "particulier",
+            "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+          }
+        ],
+        "devoirs": ""
+      },
+      "slots": [
+        {
+          "id": "d2026-09-22s1",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-71089",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituels du matin",
+              "objectif": "Entrer dans la journée : bonjour, appel, date, météo.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [
+                {
+                  "id": "r1",
+                  "label": "Accueil & appel",
+                  "note": "- « Bonjour à tous, on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds. »\n- « Qui n'est pas là aujourd'hui ? »"
+                },
+                {
+                  "id": "r2",
+                  "label": "Date & météo",
+                  "note": "- « Quel jour sommes-nous ? On écrit : mardi 22 septembre 2026. »\n- « Hier c'était… demain ce sera… »\n- « Quel temps fait-il ce matin ? »"
+                }
+              ],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s2",
+          "start": "08:45",
+          "end": "10:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-85194",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (matin)",
+              "objectif": "Créneau français du matin (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s3",
+          "start": "10:00",
+          "end": "10:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s4",
+          "start": "10:15",
+          "end": "11:25",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "a-maths-9524",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Mathématiques",
+              "objectif": "Créneau maths du matin (~1h10) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s5",
+          "start": "11:25",
+          "end": "11:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-53621",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement avant la cantine",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s6",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "a-cantine-6654",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s7",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "a-sol-34653",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme par la lecture individuelle.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s8",
+          "start": "13:45",
+          "end": "15:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-7475",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (après-midi)",
+              "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s9",
+          "start": "15:00",
+          "end": "15:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s10",
+          "start": "15:15",
+          "end": "16:00",
+          "disciplineId": "eps",
+          "activities": [
+            {
+              "id": "epsp1s6",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "EPS — Consolidation : lancer loin (technique)",
+              "objectif": "Améliorer son lancer (geste bras cassé) et viser sa meilleure zone.",
+              "competence": "Lancer loin ; améliorer un geste technique.",
+              "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+              "progPeriode": "P1",
+              "progDomaine": "Athlétisme — lancer",
+              "progSequence": "Athlétisme P1 — courir & lancer",
+              "progSeance": "6",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "groupe",
+                "binômes"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "video": "",
+              "deroulement": [
+                {
+                  "id": "t1",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+                },
+                {
+                  "id": "t2",
+                  "label": "Le geste bras cassé (12 min)",
+                  "note": "- « On lance bras cassé, coude haut, on lance HAUT et loin. »\n- « On prend un petit élan derrière la ligne. »\n- « On lance TOUS au signal, on ramasse TOUS au signal. »\n- « On regarde jusqu'où va l'engin. »"
+                },
+                {
+                  "id": "t3",
+                  "label": "Je bats mon record (13 min)",
+                  "note": "- « On essaie de dépasser sa meilleure zone. »\n- « Le juge note la zone atteinte. »\n- « On tourne les rôles : lanceur, juge, ramasseur. »\n- « On se félicite des progrès. »"
+                },
+                {
+                  "id": "t9",
+                  "label": "Retour au calme & bilan (7 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+                }
+              ],
+              "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées ; plots, cordes — voir Documents à imprimer.",
+              "differenciation": "Engin adapté ; distance de zones adaptée ; aide au geste (bras cassé) si besoin.",
+              "depassement": "",
+              "correction": "Critères de réussite : geste bras cassé ; progrès de zone par rapport à S5.",
+              "obstacles": "Erreurs fréquentes :\n- Lance à bras tendu, trop bas.\n- Ne prend pas d'élan.\nRemédiation :\n- Geste à vide « coude haut, on vise le ciel » ; cible haute (au-dessus d'une corde).\n- Marquer les pas d'élan derrière la ligne.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s11",
+          "start": "16:00",
+          "end": "16:25",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-15452",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer",
+              "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-22s12",
+          "start": "16:25",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-85332",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement, devoirs et sortie",
+              "objectif": "Noter les devoirs, ranger, cahier de liaison, rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1789700000000,
+      "updatedAt": 1789700000000
+    },
+    {
+      "date": "2026-09-28",
+      "info": {
+        "effectifPrevu": 23,
+        "presents": null,
+        "absents": null,
+        "absentsNames": "",
+        "absentIds": [],
+        "events": [
+          {
+            "id": "ev-2026-09-28",
+            "type": "particulier",
+            "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+          }
+        ],
+        "devoirs": ""
+      },
+      "slots": [
+        {
+          "id": "d2026-09-28s1",
+          "start": "08:30",
+          "end": "08:45",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-71089",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rituels du matin",
+              "objectif": "Entrer dans la journée : bonjour, appel, date, météo.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [
+                {
+                  "id": "r1",
+                  "label": "Accueil & appel",
+                  "note": "- « Bonjour à tous, on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds. »\n- « Qui n'est pas là aujourd'hui ? »"
+                },
+                {
+                  "id": "r2",
+                  "label": "Date & météo",
+                  "note": "- « Quel jour sommes-nous ? On écrit : lundi 28 septembre 2026. »\n- « Hier c'était… demain ce sera… »\n- « Quel temps fait-il ce matin ? »"
+                }
+              ],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s2",
+          "start": "08:45",
+          "end": "10:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-85194",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (matin)",
+              "objectif": "Créneau français du matin (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s3",
+          "start": "10:00",
+          "end": "10:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s4",
+          "start": "10:15",
+          "end": "11:25",
+          "disciplineId": "maths",
+          "activities": [
+            {
+              "id": "a-maths-9524",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Mathématiques",
+              "objectif": "Créneau maths du matin (~1h10) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s5",
+          "start": "11:25",
+          "end": "11:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-53621",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement avant la cantine",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s6",
+          "start": "11:30",
+          "end": "13:30",
+          "disciplineId": "cantine",
+          "activities": [
+            {
+              "id": "a-cantine-6654",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Pause méridienne",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s7",
+          "start": "13:30",
+          "end": "13:45",
+          "disciplineId": "sol",
+          "activities": [
+            {
+              "id": "a-sol-34653",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Silence, on lit",
+              "objectif": "Retour au calme par la lecture individuelle.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s8",
+          "start": "13:45",
+          "end": "15:00",
+          "disciplineId": "francais",
+          "activities": [
+            {
+              "id": "a-francais-7475",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer — Français (après-midi)",
+              "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s9",
+          "start": "15:00",
+          "end": "15:15",
+          "disciplineId": "recreation",
+          "activities": [
+            {
+              "id": "a-recreation-94086",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Récréation",
+              "objectif": "",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s10",
+          "start": "15:15",
+          "end": "16:00",
+          "disciplineId": "eps",
+          "activities": [
+            {
+              "id": "epsp1s7",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "EPS — Évaluation : rencontre athlétique",
+              "objectif": "Mesurer ses performances sur 3 ateliers (vitesse, endurance, lancer).",
+              "competence": "Mesurer et comparer ses performances ; réinvestir les acquis.",
+              "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+              "progPeriode": "P1",
+              "progDomaine": "Athlétisme — évaluation",
+              "progSequence": "Athlétisme P1 — courir & lancer",
+              "progSeance": "7",
+              "progRef": "",
+              "organisation": [
+                "collectif",
+                "groupe",
+                "binômes"
+              ],
+              "roleEnseignant": [
+                "guidage"
+              ],
+              "video": "",
+              "deroulement": [
+                {
+                  "id": "t1",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+                },
+                {
+                  "id": "t2",
+                  "label": "Les 3 ateliers (25 min)",
+                  "note": "- « On tourne sur 3 ateliers : vitesse, endurance, lancer. »\n- « À chaque atelier, tu notes ton MEILLEUR essai sur ta fiche. »\n- « Au lancer, on lance et on ramasse au signal. »\n- « On change d'atelier au signal, en équipe. »"
+                },
+                {
+                  "id": "t3",
+                  "label": "Bilan (5 min)",
+                  "note": "- « Regarde tes progrès depuis le début de la séquence. »\n- « De quoi es-tu le plus fier ? »\n- « On félicite toutes les équipes. »"
+                },
+                {
+                  "id": "t9",
+                  "label": "Retour au calme & bilan (7 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+                }
+              ],
+              "materiel": "3 ateliers : vitesse (sprint chrono ≈ 25 m), endurance (contrat de course), lancer (zones) ; plots, chronomètre, vortex/balles, fiche résultats — voir Documents à imprimer.",
+              "differenciation": "Barèmes adaptés par niveau ; on évalue les PROGRÈS par rapport à soi, pas un classement.",
+              "depassement": "",
+              "correction": "Critères de réussite : participer aux 3 ateliers ; mesurer et noter ses performances ; progrès depuis S1.",
+              "obstacles": "Erreurs fréquentes :\n- Se compare aux autres et se décourage.\n- Oublie de noter son résultat.\nRemédiation :\n- « On se compare à SOI, à la 1re séance » ; binôme qui aide à noter.",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s11",
+          "start": "16:00",
+          "end": "16:25",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-15452",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "À préparer",
+              "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        },
+        {
+          "id": "d2026-09-28s12",
+          "start": "16:25",
+          "end": "16:30",
+          "disciplineId": "autre",
+          "activities": [
+            {
+              "id": "a-autre-85332",
+              "niveaux": [
+                "classe"
+              ],
+              "title": "Rangement, devoirs et sortie",
+              "objectif": "Noter les devoirs, ranger, cahier de liaison, rang.",
+              "competence": "",
+              "competenceRef": "",
+              "progPeriode": "P1",
+              "progDomaine": "",
+              "progSequence": "",
+              "progSeance": "",
+              "progRef": "",
+              "organisation": [],
+              "roleEnseignant": [],
+              "deroulement": [],
+              "materiel": "",
+              "video": "",
+              "differenciation": "",
+              "depassement": "",
+              "correction": "",
+              "obstacles": "",
+              "bilan": "",
+              "aReprendre": "",
+              "devoirs": "",
+              "notesProchaine": ""
+            }
+          ]
+        }
+      ],
+      "createdAt": 1789700000000,
+      "updatedAt": 1789700000000
     }
   ],
   "templates": [],
@@ -2528,9 +4983,9 @@
         "P1:S5:CE1": "• A — Courir longtemps : gérer son allure, courir 6 min sans s'arrêter.\n• B — Les balles brûlantes.",
         "P1:S6:CE1": "• A — Lancer loin : différents engins, différentes techniques.\n• B — Ateliers cibles, se fixer un défi personnel.",
         "P1:S7:CE1": "• A — Rencontre-bilan : parcours athlétique par équipes.\n• B — Bilan oral : ce que j'ai appris, ce que je dois encore progresser.",
-        "P1:prog": "PROGRESSION — EPS (P1) · Athlétisme (champ « produire une performance mesurable »)\n\n⚠ Cour en BÉTON : pas de saut avec réception (dangereux). On travaille COURIR et LANCER ; le saut sera vu plus tard (tapis / herbe / salle).\n\nSéquence — découverte → consolidation → évaluation (lun. & mar., après la récré) :\n- S1 · lun 7/09 — DÉCOUVERTE : courir longtemps (jeu du contrat).\n- S2 · mar 8/09 — DÉCOUVERTE : lancer loin (engins variés, zones).\n- S3 · lun 14/09 — CONSOLIDATION : courir vite (réagir & sprinter).\n- S4 · mar 15/09 — CONSOLIDATION : courir longtemps (allure régulière).\n- S5 · lun 21/09 — CONSOLIDATION : lancer loin (geste bras cassé).\n- S6 · mar 22/09 — CONSOLIDATION : relais (vitesse & coopération).\n- S7 · lun 28/09 — ÉVALUATION : rencontre athlétique (vitesse + endurance + lancer, on mesure les progrès).\n\nBO cycle 2 : s'engager dans l'effort, mesurer et comparer ses performances ; respecter les règles de sécurité. Chaque séance a sa fiche de mise en place (schéma terrain, plots, distances) + sécurité active/passive/affective — voir la séquence « Athlétisme — Période 1 » dans la Bibliothèque."
+        "P1:prog": "PROGRESSION — EPS (P1) · Athlétisme (champ « produire une performance mesurable »)\n\n⚠ Cour en BÉTON : pas de saut avec réception (dangereux). On travaille COURIR et LANCER ; le saut sera vu plus tard (tapis / herbe / salle).\n\nSéquence — découverte → consolidation → évaluation (lun. & mar., après la récré, 15h15-16h00) :\n- S1 · lun 7/09 — DÉCOUVERTE : courir longtemps (jeu du contrat).\n- S2 · mar 8/09 — CONSOLIDATION : courir longtemps (allure régulière).\n- S3 · lun 14/09 — DÉCOUVERTE : courir vite (réagir & sprinter).\n- S4 · mar 15/09 — CONSOLIDATION : relais (vitesse & coopération).\n- S5 · lun 21/09 — DÉCOUVERTE : lancer loin (engins variés, zones).\n- S6 · mar 22/09 — CONSOLIDATION : lancer loin (geste bras cassé).\n- S7 · lun 28/09 — ÉVALUATION : rencontre athlétique (vitesse + endurance + lancer, on mesure les progrès).\n\nOn travaille courir (endurance ET vitesse) puis lancer, chaque famille en découverte + consolidation, avant l'évaluation. BO cycle 2 : s'engager dans l'effort, mesurer et comparer ses performances ; respecter les règles de sécurité. Chaque séance : fiche de mise en place (schéma terrain, plots, distances) + sécurité active/passive/affective — voir la séquence en Bibliothèque."
       },
-      "updatedAt": 1789600000000
+      "updatedAt": 1789700000000
     },
     {
       "id": "progression:qlm",
@@ -2637,7 +5092,7 @@
             "classe"
           ],
           "title": "EPS — Découverte : courir longtemps",
-          "objectif": "Courir sans s'arrêter pendant un temps donné (jeu du contrat) ; se repérer.",
+          "objectif": "Courir sans s'arrêter pendant un temps donné (jeu du contrat).",
           "competence": "Courir longtemps ; s'engager dans un effort régulier.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
@@ -2672,7 +5127,7 @@
             }
           ],
           "materiel": "Boucle ≈ 100 m (plots tous les 25 m) ; chronomètre ; fiche binôme — voir Documents à imprimer.",
-          "differenciation": "Contrat adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé ; rôle d'observateur possible.",
+          "differenciation": "Contrat adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé.",
           "depassement": "",
           "correction": "Critères de réussite : courir sans s'arrêter le temps du contrat ; connaître son nombre de tours.",
           "obstacles": "Erreurs fréquentes :\n- Part trop vite et s'arrête.\n- L'observateur oublie de compter un tour.\nRemédiation :\n- « Choisis une allure où tu peux parler » ; courir un tour à côté de lui.\n- Un trait entouré à chaque passage devant le plot Départ.",
@@ -2686,6 +5141,166 @@
           "niveaux": [
             "classe"
           ],
+          "title": "EPS — Consolidation : courir longtemps (allure)",
+          "objectif": "Tenir une allure régulière et battre son contrat de S1.",
+          "competence": "Gérer son allure sur une durée.",
+          "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+          "progPeriode": "P1",
+          "progDomaine": "Athlétisme — courir longtemps",
+          "progSequence": "Athlétisme P1 — courir & lancer",
+          "progSeance": "2",
+          "progRef": "",
+          "organisation": [
+            "collectif",
+            "groupe",
+            "binômes"
+          ],
+          "roleEnseignant": [
+            "guidage"
+          ],
+          "video": "",
+          "deroulement": [
+            {
+              "id": "t1",
+              "label": "Mise en train (10 min)",
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+            },
+            {
+              "id": "t2",
+              "label": "Contrat régulier (25 min)",
+              "note": "- « Aujourd'hui, on garde la MÊME allure du début à la fin. »\n- « Truc : tu dois pouvoir parler en courant. »\n- « Ton binôme te dit si tu accélères trop. »\n- « On essaie de tenir plus longtemps que la dernière fois. »"
+            },
+            {
+              "id": "t9",
+              "label": "Retour au calme & bilan (7 min)",
+              "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+            }
+          ],
+          "materiel": "Même boucle ; chronomètre ; fiche binôme — voir Documents à imprimer.",
+          "differenciation": "Contrat adapté ; zone de marche pour récupérer.",
+          "depassement": "",
+          "correction": "Critères de réussite : allure régulière ; contrat au moins égal à S1.",
+          "obstacles": "Erreurs fréquentes :\n- Accélère puis s'épuise.\n- S'arrête dès qu'il est essoufflé.\nRemédiation :\n- Donner un repère d'allure (courir à côté un tour) ; autoriser la zone de marche puis repartir.",
+          "bilan": "",
+          "aReprendre": "",
+          "devoirs": "",
+          "notesProchaine": ""
+        },
+        {
+          "id": "epsp1s3",
+          "niveaux": [
+            "classe"
+          ],
+          "title": "EPS — Découverte : courir vite",
+          "objectif": "Réagir vite à un signal et courir vite en ligne droite.",
+          "competence": "Courir vite ; réagir à un signal.",
+          "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+          "progPeriode": "P1",
+          "progDomaine": "Athlétisme — courir vite",
+          "progSequence": "Athlétisme P1 — courir & lancer",
+          "progSeance": "3",
+          "progRef": "",
+          "organisation": [
+            "collectif",
+            "groupe",
+            "binômes"
+          ],
+          "roleEnseignant": [
+            "guidage"
+          ],
+          "video": "",
+          "deroulement": [
+            {
+              "id": "t1",
+              "label": "Mise en train (10 min)",
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+            },
+            {
+              "id": "t2",
+              "label": "Jeux de réaction (12 min)",
+              "note": "- « On joue aux “sorciers” : au signal, on part le plus vite possible. »\n- « On part de positions différentes : debout, assis, dos tourné. »\n- « On écoute BIEN le signal, pas de départ avant. »\n- « On court tout droit jusqu'à la ligne. »"
+            },
+            {
+              "id": "t3",
+              "label": "Sprints par vagues (13 min)",
+              "note": "- « Par vagues de 3-4, vous sprintez dans votre couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Le juge d'arrivée regarde qui franchit la ligne. »\n- « On encourage les copains. »"
+            },
+            {
+              "id": "t9",
+              "label": "Retour au calme & bilan (7 min)",
+              "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+            }
+          ],
+          "materiel": "3-4 couloirs ≈ 25 m ; plots (+ plot 2 m après l'arrivée) ; sifflet ou cartons — voir Documents à imprimer.",
+          "differenciation": "Distance adaptée ; départs variés ; rôle de starter/juge pour souffler.",
+          "depassement": "",
+          "correction": "Critères de réussite : partir au signal ; courir vite tout droit jusqu'au bout.",
+          "obstacles": "Erreurs fréquentes :\n- Faux départs / regarde les autres.\n- Ralentit avant la ligne.\nRemédiation :\n- Rituel « à vos marques… prêts… », signal net.\n- « Cours jusqu'au plot placé après l'arrivée ».",
+          "bilan": "",
+          "aReprendre": "",
+          "devoirs": "",
+          "notesProchaine": ""
+        },
+        {
+          "id": "epsp1s4",
+          "niveaux": [
+            "classe"
+          ],
+          "title": "EPS — Consolidation : relais (vitesse & coopération)",
+          "objectif": "Se transmettre un témoin en courant, coopérer en équipe.",
+          "competence": "Courir vite ; coopérer, transmettre un objet.",
+          "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+          "progPeriode": "P1",
+          "progDomaine": "Athlétisme — courir vite / relais",
+          "progSequence": "Athlétisme P1 — courir & lancer",
+          "progSeance": "4",
+          "progRef": "",
+          "organisation": [
+            "collectif",
+            "groupe",
+            "binômes"
+          ],
+          "roleEnseignant": [
+            "guidage"
+          ],
+          "video": "",
+          "deroulement": [
+            {
+              "id": "t1",
+              "label": "Mise en train (10 min)",
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+            },
+            {
+              "id": "t2",
+              "label": "Passages de témoin (10 min)",
+              "note": "- « On passe le témoin : main tendue en arrière. »\n- « D'abord à l'arrêt, puis en marchant, puis en courant. »\n- « Le passage se fait dans la ZONE jaune seulement. »\n- « On regarde devant en courant. »"
+            },
+            {
+              "id": "t3",
+              "label": "Relais-défi (15 min)",
+              "note": "- « Par équipes, course en relais navette. »\n- « On passe le témoin dans la zone, sans se bousculer. »\n- « Toute l'équipe s'encourage. »\n- « On accepte de gagner ou de perdre. »"
+            },
+            {
+              "id": "t9",
+              "label": "Retour au calme & bilan (7 min)",
+              "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+            }
+          ],
+          "materiel": "2-3 couloirs ; témoins (foulards) ; plots de virage ; zone de passage matérialisée — voir Documents à imprimer.",
+          "differenciation": "Équipes mixtes CE1-CE2 ; passage à l'arrêt autorisé pour débutants ; distance adaptée.",
+          "depassement": "",
+          "correction": "Critères de réussite : témoin transmis dans la zone, sans le faire tomber ; équipe qui finit le relais.",
+          "obstacles": "Erreurs fréquentes :\n- Témoin passé hors zone ou fait tomber.\n- Bousculade au passage.\nRemédiation :\n- Matérialiser la zone au sol ; répéter le geste au ralenti.\n- Un couloir par coureur, on se croise sans se toucher.",
+          "bilan": "",
+          "aReprendre": "",
+          "devoirs": "",
+          "notesProchaine": ""
+        },
+        {
+          "id": "epsp1s5",
+          "niveaux": [
+            "classe"
+          ],
           "title": "EPS — Découverte : lancer loin",
           "objectif": "Découvrir le lancer loin d'engins variés en respectant la sécurité.",
           "competence": "Lancer loin ; respecter des règles de sécurité.",
@@ -2693,7 +5308,7 @@
           "progPeriode": "P1",
           "progDomaine": "Athlétisme — lancer",
           "progSequence": "Athlétisme P1 — courir & lancer",
-          "progSeance": "2",
+          "progSeance": "5",
           "progRef": "",
           "organisation": [
             "collectif",
@@ -2737,112 +5352,7 @@
           "notesProchaine": ""
         },
         {
-          "id": "epsp1s3",
-          "niveaux": [
-            "classe"
-          ],
-          "title": "EPS — Consolidation : courir vite",
-          "objectif": "Réagir vite à un signal et courir vite en ligne droite.",
-          "competence": "Courir vite ; réagir à un signal.",
-          "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
-          "progPeriode": "P1",
-          "progDomaine": "Athlétisme — courir vite",
-          "progSequence": "Athlétisme P1 — courir & lancer",
-          "progSeance": "3",
-          "progRef": "",
-          "organisation": [
-            "collectif",
-            "groupe",
-            "binômes"
-          ],
-          "roleEnseignant": [
-            "guidage"
-          ],
-          "video": "",
-          "deroulement": [
-            {
-              "id": "t1",
-              "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
-            },
-            {
-              "id": "t2",
-              "label": "Jeux de réaction (12 min)",
-              "note": "- « On joue aux “sorciers” : au signal, on part le plus vite possible. »\n- « On part de positions différentes : debout, assis, dos tourné. »\n- « On écoute BIEN le signal, pas de départ avant. »\n- « On court tout droit jusqu'à la ligne. »"
-            },
-            {
-              "id": "t3",
-              "label": "Sprints par vagues (13 min)",
-              "note": "- « Par vagues de 3-4, vous sprintez dans votre couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Le juge d'arrivée regarde qui franchit la ligne. »\n- « On encourage les copains. »"
-            },
-            {
-              "id": "t9",
-              "label": "Retour au calme & bilan (7 min)",
-              "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
-            }
-          ],
-          "materiel": "3-4 couloirs ≈ 25 m ; plots départ/arrivée (+ plot 2 m après l'arrivée) ; sifflet ou cartons — voir Documents à imprimer.",
-          "differenciation": "Distance adaptée ; départs variés ; rôle de starter/juge pour souffler.",
-          "depassement": "",
-          "correction": "Critères de réussite : partir au signal ; courir vite tout droit jusqu'au bout.",
-          "obstacles": "Erreurs fréquentes :\n- Faux départs / regarde les autres.\n- Ralentit avant la ligne.\nRemédiation :\n- Rituel « à vos marques… prêts… », signal net.\n- « Cours jusqu'au plot placé après l'arrivée ».",
-          "bilan": "",
-          "aReprendre": "",
-          "devoirs": "",
-          "notesProchaine": ""
-        },
-        {
-          "id": "epsp1s4",
-          "niveaux": [
-            "classe"
-          ],
-          "title": "EPS — Consolidation : courir longtemps (allure)",
-          "objectif": "Tenir une allure régulière et battre son contrat.",
-          "competence": "Gérer son allure sur une durée.",
-          "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
-          "progPeriode": "P1",
-          "progDomaine": "Athlétisme — courir longtemps",
-          "progSequence": "Athlétisme P1 — courir & lancer",
-          "progSeance": "4",
-          "progRef": "",
-          "organisation": [
-            "collectif",
-            "groupe",
-            "binômes"
-          ],
-          "roleEnseignant": [
-            "guidage"
-          ],
-          "video": "",
-          "deroulement": [
-            {
-              "id": "t1",
-              "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
-            },
-            {
-              "id": "t2",
-              "label": "Contrat régulier (25 min)",
-              "note": "- « Aujourd'hui, on garde la MÊME allure du début à la fin. »\n- « Truc : tu dois pouvoir parler en courant. »\n- « Ton binôme te dit si tu accélères trop. »\n- « On essaie de tenir plus longtemps que la dernière fois. »"
-            },
-            {
-              "id": "t9",
-              "label": "Retour au calme & bilan (7 min)",
-              "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
-            }
-          ],
-          "materiel": "Même boucle ; chronomètre ; fiche binôme — voir Documents à imprimer.",
-          "differenciation": "Contrat adapté ; zone de marche pour récupérer.",
-          "depassement": "",
-          "correction": "Critères de réussite : allure régulière ; contrat au moins égal à S1.",
-          "obstacles": "Erreurs fréquentes :\n- Accélère puis s'épuise.\n- S'arrête dès qu'il est essoufflé.\nRemédiation :\n- Donner un repère d'allure (courir à côté un tour) ; autoriser la zone de marche puis repartir.",
-          "bilan": "",
-          "aReprendre": "",
-          "devoirs": "",
-          "notesProchaine": ""
-        },
-        {
-          "id": "epsp1s5",
+          "id": "epsp1s6",
           "niveaux": [
             "classe"
           ],
@@ -2853,7 +5363,7 @@
           "progPeriode": "P1",
           "progDomaine": "Athlétisme — lancer",
           "progSequence": "Athlétisme P1 — courir & lancer",
-          "progSeance": "5",
+          "progSeance": "6",
           "progRef": "",
           "organisation": [
             "collectif",
@@ -2889,63 +5399,8 @@
           "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées ; plots, cordes — voir Documents à imprimer.",
           "differenciation": "Engin adapté ; distance de zones adaptée ; aide au geste (bras cassé) si besoin.",
           "depassement": "",
-          "correction": "Critères de réussite : geste bras cassé ; progrès de zone par rapport à S2.",
+          "correction": "Critères de réussite : geste bras cassé ; progrès de zone par rapport à S5.",
           "obstacles": "Erreurs fréquentes :\n- Lance à bras tendu, trop bas.\n- Ne prend pas d'élan.\nRemédiation :\n- Geste à vide « coude haut, on vise le ciel » ; cible haute (au-dessus d'une corde).\n- Marquer les pas d'élan derrière la ligne.",
-          "bilan": "",
-          "aReprendre": "",
-          "devoirs": "",
-          "notesProchaine": ""
-        },
-        {
-          "id": "epsp1s6",
-          "niveaux": [
-            "classe"
-          ],
-          "title": "EPS — Consolidation : relais (vitesse & coopération)",
-          "objectif": "Se transmettre un témoin en courant, coopérer en équipe.",
-          "competence": "Courir vite ; coopérer, transmettre un objet.",
-          "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
-          "progPeriode": "P1",
-          "progDomaine": "Athlétisme — courir vite / relais",
-          "progSequence": "Athlétisme P1 — courir & lancer",
-          "progSeance": "6",
-          "progRef": "",
-          "organisation": [
-            "collectif",
-            "groupe",
-            "binômes"
-          ],
-          "roleEnseignant": [
-            "guidage"
-          ],
-          "video": "",
-          "deroulement": [
-            {
-              "id": "t1",
-              "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
-            },
-            {
-              "id": "t2",
-              "label": "Passages de témoin (10 min)",
-              "note": "- « On passe le témoin : main tendue en arrière. »\n- « D'abord à l'arrêt, puis en marchant, puis en courant. »\n- « Le passage se fait dans la ZONE jaune seulement. »\n- « On regarde devant en courant. »"
-            },
-            {
-              "id": "t3",
-              "label": "Relais-défi (15 min)",
-              "note": "- « Par équipes, course en relais navette. »\n- « On passe le témoin dans la zone, sans se bousculer. »\n- « Toute l'équipe s'encourage. »\n- « On prépare la rencontre de la semaine prochaine. »"
-            },
-            {
-              "id": "t9",
-              "label": "Retour au calme & bilan (7 min)",
-              "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
-            }
-          ],
-          "materiel": "2-3 couloirs ; témoins (foulards) ; plots de virage ; zone de passage matérialisée — voir Documents à imprimer.",
-          "differenciation": "Équipes mixtes CE1-CE2 ; passage à l'arrêt autorisé pour débutants ; distance adaptée.",
-          "depassement": "",
-          "correction": "Critères de réussite : témoin transmis dans la zone, sans le faire tomber ; équipe qui finit le relais.",
-          "obstacles": "Erreurs fréquentes :\n- Témoin passé hors zone ou fait tomber.\n- Bousculade au passage.\nRemédiation :\n- Matérialiser la zone au sol ; répéter le geste au ralenti.\n- Un couloir par coureur, on se croise sans se toucher.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
@@ -2983,7 +5438,7 @@
             {
               "id": "t2",
               "label": "Les 3 ateliers (25 min)",
-              "note": "- « On tourne sur 3 ateliers : vitesse, endurance, lancer. »\n- « À chaque atelier, tu notes ton MEILLEUR essai sur ta fiche. »\n- « On respecte les règles : au lancer, on lance et on ramasse au signal. »\n- « On change d'atelier au signal, en équipe. »"
+              "note": "- « On tourne sur 3 ateliers : vitesse, endurance, lancer. »\n- « À chaque atelier, tu notes ton MEILLEUR essai sur ta fiche. »\n- « Au lancer, on lance et on ramasse au signal. »\n- « On change d'atelier au signal, en équipe. »"
             },
             {
               "id": "t3",
@@ -3000,14 +5455,14 @@
           "differenciation": "Barèmes adaptés par niveau ; on évalue les PROGRÈS par rapport à soi, pas un classement.",
           "depassement": "",
           "correction": "Critères de réussite : participer aux 3 ateliers ; mesurer et noter ses performances ; progrès depuis S1.",
-          "obstacles": "Erreurs fréquentes :\n- L'élève se compare aux autres et se décourage.\n- Oublie de noter son résultat.\nRemédiation :\n- Rappeler : « on se compare à SOI, à la 1re séance » ; binôme qui aide à noter.",
+          "obstacles": "Erreurs fréquentes :\n- Se compare aux autres et se décourage.\n- Oublie de noter son résultat.\nRemédiation :\n- « On se compare à SOI, à la 1re séance » ; binôme qui aide à noter.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
           "notesProchaine": ""
         }
       ],
-      "updatedAt": 1789600000000
+      "updatedAt": 1789700000000
     }
   ]
 }
