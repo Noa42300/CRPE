@@ -23,31 +23,28 @@ import { SVT_FICHES } from "@/lib/svt-fiches";
 import { SVT_THEMES, type SvtTheme } from "@/lib/svt-fiches/types";
 import { PHYS_FICHES } from "@/lib/physique-fiches";
 import { PHYS_BLOCS, type PhysBloc } from "@/lib/physique-fiches/types";
+import { GEO_FICHES } from "@/lib/geographie-fiches";
+import { GEO_THEMES, GEO_ORDER, type GeoTheme } from "@/lib/geographie-fiches/types";
+import { EMC_FICHES } from "@/lib/emc-fiches";
+import { EMC_THEMES, EMC_ORDER, type EmcTheme } from "@/lib/emc-fiches/types";
 
 type Matiere =
-  | "francais" | "maths" | "histoire" | "anglais" | "espagnol" | "svt" | "physique-chimie";
+  | "francais" | "maths" | "histoire" | "geographie" | "emc" | "anglais" | "espagnol" | "svt" | "physique-chimie";
 const MATH_ORDER: MathBloc[] = ["nombres", "algebre", "geometrie", "grandeurs"];
 const HIST_ORDER: HistoireBloc[] = ["monde-1945", "france-1945", "europe", "guerres-mondiales"];
 const SVT_ORDER: SvtTheme[] = ["vivant", "corps", "genetique"];
 const PHYS_ORDER: PhysBloc[] = ["matiere", "energie", "electricite", "mouvement"];
 
+const MATIERES: Matiere[] = [
+  "francais", "maths", "histoire", "geographie", "emc",
+  "anglais", "espagnol", "svt", "physique-chimie",
+];
+
 export function FichesHub() {
   const params = useSearchParams();
   const p = params.get("matiere");
   const urlMatiere: Matiere =
-    p === "maths"
-      ? "maths"
-      : p === "histoire"
-        ? "histoire"
-        : p === "anglais"
-          ? "anglais"
-          : p === "espagnol"
-            ? "espagnol"
-            : p === "svt"
-              ? "svt"
-              : p === "physique-chimie"
-                ? "physique-chimie"
-                : "francais";
+    (MATIERES as string[]).includes(p ?? "") ? (p as Matiere) : "francais";
   const [tab, setTab] = useState<Matiere>(urlMatiere);
 
   useEffect(() => {
@@ -66,6 +63,12 @@ export function FichesHub() {
         </TabButton>
         <TabButton active={tab === "histoire"} onClick={() => setTab("histoire")}>
           🌍 Histoire <Count>{HISTOIRE_FICHES.length}</Count>
+        </TabButton>
+        <TabButton active={tab === "geographie"} onClick={() => setTab("geographie")}>
+          🗺️ Géographie <Count>{GEO_FICHES.length}</Count>
+        </TabButton>
+        <TabButton active={tab === "emc"} onClick={() => setTab("emc")}>
+          ⚖️ EMC <Count>{EMC_FICHES.length}</Count>
         </TabButton>
         <TabButton active={tab === "anglais"} onClick={() => setTab("anglais")}>
           🇬🇧 Anglais <Count>{ANGLAIS_FICHES.length}</Count>
@@ -97,6 +100,22 @@ export function FichesHub() {
           meta={HISTOIRE_BLOCS}
           fiches={HISTOIRE_FICHES}
           basePath="/fiches/histoire"
+        />
+      )}
+      {tab === "geographie" && (
+        <ChapterList<GeoTheme>
+          order={GEO_ORDER}
+          meta={GEO_THEMES}
+          fiches={GEO_FICHES.map((f) => ({ ...f, bloc: f.theme }))}
+          basePath="/fiches/geographie"
+        />
+      )}
+      {tab === "emc" && (
+        <ChapterList<EmcTheme>
+          order={EMC_ORDER}
+          meta={EMC_THEMES}
+          fiches={EMC_FICHES.map((f) => ({ ...f, bloc: f.theme }))}
+          basePath="/fiches/emc"
         />
       )}
       {tab === "anglais" && (

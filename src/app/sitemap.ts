@@ -8,6 +8,8 @@ import type { MetadataRoute } from "next";
 import { getAllResources } from "@/lib/resources";
 import { MATH_FICHES } from "@/lib/maths-fiches";
 import { HISTOIRE_FICHES } from "@/lib/histoire-fiches";
+import { GEO_FICHES } from "@/lib/geographie-fiches";
+import { EMC_FICHES } from "@/lib/emc-fiches";
 import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
 import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
 import { SVT_FICHES } from "@/lib/svt-fiches";
@@ -59,6 +61,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Pages de fiches de géographie (une par notion).
+  const geoPages = GEO_FICHES.map((f) => ({
+    url: `${base}/fiches/geographie/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  // Pages de fiches d'EMC (une par notion).
+  const emcPages = EMC_FICHES.map((f) => ({
+    url: `${base}/fiches/emc/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   // Pages de fiches d'anglais (une par fiche).
   const anglaisPages = ANGLAIS_FICHES.map((f) => ({
     url: `${base}/fiches/anglais/${f.slug}`,
@@ -96,6 +114,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...resourcePages,
     ...mathPages,
     ...histPages,
+    ...geoPages,
+    ...emcPages,
     ...anglaisPages,
     ...espagnolPages,
     ...svtPages,

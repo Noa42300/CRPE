@@ -20,6 +20,7 @@ import type { HistoireFiche } from "@/lib/histoire-fiches/types";
 import type { AnglaisFiche } from "@/lib/anglais-fiches/types";
 import type { EspagnolFiche } from "@/lib/espagnol-fiches/types";
 import type { Fiche } from "@/lib/fiches-data";
+import type { CiviqueFiche } from "@/lib/civique-fiches/types";
 import { slugify } from "@/lib/slugify";
 
 /* ------------------------------------------------------------------ */
@@ -31,6 +32,8 @@ export type FichePdfData =
   | { matiere: "physique-chimie"; fiche: PhysFiche }
   | { matiere: "svt"; fiche: SvtFiche }
   | { matiere: "histoire"; fiche: HistoireFiche }
+  | { matiere: "geographie"; fiche: CiviqueFiche }
+  | { matiere: "emc"; fiche: CiviqueFiche }
   | { matiere: "anglais"; fiche: AnglaisFiche }
   | { matiere: "espagnol"; fiche: EspagnolFiche };
 
@@ -40,6 +43,8 @@ const MATIERE_LABELS: Record<FichePdfData["matiere"], string> = {
   "physique-chimie": "Physique-Chimie",
   svt: "SVT",
   histoire: "Histoire",
+  geographie: "Géographie",
+  emc: "EMC",
   anglais: "Anglais",
   espagnol: "Espagnol",
 };
@@ -690,6 +695,53 @@ function buildHistoire(ctx: Ctx, f: HistoireFiche) {
   tintBox(ctx, { accent: C.violet, bullets: f.retenir });
 }
 
+function buildCivique(ctx: Ctx, f: CiviqueFiche, label: string) {
+  // Couleurs successives des sections thématiques (comme la vue web).
+  const sectionAccents = [C.emerald.strong, C.indigo.strong, C.sky.strong];
+  cover(ctx, label, f.titre, f.intro);
+
+  rubricBar(ctx, "La notion", C.sky.strong);
+  writeRich(ctx, f.definition);
+
+  f.sections.forEach((s, i) => {
+    const accent = sectionAccents[i % sectionAccents.length];
+    rubricBar(ctx, s.titre, accent);
+    for (const g of s.groupes) {
+      if (g.titre) subTitle(ctx, g.titre, accent);
+      bulletList(ctx, g.points, accent);
+    }
+  });
+
+  if (f.exemples?.length) {
+    rubricBar(ctx, "Exemples concrets", C.amber.strong);
+    bulletList(ctx, f.exemples, C.amber.strong);
+  }
+
+  if (f.vocabulaire?.length) {
+    rubricBar(ctx, "Vocabulaire clé", C.teal.strong);
+    drawTable(
+      ctx,
+      ["Terme", "Définition"],
+      f.vocabulaire.map((v) => [v.terme, v.sens])
+    );
+  }
+
+  if (f.tableau) {
+    rubricBar(ctx, f.tableau.titre ?? "Tableau", C.teal.strong);
+    drawTable(ctx, f.tableau.entetes, f.tableau.lignes);
+  }
+
+  if (f.pieges?.length) {
+    rubricBar(ctx, "Pièges fréquents", C.rose.strong);
+    for (const p of f.pieges) {
+      tintBox(ctx, { accent: C.rose, label: p.erreur, lines: [p.pourquoi] });
+    }
+  }
+
+  rubricBar(ctx, "À retenir", C.violet.strong);
+  tintBox(ctx, { accent: C.violet, bullets: f.retenir });
+}
+
 function buildLangue(
   ctx: Ctx,
   f: AnglaisFiche | EspagnolFiche,
@@ -764,6 +816,12 @@ async function buildDoc(data: FichePdfData): Promise<import("jspdf").jsPDF> {
       break;
     case "histoire":
       buildHistoire(ctx, data.fiche);
+      break;
+    case "geographie":
+      buildCivique(ctx, data.fiche, "Géographie");
+      break;
+    case "emc":
+      buildCivique(ctx, data.fiche, "EMC");
       break;
     case "anglais":
       buildLangue(ctx, data.fiche, "Anglais");
