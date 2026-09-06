@@ -18,11 +18,12 @@ import type {
   Ritual,
   Sequence,
   Settings,
+  StudentNote,
   Template,
 } from "./types";
 
 const DB_NAME = "cahier-journal";
-const DB_VERSION = 6;
+const DB_VERSION = 7;
 
 type StoreName =
   | "days"
@@ -32,7 +33,8 @@ type StoreName =
   | "sequences"
   | "rituals"
   | "attachments"
-  | "reminders";
+  | "reminders"
+  | "studentNotes";
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 
@@ -74,6 +76,9 @@ function openDB(): Promise<IDBDatabase> {
       if (!db.objectStoreNames.contains("reminders")) {
         const st = db.createObjectStore("reminders", { keyPath: "id" });
         st.createIndex("date", "date", { unique: false });
+      }
+      if (!db.objectStoreNames.contains("studentNotes")) {
+        db.createObjectStore("studentNotes", { keyPath: "studentId" });
       }
     };
     req.onsuccess = () => resolve(req.result);
@@ -200,7 +205,22 @@ export const remindersDB = {
   clear: () => tx<undefined>("reminders", "readwrite", (s) => s.clear()),
 };
 
-/** Supprime journées, modèles, plans, séquences, rituels, documents, rappels. */
+// ------------------------------------------------------------ Suivi élèves
+/**
+ * Suivi des élèves (« Info élèves ») : profil + observations datées.
+ * DONNÉE SENSIBLE sur mineurs — 100 % locale, jamais synchronisée ni publiée.
+ * Clé = id de l'élève.
+ */
+export const studentNotesDB = {
+  getAll: () => tx<StudentNote[]>("studentNotes", "readonly", (s) => s.getAll()),
+  put: (n: StudentNote) =>
+    tx<IDBValidKey>("studentNotes", "readwrite", (s) => s.put(n)),
+  delete: (studentId: string) =>
+    tx<undefined>("studentNotes", "readwrite", (s) => s.delete(studentId)),
+  clear: () => tx<undefined>("studentNotes", "readwrite", (s) => s.clear()),
+};
+
+/** Supprime journées, modèles, plans, séquences, rituels, documents, rappels, suivi. */
 export async function wipeAll(): Promise<void> {
   await daysDB.clear();
   await templatesDB.clear();
@@ -209,6 +229,7 @@ export async function wipeAll(): Promise<void> {
   await ritualsDB.clear();
   await attachmentsDB.clear();
   await remindersDB.clear();
+  await studentNotesDB.clear();
 }
 
 /** Indique si IndexedDB est disponible (utile pour un message d'alerte). */

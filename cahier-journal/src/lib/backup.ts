@@ -12,6 +12,7 @@ import type {
   Ritual,
   Sequence,
   Settings,
+  StudentNote,
   Template,
 } from "./types";
 import { SCHEMA_VERSION } from "./types";
@@ -21,18 +22,20 @@ import {
   ritualsDB,
   sequencesDB,
   settingsDB,
+  studentNotesDB,
   templatesDB,
 } from "./db";
 import { todayISO } from "./dates";
 
 /** Construit l'objet de sauvegarde à partir de la base. */
 export async function buildBackup(settings: Settings): Promise<BackupFile> {
-  const [days, templates, plans, sequences, rituals] = await Promise.all([
+  const [days, templates, plans, sequences, rituals, studentNotes] = await Promise.all([
     daysDB.getAll(),
     templatesDB.getAll(),
     plansDB.getAll(),
     sequencesDB.getAll(),
     ritualsDB.getAll(),
+    studentNotesDB.getAll(),
   ]);
   return {
     app: "cahier-journal",
@@ -44,6 +47,7 @@ export async function buildBackup(settings: Settings): Promise<BackupFile> {
     plans,
     sequences,
     rituals,
+    studentNotes,
   };
 }
 
@@ -58,6 +62,8 @@ export async function buildBackup(settings: Settings): Promise<BackupFile> {
 export function sanitizeForPublic(backup: BackupFile): BackupFile {
   return {
     ...backup,
+    // Suivi des élèves : données sensibles → totalement retirées.
+    studentNotes: [],
     settings: {
       ...backup.settings,
       classe: { ...backup.settings.classe, eleves: [], roster: [] },
@@ -103,6 +109,7 @@ export interface ParsedBackup {
   plans: Plan[];
   sequences: Sequence[];
   rituals: Ritual[];
+  studentNotes: StudentNote[];
 }
 
 /** Analyse et valide le contenu d'un fichier de sauvegarde. */
@@ -127,6 +134,7 @@ export function parseBackup(text: string): ParsedBackup {
     plans: Array.isArray(b.plans) ? b.plans : [],
     sequences: Array.isArray(b.sequences) ? b.sequences : [],
     rituals: Array.isArray(b.rituals) ? b.rituals : [],
+    studentNotes: Array.isArray(b.studentNotes) ? b.studentNotes : [],
   };
 }
 
@@ -149,6 +157,7 @@ export async function restoreBackup(
     await plansDB.clear();
     await sequencesDB.clear();
     await ritualsDB.clear();
+    await studentNotesDB.clear();
     await settingsDB.put({ ...parsed.settings, key: "app" });
   } else {
     const current = (await settingsDB.get()) ?? parsed.settings;
@@ -174,6 +183,10 @@ export async function restoreBackup(
   for (const p of parsed.plans) await plansDB.put(p);
   for (const seq of parsed.sequences) await sequencesDB.put(seq);
   for (const r of parsed.rituals) await ritualsDB.put(r);
+  // Suivi élèves : uniquement en restauration complète (données sensibles).
+  if (mode === "replace") {
+    for (const n of parsed.studentNotes) await studentNotesDB.put(n);
+  }
 }
 
 /** Lit un File (input type=file) en texte. */

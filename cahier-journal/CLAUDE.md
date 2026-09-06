@@ -166,10 +166,30 @@ jours. On peut réduire le reste, jamais ces deux-là.
     (commencer à la séance 2).
 - Données purement pédagogiques (aucune donnée élève) : peuvent être versionnées.
 
+## Sections « Info élèves » et « Idées séances »
+
+- **Info élèves** (`InfoElevesView`, store IndexedDB `studentNotes`) : pour chaque
+  élève du roster, une **synthèse/profil** libre + des **observations datées**
+  (matière, +, à travailler, pistes) accumulées à chaque correction, pour préparer
+  le **LSU** (bouton « Copier pour le LSU »). Dictée vocale via le micro du clavier.
+  **DONNÉE SENSIBLE (mineurs)** : strictement locale, **jamais** dans `journal.json`
+  ni publiée (`sanitizeForPublic` vide `studentNotes` ; le suivi n'est restauré
+  qu'en import « replace », jamais en « merge »).
+- **Idées séances** (`IdeesSeancesView` + `lib/generateSeance.ts`) : générateur
+  **local et déterministe** qui assemble une fiche de séance conforme (objectifs,
+  compétences + réf. programmes 2020, déroulement à la 1re personne, différenciation
+  CE1/CE2, **erreurs & remédiation**, correction, matériel) à partir d'une notion.
+  C'est un **squelette à relire/personnaliser**, pas une génération libre par IA ;
+  pour une séance sur mesure très riche, passer par l'assistant (moi). La séance
+  générée peut être ajoutée à un jour, rangée en Bibliothèque, ou imprimée.
+- Toute nouvelle fiche de séance (générée ou rédigée) **doit** contenir la partie
+  `obstacles` (erreurs fréquentes & remédiation).
+
 ## Repères techniques
 
 - Vite + React + TypeScript + Tailwind + IndexedDB, PWA hors ligne.
-- Données : `days`, `settings`, `templates`, `plans`, `sequences`, `rituals`.
+- Données : `days`, `settings`, `templates`, `plans`, `sequences`, `rituals`,
+  `attachments`, `reminders`, `studentNotes` (IndexedDB, DB_VERSION 7).
 - Synchro cloud à sens unique (GitHub → appli) via `public/journal.json`,
   fusion non destructive (jamais d'écrasement du travail local).
 - Confidentialité : `sanitizeForPublic()` retire toute donnée élève ;

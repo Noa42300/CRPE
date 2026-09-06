@@ -12,10 +12,12 @@ export type ViewId =
   | "programmations"
   | "progressions"
   | "library"
+  | "idees"
   | "rituals"
   | "projets"
   | "edt"
   | "tableau"
+  | "eleves"
   | "admin"
   | "search"
   | "settings"
@@ -29,9 +31,11 @@ const ITEMS: { id: ViewId; label: string; icon: string }[] = [
   { id: "programmations", label: "Programmations", icon: "📚" },
   { id: "progressions", label: "Progressions", icon: "📈" },
   { id: "library", label: "Bibliothèque", icon: "📔" },
+  { id: "idees", label: "Idées séances", icon: "✨" },
   { id: "rituals", label: "Rituels", icon: "🔔" },
   { id: "projets", label: "Projets", icon: "🌍" },
   { id: "tableau", label: "Tableau", icon: "✏️" },
+  { id: "eleves", label: "Info élèves", icon: "🧑‍🎓" },
   { id: "admin", label: "Réunion / Admin", icon: "🗂️" },
   { id: "search", label: "Recherche", icon: "🔍" },
   { id: "settings", label: "Paramètres", icon: "⚙️" },

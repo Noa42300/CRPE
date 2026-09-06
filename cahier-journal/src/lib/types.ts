@@ -300,6 +300,27 @@ export interface Reminder {
   updatedAt: number;
 }
 
+/**
+ * Suivi d'un élève (« Info élèves ») : un profil libre + des observations datées
+ * accumulées à chaque correction, pour préparer le LSU. DONNÉE SENSIBLE sur un
+ * mineur : strictement LOCALE, jamais synchronisée ni publiée.
+ */
+export interface StudentNoteEntry {
+  id: string;
+  date: string; // "AAAA-MM-JJ"
+  discipline?: string; // id de discipline (facultatif)
+  text: string; // observation (dictée vocale possible) : +, −, pistes…
+  createdAt: number;
+}
+export interface StudentNote {
+  /** Clé = id de l'élève (Student.id). */
+  studentId: string;
+  /** Synthèse / profil libre, réutilisable pour le LSU. */
+  synthese: string;
+  entries: StudentNoteEntry[];
+  updatedAt: number;
+}
+
 /** Structure d'un fichier de sauvegarde exporté. */
 export interface BackupFile {
   app: "cahier-journal";
@@ -314,4 +335,9 @@ export interface BackupFile {
   sequences?: Sequence[];
   /** Rituels par période (facultatif). */
   rituals?: Ritual[];
+  /**
+   * Suivi des élèves (Info élèves). DONNÉE SENSIBLE : présente uniquement dans
+   * les sauvegardes locales personnelles ; retirée par sanitizeForPublic.
+   */
+  studentNotes?: StudentNote[];
 }
