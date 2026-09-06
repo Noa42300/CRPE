@@ -1461,47 +1461,50 @@
           "disciplineId": "eps",
           "activities": [
             {
-              "id": "l8eps",
+              "id": "epsp1s1",
               "niveaux": [
                 "classe"
               ],
-              "title": "Athlétisme — Courir longtemps, à allure régulière",
-              "objectif": "Courir sans s'arrêter pendant un temps donné (course régulière) en gérant son allure.",
-              "competence": "Courir longtemps ; adapter son effort à une durée.",
-              "competenceRef": "EPS — champ 1, cycle 2.",
+              "title": "EPS — Découverte : courir longtemps",
+              "objectif": "Courir sans s'arrêter pendant un temps donné (jeu du contrat) ; se repérer.",
+              "competence": "Courir longtemps ; s'engager dans un effort régulier.",
+              "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
               "progPeriode": "P1",
-              "progDomaine": "EPS",
-              "progSequence": "Courir longtemps",
+              "progDomaine": "Athlétisme — courir longtemps",
+              "progSequence": "Athlétisme P1 — courir & lancer",
               "progSeance": "1",
               "progRef": "",
               "organisation": [
                 "collectif",
+                "groupe",
                 "binômes"
               ],
               "roleEnseignant": [
                 "guidage"
               ],
+              "video": "",
               "deroulement": [
                 {
-                  "id": "l8t14",
+                  "id": "t1",
                   "label": "Mise en train (10 min)",
-                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On respire par le nez, on ne part pas trop vite. »"
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
                 },
                 {
-                  "id": "l8t15",
+                  "id": "t2",
                   "label": "Jeu du contrat (25 min)",
                   "note": "- « Le but : courir SANS s'arrêter pendant le temps du contrat. »\n- « On commence par 4 minutes : choisis une allure que tu peux tenir. »\n- « Ton binôme compte tes tours et t'encourage. »\n- « Trop dur ? Tu ralentis mais tu continues de courir. »"
                 },
                 {
-                  "id": "l8t16",
-                  "label": "Retour au calme (10 min)",
-                  "note": "- « On marche pour récupérer, on étire doucement. »\n- « Combien de tours as-tu tenus ? On note son contrat pour la prochaine fois. »"
+                  "id": "t9",
+                  "label": "Retour au calme & bilan (7 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
                 }
               ],
-              "materiel": "Cour / terrain balisé (plots) ; chronomètre ; fiche binôme (compter les tours).",
-              "differenciation": "Contrat de temps adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé pour ceux qui en ont besoin.",
+              "materiel": "Boucle ≈ 100 m (plots tous les 25 m) ; chronomètre ; fiche binôme — voir Documents à imprimer.",
+              "differenciation": "Contrat adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé ; rôle d'observateur possible.",
               "depassement": "",
-              "correction": "",
+              "correction": "Critères de réussite : courir sans s'arrêter le temps du contrat ; connaître son nombre de tours.",
+              "obstacles": "Erreurs fréquentes :\n- Part trop vite et s'arrête.\n- L'observateur oublie de compter un tour.\nRemédiation :\n- « Choisis une allure où tu peux parler » ; courir un tour à côté de lui.\n- Un trait entouré à chaque passage devant le plot Départ.",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
@@ -1701,7 +1704,7 @@
         }
       ],
       "createdAt": 1788700000000,
-      "updatedAt": 1788880000000
+      "updatedAt": 1789600000000
     },
     {
       "date": "2026-09-08",
@@ -2200,21 +2203,22 @@
           "disciplineId": "eps",
           "activities": [
             {
-              "id": "epsathle2",
+              "id": "epsp1s2",
               "niveaux": [
                 "classe"
               ],
-              "title": "EPS — Courir longtemps (séance 2)",
-              "objectif": "Tenir une allure régulière et battre son contrat de la séance 1 : courir sans s'arrêter sur une boucle balisée.",
-              "competence": "Courir longtemps ; gérer son allure et son effort sur une durée donnée.",
-              "competenceRef": "EPS — champ d'apprentissage 1, cycle 2.",
+              "title": "EPS — Découverte : lancer loin",
+              "objectif": "Découvrir le lancer loin d'engins variés en respectant la sécurité.",
+              "competence": "Lancer loin ; respecter des règles de sécurité.",
+              "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
               "progPeriode": "P1",
-              "progDomaine": "EPS — athlétisme (courir longtemps)",
-              "progSequence": "Courir longtemps",
+              "progDomaine": "Athlétisme — lancer",
+              "progSequence": "Athlétisme P1 — courir & lancer",
               "progSeance": "2",
               "progRef": "",
               "organisation": [
                 "collectif",
+                "groupe",
                 "binômes"
               ],
               "roleEnseignant": [
@@ -2223,35 +2227,35 @@
               "video": "",
               "deroulement": [
                 {
-                  "id": "m9t16",
-                  "label": "Mise en train (8 min)",
-                  "note": "- « On réveille le corps : on trottine doucement autour de la boucle. »\n- « On tourne les bras, on monte les genoux, on respire par le nez. »\n- « On repère les plots : ils marquent le chemin, un tous les 25 mètres. »\n- « On revoit le signal d'arrêt : bras levé, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »"
+                  "id": "t1",
+                  "label": "Mise en train (10 min)",
+                  "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
                 },
                 {
-                  "id": "m9t17",
-                  "label": "Rappel de la séance 1 & consigne (5 min)",
-                  "note": "- « La semaine dernière, on a couru sans s'arrêter : chacun avait son contrat de tours. »\n- « Aujourd'hui, le but c'est de courir à une allure RÉGULIÈRE : ni trop vite, ni trop lentement. »\n- « Truc : tu dois pouvoir parler en courant ; si tu es essoufflé, tu ralentis. »\n- « Ton binôme compte tes tours sur la fiche et t'encourage. »\n- « On essaie de battre son contrat de la dernière fois, sans jamais s'arrêter. »"
+                  "id": "t2",
+                  "label": "Je découvre les engins (12 min)",
+                  "note": "- « On découvre plusieurs objets à lancer : vortex, balle lestée, anneau. »\n- « On lance TOUS au signal, on ramasse TOUS au signal : jamais avant. »\n- « Personne ne passe devant la ligne de lancer. »\n- « On essaie de lancer le plus loin possible. »"
                 },
                 {
-                  "id": "m9t18",
-                  "label": "Le contrat régulier (25 min)",
-                  "note": "- « Premier groupe, prêt ? On part au signal, allure tranquille. »\n- « Observateurs, vous entourez un trait à chaque tour terminé par votre coureur. »\n- « Trop dur ? Tu passes dans la zone de marche, tu récupères, puis tu repars. »\n- « On garde la même allure du début à la fin : c'est ça, courir longtemps. »\n- « On échange les rôles : le coureur devient observateur. »\n- « On compare : as-tu tenu plus de tours que la séance 1 ? »"
+                  "id": "t3",
+                  "label": "Dans quelle zone ? (13 min)",
+                  "note": "- « On regarde dans quelle zone (1-2-3) tombe l'engin. »\n- « On essaie de dépasser la zone d'avant. »\n- « Chacun son tour : lanceur, juge, ramasseur. »\n- « On range les engins au signal. »"
                 },
                 {
-                  "id": "m9t19",
-                  "label": "Retour au calme (7 min)",
-                  "note": "- « On marche autour de la boucle pour récupérer, on respire doucement. »\n- « On étire les jambes tranquillement. »\n- « Combien de tours as-tu tenus aujourd'hui ? On note son contrat. »\n- « Qu'est-ce qui t'a aidé à ne pas t'arrêter ? »\n- « Bravo à tous : demain, on essaiera de tenir encore un peu plus longtemps. »"
+                  "id": "t9",
+                  "label": "Retour au calme & bilan (7 min)",
+                  "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
                 }
               ],
-              "materiel": "Terrain balisé : boucle ≈ 100 m, un plot tous les 25 m, couloir de 2-3 m ; chronomètre ; fiche binôme (compter les tours) ; voir Documents à imprimer (schéma du terrain + sécurité).",
-              "differenciation": "Contrat de temps adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé (zone de marche) ; rôle d'observateur possible pour un élève qui a besoin de souffler.",
-              "depassement": "Pour les plus à l'aise : viser une allure encore plus régulière (même nombre de tours à chaque minute).",
-              "correction": "",
+              "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées, anneaux ; plots, cordes — voir Documents à imprimer.",
+              "differenciation": "Engin plus ou moins léger ; distance de zones adaptée ; rôles tournants.",
+              "depassement": "",
+              "correction": "Critères de réussite : lancer au signal, loin, en sécurité ; identifier sa zone.",
+              "obstacles": "Erreurs fréquentes :\n- Lance vers le bas / sans élan du bras.\n- Avance devant la ligne pour ramasser.\nRemédiation :\n- « Lance haut et loin, comme par-dessus un arbre » ; geste bras cassé à vide.\n- Règle stricte : on ramasse UNIQUEMENT au signal.",
               "bilan": "",
               "aReprendre": "",
               "devoirs": "",
-              "notesProchaine": "Séance 3 : allonger la durée du contrat (courir 8 min sans s'arrêter).",
-              "obstacles": "Erreurs fréquentes :\n- L'élève part trop vite et s'arrête (ou marche) au bout d'une minute.\n- Il s'arrête net dès qu'il est essoufflé.\n- L'observateur oublie de compter un tour.\nRemédiation rapide :\n- « Choisis une allure où tu peux encore parler » ; courir à côté de lui un tour pour donner le rythme.\n- Autoriser la zone de marche puis reprendre la course, sans culpabiliser.\n- Repère simple pour l'observateur : un trait entouré à chaque passage devant le plot Départ."
+              "notesProchaine": ""
             }
           ]
         },
@@ -2409,7 +2413,7 @@
         }
       ],
       "createdAt": 1789000000000,
-      "updatedAt": 1789200000000
+      "updatedAt": 1789600000000
     }
   ],
   "templates": [],
@@ -2524,9 +2528,9 @@
         "P1:S5:CE1": "• A — Courir longtemps : gérer son allure, courir 6 min sans s'arrêter.\n• B — Les balles brûlantes.",
         "P1:S6:CE1": "• A — Lancer loin : différents engins, différentes techniques.\n• B — Ateliers cibles, se fixer un défi personnel.",
         "P1:S7:CE1": "• A — Rencontre-bilan : parcours athlétique par équipes.\n• B — Bilan oral : ce que j'ai appris, ce que je dois encore progresser.",
-        "P1:prog": "PROGRESSION — EPS (P1) · Athlétisme (champ « produire une performance mesurable »)\n\nSéquence évolutive et ludique — lundis & mardis, après la récré :\n- S1 · lun 7/09 : Courir longtemps — jeu du contrat.\n- S2 · mar 8/09 : Courir longtemps — allure régulière (battre son contrat).\n- S3 · lun 14/09 : Courir vite — réagir & sprinter (les sorciers).\n- S4 · mar 15/09 : Relais — vitesse & coopération.\n- S5 · lun 21/09 : Sauter loin — la rivière aux crocodiles.\n- S6 · mar 22/09 : Sauter — enchaîner des bonds (multibonds).\n- S7 · lun 28/09 : Lancer loin + mini-rencontre bilan (courir-sauter-lancer).\n\nOn balaie ainsi COURIR / SAUTER / LANCER. BO cycle 2 : s'engager dans l'effort, mesurer et comparer ses performances ; respecter les règles de sécurité.\nChaque séance a sa fiche de mise en place (schéma du terrain, plots, distances) + sécurité active/passive/affective — voir la séquence « Athlétisme — Période 1 » dans la Bibliothèque."
+        "P1:prog": "PROGRESSION — EPS (P1) · Athlétisme (champ « produire une performance mesurable »)\n\n⚠ Cour en BÉTON : pas de saut avec réception (dangereux). On travaille COURIR et LANCER ; le saut sera vu plus tard (tapis / herbe / salle).\n\nSéquence — découverte → consolidation → évaluation (lun. & mar., après la récré) :\n- S1 · lun 7/09 — DÉCOUVERTE : courir longtemps (jeu du contrat).\n- S2 · mar 8/09 — DÉCOUVERTE : lancer loin (engins variés, zones).\n- S3 · lun 14/09 — CONSOLIDATION : courir vite (réagir & sprinter).\n- S4 · mar 15/09 — CONSOLIDATION : courir longtemps (allure régulière).\n- S5 · lun 21/09 — CONSOLIDATION : lancer loin (geste bras cassé).\n- S6 · mar 22/09 — CONSOLIDATION : relais (vitesse & coopération).\n- S7 · lun 28/09 — ÉVALUATION : rencontre athlétique (vitesse + endurance + lancer, on mesure les progrès).\n\nBO cycle 2 : s'engager dans l'effort, mesurer et comparer ses performances ; respecter les règles de sécurité. Chaque séance a sa fiche de mise en place (schéma terrain, plots, distances) + sécurité active/passive/affective — voir la séquence « Athlétisme — Période 1 » dans la Bibliothèque."
       },
-      "updatedAt": 1789500000000
+      "updatedAt": 1789600000000
     },
     {
       "id": "progression:qlm",
@@ -2620,25 +2624,25 @@
   "sequences": [
     {
       "id": "seq-eps-p1-athle",
-      "title": "Athlétisme — Période 1 (courir, sauter, lancer)",
+      "title": "Athlétisme — Période 1 (courir & lancer)",
       "disciplineId": "eps",
       "niveaux": [
         "classe"
       ],
-      "objectif": "Découvrir l'athlétisme de façon ludique et évolutive : courir longtemps, courir vite, sauter, lancer — s'engager dans l'effort, mesurer et comparer ses performances (BO cycle 2, champ 1).",
+      "objectif": "Séquence d'athlétisme adaptée à une cour en béton (courir & lancer, PAS de saut avec réception) : découverte → consolidation → évaluation. S'engager dans l'effort, mesurer et comparer ses performances (BO cycle 2, champ 1).",
       "seances": [
         {
           "id": "epsp1s1",
           "niveaux": [
             "classe"
           ],
-          "title": "EPS — Courir longtemps (séance 1)",
-          "objectif": "Courir sans s'arrêter pendant un temps donné (jeu du contrat).",
+          "title": "EPS — Découverte : courir longtemps",
+          "objectif": "Courir sans s'arrêter pendant un temps donné (jeu du contrat) ; se repérer.",
           "competence": "Courir longtemps ; s'engager dans un effort régulier.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
           "progDomaine": "Athlétisme — courir longtemps",
-          "progSequence": "Athlétisme — courir, sauter, lancer",
+          "progSequence": "Athlétisme P1 — courir & lancer",
           "progSeance": "1",
           "progRef": "",
           "organisation": [
@@ -2654,11 +2658,11 @@
             {
               "id": "t1",
               "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : on trottine, on tourne les bras, on monte les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
             },
             {
               "id": "t2",
-              "label": "Le jeu du contrat (25 min)",
+              "label": "Jeu du contrat (25 min)",
               "note": "- « Le but : courir SANS s'arrêter pendant le temps du contrat. »\n- « On commence par 4 minutes : choisis une allure que tu peux tenir. »\n- « Ton binôme compte tes tours et t'encourage. »\n- « Trop dur ? Tu ralentis mais tu continues de courir. »"
             },
             {
@@ -2667,11 +2671,11 @@
               "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
             }
           ],
-          "materiel": "Boucle ≈ 100 m balisée (plots tous les 25 m) ; chronomètre ; fiche binôme — voir Documents à imprimer.",
+          "materiel": "Boucle ≈ 100 m (plots tous les 25 m) ; chronomètre ; fiche binôme — voir Documents à imprimer.",
           "differenciation": "Contrat adapté (4 à 8 min) ; allure libre ; marcher-courir autorisé ; rôle d'observateur possible.",
           "depassement": "",
           "correction": "Critères de réussite : courir sans s'arrêter le temps du contrat ; connaître son nombre de tours.",
-          "obstacles": "Erreurs fréquentes :\n- L'élève part trop vite et s'arrête vite.\n- L'observateur oublie de compter un tour.\nRemédiation :\n- « Choisis une allure où tu peux parler » ; courir un tour à côté de lui.\n- Repère simple : un trait entouré à chaque passage devant le plot Départ.",
+          "obstacles": "Erreurs fréquentes :\n- Part trop vite et s'arrête.\n- L'observateur oublie de compter un tour.\nRemédiation :\n- « Choisis une allure où tu peux parler » ; courir un tour à côté de lui.\n- Un trait entouré à chaque passage devant le plot Départ.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
@@ -2682,13 +2686,13 @@
           "niveaux": [
             "classe"
           ],
-          "title": "EPS — Courir longtemps (séance 2)",
-          "objectif": "Tenir une allure régulière et battre son contrat de la séance 1.",
-          "competence": "Gérer son allure sur une durée.",
+          "title": "EPS — Découverte : lancer loin",
+          "objectif": "Découvrir le lancer loin d'engins variés en respectant la sécurité.",
+          "competence": "Lancer loin ; respecter des règles de sécurité.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
-          "progDomaine": "Athlétisme — courir longtemps",
-          "progSequence": "Athlétisme — courir, sauter, lancer",
+          "progDomaine": "Athlétisme — lancer",
+          "progSequence": "Athlétisme P1 — courir & lancer",
           "progSeance": "2",
           "progRef": "",
           "organisation": [
@@ -2704,12 +2708,17 @@
             {
               "id": "t1",
               "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : on trottine, on tourne les bras, on monte les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
             },
             {
               "id": "t2",
-              "label": "Contrat régulier (25 min)",
-              "note": "- « Aujourd'hui, on garde la MÊME allure du début à la fin. »\n- « Truc : tu dois pouvoir parler en courant. »\n- « Ton binôme compte et te dit si tu accélères trop. »\n- « On essaie de tenir plus longtemps que la dernière fois. »"
+              "label": "Je découvre les engins (12 min)",
+              "note": "- « On découvre plusieurs objets à lancer : vortex, balle lestée, anneau. »\n- « On lance TOUS au signal, on ramasse TOUS au signal : jamais avant. »\n- « Personne ne passe devant la ligne de lancer. »\n- « On essaie de lancer le plus loin possible. »"
+            },
+            {
+              "id": "t3",
+              "label": "Dans quelle zone ? (13 min)",
+              "note": "- « On regarde dans quelle zone (1-2-3) tombe l'engin. »\n- « On essaie de dépasser la zone d'avant. »\n- « Chacun son tour : lanceur, juge, ramasseur. »\n- « On range les engins au signal. »"
             },
             {
               "id": "t9",
@@ -2717,11 +2726,11 @@
               "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
             }
           ],
-          "materiel": "Même boucle ; chronomètre ; fiche binôme — voir Documents à imprimer.",
-          "differenciation": "Contrat adapté ; zone de marche pour récupérer.",
+          "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées, anneaux ; plots, cordes — voir Documents à imprimer.",
+          "differenciation": "Engin plus ou moins léger ; distance de zones adaptée ; rôles tournants.",
           "depassement": "",
-          "correction": "Critères de réussite : allure régulière ; contrat au moins égal à la séance 1.",
-          "obstacles": "Erreurs fréquentes :\n- L'élève accélère puis s'épuise.\n- Il s'arrête dès qu'il est essoufflé.\nRemédiation :\n- Donner un repère d'allure (courir à côté un tour) ; autoriser la zone de marche puis repartir.",
+          "correction": "Critères de réussite : lancer au signal, loin, en sécurité ; identifier sa zone.",
+          "obstacles": "Erreurs fréquentes :\n- Lance vers le bas / sans élan du bras.\n- Avance devant la ligne pour ramasser.\nRemédiation :\n- « Lance haut et loin, comme par-dessus un arbre » ; geste bras cassé à vide.\n- Règle stricte : on ramasse UNIQUEMENT au signal.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
@@ -2732,13 +2741,13 @@
           "niveaux": [
             "classe"
           ],
-          "title": "EPS — Courir vite (séance 3)",
+          "title": "EPS — Consolidation : courir vite",
           "objectif": "Réagir vite à un signal et courir vite en ligne droite.",
           "competence": "Courir vite ; réagir à un signal.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
           "progDomaine": "Athlétisme — courir vite",
-          "progSequence": "Athlétisme — courir, sauter, lancer",
+          "progSequence": "Athlétisme P1 — courir & lancer",
           "progSeance": "3",
           "progRef": "",
           "organisation": [
@@ -2754,7 +2763,7 @@
             {
               "id": "t1",
               "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : on trottine, on tourne les bras, on monte les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
             },
             {
               "id": "t2",
@@ -2764,7 +2773,7 @@
             {
               "id": "t3",
               "label": "Sprints par vagues (13 min)",
-              "note": "- « Par vagues de 3-4, vous sprintez dans votre couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Le juge d'arrivée regarde qui franchit la ligne. »\n- « On encourage les copains qui courent. »"
+              "note": "- « Par vagues de 3-4, vous sprintez dans votre couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Le juge d'arrivée regarde qui franchit la ligne. »\n- « On encourage les copains. »"
             },
             {
               "id": "t9",
@@ -2772,11 +2781,11 @@
               "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
             }
           ],
-          "materiel": "3-4 couloirs de ≈ 25 m ; plots départ/arrivée ; sifflet ou cartons de couleur — voir Documents à imprimer.",
+          "materiel": "3-4 couloirs ≈ 25 m ; plots départ/arrivée (+ plot 2 m après l'arrivée) ; sifflet ou cartons — voir Documents à imprimer.",
           "differenciation": "Distance adaptée ; départs variés ; rôle de starter/juge pour souffler.",
           "depassement": "",
           "correction": "Critères de réussite : partir au signal ; courir vite tout droit jusqu'au bout.",
-          "obstacles": "Erreurs fréquentes :\n- Faux départs / l'élève regarde les autres.\n- Il ralentit avant la ligne.\nRemédiation :\n- Rituel de départ (« à vos marques… prêts… »), signal net.\n- Placer un plot 2 m APRÈS l'arrivée : « cours jusqu'au plot ».",
+          "obstacles": "Erreurs fréquentes :\n- Faux départs / regarde les autres.\n- Ralentit avant la ligne.\nRemédiation :\n- Rituel « à vos marques… prêts… », signal net.\n- « Cours jusqu'au plot placé après l'arrivée ».",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
@@ -2787,13 +2796,13 @@
           "niveaux": [
             "classe"
           ],
-          "title": "EPS — Relais (séance 4)",
-          "objectif": "Se transmettre un témoin en courant, coopérer en équipe.",
-          "competence": "Courir vite ; coopérer, transmettre un objet.",
+          "title": "EPS — Consolidation : courir longtemps (allure)",
+          "objectif": "Tenir une allure régulière et battre son contrat.",
+          "competence": "Gérer son allure sur une durée.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
-          "progDomaine": "Athlétisme — courir vite / relais",
-          "progSequence": "Athlétisme — courir, sauter, lancer",
+          "progDomaine": "Athlétisme — courir longtemps",
+          "progSequence": "Athlétisme P1 — courir & lancer",
           "progSeance": "4",
           "progRef": "",
           "organisation": [
@@ -2809,17 +2818,12 @@
             {
               "id": "t1",
               "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : on trottine, on tourne les bras, on monte les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
             },
             {
               "id": "t2",
-              "label": "Passages de témoin (10 min)",
-              "note": "- « On apprend à passer le témoin : main tendue en arrière. »\n- « D'abord à l'arrêt, puis en marchant, puis en courant. »\n- « Le passage se fait dans la ZONE jaune seulement. »\n- « On regarde devant en courant. »"
-            },
-            {
-              "id": "t3",
-              "label": "Relais-défi (15 min)",
-              "note": "- « Par équipes, on fait la course en relais navette. »\n- « On passe le témoin dans la zone, sans se bousculer. »\n- « Toute l'équipe compte : on s'encourage. »\n- « On accepte de gagner ou de perdre, on se félicite. »"
+              "label": "Contrat régulier (25 min)",
+              "note": "- « Aujourd'hui, on garde la MÊME allure du début à la fin. »\n- « Truc : tu dois pouvoir parler en courant. »\n- « Ton binôme te dit si tu accélères trop. »\n- « On essaie de tenir plus longtemps que la dernière fois. »"
             },
             {
               "id": "t9",
@@ -2827,11 +2831,11 @@
               "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
             }
           ],
-          "materiel": "2-3 couloirs, témoins (foulards), plots de virage, zone de passage matérialisée — voir Documents à imprimer.",
-          "differenciation": "Équipes mixtes CE1-CE2 ; distance adaptée ; passage à l'arrêt autorisé pour ceux qui débutent.",
+          "materiel": "Même boucle ; chronomètre ; fiche binôme — voir Documents à imprimer.",
+          "differenciation": "Contrat adapté ; zone de marche pour récupérer.",
           "depassement": "",
-          "correction": "Critères de réussite : témoin transmis dans la zone, sans le faire tomber ; équipe qui finit le relais.",
-          "obstacles": "Erreurs fréquentes :\n- Témoin passé hors zone ou fait tomber.\n- Bousculade au passage.\nRemédiation :\n- Matérialiser la zone au sol ; répéter le geste au ralenti.\n- Un couloir par coureur, on se croise sans se toucher.",
+          "correction": "Critères de réussite : allure régulière ; contrat au moins égal à S1.",
+          "obstacles": "Erreurs fréquentes :\n- Accélère puis s'épuise.\n- S'arrête dès qu'il est essoufflé.\nRemédiation :\n- Donner un repère d'allure (courir à côté un tour) ; autoriser la zone de marche puis repartir.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
@@ -2842,13 +2846,13 @@
           "niveaux": [
             "classe"
           ],
-          "title": "EPS — Sauter loin (séance 5)",
-          "objectif": "Sauter loin après un élan et se réceptionner sur deux pieds.",
-          "competence": "Sauter loin ; enchaîner course et saut.",
+          "title": "EPS — Consolidation : lancer loin (technique)",
+          "objectif": "Améliorer son lancer (geste bras cassé) et viser sa meilleure zone.",
+          "competence": "Lancer loin ; améliorer un geste technique.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
-          "progDomaine": "Athlétisme — sauter",
-          "progSequence": "Athlétisme — courir, sauter, lancer",
+          "progDomaine": "Athlétisme — lancer",
+          "progSequence": "Athlétisme P1 — courir & lancer",
           "progSeance": "5",
           "progRef": "",
           "organisation": [
@@ -2864,17 +2868,17 @@
             {
               "id": "t1",
               "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : on trottine, on tourne les bras, on monte les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
             },
             {
               "id": "t2",
-              "label": "La rivière aux crocodiles (12 min)",
-              "note": "- « On prend un petit élan et on saute par-dessus la rivière. »\n- « On appelle sur un pied, on retombe sur deux pieds, souplement. »\n- « La rivière s'élargit petit à petit : choisis ton défi. »\n- « Attention : un seul sauteur à la fois. »"
+              "label": "Le geste bras cassé (12 min)",
+              "note": "- « On lance bras cassé, coude haut, on lance HAUT et loin. »\n- « On prend un petit élan derrière la ligne. »\n- « On lance TOUS au signal, on ramasse TOUS au signal. »\n- « On regarde jusqu'où va l'engin. »"
             },
             {
               "id": "t3",
-              "label": "Je mesure mon saut (13 min)",
-              "note": "- « On saute et on regarde jusqu'où on arrive (repères 1-2-3). »\n- « On essaie de battre son propre repère. »\n- « On observe le camarade : appel, envol, réception. »\n- « On range bien entre chaque passage. »"
+              "label": "Je bats mon record (13 min)",
+              "note": "- « On essaie de dépasser sa meilleure zone. »\n- « Le juge note la zone atteinte. »\n- « On tourne les rôles : lanceur, juge, ramasseur. »\n- « On se félicite des progrès. »"
             },
             {
               "id": "t9",
@@ -2882,11 +2886,11 @@
               "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
             }
           ],
-          "materiel": "Couloir d'élan, ligne d'appel, « rivière » (cordes/lattes), zone de réception souple/tapis, repères 1-2-3 — voir Documents à imprimer.",
-          "differenciation": "Largeur de rivière au choix ; élan court ou long ; tapis pour rassurer.",
+          "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées ; plots, cordes — voir Documents à imprimer.",
+          "differenciation": "Engin adapté ; distance de zones adaptée ; aide au geste (bras cassé) si besoin.",
           "depassement": "",
-          "correction": "Critères de réussite : enchaîner élan + saut ; réception équilibrée sur deux pieds.",
-          "obstacles": "Erreurs fréquentes :\n- L'élève s'arrête avant d'appeler.\n- Réception déséquilibrée (sur un pied, en avant).\nRemédiation :\n- Marquer la zone d'appel ; « saute par-dessus la rivière sans t'arrêter ».\n- Travailler la réception « genoux souples, deux pieds » à l'arrêt d'abord.",
+          "correction": "Critères de réussite : geste bras cassé ; progrès de zone par rapport à S2.",
+          "obstacles": "Erreurs fréquentes :\n- Lance à bras tendu, trop bas.\n- Ne prend pas d'élan.\nRemédiation :\n- Geste à vide « coude haut, on vise le ciel » ; cible haute (au-dessus d'une corde).\n- Marquer les pas d'élan derrière la ligne.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
@@ -2897,13 +2901,13 @@
           "niveaux": [
             "classe"
           ],
-          "title": "EPS — Sauter : enchaîner des bonds (séance 6)",
-          "objectif": "Enchaîner plusieurs bonds de façon rythmée.",
-          "competence": "Sauter ; enchaîner des actions motrices.",
+          "title": "EPS — Consolidation : relais (vitesse & coopération)",
+          "objectif": "Se transmettre un témoin en courant, coopérer en équipe.",
+          "competence": "Courir vite ; coopérer, transmettre un objet.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
-          "progDomaine": "Athlétisme — sauter",
-          "progSequence": "Athlétisme — courir, sauter, lancer",
+          "progDomaine": "Athlétisme — courir vite / relais",
+          "progSequence": "Athlétisme P1 — courir & lancer",
           "progSeance": "6",
           "progRef": "",
           "organisation": [
@@ -2919,17 +2923,17 @@
             {
               "id": "t1",
               "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : on trottine, on tourne les bras, on monte les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
             },
             {
               "id": "t2",
-              "label": "Parcours de bonds (12 min)",
-              "note": "- « On enchaîne les bonds : cloche-pied, pieds joints, d'un cerceau à l'autre. »\n- « On garde le rythme, sans s'arrêter entre les bonds. »\n- « On regarde devant, bras qui aident à sauter. »\n- « Un élève par parcours à la fois. »"
+              "label": "Passages de témoin (10 min)",
+              "note": "- « On passe le témoin : main tendue en arrière. »\n- « D'abord à l'arrêt, puis en marchant, puis en courant. »\n- « Le passage se fait dans la ZONE jaune seulement. »\n- « On regarde devant en courant. »"
             },
             {
               "id": "t3",
-              "label": "Mon meilleur enchaînement (13 min)",
-              "note": "- « On compte combien de bonds on enchaîne sans se tromper. »\n- « On essaie de faire mieux que la fois d'avant. »\n- « Le camarade compte et encourage. »\n- « On range et on tourne d'atelier au signal. »"
+              "label": "Relais-défi (15 min)",
+              "note": "- « Par équipes, course en relais navette. »\n- « On passe le témoin dans la zone, sans se bousculer. »\n- « Toute l'équipe s'encourage. »\n- « On prépare la rencontre de la semaine prochaine. »"
             },
             {
               "id": "t9",
@@ -2937,11 +2941,11 @@
               "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
             }
           ],
-          "materiel": "Cerceaux, lattes, plots, tapis de réception — voir Documents à imprimer.",
-          "differenciation": "Nombre/écart des cerceaux adapté ; cloche-pied ou pieds joints au choix.",
+          "materiel": "2-3 couloirs ; témoins (foulards) ; plots de virage ; zone de passage matérialisée — voir Documents à imprimer.",
+          "differenciation": "Équipes mixtes CE1-CE2 ; passage à l'arrêt autorisé pour débutants ; distance adaptée.",
           "depassement": "",
-          "correction": "Critères de réussite : enchaîner les bonds sans marche ni arrêt ; garder l'équilibre.",
-          "obstacles": "Erreurs fréquentes :\n- L'élève marche entre les bonds.\n- Il regarde ses pieds et perd l'équilibre.\nRemédiation :\n- Rapprocher les cerceaux ; donner un rythme à voix haute (« et hop, et hop »).\n- Fixer un repère visuel devant pour lever la tête.",
+          "correction": "Critères de réussite : témoin transmis dans la zone, sans le faire tomber ; équipe qui finit le relais.",
+          "obstacles": "Erreurs fréquentes :\n- Témoin passé hors zone ou fait tomber.\n- Bousculade au passage.\nRemédiation :\n- Matérialiser la zone au sol ; répéter le geste au ralenti.\n- Un couloir par coureur, on se croise sans se toucher.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
@@ -2952,13 +2956,13 @@
           "niveaux": [
             "classe"
           ],
-          "title": "EPS — Lancer loin + rencontre-bilan (séance 7)",
-          "objectif": "Lancer loin un engin léger ; participer à une rencontre athlétique.",
-          "competence": "Lancer loin ; mesurer et comparer ses performances.",
+          "title": "EPS — Évaluation : rencontre athlétique",
+          "objectif": "Mesurer ses performances sur 3 ateliers (vitesse, endurance, lancer).",
+          "competence": "Mesurer et comparer ses performances ; réinvestir les acquis.",
           "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
           "progPeriode": "P1",
-          "progDomaine": "Athlétisme — lancer / bilan",
-          "progSequence": "Athlétisme — courir, sauter, lancer",
+          "progDomaine": "Athlétisme — évaluation",
+          "progSequence": "Athlétisme P1 — courir & lancer",
           "progSeance": "7",
           "progRef": "",
           "organisation": [
@@ -2974,17 +2978,17 @@
             {
               "id": "t1",
               "label": "Mise en train (10 min)",
-              "note": "- « On réveille le corps : on trottine, on tourne les bras, on monte les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+              "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
             },
             {
               "id": "t2",
-              "label": "Lancer loin (15 min)",
-              "note": "- « On lance le vortex (ou la balle) le plus loin possible, bras cassé. »\n- « On lance TOUS au signal, on ramasse TOUS au signal : jamais avant. »\n- « Personne ne passe devant la ligne de lancer. »\n- « On regarde dans quelle zone (1-2-3) tombe l'engin. »"
+              "label": "Les 3 ateliers (25 min)",
+              "note": "- « On tourne sur 3 ateliers : vitesse, endurance, lancer. »\n- « À chaque atelier, tu notes ton MEILLEUR essai sur ta fiche. »\n- « On respecte les règles : au lancer, on lance et on ramasse au signal. »\n- « On change d'atelier au signal, en équipe. »"
             },
             {
               "id": "t3",
-              "label": "Mini-rencontre bilan (10 min)",
-              "note": "- « On fait 3 ateliers : courir, sauter, lancer, par équipes. »\n- « À chaque atelier, on note son meilleur essai. »\n- « On s'encourage, on respecte les règles de sécurité. »\n- « On félicite tout le monde à la fin. »"
+              "label": "Bilan (5 min)",
+              "note": "- « Regarde tes progrès depuis le début de la séquence. »\n- « De quoi es-tu le plus fier ? »\n- « On félicite toutes les équipes. »"
             },
             {
               "id": "t9",
@@ -2992,18 +2996,18 @@
               "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
             }
           ],
-          "materiel": "Vortex / balles lestées, plots, cordes délimitant les zones 1-2-3, ateliers courir/sauter/lancer — voir Documents à imprimer.",
-          "differenciation": "Engin plus ou moins léger ; distance de zones adaptée ; rôles tournants (lanceur, juge, ramasseur).",
+          "materiel": "3 ateliers : vitesse (sprint chrono ≈ 25 m), endurance (contrat de course), lancer (zones) ; plots, chronomètre, vortex/balles, fiche résultats — voir Documents à imprimer.",
+          "differenciation": "Barèmes adaptés par niveau ; on évalue les PROGRÈS par rapport à soi, pas un classement.",
           "depassement": "",
-          "correction": "Critères de réussite : lancer loin au signal ; respecter la sécurité ; participer à la rencontre.",
-          "obstacles": "Erreurs fréquentes :\n- L'élève lance vers le bas / sans élan du bras.\n- Il avance devant la ligne pour ramasser.\nRemédiation :\n- « Lance haut et loin, comme pour passer par-dessus un arbre » ; geste bras cassé à vide.\n- Règle stricte : on ramasse UNIQUEMENT au signal.",
+          "correction": "Critères de réussite : participer aux 3 ateliers ; mesurer et noter ses performances ; progrès depuis S1.",
+          "obstacles": "Erreurs fréquentes :\n- L'élève se compare aux autres et se décourage.\n- Oublie de noter son résultat.\nRemédiation :\n- Rappeler : « on se compare à SOI, à la 1re séance » ; binôme qui aide à noter.",
           "bilan": "",
           "aReprendre": "",
           "devoirs": "",
           "notesProchaine": ""
         }
       ],
-      "updatedAt": 1789500000000
+      "updatedAt": 1789600000000
     }
   ]
 }
