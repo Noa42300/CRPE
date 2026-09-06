@@ -17,6 +17,7 @@ import { SettingsView } from "./components/SettingsView";
 import { BackupView } from "./components/BackupView";
 import { PlansView } from "./components/PlansView";
 import { SequencesView } from "./components/SequencesView";
+import { SequencesPlanView } from "./components/SequencesPlanView";
 import { IdeesSeancesView } from "./components/IdeesSeancesView";
 import { InfoElevesView } from "./components/InfoElevesView";
 import { RitualsView } from "./components/RitualsView";
@@ -114,6 +115,7 @@ export function App() {
             )}
             {view === "programmations" && <PlansView kind="programmation" />}
             {view === "progressions" && <PlansView kind="progression" />}
+            {view === "sequences" && <SequencesPlanView />}
             {view === "library" && <SequencesView />}
             {view === "idees" && <IdeesSeancesView />}
             {view === "rituals" && <RitualsView />}
