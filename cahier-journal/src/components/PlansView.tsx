@@ -85,6 +85,7 @@ export function PlansView({ kind }: { kind: PlanKind }) {
     .map((p) => ({
       num: p.number,
       label: p.name,
+      progKey: `P${p.number}:prog`,
       cadreKey: `P${p.number}:cadre`,
       weeks: weeksOfPeriod(p.start, p.end).map((w) => ({
         sectionKey: `P${p.number}:${w.key}`,
@@ -152,6 +153,21 @@ export function PlansView({ kind }: { kind: PlanKind }) {
       </div>
     );
   };
+
+  // Bloc « Progression de la période » (VISIBLE) : le contenu par domaine.
+  const ProgZone = ({ zoneKey, label }: { zoneKey: string; label: string }) => (
+    <div className="mb-3 rounded-2xl border border-ink-200 bg-ink-50/40 p-3 dark:border-ink-500/40 dark:bg-ink-500/10">
+      <div className="mb-1.5 text-xs font-bold uppercase tracking-wide text-ink-700 dark:text-ink-200">
+        Progression — {label} (par domaine)
+      </div>
+      <AutoTextarea
+        className="min-h-[120px] bg-white/70 text-[13px] leading-relaxed dark:bg-slate-900/40"
+        value={zones[zoneKey] ?? ""}
+        onChange={(e) => setZone(zoneKey, e.target.value)}
+        placeholder="Contenu de la période, par domaine (CE1 / CE2)…"
+      />
+    </div>
+  );
 
   const CadreZone = ({ zoneKey }: { zoneKey: string }) => (
     <details className="mb-3 rounded-2xl border border-slate-200 bg-slate-50/60 p-3 dark:border-slate-700 dark:bg-slate-800/40">
@@ -288,6 +304,7 @@ export function PlansView({ kind }: { kind: PlanKind }) {
                 <h2 className="mb-2 border-b border-slate-200 pb-1 text-base font-bold text-slate-800 dark:border-slate-700 dark:text-slate-100">
                   {per.label}
                 </h2>
+                <ProgZone zoneKey={per.progKey} label={per.label} />
                 <CadreZone zoneKey={per.cadreKey} />
                 <div className="space-y-4">
                   {per.weeks.map((wk) => (
@@ -317,6 +334,11 @@ export function PlansView({ kind }: { kind: PlanKind }) {
           : progPeriods.map((per) => (
               <div key={per.num} className="mb-3">
                 <h2 className="font-bold underline">{per.label}</h2>
+                {zones[per.progKey] && (
+                  <div className="mb-1 whitespace-pre-wrap text-[11px]">
+                    {zones[per.progKey]}
+                  </div>
+                )}
                 {zones[per.cadreKey] && (
                   <div className="whitespace-pre-wrap text-[11px] italic">
                     {zones[per.cadreKey]}

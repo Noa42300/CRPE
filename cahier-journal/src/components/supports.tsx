@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama } from "./AnglaisDiaporama";
-import { EpsTerrainSupport } from "./EpsTerrainSupport";
+import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 
 export interface SupportFourni {
   key: string;
@@ -390,7 +390,74 @@ const EMC_SOLIDARITE: FicheData = {
   ],
 };
 
+/* ===================== EPS — Séquence athlétisme P1 (fiches terrain) ===================== */
+
+const SEC_RUN = {
+  active: ["Échauffement progressif (trottiner, mobiliser les articulations).", "Signal d'arrêt unique (bras levé), testé avant de commencer.", "Allure adaptée ; lacets serrés, gourde d'eau."],
+  passive: ["Terrain plat, dégagé, sans obstacle ni flaque.", "Plots bien visibles, couloirs délimités.", "Sens de course unique ; trousse de secours à portée."],
+  affective: ["Pas de classement : chacun contre son propre défi.", "Droit de ralentir / marcher sans être jugé.", "Binôme bienveillant : on encourage, on ne se moque pas."],
+};
+const SEC_JUMP = {
+  active: ["Échauffement chevilles/genoux ; quelques bonds d'essai.", "Réception souple sur deux pieds, genoux fléchis.", "Un seul sauteur à la fois par atelier."],
+  passive: ["Zone de réception dégagée (tapis ou sol souple).", "Ligne d'appel bien visible, sol non glissant.", "Distance de sécurité entre les ateliers."],
+  affective: ["On progresse à son niveau (rivière plus ou moins large).", "On observe et on encourage son camarade.", "Aucune moquerie sur la performance."],
+};
+const SEC_THROW = {
+  active: ["Échauffement des épaules et des bras.", "On lance TOUS au signal, on ramasse TOUS au signal.", "Geste maîtrisé, on ne lance jamais vers quelqu'un."],
+  passive: ["Zone de lancer dégagée et interdite pendant les lancers.", "Personne devant la ligne de lancer.", "Engins souples (vortex, balles lestées)."],
+  affective: ["Chacun vise à battre SON record.", "On félicite les progrès, pas seulement la distance.", "Rôles tournants : lanceur, juge, ramasseur."],
+};
+
+const EPS_SEQ: Record<string, EpsFiche> = {
+  epsp1s1: {
+    variant: "courseLongue", titre: "EPS — Courir longtemps (séance 1)", sousTitre: "Athlétisme · P1 · lun. 7 sept. · champ « produire une performance »",
+    dispositif: ["Boucle balisée ≈ 100 m, un plot tous les 25 m.", "Jeu du contrat : courir sans s'arrêter (4 à 8 min).", "Binômes : l'un court, l'autre compte les tours puis on échange.", "Matériel : plots, chronomètre, fiche binôme."],
+    ...SEC_RUN,
+  },
+  epsp1s2: {
+    variant: "courseLongue", titre: "EPS — Courir longtemps (séance 2)", sousTitre: "Athlétisme · P1 · mar. 8 sept. · allure régulière",
+    dispositif: ["Même boucle qu'en séance 1.", "But : tenir une allure RÉGULIÈRE et battre son contrat.", "Zone de marche pour récupérer sans s'arrêter de jouer.", "Matériel : plots, chronomètre, fiche binôme."],
+    ...SEC_RUN,
+  },
+  epsp1s3: {
+    variant: "vitesse", titre: "EPS — Courir vite (séance 3)", sousTitre: "Athlétisme · P1 · lun. 14 sept. · réagir & sprinter (ludique)",
+    dispositif: ["3-4 couloirs parallèles de ≈ 25 m.", "Jeux de réaction : « les sorciers », départs variés (assis, dos tourné) au signal.", "Un starter, un juge d'arrivée ; on court par vagues de 3-4.", "Matériel : plots de départ/arrivée, sifflet/cartons de couleur."],
+    active: ["Échauffement + montées de genoux, talons-fesses.", "Départs au signal seulement (pas de faux départ dangereux).", "On ralentit APRÈS la ligne d'arrivée, jamais brutalement."],
+    passive: SEC_RUN.passive, affective: SEC_RUN.affective,
+  },
+  epsp1s4: {
+    variant: "relais", titre: "EPS — Relais (séance 4)", sousTitre: "Athlétisme · P1 · mar. 15 sept. · vitesse & coopération (ludique)",
+    dispositif: ["Relais navette par équipes mixtes CE1-CE2.", "Le témoin se passe dans la ZONE jaune (main tendue).", "Jeu : « la gamelle » / relais-défi entre 2-3 équipes.", "Matériel : témoins (foulards), plots de virage."],
+    active: ["Échauffement + passages de témoin à l'arrêt puis en marchant.", "On regarde devant en courant, on tend la main en arrière.", "Pas de bousculade dans la zone de passage."],
+    passive: SEC_RUN.passive, affective: ["Toute l'équipe gagne ensemble : on s'encourage.", "On accepte de perdre, on se félicite.", "Rôles équilibrés dans l'équipe."],
+  },
+  epsp1s5: {
+    variant: "saut", titre: "EPS — Sauter loin (séance 5)", sousTitre: "Athlétisme · P1 · lun. 21 sept. · sauter après un élan (ludique)",
+    dispositif: ["Couloir d'élan + ligne d'appel + « rivière » à franchir.", "Jeu : « la rivière aux crocodiles » (rivière de plus en plus large).", "Réception dans la zone souple ; repères de distance 1-2-3.", "Matériel : lattes/cordes pour la rivière, plots, tapis."],
+    ...SEC_JUMP,
+  },
+  epsp1s6: {
+    variant: "saut", titre: "EPS — Sauter (séance 6) — enchaîner des bonds", sousTitre: "Athlétisme · P1 · mar. 22 sept. · multibonds (ludique)",
+    dispositif: ["Parcours de bonds : cerceaux/lattes à enchaîner (cloche-pied, pieds joints).", "Jeu : « la marelle géante » / parcours de bonds chronométré pour soi.", "On mesure son meilleur enchaînement avec les repères.", "Matériel : cerceaux, lattes, plots, tapis de réception."],
+    ...SEC_JUMP,
+  },
+  epsp1s7: {
+    variant: "lancer", titre: "EPS — Lancer loin (séance 7) + rencontre-bilan", sousTitre: "Athlétisme · P1 · lun. 28 sept. · lancer & mini-rencontre (ludique)",
+    dispositif: ["Zone d'élan derrière la ligne de lancer + arcs de distance 1-2-3.", "Ateliers : lancer un vortex / une balle lestée le plus loin possible.", "Mini-rencontre bilan : ateliers courir-sauter-lancer par équipes.", "Matériel : vortex, balles lestées, plots, cordes de zones."],
+    ...SEC_THROW,
+  },
+};
+
 export function supportsForActivity(activityId: string): SupportFourni[] {
+  if (activityId in EPS_SEQ) {
+    const f = EPS_SEQ[activityId];
+    const list: SupportFourni[] = [
+      { key: activityId + "-terrain", label: "Fiche de mise en place (terrain, matériel, sécurité)", node: EpsTerrainSupport(f) },
+    ];
+    if (f.variant === "courseLongue")
+      list.push({ key: activityId + "-binome", label: "Fiche binôme — compter les tours (élève A puis B)", node: ficheNode(EPS_TOURS) });
+    return list;
+  }
   switch (activityId) {
     case "ah":
       return [
