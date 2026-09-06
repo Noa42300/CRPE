@@ -14,7 +14,7 @@ const CE1 = "#e0920a"; // jaune / ambre
 const CE2 = "#2C6FB5"; // bleu
 
 type PoliceId = "cursive" | "manuscrite" | "ecole";
-type ModuleId = "vue" | "dt" | "nb" | "cm" | "ph" | "pb" | "bo";
+type ModuleId = "vue" | "nb" | "cm" | "ph" | "pb" | "bo";
 
 /* ------------------------------------------------------------ nombres */
 const U = [
@@ -54,19 +54,12 @@ function Ico({ d, className = "" }: { d: string; className?: string }) {
 }
 const ICONS: Record<ModuleId, string> = {
   vue: "M4 5h16v14H4zM4 10h16M10 10v9",
-  dt: "M5 6h14v14H5zM5 10h14M9 3v4M15 3v4",
   nb: "M6 20V7M10 20V7M14 20V9M18 20V9M4 12h8M12 13h8",
   cm: "M4 5h16v11H4zM8 20h8M9 9h4M11 7v4M15 9.5h2",
   ph: "M4 19l1-4L16 4l3 3L8 18l-4 1z",
   pb: "M12 3a9 9 0 100 18 9 9 0 000-18zM12 8v8M8 12h8",
   bo: "M12 3.6l2.5 5.3 5.6.8-4 4 .9 5.7-5-2.7-5 2.7.9-5.7-4-4 5.6-.8z",
 };
-
-/* ---- météo (petites vignettes) ---- */
-const METEO: [string, string][] = [
-  ["☀️", "Soleil"], ["🌤️", "Éclaircies"], ["☁️", "Nuageux"], ["🌧️", "Pluie"],
-  ["⛈️", "Orage"], ["❄️", "Neige"], ["🌫️", "Brouillard"], ["💨", "Vent"],
-];
 
 /* ---- pailles (unités / dizaines / centaines) ---- */
 function Paille({ x, fill, stroke }: { x: number; fill: string; stroke: string }) {
@@ -202,12 +195,11 @@ function Carte({ icon, titre, duree, children }: { icon: ModuleId; titre: string
 /* ------------------------------------------------------------ vue jour */
 export function RituelsMatin() {
   const [iJour, setIJour] = useState(0);
-  const [module, setModule] = useState<ModuleId>("dt");
+  const [module, setModule] = useState<ModuleId>("nb");
   const [prof, setProf] = useState(false);
   const [police, setPolice] = useState<PoliceId>("cursive");
   const [cmIndex, setCmIndex] = useState(0);
   const [cmRep, setCmRep] = useState(false);
-  const [meteo, setMeteo] = useState<string | null>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
 
   const J = JOURS[iJour];
@@ -215,7 +207,6 @@ export function RituelsMatin() {
   const modules = useMemo(() => {
     const base: [ModuleId, string, string][] = [
       ["vue", "Vue d’ensemble", ""],
-      ["dt", "La date", "4 min"],
       ["nb", "Le nombre du jour", "6 min"],
       ["cm", "Calcul mental", "5 min"],
       ["ph", "La phrase du jour", "8 min"],
@@ -229,8 +220,7 @@ export function RituelsMatin() {
     setIJour(i);
     setCmIndex(0);
     setCmRep(false);
-    setMeteo(null);
-    if (module === "vue") setModule("dt");
+    if (module === "vue") setModule("nb");
   };
 
   return (
@@ -287,7 +277,6 @@ export function RituelsMatin() {
               <span className="rounded-full bg-stone-200 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-stone-600 dark:bg-stone-700 dark:text-stone-200">{J.phase}</span>
             </div>
 
-            {module === "dt" && <VueDate J={J} prof={prof} meteo={meteo} setMeteo={setMeteo} />}
             {module === "nb" && <VueNombre J={J} prof={prof} />}
             {module === "cm" && (
               <VueCalcul J={J} prof={prof} index={cmIndex} rep={cmRep} setIndex={setCmIndex} setRep={setCmRep} />
@@ -303,35 +292,6 @@ export function RituelsMatin() {
 }
 
 /* ------------------------------------------------------------ modules */
-function VueDate({ J, prof, meteo, setMeteo }: { J: RitualDay; prof: boolean; meteo: string | null; setMeteo: (m: string) => void }) {
-  return (
-    <Carte icon="dt" titre="La date et le temps qu'il fait" duree="4 min">
-      <p className="seyes eleve rounded-lg p-4 text-3xl leading-relaxed sm:text-4xl">
-        Aujourd’hui, nous sommes le<br />{J.d}.
-      </p>
-      <p className="eleve mt-6 text-center text-xl">Quel temps fait-il aujourd’hui ?</p>
-      <div className="mt-2 flex flex-wrap justify-center gap-2">
-        {METEO.map(([emo, lab]) => (
-          <button
-            key={lab}
-            onClick={() => setMeteo(lab)}
-            className={`flex w-24 flex-col items-center gap-1 rounded-xl border-2 px-2 py-2 text-sm transition ${meteo === lab ? "border-ink-500 bg-ink-50 dark:bg-ink-500/15" : "border-stone-200 bg-white dark:border-stone-700 dark:bg-stone-900/40"}`}
-          >
-            <span className="text-3xl">{emo}</span>
-            <span className="eleve">{lab}</span>
-          </button>
-        ))}
-      </div>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <Niveau niv="ce1" items={J.dt.ce1} reveal={prof} />
-        <Niveau niv="ce2" items={J.dt.ce2} reveal={prof} />
-      </div>
-      {prof && <CeQueJeDis k="dt" />}
-      {prof && J.dt.note && <BlocProf titre="Point de vigilance"><p>{J.dt.note}</p></BlocProf>}
-    </Carte>
-  );
-}
-
 function VueNombre({ J, prof }: { J: RitualDay; prof: boolean }) {
   const n = J.n;
   return (
@@ -478,15 +438,13 @@ function VueEnsemble() {
       <Carte icon="vue" titre="La routine du matin">
         <div className="space-y-2 text-[15px] leading-relaxed text-stone-700 dark:text-stone-200">
           <p>Une routine reconnaissable, jamais plus de 30 minutes, toujours dans le même ordre.</p>
-          <p className="font-semibold text-ink-700 dark:text-ink-300">Chaque lundi (≈ 23 min)</p>
+          <p className="font-semibold text-ink-700 dark:text-ink-300">Chaque lundi et chaque mardi (≈ 26 min)</p>
           <ul className="list-disc pl-5">
-            <li>La date et la météo — 4 min</li>
             <li>Le nombre du jour — 6 min</li>
             <li>Calcul mental sur ardoise — 5 min</li>
             <li>La phrase du jour — 8 min</li>
+            <li>Le problème du jour — 7 min (CE1 / CE2, difficulté qui suit la programmation de maths)</li>
           </ul>
-          <p className="font-semibold text-ink-700 dark:text-ink-300">Chaque mardi (≈ 30 min)</p>
-          <ul className="list-disc pl-5"><li>Les quatre rituels du lundi</li><li>+ le problème du jour — 7 min</li></ul>
           <p className="font-semibold text-ink-700 dark:text-ink-300">Ponctuellement (4 lundis)</p>
           <ul className="list-disc pl-5"><li>J8 : vocabulaire · J16 : lecture-inférence · J20 : EMC · J24 : questionner le monde — 5 min si le temps le permet</li></ul>
         </div>
