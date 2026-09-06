@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 
 const ORANGE = "#c9481f";
 
-export type EpsVariant = "courseLongue" | "vitesse" | "relais" | "saut" | "lancer";
+export type EpsVariant = "courseLongue" | "vitesse" | "relais" | "saut" | "lancer" | "ateliers";
 
 export interface EpsFiche {
   variant: EpsVariant;
@@ -123,6 +123,29 @@ function Schema({ variant }: { variant: EpsVariant }) {
         {txt(xBank2 + 75, y + 60, "zone de réception (repères 1-2-3)", { textAnchor: "middle" })}
         <Cone x={xTakeoff} y={y + 60} />
         {txt(300, 305, "Sauter loin après un élan · appel un pied · réception souple sur deux pieds · tapis conseillé", { textAnchor: "middle" })}
+      </svg>
+    );
+  }
+
+  if (variant === "ateliers") {
+    const boxes = [
+      { x: 40, label: "① Vitesse", sub: "sprint ≈ 25 m (chrono)", color: "#2563eb" },
+      { x: 215, label: "② Endurance", sub: "course longue (contrat)", color: "#16a34a" },
+      { x: 390, label: "③ Lancer", sub: "loin (zones 1-2-3)", color: "#c9481f" },
+    ];
+    return (
+      <svg viewBox="0 0 600 320" style={{ width: "100%", height: "auto" }}>
+        {defs}{frame}
+        {boxes.map((b, i) => (
+          <g key={i}>
+            <rect x={b.x} y={70} width={155} height={170} rx={10} fill="#fff" stroke={b.color} strokeWidth={2} />
+            <text x={b.x + 77} y={100} fontSize={15} fontWeight={800} textAnchor="middle" fill={b.color}>{b.label}</text>
+            <text x={b.x + 77} y={122} fontSize={11} textAnchor="middle" fill="#475569">{b.sub}</text>
+            <Cone x={b.x + 30} y={175} /><Cone x={b.x + 125} y={175} />
+            <path d={`M ${b.x + 30} 205 H ${b.x + 125}`} stroke={b.color} strokeWidth={1.5} markerEnd="url(#epsArrow)" opacity={0.5} />
+          </g>
+        ))}
+        {txt(300, 300, "Rencontre-bilan : 3 ateliers en équipes, on note son meilleur essai à chacun", { textAnchor: "middle" })}
       </svg>
     );
   }
