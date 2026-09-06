@@ -16,7 +16,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Day, Plan, Reminder, Ritual, Sequence, Settings, Template } from "./types";
+import type { Day, Plan, Reminder, Ritual, Sequence, Settings, StudentNote, Template } from "./types";
 import { SCHEMA_VERSION } from "./types";
 import {
   daysDB,
@@ -26,6 +26,7 @@ import {
   ritualsDB,
   sequencesDB,
   settingsDB,
+  studentNotesDB,
   templatesDB,
   wipeAll,
 } from "./db";
@@ -44,6 +45,7 @@ interface StoreValue {
   sequences: Sequence[];
   rituals: Ritual[];
   reminders: Reminder[];
+  studentNotes: StudentNote[];
   saveStatus: SaveStatus;
 
   saveSettings: (next: Settings) => void;
@@ -59,6 +61,8 @@ interface StoreValue {
   removeRitual: (id: string) => Promise<void>;
   saveReminder: (r: Reminder) => Promise<void>;
   removeReminder: (id: string) => Promise<void>;
+  saveStudentNote: (n: StudentNote) => Promise<void>;
+  removeStudentNote: (studentId: string) => Promise<void>;
   flush: () => Promise<void>;
   reloadAll: () => Promise<void>;
   resetEverything: () => Promise<void>;
@@ -84,6 +88,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [sequences, setSequences] = useState<Sequence[]>([]);
   const [rituals, setRituals] = useState<Ritual[]>([]);
   const [reminders, setReminders] = useState<Reminder[]>([]);
+  const [studentNotes, setStudentNotes] = useState<StudentNote[]>([]);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   const [lastCloudSync, setLastCloudSync] = useState<number | null>(null);
   const autoSyncDone = useRef(false);
@@ -150,7 +155,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     }
     // Migration légère : complète les champs manquants d'anciens schémas.
     s = { ...defaultSettings(), ...s, schemaVersion: SCHEMA_VERSION, key: "app" };
-    const [allDays, allTemplates, allPlans, allSequences, allRituals, allReminders] =
+    const [allDays, allTemplates, allPlans, allSequences, allRituals, allReminders, allNotes] =
       await Promise.all([
         daysDB.getAll(),
         templatesDB.getAll(),
@@ -158,6 +163,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         sequencesDB.getAll(),
         ritualsDB.getAll(),
         remindersDB.getAll(),
+        studentNotesDB.getAll(),
       ]);
     const map: Record<string, Day> = {};
     for (const d of allDays) map[d.date] = d;
@@ -168,6 +174,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setSequences(allSequences);
     setRituals(allRituals);
     setReminders(allReminders);
+    setStudentNotes(allNotes);
     setReady(true);
   }, []);
 
@@ -319,6 +326,17 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setReminders((prev) => prev.filter((x) => x.id !== id));
   }, []);
 
+  const saveStudentNote = useCallback(async (n: StudentNote) => {
+    const stamped = { ...n, updatedAt: Date.now() };
+    await studentNotesDB.put(stamped);
+    setStudentNotes((prev) => [...prev.filter((x) => x.studentId !== stamped.studentId), stamped]);
+  }, []);
+
+  const removeStudentNote = useCallback(async (studentId: string) => {
+    await studentNotesDB.delete(studentId);
+    setStudentNotes((prev) => prev.filter((x) => x.studentId !== studentId));
+  }, []);
+
   const resetEverything = useCallback(async () => {
     await wipeAll();
     const s = defaultSettings();
@@ -330,6 +348,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     setSequences([]);
     setRituals([]);
     setReminders([]);
+    setStudentNotes([]);
   }, []);
 
   const syncCloud = useCallback(
@@ -370,6 +389,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       sequences,
       rituals,
       reminders,
+      studentNotes,
       saveStatus,
       saveSettings,
       saveDay,
@@ -384,6 +404,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeRitual,
       saveReminder,
       removeReminder,
+      saveStudentNote,
+      removeStudentNote,
       flush,
       reloadAll,
       resetEverything,
@@ -400,6 +422,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       sequences,
       rituals,
       reminders,
+      studentNotes,
       saveStatus,
       saveSettings,
       saveDay,
@@ -414,6 +437,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       removeRitual,
       saveReminder,
       removeReminder,
+      saveStudentNote,
+      removeStudentNote,
       flush,
       reloadAll,
       resetEverything,
