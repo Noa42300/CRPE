@@ -8,10 +8,19 @@
  *
  * DONNÉE SENSIBLE (mineurs) : 100 % locale, jamais synchronisée ni publiée.
  */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useStore } from "../lib/store";
 import type { Student, StudentNote } from "../lib/types";
 import { AutoTextarea, Copy } from "./ui";
+
+/** Normalise un prénom (minuscule, sans accents) + alias d'orthographe. */
+const normName = (s: string) =>
+  s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+const ALIAS: Record<string, string> = {
+  camelia: "kamelia", live: "liv", adrien: "hadrien", eytam: "haytham",
+  riyad: "ryad", leila: "layla", sofia: "sophia", sofiavictoria: "sophia",
+};
+const nameKey = (s: string) => { const n = normName(s); return ALIAS[n] ?? n; };
 
 export function InfoElevesView() {
   const { settings, studentNotes, saveStudentNote } = useStore();
@@ -27,6 +36,9 @@ export function InfoElevesView() {
     [settings.classe.roster],
   );
   const [query, setQuery] = useState("");
+  const [bulk, setBulk] = useState("");
+  const [showImport, setShowImport] = useState(false);
+  const [report, setReport] = useState("");
 
   const noteFor = (studentId: string): StudentNote =>
     studentNotes.find((n) => n.studentId === studentId) ?? {
@@ -35,6 +47,36 @@ export function InfoElevesView() {
       entries: [],
       updatedAt: 0,
     };
+
+  // Répartit un bilan collé (une ligne « Prénom : observation » par élève) dans
+  // la zone de suivi de chaque élève. Ajoute (n'écrase pas) ; match par prénom.
+  const distribute = () => {
+    const lines = bulk.split("\n").map((l) => l.trim()).filter(Boolean);
+    let ok = 0;
+    const notFound: string[] = [];
+    for (const line of lines) {
+      const ci = line.indexOf(":");
+      if (ci < 0) continue;
+      let namePart = line.slice(0, ci).trim();
+      const text = line.slice(ci + 1).trim();
+      if (!text) continue;
+      let niveau: "CE1" | "CE2" | null = null;
+      const m = namePart.match(/\((ce[12])\)/i);
+      if (m) { niveau = m[1].toUpperCase() as "CE1" | "CE2"; namePart = namePart.replace(/\(ce[12]\)/i, "").trim(); }
+      const k = nameKey(namePart);
+      let cands = roster.filter((s) => nameKey(s.prenom) === k);
+      if (cands.length > 1 && niveau) cands = cands.filter((s) => s.niveau === niveau);
+      if (cands.length === 0) { notFound.push(namePart); continue; }
+      const st = cands[0];
+      const note = noteFor(st.id);
+      const add = /fleur du nombre/i.test(text) ? text : `Fleur du nombre (rentrée) — ${text}`;
+      const synthese = note.synthese.trim() ? `${note.synthese.trim()}\n${add}` : add;
+      void saveStudentNote({ ...note, synthese, updatedAt: Date.now() });
+      ok++;
+    }
+    setReport(`${ok} élève(s) rempli(s).${notFound.length ? ` Non trouvés : ${notFound.join(", ")}.` : ""}`);
+    setBulk("");
+  };
 
   const filtered = roster.filter((s) =>
     `${s.prenom} ${s.nom}`.toLowerCase().includes(query.trim().toLowerCase()),
@@ -64,6 +106,34 @@ export function InfoElevesView() {
           />
         )}
       </div>
+
+      {roster.length > 0 && (
+        <div className="mb-3">
+          <button onClick={() => setShowImport((v) => !v)} className="btn-outline py-1.5 text-xs">
+            📋 Importer un bilan (coller)
+          </button>
+          {showImport && (
+            <div className="mt-2 rounded-2xl border border-dashed border-ink-300 bg-ink-50/40 p-3 dark:border-ink-500/40 dark:bg-ink-500/10">
+              <p className="mb-1.5 text-[12px] text-slate-500 dark:text-slate-400">
+                Une ligne par élève : <b>Prénom : observation</b>. Ajoute « (CE1) » ou « (CE2) »
+                après le prénom en cas d'homonyme (ex. deux Victor). Le texte est <b>ajouté</b> à la zone de suivi de l'élève.
+              </p>
+              <AutoTextarea
+                className="min-h-[110px] text-[13px]"
+                value={bulk}
+                onChange={(e) => setBulk(e.target.value)}
+                placeholder={"Alyssa : En retard — +5/-1/+3/-2/-4, alterne + et −.\nVictor (CE1) : En avance — alterne +, − et × (5×5)."}
+              />
+              <div className="mt-2 flex items-center gap-2">
+                <button onClick={distribute} disabled={!bulk.trim()} className="btn-primary py-1.5 text-sm disabled:opacity-40">
+                  Répartir sur les élèves
+                </button>
+                {report && <span className="text-[12px] font-medium text-emerald-600 dark:text-emerald-400">✓ {report}</span>}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       {roster.length === 0 ? (
         <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-slate-300 bg-white/60 p-8 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/40">
@@ -117,6 +187,9 @@ function StudentRow({
   // État local pour ne pas perdre le focus pendant la frappe.
   const [text, setText] = useState(note.synthese ?? "");
   const [copied, setCopied] = useState(false);
+
+  // Reflète une modification externe de la note (ex. import d'un bilan).
+  useEffect(() => { setText(note.synthese ?? ""); }, [note.synthese]);
 
   const onChange = (v: string) => {
     setText(v);
