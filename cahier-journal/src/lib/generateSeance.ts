@@ -41,6 +41,24 @@ function famille(id: string): "maths" | "francais" | "anglais" | "eps" | "emc" |
 
 const N = (s: string) => s.trim() || "la notion du jour";
 
+/**
+ * Référence aux programmes EN VIGUEUR (dernières versions) :
+ *  - Français & Mathématiques cycle 2 : programmes du BO du 31 octobre 2024,
+ *    applicables à la rentrée 2025 (CP-CE1-CE2).
+ *  - EMC : programme rénové (2024).
+ *  - Autres domaines (Questionner le monde, LVE, EPS, arts) : programmes 2020.
+ * Toujours vérifier la formulation exacte sur eduscol.education.fr.
+ */
+function refBO(disciplineId: string, disciplineLabel: string): string {
+  if (disciplineId === "francais")
+    return "Programme de français, cycle 2 — BO du 31 octobre 2024 (en vigueur rentrée 2025). À vérifier sur eduscol.education.fr.";
+  if (disciplineId === "maths")
+    return "Programme de mathématiques, cycle 2 — BO du 31 octobre 2024 (en vigueur rentrée 2025). À vérifier sur eduscol.education.fr.";
+  if (disciplineId === "emc")
+    return "Programme d'enseignement moral et civique, cycle 2 (version rénovée 2024, en vigueur). À vérifier sur eduscol.education.fr.";
+  return `Programmes cycle 2 (2020, en vigueur) — ${disciplineLabel}. À vérifier sur eduscol.education.fr.`;
+}
+
 /** Déroulement type selon la famille, à la 1re personne (5-6 tirets/étape). */
 function deroulementPour(fam: ReturnType<typeof famille>, notion: string): Step[] {
   const n = N(notion);
@@ -146,7 +164,7 @@ export function genererSeance(p: GenParams): Activity {
     title: `${p.disciplineLabel} — ${n}`,
     objectif: `À la fin de la séance, l'élève sait : ${n.toLowerCase()} (comprendre, appliquer et expliquer).`,
     competence: `${p.disciplineLabel} — ${p.domaine ? p.domaine + " : " : ""}${n}.`,
-    competenceRef: `Programmes 2020 (BO), cycle 2 — ${p.disciplineLabel}. (À vérifier sur eduscol.education.fr.)`,
+    competenceRef: refBO(p.disciplineId, p.disciplineLabel),
     progPeriode: p.periode,
     progDomaine: p.domaine ?? "",
     progSequence: n,
