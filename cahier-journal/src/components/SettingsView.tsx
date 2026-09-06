@@ -458,12 +458,50 @@ function RosterEditor({
       .split("\n")
       .map((l) => l.trim())
       .filter(Boolean)
-      .map((line): Student => {
-        const f = line.split(/[\t,;]/).map((x) => x.trim());
-        const niveau: Student["niveau"] = /ce2/i.test(f[2] ?? "") ? "CE2" : "CE1";
-        return { id: uid(), prenom: f[0] ?? "", nom: f[1] ?? "", niveau };
+      // Ignore une éventuelle ligne d'en-tête.
+      .filter((l) => !/^nom\b/i.test(l) && !(/pr[ée]nom/i.test(l) && /niveau/i.test(l)))
+      .map((line): Student | null => {
+        const niveau: Student["niveau"] = /\bce2\b/i.test(line) ? "CE2" : "CE1";
+        const clean = (x: string) =>
+          x
+            .replace(/\bce[12]\b/gi, " ")
+            .replace(/\b\d{2}\/\d{2}\/\d{4}\b/g, " ")
+            .replace(/\ba[iî]n[eé]e?/gi, " ")
+            .replace(/(^|\s)[FMfm](?=\s|$)/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+
+        // Cas 1 : délimiteurs explicites (virgule, point-virgule, tabulation)
+        // → on fait confiance à l'ordre documenté « Prénom, NOM, Niveau ».
+        if (/[,;\t]/.test(line)) {
+          const fields = line.split(/[,;\t]/).map((x) => clean(x)).filter(Boolean);
+          if (fields.length === 0) return null;
+          const prenom = fields[0] ?? "";
+          const nom = fields[1] ?? "";
+          return { id: uid(), prenom, nom, niveau };
+        }
+
+        // Cas 2 : liste officielle « NOM Prénom … » (séparée par des espaces).
+        const s = clean(line);
+        if (!s) return null;
+        const tokens = s.split(" ");
+        const isMaj = (t: string) => /^[A-ZÀ-Ÿ][A-ZÀ-Ÿ'’-]+$/.test(t);
+        const nomTokens: string[] = [];
+        let i = 0;
+        while (i < tokens.length && isMaj(tokens[i])) { nomTokens.push(tokens[i]); i++; }
+        let nom = nomTokens.join(" ");
+        let prenom = tokens.slice(i).join(" ");
+        if (!nom) {
+          prenom = tokens[0] ?? "";
+          nom = tokens.slice(1).join(" ");
+        } else if (!prenom && nomTokens.length > 1) {
+          // Tout en majuscules (prénom aussi) : le dernier mot est le prénom.
+          prenom = nomTokens.pop() ?? "";
+          nom = nomTokens.join(" ");
+        }
+        return { id: uid(), prenom: prenom.trim(), nom: nom.trim(), niveau };
       })
-      .filter((s) => s.prenom || s.nom);
+      .filter((s): s is Student => !!s && (!!s.prenom || !!s.nom));
     if (parsed.length === 0) return;
     onChange(parsed);
     setBulk("");
@@ -491,7 +529,7 @@ function RosterEditor({
             className="input h-28 resize-y text-[13px]"
             value={bulk}
             onChange={(e) => setBulk(e.target.value)}
-            placeholder={"Une ligne par élève : Prénom, NOM, Niveau\nAlyssa, AKTAS, CE1\nHugo, BRIAS, CE2"}
+            placeholder={"Une ligne par élève. Accepté :\n• Prénom, NOM, Niveau  →  Alyssa, AKTAS, CE1\n• NOM Prénom … Niveau  →  AKTAS Alyssa 01/09/2019 F CE1\n(la date, « Aîné » et le sexe sont ignorés)"}
           />
           <div className="mt-2 flex items-center gap-2">
             <button type="button" onClick={importBulk} className="btn-primary py-1 text-xs">

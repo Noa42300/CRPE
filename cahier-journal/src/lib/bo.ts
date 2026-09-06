@@ -22,7 +22,7 @@ export interface BODiscipline {
 }
 
 export const BO_SOURCE =
-  "Synthèse des programmes 2020 et repères annuels de progression (éduscol), cycle 2. À vérifier sur eduscol.education.fr.";
+  "Synthèse — cycle 2. Français & mathématiques : programmes du BO du 31 octobre 2024 (en vigueur rentrée 2025). EMC : programme rénové 2024. Autres domaines : programmes 2020. À vérifier sur eduscol.education.fr.";
 
 export const BO: Record<string, BODiscipline> = {
   francais: {
