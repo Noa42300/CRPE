@@ -163,6 +163,54 @@
 }
 
 /* ------------------------------------------------------------------ */
+/*  Rituels du matin — projection au tableau                          */
+/* ------------------------------------------------------------------ */
+/* Le texte destiné aux élèves (.eleve) prend VRAIMENT l'écriture choisie
+   dans la barre (cursive / manuscrite / script). Sans ces règles, le
+   sélecteur n'avait aucun effet. */
+.rituel-scene .eleve {
+  line-height: 1.55;
+}
+.rituel-scene[data-police="cursive"] .eleve {
+  font-family: "Borel", "Comic Neue", cursive;
+  line-height: 1.9; /* cursive liée : besoin d'air entre les lignes */
+}
+.rituel-scene[data-police="manuscrite"] .eleve {
+  font-family: "Caveat", "Dancing Script", cursive;
+  font-weight: 700;
+}
+.rituel-scene[data-police="ecole"] .eleve {
+  font-family: "Nunito", "Lexend", ui-rounded, sans-serif;
+}
+
+/* En VRAIE projection (bouton « ⛶ Projeter » = plein écran), on écrit
+   beaucoup plus gros pour que les élèves du fond de la classe lisent sans
+   effort. Ne s'applique QUE quand la scène est en plein écran. */
+.rituel-scene:fullscreen,
+.rituel-scene:-webkit-full-screen {
+  padding: 2vw 4vw;
+  overflow-y: auto;
+}
+/* Énoncés élèves : nombre du jour, phrase du jour, problème… en très grand. */
+.rituel-scene:fullscreen .eleve,
+.rituel-scene:-webkit-full-screen .eleve {
+  font-size: clamp(2.4rem, 4.2vw, 5rem) !important;
+}
+/* Listes de questions CE1 / CE2 : lisibles de loin. */
+.rituel-scene:fullscreen ol,
+.rituel-scene:fullscreen ul,
+.rituel-scene:-webkit-full-screen ol,
+.rituel-scene:-webkit-full-screen ul {
+  font-size: clamp(1.5rem, 2.6vw, 3rem) !important;
+  line-height: 1.5 !important;
+}
+/* Titre du jour proportionné. */
+.rituel-scene:fullscreen h1,
+.rituel-scene:-webkit-full-screen h1 {
+  font-size: clamp(2rem, 3.2vw, 3.5rem) !important;
+}
+
+/* ------------------------------------------------------------------ */
 /*  Zone de texte auto-agrandissante                                  */
 /* ------------------------------------------------------------------ */
 .autogrow {

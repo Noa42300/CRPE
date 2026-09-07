@@ -150,7 +150,7 @@ function Niveau({ niv, items, reveal }: { niv: "ce1" | "ce2"; items: QA[]; revea
       <span className="mb-2 inline-block rounded-md px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-white" style={{ background: color, color: niv === "ce1" ? "#2b2000" : "#fff" }}>
         {niv.toUpperCase()}
       </span>
-      <ol className="list-decimal space-y-1.5 pl-5 text-[15px] leading-snug text-stone-800 dark:text-stone-100">
+      <ol className="list-decimal space-y-1.5 pl-5 text-lg leading-relaxed text-stone-800 dark:text-stone-100">
         {items.map((q, i) => (
           <li key={i}>
             {q[0]}
@@ -374,7 +374,7 @@ function VueProbleme({ J, prof }: { J: RitualDay; prof: boolean }) {
   const pb = J.pb!;
   return (
     <Carte icon="pb" titre="Le problème du jour" duree="7 min">
-      <div className="eleve rounded-xl border-2 border-dashed border-stone-400 bg-white/60 p-5 text-2xl dark:bg-stone-900/40">{pb.t}</div>
+      <div className="eleve rounded-xl border-2 border-dashed border-stone-400 bg-white/60 p-6 text-3xl leading-relaxed sm:text-4xl dark:bg-stone-900/40">{pb.t}</div>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <Niveau niv="ce1" items={pb.ce1} reveal={prof} />
         <Niveau niv="ce2" items={pb.ce2} reveal={prof} />
@@ -389,7 +389,7 @@ function VueBonus({ J, prof }: { J: RitualDay; prof: boolean }) {
   const bo = J.bo!;
   return (
     <Carte icon="bo" titre={bo.t} duree="5 min">
-      <div className="eleve rounded-xl border-2 border-dashed border-stone-400 bg-white/60 p-5 text-2xl dark:bg-stone-900/40">{bo.txt}</div>
+      <div className="eleve rounded-xl border-2 border-dashed border-stone-400 bg-white/60 p-6 text-3xl leading-relaxed sm:text-4xl dark:bg-stone-900/40">{bo.txt}</div>
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <Niveau niv="ce1" items={bo.ce1} reveal={prof} />
         <Niveau niv="ce2" items={bo.ce2} reveal={prof} />
