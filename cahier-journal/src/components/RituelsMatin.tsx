@@ -292,24 +292,45 @@ export function RituelsMatin() {
 }
 
 /* ------------------------------------------------------------ modules */
+/** Un « nombre du jour » par niveau : le nombre en grand, sa décomposition
+ *  en pailles + tableau c/d/u, puis les questions et leur correction. */
+function NombreNiveau({ niv, n, items, reveal }: { niv: "ce1" | "ce2"; n: number; items: QA[]; reveal: boolean }) {
+  const color = niv === "ce1" ? CE1 : CE2;
+  return (
+    <div className="rounded-xl border-2 bg-white/70 p-4 dark:bg-stone-900/40" style={{ borderTopColor: color, borderTopWidth: 6 }}>
+      <div className="mb-1 flex items-center gap-2">
+        <span className="inline-block rounded-md px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider" style={{ background: color, color: niv === "ce1" ? "#2b2000" : "#fff" }}>
+          {niv.toUpperCase()}
+        </span>
+        <span className="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">Le nombre du jour</span>
+      </div>
+      <div className="eleve my-1 text-center text-6xl font-black leading-none sm:text-7xl" style={{ color }}>{n}</div>
+      <BoitePailles n={n} />
+      <TableauCDU n={n} reveal={reveal} />
+      {reveal && (
+        <p className="text-center text-lg text-rose-600 dark:text-rose-400">{n} s’écrit « {enLettres(n)} »</p>
+      )}
+      <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-lg leading-relaxed text-stone-800 dark:text-stone-100">
+        {items.map((q, i) => (
+          <li key={i}>
+            {q[0]}
+            {reveal && <span className="ml-1 font-semibold text-rose-600 dark:text-rose-400">→ {q[1]}</span>}
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
 function VueNombre({ J, prof }: { J: RitualDay; prof: boolean }) {
-  const n = J.n;
   return (
     <Carte icon="nb" titre="Le nombre du jour" duree="6 min">
-      <p className="eleve text-center text-3xl sm:text-4xl">
-        Aujourd’hui, nous sommes au <strong>{n}<sup>e</sup></strong> jour d’école.
+      <p className="text-center text-base text-stone-600 dark:text-stone-300">
+        Chaque niveau a son <strong>nombre du jour</strong> (pris au hasard). On le lit, on le décompose, puis on répond aux questions sur l’ardoise.
       </p>
-      <BoitePailles n={n} />
-      <TableauCDU n={n} reveal={prof} />
-      {prof && (
-        <p className="text-center text-lg text-rose-600 dark:text-rose-400">
-          {n} s’écrit « {enLettres(n)} »
-          {J.nb.g ? ` — grand nombre du jour : ${J.nb.g} (« ${enLettres(J.nb.g)} »)` : ""}
-        </p>
-      )}
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
-        <Niveau niv="ce1" items={J.nb.ce1} reveal={prof} />
-        <Niveau niv="ce2" items={J.nb.ce2} reveal={prof} />
+      <div className="mt-4 grid gap-5 lg:grid-cols-2">
+        <NombreNiveau niv="ce1" n={J.nb.nce1} items={J.nb.ce1} reveal={prof} />
+        <NombreNiveau niv="ce2" n={J.nb.nce2} items={J.nb.ce2} reveal={prof} />
       </div>
       {prof && <CeQueJeDis k="nb" />}
       {prof && J.nb.note && <BlocProf titre="Point de vigilance"><p>{J.nb.note}</p></BlocProf>}
@@ -423,7 +444,7 @@ function VueEnsemble() {
                   <td className="whitespace-nowrap border border-stone-300 px-2 py-1.5 font-semibold dark:border-stone-600">{J.j}</td>
                   <td className="border border-stone-300 px-2 py-1.5 dark:border-stone-600">{J.c}</td>
                   <td className="border border-stone-300 px-2 py-1.5 dark:border-stone-600"><span className="rounded bg-ink-600 px-1.5 py-0.5 font-bold text-white">{J.n}</span></td>
-                  <td className="border border-stone-300 px-2 py-1.5 dark:border-stone-600">{J.n}{J.nb.g ? ` / ${J.nb.g}` : ""}</td>
+                  <td className="border border-stone-300 px-2 py-1.5 dark:border-stone-600">CE1 {J.nb.nce1} · CE2 {J.nb.nce2}</td>
                   <td className="border border-stone-300 px-2 py-1.5 dark:border-stone-600">{J.cm.t}</td>
                   <td className="border border-stone-300 px-2 py-1.5 dark:border-stone-600">{J.ph.f}</td>
                   <td className="border border-stone-300 px-2 py-1.5 dark:border-stone-600">{J.pb ? "✓" : "—"}</td>
