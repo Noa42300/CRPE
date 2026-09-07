@@ -48,8 +48,22 @@ export function ActivityEditor({
   const [preview, setPreview] = useState<{ title: string; node: ReactNode; cid: string; name: string } | null>(null);
 
   const downloadPdf = async (containerId: string, name: string) => {
-    const el = document.querySelector(`#${containerId} .fiche-a4`) as HTMLElement | null;
-    if (el) await downloadElementPdf(el, `${safeFileName(name)}.pdf`);
+    const container = document.getElementById(containerId) as HTMLElement | null;
+    const el = (container?.querySelector(".fiche-a4") as HTMLElement | null) ?? container;
+    if (!el) {
+      alert("Document introuvable. Ouvre d'abord l'aperçu (🔍), puis réessaie le PDF.");
+      return;
+    }
+    try {
+      await downloadElementPdf(el, `${safeFileName(name)}.pdf`);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      alert(
+        "Le PDF n'a pas pu être généré (" + msg + ").\n\n" +
+        "Solution de secours : la fenêtre d'impression va s'ouvrir — choisis « Enregistrer au format PDF ».",
+      );
+      printArea(containerId);
+    }
   };
 
   const ficheCid = `print-prep-${activity.id}`;
