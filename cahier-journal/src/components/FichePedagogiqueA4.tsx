@@ -113,6 +113,10 @@ function Carte({ name, label, bg, border }: { name: string; label: string; bg: s
 
 export function FichePedagogiqueA4({ data }: { data: FicheData }) {
   const body = data.cursive ? "'Borel','Nunito',cursive" : "'Lexend','Nunito',system-ui,sans-serif";
+  // En écriture cursive (Borel, liée) il faut de plus grandes lettres et plus
+  // d'interligne pour que ce soit vraiment lisible par des CE1-CE2.
+  const cur = !!data.cursive;
+  const lh = cur ? 1.9 : 1.55;
   const isExo = data.entete.toLowerCase().includes("exercice") || data.entete.toLowerCase().includes("autonomie") || data.entete.toLowerCase().includes("distribuer");
   let exNo = 0;
   return (
@@ -136,10 +140,10 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
           if (b.kind === "def") {
             return (
               <div key={i} style={{ display: "flex", gap: "3mm", alignItems: "center", background: "#f6f8f4", border: "1.5px solid #dfe6d8", borderRadius: "8px", padding: "3mm 4mm" }}>
-                {b.picto && <div style={{ flexShrink: 0 }}><Picto name={b.picto} size={52} /></div>}
+                {b.picto && <div style={{ flexShrink: 0 }}><Picto name={b.picto} size={cur ? 64 : 52} /></div>}
                 <div>
                   {b.titre && <div style={{ ...H, fontSize: "14px", marginBottom: "1mm" }}>{b.titre}</div>}
-                  <div style={{ fontSize: data.cursive ? "18px" : "14.5px", lineHeight: 1.55, fontFamily: body }}>{b.contenu}</div>
+                  <div style={{ fontSize: cur ? "22px" : "14.5px", lineHeight: lh, fontFamily: body }}>{b.contenu}</div>
                 </div>
               </div>
             );
@@ -148,7 +152,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i}>
                 {b.titre && <div style={{ ...H, fontSize: "13px", marginBottom: "1mm" }}>{b.titre}</div>}
-                <ul style={{ margin: 0, paddingLeft: "6mm", fontSize: data.cursive ? "17px" : "14px", lineHeight: 1.6, fontFamily: body }}>
+                <ul style={{ margin: 0, paddingLeft: "6mm", fontSize: cur ? "20px" : "14px", lineHeight: cur ? 1.8 : 1.6, fontFamily: body }}>
                   {b.points.map((p, j) => <li key={j}>{p}</li>)}
                 </ul>
               </div>
@@ -158,7 +162,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i} style={{ borderLeft: `4px solid ${ORANGE}`, paddingLeft: "3mm" }}>
                 {b.titre && <div style={{ ...H, fontSize: "12px", marginBottom: "1mm" }}>{b.titre}</div>}
-                <ul style={{ margin: 0, paddingLeft: "5mm", fontSize: data.cursive ? "16px" : "13.5px", lineHeight: 1.5, fontFamily: body, color: "#333" }}>
+                <ul style={{ margin: 0, paddingLeft: "5mm", fontSize: cur ? "19px" : "13.5px", lineHeight: cur ? 1.75 : 1.5, fontFamily: body, color: "#333" }}>
                   {b.points.map((p, j) => <li key={j}>{p}</li>)}
                 </ul>
               </div>
@@ -236,7 +240,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i}>
                 {b.titre && <div style={{ ...H, fontSize: "13px", marginBottom: "1.5mm" }}>{b.titre}</div>}
-                <table style={{ borderCollapse: "collapse", width: "100%", fontSize: data.cursive ? "15px" : "13.5px", fontFamily: body }}>
+                <table style={{ borderCollapse: "collapse", width: "100%", fontSize: cur ? "16.5px" : "13.5px", fontFamily: body }}>
                   <thead>
                     <tr>
                       {b.entetes.map((h, j) => (
