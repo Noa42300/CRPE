@@ -12,6 +12,7 @@ import { useState } from "react";
 import type { Pays } from "../lib/projets";
 import { AUTOUR_DU_MONDE, THEMES } from "../lib/projets";
 import { printArea } from "../lib/print";
+import { downloadElementPdf, safeFileName } from "../lib/pdf";
 import { PrintPortal } from "./PrintPortal";
 
 function continentDe(pays: Pays): string {
@@ -89,6 +90,25 @@ export function CarteIdentiteOverlay({
   const [correction, setCorrection] = useState(false);
   const accent = (THEMES[periodNumber] ?? THEMES[1]).accent;
 
+  const downloadPdf = async () => {
+    const container = document.getElementById("print-carte");
+    const el = (container?.querySelector(".fiche-a4") as HTMLElement | null) ?? container;
+    if (!el) {
+      alert("Carte introuvable, réessaie.");
+      return;
+    }
+    try {
+      await downloadElementPdf(el, `${safeFileName("Carte identite - " + pays.nom)}.pdf`);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      alert(
+        "Le PDF n'a pas pu être généré (" + msg + ").\n\n" +
+        "Solution de secours : la fenêtre d'impression va s'ouvrir — choisis « Enregistrer au format PDF ».",
+      );
+      printArea("print-carte");
+    }
+  };
+
   return (
     <div className="board-overlay font-ludique flex flex-col bg-stone-100 dark:bg-stone-900">
       {/* Barre d'outils (masquée à l'impression) */}
@@ -103,8 +123,11 @@ export function CarteIdentiteOverlay({
         >
           {correction ? "✓ Mode Correction (TBI)" : "Mode Correction"}
         </button>
-        <button onClick={() => printArea("print-carte")} className="rounded-full px-4 py-1 text-xs font-bold text-white" style={{ background: accent }}>
-          ⬇️ Télécharger / Imprimer (PDF)
+        <button onClick={() => void downloadPdf()} className="rounded-full px-4 py-1 text-xs font-bold text-white" style={{ background: accent }}>
+          ⬇️ PDF
+        </button>
+        <button onClick={() => printArea("print-carte")} className="rounded-full border-2 px-4 py-1 text-xs font-bold" style={{ borderColor: accent, color: accent }}>
+          🖨️ Imprimer
         </button>
         <button onClick={onClose} className="ml-auto rounded-full bg-stone-700 px-4 py-1 text-xs font-bold text-white">✕ Fermer</button>
       </div>
