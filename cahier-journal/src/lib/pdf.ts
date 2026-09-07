@@ -39,11 +39,18 @@ export async function downloadElementPdf(el: HTMLElement, filename: string): Pro
   const imgH = (canvas.height * pageW) / canvas.width;
   const imgData = canvas.toDataURL("image/jpeg", 0.95);
 
+  // Tolérance : une fiche calibrée A4 (min-height: 297mm) se capture souvent à
+  // quelques fractions de mm au-dessus d'une page pleine (bordures, arrondis,
+  // capture scale 2). Sans marge, ce micro-dépassement ajoutait une 2ᵉ page
+  // presque blanche à l'impression → gaspillage de papier. On ne pagine donc
+  // que si le contenu déborde d'AU MOINS ~8 mm (contenu réel, pas un artefact).
+  const EPSILON = 8; // mm
+
   let heightLeft = imgH;
   let position = 0;
   pdf.addImage(imgData, "JPEG", 0, position, imgW, imgH);
   heightLeft -= pageH;
-  while (heightLeft > 0) {
+  while (heightLeft > EPSILON) {
     position -= pageH;
     pdf.addPage();
     pdf.addImage(imgData, "JPEG", 0, position, imgW, imgH);
