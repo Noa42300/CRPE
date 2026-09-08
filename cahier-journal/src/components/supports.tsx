@@ -18,7 +18,7 @@ export interface SupportFourni {
 /* ============================ FRANÇAIS — Le verbe ============================ */
 
 const VERBE_AFFICHE: FicheData = {
-  entete: "Affichage (TBI)", titre: "Le verbe", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  entete: "Affichage (TBI)", titre: "Le verbe", niveau: "CE1-CE2", discipline: "Français — Grammaire", cursive: true,
   blocs: [
     { kind: "def", picto: "saut", titre: "C'est quoi un verbe ?", contenu: "Le verbe est le mot qui dit ce que l'on FAIT (une action) ou ce que l'on EST. Il change avec le temps (hier, aujourd'hui, demain) et la personne." },
     { kind: "pictos", titre: "Des verbes en images", items: [
@@ -86,7 +86,7 @@ const VERBE_CE2: FicheData = {
 /* ============================ MATHS ============================ */
 
 const MATHS_CE1_LECON: FicheData = {
-  entete: "Leçon", titre: "Dénombrer une collection jusqu'à 99", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  entete: "Leçon", titre: "Dénombrer une collection jusqu'à 99", niveau: "CE1", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
     { kind: "def", titre: "Pour compter beaucoup d'objets", contenu: "Je fais des paquets de 10. Un paquet de 10, c'est une dizaine (une barre orange). Ce qui reste tout seul, ce sont les unités (des cubes verts)." },
     { kind: "base10", dizaines: 4, unites: 6, legende: "4 barres de 10 et 6 cubes" },
@@ -124,7 +124,7 @@ const MATHS_CE2_AUTO: FicheData = {
 /* ============================ HISTOIRE — Le temps ============================ */
 
 const HIST_SUPPORT: FicheData = {
-  entete: "Affichage (TBI)", titre: "Objets d'hier et d'aujourd'hui", niveau: "CE1-CE2", discipline: "Questionner le monde — Le temps",
+  entete: "Affichage (TBI)", titre: "Objets d'hier et d'aujourd'hui", niveau: "CE1-CE2", discipline: "Questionner le monde — Le temps", cursive: true,
   blocs: [
     { kind: "def", picto: "caverne", titre: "Comment sait-on qu'une chose est du passé ?", contenu: "Certains objets viennent d'autrefois, d'autres d'aujourd'hui. On observe les indices : la matière, la forme, la façon dont ça marche." },
     { kind: "paires", titre: "Autrefois → Aujourd'hui", paires: [
@@ -214,7 +214,7 @@ const EPS_TOURS: FicheData = {
 /* ===================== MATHS — Comparer les nombres ===================== */
 
 const COMP_CE1_LECON: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres (Tandem)",
+  entete: "Leçon (à projeter)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
   blocs: [
     { kind: "def", titre: "Comparer, c'est quoi ?", contenu: "Comparer deux nombres, c'est dire lequel est le PLUS GRAND et lequel est le PLUS PETIT. J'utilise les signes < (plus petit que) et > (plus grand que)." },
     { kind: "def", picto: "crocodile", titre: "Le truc du crocodile", contenu: "Le signe est comme la bouche d'un crocodile très gourmand : sa bouche s'ouvre toujours du côté du PLUS GRAND nombre (il veut manger le plus gros !). La pointe montre le plus petit." },
@@ -231,7 +231,7 @@ const COMP_CE1_LECON: FicheData = {
 };
 
 const COMP_CE2_LECON: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
+  entete: "Leçon (à projeter)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
   blocs: [
     { kind: "def", picto: "crocodile", titre: "Comparer des nombres à 3 chiffres", contenu: "Pour comparer deux nombres, je regarde leurs chiffres rang par rang : les centaines, puis les dizaines, puis les unités. J'utilise les signes <, > et = (égal). Astuce : la bouche du crocodile s'ouvre vers le plus grand nombre." },
     { kind: "puces", titre: "Ma méthode", points: [
@@ -358,7 +358,7 @@ const ANGLAIS_HELLO_GOODBYE: FicheData = {
 /* ============ FRANÇAIS — Les articles et les déterminants (1,2,3 ÉdL) ============ */
 
 const ARTDET_AFFICHE: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Les articles et les déterminants", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  entete: "Leçon (à projeter)", titre: "Les articles et les déterminants", niveau: "CE1-CE2", discipline: "Français — Grammaire", cursive: true,
   blocs: [
     { kind: "def", picto: "livre", contenu: "Le déterminant est un petit mot placé DEVANT le nom. Il a le même genre (masculin ou féminin) et le même nombre (singulier ou pluriel) que le nom qu'il accompagne. Ex. : le lapin, la voiture, les enfants." },
     { kind: "pictos", titre: "Le déterminant + le nom (exemples)", items: [
