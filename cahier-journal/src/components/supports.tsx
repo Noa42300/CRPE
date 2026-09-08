@@ -304,24 +304,53 @@ const DICTEE_MONDE1: FicheData = {
 /* ===================== ANGLAIS — Se présenter (fiche récap) ===================== */
 
 const ANGLAIS_PRESENT_RECAP: FicheData = {
-  entete: "Fiche récapitulative (à coller — cahier violet)", titre: "Se présenter en anglais", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais",
+  entete: "Fiche récapitulative (à coller — cahier violet)", titre: "Se présenter et être poli en anglais", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais", cursive: true,
   blocs: [
-    { kind: "def", picto: "sourire", contenu: "Pour se présenter en anglais, on utilise de petites phrases. Voici les phrases utiles et leur traduction en français." },
-    { kind: "pictos", titre: "Les phrases (anglais = français)", items: [
-      { name: "sourire", label: "Hello! = Bonjour !" },
+    { kind: "def", picto: "main", contenu: "En anglais, on se salue, on se présente et on reste poli avec de petites phrases. Voici les phrases utiles et leur traduction." },
+    { kind: "pictos", titre: "Se saluer et se présenter", items: [
+      { name: "main", label: "Hello! / Hi! = Bonjour ! / Salut !" },
       { name: "oreille", label: "What's your name? = Comment tu t'appelles ?" },
       { name: "plume", label: "My name is… = Je m'appelle…" },
-      { name: "sourire", label: "Nice to meet you! = Enchanté(e) !" },
-      { name: "oiseau", label: "How are you? = Comment ça va ?" },
+      { name: "coeur", label: "Nice to meet you! = Enchanté(e) !" },
+      { name: "sourire", label: "How are you? = Comment ça va ?" },
       { name: "pomme", label: "I'm fine, thank you! = Ça va bien, merci !" },
-      { name: "valise", label: "Goodbye! = Au revoir !" },
+      { name: "valise", label: "Goodbye! / Bye! = Au revoir !" },
     ] },
-    { kind: "puces", titre: "Je m'entraîne à deux", points: [
-      "Je demande : « What's your name? »",
-      "Je réponds : « My name is … »",
-      "J'ajoute : « Nice to meet you! »",
+    { kind: "pictos", titre: "Les mots de politesse (magic words)", items: [
+      { name: "coeur", label: "Please = S'il te plaît" },
+      { name: "sourire", label: "Thank you! = Merci !" },
+      { name: "main", label: "You're welcome = De rien" },
+      { name: "oreille", label: "Sorry = Pardon / Désolé" },
+      { name: "plume", label: "Excuse me = Excuse-moi" },
+      { name: "pomme", label: "Yes / No = Oui / Non" },
+    ] },
+    { kind: "puces", titre: "Je m'entraîne à deux (I ask, you answer)", points: [
+      "— Hello! What's your name?",
+      "— My name is … . Nice to meet you!",
+      "— How are you? — I'm fine, thank you!",
+      "— Goodbye! — Bye!",
     ] },
     { kind: "exemples", titre: "À écouter (chanson)", points: ["The Beatles — « Hello, Goodbye » : on repère hello et goodbye."] },
+  ],
+};
+
+/* ===================== ANGLAIS — Dialogue à projeter ===================== */
+
+const ANGLAIS_DIALOGUE: FicheData = {
+  entete: "À projeter au tableau", titre: "On se parle en anglais !", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais", cursive: true,
+  blocs: [
+    { kind: "def", picto: "main", contenu: "On se met par deux. L'un pose la question (A), l'autre répond (B) — à l'oral, sans lire si possible. Puis on échange les rôles. On essaie, ce n'est pas grave si on se trompe !" },
+    { kind: "tableau", titre: "Le dialogue (A ↔ B)", entetes: ["A demande", "B répond"], lignes: [
+      ["Hello! What's your name?", "Hello! My name is …"],
+      ["How are you?", "I'm fine, thank you! And you?"],
+      ["Nice to meet you!", "Nice to meet you too!"],
+      ["Goodbye!", "Bye! See you!"],
+    ] },
+    { kind: "puces", titre: "Pour bien faire (good job!)", points: [
+      "Je regarde mon camarade dans les yeux.",
+      "Je parle fort et lentement.",
+      "Je n'oublie pas « please » et « thank you ».",
+    ] },
   ],
 };
 
@@ -404,22 +433,28 @@ const ARTDET_LECON: FicheData = {
 /* ===================== EMC — La solidarité ===================== */
 
 const EMC_SOLIDARITE: FicheData = {
-  entete: "Séance (affichage + trace)", titre: "La solidarité", niveau: "CE1-CE2", discipline: "EMC — la sensibilité (soi et les autres)",
+  entete: "Séance (affichage + trace)", titre: "La solidarité", niveau: "CE1-CE2", discipline: "EMC — la sensibilité (soi et les autres)", cursive: true,
   blocs: [
-    { kind: "def", picto: "sourire", contenu: "Être solidaire, c'est s'entraider : quand un camarade a besoin d'aide, je l'aide ; quand j'ai un problème, les autres m'aident. Comme la toile d'araignée de la rentrée : si un fil lâche, toute la classe le sent." },
+    { kind: "def", picto: "coeur", contenu: "Être solidaire, c'est s'entraider : quand un camarade a besoin d'aide, je l'aide ; quand j'ai un problème, les autres m'aident. Comme la toile d'araignée de la rentrée : si un fil lâche, toute la classe le sent." },
     { kind: "pictos", titre: "Des gestes solidaires", items: [
       { name: "pomme", label: "partager son goûter" },
       { name: "oreille", label: "écouter un camarade triste" },
       { name: "cartable", label: "aider à ranger" },
-      { name: "sourire", label: "consoler quelqu'un" },
+      { name: "coeur", label: "consoler quelqu'un" },
       { name: "livre", label: "expliquer à qui n'a pas compris" },
       { name: "fleur", label: "inviter à jouer celui qui est seul" },
+      { name: "main", label: "prêter son matériel" },
+      { name: "sourire", label: "dire un mot gentil" },
     ] },
     { kind: "puces", titre: "Dans notre classe, je suis solidaire quand…", points: [
       "j'aide un camarade qui n'a pas compris, sans faire à sa place ;",
       "je prête mon matériel ;",
       "je console quelqu'un qui a de la peine ;",
       "je ne me moque jamais et j'invite celui qui est tout seul.",
+    ] },
+    { kind: "paires", titre: "Pas solidaire → Solidaire", paires: [
+      { avant: { name: "chien", label: "se moquer" }, apres: { name: "coeur", label: "encourager" } },
+      { avant: { name: "cartable", label: "laisser seul" }, apres: { name: "main", label: "inviter à jouer" } },
     ] },
     { kind: "def", picto: "fleur", titre: "Ma trace", contenu: "Je dessine ou j'écris un geste solidaire que je peux faire cette semaine." },
     { kind: "lignes", n: 2 },
@@ -548,7 +583,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m9ang":
       return [
-        { key: "ang-present-recap", label: "Se présenter en anglais — Fiche récap (EN = FR)", node: ficheNode(ANGLAIS_PRESENT_RECAP) },
+        { key: "ang-dialogue", label: "On se parle en anglais ! — Dialogue à projeter (A ↔ B)", node: ficheNode(ANGLAIS_DIALOGUE) },
+        { key: "ang-present-recap", label: "Se présenter et être poli — Fiche récap (EN = FR)", node: ficheNode(ANGLAIS_PRESENT_RECAP) },
         { key: "ang-hello-goodbye", label: "« Hello, Goodbye » (Beatles) — Traduction & trace à recopier", node: ficheNode(ANGLAIS_HELLO_GOODBYE) },
       ];
     case "emcsolid":

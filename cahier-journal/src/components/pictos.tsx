@@ -122,8 +122,17 @@ export const PictoGlobe = (p: P) => (
   <S {...p}><circle cx="32" cy="32" r="22" fill="#38bdf8" stroke="#0369a1" strokeWidth="2" /><path d="M14 26c8 4 28 4 36 0M14 40c8-4 28-4 36 0" fill="none" stroke="#bae6fd" strokeWidth="2" /><path d="M32 10v44M20 14c-8 10-8 26 0 36M44 14c8 10 8 26 0 36" fill="none" stroke="#bae6fd" strokeWidth="2" /><path d="M22 24c4 2 4 6 8 6s6-4 10-2 2 8-2 10-8-2-12 0-6 6-10 2" fill="#4ade80" opacity="0.9" /></S>
 );
 
+/* ---------------------------------------------- Politesse / entraide */
+export const PictoCoeur = (p: P) => (
+  <S {...p}><path d="M32 52C16 40 10 32 10 24a10 10 0 0 1 22-4 10 10 0 0 1 22 4c0 8-6 16-22 28Z" fill="#ef4444" stroke="#b91c1c" strokeWidth="2" strokeLinejoin="round" /><path d="M20 22a6 6 0 0 1 6-2" fill="none" stroke="#fecaca" strokeWidth="3" strokeLinecap="round" /></S>
+);
+export const PictoMain = (p: P) => (
+  <S {...p}><g fill="#fcd9b6" stroke="#c9481f" strokeWidth="2" strokeLinejoin="round"><rect x="24" y="10" width="5" height="22" rx="2.5" /><rect x="30" y="7" width="5" height="25" rx="2.5" /><rect x="36" y="10" width="5" height="22" rx="2.5" /><path d="M20 24c-3-4-8-2-6 3l6 12c2 5 6 8 12 8s11-4 11-11V22a2.5 2.5 0 0 0-5 0v8h-2V16a2.5 2.5 0 0 0-5 0" /></g><path d="M46 12c3-1 6 0 6 0M48 8c2 0 4 2 4 2" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" fill="none" /></S>
+);
+
 export const PICTOS: Record<string, (p: P) => React.ReactNode> = {
   crocodile: PictoCrocodile, nombre: PictoNombre, globe: PictoGlobe,
+  coeur: PictoCoeur, main: PictoMain,
   maison: PictoMaison, goutte: PictoGoutte, livre: PictoLivre,
   pomme: PictoPomme, fleur: PictoFleur, oreille: PictoOreille, saut: PictoSaut,
   oiseau: PictoOiseau, valise: PictoValise, cartable: PictoCartable, pain: PictoPain,
