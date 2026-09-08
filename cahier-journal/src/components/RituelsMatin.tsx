@@ -277,12 +277,12 @@ export function RituelsMatin() {
               <span className="rounded-full bg-stone-200 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-stone-600 dark:bg-stone-700 dark:text-stone-200">{J.phase}</span>
             </div>
 
-            {module === "nb" && <VueNombre J={J} prof={prof} />}
+            {module === "nb" && <VueNombre key={J.n} J={J} prof={prof} />}
             {module === "cm" && (
               <VueCalcul J={J} prof={prof} index={cmIndex} rep={cmRep} setIndex={setCmIndex} setRep={setCmRep} />
             )}
             {module === "ph" && <VuePhrase J={J} prof={prof} />}
-            {module === "pb" && J.pb && <VueProbleme J={J} prof={prof} />}
+            {module === "pb" && J.pb && <VueProbleme key={J.n} J={J} prof={prof} />}
             {module === "bo" && J.bo && <VueBonus J={J} prof={prof} />}
           </>
         )}
@@ -323,14 +323,21 @@ function NombreNiveau({ niv, n, items, reveal }: { niv: "ce1" | "ce2"; n: number
 }
 
 function VueNombre({ J, prof }: { J: RitualDay; prof: boolean }) {
+  const [show, setShow] = useState(false);
+  const reveal = show || prof;
   return (
     <Carte icon="nb" titre="Le nombre du jour" duree="6 min">
       <p className="text-center text-base text-stone-600 dark:text-stone-300">
         Chaque niveau a son <strong>nombre du jour</strong> (pris au hasard). On le lit, on le décompose, puis on répond aux questions sur l’ardoise.
       </p>
+      <div className="mt-3 flex justify-center">
+        <button className="btn-primary" onClick={() => setShow((s) => !s)}>
+          {reveal ? "🙈 Cacher la solution" : "👁️ Révéler la solution"}
+        </button>
+      </div>
       <div className="mt-4 grid gap-5 lg:grid-cols-2">
-        <NombreNiveau niv="ce1" n={J.nb.nce1} items={J.nb.ce1} reveal={prof} />
-        <NombreNiveau niv="ce2" n={J.nb.nce2} items={J.nb.ce2} reveal={prof} />
+        <NombreNiveau niv="ce1" n={J.nb.nce1} items={J.nb.ce1} reveal={reveal} />
+        <NombreNiveau niv="ce2" n={J.nb.nce2} items={J.nb.ce2} reveal={reveal} />
       </div>
       {prof && <CeQueJeDis k="nb" />}
       {prof && J.nb.note && <BlocProf titre="Point de vigilance"><p>{J.nb.note}</p></BlocProf>}
@@ -393,12 +400,19 @@ function VuePhrase({ J, prof }: { J: RitualDay; prof: boolean }) {
 
 function VueProbleme({ J, prof }: { J: RitualDay; prof: boolean }) {
   const pb = J.pb!;
+  const [show, setShow] = useState(false);
+  const reveal = show || prof;
   return (
     <Carte icon="pb" titre="Le problème du jour" duree="7 min">
       <div className="eleve rounded-xl border-2 border-dashed border-stone-400 bg-white/60 p-6 text-3xl leading-relaxed sm:text-4xl dark:bg-stone-900/40">{pb.t}</div>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <Niveau niv="ce1" items={pb.ce1} reveal={prof} />
-        <Niveau niv="ce2" items={pb.ce2} reveal={prof} />
+      <div className="mt-4 flex justify-center">
+        <button className="btn-primary" onClick={() => setShow((s) => !s)}>
+          {reveal ? "🙈 Cacher la solution" : "👁️ Révéler la solution"}
+        </button>
+      </div>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        <Niveau niv="ce1" items={pb.ce1} reveal={reveal} />
+        <Niveau niv="ce2" items={pb.ce2} reveal={reveal} />
       </div>
       {prof && <BlocProf titre="Aide et étayage"><p>{pb.aide}</p></BlocProf>}
       {prof && <CeQueJeDis k="pb" />}

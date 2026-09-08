@@ -217,7 +217,7 @@ const COMP_CE1_LECON: FicheData = {
   entete: "Leçon (à projeter)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres (Tandem)",
   blocs: [
     { kind: "def", titre: "Comparer, c'est quoi ?", contenu: "Comparer deux nombres, c'est dire lequel est le PLUS GRAND et lequel est le PLUS PETIT. J'utilise les signes < (plus petit que) et > (plus grand que)." },
-    { kind: "def", picto: "oiseau", titre: "Le truc du bec", contenu: "Le signe est comme un bec ouvert : il s'ouvre toujours du côté du plus grand nombre, et la pointe montre le plus petit." },
+    { kind: "def", picto: "crocodile", titre: "Le truc du crocodile", contenu: "Le signe est comme la bouche d'un crocodile très gourmand : sa bouche s'ouvre toujours du côté du PLUS GRAND nombre (il veut manger le plus gros !). La pointe montre le plus petit." },
     { kind: "base10", dizaines: 4, unites: 7, legende: "47" },
     { kind: "base10", dizaines: 5, unites: 2, legende: "52" },
     { kind: "comparer", a: 47, b: 52, signe: "<" },
@@ -233,7 +233,7 @@ const COMP_CE1_LECON: FicheData = {
 const COMP_CE2_LECON: FicheData = {
   entete: "Leçon (à projeter)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
   blocs: [
-    { kind: "def", titre: "Comparer des nombres à 3 chiffres", contenu: "Pour comparer deux nombres, je regarde leurs chiffres rang par rang : les centaines, puis les dizaines, puis les unités. J'utilise les signes <, > et = (égal)." },
+    { kind: "def", picto: "crocodile", titre: "Comparer des nombres à 3 chiffres", contenu: "Pour comparer deux nombres, je regarde leurs chiffres rang par rang : les centaines, puis les dizaines, puis les unités. J'utilise les signes <, > et = (égal). Astuce : la bouche du crocodile s'ouvre vers le plus grand nombre." },
     { kind: "puces", titre: "Ma méthode", points: [
       "Je compare d'abord les CENTAINES.",
       "Si les centaines sont égales, je compare les DIZAINES.",
@@ -361,6 +361,12 @@ const ARTDET_AFFICHE: FicheData = {
   entete: "Leçon (à projeter)", titre: "Les articles et les déterminants", niveau: "CE1-CE2", discipline: "Français — Grammaire",
   blocs: [
     { kind: "def", picto: "livre", contenu: "Le déterminant est un petit mot placé DEVANT le nom. Il a le même genre (masculin ou féminin) et le même nombre (singulier ou pluriel) que le nom qu'il accompagne. Ex. : le lapin, la voiture, les enfants." },
+    { kind: "pictos", titre: "Le déterminant + le nom (exemples)", items: [
+      { name: "chat", label: "le chat" },
+      { name: "maison", label: "la maison" },
+      { name: "oiseau", label: "les oiseaux" },
+      { name: "pomme", label: "une pomme" },
+    ] },
     { kind: "tableau", titre: "Les articles", entetes: ["", "Masculin singulier", "Féminin singulier", "Pluriel"], lignes: [
       ["Article défini", "le, l'", "la, l'", "les"],
       ["Article indéfini", "un", "une", "des"],

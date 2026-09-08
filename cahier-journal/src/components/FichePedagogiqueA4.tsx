@@ -104,9 +104,11 @@ function CarteNombre({ n, cdu }: { n: number; cdu?: boolean }) {
 
 function Carte({ name, label, bg, border }: { name: string; label: string; bg: string; border: string }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1mm", background: bg, border: `1.5px solid ${border}`, borderRadius: "8px", padding: "2.5mm 2mm", minWidth: "24mm" }}>
-      <Picto name={name} size={46} title={label} />
-      <span style={{ fontSize: "12.5px", fontWeight: 600, textAlign: "center", color: "#334155" }}>{label}</span>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5mm", background: bg, border: `1.5px solid ${border}`, borderRadius: "10px", padding: "3mm 2.5mm", minWidth: "26mm" }}>
+      <div style={{ display: "grid", placeItems: "center", width: "18mm", height: "18mm", borderRadius: "50%", background: "#ffffff", border: `1.5px solid ${border}` }}>
+        <Picto name={name} size={56} title={label} />
+      </div>
+      <span style={{ fontSize: "13px", fontWeight: 600, textAlign: "center", color: "#334155", lineHeight: 1.2 }}>{label}</span>
     </div>
   );
 }
