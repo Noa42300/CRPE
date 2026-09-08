@@ -154,6 +154,18 @@
   }
 }
 
+/* Apparition douce de la correction (pailles, phrase réponse…). */
+@keyframes cj-reveal-pop {
+  from { opacity: 0; transform: scale(0.94) translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+.reveal-pop {
+  animation: cj-reveal-pop 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pop { animation: none; }
+}
+
 /* Overlay plein écran pour projeter au tableau. */
 .board-overlay {
   position: fixed;

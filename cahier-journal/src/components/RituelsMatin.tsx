@@ -305,10 +305,16 @@ function NombreNiveau({ niv, n, items, reveal }: { niv: "ce1" | "ce2"; n: number
         <span className="text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">Le nombre du jour</span>
       </div>
       <div className="eleve my-1 text-center text-6xl font-black leading-none sm:text-7xl" style={{ color }}>{n}</div>
-      <BoitePailles n={n} />
-      <TableauCDU n={n} reveal={reveal} />
-      {reveal && (
-        <p className="text-center text-lg text-rose-600 dark:text-rose-400">{n} s’écrit « {enLettres(n)} »</p>
+      {reveal ? (
+        <div className="reveal-pop">
+          <BoitePailles n={n} />
+          <TableauCDU n={n} reveal={reveal} />
+          <p className="text-center text-lg text-rose-600 dark:text-rose-400">{n} s’écrit « {enLettres(n)} »</p>
+        </div>
+      ) : (
+        <p className="my-4 text-center text-sm italic text-stone-400 dark:text-stone-500">
+          Je cherche les dizaines et les unités sur mon ardoise… (les paquets apparaîtront à la correction)
+        </p>
       )}
       <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-lg leading-relaxed text-stone-800 dark:text-stone-100">
         {items.map((q, i) => (
@@ -410,10 +416,19 @@ function VueProbleme({ J, prof }: { J: RitualDay; prof: boolean }) {
           {reveal ? "🙈 Cacher la solution" : "👁️ Révéler la solution"}
         </button>
       </div>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+      <p className="mt-3 text-center text-sm italic text-stone-500 dark:text-stone-400">
+        Sur l’ardoise, j’écris <strong>le calcul</strong> (la phrase réponse, on la dira à la correction).
+      </p>
+      <div className="mt-3 grid gap-4 sm:grid-cols-2">
         <Niveau niv="ce1" items={pb.ce1} reveal={reveal} />
         <Niveau niv="ce2" items={pb.ce2} reveal={reveal} />
       </div>
+      {reveal && (
+        <div className="reveal-pop mt-4 rounded-r-lg border-l-4 border-emerald-500 bg-emerald-50/70 px-4 py-3 text-emerald-900 dark:bg-emerald-500/10 dark:text-emerald-200">
+          <div className="mb-1 text-[11px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-300">✏️ Phrase réponse</div>
+          <p className="text-lg leading-snug">{pb.rep}</p>
+        </div>
+      )}
       {prof && <BlocProf titre="Aide et étayage"><p>{pb.aide}</p></BlocProf>}
       {prof && <CeQueJeDis k="pb" />}
     </Carte>
