@@ -325,6 +325,36 @@ const ANGLAIS_PRESENT_RECAP: FicheData = {
   ],
 };
 
+/* ===================== ANGLAIS — « Hello, Goodbye » (Beatles) ===================== */
+
+const ANGLAIS_HELLO_GOODBYE: FicheData = {
+  entete: "Anglais — chanson des Beatles (à coller — cahier violet)",
+  titre: "« Hello, Goodbye » — The Beatles",
+  niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais",
+  blocs: [
+    { kind: "def", picto: "sourire", contenu: "Les Beatles sont un célèbre groupe anglais. Dans « Hello, Goodbye », ils chantent des mots contraires : bonjour / au revoir, oui / non. On écoute la chanson, on repère les mots, puis on chante le refrain ensemble." },
+    { kind: "pictos", titre: "Les mots à connaître (anglais = français)", items: [
+      { name: "sourire", label: "Hello = Bonjour" },
+      { name: "valise", label: "Goodbye = Au revoir" },
+      { name: "pomme", label: "Yes = Oui" },
+      { name: "chien", label: "No = Non" },
+    ] },
+    { kind: "tableau", titre: "Un extrait du refrain (anglais → français)", entetes: ["Anglais", "Français"], lignes: [
+      ["You say yes, I say no.", "Tu dis oui, moi je dis non."],
+      ["You say stop and I say go.", "Tu dis stop et moi je dis vas-y."],
+      ["You say goodbye and I say hello.", "Tu dis au revoir et moi je dis bonjour."],
+    ] },
+    { kind: "puces", titre: "Les contraires de la chanson", points: [
+      "yes (oui) ↔ no (non)",
+      "stop (stop) ↔ go (vas-y)",
+      "goodbye (au revoir) ↔ hello (bonjour)",
+      "high (en haut) ↔ low (en bas)",
+    ] },
+    { kind: "def", picto: "plume", titre: "Je recopie en anglais", contenu: "You say goodbye and I say hello." },
+    { kind: "lignes", n: 3 },
+  ],
+};
+
 /* ============ FRANÇAIS — Les articles et les déterminants (1,2,3 ÉdL) ============ */
 
 const ARTDET_AFFICHE: FicheData = {
@@ -513,6 +543,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "m9ang":
       return [
         { key: "ang-present-recap", label: "Se présenter en anglais — Fiche récap (EN = FR)", node: ficheNode(ANGLAIS_PRESENT_RECAP) },
+        { key: "ang-hello-goodbye", label: "« Hello, Goodbye » (Beatles) — Traduction & trace à recopier", node: ficheNode(ANGLAIS_HELLO_GOODBYE) },
       ];
     case "emcsolid":
       return [
