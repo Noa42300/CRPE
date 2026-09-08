@@ -51,6 +51,36 @@ const COULEURS = [
   ["Vert", "#16a34a"],
 ] as const;
 
+/**
+ * Leçons courtes « à copier » : je les charge dans le tableau d'un clic pour
+ * les projeter, et les élèves les recopient au calme. Volontairement brèves.
+ */
+const LECONS: { id: string; label: string; text: string }[] = [
+  {
+    id: "artdet",
+    label: "Français — Les déterminants",
+    text:
+      "Les déterminants\n" +
+      "\n" +
+      "Le déterminant est un petit mot placé devant le nom.\n" +
+      "Il s'accorde avec le nom : masculin ou féminin, singulier ou pluriel.\n" +
+      "Les articles : le, la, l', les — un, une, des.\n" +
+      "Exemples : le chat, la maison, les enfants, un ballon.\n",
+  },
+  {
+    id: "comparer",
+    label: "Maths — Comparer les nombres",
+    text:
+      "Comparer les nombres\n" +
+      "\n" +
+      "Comparer, c'est dire quel nombre est le plus grand.\n" +
+      "Le signe < se lit « plus petit que ».\n" +
+      "Le signe > se lit « plus grand que ».\n" +
+      "La pointe est du côté du plus petit nombre.\n" +
+      "Exemples : 24 < 42     67 > 58     35 = 35\n",
+  },
+];
+
 /** Mesure la ligne de base réellement rendue dans la 1ʳᵉ interligne. */
 function measureBaseline(family: string, size: number, lineHeight: number): number {
   const probe = document.createElement("div");
@@ -181,6 +211,16 @@ export function TableauView() {
     persist(text, next);
   };
 
+  const loadLecon = (id: string) => {
+    const lec = LECONS.find((l) => l.id === id);
+    if (!lec) return;
+    if (text.trim().length > 0 && !confirm("Remplacer le contenu actuel du tableau par cette leçon ?")) return;
+    setText(lec.text);
+    setMarks([]);
+    setSel([0, 0]);
+    persist(lec.text, []);
+  };
+
   const clearAll = () => {
     if (window.confirm("Effacer le tableau ?")) {
       setText("");
@@ -303,6 +343,17 @@ export function TableauView() {
             <span className="w-8 text-center text-xs text-stone-500">{size}</span>
             <button onClick={() => setSize((s) => Math.min(120, s + 4))} className="btn-outline px-2 py-1">A+</button>
           </div>
+          <select
+            value=""
+            onChange={(e) => { loadLecon(e.target.value); e.target.value = ""; }}
+            className="input w-auto py-1"
+            title="Charger une leçon courte à projeter (les élèves recopient)"
+          >
+            <option value="">📋 Leçon à copier…</option>
+            {LECONS.map((l) => (
+              <option key={l.id} value={l.id}>{l.label}</option>
+            ))}
+          </select>
           <button onClick={() => requestFullscreen(frameRef.current)} className="btn-outline py-1 text-xs">⛶ Plein écran</button>
           <button onClick={clearAll} className="btn-ghost py-1 text-xs text-rose-500">Effacer tout</button>
         </div>
