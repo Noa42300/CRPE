@@ -100,15 +100,16 @@ function measureBaseline(family: string, size: number, lineHeight: number): numb
 
 /** Styles cumulés à l'indice i (dernier surlignage / dernière couleur gagne). */
 function styleAt(i: number, marks: Mark[]) {
-  let hl = "", col = "", u = false;
+  let hl = "", col = "", u = false, uCol = "";
   for (const m of marks) {
     if (i >= m.start && i < m.end) {
       if (m.kind.startsWith("hl:")) hl = m.kind.slice(3);
       else if (m.kind.startsWith("col:")) col = m.kind.slice(4);
-      else if (m.kind === "u") u = true;
+      else if (m.kind === "u") { u = true; uCol = ""; }
+      else if (m.kind.startsWith("u:")) { u = true; uCol = m.kind.slice(2); }
     }
   }
-  return { hl, col, u };
+  return { hl, col, u, uCol };
 }
 
 /** Réajuste les marques quand le texte change (insertion / suppression). */
@@ -282,7 +283,7 @@ export function TableauView() {
       const ch = text[i];
       if (ch === "\n") { flush(); nodes.push(<br key={`br${i}`} />); curKey = null; continue; }
       const s = styleAt(i, marks);
-      const key = `${s.hl}|${s.col}|${s.u}`;
+      const key = `${s.hl}|${s.col}|${s.u}|${s.uCol}`;
       if (key !== curKey) {
         flush();
         curKey = key;
@@ -291,6 +292,8 @@ export function TableauView() {
           background: s.hl || undefined,
           color: s.col || undefined,
           textDecoration: s.u ? "underline" : undefined,
+          textDecorationColor: s.u && s.uCol ? s.uCol : undefined,
+          textDecorationThickness: s.u && s.uCol ? "2px" : undefined,
           borderRadius: s.hl ? "3px" : undefined,
         };
       }
@@ -309,6 +312,8 @@ export function TableauView() {
             background: s.hl || undefined,
             color: s.col || undefined,
             textDecoration: s.u ? "underline" : undefined,
+            textDecorationColor: s.u && s.uCol ? s.uCol : undefined,
+            textDecorationThickness: s.u && s.uCol ? "2px" : undefined,
             borderRadius: s.hl ? "3px" : undefined,
           }}
         >
@@ -369,7 +374,8 @@ export function TableauView() {
         {COULEURS.map(([lab, c]) => (
           <button key={c} title={lab} onClick={() => applyKind(`col:${c}`)} className="grid h-6 w-6 place-items-center rounded-md border border-stone-300 text-sm font-bold transition hover:scale-110" style={{ color: c }}>A</button>
         ))}
-        <button onClick={() => applyKind("u")} title="Souligner" className="btn-outline px-2 py-1 text-sm underline">S</button>
+        <button onClick={() => applyKind("u")} title="Souligner (noir)" className="btn-outline px-2 py-1 text-sm underline">S</button>
+        <button onClick={() => applyKind("u:#dc2626")} title="Souligner en rouge" className="btn-outline px-2 py-1 text-sm font-bold text-rose-600 underline decoration-rose-600 decoration-2">S</button>
         <button onClick={clearStyle} title="Enlever la mise en forme" className="btn-outline px-2 py-1 text-xs">Gomme</button>
         <span className="ml-auto text-xs text-stone-400">
           {hasSel ? "Applique à la sélection" : "Sélectionne un mot d’abord"}
