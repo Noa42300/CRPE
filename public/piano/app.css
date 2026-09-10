@@ -98,6 +98,9 @@ select, input[type=text] {
 /* ---- Clavier ------------------------------------------------------------ */
 .kbd-wrap { margin: 14px 0 6px; overflow-x: auto; }
 svg.kbd { display: block; }
+svg.kbd rect.clk { cursor: pointer; }
+svg.kbd rect.clk:hover { stroke: var(--accent); stroke-width: 2.4; }
+svg.kbd rect.lit { fill: #ffd23f; stroke: #b8860b; }
 
 .legend { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 13px; margin-top: 4px; }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }

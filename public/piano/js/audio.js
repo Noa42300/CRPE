@@ -26,7 +26,9 @@
     return ctx;
   }
 
-  // Joue une note (fréquence) à un instant t, pour une durée donnée
+  // Joue une note (fréquence) à un instant t, pour une durée donnée.
+  // Son « piano » : harmoniques légèrement inharmoniques + bruit de marteau
+  // à l'attaque + filtre passe-bas qui se referme (le timbre s'assombrit).
   function playFreq(freq, when, dur, vel) {
     ensure();
     const t = when != null ? when : ctx.currentTime;
@@ -34,36 +36,54 @@
     vel = vel == null ? 0.8 : vel;
 
     const voice = ctx.createGain();
-    voice.connect(master);
+    // filtre par note : brillant à l'attaque, se referme ensuite
+    const tone = ctx.createBiquadFilter();
+    tone.type = 'lowpass';
+    tone.Q.value = 0.6;
+    tone.frequency.setValueAtTime(Math.min(9000, freq * 8 + 2500), t);
+    tone.frequency.exponentialRampToValueAtTime(Math.max(700, freq * 3), t + Math.min(dur, 1.4));
+    voice.connect(tone);
+    tone.connect(master);
 
-    // Harmoniques (série qui sonne « piano »)
+    // Harmoniques : l'inharmonicité (léger # des aigus) donne le grain du piano.
     const partials = [
-      { r: 1, g: 1.0 },
-      { r: 2, g: 0.45 },
-      { r: 3, g: 0.22 },
-      { r: 4, g: 0.12 },
-      { r: 6, g: 0.06 }
+      { r: 1,    g: 1.0,  d: 1.00 },
+      { r: 2.001,g: 0.50, d: 0.85 },
+      { r: 3.003,g: 0.28, d: 0.70 },
+      { r: 4.006,g: 0.15, d: 0.55 },
+      { r: 5.01, g: 0.09, d: 0.45 },
+      { r: 6.02, g: 0.05, d: 0.35 }
     ];
-    const oscs = [];
+    const peak = 0.15 * vel;
     partials.forEach(p => {
       const o = ctx.createOscillator();
       o.type = 'sine';
       o.frequency.value = freq * p.r;
       const g = ctx.createGain();
-      g.gain.value = p.g;
-      o.connect(g);
-      g.connect(voice);
-      oscs.push(o);
+      // chaque partiel a sa propre enveloppe : les aigus s'éteignent plus vite
+      const pk = peak * p.g;
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(pk, t + 0.006);
+      g.gain.exponentialRampToValueAtTime(pk * 0.30, t + 0.25 * p.d);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur * p.d + 0.05);
+      o.connect(g); g.connect(voice);
+      o.start(t); o.stop(t + dur + 0.08);
     });
 
-    // Enveloppe : attaque 6ms, chute exponentielle
-    const peak = 0.16 * vel;
-    voice.gain.setValueAtTime(0.0001, t);
-    voice.gain.exponentialRampToValueAtTime(peak, t + 0.006);
-    voice.gain.exponentialRampToValueAtTime(peak * 0.35, t + 0.35);
-    voice.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-
-    oscs.forEach(o => { o.start(t); o.stop(t + dur + 0.05); });
+    // Bruit de marteau : très court, filtré, pour l'attaque « percussive »
+    const nLen = 0.03;
+    const buf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate * nLen), ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+    const noise = ctx.createBufferSource();
+    noise.buffer = buf;
+    const nf = ctx.createBiquadFilter();
+    nf.type = 'bandpass'; nf.frequency.value = Math.min(6000, freq * 4 + 1500); nf.Q.value = 0.8;
+    const ng = ctx.createGain();
+    ng.gain.setValueAtTime(0.06 * vel, t);
+    ng.gain.exponentialRampToValueAtTime(0.0001, t + nLen);
+    noise.connect(nf); nf.connect(ng); ng.connect(master);
+    noise.start(t); noise.stop(t + nLen + 0.01);
   }
 
   function playMidi(midi, when, dur, vel) {

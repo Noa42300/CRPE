@@ -24,65 +24,88 @@
   });
 
   // ------------------------------------------------------------ ACCORDS
-  const chordState = { root: 'C', type: 'maj' };
+  const chordState = { root: 'C', type: 'maj', inv: 0, fingers: false };
   function renderChords() {
     const c = $('#chord-body');
-    const chord = T.buildChord(chordState.root, chordState.type, 4);
+    const base = T.buildChord(chordState.root, chordState.type, 4);
+    const nInv = base.midis.length;
+    if (chordState.inv >= nInv) chordState.inv = 0;
+    const chord = T.invertChord(chordState.root, chordState.type, 4, chordState.inv);
     const frame = K.frameFor(chord.midis, 2);
     const hi = K.highlightFromMidis(chord.midis, 'chord');
-    const kbd = K.render({ startMidi: frame.startMidi, octaves: Math.max(2, frame.octaves), highlight: hi, frNames });
+    const fingers = chordState.fingers ? K.fingersMap(chord.midis, T.chordFingersRH(chord.midis.length)) : {};
+    const kbd = K.render({ startMidi: frame.startMidi, octaves: Math.max(2, frame.octaves), highlight: hi, fingers, frNames });
 
     const pills = chord.notes.map((n, i) =>
       '<div class="note-pill"><b>' + (frNames ? T.frName(n) : n) + '</b><small>' + chord.degrees[i] + '</small></div>'
     ).join('');
 
+    const invChips = Array.from({ length: nInv }, (_, i) =>
+      '<button class="chip ' + (i === chordState.inv ? 'active' : '') + '" data-inv="' + i + '">' +
+      (i === 0 ? 'Fondamental' : i + (i === 1 ? 'er' : 'e') + ' renv.') + '</button>').join('');
+
     c.innerHTML =
       '<div class="controls no-print">' +
         field('Fondamentale', selectHtml('chord-root', ROOTS.map(r => opt(r, r === chordState.root, frNames ? T.frName(r) : r)))) +
         field('Type d\'accord', selectHtml('chord-type', Object.keys(T.CHORDS).map(k => opt(k, k === chordState.type, T.CHORDS[k].name)))) +
-        '<button class="btn" id="chord-play">▶ Écouter l\'accord</button>' +
-        '<button class="btn ghost" id="chord-arp">↗ Arpège</button>' +
+        '<button class="btn" id="chord-play">▶ Écouter</button>' +
+        '<button class="btn ghost" id="chord-arp">↗ Arpège animé</button>' +
       '</div>' +
-      '<h2 style="margin-top:16px">' + esc(chord.label) + ' <span class="hint">— ' + esc(chord.def.name) + '</span></h2>' +
+      '<div class="controls no-print" style="margin-top:10px">' +
+        '<label class="field">Renversement<span class="chips" style="margin-top:2px">' + invChips + '</span></label>' +
+        '<label class="field" style="justify-content:flex-end"><span class="chips" style="margin-top:2px"><button class="chip ' + (chordState.fingers ? 'active' : '') + '" id="chord-fing">👆 Doigtés</button></span></label>' +
+      '</div>' +
+      '<h2 style="margin-top:16px">' + esc(chord.label) + ' <span class="hint">— ' + esc(chord.def.name) + ' · ' + esc(T.INVERSION_NAMES[chord.inversion]) + '</span></h2>' +
       '<div class="kbd-wrap">' + kbd + '</div>' + legend('chord') +
       '<div class="notes-row">' + pills + '</div>' +
-      '<p class="hint">Intervalles : ' + chord.degrees.join(' · ') + '  •  Notes MIDI : ' + chord.midis.join(', ') + '</p>';
+      '<p class="hint">Basse : ' + esc(frNames ? T.frName(chord.bass) : chord.bass) + ' (' + esc(chord.bassDegree) + ')  •  Intervalles : ' + base.degrees.join(' · ') + '</p>';
 
-    $('#chord-root').onchange = e => { chordState.root = e.target.value; renderChords(); };
-    $('#chord-type').onchange = e => { chordState.type = e.target.value; renderChords(); };
+    $('#chord-root').onchange = e => { chordState.root = e.target.value; chordState.inv = 0; renderChords(); };
+    $('#chord-type').onchange = e => { chordState.type = e.target.value; chordState.inv = 0; renderChords(); };
     $('#chord-play').onclick = () => A.playChord(chord.midis, 1.8);
-    $('#chord-arp').onclick = () => A.playArpeggio(chord.midis, 0.18, 1.0);
+    $('#chord-arp').onclick = () => animateArp($('#chord-body .kbd'), chord.midis, 0.28);
+    $('#chord-fing').onclick = () => { chordState.fingers = !chordState.fingers; renderChords(); };
+    $$('[data-inv]', c).forEach(b => b.onclick = () => { chordState.inv = +b.dataset.inv; renderChords(); });
   }
 
   // ------------------------------------------------------------ GAMMES
-  const scaleState = { root: 'C', type: 'major' };
+  const scaleState = { root: 'C', type: 'major', fingers: false };
   function renderScales() {
     const c = $('#scale-body');
     const sc = T.buildScale(scaleState.root, scaleState.type, 4);
     const frame = K.frameFor(sc.midis, 2);
     const hi = K.highlightFromMidis(sc.midis, 'scale');
-    const kbd = K.render({ startMidi: frame.startMidi, octaves: Math.max(2, frame.octaves), highlight: hi, frNames });
+    const fingArr = T.scaleFingersRH(scaleState.root, scaleState.type);
+    const fingers = (scaleState.fingers && fingArr) ? K.fingersMap(sc.midis, fingArr) : {};
+    const kbd = K.render({ startMidi: frame.startMidi, octaves: Math.max(2, frame.octaves), highlight: hi, fingers, frNames });
 
     const pills = sc.notes.map((n, i) =>
       '<div class="note-pill"><b>' + (frNames ? T.frName(n) : n) + '</b><small>' + (i === sc.notes.length - 1 ? '8' : (i + 1)) + '</small></div>'
     ).join('');
 
+    const fingNote = scaleState.fingers
+      ? (fingArr ? '<p class="hint">Doigté main droite (une octave montante). Main gauche : miroir.</p>'
+                 : '<p class="hint">Doigté standard : pouce sur la tonique, passage du pouce après 3 puis 4 notes. (Numéros précis fournis pour les gammes majeures usuelles et La/Mi/Ré/Do mineur.)</p>')
+      : '';
+
     c.innerHTML =
       '<div class="controls no-print">' +
         field('Tonique', selectHtml('scale-root', ROOTS.map(r => opt(r, r === scaleState.root, frNames ? T.frName(r) : r)))) +
         field('Type de gamme', selectHtml('scale-type', Object.keys(T.SCALES).map(k => opt(k, k === scaleState.type, T.SCALES[k].name)))) +
-        '<button class="btn" id="scale-play">▶ Monter</button>' +
-        '<button class="btn ghost" id="scale-updown">↕ Monter &amp; descendre</button>' +
+        '<button class="btn" id="scale-play">▶ Monter (animé)</button>' +
+        '<button class="btn ghost" id="scale-updown">↕ Aller-retour</button>' +
+        '<span class="chips"><button class="chip ' + (scaleState.fingers ? 'active' : '') + '" id="scale-fing">👆 Doigtés</button></span>' +
       '</div>' +
       '<h2 style="margin-top:16px">' + esc(sc.label) + '</h2>' +
       '<div class="kbd-wrap">' + kbd + '</div>' + legend('scale') +
       '<div class="notes-row">' + pills + '</div>' +
-      '<p class="hint">Formule (demi-tons) : ' + sc.def.semis.join(' – ') + '</p>';
+      '<p class="hint">Formule (demi-tons) : ' + sc.def.semis.join(' – ') + '</p>' + fingNote;
 
     $('#scale-root').onchange = e => { scaleState.root = e.target.value; renderScales(); };
     $('#scale-type').onchange = e => { scaleState.type = e.target.value; renderScales(); };
-    $('#scale-play').onclick = () => A.playScale(sc.midis, 0.28, false);
-    $('#scale-updown').onclick = () => A.playScale(sc.midis, 0.26, true);
+    $('#scale-play').onclick = () => animateScale($('#scale-body .kbd'), sc.midis, 0.28, false);
+    $('#scale-updown').onclick = () => animateScale($('#scale-body .kbd'), sc.midis, 0.26, true);
+    $('#scale-fing').onclick = () => { scaleState.fingers = !scaleState.fingers; renderScales(); };
   }
 
   // ------------------------------------------------------------ TONALITÉS (harmonie)
@@ -249,51 +272,81 @@
   // ------------------------------------------------------------ CLASSEUR (impression)
   function renderClasseur() {
     const c = $('#classeur-body');
+    const owner = load('owner', '');
     c.innerHTML =
-      '<p class="hint">Génère des fiches propres en noir &amp; blanc, puis <b>Ctrl/Cmd + P</b> → « Enregistrer en PDF » ou imprime pour ton classeur. Choisis ce que tu veux inclure :</p>' +
+      '<p class="hint">Compose ton classeur, puis <b>Ctrl/Cmd + P</b> → « Enregistrer en PDF » (ou imprime). Tout sort en noir &amp; blanc, une section par page.</p>' +
       '<div class="controls no-print">' +
+        field('Ton prénom (page de garde)', '<input type="text" id="cl-owner" placeholder="Noa" value="' + esc(owner) + '" style="min-width:160px">') +
         field('Tonalité', selectHtml('cl-root', ROOTS.map(r => opt(r, r === 'C')))) +
         field('Mode', selectHtml('cl-mode', [opt('major', true, 'Majeur'), opt('minor', false, 'Mineur')])) +
+        '<label class="field" style="justify-content:flex-end"><span class="chips" style="margin-top:2px"><button class="chip active" id="cl-fing">👆 Doigtés</button></span></label>' +
       '</div>' +
       '<div class="chips no-print" style="margin:12px 0">' +
-        chip('cl-chords', true, 'Dictionnaire d\'accords (12 fondamentales)') +
-        chip('cl-key', true, 'Accords de la tonalité + progressions') +
+        chip('cl-cover', true, 'Page de garde + sommaire') +
+        chip('cl-keyfull', true, 'La tonalité, complète (1 page)') +
+        chip('cl-chords', true, 'Dictionnaire d\'accords (maj/min/7/maj7/m7)') +
         chip('cl-scales', true, 'Gammes principales') +
       '</div>' +
       '<button class="btn no-print" id="cl-gen">📄 Générer l\'aperçu</button> ' +
       '<button class="btn ghost no-print" id="cl-print">🖨 Imprimer / PDF</button>' +
       '<div id="cl-preview" style="margin-top:18px"></div>';
 
+    $('#cl-owner').onchange = e => save('owner', e.target.value.trim());
+    $('#cl-fing').onclick = function () { this.classList.toggle('active'); buildSheets(); };
     $('#cl-gen').onclick = buildSheets;
     $('#cl-print').onclick = () => { buildSheets(); window.print(); };
     buildSheets();
 
     function buildSheets() {
       const root = $('#cl-root').value, mode = $('#cl-mode').value;
+      const modeLbl = mode === 'major' ? 'majeur' : 'mineur';
+      const withFing = $('#cl-fing').classList.contains('active');
+      const wantCover = $('#cl-cover').classList.contains('active');
+      const wantKeyFull = $('#cl-keyfull').classList.contains('active');
       const wantChords = $('#cl-chords').classList.contains('active');
-      const wantKey = $('#cl-key').classList.contains('active');
       const wantScales = $('#cl-scales').classList.contains('active');
-      let html = '';
 
-      if (wantKey) {
+      // Construit d'abord la liste des sections pour le sommaire
+      const sections = [];
+      if (wantKeyFull) sections.push('Tonalité de ' + labelNote(root) + ' ' + modeLbl + ' — fiche complète');
+      if (wantChords) ['maj', 'min', '7', 'maj7', 'm7'].forEach(ty => sections.push('Dictionnaire — accords ' + T.CHORDS[ty].name));
+      if (wantScales) ['major', 'minor', 'pentaMin', 'pentaMaj'].forEach(ty => sections.push('Gammes — ' + T.SCALES[ty].name));
+
+      let html = '';
+      if (wantCover) {
+        const who = ($('#cl-owner').value || owner || '').trim();
+        html += '<div class="print-sheet card" style="text-align:center;padding:40px 20px">' +
+          '<div style="font-size:60px">🎹</div>' +
+          '<h1 style="font-size:34px;margin:10px 0">Mon classeur de piano</h1>' +
+          (who ? '<p style="font-size:18px">' + esc(who) + '</p>' : '') +
+          '<p class="hint">Accords · Gammes · Tonalités — ' + new Date().toLocaleDateString('fr-FR') + '</p>' +
+          '<div style="margin-top:26px;text-align:left;max-width:520px;margin-inline:auto">' +
+            '<h3>Sommaire</h3><ol style="line-height:1.9">' +
+            sections.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol></div></div>';
+      }
+      if (wantKeyFull) {
         const dia = T.diatonicChords(root, mode, false);
         const dia7 = T.diatonicChords(root, mode, true);
-        html += sheet('Tonalité de ' + labelNote(root) + ' ' + (mode === 'major' ? 'majeur' : 'mineur'),
-          '<p>Les 7 accords qui vont ensemble. Fondamentale en rouge foncé, autres notes en bleu.</p>' +
-          '<div class="grid cols-3">' + dia.map((d, i) => sheetCard(d.roman + '  ·  ' + d.chord.label + '  (7e : ' + dia7[i].chord.label + ')', d.chord.midis)).join('') + '</div>');
+        const progs = T.PROGRESSIONS[mode].map(p =>
+          '<li><b>' + esc(p.name) + '</b> — ' + esc(p.desc) + ' : ' + p.deg.map(d => esc(dia[d].chord.label)).join(' → ') + '</li>').join('');
+        const scale = T.buildScale(root, mode === 'major' ? 'major' : 'minor', 4);
+        html += sheet('Tonalité de ' + labelNote(root) + ' ' + modeLbl,
+          '<p>Tout ce qui « va ensemble » dans cette tonalité, sur une page.</p>' +
+          '<h3>Les 7 accords</h3><div class="grid cols-3">' +
+            dia.map((d, i) => sheetCard(d.roman + ' · ' + d.chord.label + ' (7e : ' + dia7[i].chord.label + ')', d.chord.midis, 'chord', withFing)).join('') + '</div>' +
+          '<h3>La gamme</h3><div class="grid cols-2">' + sheetCard(scale.label, scale.midis, 'scale', withFing) + '</div>' +
+          '<h3>Progressions à connaître</h3><ul>' + progs + '</ul>');
       }
       if (wantChords) {
-        const types = ['maj', 'min', '7', 'maj7', 'm7'];
-        types.forEach(ty => {
-          html += sheet('Accords ' + T.CHORDS[ty].name,
-            '<div class="grid cols-3">' + ROOTS.map(r => { const ch = T.buildChord(r, ty, 4); return sheetCard(ch.label, ch.midis); }).join('') + '</div>');
+        ['maj', 'min', '7', 'maj7', 'm7'].forEach(ty => {
+          html += sheet('Dictionnaire — accords ' + T.CHORDS[ty].name,
+            '<div class="grid cols-3">' + ROOTS.map(r => { const ch = T.buildChord(r, ty, 4); return sheetCard(ch.label, ch.midis, 'chord', withFing); }).join('') + '</div>');
         });
       }
       if (wantScales) {
-        const types = ['major', 'minor', 'pentaMin', 'pentaMaj'];
-        types.forEach(ty => {
+        ['major', 'minor', 'pentaMin', 'pentaMaj'].forEach(ty => {
           html += sheet('Gammes — ' + T.SCALES[ty].name,
-            '<div class="grid cols-2">' + ['C', 'G', 'D', 'A', 'F', 'Bb'].map(r => { const s = T.buildScale(r, ty, 4); return sheetCard(s.label, s.midis, 'scale'); }).join('') + '</div>');
+            '<div class="grid cols-2">' + ['C', 'G', 'D', 'A', 'F', 'Bb'].map(r => { const s = T.buildScale(r, ty, 4); return sheetCard(s.label, s.midis, 'scale', withFing); }).join('') + '</div>');
         });
       }
       $('#cl-preview').innerHTML = html || '<p class="hint">Sélectionne au moins une section.</p>';
@@ -301,13 +354,163 @@
     function sheet(title, inner) {
       return '<div class="print-sheet card"><h2>' + esc(title) + '</h2>' + inner + '</div>';
     }
-    function sheetCard(title, midis, kind) {
+    function sheetCard(title, midis, kind, withFing) {
       const frame = K.frameFor(midis, 2);
-      const hi = K.highlightFromMidis(midis.map(m => m), kind === 'scale' ? 'scale' : 'chord');
+      const hi = K.highlightFromMidis(midis, kind === 'scale' ? 'scale' : 'chord');
+      let fingers = {};
+      if (withFing) {
+        if (kind === 'scale') { /* pas de doigté fiable pour toutes les gammes ici */ }
+        else fingers = K.fingersMap(midis, T.chordFingersRH(midis.length));
+      }
       return '<div style="margin-bottom:8px"><b>' + esc(title) + '</b>' +
-        K.render({ startMidi: frame.startMidi, octaves: Math.max(2, frame.octaves), highlight: hi, frNames, width: 360 }) + '</div>';
+        K.render({ startMidi: frame.startMidi, octaves: Math.max(2, frame.octaves), highlight: hi, fingers, frNames, width: 360 }) + '</div>';
     }
   }
+
+  // ------------------------------------------------------------ Animation clavier
+  function litKey(container, midi, delay, dur) {
+    if (!container) return;
+    const el = container.querySelector('rect[data-midi="' + midi + '"]');
+    if (!el) return;
+    setTimeout(() => { el.classList.add('lit'); setTimeout(() => el.classList.remove('lit'), dur); }, delay);
+  }
+  function animateArp(container, midis, step) {
+    A.ensure();
+    midis.forEach((m, i) => setTimeout(() => {
+      A.playMidi(m, null, 1.0, 0.85); litKey(container, m, 0, step * 1000 * 1.7);
+    }, i * step * 1000));
+  }
+  function animateScale(container, midis, step, down) {
+    A.ensure();
+    let seq = midis.slice();
+    if (down) seq = seq.concat(midis.slice(0, -1).reverse());
+    seq.forEach((m, i) => setTimeout(() => {
+      A.playMidi(m, null, step * 1.15, 0.85); litKey(container, m, 0, step * 1000 * 1.1);
+    }, i * step * 1000));
+  }
+
+  // ------------------------------------------------------------ RECONNAISSANCE
+  const recSel = {};   // midi -> true
+  function renderRecognize() {
+    const c = $('#recognize-body');
+    const selected = Object.keys(recSel).map(Number).sort((a, b) => a - b);
+    const hi = selected.map((m, i) => ({ midi: m, role: i === 0 ? 'root' : 'note' }));
+    const kbd = K.render({ startMidi: 60, octaves: 2, highlight: hi, interactive: true, frNames });
+
+    const pcs = selected.map(m => ((m % 12) + 12) % 12);
+    const matches = pcs.length >= 2 ? T.identifyChord(pcs) : [];
+    let verdict;
+    if (!selected.length) verdict = '<span class="hint">Clique des touches sur le clavier pour composer un accord…</span>';
+    else if (matches.length) verdict = 'C\'est un <b style="font-size:20px">' + matches.map(esc).join('</b> ou <b style="font-size:20px">') + '</b> !';
+    else verdict = '<span class="hint">Notes : ' + selected.map(m => esc(frNames ? T.frName(T.noteName(m, false)) : T.noteName(m, false))).join(' · ') + ' — pas un accord standard reconnu (essaie 3-4 notes).</span>';
+
+    c.innerHTML =
+      '<p class="hint">Joue un accord sur ton piano, reproduis-le ici en cliquant les touches : l\'appli te dit ce que c\'est. Parfait pour vérifier ce que tu trouves à l\'oreille.</p>' +
+      '<div class="kbd-wrap">' + kbd + '</div>' +
+      '<div class="card" style="background:var(--bg2);margin:10px 0">' + verdict + '</div>' +
+      '<div class="controls no-print">' +
+        '<button class="btn" id="rec-play">▶ Écouter</button>' +
+        '<button class="btn ghost" id="rec-clear">✕ Effacer</button>' +
+      '</div>';
+
+    $$('#recognize-body rect.clk').forEach(r => r.addEventListener('click', () => {
+      const m = +r.getAttribute('data-midi');
+      if (recSel[m]) delete recSel[m]; else recSel[m] = true;
+      A.playMidi(m, null, 1.0, 0.8);
+      renderRecognize();
+    }));
+    $('#rec-play').onclick = () => { if (selected.length) A.playChord(selected, 1.8); };
+    $('#rec-clear').onclick = () => { Object.keys(recSel).forEach(k => delete recSel[k]); renderRecognize(); };
+  }
+
+  // ------------------------------------------------------------ OREILLE
+  const earState = { mode: 'interval', answer: null, options: [], done: false, seq: null, score: 0, total: 0 };
+  const EAR_CHORDS = ['maj', 'min', '7', 'maj7', 'm7', 'dim'];
+  function renderEar() {
+    const c = $('#ear-body');
+    c.innerHTML =
+      '<div class="controls no-print">' +
+        '<span class="chips">' +
+          earChip('interval', 'Intervalles') + earChip('chord', 'Type d\'accord') + earChip('prog', 'Progressions') +
+        '</span>' +
+        '<div class="stat" style="flex:0 0 auto;padding:8px 14px">Score : <b style="display:inline">' + earState.score + ' / ' + earState.total + '</b></div>' +
+      '</div>' +
+      '<div style="text-align:center;margin:22px 0">' +
+        '<button class="btn" id="ear-play" style="font-size:16px;padding:14px 24px">🔊 Écouter</button> ' +
+        '<button class="btn ghost" id="ear-next">➜ Nouvelle question</button>' +
+      '</div>' +
+      '<div id="ear-options" class="grid cols-3" style="max-width:640px;margin:0 auto"></div>' +
+      '<p class="hint" id="ear-feedback" style="text-align:center;min-height:24px;margin-top:14px"></p>';
+
+    $$('[data-ear]', c).forEach(b => b.onclick = () => { earState.mode = b.dataset.ear; newEar(); });
+    $('#ear-play').onclick = playEar;
+    $('#ear-next').onclick = newEar;
+    if (!earState.answer) newEar(); else paintEar();
+  }
+  function earChip(mode, label) {
+    return '<button class="chip ' + (earState.mode === mode ? 'active' : '') + '" data-ear="' + mode + '">' + label + '</button>';
+  }
+  function newEar() {
+    earState.done = false; earState.answer = null; earState.options = [];
+    const rootBase = 57 + Math.floor(Math.random() * 6); // A3..
+    if (earState.mode === 'interval') {
+      const pool = T.INTERVALS.filter(iv => iv.semis <= 12);
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      earState.answer = pick.name;
+      earState.seq = { type: 'mel', midis: [rootBase, rootBase + pick.semis] };
+      earState.options = choices(pool.map(p => p.name), pick.name, 4);
+    } else if (earState.mode === 'chord') {
+      const key = EAR_CHORDS[Math.floor(Math.random() * EAR_CHORDS.length)];
+      const ch = T.buildChord(T.noteName(rootBase, false), key, 4);
+      earState.answer = T.CHORDS[key].name;
+      earState.seq = { type: 'chord', midis: ch.midis };
+      earState.options = choices(EAR_CHORDS.map(k => T.CHORDS[k].name), T.CHORDS[key].name, 4);
+    } else {
+      const progs = T.PROGRESSIONS.major;
+      const p = progs[Math.floor(Math.random() * progs.length)];
+      const dia = T.diatonicChords('C', 'major', false);
+      earState.answer = p.name;
+      earState.seq = { type: 'prog', chords: p.deg.map(d => dia[d].chord.midis) };
+      earState.options = choices(progs.map(x => x.name), p.name, Math.min(4, progs.length));
+    }
+    paintEar();
+    setTimeout(playEar, 250);
+  }
+  function paintEar() {
+    const box = $('#ear-options'); if (!box) return;
+    box.innerHTML = earState.options.map(o =>
+      '<button class="deg-card" style="text-align:center" data-opt="' + esc(o) + '">' + esc(o) + '</button>').join('');
+    $$('[data-opt]', box).forEach(b => b.onclick = () => answerEar(b.dataset.opt));
+    const fb = $('#ear-feedback'); if (fb) fb.textContent = '';
+  }
+  function answerEar(opt) {
+    if (earState.done) return;
+    earState.done = true; earState.total++;
+    const ok = opt === earState.answer;
+    if (ok) earState.score++;
+    $$('#ear-options [data-opt]').forEach(b => {
+      if (b.dataset.opt === earState.answer) b.style.borderColor = 'var(--scale)';
+      if (b.dataset.opt === opt && !ok) b.style.borderColor = 'var(--root)';
+    });
+    const fb = $('#ear-feedback');
+    fb.innerHTML = ok ? '✅ Bravo, c\'était bien <b>' + esc(earState.answer) + '</b>.'
+                      : '❌ C\'était <b>' + esc(earState.answer) + '</b>. Réécoute pour l\'ancrer.';
+    $('.stat b', $('#ear-body')).textContent = earState.score + ' / ' + earState.total;
+  }
+  function playEar() {
+    const s = earState.seq; if (!s) return;
+    if (s.type === 'mel') A.playArpeggio(s.midis, 0.55, 1.2);
+    else if (s.type === 'chord') A.playChord(s.midis, 1.8);
+    else A.playProgression(s.chords, 0.9);
+  }
+  function choices(pool, answer, n) {
+    const others = pool.filter(x => x !== answer);
+    shuffle(others);
+    const set = [answer].concat(others.slice(0, n - 1));
+    shuffle(set);
+    return set;
+  }
+  function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } }
 
   // ------------------------------------------------------------ Helpers UI
   function field(lbl, inner) { return '<label class="field">' + esc(lbl) + inner + '</label>'; }
@@ -336,7 +539,8 @@
     document.body.addEventListener('pointerdown', () => A.ensure(), { once: true });
   }
   function renderAll() {
-    renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle(); renderJournal(); renderClasseur();
+    renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle();
+    renderRecognize(); renderEar(); renderJournal(); renderClasseur();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

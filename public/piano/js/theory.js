@@ -210,13 +210,85 @@
     return results;
   }
 
+  // Renversement d'un accord : on monte les n notes du bas d'une octave.
+  // inversion 0 = position fondamentale, 1 = 1er renversement, etc.
+  function invertChord(rootName, chordKey, octave, inversion) {
+    const base = buildChord(rootName, chordKey, octave);
+    const n = ((inversion % base.midis.length) + base.midis.length) % base.midis.length;
+    let midis = base.midis.slice();
+    let notes = base.notes.slice();
+    let degrees = base.degrees.slice();
+    for (let i = 0; i < n; i++) {
+      midis.push(midis.shift() + 12);
+      notes.push(notes.shift());
+      degrees.push(degrees.shift());
+    }
+    // trie par hauteur pour l'affichage clavier
+    const order = midis.map((m, i) => i).sort((a, b) => midis[a] - midis[b]);
+    const bassDegree = degrees[order[0]];
+    return {
+      root: rootName, type: chordKey, def: base.def,
+      label: base.label + (n ? ' / ' + notes[order[0]] : ''),
+      inversion: n,
+      bass: notes[order[0]], bassDegree: bassDegree,
+      midis: order.map(i => midis[i]),
+      notes: order.map(i => notes[i]),
+      degrees: order.map(i => degrees[i])
+    };
+  }
+
+  const INVERSION_NAMES = ['Position fondamentale', '1er renversement', '2e renversement', '3e renversement', '4e renversement'];
+
+  // Doigté main droite pour un accord (nombre de notes -> doigts, du grave à l'aigu)
+  function chordFingersRH(count) {
+    if (count <= 3) return [1, 3, 5];
+    if (count === 4) return [1, 2, 3, 5];
+    return [1, 2, 3, 4, 5];
+  }
+
+  // Doigtés main droite (une octave montante) pour les gammes majeures usuelles.
+  // Sources : doigtés standard du répertoire. null => on affiche un conseil générique.
+  const MAJOR_FING_RH = {
+    'C': [1, 2, 3, 1, 2, 3, 4, 5], 'G': [1, 2, 3, 1, 2, 3, 4, 5],
+    'D': [1, 2, 3, 1, 2, 3, 4, 5], 'A': [1, 2, 3, 1, 2, 3, 4, 5],
+    'E': [1, 2, 3, 1, 2, 3, 4, 5], 'B': [1, 2, 3, 1, 2, 3, 4, 5],
+    'F': [1, 2, 3, 4, 1, 2, 3, 4]
+  };
+  const MINOR_FING_RH = { // mineure naturelle, quelques toniques sûres
+    'A': [1, 2, 3, 1, 2, 3, 4, 5], 'E': [1, 2, 3, 1, 2, 3, 4, 5],
+    'D': [1, 2, 3, 1, 2, 3, 4, 5], 'C': [1, 2, 3, 1, 2, 3, 4, 5]
+  };
+  function scaleFingersRH(rootName, scaleKey) {
+    if (scaleKey === 'major') return MAJOR_FING_RH[rootName] || null;
+    if (scaleKey === 'minor') return MINOR_FING_RH[rootName] || null;
+    return null; // modes/pentas : conseil générique
+  }
+
+  // Intervalles (pour l'entraînement de l'oreille)
+  const INTERVALS = [
+    { semis: 1,  name: 'Seconde mineure', short: '2m' },
+    { semis: 2,  name: 'Seconde majeure', short: '2M' },
+    { semis: 3,  name: 'Tierce mineure',  short: '3m' },
+    { semis: 4,  name: 'Tierce majeure',  short: '3M' },
+    { semis: 5,  name: 'Quarte juste',    short: '4J' },
+    { semis: 6,  name: 'Triton',          short: 'TT' },
+    { semis: 7,  name: 'Quinte juste',    short: '5J' },
+    { semis: 8,  name: 'Sixte mineure',   short: '6m' },
+    { semis: 9,  name: 'Sixte majeure',   short: '6M' },
+    { semis: 10, name: 'Septième mineure', short: '7m' },
+    { semis: 11, name: 'Septième majeure', short: '7M' },
+    { semis: 12, name: 'Octave',          short: '8' }
+  ];
+
   function midiToFreq(midi) {
     return 440 * Math.pow(2, (midi - 69) / 12);
   }
 
   global.Theory = {
     SHARP, FLAT, FR, CHORDS, SCALES, CIRCLE, KEY_SIG, DIATONIC, PROGRESSIONS,
+    INVERSION_NAMES, INTERVALS,
     noteName, pcIndex, keyPrefersFlat, buildChord, buildScale,
+    invertChord, chordFingersRH, scaleFingersRH,
     diatonicChords, identifyChord, midiToFreq,
     frName: function (n) { return FR[n] || n; }
   };
