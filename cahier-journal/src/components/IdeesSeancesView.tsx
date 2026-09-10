@@ -14,8 +14,9 @@ import { genererSeance } from "../lib/generateSeance";
 import { emptyDay } from "../lib/factory";
 import { uid, todayISO, formatLong } from "../lib/dates";
 import { printArea } from "../lib/print";
+import { downloadElementPdf, safeFileName } from "../lib/pdf";
 import { ActivityEditor } from "./ActivityEditor";
-import { FichePrepA4 } from "./FichePrepA4";
+import { FichePrepA4, FichePrepVierge } from "./FichePrepA4";
 import { PERIODES } from "../lib/programmations";
 import { PROG_ANGLAIS, PROG_QLM, PROG_GRAPHEMO } from "../lib/progDisciplines";
 import { Printer } from "./ui";
@@ -54,6 +55,19 @@ export function IdeesSeancesView() {
   const flashMsg = (m: string) => {
     setFlash(m);
     setTimeout(() => setFlash(""), 2500);
+  };
+
+  const downloadPrepVierge = async () => {
+    const container = document.getElementById("print-prep-vierge");
+    const el = (container?.querySelector(".fiche-a4") as HTMLElement | null) ?? container;
+    if (!el) { alert("Fiche introuvable, réessaie."); return; }
+    try {
+      await downloadElementPdf(el, `${safeFileName("Fiche de prep vierge")}.pdf`);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      alert(`Le PDF n'a pas pu être généré (${msg}).\n\nLa fenêtre d'impression va s'ouvrir : choisis « Enregistrer au format PDF ».`);
+      printArea("print-prep-vierge");
+    }
   };
 
   const generer = () => {
@@ -111,6 +125,25 @@ export function IdeesSeancesView() {
           Génère une fiche de séance conforme (objectifs, compétences, déroulement,
           différenciation, <b>erreurs &amp; remédiation</b>, correction) — à relire et personnaliser.
         </p>
+      </div>
+
+      {/* Fiche de prép vierge à imprimer / télécharger */}
+      <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl border border-dashed border-slate-300 bg-white/60 p-3 dark:border-slate-700 dark:bg-slate-900/40">
+        <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">📄 Fiche de prép vierge</span>
+        <span className="text-[12px] text-slate-500 dark:text-slate-400">(mon modèle, à remplir à la main)</span>
+        <button
+          onClick={() => void downloadPrepVierge()}
+          className="btn-primary ml-auto py-1.5 text-sm"
+        >
+          ⬇️ Télécharger en PDF
+        </button>
+        <button onClick={() => printArea("print-prep-vierge")} className="btn-outline py-1.5 text-sm">
+          <Printer className="mr-1 inline h-4 w-4" /> Imprimer
+        </button>
+      </div>
+      {/* Zone d'impression / capture (hors écran) */}
+      <div id="print-prep-vierge" className="print-area">
+        <FichePrepVierge settings={settings} />
       </div>
 
       {/* Formulaire */}
