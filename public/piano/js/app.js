@@ -94,24 +94,73 @@
                  : '<p class="hint">Doigté standard : pouce sur la tonique, passage du pouce après 3 puis 4 notes. (Numéros précis fournis pour les gammes majeures usuelles et La/Mi/Ré/Do mineur.)</p>')
       : '';
 
+    const isPenta = scaleState.type === 'pentaMin' || scaleState.type === 'pentaMaj' || scaleState.type === 'blues';
+    const q = encodeURIComponent('gamme ' + sc.def.name + ' piano ' + (isPenta ? 'impro' : 'doigté') + ' débutant');
+
     c.innerHTML =
       '<div class="controls no-print">' +
         field('Tonique', selectHtml('scale-root', ROOTS.map(r => opt(r, r === scaleState.root, frNames ? T.frName(r) : r)))) +
         field('Type de gamme', selectHtml('scale-type', Object.keys(T.SCALES).map(k => opt(k, k === scaleState.type, T.SCALES[k].name)))) +
-        '<button class="btn" id="scale-play">▶ Monter (animé)</button>' +
-        '<button class="btn ghost" id="scale-updown">↕ Aller-retour</button>' +
         '<span class="chips"><button class="chip ' + (scaleState.fingers ? 'active' : '') + '" id="scale-fing">👆 Doigtés</button></span>' +
       '</div>' +
       '<h2 style="margin-top:16px">' + esc(sc.label) + '</h2>' +
       '<div class="kbd-wrap">' + kbd + '</div>' + legend('scale') +
       '<div class="notes-row">' + pills + '</div>' +
-      '<p class="hint">Formule (demi-tons) : ' + sc.def.semis.join(' – ') + '</p>' + fingNote;
+      '<p class="hint">Formule (demi-tons) : ' + sc.def.semis.join(' – ') + '</p>' + fingNote +
+      '<h3>Sens de jeu — dans quel sens la jouer</h3>' +
+      '<p class="hint">Travaille-la dans <b>tous les sens</b> : en <b>montant</b> (grave→aigu), en <b>descendant</b> (aigu→grave), en <b>aller-retour</b>, puis « en tierces » et « en arpège » pour délier les doigts.</p>' +
+      '<div class="controls no-print">' +
+        '<button class="btn small" id="sc-up">▶ Monter</button>' +
+        '<button class="btn small" id="sc-down">▶ Descendre</button>' +
+        '<button class="btn small" id="sc-updown">↕ Aller-retour</button>' +
+        '<button class="btn ghost small" id="sc-thirds">▶ En tierces</button>' +
+        '<button class="btn ghost small" id="sc-arp">▶ En arpège (1-3-5)</button>' +
+      '</div>' +
+      '<h3>Improvisation — un exemple que l\'appli joue</h3>' +
+      '<p class="hint">' + (isPenta
+        ? 'Cette gamme est parfaite pour improviser : lance un exemple, puis rejoue-le et modifie-le. Aucune fausse note possible.'
+        : 'Improvise en restant sur ces notes. Écoute l\'exemple, puis invente le tien par-dessus la tonique.') + '</p>' +
+      '<div class="controls no-print">' +
+        '<button class="btn" id="sc-impro">🎲 Jouer une impro (animée)</button>' +
+        '<a class="btn ghost small" href="https://www.youtube.com/results?search_query=' + q + '" target="_blank" rel="noopener">▶ Voir une vidéo (YouTube)</a>' +
+      '</div>';
 
+    const kb = () => $('#scale-body .kbd');
     $('#scale-root').onchange = e => { scaleState.root = e.target.value; renderScales(); };
     $('#scale-type').onchange = e => { scaleState.type = e.target.value; renderScales(); };
-    $('#scale-play').onclick = () => animateScale($('#scale-body .kbd'), sc.midis, 0.28, false);
-    $('#scale-updown').onclick = () => animateScale($('#scale-body .kbd'), sc.midis, 0.26, true);
     $('#scale-fing').onclick = () => { scaleState.fingers = !scaleState.fingers; renderScales(); };
+    $('#sc-up').onclick = () => animateScale(kb(), sc.midis, 0.28, false);
+    $('#sc-down').onclick = () => animateArp(kb(), sc.midis.slice().reverse(), 0.28);
+    $('#sc-updown').onclick = () => animateScale(kb(), sc.midis, 0.26, true);
+    $('#sc-thirds').onclick = () => animateArp(kb(), scaleThirds(sc.midis), 0.22);
+    $('#sc-arp').onclick = () => animateArp(kb(), scaleArpeggio(sc.midis), 0.26);
+    $('#sc-impro').onclick = () => animateArp(kb(), improLick(sc.midis), 0.24);
+  }
+  // Gamme « en tierces » : 1-3, 2-4, 3-5… (délie les doigts)
+  function scaleThirds(midis) {
+    const out = [];
+    for (let i = 0; i + 2 < midis.length; i++) { out.push(midis[i]); out.push(midis[i + 2]); }
+    return out;
+  }
+  // Arpège (accord de la gamme) : degrés 1-3-5(-8)
+  function scaleArpeggio(midis) {
+    const idx = [0, 2, 4].filter(i => i < midis.length);
+    const out = idx.map(i => midis[i]);
+    out.push(midis[0] + 12);
+    return out;
+  }
+  // Petit motif d'impro aléatoire dans la gamme (contour mélodique doux)
+  function improLick(midis) {
+    const pool = midis.concat(midis.slice(0, -1).map(m => m + 12)); // 2 octaves env.
+    let i = Math.floor(Math.random() * Math.min(3, pool.length));
+    const lick = [];
+    for (let n = 0; n < 9; n++) {
+      lick.push(pool[Math.max(0, Math.min(pool.length - 1, i))]);
+      i += [-2, -1, 1, 1, 2, 2, 3][Math.floor(Math.random() * 7)];
+      if (i < 0) i = 1; if (i > pool.length - 1) i = pool.length - 2;
+    }
+    lick.push(midis[0]); // on retombe sur la tonique
+    return lick;
   }
 
   // ------------------------------------------------------------ TONALITÉS (harmonie)
@@ -293,23 +342,35 @@
       tip: 'Enregistre-toi, réécoute, corrige. C\'est là qu\'on progresse le plus vite.' }
   ];
 
-  // Morceaux associés à certaines séances (crescendo de difficulté).
-  // On n'encode que des suites d'accords (données largement publiques) ; le
+  // Un morceau / exercice pour CHAQUE séance (crescendo). On encode des suites
+  // d'accords ou des mélodies (données publiques), jouables dans l'appli ; le
   // lien pointe vers une RECHERCHE YouTube (jamais un lien mort).
   const SONGS = {
+    1:  { title: 'Au clair de la lune', artist: 'traditionnel', level: 'Très facile', why: 'Ta première vraie mélodie : rien que Do-Ré-Mi-Fa, main droite.', melody: ['C4', 'C4', 'C4', 'D4', 'E4', 'D4', 'C4', 'E4', 'D4', 'D4', 'C4'], yt: 'au clair de la lune piano tuto débutant lent' },
+    2:  { title: 'Frère Jacques', artist: 'traditionnel', level: 'Très facile', why: 'Une mélodie que tout le monde connaît, pour enchaîner les notes.', melody: ['C4', 'D4', 'E4', 'C4', 'C4', 'D4', 'E4', 'C4', 'E4', 'F4', 'G4', 'E4', 'F4', 'G4'], yt: 'frère jacques piano tuto débutant' },
     3:  { title: 'La Bamba', artist: 'Ritchie Valens', level: 'Très facile', why: 'Rien que Do–Fa–Sol, en boucle.', chords: [['C', 'maj'], ['F', 'maj'], ['G', 'maj']], yt: 'tuto piano La Bamba accords débutant' },
+    4:  { title: 'Wild Thing', artist: 'The Troggs', level: 'Facile', why: 'La–Ré–Mi (I-IV-V en La) : tes nouveaux accords majeurs.', chords: [['A', 'maj'], ['D', 'maj'], ['E', 'maj']], yt: 'Wild Thing piano chords tuto' },
     5:  { title: "Knockin' on Heaven's Door", artist: 'Bob Dylan', level: 'Facile', why: 'Sol–Ré–Lam–Do : dans la foulée du I–IV–V en Sol.', chords: [['G', 'maj'], ['D', 'maj'], ['A', 'min'], ['C', 'maj']], yt: 'tuto piano Knockin on Heavens Door accords' },
     6:  { title: 'Zombie', artist: 'The Cranberries', level: 'Facile', why: 'Mi mineur + Do + Sol + Ré : tes premiers mineurs en situation.', chords: [['E', 'min'], ['C', 'maj'], ['G', 'maj'], ['D', 'maj']], yt: 'tuto piano Zombie Cranberries accords' },
     7:  { title: 'Stand By Me', artist: 'Ben E. King', level: 'Facile', why: "C'est exactement Do–Lam–Fa–Sol.", chords: [['C', 'maj'], ['A', 'min'], ['F', 'maj'], ['G', 'maj']], yt: 'tuto piano Stand By Me accords débutant' },
     8:  { title: 'Let It Be', artist: 'The Beatles', level: 'Facile', why: 'La progression pop I–V–vi–IV que tu viens de voir.', chords: [['C', 'maj'], ['G', 'maj'], ['A', 'min'], ['F', 'maj']], yt: 'tuto piano Let It Be accords débutant' },
     9:  { title: 'Someone Like You', artist: 'Adele', level: 'Intermédiaire', why: 'Mêmes 4 accords, mais avec des renversements pour bien les lier.', chords: [['C', 'maj'], ['G', 'maj'], ['A', 'min'], ['F', 'maj']], yt: 'tuto piano Someone Like You accords renversements' },
+    10: { title: 'Ode à la joie', artist: 'Beethoven', level: 'Facile', why: 'Toute la mélodie tient dans la gamme de Do : parfait après le travail de gamme.', melody: ['E4', 'E4', 'F4', 'G4', 'G4', 'F4', 'E4', 'D4', 'C4', 'C4', 'D4', 'E4', 'E4', 'D4', 'D4'], yt: 'ode à la joie piano débutant main droite' },
+    11: { title: 'Amazing Grace', artist: 'traditionnel', level: 'Facile', why: 'Une ballade en Sol, avec la gamme que tu viens de voir.', chords: [['G', 'maj'], ['C', 'maj'], ['D', 'maj']], yt: 'amazing grace piano facile sol majeur' },
+    12: { title: 'Exercice : gamme de Fa', artist: 'entraînement', level: 'Facile', why: 'Monte et descends la gamme de Fa lentement, puis regarde le doigté en vidéo.', yt: 'gamme de Fa majeur doigté piano débutant' },
     13: { title: 'Hallelujah', artist: 'Leonard Cohen', level: 'Intermédiaire', why: 'Do, Lam, Fa, Sol, Mim : tout ce que tu connais, en une ballade.', chords: [['C', 'maj'], ['A', 'min'], ['F', 'maj'], ['G', 'maj'], ['E', 'min']], yt: 'tuto piano Hallelujah accords débutant' },
+    14: { title: 'Impro pentatonique', artist: 'à toi de jouer', level: 'Facile', why: 'Improvise : joue ces 5 notes dans le désordre par-dessus un La mineur. Aucune fausse note possible.', melody: ['A4', 'C5', 'D5', 'E5', 'D5', 'C5', 'A4', 'C5', 'A4'], yt: 'impro piano pentatonique la mineur débutant' },
+    15: { title: 'No Woman No Cry', artist: 'Bob Marley', level: 'Intermédiaire', why: 'Les 7 accords de Do majeur en action (I–V–vi–IV).', chords: [['C', 'maj'], ['G', 'maj'], ['A', 'min'], ['F', 'maj']], yt: 'No Woman No Cry piano chords tuto' },
     16: { title: 'Autumn Leaves (Les Feuilles mortes)', artist: 'standard jazz', level: 'Intermédiaire', why: 'Le ii–V–I en situation réelle, avec des accords de 7e.', chords: [['D', 'm7'], ['G', '7'], ['C', 'maj7'], ['A', 'm7']], yt: 'tuto piano Autumn Leaves ii V I débutant' },
     17: { title: 'Despacito (version étude)', artist: 'Luis Fonsi', level: 'Intermédiaire', why: 'i–VI–III–VII en La mineur (adapté en touches blanches).', chords: [['A', 'min'], ['F', 'maj'], ['C', 'maj'], ['G', 'maj']], yt: 'tuto piano Despacito accords' },
+    18: { title: 'Le cercle des quintes en vidéo', artist: 'théorie', level: 'Intermédiaire', why: 'Regarde comment on passe d\'une tonalité à sa voisine (une quinte).', yt: 'cercle des quintes expliqué simplement piano' },
     19: { title: 'River Flows in You', artist: 'Yiruma', level: 'Avancé', goal: true, why: 'LE morceau piano « émotionnel » — ton objectif rêvé. Accords de 7e et arpèges.', chords: [['A', 'maj'], ['E', 'maj'], ['F#', 'min'], ['D', 'maj']], yt: 'tuto piano River Flows in You facile' },
+    20: { title: 'Wonderwall', artist: 'Oasis', level: 'Intermédiaire', why: 'Le morceau roi des accords sus / add9.', chords: [['E', 'm7'], ['G', 'maj'], ['D', 'sus4'], ['C', 'add9']], yt: 'Wonderwall piano chords tuto' },
+    21: { title: 'Accompagnement main gauche', artist: 'entraînement', level: 'Intermédiaire', why: 'Main gauche : basse puis accord, en boucle. La droite chante par-dessus.', chords: [['C', 'maj'], ['G', 'maj'], ['A', 'min'], ['F', 'maj']], yt: 'accompagnement piano main gauche basse accord débutant' },
     22: { title: 'Perfect', artist: 'Ed Sheeran', level: 'Intermédiaire', why: 'Repique-le à l\'oreille : I–vi–IV–V, tu connais déjà tout.', chords: [['C', 'maj'], ['A', 'min'], ['F', 'maj'], ['G', 'maj']], yt: 'tuto piano Perfect Ed Sheeran accords' },
     23: { title: 'Nuvole Bianche', artist: 'Ludovico Einaudi', level: 'Avancé', goal: true, why: 'Inspiration compo : accords simples, énorme émotion. Analyse-la puis compose la tienne.', chords: [['A', 'min'], ['F', 'maj'], ['C', 'maj'], ['G', 'maj']], yt: 'tuto piano Nuvole Bianche facile' }
   };
+  function noteToMidi(s) { const m = String(s).match(/^([A-G][#b]?)(\d)$/); return m ? 12 * (+m[2] + 1) + T.pcIndex(m[1]) : 60; }
 
   // Explication courte (2-3 phrases) pour chaque séance — « en clair ».
   const EXPLAIN = {
@@ -367,18 +428,19 @@
   function songMidis(chords) { return chords.map(c => T.buildChord(c[0], c[1], 4).midis); }
   function songHTML(song) {
     if (!song) return '';
-    const chips = song.chords.map((c, i) =>
-      '<button class="chip" data-song-chord="' + i + '">' + esc(T.buildChord(c[0], c[1], 4).label) + '</button>').join(' ');
+    const chips = song.chords ? song.chords.map((c, i) =>
+      '<button class="chip" data-song-chord="' + i + '">' + esc(T.buildChord(c[0], c[1], 4).label) + '</button>').join(' ') : '';
     const q = encodeURIComponent(song.yt);
     return '<div class="card" style="background:var(--bg2);border-left:4px solid var(--accent2);margin-top:12px">' +
-      '<div class="rn" style="color:var(--muted);font-weight:700;font-size:12px;letter-spacing:1px">🎵 MORCEAU À APPRENDRE' +
+      '<div class="rn" style="color:var(--muted);font-weight:700;font-size:12px;letter-spacing:1px">🎵 EN MUSIQUE' +
       '<span class="badge" style="margin-left:8px">' + esc(song.level) + '</span>' + (song.goal ? '<span class="badge" style="margin-left:6px">🌟 objectif</span>' : '') + '</div>' +
       '<h3 style="margin:4px 0;color:var(--text);text-transform:none;letter-spacing:0;font-size:16px">' + esc(song.title) + ' <span class="hint">— ' + esc(song.artist) + '</span></h3>' +
       '<p style="margin:0 0 8px">' + esc(song.why) + '</p>' +
-      '<div class="chips" style="margin-bottom:10px">' + chips + '</div>' +
+      (chips ? '<div class="chips" style="margin-bottom:10px">' + chips + '</div>' : '') +
       '<div class="controls no-print">' +
-        '<button class="btn small" id="song-play">▶ Jouer la suite</button> ' +
-        '<a class="btn ghost small" href="https://www.youtube.com/results?search_query=' + q + '" target="_blank" rel="noopener">▶ Voir un tuto (YouTube)</a>' +
+        (song.chords ? '<button class="btn small" id="song-play">▶ Jouer les accords</button> ' : '') +
+        (song.melody ? '<button class="btn small" id="song-melody">▶ Jouer la mélodie</button> ' : '') +
+        '<a class="btn ghost small" href="https://www.youtube.com/results?search_query=' + q + '" target="_blank" rel="noopener">▶ Voir la vidéo (YouTube)</a>' +
       '</div></div>';
   }
 
@@ -442,6 +504,8 @@
     if (song) {
       const sp = $('#song-play', el);
       if (sp) sp.onclick = () => A.playProgression(songMidis(song.chords), 1.0);
+      const sm = $('#song-melody', el);
+      if (sm) sm.onclick = () => A.playArpeggio(song.melody.map(noteToMidi), 0.42, 0.9);
       $$('[data-song-chord]', el).forEach(b => b.onclick = () => {
         const c = song.chords[+b.dataset.songChord]; openChord(c[0], c[1]);
       });
@@ -499,6 +563,141 @@
     ).join('');
     $('#parcours-body').innerHTML =
       '<p class="hint">Un fil clair, du plus utile au plus avancé. Tu es discipliné et tu as déjà les bases harmoniques de la guitare : on capitalise dessus. Coche mentalement, entraîne-toi dans les onglets, et note tes séances dans le Journal.</p>' + html;
+  }
+
+  // ------------------------------------------------------------ SOLFÈGE
+  const SOLF_NOTES = [ // note, octave, nom FR, midi
+    ['C', 4, 'Do'], ['D', 4, 'Ré'], ['E', 4, 'Mi'], ['F', 4, 'Fa'],
+    ['G', 4, 'Sol'], ['A', 4, 'La'], ['B', 4, 'Si'], ['C', 5, 'Do aigu']
+  ];
+  const solfState = { i: 0, quiz: false, answer: null, score: 0, total: 0 };
+
+  // Position verticale d'une note sur la portée (clé de sol)
+  function staffY(letter, oct) {
+    const order = 'CDEFGAB';
+    const step = oct * 7 + order.indexOf(letter);
+    return 78 - (step - 30) * 6; // E4 (step 30) sur la 1re ligne du bas
+  }
+  function staffSVG(letter, oct, showName) {
+    const y = staffY(letter, oct);
+    let s = '<svg viewBox="0 0 320 120" width="100%" style="max-width:320px;background:#fff;border-radius:10px">';
+    // 5 lignes
+    for (let i = 0; i < 5; i++) { const ly = 30 + i * 12; s += '<line x1="34" y1="' + ly + '" x2="300" y2="' + ly + '" stroke="#222" stroke-width="1"/>'; }
+    // clé de sol (unicode ; sinon la portée reste lisible)
+    s += '<text x="16" y="74" font-size="52" fill="#222" font-family="serif">𝄞</text>';
+    // ligne supplémentaire pour Do central (C4)
+    if (letter === 'C' && oct === 4) s += '<line x1="196" y1="90" x2="228" y2="90" stroke="#222" stroke-width="1"/>';
+    // tête de note
+    s += '<ellipse cx="212" cy="' + y + '" rx="8.5" ry="6" fill="#c0392b" transform="rotate(-18 212 ' + y + ')"/>';
+    if (showName) s += '<text x="212" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#222">' + esc(showName) + '</text>';
+    s += '</svg>';
+    return s;
+  }
+  function rhythmSVG(kind) {
+    const head = (fill) => '<ellipse cx="20" cy="34" rx="8" ry="6" fill="' + (fill ? '#222' : 'none') + '" stroke="#222" stroke-width="1.6" transform="rotate(-18 20 34)"/>';
+    let inner = '<svg viewBox="0 0 44 48" width="44" height="48">';
+    if (kind === 'ronde') inner += head(false);
+    else if (kind === 'blanche') inner += head(false) + '<line x1="28" y1="30" x2="28" y2="6" stroke="#222" stroke-width="1.6"/>';
+    else if (kind === 'noire') inner += head(true) + '<line x1="28" y1="30" x2="28" y2="6" stroke="#222" stroke-width="1.6"/>';
+    else inner += head(true) + '<line x1="28" y1="30" x2="28" y2="6" stroke="#222" stroke-width="1.6"/><path d="M28 6 q10 4 6 16" fill="none" stroke="#222" stroke-width="1.6"/>';
+    return inner + '</svg>';
+  }
+
+  function renderSolfege() {
+    const c = $('#solfege-body');
+    const cur = SOLF_NOTES[solfState.i];
+    const midi = noteToMidi(cur[0] + cur[1]);
+    const kbHi = [{ midi: midi, role: 'root' }];
+    const kbd = K.render({ startMidi: 60, octaves: 2, highlight: kbHi, frNames: true });
+
+    // Boutons de notes (Do..Do)
+    const noteBtns = SOLF_NOTES.map((n, i) =>
+      '<button class="chip ' + (!solfState.quiz && i === solfState.i ? 'active' : '') + '" data-solf="' + i + '">' + esc(n[2]) + '</button>').join(' ');
+
+    const rhythms = [
+      ['ronde', 'Ronde', '4 temps'], ['blanche', 'Blanche', '2 temps'],
+      ['noire', 'Noire', '1 temps'], ['croche', 'Croche', '½ temps']
+    ].map(r => '<div class="note-pill" style="background:#fff;color:#222;min-width:80px">' + rhythmSVG(r[0]) +
+      '<b style="color:#222">' + r[1] + '</b><small style="color:#555">' + r[2] + '</small></div>').join('');
+
+    c.innerHTML =
+      // Bloc 1 : lire les notes
+      '<div class="card"><h2>1 · Lire une note</h2>' +
+        '<p class="hint">La musique s\'écrit sur une <b>portée</b> (5 lignes) avec une <b>clé de sol</b>. Choisis une note : tu la vois sur la portée, tu la vois sur le clavier, et tu l\'entends.</p>' +
+        '<div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">' +
+          '<div id="solf-staff">' + staffSVG(cur[0], cur[1], (solfState.quiz ? '?' : cur[2])) + '</div>' +
+          '<div style="flex:1;min-width:240px"><div class="kbd-wrap" style="margin:0">' + kbd + '</div></div>' +
+        '</div>' +
+        '<div class="controls no-print" style="margin-top:10px"><span class="chips">' + noteBtns + '</span>' +
+          '<button class="btn small" id="solf-play">▶ Écouter</button>' +
+          '<button class="btn ghost small" id="solf-quiz">' + (solfState.quiz ? '✕ Quitter le quiz' : '🎯 Mode quiz') + '</button>' +
+        '</div>' +
+        (solfState.quiz ? '<p class="hint" id="solf-fb" style="min-height:20px;margin-top:8px">Quelle note est affichée ? Clique son nom. — Score : <b>' + solfState.score + ' / ' + solfState.total + '</b></p>' : '') +
+      '</div>' +
+      // Bloc 2 : reconnaître les touches
+      '<div class="card"><h2>2 · Reconnaître les touches</h2>' +
+        '<p class="hint">Les touches noires vont par <b>groupes de 2 et de 3</b>. Juste <b>à gauche du groupe de 2</b>, c\'est toujours un <b>Do</b>. À partir de là, tu comptes : Do, Ré, Mi, Fa, Sol, La, Si… puis ça recommence.</p>' +
+        '<div class="kbd-wrap">' + K.render({ startMidi: 60, octaves: 2, highlight: [{ midi: 60, role: 'root' }, { midi: 72, role: 'root' }], frNames: true }) + '</div>' +
+        '<p class="hint">Les deux touches rouges sont des <b>Do</b>. Repère-les, et tout le reste se déduit.</p>' +
+      '</div>' +
+      // Bloc 3 : le rythme
+      '<div class="card"><h2>3 · Le rythme (durée des notes)</h2>' +
+        '<p class="hint">La forme de la note dit combien de temps elle dure. Compte « 1-2-3-4 » régulièrement (au métronome plus tard).</p>' +
+        '<div class="notes-row">' + rhythms + '</div>' +
+      '</div>' +
+      // Bloc 4 : téléchargements
+      '<div class="card"><h2>4 · À imprimer</h2>' +
+        '<p class="hint">Des feuilles prêtes pour écrire dessus une fois imprimées.</p>' +
+        '<div class="controls no-print">' +
+          '<button class="btn" id="solf-dl-staff">⬇ Portées vierges (PDF)</button>' +
+          '<button class="btn ghost" id="solf-dl-sheet">⬇ Fiche « les notes » (PDF)</button>' +
+          '<a class="btn ghost small" href="https://www.youtube.com/results?search_query=' + encodeURIComponent('apprendre à lire les notes solfège piano débutant') + '" target="_blank" rel="noopener">▶ Vidéo : lire les notes</a>' +
+        '</div>' +
+        '<p class="hint" id="solf-dlnote" style="margin-top:8px"></p>' +
+      '</div>';
+
+    $$('[data-solf]', c).forEach(b => b.onclick = () => {
+      const i = +b.dataset.solf;
+      if (solfState.quiz) { answerSolf(i); }
+      else { solfState.i = i; renderSolfege(); A.playMidi(noteToMidi(SOLF_NOTES[i][0] + SOLF_NOTES[i][1]), null, 1.2, 0.85); }
+    });
+    $('#solf-play').onclick = () => A.playMidi(midi, null, 1.4, 0.85);
+    $('#solf-quiz').onclick = () => { solfState.quiz = !solfState.quiz; if (solfState.quiz) newSolfQuiz(); else renderSolfege(); };
+    $('#solf-dl-staff').onclick = () => solfDownload('staff');
+    $('#solf-dl-sheet').onclick = () => solfDownload('sheet');
+  }
+  function newSolfQuiz() {
+    solfState.i = Math.floor(Math.random() * SOLF_NOTES.length);
+    solfState.answer = solfState.i;
+    renderSolfege();
+    const cur = SOLF_NOTES[solfState.i];
+    A.playMidi(noteToMidi(cur[0] + cur[1]), null, 1.2, 0.85);
+  }
+  function answerSolf(i) {
+    solfState.total++;
+    const ok = i === solfState.answer;
+    if (ok) solfState.score++;
+    const fb = $('#solf-fb');
+    const good = SOLF_NOTES[solfState.answer][2];
+    if (fb) fb.innerHTML = (ok ? '✅ Oui, c\'était <b>' + esc(good) + '</b> !' : '❌ Non, c\'était <b>' + esc(good) + '</b>.') +
+      ' — Score : <b>' + solfState.score + ' / ' + solfState.total + '</b>';
+    // révèle la note puis enchaîne
+    solfState.quiz = false; // pour afficher le nom un instant
+    const staff = $('#solf-staff'); if (staff) staff.innerHTML = staffSVG(SOLF_NOTES[solfState.answer][0], SOLF_NOTES[solfState.answer][1], good);
+    solfState.quiz = true;
+    setTimeout(newSolfQuiz, 1400);
+  }
+  async function solfDownload(kind) {
+    const note = $('#solf-dlnote');
+    if (!window.PianoPDF) { if (note) note.textContent = '⚠ Module PDF non chargé.'; return; }
+    if (note) note.textContent = '⏳ Génération…';
+    let res;
+    try { res = kind === 'staff' ? await PianoPDF.staffPaper({}) : await PianoPDF.solfegeSheet({ frNames: true }); }
+    catch (e) { res = 'error'; }
+    if (note) note.textContent = res === 'saved' ? '✅ PDF prêt — accepte l\'enregistrement.'
+      : res === 'browser' ? '✅ PDF téléchargé.'
+      : res === 'declined' ? 'ℹ️ Annulé.'
+      : '⚠ Téléchargement indisponible ici — utilise « Imprimer » depuis un navigateur, ou le site.';
   }
 
   // ------------------------------------------------------------ JOURNAL (tracker)
@@ -866,7 +1065,7 @@
   }
   function renderAll() {
     renderProgramme(); renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle();
-    renderRecognize(); renderEar(); renderJournal(); renderClasseur();
+    renderRecognize(); renderEar(); renderSolfege(); renderJournal(); renderClasseur();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
