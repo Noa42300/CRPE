@@ -17,7 +17,7 @@
       <div>Piano Autodidacte<small>Accords · Gammes · Tonalités · Classeur</small></div>
     </div>
     <nav class="tabs">
-      <button data-go="parcours">Parcours</button>
+      <button data-go="parcours">Programme</button>
       <button data-go="accords">Accords</button>
       <button data-go="gammes">Gammes</button>
       <button data-go="tonalites">Tonalités</button>
@@ -31,12 +31,16 @@
 
   <main>
     <section id="view-parcours" class="view">
-      <h1 class="page">Ton parcours vers le piano</h1>
-      <p class="sub">Un programme progressif, du plus utile au plus avancé.</p>
+      <h1 class="page">Programme jour par jour</h1>
+      <p class="sub">Une séance à la fois : une suite d'accords, une gamme, un objectif. Si c'est dur, on l'étale sur plusieurs jours.</p>
       <label class="field no-print" style="flex-direction:row;align-items:center;gap:8px;margin-bottom:14px">
         <input type="checkbox" id="fr-toggle"> Afficher les notes en français (Do Ré Mi)
       </label>
-      <div class="card" id="parcours-body"></div>
+      <div id="programme-body"></div>
+      <details class="card no-print" style="margin-top:18px">
+        <summary style="cursor:pointer;font-weight:700">📋 Vue d'ensemble du parcours (les grandes phases)</summary>
+        <div id="parcours-body" style="margin-top:12px"></div>
+      </details>
     </section>
 
     <section id="view-accords" class="view">
@@ -88,9 +92,11 @@
     </section>
   </main>
 
+  <script src="vendor/jspdf.umd.min.js"></script>
   <script src="js/theory.js"></script>
   <script src="js/keyboard.js"></script>
   <script src="js/audio.js"></script>
+  <script src="js/pdf.js"></script>
   <script src="js/app.js"></script>
   <script>
     if ('serviceWorker' in navigator) {

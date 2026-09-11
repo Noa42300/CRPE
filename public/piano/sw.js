@@ -1,12 +1,14 @@
 /* Service worker — met l'app en cache pour un usage 100 % hors-ligne. */
-const CACHE = 'piano-autodidacte-v2';
+const CACHE = 'piano-autodidacte-v3';
 const ASSETS = [
   './',
   './index.html',
   './app.css',
+  './vendor/jspdf.umd.min.js',
   './js/theory.js',
   './js/keyboard.js',
   './js/audio.js',
+  './js/pdf.js',
   './js/app.js',
   './manifest.webmanifest',
   './icons/icon-192.png',

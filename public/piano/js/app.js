@@ -23,6 +23,12 @@
     if (id && $('#view-' + id)) nav(id);
   });
 
+  // Ouvre un outil pré-réglé (utilisé par le programme jour par jour)
+  function openChord(root, type, inv) { chordState.root = root; chordState.type = type; chordState.inv = inv || 0; renderChords(); nav('accords'); }
+  function openScale(root, type) { scaleState.root = root; scaleState.type = type; renderScales(); nav('gammes'); }
+  function openKey(root, mode) { keyState.root = root; keyState.mode = mode; renderKeys(); nav('tonalites'); }
+  function openView(id) { nav(id); }
+
   // ------------------------------------------------------------ ACCORDS
   const chordState = { root: 'C', type: 'maj', inv: 0, fingers: false };
   function renderChords() {
@@ -185,6 +191,177 @@
     });
   }
 
+  // ------------------------------------------------------------ PROGRAMME (jour par jour)
+  // Chaque séance = une petite dose : une suite d'accords, une gamme, un objectif.
+  // Si c'est dur, on la garde plusieurs jours (bouton « je continue »).
+  const SEANCES = [
+    { phase: 'Phase 1 · Repères & accords majeurs', title: 'Repérage du clavier + accord de Do majeur',
+      goal: 'Nommer les notes sans hésiter, plaquer Do majeur (Do-Mi-Sol) main droite.',
+      tasks: [{ label: 'Voir l\'accord Do majeur', go: ['chord', 'C', 'maj'] }, { label: 'Écouter la gamme de Do', go: ['scale', 'C', 'major'] }],
+      tip: 'Repère les groupes de 2 et 3 touches noires : Do est juste à gauche du groupe de 2.' },
+    { phase: 'Phase 1 · Repères & accords majeurs', title: 'Accords Sol et Fa majeurs',
+      goal: 'Plaquer Sol (Sol-Si-Ré) et Fa (Fa-La-Do) proprement.',
+      tasks: [{ label: 'Sol majeur', go: ['chord', 'G', 'maj'] }, { label: 'Fa majeur', go: ['chord', 'F', 'maj'] }],
+      tip: 'Même « forme » que Do : 4 demi-tons puis 3. La main garde la même géométrie.' },
+    { phase: 'Phase 1 · Repères & accords majeurs', title: 'Enchaîner Do → Fa → Sol (I–IV–V)',
+      goal: 'Passer entre les 3 accords sans regarder, en rythme régulier.',
+      tasks: [{ label: 'Voir I–IV–V en Do', go: ['key', 'C', 'major'] }],
+      tip: 'C\'est la base du blues, du rock et de la variété. Boucle-les 5 minutes.' },
+    { phase: 'Phase 1 · Repères & accords majeurs', title: 'Accords majeurs La, Mi, Ré',
+      goal: 'Compléter les 6 accords majeurs les plus courants.',
+      tasks: [{ label: 'La majeur', go: ['chord', 'A', 'maj'] }, { label: 'Mi majeur', go: ['chord', 'E', 'maj'] }, { label: 'Ré majeur', go: ['chord', 'D', 'maj'] }],
+      tip: 'Ces accords ont des touches noires : vise le bord des noires, pas le fond.' },
+    { phase: 'Phase 1 · Repères & accords majeurs', title: 'I–IV–V en Sol majeur',
+      goal: 'Transposer la suite d\'accords dans une nouvelle tonalité.',
+      tasks: [{ label: 'I–IV–V en Sol', go: ['key', 'G', 'major'] }],
+      tip: 'Sol-Do-Ré. Si tu retrouves les mêmes formes, c\'est gagné.' },
+
+    { phase: 'Phase 2 · Accords mineurs', title: 'La mineur & Mi mineur',
+      goal: 'Sentir la différence majeur/mineur (la tierce descend d\'un demi-ton).',
+      tasks: [{ label: 'La mineur', go: ['chord', 'A', 'min'] }, { label: 'Mi mineur', go: ['chord', 'E', 'min'] }],
+      tip: 'Mineur = plus « triste ». Compare Do majeur et La mineur à l\'oreille.' },
+    { phase: 'Phase 2 · Accords mineurs', title: 'Ré mineur + suite Do–Lam–Fa–Sol',
+      goal: 'Mélanger majeurs et mineurs dans une progression.',
+      tasks: [{ label: 'Ré mineur', go: ['chord', 'D', 'min'] }, { label: 'La suite en Do (I–vi–IV–V)', go: ['key', 'C', 'major'] }],
+      tip: 'Do–Lam–Fa–Sol : la progression des ballades. Joue-la en boucle.' },
+    { phase: 'Phase 2 · Accords mineurs', title: 'La progression pop I–V–vi–IV',
+      goal: 'Maîtriser LA suite la plus jouée au monde.',
+      tasks: [{ label: 'Ouvrir en Do', go: ['key', 'C', 'major'] }],
+      tip: 'Do–Sol–Lam–Fa. Des milliers de tubes tiennent là-dessus.' },
+    { phase: 'Phase 2 · Accords mineurs', title: 'Renversements de Do, Fa, Sol',
+      goal: 'Lier les accords sans sauter la main partout.',
+      tasks: [{ label: 'Do majeur (teste les renversements)', go: ['chord', 'C', 'maj'] }, { label: 'Fa majeur', go: ['chord', 'F', 'maj'] }],
+      tip: 'Dans l\'onglet Accords, clique « 1er renv. », « 2e renv. » : la main bouge à peine.' },
+
+    { phase: 'Phase 3 · Gammes & doigtés', title: 'Gamme de Do majeur (doigtés)',
+      goal: 'Monter/descendre la gamme main droite avec le bon doigté.',
+      tasks: [{ label: 'Gamme de Do + doigtés', go: ['scale', 'C', 'major'] }],
+      tip: 'Doigté 1-2-3, passage du pouce, 1-2-3-4-5. Lentement d\'abord.' },
+    { phase: 'Phase 3 · Gammes & doigtés', title: 'Gamme de Sol majeur',
+      goal: 'Une gamme avec un Fa♯ : gérer la touche noire.',
+      tasks: [{ label: 'Gamme de Sol', go: ['scale', 'G', 'major'] }],
+      tip: 'Même doigté que Do. Seul le Fa devient Fa♯.' },
+    { phase: 'Phase 3 · Gammes & doigtés', title: 'Gamme de Fa majeur',
+      goal: 'Gérer un doigté légèrement différent (Si♭).',
+      tasks: [{ label: 'Gamme de Fa', go: ['scale', 'F', 'major'] }],
+      tip: 'Le doigté de Fa change un peu : suis les numéros affichés.' },
+    { phase: 'Phase 3 · Gammes & doigtés', title: 'Gamme de La mineur',
+      goal: 'La gamme mineure de base (relative de Do majeur).',
+      tasks: [{ label: 'Gamme de La mineur', go: ['scale', 'A', 'minor'] }],
+      tip: 'Mêmes touches blanches que Do majeur, mais on part de La.' },
+    { phase: 'Phase 3 · Gammes & doigtés', title: 'Pentatonique mineure de La (impro)',
+      goal: 'La gamme « qui sonne toujours bien » pour improviser.',
+      tasks: [{ label: 'Pentatonique de La', go: ['scale', 'A', 'pentaMin'] }],
+      tip: '5 notes seulement. Improvise dessus par-dessus un La mineur.' },
+
+    { phase: 'Phase 4 · Harmonie & tonalités', title: 'Les 7 accords de Do majeur',
+      goal: 'Connaître tous les accords « maison » d\'une tonalité.',
+      tasks: [{ label: 'Tonalité de Do majeur', go: ['key', 'C', 'major'] }],
+      tip: 'I ii iii IV V vi vii°. Ce sont eux qui sonnent bien ensemble.' },
+    { phase: 'Phase 4 · Harmonie & tonalités', title: 'La cadence ii–V–I',
+      goal: 'La progression reine du jazz et de la variété.',
+      tasks: [{ label: 'Ouvrir Do majeur (passe en accords de 7e)', go: ['key', 'C', 'major'] }],
+      tip: 'Dans Tonalités, active « Accords de 7e » : Ré m7 – Sol7 – Do maj7.' },
+    { phase: 'Phase 4 · Harmonie & tonalités', title: 'Tonalité de La mineur',
+      goal: 'Explorer une tonalité mineure et sa couleur.',
+      tasks: [{ label: 'Tonalité de La mineur', go: ['key', 'A', 'minor'] }],
+      tip: 'Essaie i–VI–III–VII : la « pop mineure » moderne.' },
+    { phase: 'Phase 4 · Harmonie & tonalités', title: 'Le cercle des quintes',
+      goal: 'Comprendre comment les tonalités sont reliées.',
+      tasks: [{ label: 'Ouvrir le cercle des quintes', go: ['view', 'cercle'] }],
+      tip: 'Les tonalités voisines partagent presque toutes leurs notes.' },
+
+    { phase: 'Phase 5 · Couleur & style', title: 'Accords de 7e (maj7, m7, 7)',
+      goal: 'Ajouter de la couleur : la base du son « moderne/émotionnel ».',
+      tasks: [{ label: 'Do maj7', go: ['chord', 'C', 'maj7'] }, { label: 'Ré m7', go: ['chord', 'D', 'm7'] }, { label: 'Sol 7', go: ['chord', 'G', '7'] }],
+      tip: 'C\'est ce qui donne le grain « Sofiane Pamar » aux accords.' },
+    { phase: 'Phase 5 · Couleur & style', title: 'add9 & sus (couleurs modernes)',
+      goal: 'Enrichir sans complexifier : des accords ouverts et lumineux.',
+      tasks: [{ label: 'Do add9', go: ['chord', 'C', 'add9'] }, { label: 'Ré sus4', go: ['chord', 'D', 'sus4'] }],
+      tip: 'Remplace un accord simple par sa version add9 : écoute la différence.' },
+    { phase: 'Phase 5 · Couleur & style', title: 'Accompagnement main gauche',
+      goal: 'Basse + accord : main gauche qui soutient, main droite qui chante.',
+      tasks: [{ label: 'Repartir d\'une tonalité', go: ['key', 'C', 'major'] }],
+      tip: 'Main gauche : joue la fondamentale grave, puis l\'accord. Boucle.' },
+    { phase: 'Phase 5 · Couleur & style', title: 'Repiquer un morceau à l\'oreille',
+      goal: 'Utiliser ton oreille de guitariste pour trouver les accords.',
+      tasks: [{ label: 'Reconnaître un accord', go: ['view', 'reconnaissance'] }, { label: 'Entraîner l\'oreille', go: ['view', 'oreille'] }],
+      tip: 'Trouve la tonique, teste I–V–vi–IV : 8 fois sur 10 ça colle.' },
+    { phase: 'Phase 5 · Couleur & style', title: 'Improviser & composer',
+      goal: 'Poser une mélodie sur une progression que tu inventes.',
+      tasks: [{ label: 'Pentatonique pour improviser', go: ['scale', 'A', 'pentaMin'] }, { label: 'Choisir une tonalité', go: ['key', 'C', 'major'] }],
+      tip: 'Enregistre-toi, réécoute, corrige. C\'est là qu\'on progresse le plus vite.' }
+  ];
+
+  function dispatchGo(go) {
+    if (go[0] === 'chord') openChord(go[1], go[2]);
+    else if (go[0] === 'scale') openScale(go[1], go[2]);
+    else if (go[0] === 'key') openKey(go[1], go[2]);
+    else if (go[0] === 'view') openView(go[1]);
+  }
+
+  function renderProgramme() {
+    const el = $('#programme-body');
+    const prog = load('prog', { cur: 1, done: {} });
+    if (prog.cur < 1) prog.cur = 1;
+    if (prog.cur > SEANCES.length) prog.cur = SEANCES.length;
+    const idx = prog.cur - 1;
+    const s = SEANCES[idx];
+    const doneCount = Object.keys(prog.done).length;
+    const pct = Math.round(doneCount / SEANCES.length * 100);
+
+    const tasks = s.tasks.map((t, i) =>
+      '<button class="btn ' + (i ? 'ghost' : '') + ' small" data-go="' + idx + '-' + i + '">' + esc(t.label) + ' ➜</button>').join(' ');
+
+    const list = SEANCES.map((x, i) => {
+      const st = prog.done[i + 1] ? '✅' : (i + 1 === prog.cur ? '▶️' : '·');
+      return '<div class="log-row" style="cursor:pointer" data-seance="' + (i + 1) + '">' +
+        '<span class="date">' + st + ' Séance ' + (i + 1) + '</span>' +
+        '<span>' + esc(x.title) + '</span>' +
+        '<span class="hint" style="font-size:11px">' + esc(x.phase.split('·')[0].trim()) + '</span></div>';
+    }).join('');
+
+    el.innerHTML =
+      '<div class="stat-row">' +
+        '<div class="stat"><b>' + prog.cur + '</b><small>séance en cours</small></div>' +
+        '<div class="stat"><b>' + doneCount + ' / ' + SEANCES.length + '</b><small>séances validées</small></div>' +
+        '<div class="stat"><b>' + pct + '%</b><small>du programme</small></div>' +
+      '</div>' +
+      '<div class="card" style="background:var(--bg2);border-left:4px solid var(--accent)">' +
+        '<div class="rn" style="color:var(--muted);font-weight:700;font-size:12px;letter-spacing:1px">SÉANCE ' + prog.cur + ' · ' + esc(s.phase) + '</div>' +
+        '<h2 style="margin:4px 0 6px">' + esc(s.title) + '</h2>' +
+        '<p style="margin:0 0 10px"><b>Objectif :</b> ' + esc(s.goal) + '</p>' +
+        '<div class="controls" style="margin-bottom:10px">' + tasks + '</div>' +
+        '<p class="hint">💡 ' + esc(s.tip) + '</p>' +
+        '<div class="controls no-print" style="margin-top:12px">' +
+          '<button class="btn" id="pg-done">✅ Acquis — séance suivante</button>' +
+          '<button class="btn ghost" id="pg-stay">🔁 Pas encore — je continue demain</button>' +
+          (prog.cur > 1 ? '<button class="btn ghost small" id="pg-prev">◀ Précédente</button>' : '') +
+        '</div>' +
+      '</div>' +
+      '<h3 style="color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-size:13px;margin:18px 0 8px">Toutes les séances</h3>' +
+      list;
+
+    $$('[data-go]', el).forEach(b => b.onclick = () => {
+      const [si, ti] = b.dataset.go.split('-').map(Number);
+      dispatchGo(SEANCES[si].tasks[ti].go);
+    });
+    $('#pg-done').onclick = () => {
+      prog.done[prog.cur] = today();
+      if (prog.cur < SEANCES.length) prog.cur++;
+      save('prog', prog);
+      // journalise aussi la séance validée
+      const logs = load('logs', []); logs.push({ date: today(), min: 20, what: 'Séance ' + (prog.cur - 1) + ' — ' + s.title }); save('logs', logs);
+      renderProgramme(); renderJournal();
+    };
+    $('#pg-stay').onclick = () => {
+      const note = $('#pg-stay'); note.textContent = '👍 Pas de souci — reviens demain, la séance t\'attend.';
+      note.disabled = true;
+    };
+    if ($('#pg-prev')) $('#pg-prev').onclick = () => { prog.cur--; save('prog', prog); renderProgramme(); };
+    $$('[data-seance]', el).forEach(r => r.onclick = () => { prog.cur = +r.dataset.seance; save('prog', prog); renderProgramme(); });
+  }
+
   // ------------------------------------------------------------ PARCOURS
   function renderParcours() {
     const modules = [
@@ -274,7 +451,7 @@
     const c = $('#classeur-body');
     const owner = load('owner', '');
     c.innerHTML =
-      '<p class="hint">Compose ton classeur, puis <b>Ctrl/Cmd + P</b> → « Enregistrer en PDF » (ou imprime). Tout sort en noir &amp; blanc, une section par page.</p>' +
+      '<p class="hint">Compose ton classeur, puis <b>⬇ Télécharge le PDF</b> (ou imprime). Tout sort en noir &amp; blanc, une section par page.</p>' +
       '<div class="controls no-print">' +
         field('Ton prénom (page de garde)', '<input type="text" id="cl-owner" placeholder="Noa" value="' + esc(owner) + '" style="min-width:160px">') +
         field('Tonalité', selectHtml('cl-root', ROOTS.map(r => opt(r, r === 'C')))) +
@@ -287,82 +464,123 @@
         chip('cl-chords', true, 'Dictionnaire d\'accords (maj/min/7/maj7/m7)') +
         chip('cl-scales', true, 'Gammes principales') +
       '</div>' +
-      '<button class="btn no-print" id="cl-gen">📄 Générer l\'aperçu</button> ' +
-      '<button class="btn ghost no-print" id="cl-print">🖨 Imprimer / PDF</button>' +
+      '<button class="btn no-print" id="cl-pdf">⬇ Télécharger le PDF</button> ' +
+      '<button class="btn ghost no-print" id="cl-print">🖨 Imprimer</button> ' +
+      '<button class="btn ghost no-print" id="cl-gen">🔄 Rafraîchir l\'aperçu</button>' +
+      '<p class="hint no-print" id="cl-note" style="margin-top:8px"></p>' +
       '<div id="cl-preview" style="margin-top:18px"></div>';
 
+    let currentModel = [];
     $('#cl-owner').onchange = e => save('owner', e.target.value.trim());
     $('#cl-fing').onclick = function () { this.classList.toggle('active'); buildSheets(); };
     $('#cl-gen').onclick = buildSheets;
     $('#cl-print').onclick = () => { buildSheets(); window.print(); };
+    $('#cl-pdf').onclick = () => {
+      buildSheets();
+      const note = $('#cl-note');
+      if (!window.PianoPDF || !PianoPDF.available()) {
+        note.textContent = '⚠ Le module PDF n\'est pas chargé (vérifie ta connexion au premier lancement).';
+        return;
+      }
+      const who = ($('#cl-owner').value || owner || '').trim();
+      const ok = PianoPDF.generate(currentModel, {
+        frNames: frNames, owner: who,
+        filename: 'classeur-piano' + (who ? '-' + who.toLowerCase().replace(/\s+/g, '-') : '') + '.pdf'
+      });
+      note.textContent = ok
+        ? '✅ PDF généré. Sur l\'aperçu Claude le téléchargement peut être bloqué : utilise « Imprimer », ou la version sur ton site.'
+        : '⚠ Échec de génération du PDF.';
+    };
     buildSheets();
 
-    function buildSheets() {
+    // Construit le modèle de sections (partagé par l'aperçu HTML et le PDF)
+    function buildModel() {
       const root = $('#cl-root').value, mode = $('#cl-mode').value;
       const modeLbl = mode === 'major' ? 'majeur' : 'mineur';
       const withFing = $('#cl-fing').classList.contains('active');
-      const wantCover = $('#cl-cover').classList.contains('active');
-      const wantKeyFull = $('#cl-keyfull').classList.contains('active');
-      const wantChords = $('#cl-chords').classList.contains('active');
-      const wantScales = $('#cl-scales').classList.contains('active');
+      const model = [];
 
-      // Construit d'abord la liste des sections pour le sommaire
-      const sections = [];
-      if (wantKeyFull) sections.push('Tonalité de ' + labelNote(root) + ' ' + modeLbl + ' — fiche complète');
-      if (wantChords) ['maj', 'min', '7', 'maj7', 'm7'].forEach(ty => sections.push('Dictionnaire — accords ' + T.CHORDS[ty].name));
-      if (wantScales) ['major', 'minor', 'pentaMin', 'pentaMaj'].forEach(ty => sections.push('Gammes — ' + T.SCALES[ty].name));
-
-      let html = '';
-      if (wantCover) {
-        const who = ($('#cl-owner').value || owner || '').trim();
-        html += '<div class="print-sheet card" style="text-align:center;padding:40px 20px">' +
-          '<div style="font-size:60px">🎹</div>' +
-          '<h1 style="font-size:34px;margin:10px 0">Mon classeur de piano</h1>' +
-          (who ? '<p style="font-size:18px">' + esc(who) + '</p>' : '') +
-          '<p class="hint">Accords · Gammes · Tonalités — ' + new Date().toLocaleDateString('fr-FR') + '</p>' +
-          '<div style="margin-top:26px;text-align:left;max-width:520px;margin-inline:auto">' +
-            '<h3>Sommaire</h3><ol style="line-height:1.9">' +
-            sections.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol></div></div>';
-      }
-      if (wantKeyFull) {
+      if ($('#cl-keyfull').classList.contains('active')) {
         const dia = T.diatonicChords(root, mode, false);
         const dia7 = T.diatonicChords(root, mode, true);
-        const progs = T.PROGRESSIONS[mode].map(p =>
-          '<li><b>' + esc(p.name) + '</b> — ' + esc(p.desc) + ' : ' + p.deg.map(d => esc(dia[d].chord.label)).join(' → ') + '</li>').join('');
         const scale = T.buildScale(root, mode === 'major' ? 'major' : 'minor', 4);
-        html += sheet('Tonalité de ' + labelNote(root) + ' ' + modeLbl,
-          '<p>Tout ce qui « va ensemble » dans cette tonalité, sur une page.</p>' +
-          '<h3>Les 7 accords</h3><div class="grid cols-3">' +
-            dia.map((d, i) => sheetCard(d.roman + ' · ' + d.chord.label + ' (7e : ' + dia7[i].chord.label + ')', d.chord.midis, 'chord', withFing)).join('') + '</div>' +
-          '<h3>La gamme</h3><div class="grid cols-2">' + sheetCard(scale.label, scale.midis, 'scale', withFing) + '</div>' +
-          '<h3>Progressions à connaître</h3><ul>' + progs + '</ul>');
+        model.push({
+          type: 'keyblock',
+          title: 'Tonalité de ' + labelNote(root) + ' ' + modeLbl,
+          intro: 'Tout ce qui « va ensemble » dans cette tonalité.',
+          fingers: withFing,
+          chords: dia.map((d, i) => ({ label: d.roman + ' · ' + d.chord.label + ' (7e : ' + dia7[i].chord.label + ')', midis: d.chord.midis, kind: 'chord' })),
+          scale: { label: scale.label, midis: scale.midis, kind: 'scale' },
+          progs: T.PROGRESSIONS[mode].map(p => p.name + ' — ' + p.desc + ' : ' + p.deg.map(d => dia[d].chord.label).join(' → '))
+        });
       }
-      if (wantChords) {
+      if ($('#cl-chords').classList.contains('active')) {
         ['maj', 'min', '7', 'maj7', 'm7'].forEach(ty => {
-          html += sheet('Dictionnaire — accords ' + T.CHORDS[ty].name,
-            '<div class="grid cols-3">' + ROOTS.map(r => { const ch = T.buildChord(r, ty, 4); return sheetCard(ch.label, ch.midis, 'chord', withFing); }).join('') + '</div>');
+          model.push({
+            type: 'grid', cols: 3, title: 'Dictionnaire — accords ' + T.CHORDS[ty].name,
+            items: ROOTS.map(r => { const ch = T.buildChord(r, ty, 4); return { label: ch.label, midis: ch.midis, kind: 'chord', fingers: withFing }; })
+          });
         });
       }
-      if (wantScales) {
+      if ($('#cl-scales').classList.contains('active')) {
         ['major', 'minor', 'pentaMin', 'pentaMaj'].forEach(ty => {
-          html += sheet('Gammes — ' + T.SCALES[ty].name,
-            '<div class="grid cols-2">' + ['C', 'G', 'D', 'A', 'F', 'Bb'].map(r => { const s = T.buildScale(r, ty, 4); return sheetCard(s.label, s.midis, 'scale', withFing); }).join('') + '</div>');
+          model.push({
+            type: 'grid', cols: 2, title: 'Gammes — ' + T.SCALES[ty].name,
+            items: ['C', 'G', 'D', 'A', 'F', 'Bb'].map(r => { const s = T.buildScale(r, ty, 4); return { label: s.label, midis: s.midis, kind: 'scale', fingers: false }; })
+          });
         });
       }
-      $('#cl-preview').innerHTML = html || '<p class="hint">Sélectionne au moins une section.</p>';
+
+      const toc = model.map(s => s.title);
+      if ($('#cl-cover').classList.contains('active')) {
+        const who = ($('#cl-owner').value || owner || '').trim();
+        model.unshift({
+          type: 'cover', title: 'Mon classeur de piano', owner: who,
+          subtitle: 'Accords · Gammes · Tonalités — ' + new Date().toLocaleDateString('fr-FR'), toc: toc
+        });
+      }
+      return model;
+    }
+
+    function buildSheets() {
+      currentModel = buildModel();
+      $('#cl-preview').innerHTML = currentModel.length
+        ? currentModel.map(renderSectionHTML).join('')
+        : '<p class="hint">Sélectionne au moins une section.</p>';
+    }
+
+    function renderSectionHTML(sec) {
+      if (sec.type === 'cover') {
+        return '<div class="print-sheet card" style="text-align:center;padding:40px 20px">' +
+          '<div style="font-size:60px">🎹</div>' +
+          '<h1 style="font-size:34px;margin:10px 0">' + esc(sec.title) + '</h1>' +
+          (sec.owner ? '<p style="font-size:18px">' + esc(sec.owner) + '</p>' : '') +
+          '<p class="hint">' + esc(sec.subtitle) + '</p>' +
+          (sec.toc.length ? '<div style="margin-top:26px;text-align:left;max-width:520px;margin-inline:auto">' +
+            '<h3>Sommaire</h3><ol style="line-height:1.9">' + sec.toc.map(s => '<li>' + esc(s) + '</li>').join('') + '</ol></div>' : '') +
+          '</div>';
+      }
+      if (sec.type === 'keyblock') {
+        return sheet(sec.title,
+          '<p>' + esc(sec.intro) + '</p>' +
+          '<h3>Les 7 accords</h3><div class="grid cols-3">' + sec.chords.map(it => sheetCard(it, sec.fingers)).join('') + '</div>' +
+          '<h3>La gamme</h3><div class="grid cols-2">' + sheetCard(sec.scale, false) + '</div>' +
+          '<h3>Progressions à connaître</h3><ul>' + sec.progs.map(p => '<li>' + esc(p) + '</li>').join('') + '</ul>');
+      }
+      if (sec.type === 'grid') {
+        const cls = sec.cols === 3 ? 'cols-3' : 'cols-2';
+        return sheet(sec.title, '<div class="grid ' + cls + '">' + sec.items.map(it => sheetCard(it, it.fingers)).join('') + '</div>');
+      }
+      return '';
     }
     function sheet(title, inner) {
       return '<div class="print-sheet card"><h2>' + esc(title) + '</h2>' + inner + '</div>';
     }
-    function sheetCard(title, midis, kind, withFing) {
-      const frame = K.frameFor(midis, 2);
-      const hi = K.highlightFromMidis(midis, kind === 'scale' ? 'scale' : 'chord');
-      let fingers = {};
-      if (withFing) {
-        if (kind === 'scale') { /* pas de doigté fiable pour toutes les gammes ici */ }
-        else fingers = K.fingersMap(midis, T.chordFingersRH(midis.length));
-      }
-      return '<div style="margin-bottom:8px"><b>' + esc(title) + '</b>' +
+    function sheetCard(item, withFing) {
+      const frame = K.frameFor(item.midis, 2);
+      const hi = K.highlightFromMidis(item.midis, item.kind === 'scale' ? 'scale' : 'chord');
+      const fingers = (withFing && item.kind !== 'scale') ? K.fingersMap(item.midis, T.chordFingersRH(item.midis.length)) : {};
+      return '<div style="margin-bottom:8px"><b>' + esc(item.label) + '</b>' +
         K.render({ startMidi: frame.startMidi, octaves: Math.max(2, frame.octaves), highlight: hi, fingers, frNames, width: 360 }) + '</div>';
     }
   }
@@ -539,7 +757,7 @@
     document.body.addEventListener('pointerdown', () => A.ensure(), { once: true });
   }
   function renderAll() {
-    renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle();
+    renderProgramme(); renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle();
     renderRecognize(); renderEar(); renderJournal(); renderClasseur();
   }
 
