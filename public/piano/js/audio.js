@@ -8,6 +8,8 @@
 
   let ctx = null;
   let master = null;
+  let silentEl = null;   // <audio> silencieux : force iOS à ignorer l'interrupteur silencieux
+  let unlocked = false;
 
   function ensure() {
     if (!ctx) {
@@ -24,6 +26,44 @@
     }
     if (ctx.state === 'suspended') ctx.resume();
     return ctx;
+  }
+
+  // Génère un petit WAV silencieux en data-URI (pour l'astuce iOS).
+  function silentWav(seconds) {
+    const sr = 8000, n = Math.floor(sr * seconds), bytes = 44 + n * 2;
+    const buf = new ArrayBuffer(bytes), dv = new DataView(buf);
+    const ws = (o, s) => { for (let i = 0; i < s.length; i++) dv.setUint8(o + i, s.charCodeAt(i)); };
+    ws(0, 'RIFF'); dv.setUint32(4, 36 + n * 2, true); ws(8, 'WAVE'); ws(12, 'fmt ');
+    dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, 1, true);
+    dv.setUint32(24, sr, true); dv.setUint32(28, sr * 2, true); dv.setUint16(32, 2, true); dv.setUint16(34, 16, true);
+    ws(36, 'data'); dv.setUint32(40, n * 2, true);
+    let bin = ''; const u8 = new Uint8Array(buf);
+    for (let i = 0; i < u8.length; i++) bin += String.fromCharCode(u8[i]);
+    return 'data:audio/wav;base64,' + global.btoa(bin);
+  }
+
+  // À appeler DANS un geste utilisateur : débloque l'audio (iOS compris).
+  function unlock() {
+    ensure();
+    try { if (ctx.state === 'suspended') ctx.resume(); } catch (e) {}
+    // 1) buffer silencieux joué immédiatement (déblocage Web Audio)
+    try {
+      const b = ctx.createBuffer(1, 1, 22050);
+      const s = ctx.createBufferSource();
+      s.buffer = b; s.connect(ctx.destination); s.start(0);
+    } catch (e) {}
+    // 2) <audio> silencieux en boucle : bascule la session iOS en « playback »
+    //    pour que le son passe MÊME si l'interrupteur silencieux est activé.
+    try {
+      if (!silentEl) {
+        silentEl = new global.Audio(silentWav(0.5));
+        silentEl.loop = true;
+        silentEl.setAttribute('playsinline', '');
+      }
+      const p = silentEl.play();
+      if (p && p.catch) p.catch(() => {});
+    } catch (e) {}
+    unlocked = true;
   }
 
   // Joue une note (fréquence) à un instant t, pour une durée donnée.
@@ -128,5 +168,5 @@
     return chords.length * chordDur;
   }
 
-  global.Audio2 = { ensure, playFreq, playMidi, playChord, playArpeggio, playScale, playProgression };
+  global.Audio2 = { ensure, unlock, playFreq, playMidi, playChord, playArpeggio, playScale, playProgression };
 })(typeof window !== 'undefined' ? window : this);
