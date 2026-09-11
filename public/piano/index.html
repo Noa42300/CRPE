@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Piano en autodidacte : accords, gammes, tonalités, schémas du clavier, son, et fiches imprimables pour se faire un classeur.">
+  <meta name="theme-color" content="#0f1226">
+  <title>Piano Autodidacte</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="top no-print">
+    <div class="brand">
+      <div class="logo">🎹</div>
+      <div>Piano Autodidacte<small>Accords · Gammes · Tonalités · Classeur</small></div>
+    </div>
+    <nav class="tabs">
+      <button data-go="parcours">Programme</button>
+      <button data-go="accords">Accords</button>
+      <button data-go="gammes">Gammes</button>
+      <button data-go="tonalites">Tonalités</button>
+      <button data-go="cercle">Cercle des quintes</button>
+      <button data-go="reconnaissance">Reconnaître</button>
+      <button data-go="oreille">Oreille</button>
+      <button data-go="journal">Journal</button>
+      <button data-go="classeur">Classeur 🖨</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-parcours" class="view">
+      <h1 class="page">Programme jour par jour</h1>
+      <p class="sub">Une séance à la fois : une suite d'accords, une gamme, un objectif. Si c'est dur, on l'étale sur plusieurs jours.</p>
+      <label class="field no-print" style="flex-direction:row;align-items:center;gap:8px;margin-bottom:14px">
+        <input type="checkbox" id="fr-toggle"> Afficher les notes en français (Do Ré Mi)
+      </label>
+      <div id="programme-body"></div>
+      <details class="card no-print" style="margin-top:18px">
+        <summary style="cursor:pointer;font-weight:700">📋 Vue d'ensemble du parcours (les grandes phases)</summary>
+        <div id="parcours-body" style="margin-top:12px"></div>
+      </details>
+    </section>
+
+    <section id="view-accords" class="view">
+      <h1 class="page">Explorateur d'accords</h1>
+      <p class="sub">Vois la position exacte sur le clavier, entends l'accord, mémorise la forme.</p>
+      <div class="card" id="chord-body"></div>
+    </section>
+
+    <section id="view-gammes" class="view">
+      <h1 class="page">Explorateur de gammes</h1>
+      <p class="sub">Toutes les notes surlignées, la formule, et le son en montant/descendant.</p>
+      <div class="card" id="scale-body"></div>
+    </section>
+
+    <section id="view-tonalites" class="view">
+      <h1 class="page">Tonalités — les accords qui vont ensemble</h1>
+      <p class="sub">Le cœur de l'harmonie : quels accords sonnent bien entre eux, et les progressions clés.</p>
+      <div class="card" id="key-body"></div>
+    </section>
+
+    <section id="view-cercle" class="view">
+      <h1 class="page">Cercle des quintes</h1>
+      <p class="sub">La carte des tonalités et de leurs voisines.</p>
+      <div class="card" id="circle-body"></div>
+    </section>
+
+    <section id="view-reconnaissance" class="view">
+      <h1 class="page">Reconnaître un accord</h1>
+      <p class="sub">Clique les touches d'un accord → l'appli te dit ce que c'est.</p>
+      <div class="card" id="recognize-body"></div>
+    </section>
+
+    <section id="view-oreille" class="view">
+      <h1 class="page">Entraînement de l'oreille</h1>
+      <p class="sub">L'appli joue, tu devines. Intervalles, types d'accords, progressions.</p>
+      <div class="card" id="ear-body"></div>
+    </section>
+
+    <section id="view-journal" class="view">
+      <h1 class="page">Journal de pratique</h1>
+      <p class="sub">Note tes séances : la régularité, c'est 80 % du résultat.</p>
+      <div class="card" id="journal-body"></div>
+    </section>
+
+    <section id="view-classeur" class="view">
+      <h1 class="page">Générateur de classeur</h1>
+      <p class="sub">Fabrique tes fiches imprimables (PDF) — accords, tonalités, gammes.</p>
+      <div class="card" id="classeur-body"></div>
+    </section>
+  </main>
+
+  <script src="vendor/jspdf.umd.min.js"></script>
+  <script src="js/theory.js"></script>
+  <script src="js/keyboard.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/pdf.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () {});
+      });
+    }
+  </script>
+</body>
+</html>
