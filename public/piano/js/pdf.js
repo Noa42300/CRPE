@@ -213,9 +213,11 @@
     }
 
     const name = (meta && meta.filename) || 'classeur-piano.pdf';
+    return deliver(doc, name);
+  }
 
-    // Dans l'appli Claude (artifact), le téléchargement direct est bloqué :
-    // on passe par la capacité « downloads » (avec confirmation du visiteur).
+  // Livraison du PDF : capacité Claude « downloads » si dispo, sinon navigateur.
+  async function deliver(doc, name) {
     if (global.claude && typeof global.claude.use === 'function') {
       try {
         const dl = await global.claude.use('downloads');
@@ -226,10 +228,87 @@
         }
       } catch (e) { return (e && e.code) ? e.code : 'declined'; }
     }
-    // Site déployé / fichier local : téléchargement navigateur classique.
     doc.save(name);
     return 'browser';
   }
 
-  global.PianoPDF = { generate, available };
+  // Portées vierges à imprimer (clé de sol), plusieurs systèmes par page.
+  async function staffPaper(meta) {
+    const JsPDF = jsPDFCtor(); if (!JsPDF) return false;
+    const doc = new JsPDF({ unit: 'pt', format: 'a4' });
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(14); doc.setTextColor(30, 30, 30);
+    doc.text('Portées vierges — solfège', M, M);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(110, 110, 110);
+    doc.text('Écris tes notes, gammes et exercices.', M, M + 14);
+    let y = M + 44;
+    const gap = 8, systems = 11, systemH = 5 * gap;
+    doc.setDrawColor(40, 40, 40); doc.setLineWidth(0.6);
+    for (let s = 0; s < systems; s++) {
+      for (let i = 0; i < 5; i++) { const ly = y + i * gap; doc.line(M, ly, PAGE_W - M, ly); }
+      // repère « clé de sol » (le glyphe musical n'est pas dispo en PDF)
+      doc.setFont('helvetica', 'italic'); doc.setFontSize(9); doc.setTextColor(120, 120, 120);
+      doc.text('sol', M - 22, y + systemH - gap);
+      y += systemH + 34;
+      if (y + systemH > PAGE_H - M) break;
+    }
+    return deliver(doc, (meta && meta.filename) || 'portees-vierges.pdf');
+  }
+
+  // Fiche « les notes » : portée Do..Do avec noms + repères clavier.
+  async function solfegeSheet(meta) {
+    const JsPDF = jsPDFCtor(); if (!JsPDF) return false;
+    const doc = new JsPDF({ unit: 'pt', format: 'a4' });
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(16); doc.setTextColor(30, 30, 30);
+    doc.text('Lire les notes — clé de sol', M, M + 6);
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(10); doc.setTextColor(90, 90, 90);
+    doc.text('Chaque note a une place sur la portée et une touche sur le piano.', M, M + 24);
+
+    // Portée avec les 8 notes Do4..Do5
+    const notes = [['C', 4, 'Do'], ['D', 4, 'Ré'], ['E', 4, 'Mi'], ['F', 4, 'Fa'], ['G', 4, 'Sol'], ['A', 4, 'La'], ['B', 4, 'Si'], ['C', 5, 'Do']];
+    const top = M + 60, gap = 10;
+    const yLine = i => top + i * gap;            // i=0 ligne du haut (Fa5)
+    const staffY = (letter, oct) => { const order = 'CDEFGAB'; const step = oct * 7 + order.indexOf(letter); return top + (38 - step) * (gap / 2); };
+    doc.setDrawColor(30, 30, 30); doc.setLineWidth(0.7);
+    const xL = M + 40, xR = PAGE_W - M;
+    for (let i = 0; i < 5; i++) doc.line(xL, yLine(i), xR, yLine(i));
+    doc.setFont('helvetica', 'italic'); doc.setFontSize(10); doc.setTextColor(120, 120, 120); doc.text('clé de sol', M - 6, yLine(0) - 6);
+    const span = (xR - xL - 30) / notes.length;
+    notes.forEach((n, idx) => {
+      const cx = xL + 30 + idx * span, cy = staffY(n[0], n[1]);
+      if (n[0] === 'C' && n[1] === 4) doc.line(cx - 12, cy, cx + 12, cy); // ledger Do central
+      doc.setFillColor(192, 57, 43);
+      doc.ellipse(cx, cy, 6, 4.5, 'F');
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(30, 30, 30);
+      doc.text(n[2], cx, top + 62, { align: 'center' });
+    });
+
+    // Repère clavier : une octave, Do..Do, avec noms
+    let y = top + 96;
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(12); doc.setTextColor(30, 30, 30);
+    doc.text('Sur le clavier (une octave)', M, y); y += 12;
+    const ww = (PAGE_W - 2 * M) / 7, wh = 90;
+    const wn = ['Do', 'Ré', 'Mi', 'Fa', 'Sol', 'La', 'Si'];
+    for (let i = 0; i < 7; i++) {
+      const x = M + i * ww;
+      doc.setDrawColor(60, 60, 60); doc.setFillColor(255, 255, 255); doc.setLineWidth(0.8);
+      doc.rect(x, y, ww, wh, 'FD');
+      doc.setFont('helvetica', 'bold'); doc.setFontSize(11); doc.setTextColor(30, 30, 30);
+      doc.text(wn[i], x + ww / 2, y + wh - 8, { align: 'center' });
+    }
+    // touches noires (positions 0,1,3,4,5)
+    const bw = ww * 0.6, bh = wh * 0.6;
+    [0, 1, 3, 4, 5].forEach(i => { const bx = M + (i + 1) * ww - bw / 2; doc.setFillColor(25, 25, 25); doc.rect(bx, y, bw, bh, 'F'); });
+
+    // Repère : « à gauche du groupe de 2 noires = Do »
+    y += wh + 24;
+    doc.setFont('helvetica', 'normal'); doc.setFontSize(10.5); doc.setTextColor(40, 40, 40);
+    ['Repère : les touches noires vont par groupes de 2 et 3.',
+     "Juste à gauche du groupe de 2 noires, c'est toujours un Do.",
+     'Rythme : ronde = 4 temps · blanche = 2 · noire = 1 · croche = ½.'
+    ].forEach(t => { doc.text('•  ' + t, M, y); y += 16; });
+
+    return deliver(doc, (meta && meta.filename) || 'fiche-lire-les-notes.pdf');
+  }
+
+  global.PianoPDF = { generate, available, staffPaper, solfegeSheet };
 })(typeof window !== 'undefined' ? window : this);
