@@ -311,6 +311,59 @@
     23: { title: 'Nuvole Bianche', artist: 'Ludovico Einaudi', level: 'Avancé', goal: true, why: 'Inspiration compo : accords simples, énorme émotion. Analyse-la puis compose la tienne.', chords: [['A', 'min'], ['F', 'maj'], ['C', 'maj'], ['G', 'maj']], yt: 'tuto piano Nuvole Bianche facile' }
   };
 
+  // Explication courte (2-3 phrases) pour chaque séance — « en clair ».
+  const EXPLAIN = {
+    1: "Le piano répète toujours le même motif de 12 touches. Repère Do juste avant chaque groupe de 2 touches noires : tout en découle. Un accord de Do majeur, c'est 3 notes ensemble : Do, Mi, Sol.",
+    2: "Un accord majeur se construit toujours pareil : la note de base, puis on saute pour prendre la 3e et la 5e note au-dessus. Sol majeur = Sol-Si-Ré, Fa majeur = Fa-La-Do. Même geste de main, déplacé ailleurs.",
+    3: "Ces trois accords sont les piliers d'une tonalité : avec eux seuls tu accompagnes des centaines de chansons. On les note I, IV, V (des numéros pour la « place » de chaque accord). Enchaîne-les en boucle, main détendue.",
+    4: "Mêmes règles, mais ces accords utilisent des touches noires. Vise le bord avant des noires pour rester fluide. Tu couvres maintenant les 6 accords majeurs les plus fréquents.",
+    5: "Transposer, c'est jouer la même idée en partant d'une autre note. Le I-IV-V devient ici Sol-Do-Ré. Si tu retrouves les mêmes formes de main, c'est que la logique est acquise.",
+    6: "Un accord mineur sonne plus doux/triste : on abaisse juste la note du milieu d'un demi-ton. La mineur = La-Do-Mi. Compare-le à Do majeur : mêmes voisins, couleur opposée.",
+    7: "Mélanger majeurs et mineurs crée du relief. La suite Do-Lam-Fa-Sol est le moteur d'un paquet de ballades. Le petit « m » d'un accord veut simplement dire mineur.",
+    8: "Quatre accords, des milliers de tubes. Chiffres romains majuscules (I, IV, V) = accords majeurs, minuscules (vi) = mineurs. Do-Sol-Lam-Fa : joue-la jusqu'à l'avoir dans les doigts.",
+    9: "Un renversement, c'est le même accord avec les notes rangées dans un autre ordre. Ça évite de sauter la main partout : les accords s'enchaînent en douceur. Teste les boutons « 1er / 2e renv. » dans l'onglet Accords.",
+    10: "Une gamme, c'est les 7 notes d'une tonalité jouées à la suite. Le doigté (numéros des doigts) sert à passer le pouce au bon endroit sans t'emmêler. Va lentement et régulier avant d'accélérer.",
+    11: "La même gamme décalée : un seul changement, le Fa devient Fa♯ (une touche noire). Le doigté, lui, ne bouge pas. C'est ta 2e tonalité.",
+    12: "Ici le doigté change un peu à cause du Si♭. Suis simplement les numéros affichés sur les touches. Travaille la main droite seule d'abord.",
+    13: "La gamme mineure de base. Elle utilise les mêmes touches blanches que Do majeur, mais commence sur La : d'où sa couleur mélancolique. On dit qu'elle est la « relative mineure » de Do.",
+    14: "Une gamme de 5 notes qui sonne toujours bien : difficile d'y faire une fausse note, parfaite pour improviser. Lance un La mineur et balade-toi librement dedans.",
+    15: "Chaque tonalité a 7 accords « maison » (ses degrés) qui sonnent bien ensemble. On les numérote de I à VII. Les connaître, c'est pouvoir accompagner ou composer sans chercher au hasard.",
+    16: "La cadence la plus utilisée en jazz et variété : elle « ramène à la maison » (l'accord I). En Do : Ré m7 – Sol7 – Do maj7. Le « 7 » ajoute une note qui crée une petite tension puis une détente.",
+    17: "On explore une tonalité mineure et ses accords. La suite i-VI-III-VII est la « pop mineure » moderne. Écoute la différence d'ambiance avec le majeur.",
+    18: "Une carte qui range les tonalités par proximité. Deux tonalités voisines partagent presque toutes leurs notes : on passe de l'une à l'autre sans heurt. C'est un outil clé pour composer et moduler.",
+    19: "Ajouter une 4e note (la 7e) enrichit la couleur : c'est le son « moderne/émotionnel ». maj7 = doux et lumineux, m7 = velouté, 7 = un peu tendu. C'est la base du style que tu vises.",
+    20: "D'autres couleurs faciles : add9 ajoute une note brillante, sus remplace la 3e par une note « en suspension ». Elles ouvrent le son sans compliquer la main. Remplace un accord simple par sa version add9 pour entendre la différence.",
+    21: "On répartit le travail : la main gauche pose la basse (note grave) puis l'accord, la main droite chante la mélodie. C'est la base de tout accompagnement au piano. Commence très lentement, en boucle.",
+    22: "Trouver les accords d'une chanson rien qu'en écoutant. Repère d'abord la note de base (la tonique), puis teste I-V-vi-IV : ça colle très souvent. Ton oreille de guitariste est un vrai atout ici.",
+    23: "On assemble tout : une progression + une mélodie = une composition. Improvise sur la pentatonique par-dessus tes accords et garde ce qui te plaît. Enregistre-toi, réécoute, ajuste : c'est là qu'on progresse le plus."
+  };
+
+  // Petit lexique : le vocabulaire de base, une ligne chacun.
+  const LEXIQUE = [
+    ['Fondamentale', "la note qui donne son nom à l'accord (le « Do » de Do majeur)."],
+    ['Tierce', "la note du milieu de l'accord ; c'est elle qui décide majeur (gai) ou mineur (triste)."],
+    ['Quinte', "la note du haut de l'accord de base ; elle le rend stable et plein."],
+    ['Septième (7e)', "une note en plus qui ajoute de la couleur (accords maj7, m7, 7)."],
+    ['Accord', "au moins 3 notes jouées en même temps."],
+    ['Majeur / mineur', "les deux couleurs de base ; mineur = plus sombre (tierce abaissée d'un demi-ton)."],
+    ['Renversement', "le même accord, notes dans un autre ordre, pour mieux lier les accords."],
+    ['Gamme', "les 7 notes d'une tonalité jouées à la suite."],
+    ['Tonique', "la note de départ d'une gamme / tonalité (la « maison »)."],
+    ['Tonalité', "l'ensemble de notes et d'accords organisés autour d'une tonique (ex : Do majeur)."],
+    ['Degré', "la « place » d'un accord dans la tonalité, notée de I à VII."],
+    ['Diatonique', "qui appartient à la tonalité (ses 7 accords « maison »)."],
+    ['Cadence', "un enchaînement d'accords qui conclut une phrase (ex : ii-V-I)."],
+    ['Arpège', "les notes d'un accord jouées l'une après l'autre, pas ensemble."],
+    ['Demi-ton', "le plus petit écart entre deux touches voisines (blanche ↔ noire)."],
+    ['Pentatonique', "gamme de 5 notes, idéale pour improviser."],
+    ['Transposer', "rejouer la même chose en partant d'une autre note."]
+  ];
+  function lexiqueHTML() {
+    return '<details class="card no-print" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">📖 Petit lexique (tierce, quinte, cadence…)</summary>' +
+      '<div style="margin-top:10px">' + LEXIQUE.map(l =>
+        '<p style="margin:6px 0"><b>' + esc(l[0]) + '</b> : ' + esc(l[1]) + '</p>').join('') + '</div></details>';
+  }
+
   function songMidis(chords) { return chords.map(c => T.buildChord(c[0], c[1], 4).midis); }
   function songHTML(song) {
     if (!song) return '';
@@ -366,7 +419,8 @@
       '<div class="card" style="background:var(--bg2);border-left:4px solid var(--accent)">' +
         '<div class="rn" style="color:var(--muted);font-weight:700;font-size:12px;letter-spacing:1px">SÉANCE ' + prog.cur + ' · ' + esc(s.phase) + '</div>' +
         '<h2 style="margin:4px 0 6px">' + esc(s.title) + '</h2>' +
-        '<p style="margin:0 0 10px"><b>Objectif :</b> ' + esc(s.goal) + '</p>' +
+        '<p style="margin:0 0 8px"><b>Objectif :</b> ' + esc(s.goal) + '</p>' +
+        (EXPLAIN[prog.cur] ? '<div style="background:rgba(109,139,255,.10);border-radius:10px;padding:10px 12px;margin:0 0 10px"><b>📖 En clair :</b> ' + esc(EXPLAIN[prog.cur]) + '</div>' : '') +
         '<div class="controls" style="margin-bottom:10px">' + tasks + '</div>' +
         '<p class="hint">💡 ' + esc(s.tip) + '</p>' +
         '<div class="controls no-print" style="margin-top:12px">' +
@@ -376,6 +430,7 @@
         '</div>' +
         songHTML(SONGS[prog.cur]) +
       '</div>' +
+      lexiqueHTML() +
       '<h3 style="color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-size:13px;margin:18px 0 8px">Toutes les séances</h3>' +
       list;
 
