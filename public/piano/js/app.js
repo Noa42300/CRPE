@@ -475,7 +475,7 @@
     $('#cl-fing').onclick = function () { this.classList.toggle('active'); buildSheets(); };
     $('#cl-gen').onclick = buildSheets;
     $('#cl-print').onclick = () => { buildSheets(); window.print(); };
-    $('#cl-pdf').onclick = () => {
+    $('#cl-pdf').onclick = async () => {
       buildSheets();
       const note = $('#cl-note');
       if (!window.PianoPDF || !PianoPDF.available()) {
@@ -483,13 +483,18 @@
         return;
       }
       const who = ($('#cl-owner').value || owner || '').trim();
-      const ok = PianoPDF.generate(currentModel, {
-        frNames: frNames, owner: who,
-        filename: 'classeur-piano' + (who ? '-' + who.toLowerCase().replace(/\s+/g, '-') : '') + '.pdf'
-      });
-      note.textContent = ok
-        ? '✅ PDF généré. Sur l\'aperçu Claude le téléchargement peut être bloqué : utilise « Imprimer », ou la version sur ton site.'
-        : '⚠ Échec de génération du PDF.';
+      note.textContent = '⏳ Génération du PDF…';
+      let res;
+      try {
+        res = await PianoPDF.generate(currentModel, {
+          frNames: frNames, owner: who,
+          filename: 'classeur-piano' + (who ? '-' + who.toLowerCase().replace(/\s+/g, '-') : '') + '.pdf'
+        });
+      } catch (e) { res = 'error'; }
+      if (res === 'saved') note.textContent = '✅ PDF prêt — accepte l\'enregistrement.';
+      else if (res === 'browser') note.textContent = '✅ PDF téléchargé.';
+      else if (res === 'declined') note.textContent = 'ℹ️ Téléchargement annulé.';
+      else note.textContent = '⚠ Téléchargement indisponible ici — utilise « Imprimer », ou la version sur ton site.';
     };
     buildSheets();
 

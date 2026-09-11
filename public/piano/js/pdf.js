@@ -105,7 +105,8 @@
   }
 
   // Génère le document et le télécharge.
-  function generate(sections, meta) {
+  // Renvoie une promesse : 'saved' | 'browser' | code d'erreur.
+  async function generate(sections, meta) {
     const JsPDF = jsPDFCtor();
     if (!JsPDF) return false;
     const frNames = meta && meta.frNames;
@@ -212,8 +213,22 @@
     }
 
     const name = (meta && meta.filename) || 'classeur-piano.pdf';
+
+    // Dans l'appli Claude (artifact), le téléchargement direct est bloqué :
+    // on passe par la capacité « downloads » (avec confirmation du visiteur).
+    if (global.claude && typeof global.claude.use === 'function') {
+      try {
+        const dl = await global.claude.use('downloads');
+        if (dl && dl.save) {
+          const blob = doc.output('blob');
+          await dl.save({ filename: name, data: blob });
+          return 'saved';
+        }
+      } catch (e) { return (e && e.code) ? e.code : 'declined'; }
+    }
+    // Site déployé / fichier local : téléchargement navigateur classique.
     doc.save(name);
-    return true;
+    return 'browser';
   }
 
   global.PianoPDF = { generate, available };
