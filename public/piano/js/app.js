@@ -8,6 +8,22 @@
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const ROOTS = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
 
+  // Ce que représente chaque gamme, en langage simple.
+  const SCALE_DESC = {
+    major: 'La gamme joyeuse et lumineuse. C\'est la base de presque toutes les chansons gaies.',
+    minor: 'La gamme « mineure naturelle » : triste, mélancolique. « Naturelle » veut juste dire sans note modifiée — c\'est le mineur de base, par opposition à harmonique/mélodique.',
+    harmonic: 'Un mineur dont on remonte la dernière note (la 7e) d\'un demi-ton. Ça sonne plus dramatique, un peu oriental, et ça « ramène » bien à l\'accord de départ.',
+    melodic: 'Un mineur dont on remonte les 2 dernières notes en montant, pour une mélodie plus douce. Très courant en jazz et en classique.',
+    dorian: 'Un mineur plus « ouvert », légèrement jazzy/folk. Le son de beaucoup de morceaux pop-rock et de musiques de jeu.',
+    phrygian: 'Un mineur avec une 2e note très basse : couleur espagnole/flamenco, sombre et tendue.',
+    lydian: 'Un majeur avec une note « flottante » : son rêveur et cinématique (musiques de film).',
+    mixolydian: 'Un majeur avec la 7e abaissée : le son du rock, du blues et du folk, un peu planant.',
+    locrian: 'La plus instable, rarement utilisée seule : sombre et tendue, surtout pour des effets.',
+    pentaMaj: '5 notes seulement, version majeure : joyeuse et facile, parfaite pour improviser sans fausse note (country, pop).',
+    pentaMin: '5 notes seulement, version mineure : LE son du blues et du rock pour improviser. Impossible de faire une fausse note.',
+    blues: 'La pentatonique mineure + une « blue note » en plus : le grain expressif et un peu « sale » du blues.'
+  };
+
   // Préférence : noms français (do ré mi) ?
   let frNames = load('frNames', false);
 
@@ -104,6 +120,7 @@
         '<span class="chips"><button class="chip ' + (scaleState.fingers ? 'active' : '') + '" id="scale-fing">👆 Doigtés</button></span>' +
       '</div>' +
       '<h2 style="margin-top:16px">' + esc(sc.label) + '</h2>' +
+      (SCALE_DESC[scaleState.type] ? '<div style="background:rgba(55,209,154,.12);border-radius:10px;padding:10px 12px;margin:0 0 8px"><b>💡 Ce que c\'est :</b> ' + esc(SCALE_DESC[scaleState.type]) + '</div>' : '') +
       '<div class="kbd-wrap">' + kbd + '</div>' + legend('scale') +
       '<div class="notes-row">' + pills + '</div>' +
       '<p class="hint">Formule (demi-tons) : ' + sc.def.semis.join(' – ') + '</p>' + fingNote +
@@ -451,6 +468,45 @@
     else if (go[0] === 'view') openView(go[1]);
   }
 
+  // Plan minuté d'une séance (≈30 min), adapté à son contenu.
+  function seancePlan(n) {
+    const s = SEANCES[n - 1];
+    const song = SONGS[n];
+    const isScale = s.tasks.some(t => t.go[0] === 'scale');
+    const isKey = s.tasks.some(t => t.go[0] === 'key');
+    const b = [];
+    b.push([5, 'Échauffement', isScale
+      ? 'Repère les Do, puis joue lentement la gamme du jour (en montant puis en descendant).'
+      : 'Repère les Do au clavier, puis joue lentement la gamme de Do (aller-retour).']);
+    b.push([15, 'Le cœur du jour', s.title + ' — ouvre l\'outil ci-dessus, joue TRÈS lentement, mains séparées, puis accélère seulement quand c\'est fluide.']);
+    if (song) b.push([5, 'En musique', song.title + ' : relance le bouton et essaie de suivre puis de rejouer.']);
+    b.push([5, (isScale || isKey) ? 'Oreille' : 'Oreille & repérage',
+      (isScale || isKey) ? 'Onglet Oreille : 5 questions (intervalles ou accords).' : 'Onglet Reconnaître ou Oreille : 5 essais rapides.']);
+    return b;
+  }
+  function planHTML(n) {
+    const b = seancePlan(n);
+    const total = b.reduce((s, x) => s + x[0], 0);
+    return '<div class="card" style="background:var(--bg2);border-left:4px solid var(--scale);margin:0 0 12px">' +
+      '<div class="rn" style="color:var(--muted);font-weight:700;font-size:12px;letter-spacing:1px">⏱ PLAN DE LA SÉANCE · ' + total + ' MIN</div>' +
+      b.map(x => '<div style="display:flex;gap:10px;align-items:baseline;margin:7px 0">' +
+        '<span class="badge" style="min-width:54px;text-align:center;background:var(--card2)">' + x[0] + ' min</span>' +
+        '<span><b>' + esc(x[1]) + '</b> — ' + esc(x[2]) + '</span></div>').join('') +
+      '</div>';
+  }
+  function methodeHTML() {
+    const rules = [
+      ['Régularité > durée', '20-30 min TOUS les jours battent 3 h le dimanche. Le cerveau apprend en dormant entre deux séances.'],
+      ['Lentement d\'abord', 'Joue au ralenti, sans faute. La vitesse vient toute seule ensuite. Vite + faux = tu apprends l\'erreur.'],
+      ['Mains séparées', 'Chaque main seule jusqu\'à ce que ce soit facile, puis on réunit doucement.'],
+      ['Un seul objectif', 'Fais l\'objectif du jour affiché, rien d\'autre. On ne s\'éparpille pas.'],
+      ['Finis par le morceau', 'Termine toujours par la musique : c\'est la récompense et ça ancre ce que tu viens de bosser.'],
+      ['Sois honnête', 'Coche « Acquis » seulement quand c\'est vraiment fluide. Sinon « je continue » — c\'est normal, ça paie.']
+    ];
+    return '<details class="card no-print" style="margin-top:16px"><summary style="cursor:pointer;font-weight:700">🚀 Méthode : progresser vite, simplement (à lire une fois)</summary>' +
+      '<div style="margin-top:10px">' + rules.map(r => '<p style="margin:8px 0"><b>' + esc(r[0]) + ' —</b> ' + esc(r[1]) + '</p>').join('') + '</div></details>';
+  }
+
   function renderProgramme() {
     const el = $('#programme-body');
     const prog = load('prog', { cur: 1, done: {} });
@@ -483,6 +539,7 @@
         '<h2 style="margin:4px 0 6px">' + esc(s.title) + '</h2>' +
         '<p style="margin:0 0 8px"><b>Objectif :</b> ' + esc(s.goal) + '</p>' +
         (EXPLAIN[prog.cur] ? '<div style="background:rgba(109,139,255,.10);border-radius:10px;padding:10px 12px;margin:0 0 10px"><b>📖 En clair :</b> ' + esc(EXPLAIN[prog.cur]) + '</div>' : '') +
+        planHTML(prog.cur) +
         '<div class="controls" style="margin-bottom:10px">' + tasks + '</div>' +
         '<p class="hint">💡 ' + esc(s.tip) + '</p>' +
         '<div class="controls no-print" style="margin-top:12px">' +
@@ -492,6 +549,7 @@
         '</div>' +
         songHTML(SONGS[prog.cur]) +
       '</div>' +
+      methodeHTML() +
       lexiqueHTML() +
       '<h3 style="color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-size:13px;margin:18px 0 8px">Toutes les séances</h3>' +
       list;
