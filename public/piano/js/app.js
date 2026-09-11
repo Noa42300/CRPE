@@ -858,8 +858,11 @@
     renderAll();
     const id = location.hash.replace('#', '');
     nav(id && $('#view-' + id) ? id : 'parcours');
-    // Débloque l'audio au 1er clic (politique navigateurs)
-    document.body.addEventListener('pointerdown', () => A.ensure(), { once: true });
+    // Débloque l'audio au 1er geste (iOS compris). On écoute plusieurs
+    // types d'événements et on réessaie tant que ce n'est pas débloqué.
+    const unlock = () => { try { A.unlock(); } catch (e) {} };
+    ['touchend', 'pointerdown', 'mousedown', 'click', 'keydown'].forEach(ev =>
+      document.addEventListener(ev, unlock, { passive: true }));
   }
   function renderAll() {
     renderProgramme(); renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle();
