@@ -293,6 +293,42 @@
       tip: 'Enregistre-toi, réécoute, corrige. C\'est là qu\'on progresse le plus vite.' }
   ];
 
+  // Morceaux associés à certaines séances (crescendo de difficulté).
+  // On n'encode que des suites d'accords (données largement publiques) ; le
+  // lien pointe vers une RECHERCHE YouTube (jamais un lien mort).
+  const SONGS = {
+    3:  { title: 'La Bamba', artist: 'Ritchie Valens', level: 'Très facile', why: 'Rien que Do–Fa–Sol, en boucle.', chords: [['C', 'maj'], ['F', 'maj'], ['G', 'maj']], yt: 'tuto piano La Bamba accords débutant' },
+    5:  { title: "Knockin' on Heaven's Door", artist: 'Bob Dylan', level: 'Facile', why: 'Sol–Ré–Lam–Do : dans la foulée du I–IV–V en Sol.', chords: [['G', 'maj'], ['D', 'maj'], ['A', 'min'], ['C', 'maj']], yt: 'tuto piano Knockin on Heavens Door accords' },
+    6:  { title: 'Zombie', artist: 'The Cranberries', level: 'Facile', why: 'Mi mineur + Do + Sol + Ré : tes premiers mineurs en situation.', chords: [['E', 'min'], ['C', 'maj'], ['G', 'maj'], ['D', 'maj']], yt: 'tuto piano Zombie Cranberries accords' },
+    7:  { title: 'Stand By Me', artist: 'Ben E. King', level: 'Facile', why: "C'est exactement Do–Lam–Fa–Sol.", chords: [['C', 'maj'], ['A', 'min'], ['F', 'maj'], ['G', 'maj']], yt: 'tuto piano Stand By Me accords débutant' },
+    8:  { title: 'Let It Be', artist: 'The Beatles', level: 'Facile', why: 'La progression pop I–V–vi–IV que tu viens de voir.', chords: [['C', 'maj'], ['G', 'maj'], ['A', 'min'], ['F', 'maj']], yt: 'tuto piano Let It Be accords débutant' },
+    9:  { title: 'Someone Like You', artist: 'Adele', level: 'Intermédiaire', why: 'Mêmes 4 accords, mais avec des renversements pour bien les lier.', chords: [['C', 'maj'], ['G', 'maj'], ['A', 'min'], ['F', 'maj']], yt: 'tuto piano Someone Like You accords renversements' },
+    13: { title: 'Hallelujah', artist: 'Leonard Cohen', level: 'Intermédiaire', why: 'Do, Lam, Fa, Sol, Mim : tout ce que tu connais, en une ballade.', chords: [['C', 'maj'], ['A', 'min'], ['F', 'maj'], ['G', 'maj'], ['E', 'min']], yt: 'tuto piano Hallelujah accords débutant' },
+    16: { title: 'Autumn Leaves (Les Feuilles mortes)', artist: 'standard jazz', level: 'Intermédiaire', why: 'Le ii–V–I en situation réelle, avec des accords de 7e.', chords: [['D', 'm7'], ['G', '7'], ['C', 'maj7'], ['A', 'm7']], yt: 'tuto piano Autumn Leaves ii V I débutant' },
+    17: { title: 'Despacito (version étude)', artist: 'Luis Fonsi', level: 'Intermédiaire', why: 'i–VI–III–VII en La mineur (adapté en touches blanches).', chords: [['A', 'min'], ['F', 'maj'], ['C', 'maj'], ['G', 'maj']], yt: 'tuto piano Despacito accords' },
+    19: { title: 'River Flows in You', artist: 'Yiruma', level: 'Avancé', goal: true, why: 'LE morceau piano « émotionnel » — ton objectif rêvé. Accords de 7e et arpèges.', chords: [['A', 'maj'], ['E', 'maj'], ['F#', 'min'], ['D', 'maj']], yt: 'tuto piano River Flows in You facile' },
+    22: { title: 'Perfect', artist: 'Ed Sheeran', level: 'Intermédiaire', why: 'Repique-le à l\'oreille : I–vi–IV–V, tu connais déjà tout.', chords: [['C', 'maj'], ['A', 'min'], ['F', 'maj'], ['G', 'maj']], yt: 'tuto piano Perfect Ed Sheeran accords' },
+    23: { title: 'Nuvole Bianche', artist: 'Ludovico Einaudi', level: 'Avancé', goal: true, why: 'Inspiration compo : accords simples, énorme émotion. Analyse-la puis compose la tienne.', chords: [['A', 'min'], ['F', 'maj'], ['C', 'maj'], ['G', 'maj']], yt: 'tuto piano Nuvole Bianche facile' }
+  };
+
+  function songMidis(chords) { return chords.map(c => T.buildChord(c[0], c[1], 4).midis); }
+  function songHTML(song) {
+    if (!song) return '';
+    const chips = song.chords.map((c, i) =>
+      '<button class="chip" data-song-chord="' + i + '">' + esc(T.buildChord(c[0], c[1], 4).label) + '</button>').join(' ');
+    const q = encodeURIComponent(song.yt);
+    return '<div class="card" style="background:var(--bg2);border-left:4px solid var(--accent2);margin-top:12px">' +
+      '<div class="rn" style="color:var(--muted);font-weight:700;font-size:12px;letter-spacing:1px">🎵 MORCEAU À APPRENDRE' +
+      '<span class="badge" style="margin-left:8px">' + esc(song.level) + '</span>' + (song.goal ? '<span class="badge" style="margin-left:6px">🌟 objectif</span>' : '') + '</div>' +
+      '<h3 style="margin:4px 0;color:var(--text);text-transform:none;letter-spacing:0;font-size:16px">' + esc(song.title) + ' <span class="hint">— ' + esc(song.artist) + '</span></h3>' +
+      '<p style="margin:0 0 8px">' + esc(song.why) + '</p>' +
+      '<div class="chips" style="margin-bottom:10px">' + chips + '</div>' +
+      '<div class="controls no-print">' +
+        '<button class="btn small" id="song-play">▶ Jouer la suite</button> ' +
+        '<a class="btn ghost small" href="https://www.youtube.com/results?search_query=' + q + '" target="_blank" rel="noopener">▶ Voir un tuto (YouTube)</a>' +
+      '</div></div>';
+  }
+
   function dispatchGo(go) {
     if (go[0] === 'chord') openChord(go[1], go[2]);
     else if (go[0] === 'scale') openScale(go[1], go[2]);
@@ -338,6 +374,7 @@
           '<button class="btn ghost" id="pg-stay">🔁 Pas encore — je continue demain</button>' +
           (prog.cur > 1 ? '<button class="btn ghost small" id="pg-prev">◀ Précédente</button>' : '') +
         '</div>' +
+        songHTML(SONGS[prog.cur]) +
       '</div>' +
       '<h3 style="color:var(--muted);text-transform:uppercase;letter-spacing:.6px;font-size:13px;margin:18px 0 8px">Toutes les séances</h3>' +
       list;
@@ -346,6 +383,14 @@
       const [si, ti] = b.dataset.go.split('-').map(Number);
       dispatchGo(SEANCES[si].tasks[ti].go);
     });
+    const song = SONGS[prog.cur];
+    if (song) {
+      const sp = $('#song-play', el);
+      if (sp) sp.onclick = () => A.playProgression(songMidis(song.chords), 1.0);
+      $$('[data-song-chord]', el).forEach(b => b.onclick = () => {
+        const c = song.chords[+b.dataset.songChord]; openChord(c[0], c[1]);
+      });
+    }
     $('#pg-done').onclick = () => {
       prog.done[prog.cur] = today();
       if (prog.cur < SEANCES.length) prog.cur++;
