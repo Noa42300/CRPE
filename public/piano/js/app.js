@@ -758,6 +758,93 @@
       : '⚠ Téléchargement indisponible ici — utilise « Imprimer » depuis un navigateur, ou le site.';
   }
 
+  // ------------------------------------------------------------ MÉTRONOME
+  const metro = { bpm: load('bpm', 90), beats: load('metroBeats', 4), running: false, beat: 0, next: 0, timer: null, taps: [] };
+  function tempoName(b) {
+    if (b < 60) return 'Largo (très lent)';
+    if (b < 76) return 'Adagio (lent)';
+    if (b < 108) return 'Andante (allant)';
+    if (b < 120) return 'Moderato (modéré)';
+    if (b < 168) return 'Allegro (rapide)';
+    return 'Presto (très rapide)';
+  }
+  function metroSchedule() {
+    const ct = A.now();
+    const spb = 60 / metro.bpm;
+    while (metro.next < ct + 0.12) {
+      const beat = metro.beat;
+      A.click(metro.next, beat === 0);
+      setTimeout(() => metroLight(beat), Math.max(0, (metro.next - ct) * 1000));
+      metro.next += spb;
+      metro.beat = (metro.beat + 1) % metro.beats;
+    }
+  }
+  function metroLight(beat) {
+    $$('#metronome-body .metro-dot').forEach((d, i) => d.classList.toggle('on', i === beat));
+  }
+  function metroStart() {
+    A.unlock();
+    metro.running = true; metro.beat = 0; metro.next = A.now() + 0.06;
+    if (metro.timer) clearInterval(metro.timer);
+    metro.timer = setInterval(metroSchedule, 25);
+    const b = $('#metro-toggle'); if (b) b.textContent = '⏹ Stop';
+  }
+  function metroStop() {
+    metro.running = false;
+    if (metro.timer) clearInterval(metro.timer);
+    metro.timer = null;
+    $$('#metronome-body .metro-dot').forEach(d => d.classList.remove('on'));
+    const b = $('#metro-toggle'); if (b) b.textContent = '▶ Démarrer';
+  }
+  function metroSetBpm(v) {
+    metro.bpm = Math.max(40, Math.min(240, Math.round(v)));
+    save('bpm', metro.bpm);
+    const disp = $('#metro-bpm-val'); if (disp) disp.textContent = metro.bpm;
+    const name = $('#metro-name'); if (name) name.textContent = tempoName(metro.bpm);
+    const sl = $('#metro-slider'); if (sl && +sl.value !== metro.bpm) sl.value = metro.bpm;
+  }
+  function metroTap() {
+    const t = Date.now();
+    metro.taps.push(t);
+    metro.taps = metro.taps.filter(x => t - x < 3000);
+    if (metro.taps.length >= 2) {
+      let sum = 0;
+      for (let i = 1; i < metro.taps.length; i++) sum += metro.taps[i] - metro.taps[i - 1];
+      metroSetBpm(60000 / (sum / (metro.taps.length - 1)));
+    }
+  }
+  function renderMetronome() {
+    const c = $('#metronome-body');
+    const dots = Array.from({ length: metro.beats }, (_, i) =>
+      '<div class="metro-dot' + (i === 0 ? ' accent' : '') + '"></div>').join('');
+    c.innerHTML =
+      '<div class="metro-bpm"><b id="metro-bpm-val">' + metro.bpm + '</b><span id="metro-name">' + tempoName(metro.bpm) + '</span></div>' +
+      '<div class="metro-dots">' + dots + '</div>' +
+      '<input class="metro-slider" type="range" min="40" max="240" value="' + metro.bpm + '" id="metro-slider" aria-label="Tempo">' +
+      '<div class="controls no-print" style="justify-content:center">' +
+        '<button class="btn ghost" id="metro-minus" aria-label="moins vite">−5</button>' +
+        '<button class="btn metro-big" id="metro-toggle">' + (metro.running ? '⏹ Stop' : '▶ Démarrer') + '</button>' +
+        '<button class="btn ghost" id="metro-plus" aria-label="plus vite">+5</button>' +
+        '<button class="btn ghost" id="metro-tap">👆 Tap tempo</button>' +
+      '</div>' +
+      '<div class="controls no-print" style="justify-content:center;margin-top:6px">' +
+        '<label class="field" style="align-items:center">Temps par mesure<span class="chips" style="margin-top:2px">' +
+          [2, 3, 4, 6].map(n => '<button class="chip ' + (metro.beats === n ? 'active' : '') + '" data-beats="' + n + '">' + n + '</button>').join('') +
+        '</span></label>' +
+      '</div>' +
+      '<p class="hint" style="text-align:center;margin-top:14px">Astuce : joue un passage <b>lentement sans faute</b>, puis monte de <b>5 en 5 BPM</b>. Le point <b style="color:var(--root)">rouge</b> = le 1er temps.</p>';
+
+    $('#metro-slider').oninput = e => metroSetBpm(+e.target.value);
+    $('#metro-minus').onclick = () => metroSetBpm(metro.bpm - 5);
+    $('#metro-plus').onclick = () => metroSetBpm(metro.bpm + 5);
+    $('#metro-toggle').onclick = () => { if (metro.running) metroStop(); else metroStart(); };
+    $('#metro-tap').onclick = metroTap;
+    $$('[data-beats]', c).forEach(b => b.onclick = () => {
+      metro.beats = +b.dataset.beats; save('metroBeats', metro.beats);
+      const wasRunning = metro.running; metroStop(); renderMetronome(); if (wasRunning) metroStart();
+    });
+  }
+
   // ------------------------------------------------------------ JOURNAL (tracker)
   function renderJournal() {
     const c = $('#journal-body');
@@ -1123,7 +1210,7 @@
   }
   function renderAll() {
     renderProgramme(); renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle();
-    renderRecognize(); renderEar(); renderSolfege(); renderJournal(); renderClasseur();
+    renderRecognize(); renderEar(); renderSolfege(); renderMetronome(); renderJournal(); renderClasseur();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
