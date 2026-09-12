@@ -1,5 +1,5 @@
 /* Service worker — met l'app en cache pour un usage 100 % hors-ligne. */
-const CACHE = 'piano-autodidacte-v9';
+const CACHE = 'piano-autodidacte-v10';
 const ASSETS = [
   './',
   './index.html',
