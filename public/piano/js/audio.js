@@ -168,5 +168,24 @@
     return chords.length * chordDur;
   }
 
-  global.Audio2 = { ensure, unlock, playFreq, playMidi, playChord, playArpeggio, playScale, playProgression };
+  // Horloge du contexte (pour le métronome)
+  function now() { ensure(); return ctx.currentTime; }
+
+  // Clic de métronome : bip court, aigu et fort sur le temps accentué.
+  function click(when, accent) {
+    ensure();
+    const t = when != null ? when : ctx.currentTime;
+    const o = ctx.createOscillator();
+    const g = ctx.createGain();
+    o.type = 'sine';
+    o.frequency.value = accent ? 1600 : 1050;
+    const peak = accent ? 0.5 : 0.3;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(peak, t + 0.001);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+    o.connect(g); g.connect(master);
+    o.start(t); o.stop(t + 0.06);
+  }
+
+  global.Audio2 = { ensure, unlock, now, click, playFreq, playMidi, playChord, playArpeggio, playScale, playProgression };
 })(typeof window !== 'undefined' ? window : this);
