@@ -73,6 +73,27 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   en plein écran **sans télécharger** ; le téléchargement PDF et l'impression se
   font depuis la ligne du document ou depuis l'aperçu.
 
+### Style des fiches élèves — MODÈLE AUTHENTIQUE (exercices & leçons) — IMPORTANT
+- Les fiches doivent **ressembler à de vraies fiches de PE CE1-CE2**, pas à des
+  documents « générés par IA ». Modèle de référence : les fiches type
+  « Fiche de Mathématiques n° X » (calcul mental en cases, additions en colonnes,
+  problème illustré, colonne « Je sais… » à droite).
+- **PAS d'orange** ni de bandeaux / filets / pastilles « déco IA ». Le **chrome
+  est en encre noire** (titres, filets, cadre). Les couleurs vives sont réservées
+  aux **illustrations** et au **matériel pédagogique** (base 10 : centaines bleues,
+  dizaines oranges, unités vertes — ça, on garde).
+- **Cadre noir** fin autour de la page ; **en-tête** « titre (manuscrit) + Prénom : …… »
+  avec un filet noir ; consignes **numérotées** et **soulignées**, courtes.
+- **Nombres et exemples en écriture manuscrite** (police type Caveat), plus grands,
+  faciles à lire pour des CE1-CE2.
+- **Colonne « Je sais… » à droite** (auto-évaluation) : champ `competences: string[]`
+  de `FicheData` (une entrée par exercice) → rendu « Je sais … » + petite case à
+  cocher/compter. À remplir pour toutes les **fiches d'exercices**.
+- **Illustrations mignonnes et parlantes** (pictos maison agrandis, futurs vrais
+  visuels), enfant-friendly. Toujours privilégier le concret et le ludique.
+- Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
+  de vraies fiches de CE1-CE2 comme référence) pour toute nouvelle fiche.
+
 ## Organisation matérielle de la classe (référence)
 
 Quand je rédige une séance, indiquer le bon support de rangement :

@@ -30,12 +30,17 @@ export interface FicheData {
   discipline?: string;
   /** true = corps de leçon en écriture cursive (police Borel). */
   cursive?: boolean;
+  /** Colonne « Je sais… » à droite (auto-évaluation), une entrée par exercice.
+   *  Réservée aux fiches d'exercices (modèle authentique CE1-CE2). */
+  competences?: string[];
   blocs: FicheBloc[];
 }
 
-const ORANGE = "#c9481f";
+// Chrome des fiches en ENCRE NOIRE (plus d'orange « IA »). Les couleurs vives
+// restent réservées aux illustrations et au matériel pédagogique (base 10…).
+const ORANGE = "#1f2937";
 const H: React.CSSProperties = { color: ORANGE, fontWeight: 800 };
-const line: React.CSSProperties = { borderBottom: "1.5px solid #b9d4ec", height: "8.5mm" };
+const line: React.CSSProperties = { borderBottom: "1.5px solid #9aa4ad", height: "9mm" };
 
 function Lignes({ n }: { n: number }) {
   return (
@@ -122,22 +127,24 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
   const isExo = data.entete.toLowerCase().includes("exercice") || data.entete.toLowerCase().includes("autonomie") || data.entete.toLowerCase().includes("distribuer");
   let exNo = 0;
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ display: "flex", alignItems: "baseline", gap: "3mm", borderBottom: `3px solid ${ORANGE}`, paddingBottom: "2mm", marginBottom: "4mm" }}>
-        <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.14em", color: ORANGE, fontWeight: 800 }}>{data.entete}</span>
-        {data.niveau && <span style={{ marginLeft: "auto", fontSize: "13px", fontWeight: 800, color: "#fff", background: ORANGE, borderRadius: "999px", padding: "0.5mm 4mm" }}>{data.niveau}</span>}
-      </div>
-      <h1 style={{ fontSize: "24px", margin: "0 0 1mm", fontWeight: 800 }}>{data.titre}</h1>
-      {data.discipline && <div style={{ fontSize: "12px", color: "#888", marginBottom: "3mm" }}>{data.discipline}</div>}
-
-      {isExo && (
-        <div style={{ display: "flex", gap: "6mm", fontSize: "13px", marginBottom: "4mm" }}>
-          <div>Prénom : <span style={{ display: "inline-block", width: "45mm", borderBottom: "1px dotted #999" }} /></div>
-          <div>Date : <span style={{ display: "inline-block", width: "35mm", borderBottom: "1px dotted #999" }} /></div>
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", padding: "7mm", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+     <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "6mm 7mm", minHeight: "283mm", boxSizing: "border-box" }}>
+      {/* En-tête façon fiche de PE : titre (manuscrit) + prénom, filet noir */}
+      <div style={{ borderBottom: "2px solid #111", paddingBottom: "2.5mm", marginBottom: "4mm" }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: "3mm" }}>
+          <h1 style={{ fontSize: "26px", margin: 0, fontWeight: 700, fontFamily: "'Caveat','Comic Neue',cursive" }}>{data.titre}</h1>
+          {isExo && <div style={{ marginLeft: "auto", fontSize: "13px" }}>Prénom : <span style={{ display: "inline-block", width: "42mm", borderBottom: "1px solid #333" }} /></div>}
+          {!isExo && data.niveau && <span style={{ marginLeft: "auto", fontSize: "12px", fontWeight: 800, color: "#fff", background: "#111", borderRadius: "3px", padding: "0.5mm 3mm" }}>{data.niveau}</span>}
         </div>
-      )}
+        <div style={{ display: "flex", gap: "4mm", marginTop: "1mm", fontSize: "11px", color: "#555" }}>
+          <span style={{ textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700 }}>{data.entete}</span>
+          {data.discipline && <span>· {data.discipline}</span>}
+          {isExo && data.niveau && <span style={{ marginLeft: "auto", fontWeight: 700, color: "#111" }}>{data.niveau}</span>}
+        </div>
+      </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "4mm" }}>
+      <div style={{ display: "flex", gap: "5mm", alignItems: "stretch" }}>
+       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "4mm" }}>
         {data.blocs.map((b, i) => {
           if (b.kind === "def") {
             return (
@@ -278,12 +285,13 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
               <div key={i} className="print-avoid-break" style={{ display: "flex", gap: "3mm" }}>
                 {b.picto && <div style={{ flexShrink: 0 }}><Picto name={b.picto} size={40} /></div>}
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: "14px", fontWeight: 700 }}>
-                    <span style={H}>{exNo}.</span> {b.consigne}
-                    {b.aide && <span style={{ marginLeft: "2mm", fontSize: "11px", fontWeight: 700, color: ORANGE, background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: "999px", padding: "0.3mm 2mm" }}>aide : {b.aide}</span>}
+                  <div style={{ fontSize: "15px", fontWeight: 700 }}>
+                    <span style={{ fontWeight: 800 }}>{exNo}.</span>{" "}
+                    <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{b.consigne}</span>
+                    {b.aide && <span style={{ marginLeft: "2mm", fontSize: "11px", fontWeight: 700, color: "#444", background: "#f1f3f5", border: "1px solid #ced4da", borderRadius: "999px", padding: "0.3mm 2mm" }}>aide : {b.aide}</span>}
                   </div>
                   {b.items && (
-                    <ul style={{ margin: "1mm 0 0", paddingLeft: "6mm", fontSize: "14px", lineHeight: 2 }}>
+                    <ul style={{ margin: "1.5mm 0 0", paddingLeft: "7mm", fontSize: "21px", lineHeight: 1.9, fontFamily: "'Caveat','Comic Neue',cursive", color: "#222" }}>
                       {b.items.map((it, j) => <li key={j}>{it}</li>)}
                     </ul>
                   )}
@@ -294,7 +302,19 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
           }
           return <Lignes key={i} n={b.n} />;
         })}
+       </div>
+       {data.competences && data.competences.length > 0 && (
+         <div style={{ width: "36mm", flexShrink: 0, borderLeft: "2px solid #111", paddingLeft: "3.5mm", display: "flex", flexDirection: "column", gap: "6mm" }}>
+           {data.competences.map((c, i) => (
+             <div key={i} style={{ textAlign: "center" }}>
+               <div style={{ fontSize: "13px", fontWeight: 700, lineHeight: 1.25, fontFamily: "'Caveat','Comic Neue',cursive", color: "#222" }}>Je sais {c}</div>
+               <div style={{ margin: "2mm auto 0", width: "18mm", height: "13mm", border: "1.5px solid #111", borderRadius: "2px", background: "#fff" }} />
+             </div>
+           ))}
+         </div>
+       )}
       </div>
+     </div>
     </div>
   );
 }

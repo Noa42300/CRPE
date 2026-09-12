@@ -50,6 +50,7 @@ const VERBE_LECON: FicheData = {
 
 const VERBE_CE1: FicheData = {
   entete: "Exercices", titre: "Le verbe", niveau: "CE1", discipline: "Français — Grammaire",
+  competences: ["reconnaître le verbe dans une phrase", "repérer un verbe (une action)", "compléter avec un verbe", "écrire une action"],
   blocs: [
     { kind: "exercice", picto: "chien", consigne: "Entoure le verbe (l'action) dans chaque phrase.", items: [
       "Le chien court dans le jardin.", "Papa prépare le repas.", "Les élèves écoutent la maîtresse.",
@@ -67,6 +68,7 @@ const VERBE_CE1: FicheData = {
 
 const VERBE_CE2: FicheData = {
   entete: "Exercices", titre: "Le verbe", niveau: "CE2", discipline: "Français — Grammaire",
+  competences: ["souligner le verbe et donner l'infinitif", "changer le temps d'une phrase", "trouver l'intrus (le mot qui n'est pas un verbe)", "écrire une phrase avec un verbe"],
   blocs: [
     { kind: "exercice", picto: "oiseau", consigne: "Souligne le verbe et écris son infinitif.", items: [
       "Les oiseaux chantent. → ____________", "Nous partons en voyage. → ____________",
@@ -98,6 +100,7 @@ const MATHS_CE1_LECON: FicheData = {
 
 const MATHS_CE2_AUTO: FicheData = {
   entete: "Fichier autonomie", titre: "Dénombrer une collection jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres",
+  competences: ["écrire un nombre en chiffres", "décomposer un nombre", "compter les dizaines et les centaines", "ranger des nombres", "trouver le nombre suivant"],
   blocs: [
     { kind: "def", titre: "Rappel", contenu: "Je groupe par 100 (plaques bleues), par 10 (barres oranges) et je compte les unités (cubes verts). 100 = 10 dizaines." },
     { kind: "base10", centaines: 3, dizaines: 5, unites: 2, legende: "3 plaques, 5 barres, 2 cubes" },
@@ -248,6 +251,7 @@ const COMP_CE2_LECON: FicheData = {
 
 const COMP_CE2_AUTO: FicheData = {
   entete: "Fichier autonomie", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
+  competences: ["comparer avec < et >", "compléter avec un nombre qui convient", "ranger du plus petit au plus grand", "encadrer un nombre", "résoudre un problème"],
   blocs: [
     { kind: "exercice", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
       "426 ____ 462", "703 ____ 307", "289 ____ 156", "98 ____ 201",
