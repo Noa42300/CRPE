@@ -101,6 +101,11 @@ svg.kbd { display: block; }
 svg.kbd rect.clk { cursor: pointer; }
 svg.kbd rect.clk:hover { stroke: var(--accent); stroke-width: 2.4; }
 svg.kbd rect.lit { fill: #ffd23f; stroke: #b8860b; }
+svg.kbd rect.lit-rh { fill: #2e6ff2; stroke: #16408f; }
+svg.kbd rect.lit-lh { fill: #1f9e6b; stroke: #0f5d3c; }
+.hand-legend { display: flex; gap: 18px; flex-wrap: wrap; margin: 6px 0; font-size: 14px; }
+.hand-legend b.rh { color: #6d8bff; }
+.hand-legend b.lh { color: #37d19a; }
 
 .legend { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 13px; margin-top: 4px; }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }

@@ -29,6 +29,8 @@
 
   // ------------------------------------------------------------ Navigation
   function nav(id) {
+    // stoppe la boucle « 2 mains » quand on quitte l'onglet
+    if (id !== 'mains' && typeof handsStop === 'function' && handState.running) handsStop();
     $$('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + id));
     $$('nav.tabs button').forEach(b => b.classList.toggle('active', b.dataset.go === id));
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -758,6 +760,123 @@
       : '⚠ Téléchargement indisponible ici — utilise « Imprimer » depuis un navigateur, ou le site.';
   }
 
+  // ------------------------------------------------------------ LES 2 MAINS (dissociation)
+  // Chaque exercice : une grille de « pas ». rh/lh = MIDI ou null (silence).
+  // subdiv = pas par temps (1 = noires, 2 = croches). Tout en touches blanches.
+  const M3 = { C: 48, D: 50, E: 52, F: 53, G: 55, A: 57, B: 59 };
+  const M4 = { C: 60, D: 62, E: 64, F: 65, G: 67, A: 69, B: 71 };
+  const M5 = { C: 72, D: 74, E: 76 };
+  const HAND_EX = [
+    { title: '1 · Une main bouge, l\'autre tient', level: 'Débutant', subdiv: 1,
+      rhTxt: 'Main droite : 4 notes qui montent (Do-Ré-Mi-Fa).', lhTxt: 'Main gauche : tiens un seul Do grave.',
+      why: 'Le tout premier réflexe : une main active, une main immobile.',
+      rh: [M4.C, M4.D, M4.E, M4.F], lh: [M3.C, null, null, null] },
+    { title: '2 · Va-et-vient main gauche', level: 'Débutant', subdiv: 1,
+      rhTxt: 'Main droite : Do-Mi-Sol-Mi.', lhTxt: 'Main gauche : Do-Sol-Do-Sol (balancier).',
+      why: 'Les deux mains bougent, mais simplement, en même temps.',
+      rh: [M4.C, M4.E, M4.G, M4.E], lh: [M3.C, M3.G, M3.C, M3.G] },
+    { title: '3 · Mouvement contraire', level: 'Débutant +', subdiv: 1,
+      rhTxt: 'Main droite : monte Do-Ré-Mi-Fa-Sol.', lhTxt: 'Main gauche : descend Do-Si-La-Sol-Fa.',
+      why: 'Les mains partent en sens opposés : excellent pour dissocier.',
+      rh: [M4.C, M4.D, M4.E, M4.F, M4.G], lh: [M4.C, M3.B, M3.A, M3.G, M3.F] },
+    { title: '4 · Main gauche sur les temps faibles', level: 'Intermédiaire', subdiv: 2,
+      rhTxt: 'Main droite : sur les temps (Do-Ré-Mi-Fa).', lhTxt: 'Main gauche : JUSTE APRÈS, sur le contretemps.',
+      why: 'On décale les mains : le vrai début de l\'indépendance rythmique.',
+      rh: [M4.C, null, M4.D, null, M4.E, null, M4.F, null], lh: [null, M3.C, null, M3.C, null, M3.G, null, M3.G] },
+    { title: '5 · Mélodie + basse tenue', level: 'Intermédiaire', subdiv: 1,
+      rhTxt: 'Main droite : la mélodie d\'« Au clair de la lune ».', lhTxt: 'Main gauche : une basse qui change à la moitié (Do puis Sol).',
+      why: 'Une vraie situation de morceau : la droite chante, la gauche soutient.',
+      rh: [M4.C, M4.C, M4.C, M4.D, M4.E, M4.D, M4.C, M4.E], lh: [M3.C, null, null, null, M3.G, null, null, null] },
+    { title: '6 · Arpège main gauche', level: 'Intermédiaire +', subdiv: 1,
+      rhTxt: 'Main droite : tiens un Sol aigu.', lhTxt: 'Main gauche : arpège Do-Mi-Sol-Mi qui tourne.',
+      why: 'La gauche s\'anime toute seule pendant que la droite reste posée.',
+      rh: [M4.G, null, null, null], lh: [M3.C, M3.E, M3.G, M3.E] },
+    { title: '7 · Deux contre un', level: 'Avancé', subdiv: 2,
+      rhTxt: 'Main droite : 2 notes par temps (croches).', lhTxt: 'Main gauche : 1 note par temps (noires).',
+      why: 'La droite va deux fois plus vite que la gauche : le grand classique.',
+      rh: [M4.C, M4.E, M4.D, M4.F, M4.E, M4.G, M4.F, M4.A], lh: [M3.C, null, M3.G, null, M3.C, null, M3.G, null] }
+  ];
+  const handState = { i: 0, bpm: 60, mode: 'both', running: false, step: 0, timer: null };
+
+  function handKbd() { return $('#hands-body .kbd'); }
+  function handStepTick() {
+    const ex = HAND_EX[handState.i];
+    const s = handState.step;
+    const kb = handKbd();
+    const stepMs = (60000 / handState.bpm) / ex.subdiv;
+    if ((handState.mode === 'both' || handState.mode === 'rh') && ex.rh[s] != null) {
+      A.playMidi(ex.rh[s], null, stepMs / 1000 * 1.1, 0.8); litKeyClass(kb, ex.rh[s], 'lit-rh', stepMs * 0.9);
+    }
+    if ((handState.mode === 'both' || handState.mode === 'lh') && ex.lh[s] != null) {
+      A.playMidi(ex.lh[s], null, stepMs / 1000 * 1.1, 0.8); litKeyClass(kb, ex.lh[s], 'lit-lh', stepMs * 0.9);
+    }
+    handState.step = (s + 1) % ex.rh.length;
+  }
+  function handsStop() {
+    handState.running = false;
+    if (handState.timer) clearInterval(handState.timer);
+    handState.timer = null;
+    updateHandBtns();
+  }
+  function handsPlay(mode) {
+    A.unlock();
+    if (handState.timer) clearInterval(handState.timer);
+    handState.mode = mode; handState.running = true; handState.step = 0;
+    const ex = HAND_EX[handState.i];
+    const stepMs = (60000 / handState.bpm) / ex.subdiv;
+    handStepTick();
+    handState.timer = setInterval(handStepTick, stepMs);
+    updateHandBtns();
+  }
+  function updateHandBtns() {
+    const t = $('#hands-body [data-hand-stop]');
+    if (t) t.textContent = handState.running ? '⏹ Stop' : '⏹ Stop';
+  }
+  function renderHands() {
+    const c = $('#hands-body');
+    const ex = HAND_EX[handState.i];
+    const rhMidis = Array.from(new Set(ex.rh.filter(x => x != null)));
+    const lhMidis = Array.from(new Set(ex.lh.filter(x => x != null)));
+    const hi = rhMidis.map(m => ({ midi: m, role: 'note' })).concat(lhMidis.map(m => ({ midi: m, role: 'scale' })));
+    const kbd = K.render({ startMidi: 48, octaves: 3, highlight: hi, showLabels: true, frNames });
+
+    const list = HAND_EX.map((x, i) =>
+      '<button class="chip ' + (i === handState.i ? 'active' : '') + '" data-hand-ex="' + i + '">' + (i + 1) + '</button>').join(' ');
+
+    c.innerHTML =
+      '<div class="controls no-print" style="align-items:center">' +
+        '<label class="field">Exercice<span class="chips" style="margin-top:2px">' + list + '</span></label>' +
+        '<span class="badge">' + esc(ex.level) + '</span>' +
+        '<span class="badge">~3 min/jour</span>' +
+      '</div>' +
+      '<h2 style="margin:12px 0 4px">' + esc(ex.title) + '</h2>' +
+      '<p style="margin:0 0 8px">' + esc(ex.why) + '</p>' +
+      '<div class="hand-legend"><span><b class="rh">● Main droite</b> : ' + esc(ex.rhTxt.replace('Main droite : ', '')) + '</span></div>' +
+      '<div class="hand-legend"><span><b class="lh">● Main gauche</b> : ' + esc(ex.lhTxt.replace('Main gauche : ', '')) + '</span></div>' +
+      '<div class="kbd-wrap">' + kbd + '</div>' +
+      '<div class="controls no-print">' +
+        '<button class="btn" id="hand-both">▶ Les 2 mains (boucle)</button>' +
+        '<button class="btn ghost" id="hand-rh" style="border-color:#6d8bff">▶ Main droite seule</button>' +
+        '<button class="btn ghost" id="hand-lh" style="border-color:#37d19a">▶ Main gauche seule</button>' +
+        '<button class="btn ghost" data-hand-stop>⏹ Stop</button>' +
+      '</div>' +
+      '<div class="controls no-print" style="margin-top:8px">' +
+        '<label class="field">Vitesse : <b id="hand-bpm">' + handState.bpm + '</b> BPM' +
+          '<input class="metro-slider" type="range" min="30" max="120" value="' + handState.bpm + '" id="hand-speed" style="min-width:200px"></label>' +
+      '</div>' +
+      '<p class="hint" style="margin-top:10px">Méthode : regarde la boucle « 2 mains », puis entraîne chaque main seule, et enfin réunis TRÈS lentement. 3 minutes par jour suffisent — la dissociation vient avec la régularité.</p>';
+
+    $$('[data-hand-ex]', c).forEach(b => b.onclick = () => { handsStop(); handState.i = +b.dataset.handEx; handState.step = 0; renderHands(); });
+    $('#hand-both').onclick = () => handsPlay('both');
+    $('#hand-rh').onclick = () => handsPlay('rh');
+    $('#hand-lh').onclick = () => handsPlay('lh');
+    $('[data-hand-stop]', c).onclick = handsStop;
+    $('#hand-speed').oninput = e => {
+      handState.bpm = +e.target.value; $('#hand-bpm').textContent = handState.bpm;
+      if (handState.running) handsPlay(handState.mode); // relance à la nouvelle vitesse
+    };
+  }
+
   // ------------------------------------------------------------ MÉTRONOME
   const metro = { bpm: load('bpm', 90), beats: load('metroBeats', 4), running: false, beat: 0, next: 0, timer: null, taps: [] };
   function tempoName(b) {
@@ -1041,6 +1160,13 @@
     if (!el) return;
     setTimeout(() => { el.classList.add('lit'); setTimeout(() => el.classList.remove('lit'), dur); }, delay);
   }
+  function litKeyClass(container, midi, cls, dur) {
+    if (!container) return;
+    const el = container.querySelector('rect[data-midi="' + midi + '"]');
+    if (!el) return;
+    el.classList.add(cls);
+    setTimeout(() => el.classList.remove(cls), dur);
+  }
   function animateArp(container, midis, step) {
     A.ensure();
     midis.forEach((m, i) => setTimeout(() => {
@@ -1210,7 +1336,7 @@
   }
   function renderAll() {
     renderProgramme(); renderParcours(); renderChords(); renderScales(); renderKeys(); renderCircle();
-    renderRecognize(); renderEar(); renderSolfege(); renderMetronome(); renderJournal(); renderClasseur();
+    renderRecognize(); renderEar(); renderSolfege(); renderHands(); renderMetronome(); renderJournal(); renderClasseur();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
