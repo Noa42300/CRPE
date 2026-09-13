@@ -81,9 +81,9 @@ export const PROG_SCIENCES: ProgSequence[] = [
 ];
 
 export const PROG_QLM: { label: string; sequences: ProgSequence[] }[] = [
-  { label: "Histoire (traitée en Période 1)", sequences: PROG_HISTOIRE },
-  { label: "Géographie", sequences: PROG_GEO },
-  { label: "Sciences", sequences: PROG_SCIENCES },
+  { label: "Histoire — Période 1 (le lundi)", sequences: PROG_HISTOIRE },
+  { label: "Sciences — Période 1 (le mardi)", sequences: PROG_SCIENCES },
+  { label: "Géographie — à partir de la Période 2", sequences: PROG_GEO },
 ];
 
 /* ----------------------- Anglais ----------------------- */
