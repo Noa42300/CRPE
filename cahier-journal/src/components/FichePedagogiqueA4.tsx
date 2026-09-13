@@ -137,8 +137,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
         {isExo && <div style={{ marginLeft: "auto", fontSize: "13px" }}>Prénom : <span style={{ display: "inline-block", width: "42mm", borderBottom: "1px solid #333" }} /></div>}
       </div>
 
-      <div style={{ display: "flex", gap: "5mm", alignItems: "stretch" }}>
-       <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "4mm" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "4mm" }}>
         {data.blocs.map((b, i) => {
           if (b.kind === "def") {
             return (
@@ -316,17 +315,6 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
           }
           return <Lignes key={i} n={b.n} />;
         })}
-       </div>
-       {data.competences && data.competences.length > 0 && (
-         <div style={{ width: "36mm", flexShrink: 0, borderLeft: "2px solid #111", paddingLeft: "3.5mm", display: "flex", flexDirection: "column", gap: "6mm" }}>
-           {data.competences.map((c, i) => (
-             <div key={i} style={{ textAlign: "center" }}>
-               <div style={{ fontSize: "13px", fontWeight: 700, lineHeight: 1.25, fontFamily: "'Caveat','Comic Neue',cursive", color: "#222" }}>Je sais {c}</div>
-               <div style={{ margin: "2mm auto 0", width: "18mm", height: "13mm", border: "1.5px solid #111", borderRadius: "2px", background: "#fff" }} />
-             </div>
-           ))}
-         </div>
-       )}
       </div>
      </div>
     </div>
