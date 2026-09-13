@@ -101,6 +101,13 @@
   }
 }
 
+/* Fiche A4 paysage (frises, schémas larges). */
+.fiche-a4-landscape {
+  width: 297mm;
+  min-height: 200mm;
+  padding: 12mm;
+}
+
 /* Réglure façon cahier Seyès. --il = interligne (dépend de la taille).
    --seyes-shift : décalage vertical du lignage pour que l'écriture repose
    pile sur la ligne d'écriture forte (dépend des métriques de la police). */

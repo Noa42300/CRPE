@@ -35,26 +35,57 @@ export async function downloadElementPdf(el: HTMLElement, filename: string): Pro
   const pdf = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
   const pageW = pdf.internal.pageSize.getWidth();
   const pageH = pdf.internal.pageSize.getHeight();
-  const imgW = pageW;
-  const imgH = (canvas.height * pageW) / canvas.width;
-  const imgData = canvas.toDataURL("image/jpeg", 0.95);
+  const cw = canvas.width;
+  const ch = canvas.height;
+  const pxPerMm = cw / pageW;
+  const pageHpx = Math.max(1, Math.floor(pageH * pxPerMm));
 
-  // Tolérance : une fiche calibrée A4 (min-height: 297mm) se capture souvent à
-  // quelques fractions de mm au-dessus d'une page pleine (bordures, arrondis,
-  // capture scale 2). Sans marge, ce micro-dépassement ajoutait une 2ᵉ page
-  // presque blanche à l'impression → gaspillage de papier. On ne pagine donc
-  // que si le contenu déborde d'AU MOINS ~8 mm (contenu réel, pas un artefact).
-  const EPSILON = 8; // mm
+  // Pagination « intelligente » : au lieu de couper toutes les pages à hauteur
+  // fixe (ce qui tranche une illustration ou une ligne en deux), on recule le
+  // point de coupe jusqu'à une ligne quasi blanche. Ainsi les plaques base-10,
+  // les tableaux et les exercices ne sont jamais coupés au milieu.
+  const ctx = canvas.getContext("2d");
+  const rowClean = (y: number): boolean => {
+    if (!ctx) return true;
+    try {
+      const data = ctx.getImageData(0, y, cw, 1).data;
+      for (let x = 0; x < cw; x += 6) {
+        const i = x * 4;
+        if (data[i] < 244 || data[i + 1] < 244 || data[i + 2] < 244) return false;
+      }
+      return true;
+    } catch {
+      return true; // canvas « taint » → on retombe sur la coupe fixe
+    }
+  };
 
-  let heightLeft = imgH;
-  let position = 0;
-  pdf.addImage(imgData, "JPEG", 0, position, imgW, imgH);
-  heightLeft -= pageH;
-  while (heightLeft > EPSILON) {
-    position -= pageH;
-    pdf.addPage();
-    pdf.addImage(imgData, "JPEG", 0, position, imgW, imgH);
-    heightLeft -= pageH;
+  let start = 0;
+  let first = true;
+  while (start < ch) {
+    let end = Math.min(start + pageHpx, ch);
+    if (end < ch) {
+      // On cherche une ligne blanche dans les 25 % du bas de la page.
+      const minEnd = start + Math.floor(pageHpx * 0.72);
+      for (let y = end; y > minEnd; y--) {
+        if (rowClean(y)) { end = y; break; }
+      }
+    }
+    const sliceH = end - start;
+    const tmp = document.createElement("canvas");
+    tmp.width = cw; tmp.height = sliceH;
+    const tctx = tmp.getContext("2d");
+    if (tctx) {
+      tctx.fillStyle = "#ffffff";
+      tctx.fillRect(0, 0, cw, sliceH);
+      tctx.drawImage(canvas, 0, start, cw, sliceH, 0, 0, cw, sliceH);
+    }
+    const sliceData = tmp.toDataURL("image/jpeg", 0.95);
+    if (!first) pdf.addPage();
+    pdf.addImage(sliceData, "JPEG", 0, 0, pageW, sliceH / pxPerMm);
+    first = false;
+    start = end;
+    // On ignore un tout petit reliquat (évite une page blanche parasite).
+    if (ch - start < pageHpx * 0.04) break;
   }
 
   // Enregistrement robuste, compatible desktop ET tablette/PWA (iPad).

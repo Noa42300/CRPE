@@ -2718,8 +2718,8 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Poésie — découverte & copie",
-       "objectif": "Découvrir la nouvelle poésie, la lire ensemble, commencer à la recopier au propre (dessin à droite) pour l'apprendre et la réciter ensuite.",
+       "title": "Poésie — « La ponctuation » (Maurice Carême) : découverte & copie",
+       "objectif": "Découvrir la poésie « La ponctuation » de Maurice Carême, la lire ensemble, commencer à la recopier au propre (dessin à droite) pour l'apprendre et la réciter ensuite.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -2734,7 +2734,7 @@
         "guidage"
        ],
        "deroulement": [],
-       "materiel": "Poésie imprimée (une par élève), cahier de poésie (blanc), crayons de couleur.",
+       "materiel": "« La ponctuation » de Maurice Carême (texte affiché au tableau ou photocopié — droit d'auteur : je ne le reproduis pas dans l'appli), fiche copie & illustration à imprimer, cahier de poésie (blanc), crayons de couleur.",
        "video": "",
        "differenciation": "CE1 : copie guidée, vers par vers. CE2 : copie autonome + soin de la mise en page.",
        "depassement": "",
@@ -2795,8 +2795,8 @@
          "note": "- « On colle la leçon dans le cahier de Questionner le monde. »\n- « On relit ensemble la phrase importante : 1 siècle = 100 ans. »\n- « CE2, vous ajoutez le tableau des chiffres romains. »\n- « Rangez le cahier, on a bien travaillé sur le temps aujourd'hui ! »"
         }
        ],
-       "materiel": "Frise des unités projetée, ardoises, leçon à coller (cahier de QLM).",
-       "video": "",
+       "materiel": "Diaporama « Comment mesure-t-on le temps ? » projeté (photos réelles : cadran solaire, sablier, horloge), frise des unités à imprimer & coller, ardoises, leçon à coller (cahier de QLM).",
+       "video": "https://www.youtube.com/results?search_query=mesurer+le+temps+cycle+2+lumni+unit%C3%A9s",
        "differenciation": "CE1 : comprendre et nommer les unités (jour→année→décennie→siècle→millénaire). CE2 : manipuler siècles et millénaires, découvrir les chiffres romains (I, V, X, L, C, D, M).",
        "depassement": "",
        "correction": "1 décennie = 10 ans ; 1 siècle = 100 ans ; 1 millénaire = 1000 ans. X = 10, C = 100. Nous sommes au XXIᵉ siècle.",
@@ -2819,28 +2819,51 @@
        "niveaux": [
         "classe"
        ],
-       "title": "EPS — séance 3 : courir longtemps (athlétisme)",
-       "objectif": "Poursuivre la séquence athlétisme : courir longtemps à allure régulière, gérer son souffle.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "EPS — séance 3 : Découverte — courir vite",
+       "objectif": "Réagir vite à un signal et courir vite en ligne droite.",
+       "competence": "Courir vite ; réagir à un signal.",
+       "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Athlétisme — courir vite",
+       "progSequence": "Athlétisme P1 — courir & lancer",
+       "progSeance": "3",
        "progRef": "",
        "organisation": [
-        "collectif"
+        "collectif",
+        "groupe",
+        "binômes"
        ],
        "roleEnseignant": [
         "guidage"
        ],
-       "deroulement": [],
-       "materiel": "Plots, chronomètre, fiche terrain & sécurité, fiche binôme (compter les tours).",
+       "deroulement": [
+        {
+         "id": "t1",
+         "label": "Mise en train (10 min)",
+         "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va apprendre à courir VITE et à bien réagir au signal. »\n- « On s'échauffe bien pour ne pas se faire mal. »"
+        },
+        {
+         "id": "t2",
+         "label": "Jeux de réaction (12 min)",
+         "note": "- « On joue aux “sorciers” : au signal, on part le plus vite possible. »\n- « On part de positions différentes : debout, assis, dos tourné. »\n- « On écoute BIEN le signal, pas de départ avant. »\n- « On court tout droit jusqu'à la ligne. »\n- « Celui qui part trop tôt revient au départ. »"
+        },
+        {
+         "id": "t3",
+         "label": "Sprints par vagues (13 min)",
+         "note": "- « Par vagues de 3-4, vous sprintez dans votre couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Le juge d'arrivée regarde qui franchit la ligne le premier. »\n- « On reste dans son couloir, on ne coupe pas. »\n- « On encourage les copains qui courent. »"
+        },
+        {
+         "id": "t9",
+         "label": "Retour au calme & bilan (7 min)",
+         "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à partir vite ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »\n- « On rentre en classe en silence. »"
+        }
+       ],
+       "materiel": "3-4 couloirs ≈ 25 m ; plots (+ plot 2 m après l'arrivée) ; sifflet ou cartons ; fiche terrain & sécurité — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "Objectif de tours adapté à chacun ; binôme bienveillant. Sécurité : échauffement, signal d'arrêt unique, terrain dégagé.",
+       "differenciation": "Distance adaptée ; départs variés ; rôle de starter/juge pour souffler. Sécurité : échauffement, signal d'arrêt unique, couloirs délimités, terrain dégagé.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Critères de réussite : partir au signal ; courir vite tout droit jusqu'au bout.",
+       "obstacles": "Erreurs fréquentes :\n- Faux départs / regarde les autres.\n- Ralentit avant la ligne.\nRemédiation :\n- Rituel « à vos marques… prêts… », signal net.\n- « Cours jusqu'au plot placé après l'arrivée ».",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -2970,7 +2993,7 @@
     }
    ],
    "createdAt": "2026-09-13T11:47:11Z",
-   "updatedAt": 1789800062000
+   "updatedAt": 1789886500000
   },
   {
    "date": "2026-09-15",

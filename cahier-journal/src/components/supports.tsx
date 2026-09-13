@@ -8,6 +8,9 @@ import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama } from "./AnglaisDiaporama";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
+import { ColoriageMagique } from "./ColoriageMagique";
+import { MesurerTempsDiapo, FriseUnitesTemps } from "./MesurerTempsDiapo";
+import { PoesieCopie } from "./PoesieCopie";
 
 export interface SupportFourni {
   key: string;
@@ -108,17 +111,17 @@ const MATHS_CE2_AUTO: FicheData = {
       "3 centaines, 5 dizaines, 2 unités = ____", "6 centaines, 0 dizaine, 4 unités = ____",
       "2 centaines, 8 dizaines, 9 unités = ____", "4 centaines, 4 dizaines, 4 unités = ____",
     ] },
-    { kind: "exercice", aide: "347 = 300 + 40 + 7", consigne: "Décompose chaque nombre.", items: [
+    { kind: "exercice", exemple: "347 = 300 + 40 + 7", consigne: "Décompose chaque nombre.", items: [
       "582 = ______________", "706 = ______________", "250 = ______________", "419 = ______________",
     ] },
-    { kind: "exercice", consigne: "Complète.", items: [
+    { kind: "exercice", exemple: "245 = 2 c 4 d 5 u", consigne: "Complète.", items: [
       "Dans 100, il y a ___ dizaines.", "Dans 1 000, il y a ___ centaines.",
       "453 = ___ c ___ d ___ u.", "608 = ___ c ___ d ___ u.",
     ] },
-    { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
+    { kind: "exercice", exemple: "230 – 203 – 320 → 203 < 230 < 320", consigne: "Range chaque liste du plus petit au plus grand.", items: [
       "903 – 309 – 930 – 390 → ____________________", "540 – 405 – 450 – 504 → ____________________",
     ] },
-    { kind: "exercice", aide: "attention aux retenues !", consigne: "Écris le nombre qui vient juste après.", items: [
+    { kind: "exercice", aide: "attention aux retenues !", exemple: "349 → 350", consigne: "Écris le nombre qui vient juste après.", items: [
       "199 → ____", "709 → ____", "890 → ____", "999 → ____",
     ] },
   ],
@@ -553,7 +556,7 @@ const DENOMBRE_CE2_2P: FicheData = {
   blocs: [
     { kind: "def", titre: "Je me rappelle", contenu: "Je groupe par 100 (plaques), par 10 (barres) et je compte les unités (cubes). 100 = 10 dizaines ; 1000 = 10 centaines." },
     { kind: "base10", centaines: 3, dizaines: 5, unites: 2, legende: "3 plaques, 5 barres, 2 cubes" },
-    { kind: "exercice", aide: "c · d · u", consigne: "Écris le nombre représenté.", items: [
+    { kind: "exercice", aide: "c · d · u", exemple: "2 centaines, 1 dizaine, 3 unités = 213", consigne: "Écris le nombre représenté.", items: [
       "3 centaines, 5 dizaines, 2 unités = ____", "6 centaines, 0 dizaine, 4 unités = ____",
       "2 centaines, 8 dizaines, 9 unités = ____", "4 centaines, 4 dizaines, 4 unités = ____",
     ] },
@@ -565,13 +568,13 @@ const DENOMBRE_CE2_2P: FicheData = {
       "Dans 100, il y a ___ dizaines.", "Dans 1 000, il y a ___ centaines.",
       "453 = ___ c ___ d ___ u.", "608 = ___ c ___ d ___ u.",
     ] },
-    { kind: "exercice", aide: "je compare rang par rang", consigne: "Compare avec < ou >.", items: [
+    { kind: "exercice", aide: "je compare rang par rang", exemple: "318 < 381", consigne: "Compare avec < ou >.", items: [
       "426 ____ 462", "703 ____ 307", "289 ____ 156", "540 ____ 504",
     ] },
     { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
       "903 – 309 – 930 – 390 → ____________________", "540 – 405 – 450 – 504 → ____________________",
     ] },
-    { kind: "exercice", aide: "la centaine avant / après", consigne: "Encadre chaque nombre entre deux centaines.", items: [
+    { kind: "exercice", aide: "la centaine avant / après", exemple: "200 < 254 < 300", consigne: "Encadre chaque nombre entre deux centaines.", items: [
       "____ < 347 < ____", "____ < 508 < ____", "____ < 690 < ____",
     ] },
     { kind: "exercice", aide: "attention aux retenues !", consigne: "Écris le nombre qui vient juste après.", items: [
@@ -582,25 +585,6 @@ const DENOMBRE_CE2_2P: FicheData = {
 
 /* ============ MATHS — Coloriage magique CE1 (calcul → couleur) ============ */
 
-const COLORIAGE_CE1: FicheData = {
-  entete: "Coloriage magique (autonomie)", titre: "Coloriage magique — les additions", niveau: "CE1", discipline: "Mathématiques — Calcul",
-  blocs: [
-    { kind: "def", picto: "fleur", contenu: "Calcule chaque case dans ta tête. Puis colorie selon le code des couleurs. Si tu ne te trompes pas, une jolie surprise apparaît !" },
-    { kind: "pictos", titre: "Le code des couleurs", items: [
-      { name: "pomme", label: "10 → rouge" },
-      { name: "goutte", label: "8 → bleu" },
-      { name: "fleur", label: "12 → vert" },
-    ] },
-    { kind: "tableau", titre: "", entetes: ["", "", "", "", "", "", "", ""], lignes: [
-      ["4+4", "8+2", "3+7", "7+5", "5+3", "7+3", "4+6", "7+5"],
-      ["5+5", "6+4", "7+3", "3+7", "3+7", "7+3", "5+5", "7+3"],
-      ["3+7", "6+4", "7+3", "5+5", "6+4", "3+7", "6+4", "5+5"],
-      ["7+5", "8+2", "9+1", "3+7", "8+2", "7+3", "9+1", "6+2"],
-      ["5+3", "8+4", "4+6", "7+3", "7+3", "6+4", "6+2", "6+6"],
-      ["6+6", "4+4", "6+6", "2+8", "4+6", "4+4", "8+4", "6+2"],
-    ] },
-  ],
-};
 
 export function supportsForActivity(activityId: string): SupportFourni[] {
   if (activityId in EPS_SEQ) {
@@ -663,8 +647,14 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "eps-terrain-s2", label: "Courir longtemps (séance 2) — schéma du terrain & sécurité", node: EpsTerrainSupport() },
         { key: "eps-tours", label: "Fiche binôme — compter les tours (élève A puis B)", node: ficheNode(EPS_TOURS) },
       ];
+    case "l14poesie":
+      return [
+        { key: "poesie-ponctuation", label: "« La ponctuation » (Maurice Carême) — fiche copie & illustration (A4)", node: <PoesieCopie /> },
+      ];
     case "l14hist":
       return [
+        { key: "hist-mesurer-diapo", label: "Comment mesure-t-on le temps ? — Diaporama à projeter (photos réelles)", node: <MesurerTempsDiapo /> },
+        { key: "hist-mesurer-frise", label: "La frise des unités de temps — à imprimer & coller (A4 paysage)", node: <FriseUnitesTemps print /> },
         { key: "hist-mesurer-temps", label: "Comment mesurer le temps ? — Leçon (chiffres romains inclus)", node: ficheNode(HIST_MESURER_TEMPS) },
       ];
     case "l14auto":
@@ -673,7 +663,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "l14colo":
       return [
-        { key: "coloriage-ce1", label: "Coloriage magique — additions (CE1)", node: ficheNode(COLORIAGE_CE1) },
+        { key: "coloriage-ce1", label: "Coloriage magique — additions (CE1)", node: <ColoriageMagique /> },
       ];
     case "m9ang":
       return [
