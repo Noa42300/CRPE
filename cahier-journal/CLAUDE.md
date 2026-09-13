@@ -86,9 +86,14 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   avec un filet noir ; consignes **numérotées** et **soulignées**, courtes.
 - **Nombres et exemples en écriture manuscrite** (police type Caveat), plus grands,
   faciles à lire pour des CE1-CE2.
-- **Colonne « Je sais… » à droite** (auto-évaluation) : champ `competences: string[]`
-  de `FicheData` (une entrée par exercice) → rendu « Je sais … » + petite case à
-  cocher/compter. À remplir pour toutes les **fiches d'exercices**.
+- **PAS de colonne « Je sais… »** à droite (auto-évaluation) : l'enseignant n'en veut
+  pas. Les fiches d'exercices sont sur **une seule colonne**, sans encadré de
+  compétences. (Le champ `competences` de `FicheData` n'est plus rendu.)
+- **RÈGLE ABSOLUE — un exemple résolu au DÉBUT de CHAQUE exercice.** Toute fiche
+  d'exercices (français, maths, tout niveau) : **chaque** bloc `exercice` a un champ
+  `exemple` déjà fait (ex. « le chat → **le** = déterminant », « 24 < 42 »,
+  « 2 centaines 1 dizaine 3 unités = 213 »). L'élève doit pouvoir démarrer **sans
+  appeler la maîtresse**. Ne JAMAIS livrer un exercice sans son exemple.
 - **Illustrations mignonnes et parlantes** (pictos maison agrandis, futurs vrais
   visuels), enfant-friendly. Toujours privilégier le concret et le ludique.
 - Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
@@ -141,10 +146,15 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   dictée diagnostique finale. « **1, 2, 3… Étude de la langue** » sert seulement
   d'**appoint en grammaire**.
 - **Lecture / phonologie** : **GraphoGame**.
-- **Vidéos** : pour chaque séance, si une **vidéo YouTube courte (2-3 min)**
-  explique la notion de façon enfantine, la renseigner dans le champ `video`
-  (lien exact) de l'activité — elle s'affiche en lien cliquable dans la séance
-  et sur la fiche de prép.
+- **Vidéos** : pour chaque séance, renseigner dans `video` un **lien vers UNE
+  vidéo précise** (page d'une vidéo unique) qui explique la notion de façon
+  enfantine — **JAMAIS une page de résultats de recherche YouTube**. Sources sûres
+  et stables pour le cycle 2 : **Les Fondamentaux (Réseau Canopé)**
+  (`lesfondamentaux.reseau-canope.fr/video/…` ou la vidéo YouTube Canopé
+  correspondante) et **Lumni**. Exemples validés : déterminants →
+  `https://www.youtube.com/watch?v=20lToFx4lPU` (Canopé, « Le rôle des
+  déterminants ») ; comparer les nombres → `https://www.youtube.com/watch?v=8XZptO5L3DQ` ;
+  solide/liquide → `https://www.youtube.com/watch?v=cyXMiy0lC8s`.
 - **Banque de fichiers autonomie CE2** : en maths, les tandems sont par classe.
   Pendant que je fais la **leçon guidée aux CE1** (projetée), les **CE2 sont en
   autonomie** sur un fichier préparé à l'avance (puis institutionnalisation). On

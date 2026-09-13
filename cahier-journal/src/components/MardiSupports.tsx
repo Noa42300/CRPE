@@ -141,6 +141,57 @@ export function ComparerDiapo() {
   );
 }
 
+/* =================== FRANÇAIS — Les déterminants (leçon) =================== */
+
+const DET = "#7c3aed";
+
+function Bulle({ mot, color }: { mot: string; color: string }) {
+  return (
+    <span style={{ display: "inline-block", padding: "1.5mm 4mm", margin: "1.5mm", borderRadius: "999px", border: `2.5px solid ${color}`, background: "#fff", fontSize: "22px", fontWeight: 700, fontFamily: "'Caveat','Comic Neue',cursive", color: "#111" }}>{mot}</span>
+  );
+}
+
+/** Leçon à coller « Les déterminants » — style enfantin validé (bulles + peu de texte). */
+export function DeterminantsLecon() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box" }}>
+        <h1 style={{ fontSize: "42px", margin: "0 0 4mm", textAlign: "center", fontWeight: 700, color: DET, fontFamily: "'Caveat','Comic Neue',cursive" }}>Les déterminants</h1>
+
+        <p style={{ fontSize: "17px", lineHeight: 1.5, textAlign: "center", margin: "0 auto 5mm", maxWidth: "150mm" }}>
+          Le déterminant est un <b>petit mot placé devant le nom</b>.
+          On dit&nbsp;: <span style={{ fontFamily: "'Caveat','Comic Neue',cursive", fontSize: "22px" }}>le chat, une maison, les oiseaux.</span>
+        </p>
+
+        {/* Brainstorming : plein de déterminants en bulles */}
+        <div style={{ border: `2.5px dashed ${DET}`, borderRadius: "5mm", padding: "4mm", textAlign: "center", marginBottom: "6mm" }}>
+          <div style={{ fontSize: "16px", fontWeight: 800, color: DET, marginBottom: "1mm" }}>Des déterminants que je connais :</div>
+          {["le", "la", "les", "un", "une", "des"].map((m) => <Bulle key={m} mot={m} color="#2563eb" />)}
+          {["mon", "ma", "mes", "ce", "cette", "ces"].map((m) => <Bulle key={m} mot={m} color="#e11d48" />)}
+        </div>
+
+        {/* 2 grandes familles */}
+        <div style={{ display: "flex", gap: "5mm" }}>
+          <div style={{ flex: 1, border: "3px solid #2563eb", borderRadius: "5mm", padding: "4mm", textAlign: "center" }}>
+            <div style={{ fontSize: "26px", fontWeight: 800, color: "#2563eb", fontFamily: "'Caveat','Comic Neue',cursive" }}>défini</div>
+            <div style={{ fontSize: "24px", fontFamily: "'Caveat','Comic Neue',cursive" }}>le · la · les</div>
+            <div style={{ fontSize: "14px", color: "#555" }}>je sais de quoi je parle</div>
+          </div>
+          <div style={{ flex: 1, border: "3px solid #e11d48", borderRadius: "5mm", padding: "4mm", textAlign: "center" }}>
+            <div style={{ fontSize: "26px", fontWeight: 800, color: "#e11d48", fontFamily: "'Caveat','Comic Neue',cursive" }}>indéfini</div>
+            <div style={{ fontSize: "24px", fontFamily: "'Caveat','Comic Neue',cursive" }}>un · une · des</div>
+            <div style={{ fontSize: "14px", color: "#555" }}>je ne sais pas encore</div>
+          </div>
+        </div>
+
+        <p style={{ marginTop: "6mm", textAlign: "center", fontSize: "18px", fontFamily: "'Caveat','Comic Neue',cursive" }}>
+          Mon astuce&nbsp;: si « <b>le …</b> » marche devant le mot, c'est un déterminant&nbsp;!
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* =================== SCIENCES — Solide ou liquide ? =================== */
 
 const SCI = "#0e7490";

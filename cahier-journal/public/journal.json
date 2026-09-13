@@ -3105,7 +3105,7 @@
         }
        ],
        "materiel": "Vidéo projetée, leçon « Les déterminants » (TBI), feuilles d'entraînement CE1 et CE2 — voir Documents à imprimer.",
-       "video": "https://www.youtube.com/results?search_query=les+d%C3%A9terminants+CE1+CE2+le+la+les+un+une+des",
+       "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
        "differenciation": "CE1 : repérer le déterminant, choisir le/la, accorder au pluriel.\nCE2 : distinguer défini/indéfini, remplacer un déterminant, employer démonstratifs et possessifs.",
        "depassement": "",
        "correction": "Voir les corrigés sur chaque feuille (colonne « Je sais… »).",
@@ -3203,7 +3203,7 @@
         }
        ],
        "materiel": "Diaporama « Comparer les nombres » projeté, ardoises, leçon CE1 et CE2 à coller, fichier autonomie CE2 (tandem) — voir Documents à imprimer.",
-       "video": "https://www.youtube.com/results?search_query=comparer+les+nombres+signes+plus+petit+plus+grand+CE1+CE2",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
        "differenciation": "CE1 : comparer et ranger des nombres jusqu'à 99, placer < > =.\nCE2 : comparer jusqu'à 1000, ranger des listes, encadrer.",
        "depassement": "",
        "correction": "Le signe s'ouvre vers le plus grand nombre. On compare rang par rang (centaines, puis dizaines, puis unités).",
@@ -3373,7 +3373,7 @@
         }
        ],
        "materiel": "Diaporama « Solide ou liquide ? » projeté (photos réelles), par groupe : bac, pierre, crayon, éponge, eau, sirop, sable, récipient transparent, essuie-tout ; leçon à coller — voir Documents à imprimer.",
-       "video": "https://www.youtube.com/results?search_query=solide+liquide+cycle+2+la+mati%C3%A8re+lumni",
+       "video": "https://www.youtube.com/watch?v=cyXMiy0lC8s",
        "differenciation": "CE1 : trier et dire « solide / liquide », décrire.\nCE2 : caractériser les propriétés, justifier chaque classement, discuter le cas du sable.",
        "depassement": "",
        "correction": "Solides : pierre, crayon, éponge, sable (grains solides). Liquides : eau, sirop. Un solide garde sa forme ; un liquide coule et prend la forme du récipient.",
@@ -3396,8 +3396,8 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Anglais — séance 3 : Three action verbs (à confirmer)",
-       "objectif": "Comprendre et mimer trois verbes d'action en anglais (jump, run, clap) — Total Physical Response.",
+       "title": "Anglais — à préparer (je le fais moi-même)",
+       "objectif": "Anglais : soit reprendre la leçon non faite la semaine dernière, soit passer à la suite de la séquence USA — je le prépare moi-même.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -3405,35 +3405,15 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [
-        "collectif"
-       ],
-       "roleEnseignant": [
-        "guidage"
-       ],
-       "deroulement": [
-        {
-         "id": "a1",
-         "label": "Warm up (5 min)",
-         "note": "- « Hello everybody! How are you today? »\n- « We sing our ritual song together. »\n- « Stand up! Let's move a little. »"
-        },
-        {
-         "id": "a2",
-         "label": "Three action verbs (15 min)",
-         "note": "- « Today: three action verbs — jump, run, clap. »\n- « Watch me: I jump. Now you: jump! »\n- « I run… I clap… you do it with me. »\n- « Listen well: jump / run / clap. »\n- « Simon says: jump! (fais l'action seulement si je dis “Simon says”). »"
-        },
-        {
-         "id": "a3",
-         "label": "Game & goodbye (10 min)",
-         "note": "- « We play: I say the verb, you do the action. »\n- « Faster and faster! »\n- « Now a pupil is the teacher and says the verb. »\n- « Well done! Goodbye everybody! »"
-        }
-       ],
-       "materiel": "Flashcards jump / run / clap, la chanson rituelle.",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
        "video": "",
-       "differenciation": "CE1 : comprendre et faire l'action au signal.\nCE2 : dire le verbe en anglais en faisant l'action.",
+       "differenciation": "",
        "depassement": "",
-       "correction": "jump = sauter ; run = courir ; clap = taper des mains.",
-       "obstacles": "Erreurs fréquentes :\n- Faire l'action sans écouter le mot anglais.\nRemédiation rapide :\n- Ralentir, répéter le mot en montrant la flashcard avant l'action.",
+       "correction": "",
+       "obstacles": "",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3614,7 +3594,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789900000000
+   "updatedAt": 1789910000000
   },
   {
    "date": "2026-09-21",

@@ -12,7 +12,7 @@ import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
-import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon } from "./MardiSupports";
+import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon } from "./MardiSupports";
 
 export interface SupportFourni {
   key: string;
@@ -222,57 +222,62 @@ const EPS_TOURS: FicheData = {
 /* ===================== MATHS — Comparer les nombres ===================== */
 
 const COMP_CE1_LECON: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
+  entete: "Leçon (à coller)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
-    { kind: "def", titre: "Comparer, c'est quoi ?", contenu: "Comparer deux nombres, c'est dire lequel est le PLUS GRAND et lequel est le PLUS PETIT. J'utilise les signes < (plus petit que) et > (plus grand que)." },
-    { kind: "def", picto: "crocodile", titre: "Le truc du crocodile", contenu: "Le signe est comme la bouche d'un crocodile très gourmand : sa bouche s'ouvre toujours du côté du PLUS GRAND nombre (il veut manger le plus gros !). La pointe montre le plus petit." },
-    { kind: "base10", dizaines: 4, unites: 7, legende: "47" },
-    { kind: "base10", dizaines: 5, unites: 2, legende: "52" },
+    { kind: "def", contenu: "Comparer, c'est dire quel nombre est le plus grand. La bouche s'ouvre toujours vers le plus grand : < (plus petit que), > (plus grand que), = (égal)." },
     { kind: "comparer", a: 47, b: 52, signe: "<" },
-    { kind: "puces", titre: "Ma méthode (nombres à 2 chiffres)", points: [
-      "Je compare d'abord les DIZAINES.",
-      "Si les dizaines sont égales, je compare les UNITÉS.",
+    { kind: "puces", titre: "Ma méthode", points: [
+      "Je compare d'abord les dizaines.",
+      "Si elles sont égales, je compare les unités.",
     ] },
-    { kind: "comparer", a: 63, b: 61, signe: ">" },
-    { kind: "exemples", titre: "À retenir", points: ["< : le plus petit est à gauche.", "> : le plus grand est à gauche.", "Le bec s'ouvre vers le plus grand."] },
   ],
 };
 
 const COMP_CE2_LECON: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
+  entete: "Leçon (à coller)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
-    { kind: "def", picto: "crocodile", titre: "Comparer des nombres à 3 chiffres", contenu: "Pour comparer deux nombres, je regarde leurs chiffres rang par rang : les centaines, puis les dizaines, puis les unités. J'utilise les signes <, > et = (égal). Astuce : la bouche du crocodile s'ouvre vers le plus grand nombre." },
-    { kind: "puces", titre: "Ma méthode", points: [
-      "Je compare d'abord les CENTAINES.",
-      "Si les centaines sont égales, je compare les DIZAINES.",
-      "Si les dizaines sont égales aussi, je compare les UNITÉS.",
-    ] },
+    { kind: "def", contenu: "Je compare rang par rang : les centaines, puis les dizaines, puis les unités. La bouche s'ouvre vers le plus grand : <, >, =." },
     { kind: "comparer", a: 246, b: 254, signe: "<", cdu: true },
-    { kind: "comparer", a: 531, b: 528, signe: ">", cdu: true },
-    { kind: "def", picto: "fleche", titre: "Pour aller plus loin", contenu: "Je sais aussi RANGER une liste du plus petit au plus grand, et ENCADRER un nombre entre la dizaine juste avant et la dizaine juste après." },
-    { kind: "exemples", titre: "Exemples", points: ["Ranger : 309 < 390 < 903 < 930.", "Encadrer : 340 < 347 < 350.", "Égalité : 300 + 40 + 7 = 347."] },
+    { kind: "puces", titre: "Je sais aussi", points: [
+      "ranger : 309 < 390 < 903 ;",
+      "encadrer : 340 < 347 < 350.",
+    ] },
+  ],
+};
+
+const COMP_EX_CE1: FicheData = {
+  entete: "Exercices", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "24 < 42", aide: "la bouche vers le plus grand", consigne: "Compare avec < ou >.", items: [
+      "37 ____ 73", "58 ____ 52", "90 ____ 19", "46 ____ 64", "81 ____ 78", "25 ____ 30",
+    ] },
+    { kind: "exercice", exemple: "45 < ___ → 45 < 50", consigne: "Complète avec un nombre qui convient.", items: [
+      "32 < ______", "67 > ______", "______ < 80", "______ > 54",
+    ] },
+    { kind: "exercice", exemple: "23 – 32 – 13 → 13 < 23 < 32", consigne: "Range du plus petit au plus grand.", items: [
+      "45 – 54 – 15 → ______________", "70 – 17 – 71 → ______________",
+    ] },
   ],
 };
 
 const COMP_CE2_AUTO: FicheData = {
   entete: "Fichier autonomie", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
-  competences: ["comparer avec < et >", "compléter avec un nombre qui convient", "ranger du plus petit au plus grand", "encadrer un nombre", "résoudre un problème"],
   blocs: [
-    { kind: "exercice", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
-      "426 ____ 462", "703 ____ 307", "289 ____ 156", "98 ____ 201",
-      "200 ____ 300", "471 ____ 198", "777 ____ 707", "123 ____ 321", "931 ____ 899",
+    { kind: "exercice", exemple: "426 < 462", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
+      "703 ____ 307", "289 ____ 156", "98 ____ 201", "200 ____ 300",
+      "471 ____ 198", "777 ____ 707", "123 ____ 321", "931 ____ 899",
     ] },
-    { kind: "exercice", picto: "fleche", consigne: "Complète avec un nombre qui convient.", items: [
-      "125 < ______", "142 < ______", "317 > ______", "______ < 590", "______ > 898", "267 > ______",
+    { kind: "exercice", picto: "fleche", exemple: "125 < ___ → 125 < 130", consigne: "Complète avec un nombre qui convient.", items: [
+      "142 < ______", "317 > ______", "______ < 590", "______ > 898", "267 > ______",
     ] },
-    { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
-      "309 – 390 – 903 – 930 → ____________________",
+    { kind: "exercice", exemple: "309 – 390 – 903 → 309 < 390 < 903", consigne: "Range chaque liste du plus petit au plus grand.", items: [
       "540 – 405 – 450 – 504 → ____________________",
+      "812 – 128 – 281 – 218 → ____________________",
     ] },
-    { kind: "exercice", aide: "la dizaine avant / la dizaine après", consigne: "Encadre chaque nombre.", items: [
-      "______ < 347 < ______", "______ < 508 < ______", "______ < 690 < ______",
+    { kind: "exercice", exemple: "340 < 347 < 350", aide: "la dizaine avant / la dizaine après", consigne: "Encadre chaque nombre.", items: [
+      "______ < 508 < ______", "______ < 690 < ______", "______ < 273 < ______",
     ] },
-    { kind: "exercice", picto: "valise", consigne: "Problème. Simon a 4 billets de 100 € et 4 billets de 20 €. Alexandra a 5 billets de 100 € et 2 billets de 10 €. Qui a le moins d'argent ?", lignes: 3 },
+    { kind: "exercice", picto: "valise", exemple: "Je compte l'argent de chacun, puis je compare.", consigne: "Problème. Simon a 4 billets de 100 € et 4 billets de 20 €. Alexandra a 5 billets de 100 € et 2 billets de 10 €. Qui a le moins d'argent ?", lignes: 3 },
   ],
 };
 
@@ -442,42 +447,39 @@ const ARTDET_LECON: FicheData = {
 /* Déterminants — nouvelles feuilles d'entraînement (modèle authentique) */
 const DET_ENTRAINE_CE1: FicheData = {
   entete: "Exercices", titre: "Les déterminants", niveau: "CE1", discipline: "Français — Grammaire",
-  competences: ["repérer le déterminant devant le nom", "choisir le / la", "accorder au pluriel", "compléter avec un déterminant"],
   blocs: [
-    { kind: "exercice", picto: "chat", consigne: "Entoure le déterminant dans chaque groupe.", items: [
-      "le chat", "une maison", "les oiseaux", "ma trousse", "des fleurs", "cette voiture",
+    { kind: "exercice", picto: "chat", exemple: "le chat → j'entoure le", consigne: "Entoure le déterminant dans chaque groupe.", items: [
+      "une maison", "les oiseaux", "ma trousse", "des fleurs", "cette voiture", "un ballon",
     ] },
-    { kind: "exercice", picto: "pomme", aide: "le = garçon, la = fille", consigne: "Complète avec le ou la.", items: [
-      "___ soleil", "___ lune", "___ maîtresse", "___ cartable", "___ pomme", "___ tableau",
+    { kind: "exercice", picto: "pomme", exemple: "___ soleil → le soleil", consigne: "Complète avec le ou la.", items: [
+      "___ lune", "___ maîtresse", "___ cartable", "___ pomme", "___ tableau", "___ récréation",
     ] },
-    { kind: "exercice", picto: "oiseau", aide: "plusieurs → les / des", consigne: "Récris au pluriel.", items: [
-      "le chien → ______________", "une fleur → ______________", "la table → ______________",
+    { kind: "exercice", picto: "oiseau", exemple: "le chien → les chiens", consigne: "Récris au pluriel.", items: [
+      "une fleur → ______________", "la table → ______________", "un ami → ______________",
     ] },
-    { kind: "exercice", picto: "maison", consigne: "Complète chaque nom avec un déterminant qui convient.", items: [
-      "______ école", "______ vélo", "______ amis", "______ image",
+    { kind: "exercice", picto: "maison", exemple: "____ école → mon école (ou : l'école)", consigne: "Complète chaque nom avec un déterminant qui convient.", items: [
+      "______ vélo", "______ amis", "______ image", "______ cahier",
     ] },
   ],
 };
 
 const DET_ENTRAINE_CE2: FicheData = {
   entete: "Exercices", titre: "Les déterminants", niveau: "CE2", discipline: "Français — Grammaire",
-  competences: ["repérer le déterminant et le nom", "distinguer défini / indéfini", "accorder le déterminant", "remplacer un déterminant", "employer d'autres déterminants"],
   blocs: [
-    { kind: "exercice", picto: "livre", consigne: "Souligne le déterminant et entoure le nom.", items: [
-      "Le renard traverse la forêt.", "Une abeille butine des fleurs.", "Mes amis rangent leurs cahiers.",
-      "Cette histoire raconte un voyage.",
+    { kind: "exercice", picto: "livre", exemple: "Le renard traverse la forêt. → dét. : Le, la ; noms : renard, forêt", consigne: "Souligne le déterminant et entoure le nom.", items: [
+      "Une abeille butine des fleurs.", "Mes amis rangent leurs cahiers.", "Cette histoire raconte un voyage.",
     ] },
-    { kind: "exercice", aide: "défini : le/la/les — indéfini : un/une/des", consigne: "Classe : article défini (D) ou indéfini (I) ?", items: [
-      "les élèves ___", "une pomme ___", "le maître ___", "des livres ___", "l'école ___",
+    { kind: "exercice", exemple: "les élèves → D (défini)", aide: "défini : le/la/les — indéfini : un/une/des", consigne: "Classe : article défini (D) ou indéfini (I) ?", items: [
+      "une pomme ___", "le maître ___", "des livres ___", "l'école ___", "un cartable ___",
     ] },
-    { kind: "exercice", picto: "cartable", aide: "il s'accorde avec le nom", consigne: "Récris au pluriel (attention au déterminant).", items: [
-      "le cheval → ______________", "cette fleur → ______________", "mon crayon → ______________",
+    { kind: "exercice", picto: "cartable", exemple: "le cheval → les chevaux", aide: "il s'accorde avec le nom", consigne: "Récris au pluriel (attention au déterminant).", items: [
+      "cette fleur → ______________", "mon crayon → ______________", "un oiseau → ______________",
     ] },
-    { kind: "exercice", aide: "garde le même sens", consigne: "Remplace le déterminant en gras par un autre qui convient.", items: [
-      "**le** chien de Léa → ______________", "**une** voiture rouge → ______________", "**des** oiseaux → ______________",
+    { kind: "exercice", exemple: "le chien de Léa → ce chien / mon chien", aide: "garde le même sens", consigne: "Remplace le déterminant en gras par un autre qui convient.", items: [
+      "**une** voiture rouge → ______________", "**des** oiseaux → ______________", "**la** maison → ______________",
     ] },
-    { kind: "exercice", picto: "ampoule", consigne: "Complète avec un déterminant démonstratif (ce, cet, cette, ces) ou possessif (mon, ma, mes…).", items: [
-      "______ matin, je me lève tôt.", "Range ______ affaires.", "Regarde ______ étoile !",
+    { kind: "exercice", picto: "ampoule", exemple: "______ matin → Ce matin", consigne: "Complète avec un déterminant démonstratif (ce, cet, cette, ces) ou possessif (mon, ma, mes…).", items: [
+      "Range ______ affaires.", "Regarde ______ étoile !", "______ enfants jouent dehors.",
     ] },
   ],
 };
@@ -680,15 +682,16 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m15det":
       return [
-        { key: "det-affiche", label: "Les déterminants — Leçon à projeter", node: ficheNode(ARTDET_AFFICHE) },
-        { key: "det-ce1", label: "Les déterminants — Entraînement CE1 (A4)", node: ficheNode(DET_ENTRAINE_CE1) },
-        { key: "det-ce2", label: "Les déterminants — Entraînement CE2 (A4)", node: ficheNode(DET_ENTRAINE_CE2) },
+        { key: "det-lecon", label: "Les déterminants — Leçon à coller (à projeter aussi)", node: <DeterminantsLecon /> },
+        { key: "det-ce1", label: "Les déterminants — Exercices CE1 (A4)", node: ficheNode(DET_ENTRAINE_CE1) },
+        { key: "det-ce2", label: "Les déterminants — Exercices CE2 (A4)", node: ficheNode(DET_ENTRAINE_CE2) },
       ];
     case "m15comp":
       return [
         { key: "comp-diapo", label: "Comparer les nombres — Diaporama à projeter (les signes < > =)", node: <ComparerDiapo /> },
         { key: "comp-ce1-lecon", label: "Comparer les nombres — Leçon CE1 (à coller)", node: ficheNode(COMP_CE1_LECON) },
-        { key: "comp-ce2-lecon", label: "Comparer les nombres — Leçon CE2 (va plus loin)", node: ficheNode(COMP_CE2_LECON) },
+        { key: "comp-ce2-lecon", label: "Comparer les nombres — Leçon CE2 (à coller)", node: ficheNode(COMP_CE2_LECON) },
+        { key: "comp-ex-ce1", label: "Comparer les nombres — Exercices CE1 (A4)", node: ficheNode(COMP_EX_CE1) },
         { key: "comp-ce2-auto", label: "Comparer les nombres — Fichier autonomie CE2 (tandem)", node: ficheNode(COMP_CE2_AUTO) },
       ];
     case "m15sci":
