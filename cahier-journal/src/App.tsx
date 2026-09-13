@@ -19,6 +19,7 @@ import { PlansView } from "./components/PlansView";
 import { SequencesView } from "./components/SequencesView";
 import { SequencesPlanView } from "./components/SequencesPlanView";
 import { IdeesSeancesView } from "./components/IdeesSeancesView";
+import { RessourcesView } from "./components/RessourcesView";
 import { InfoElevesView } from "./components/InfoElevesView";
 import { RitualsView } from "./components/RitualsView";
 import { ProjetsView } from "./components/ProjetsView";
@@ -118,6 +119,7 @@ export function App() {
             {view === "sequences" && <SequencesPlanView />}
             {view === "library" && <SequencesView />}
             {view === "idees" && <IdeesSeancesView />}
+            {view === "ressources" && <RessourcesView />}
             {view === "rituals" && <RitualsView />}
             {view === "projets" && <ProjetsView />}
             {view === "edt" && <EDTView />}

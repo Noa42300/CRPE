@@ -14,6 +14,7 @@ export type ViewId =
   | "library"
   | "sequences"
   | "idees"
+  | "ressources"
   | "rituals"
   | "projets"
   | "edt"
@@ -33,7 +34,8 @@ const ITEMS: { id: ViewId; label: string; icon: string }[] = [
   { id: "progressions", label: "Progressions", icon: "📈" },
   { id: "sequences", label: "Séquences", icon: "🧩" },
   { id: "library", label: "Bibliothèque", icon: "📔" },
-  { id: "idees", label: "Idées séances", icon: "✨" },
+  { id: "idees", label: "Séances vierges", icon: "📝" },
+  { id: "ressources", label: "Ressources", icon: "🧭" },
   { id: "rituals", label: "Rituels", icon: "🔔" },
   { id: "projets", label: "Projets", icon: "🌍" },
   { id: "tableau", label: "Tableau", icon: "✏️" },
