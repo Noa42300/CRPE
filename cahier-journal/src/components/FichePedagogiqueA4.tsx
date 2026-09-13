@@ -21,6 +21,7 @@ export type FicheBloc =
   | { kind: "tableau"; titre?: string; entetes: string[]; lignes: string[][] }
   | { kind: "champs"; items: string[] }
   | { kind: "traits"; n: number }
+  | { kind: "pagebreak"; label?: string }
   | { kind: "lignes"; n: number };
 
 export interface FicheData {
@@ -228,6 +229,20 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
                 {Array.from({ length: b.n }).map((_, k) => (
                   <span key={k} style={{ display: "inline-block", width: "3mm", height: "12mm", borderLeft: "2px solid #1c1917" }} />
                 ))}
+              </div>
+            );
+          }
+          if (b.kind === "pagebreak") {
+            // Séparateur visible + grande marge blanche : l'élève voit la fin de
+            // la page 1, et la pagination PDF (coupe sur ligne blanche) tombe ici.
+            return (
+              <div key={i} className="fiche-pagebreak" style={{ margin: "6mm 0 2mm", textAlign: "center", breakBefore: "page" as React.CSSProperties["breakBefore"] }}>
+                <div style={{ borderTop: "2px dashed #94a3b8", position: "relative", height: 0 }}>
+                  <span style={{ position: "absolute", left: "50%", top: "-3mm", transform: "translateX(-50%)", background: "#fff", padding: "0 3mm", fontSize: "12px", fontWeight: 800, color: "#64748b", letterSpacing: "0.06em" }}>
+                    ✂ — — — {b.label ?? "PAGE 2"} — — —
+                  </span>
+                </div>
+                <div style={{ height: "6mm" }} />
               </div>
             );
           }
