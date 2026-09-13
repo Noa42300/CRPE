@@ -9,8 +9,9 @@ import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama } from "./AnglaisDiaporama";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
-import { MesurerTempsDiapo, FriseUnitesTemps } from "./MesurerTempsDiapo";
+import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
+import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
 
 export interface SupportFourni {
   key: string;
@@ -521,29 +522,8 @@ const EPS_SEQ: Record<string, EpsFiche> = {
 };
 
 /* ============ QLM — Histoire séance 2 : mesurer le temps ============ */
-
-const HIST_MESURER_TEMPS: FicheData = {
-  entete: "Leçon (à coller — cahier de QLM)", titre: "Comment mesurer le temps ?", niveau: "CE1-CE2", discipline: "Questionner le monde — Le temps", cursive: true,
-  blocs: [
-    { kind: "def", picto: "telCadran", contenu: "Pour mesurer le temps, on utilise des unités, de la plus petite à la plus grande. Chacune est plus grande que la précédente." },
-    { kind: "timeline", titre: "Les unités de temps", steps: [
-      { name: "sourire", label: "le jour" },
-      { name: "livre", label: "l'année (365 jours)" },
-      { name: "fleche", label: "la décennie = 10 ans" },
-      { name: "caverne", label: "le siècle = 100 ans" },
-      { name: "globe", label: "le millénaire = 1000 ans" },
-    ] },
-    { kind: "puces", titre: "Je retiens", points: [
-      "1 décennie = 10 ans.",
-      "1 siècle = 100 ans.",
-      "1 millénaire = 1000 ans.",
-    ] },
-    { kind: "def", picto: "plume", titre: "Les chiffres romains (surtout les CE2)", contenu: "On écrit les siècles en chiffres romains. I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. Exemple : nous vivons au XXIᵉ siècle (le 21ᵉ)." },
-    { kind: "tableau", titre: "Quelques chiffres romains", entetes: ["Nombre", "Chiffre romain"], lignes: [
-      ["1", "I"], ["5", "V"], ["10", "X"], ["50", "L"], ["100", "C"], ["1000", "M"],
-    ] },
-  ],
-};
+/* La leçon et la frise sont dans MesurerTempsDiapo.tsx (mise en page soignée,
+   frise réelle + chiffres romains IV/XIX), plus le diaporama à projeter. */
 
 /* ============ MATHS — Fichier autonomie CE2 : dénombrer jusqu'à 1000 (2 pages) ============ */
 
@@ -568,6 +548,7 @@ const DENOMBRE_CE2_2P: FicheData = {
       "Dans 100, il y a ___ dizaines.", "Dans 1 000, il y a ___ centaines.",
       "453 = ___ c ___ d ___ u.", "608 = ___ c ___ d ___ u.",
     ] },
+    { kind: "pagebreak", label: "PAGE 2" },
     { kind: "exercice", aide: "je compare rang par rang", exemple: "318 < 381", consigne: "Compare avec < ou >.", items: [
       "426 ____ 462", "703 ____ 307", "289 ____ 156", "540 ____ 504",
     ] },
@@ -647,6 +628,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "eps-terrain-s2", label: "Courir longtemps (séance 2) — schéma du terrain & sécurité", node: EpsTerrainSupport() },
         { key: "eps-tours", label: "Fiche binôme — compter les tours (élève A puis B)", node: ficheNode(EPS_TOURS) },
       ];
+    case "l14eps":
+      return [
+        { key: "eps-s3-seance", label: "Séance 3 « courir vite » — la séance mise en page (à lire d'un coup d'œil)", node: <EpsSeanceFiche data={EPS_COURIR_VITE_S3} /> },
+        { key: "eps-s3-terrain", label: "Séance 3 « courir vite » — schéma du terrain & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s3) },
+      ];
     case "l14poesie":
       return [
         { key: "poesie-ponctuation", label: "« La ponctuation » (Maurice Carême) — fiche copie & illustration (A4)", node: <PoesieCopie /> },
@@ -654,8 +640,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "l14hist":
       return [
         { key: "hist-mesurer-diapo", label: "Comment mesure-t-on le temps ? — Diaporama à projeter (photos réelles)", node: <MesurerTempsDiapo /> },
-        { key: "hist-mesurer-frise", label: "La frise des unités de temps — à imprimer & coller (A4 paysage)", node: <FriseUnitesTemps print /> },
-        { key: "hist-mesurer-temps", label: "Comment mesurer le temps ? — Leçon (chiffres romains inclus)", node: ficheNode(HIST_MESURER_TEMPS) },
+        { key: "hist-mesurer-lecon", label: "Comment mesure-t-on le temps ? — Leçon à coller (frise + chiffres romains IV, XIX)", node: <MesurerTempsLecon /> },
+        { key: "hist-mesurer-frise", label: "La frise des unités de temps — 3 exemplaires à découper & coller (A4)", node: <FriseUnitesTemps print /> },
       ];
     case "l14auto":
       return [
