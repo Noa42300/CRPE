@@ -94,6 +94,25 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
 - Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
   de vraies fiches de CE1-CE2 comme référence) pour toute nouvelle fiche.
 
+### Leçons projetées / à coller — MODÈLE VALIDÉ « simple, efficace, enfantin »
+- Référence validée par l'enseignant : la **leçon d'histoire « Comment mesure-t-on
+  le temps ? »** (`MesurerTempsLecon`) et son **diaporama** (`MesurerTempsDiapo`).
+  C'est LE modèle à reproduire pour toute leçon.
+- Recette : **très gros titre** (Caveat, coloré) **sans filet souligné** « IA » ;
+  **beaucoup de petits dessins maison** (SVG originaux : horloge, sablier, soleil,
+  calendrier…) ; **très peu de texte** ; l'essentiel en **grosses pastilles /
+  cartes** colorées. Objectif : un CE1-CE2 comprend d'un coup d'œil et ne décroche
+  pas. Éviter les blocs de texte façon manuel de CM2.
+
+### Questionner le monde — séquences dans le cahier (IMPORTANT)
+- Les 3 programmations de l'enseignant (Histoire, Sciences, Géographie, 24 séances
+  chacune) sont **transcrites en séquences réutilisables** dans `public/journal.json`
+  (`sequences`, `disciplineId: "qlm"`, ids `seq-qlm-hist/sci/geo-*`), en plus de la
+  **référence lecture seule** `PROG_QLM` (dans `progDisciplines.ts`, affichée dans
+  Progressions → Questionner le monde). Les titres sont préfixés « Histoire · »,
+  « Sciences · », « Géographie · » pour les distinguer. **Histoire = le lundi,
+  Sciences = le mardi (Période 1) ; Géographie à partir de la Période 2.**
+
 ## Organisation matérielle de la classe (référence)
 
 Quand je rédige une séance, indiquer le bon support de rangement :
