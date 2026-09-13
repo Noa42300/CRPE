@@ -50,8 +50,11 @@ export function InfoElevesView() {
 
   // Répartit un bilan collé (une ligne « Prénom : observation » par élève) dans
   // la zone de suivi de chaque élève. Ajoute (n'écrase pas) ; match par prénom.
+  // Le texte est repris tel quel (j'y mets moi-même la matière : « Maths — … »).
+  // Plusieurs lignes pour un même élève sont cumulées (maths + français + EPS…).
   const distribute = () => {
     const lines = bulk.split("\n").map((l) => l.trim()).filter(Boolean);
+    const working = new Map<string, StudentNote>();
     let ok = 0;
     const notFound: string[] = [];
     for (const line of lines) {
@@ -68,13 +71,18 @@ export function InfoElevesView() {
       if (cands.length > 1 && niveau) cands = cands.filter((s) => s.niveau === niveau);
       if (cands.length === 0) { notFound.push(namePart); continue; }
       const st = cands[0];
-      const note = noteFor(st.id);
-      const add = /fleur du nombre/i.test(text) ? text : `Fleur du nombre (rentrée) — ${text}`;
-      const synthese = note.synthese.trim() ? `${note.synthese.trim()}\n${add}` : add;
-      void saveStudentNote({ ...note, synthese, updatedAt: Date.now() });
+      // On accumule dans une copie de travail : si un élève a plusieurs lignes,
+      // chacune s'ajoute (sans que la seconde écrase la première).
+      const note = working.get(st.id) ?? noteFor(st.id);
+      const synthese = note.synthese.trim() ? `${note.synthese.trim()}\n${text}` : text;
+      working.set(st.id, { ...note, synthese, updatedAt: Date.now() });
       ok++;
     }
-    setReport(`${ok} élève(s) rempli(s).${notFound.length ? ` Non trouvés : ${notFound.join(", ")}.` : ""}`);
+    for (const n of working.values()) void saveStudentNote(n);
+    setReport(
+      `${working.size} élève(s) rempli(s), ${ok} ligne(s) ajoutée(s).` +
+      (notFound.length ? ` Non trouvés : ${[...new Set(notFound)].join(", ")}.` : ""),
+    );
     setBulk("");
   };
 
@@ -115,14 +123,16 @@ export function InfoElevesView() {
           {showImport && (
             <div className="mt-2 rounded-2xl border border-dashed border-ink-300 bg-ink-50/40 p-3 dark:border-ink-500/40 dark:bg-ink-500/10">
               <p className="mb-1.5 text-[12px] text-slate-500 dark:text-slate-400">
-                Une ligne par élève : <b>Prénom : observation</b>. Ajoute « (CE1) » ou « (CE2) »
-                après le prénom en cas d'homonyme (ex. deux Victor). Le texte est <b>ajouté</b> à la zone de suivi de l'élève.
+                Une ligne = <b>Prénom : observation</b> (le texte est repris tel quel). Ajoute
+                « (CE1) » ou « (CE2) » après le prénom en cas d'homonyme (ex. deux Victor).
+                Plusieurs lignes pour un même élève se <b>cumulent</b> (maths, français, EPS…) ;
+                le texte est <b>ajouté</b> à son suivi, jamais écrasé.
               </p>
               <AutoTextarea
                 className="min-h-[110px] text-[13px]"
                 value={bulk}
                 onChange={(e) => setBulk(e.target.value)}
-                placeholder={"Alyssa : En retard — +5/-1/+3/-2/-4, alterne + et −.\nVictor (CE1) : En avance — alterne +, − et × (5×5)."}
+                placeholder={"Timothée : Maths (dénombrer jusqu'à 1000) — tout acquis, phrases réponses sans faute.\nWassim : Français (les déterminants) — fragile au « je me teste ».\nVictor (CE1) : EPS (course longue) — 7 tours, groupe 3."}
               />
               <div className="mt-2 flex items-center gap-2">
                 <button onClick={distribute} disabled={!bulk.trim()} className="btn-primary py-1.5 text-sm disabled:opacity-40">
