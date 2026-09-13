@@ -3007,7 +3007,7 @@
      {
       "id": "ev-2026-09-15",
       "type": "particulier",
-      "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+      "note": "Mardi préparé : français (déterminants), maths (comparer les nombres), sciences (solide/liquide), EPS (courir vite), anglais séance 3 à confirmer."
      }
     ],
     "devoirs": ""
@@ -3056,34 +3056,60 @@
      ]
     },
     {
-     "id": "d2026-09-15s2",
+     "id": "m15s-fr",
      "start": "08:45",
      "end": "10:00",
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "a-francais-85194",
+       "id": "m15det",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "Créneau français du matin (~1h15) : à compléter.",
+       "title": "Français — Les déterminants (entraînement)",
+       "objectif": "Consolider la reconnaissance et l'emploi des déterminants (défini / indéfini, accord).",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "",
+       "progDomaine": "francais",
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "f1",
+         "label": "On rappelle (10 min)",
+         "note": "- « On a appris les déterminants : ce petit mot placé DEVANT le nom. »\n- « Qui me donne un déterminant ? … le, la, les, un, une, des, mon, ce… »\n- « Aujourd'hui, on s'entraîne pour devenir des champions des déterminants. »\n- « D'abord on regarde une petite vidéo, on ouvre grand les oreilles. »\n- « Ensuite, chacun aura sa feuille d'exercices. »"
+        },
+        {
+         "id": "f2",
+         "label": "Vidéo + règle projetée (10 min)",
+         "note": "- « On regarde la vidéo sur les déterminants. »\n- « Le déterminant s'accorde avec le nom : masculin/féminin, singulier/pluriel. »\n- « Défini : le, la, les → on sait de quoi on parle. »\n- « Indéfini : un, une, des → on ne sait pas encore. »\n- « Devant une voyelle : l' (l'école, l'ami). »\n- « Je projette la leçon, on relit ensemble. »"
+        },
+        {
+         "id": "f3",
+         "label": "Entraînement en tandems (40 min)",
+         "note": "- « CE1, vous avez votre feuille ; CE2, la vôtre. »\n- « On lit bien la consigne, on la souligne. »\n- « On commence par entourer les déterminants. »\n- « CE2, n'oubliez pas de dire défini ou indéfini. »\n- « Je passe dans les rangs ; si vous êtes bloqués, levez la main. »\n- « Quand j'ai fini, je coche la colonne “Je sais…”. »"
+        },
+        {
+         "id": "f4",
+         "label": "Correction (15 min)",
+         "note": "- « On corrige ensemble au tableau. »\n- « Un élève lit sa réponse, on valide ou on corrige. »\n- « On repère les erreurs et on comprend pourquoi. »\n- « On range la feuille dans le classeur. »"
+        }
+       ],
+       "materiel": "Vidéo projetée, leçon « Les déterminants » (TBI), feuilles d'entraînement CE1 et CE2 — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/results?search_query=les+d%C3%A9terminants+CE1+CE2+le+la+les+un+une+des",
+       "differenciation": "CE1 : repérer le déterminant, choisir le/la, accorder au pluriel.\nCE2 : distinguer défini/indéfini, remplacer un déterminant, employer démonstratifs et possessifs.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Voir les corrigés sur chaque feuille (colonne « Je sais… »).",
+       "obstacles": "Erreurs fréquentes :\n- Confondre le déterminant avec un autre petit mot (préposition « de », « à »).\n- Oublier l'accord au pluriel (le → les).\nRemédiation rapide :\n- Test : « le … » devant le nom fonctionne → c'est un déterminant.\n- Faire dire le groupe au pluriel à l'oral avant d'écrire.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3128,34 +3154,60 @@
      ]
     },
     {
-     "id": "d2026-09-15s4",
+     "id": "m15s-ma",
      "start": "10:15",
      "end": "11:25",
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "a-maths-9524",
+       "id": "m15comp",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Mathématiques",
-       "objectif": "Créneau maths du matin (~1h10) : à compléter.",
+       "title": "Maths — Comparer les nombres (< > =)",
+       "objectif": "Comparer et ranger des nombres (CE1 jusqu'à 99, CE2 jusqu'à 1000) en utilisant <, > et =.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "",
+       "progDomaine": "maths",
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
+       "organisation": [
+        "collectif",
+        "groupe"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "m1",
+         "label": "Découverte : la bouche mange le plus grand (15 min)",
+         "note": "- « Aujourd'hui, on apprend à comparer les nombres : lequel est le plus grand ? »\n- « Je projette : la bouche s'ouvre toujours vers le nombre le plus grand. »\n- « 3 … 8 : la bouche mange le 8, on écrit 3 < 8. »\n- « Trois signes : < plus petit, > plus grand, = égal. »\n- « Sortez l'ardoise, on s'entraîne avec le diaporama. »\n- « Montrez-moi le bon signe ! »"
+        },
+        {
+         "id": "m2",
+         "label": "On institutionnalise (10 min)",
+         "note": "- « On colle la leçon : < plus petit que, > plus grand que, = égal. »\n- « Pour comparer, je regarde d'abord le rang le plus grand. »\n- « CE1 : on compare jusqu'à 99 ; CE2 : jusqu'à 1000. »\n- « Le petit truc : la pointe est du côté du plus petit. »\n- « On relit la règle tous ensemble. »"
+        },
+        {
+         "id": "m3",
+         "label": "Tandem : CE1 avec moi / CE2 en autonomie (30 min)",
+         "note": "- « CE1, on reste ensemble : on compare des nombres jusqu'à 99. »\n- « CE2, vous prenez le fichier autonomie : comparer jusqu'à 1000. »\n- « On place le bon signe entre les deux nombres. »\n- « CE2, vous rangez aussi des listes du plus petit au plus grand. »\n- « Ensuite, on échange : je viens voir les CE2. »\n- « Si c'est fini, je vérifie avec mon voisin. »"
+        },
+        {
+         "id": "m4",
+         "label": "Mise en commun (15 min)",
+         "note": "- « On corrige quelques comparaisons au tableau. »\n- « Comment tu as fait pour savoir ? … je regarde les centaines d'abord. »\n- « On vérifie le sens de la bouche : vers le plus grand. »\n- « On range le cahier de maths. »"
+        }
+       ],
+       "materiel": "Diaporama « Comparer les nombres » projeté, ardoises, leçon CE1 et CE2 à coller, fichier autonomie CE2 (tandem) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/results?search_query=comparer+les+nombres+signes+plus+petit+plus+grand+CE1+CE2",
+       "differenciation": "CE1 : comparer et ranger des nombres jusqu'à 99, placer < > =.\nCE2 : comparer jusqu'à 1000, ranger des listes, encadrer.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Le signe s'ouvre vers le plus grand nombre. On compare rang par rang (centaines, puis dizaines, puis unités).",
+       "obstacles": "Erreurs fréquentes :\n- Écrire le signe à l'envers.\n- Comparer les chiffres un par un sans regarder le rang (dire 89 > 100 car 8 > 1).\nRemédiation rapide :\n- « La bouche mange le plus grand » ; faire tracer la pointe vers le petit.\n- Revenir à la valeur : « combien de centaines ? » d'abord.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3272,34 +3324,116 @@
      ]
     },
     {
-     "id": "d2026-09-15s8",
+     "id": "m15s-sci",
      "start": "13:45",
-     "end": "15:00",
-     "disciplineId": "francais",
+     "end": "14:30",
+     "disciplineId": "qlm",
      "activities": [
       {
-       "id": "a-francais-7475",
+       "id": "m15sci",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Sciences — Solide ou liquide ?",
+       "objectif": "Manipuler, observer et trier pour distinguer les solides des liquides.",
+       "competence": "Décrire les états de la matière (solide, liquide).",
+       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde, « Qu'est-ce que la matière ? ». À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
+       "progDomaine": "qlm",
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
+       "organisation": [
+        "collectif",
+        "groupe"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "s1",
+         "label": "On découvre (diaporama, 8 min)",
+         "note": "- « On fait des sciences : solide ou liquide ? »\n- « Je projette : autour de nous, il y a de la matière. »\n- « Le solide garde sa forme ; le liquide coule. »\n- « On regarde des photos et on devine ensemble. »\n- « On observe bien, on ne goûte à rien. »"
+        },
+        {
+         "id": "s2",
+         "label": "On manipule (15 min)",
+         "note": "- « Par groupes : une pierre, un crayon, une éponge, de l'eau, du sirop, du sable. »\n- « Vous touchez, vous versez doucement au-dessus du bac. »\n- « Qu'est-ce qui garde sa forme ? qu'est-ce qui coule ? »\n- « CE2, vous cherchez à EXPLIQUER pourquoi. »\n- « On partage le matériel, on chuchote. »"
+        },
+        {
+         "id": "s3",
+         "label": "On trie (12 min)",
+         "note": "- « On range en deux familles : les SOLIDES et les LIQUIDES. »\n- « Un solide garde sa forme ; un liquide prend la forme du récipient. »\n- « Et le sable ? Il coule… mais chaque grain est un solide ! »\n- « CE1 : solide ou liquide ? CE2 : pourquoi ? »"
+        },
+        {
+         "id": "s4",
+         "label": "Trace écrite (10 min)",
+         "note": "- « On colle la leçon dans le cahier de Questionner le monde. »\n- « On relit : solide = garde sa forme ; liquide = coule. »\n- « CE1 : je colorie ; CE2 : j'ajoute un exemple. »\n- « On range le matériel tous ensemble, sans renverser. »"
+        }
+       ],
+       "materiel": "Diaporama « Solide ou liquide ? » projeté (photos réelles), par groupe : bac, pierre, crayon, éponge, eau, sirop, sable, récipient transparent, essuie-tout ; leçon à coller — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/results?search_query=solide+liquide+cycle+2+la+mati%C3%A8re+lumni",
+       "differenciation": "CE1 : trier et dire « solide / liquide », décrire.\nCE2 : caractériser les propriétés, justifier chaque classement, discuter le cas du sable.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Solides : pierre, crayon, éponge, sable (grains solides). Liquides : eau, sirop. Un solide garde sa forme ; un liquide coule et prend la forme du récipient.",
+       "obstacles": "Erreurs fréquentes :\n- Croire que « ça coule = c'est liquide » pour le sable.\n- Confondre « petit / mou » avec « liquide ».\nRemédiation rapide :\n- Isoler un grain de sable : « il garde sa forme, c'est un solide, il y en a juste beaucoup ».\n- Revenir au critère : « je le pose : garde-t-il sa forme ? ».",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "m15s-ang",
+     "start": "14:30",
+     "end": "15:00",
+     "disciplineId": "anglais",
+     "activities": [
+      {
+       "id": "m15ang",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais — séance 3 : Three action verbs (à confirmer)",
+       "objectif": "Comprendre et mimer trois verbes d'action en anglais (jump, run, clap) — Total Physical Response.",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "anglais",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "a1",
+         "label": "Warm up (5 min)",
+         "note": "- « Hello everybody! How are you today? »\n- « We sing our ritual song together. »\n- « Stand up! Let's move a little. »"
+        },
+        {
+         "id": "a2",
+         "label": "Three action verbs (15 min)",
+         "note": "- « Today: three action verbs — jump, run, clap. »\n- « Watch me: I jump. Now you: jump! »\n- « I run… I clap… you do it with me. »\n- « Listen well: jump / run / clap. »\n- « Simon says: jump! (fais l'action seulement si je dis “Simon says”). »"
+        },
+        {
+         "id": "a3",
+         "label": "Game & goodbye (10 min)",
+         "note": "- « We play: I say the verb, you do the action. »\n- « Faster and faster! »\n- « Now a pupil is the teacher and says the verb. »\n- « Well done! Goodbye everybody! »"
+        }
+       ],
+       "materiel": "Flashcards jump / run / clap, la chanson rituelle.",
+       "video": "",
+       "differenciation": "CE1 : comprendre et faire l'action au signal.\nCE2 : dire le verbe en anglais en faisant l'action.",
+       "depassement": "",
+       "correction": "jump = sauter ; run = courir ; clap = taper des mains.",
+       "obstacles": "Erreurs fréquentes :\n- Faire l'action sans écouter le mot anglais.\nRemédiation rapide :\n- Ralentir, répéter le mot en montrant la flashcard avant l'action.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3344,24 +3478,24 @@
      ]
     },
     {
-     "id": "d2026-09-15s10",
+     "id": "m15s-eps",
      "start": "15:15",
      "end": "16:00",
      "disciplineId": "eps",
      "activities": [
       {
-       "id": "epsp1s4",
+       "id": "m15eps",
        "niveaux": [
         "classe"
        ],
-       "title": "EPS — Consolidation : relais (vitesse & coopération)",
-       "objectif": "Se transmettre un témoin en courant, coopérer en équipe.",
-       "competence": "Courir vite ; coopérer, transmettre un objet.",
-       "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+       "title": "EPS — courir vite (reprise, comme lundi)",
+       "objectif": "Réagir vite à un signal et courir vite en ligne droite (reprise de la séance de lundi).",
+       "competence": "",
+       "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "Athlétisme — courir vite / relais",
-       "progSequence": "Athlétisme P1 — courir & lancer",
-       "progSeance": "4",
+       "progDomaine": "eps",
+       "progSequence": "",
+       "progSeance": "",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -3371,34 +3505,34 @@
        "roleEnseignant": [
         "guidage"
        ],
-       "video": "",
        "deroulement": [
         {
-         "id": "t1",
+         "id": "e1",
          "label": "Mise en train (10 min)",
-         "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+         "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Comme lundi, aujourd'hui on court VITE. »\n- « On s'échauffe bien pour ne pas se faire mal. »"
         },
         {
-         "id": "t2",
-         "label": "Passages de témoin (10 min)",
-         "note": "- « On passe le témoin : main tendue en arrière. »\n- « D'abord à l'arrêt, puis en marchant, puis en courant. »\n- « Le passage se fait dans la ZONE jaune seulement. »\n- « On regarde devant en courant. »"
+         "id": "e2",
+         "label": "Jeux de réaction (12 min)",
+         "note": "- « Au signal, on part le plus vite possible. »\n- « On part de positions différentes : debout, assis, dos tourné. »\n- « On écoute BIEN le signal, pas de départ avant. »\n- « On court tout droit jusqu'à la ligne. »\n- « Celui qui part trop tôt revient au départ. »"
         },
         {
-         "id": "t3",
-         "label": "Relais-défi (15 min)",
-         "note": "- « Par équipes, course en relais navette. »\n- « On passe le témoin dans la zone, sans se bousculer. »\n- « Toute l'équipe s'encourage. »\n- « On accepte de gagner ou de perdre. »"
+         "id": "e3",
+         "label": "Sprints par vagues (13 min)",
+         "note": "- « Par vagues de 3-4, chacun sprinte dans son couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Un starter, un juge d'arrivée ; les rôles tournent. »\n- « On reste dans son couloir, on ne coupe pas. »\n- « On encourage les copains qui courent. »"
         },
         {
-         "id": "t9",
+         "id": "e4",
          "label": "Retour au calme & bilan (7 min)",
-         "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+         "note": "- « On marche pour récupérer, on respire doucement. »\n- « Est-ce que tu as progressé depuis lundi ? »\n- « Qu'est-ce que tu veux améliorer ? »\n- « On range le matériel tous ensemble. »"
         }
        ],
-       "materiel": "2-3 couloirs ; témoins (foulards) ; plots de virage ; zone de passage matérialisée — voir Documents à imprimer.",
-       "differenciation": "Équipes mixtes CE1-CE2 ; passage à l'arrêt autorisé pour débutants ; distance adaptée.",
+       "materiel": "3-4 couloirs de ≈ 25 m (plots), un plot 2 m après l'arrivée, sifflet ou cartons — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "Distance adaptée ; départs variés ; rôle de starter/juge. Sécurité : échauffement, signal unique, couloirs délimités.",
        "depassement": "",
-       "correction": "Critères de réussite : témoin transmis dans la zone, sans le faire tomber ; équipe qui finit le relais.",
-       "obstacles": "Erreurs fréquentes :\n- Témoin passé hors zone ou fait tomber.\n- Bousculade au passage.\nRemédiation :\n- Matérialiser la zone au sol ; répéter le geste au ralenti.\n- Un couloir par coureur, on se croise sans se toucher.",
+       "correction": "Critères de réussite : partir au signal ; courir vite tout droit jusqu'au bout.",
+       "obstacles": "Erreurs fréquentes :\n- Faux départs, ralentir avant la ligne.\nRemédiation rapide :\n- Rituel « à vos marques… prêts… » ; « cours jusqu'au plot placé après l'arrivée ».",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3480,7 +3614,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789800000000
+   "updatedAt": 1789900000000
   },
   {
    "date": "2026-09-21",

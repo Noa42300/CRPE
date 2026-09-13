@@ -12,6 +12,7 @@ import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
+import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon } from "./MardiSupports";
 
 export interface SupportFourni {
   key: string;
@@ -438,6 +439,49 @@ const ARTDET_LECON: FicheData = {
   ],
 };
 
+/* Déterminants — nouvelles feuilles d'entraînement (modèle authentique) */
+const DET_ENTRAINE_CE1: FicheData = {
+  entete: "Exercices", titre: "Les déterminants", niveau: "CE1", discipline: "Français — Grammaire",
+  competences: ["repérer le déterminant devant le nom", "choisir le / la", "accorder au pluriel", "compléter avec un déterminant"],
+  blocs: [
+    { kind: "exercice", picto: "chat", consigne: "Entoure le déterminant dans chaque groupe.", items: [
+      "le chat", "une maison", "les oiseaux", "ma trousse", "des fleurs", "cette voiture",
+    ] },
+    { kind: "exercice", picto: "pomme", aide: "le = garçon, la = fille", consigne: "Complète avec le ou la.", items: [
+      "___ soleil", "___ lune", "___ maîtresse", "___ cartable", "___ pomme", "___ tableau",
+    ] },
+    { kind: "exercice", picto: "oiseau", aide: "plusieurs → les / des", consigne: "Récris au pluriel.", items: [
+      "le chien → ______________", "une fleur → ______________", "la table → ______________",
+    ] },
+    { kind: "exercice", picto: "maison", consigne: "Complète chaque nom avec un déterminant qui convient.", items: [
+      "______ école", "______ vélo", "______ amis", "______ image",
+    ] },
+  ],
+};
+
+const DET_ENTRAINE_CE2: FicheData = {
+  entete: "Exercices", titre: "Les déterminants", niveau: "CE2", discipline: "Français — Grammaire",
+  competences: ["repérer le déterminant et le nom", "distinguer défini / indéfini", "accorder le déterminant", "remplacer un déterminant", "employer d'autres déterminants"],
+  blocs: [
+    { kind: "exercice", picto: "livre", consigne: "Souligne le déterminant et entoure le nom.", items: [
+      "Le renard traverse la forêt.", "Une abeille butine des fleurs.", "Mes amis rangent leurs cahiers.",
+      "Cette histoire raconte un voyage.",
+    ] },
+    { kind: "exercice", aide: "défini : le/la/les — indéfini : un/une/des", consigne: "Classe : article défini (D) ou indéfini (I) ?", items: [
+      "les élèves ___", "une pomme ___", "le maître ___", "des livres ___", "l'école ___",
+    ] },
+    { kind: "exercice", picto: "cartable", aide: "il s'accorde avec le nom", consigne: "Récris au pluriel (attention au déterminant).", items: [
+      "le cheval → ______________", "cette fleur → ______________", "mon crayon → ______________",
+    ] },
+    { kind: "exercice", aide: "garde le même sens", consigne: "Remplace le déterminant en gras par un autre qui convient.", items: [
+      "**le** chien de Léa → ______________", "**une** voiture rouge → ______________", "**des** oiseaux → ______________",
+    ] },
+    { kind: "exercice", picto: "ampoule", consigne: "Complète avec un déterminant démonstratif (ce, cet, cette, ces) ou possessif (mon, ma, mes…).", items: [
+      "______ matin, je me lève tôt.", "Range ______ affaires.", "Regarde ______ étoile !",
+    ] },
+  ],
+};
+
 /* ===================== EMC — La solidarité ===================== */
 
 const EMC_SOLIDARITE: FicheData = {
@@ -629,9 +673,28 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "eps-tours", label: "Fiche binôme — compter les tours (élève A puis B)", node: ficheNode(EPS_TOURS) },
       ];
     case "l14eps":
+    case "m15eps":
       return [
-        { key: "eps-s3-seance", label: "Séance 3 « courir vite » — la séance mise en page (à lire d'un coup d'œil)", node: <EpsSeanceFiche data={EPS_COURIR_VITE_S3} /> },
-        { key: "eps-s3-terrain", label: "Séance 3 « courir vite » — schéma du terrain & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s3) },
+        { key: "eps-s3-seance", label: "Séance « courir vite » — la séance mise en page (à lire d'un coup d'œil)", node: <EpsSeanceFiche data={EPS_COURIR_VITE_S3} /> },
+        { key: "eps-s3-terrain", label: "Séance « courir vite » — schéma du terrain & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s3) },
+      ];
+    case "m15det":
+      return [
+        { key: "det-affiche", label: "Les déterminants — Leçon à projeter", node: ficheNode(ARTDET_AFFICHE) },
+        { key: "det-ce1", label: "Les déterminants — Entraînement CE1 (A4)", node: ficheNode(DET_ENTRAINE_CE1) },
+        { key: "det-ce2", label: "Les déterminants — Entraînement CE2 (A4)", node: ficheNode(DET_ENTRAINE_CE2) },
+      ];
+    case "m15comp":
+      return [
+        { key: "comp-diapo", label: "Comparer les nombres — Diaporama à projeter (les signes < > =)", node: <ComparerDiapo /> },
+        { key: "comp-ce1-lecon", label: "Comparer les nombres — Leçon CE1 (à coller)", node: ficheNode(COMP_CE1_LECON) },
+        { key: "comp-ce2-lecon", label: "Comparer les nombres — Leçon CE2 (va plus loin)", node: ficheNode(COMP_CE2_LECON) },
+        { key: "comp-ce2-auto", label: "Comparer les nombres — Fichier autonomie CE2 (tandem)", node: ficheNode(COMP_CE2_AUTO) },
+      ];
+    case "m15sci":
+      return [
+        { key: "sci-diapo", label: "Solide ou liquide ? — Diaporama à projeter (photos réelles)", node: <SolideLiquideDiapo /> },
+        { key: "sci-lecon", label: "Solide ou liquide ? — Leçon à coller (enfantine)", node: <SolideLiquideLecon /> },
       ];
     case "l14poesie":
       return [
