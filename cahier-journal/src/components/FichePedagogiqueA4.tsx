@@ -15,7 +15,7 @@ export type FicheBloc =
   | { kind: "pictos"; titre?: string; items: { name: string; label: string }[] }
   | { kind: "timeline"; titre?: string; steps: { name: string; label: string }[] }
   | { kind: "paires"; titre?: string; paires: { avant: { name: string; label: string }; apres: { name: string; label: string } }[] }
-  | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string }
+  | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string; exemple?: string }
   | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
   | { kind: "comparer"; a: number; b: number; signe: "<" | ">" | "="; cdu?: boolean }
   | { kind: "tableau"; titre?: string; entetes: string[]; lignes: string[][] }
@@ -129,18 +129,11 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", padding: "7mm", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
      <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "6mm 7mm", minHeight: "283mm", boxSizing: "border-box" }}>
-      {/* En-tête façon fiche de PE : titre (manuscrit) + prénom, filet noir */}
-      <div style={{ borderBottom: "2px solid #111", paddingBottom: "2.5mm", marginBottom: "4mm" }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: "3mm" }}>
-          <h1 style={{ fontSize: "26px", margin: 0, fontWeight: 700, fontFamily: "'Caveat','Comic Neue',cursive" }}>{data.titre}</h1>
-          {isExo && <div style={{ marginLeft: "auto", fontSize: "13px" }}>Prénom : <span style={{ display: "inline-block", width: "42mm", borderBottom: "1px solid #333" }} /></div>}
-          {!isExo && data.niveau && <span style={{ marginLeft: "auto", fontSize: "12px", fontWeight: 800, color: "#fff", background: "#111", borderRadius: "3px", padding: "0.5mm 3mm" }}>{data.niveau}</span>}
-        </div>
-        <div style={{ display: "flex", gap: "4mm", marginTop: "1mm", fontSize: "11px", color: "#555" }}>
-          <span style={{ textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700 }}>{data.entete}</span>
-          {data.discipline && <span>· {data.discipline}</span>}
-          {isExo && data.niveau && <span style={{ marginLeft: "auto", fontWeight: 700, color: "#111" }}>{data.niveau}</span>}
-        </div>
+      {/* En-tête simple, façon manuel : titre manuscrit + prénom, un filet fin. */}
+      <div style={{ borderBottom: "1.5px solid #111", paddingBottom: "2mm", marginBottom: "4mm", display: "flex", alignItems: "baseline", gap: "3mm" }}>
+        <h1 style={{ fontSize: "27px", margin: 0, fontWeight: 700, fontFamily: "'Caveat','Comic Neue',cursive" }}>{data.titre}</h1>
+        {data.niveau && <span style={{ fontSize: "14px", fontWeight: 700, color: "#333", fontFamily: "'Caveat','Comic Neue',cursive" }}>· {data.niveau}</span>}
+        {isExo && <div style={{ marginLeft: "auto", fontSize: "13px" }}>Prénom : <span style={{ display: "inline-block", width: "42mm", borderBottom: "1px solid #333" }} /></div>}
       </div>
 
       <div style={{ display: "flex", gap: "5mm", alignItems: "stretch" }}>
@@ -290,6 +283,12 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
                     <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{b.consigne}</span>
                     {b.aide && <span style={{ marginLeft: "2mm", fontSize: "11px", fontWeight: 700, color: "#444", background: "#f1f3f5", border: "1px solid #ced4da", borderRadius: "999px", padding: "0.3mm 2mm" }}>aide : {b.aide}</span>}
                   </div>
+                  {b.exemple && (
+                    <div style={{ margin: "1mm 0 0", display: "inline-flex", alignItems: "baseline", gap: "2mm", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "6px", padding: "1mm 3mm" }}>
+                      <span style={{ fontSize: "11px", fontWeight: 800, color: "#2f6b34", textTransform: "uppercase", letterSpacing: "0.04em" }}>Exemple</span>
+                      <span style={{ fontFamily: "'Caveat','Comic Neue',cursive", fontSize: "20px", color: "#1c4a20" }}>{b.exemple}</span>
+                    </div>
+                  )}
                   {b.items && (
                     <ul style={{ margin: "1.5mm 0 0", paddingLeft: "7mm", fontSize: "21px", lineHeight: 1.9, fontFamily: "'Caveat','Comic Neue',cursive", color: "#222" }}>
                       {b.items.map((it, j) => <li key={j}>{it}</li>)}
