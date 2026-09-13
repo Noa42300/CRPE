@@ -517,6 +517,91 @@ const EPS_SEQ: Record<string, EpsFiche> = {
   },
 };
 
+/* ============ QLM — Histoire séance 2 : mesurer le temps ============ */
+
+const HIST_MESURER_TEMPS: FicheData = {
+  entete: "Leçon (à coller — cahier de QLM)", titre: "Comment mesurer le temps ?", niveau: "CE1-CE2", discipline: "Questionner le monde — Le temps", cursive: true,
+  blocs: [
+    { kind: "def", picto: "telCadran", contenu: "Pour mesurer le temps, on utilise des unités, de la plus petite à la plus grande. Chacune est plus grande que la précédente." },
+    { kind: "timeline", titre: "Les unités de temps", steps: [
+      { name: "sourire", label: "le jour" },
+      { name: "livre", label: "l'année (365 jours)" },
+      { name: "fleche", label: "la décennie = 10 ans" },
+      { name: "caverne", label: "le siècle = 100 ans" },
+      { name: "globe", label: "le millénaire = 1000 ans" },
+    ] },
+    { kind: "puces", titre: "Je retiens", points: [
+      "1 décennie = 10 ans.",
+      "1 siècle = 100 ans.",
+      "1 millénaire = 1000 ans.",
+    ] },
+    { kind: "def", picto: "plume", titre: "Les chiffres romains (surtout les CE2)", contenu: "On écrit les siècles en chiffres romains. I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. Exemple : nous vivons au XXIᵉ siècle (le 21ᵉ)." },
+    { kind: "tableau", titre: "Quelques chiffres romains", entetes: ["Nombre", "Chiffre romain"], lignes: [
+      ["1", "I"], ["5", "V"], ["10", "X"], ["50", "L"], ["100", "C"], ["1000", "M"],
+    ] },
+  ],
+};
+
+/* ============ MATHS — Fichier autonomie CE2 : dénombrer jusqu'à 1000 (2 pages) ============ */
+
+const DENOMBRE_CE2_2P: FicheData = {
+  entete: "Fichier autonomie (2 pages)", titre: "Dénombrer les collections jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
+  competences: [
+    "grouper par centaines, dizaines, unités", "écrire le nombre représenté", "décomposer un nombre",
+    "compléter c / d / u", "comparer avec < et >", "ranger des nombres", "encadrer un nombre", "trouver le nombre juste après",
+  ],
+  blocs: [
+    { kind: "def", titre: "Je me rappelle", contenu: "Je groupe par 100 (plaques), par 10 (barres) et je compte les unités (cubes). 100 = 10 dizaines ; 1000 = 10 centaines." },
+    { kind: "base10", centaines: 3, dizaines: 5, unites: 2, legende: "3 plaques, 5 barres, 2 cubes" },
+    { kind: "exercice", aide: "c · d · u", consigne: "Écris le nombre représenté.", items: [
+      "3 centaines, 5 dizaines, 2 unités = ____", "6 centaines, 0 dizaine, 4 unités = ____",
+      "2 centaines, 8 dizaines, 9 unités = ____", "4 centaines, 4 dizaines, 4 unités = ____",
+    ] },
+    { kind: "exercice", aide: "347 = 300 + 40 + 7", consigne: "Décompose chaque nombre.", items: [
+      "582 = ______________", "706 = ______________", "250 = ______________", "419 = ______________",
+    ] },
+    { kind: "base10", centaines: 2, dizaines: 3, unites: 6, legende: "combien de cubes en tout ?" },
+    { kind: "exercice", consigne: "Complète.", items: [
+      "Dans 100, il y a ___ dizaines.", "Dans 1 000, il y a ___ centaines.",
+      "453 = ___ c ___ d ___ u.", "608 = ___ c ___ d ___ u.",
+    ] },
+    { kind: "exercice", aide: "je compare rang par rang", consigne: "Compare avec < ou >.", items: [
+      "426 ____ 462", "703 ____ 307", "289 ____ 156", "540 ____ 504",
+    ] },
+    { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
+      "903 – 309 – 930 – 390 → ____________________", "540 – 405 – 450 – 504 → ____________________",
+    ] },
+    { kind: "exercice", aide: "la centaine avant / après", consigne: "Encadre chaque nombre entre deux centaines.", items: [
+      "____ < 347 < ____", "____ < 508 < ____", "____ < 690 < ____",
+    ] },
+    { kind: "exercice", aide: "attention aux retenues !", consigne: "Écris le nombre qui vient juste après.", items: [
+      "199 → ____", "709 → ____", "890 → ____", "999 → ____",
+    ] },
+  ],
+};
+
+/* ============ MATHS — Coloriage magique CE1 (calcul → couleur) ============ */
+
+const COLORIAGE_CE1: FicheData = {
+  entete: "Coloriage magique (autonomie)", titre: "Coloriage magique — les additions", niveau: "CE1", discipline: "Mathématiques — Calcul",
+  blocs: [
+    { kind: "def", picto: "fleur", contenu: "Calcule chaque case dans ta tête. Puis colorie selon le code des couleurs. Si tu ne te trompes pas, une jolie surprise apparaît !" },
+    { kind: "pictos", titre: "Le code des couleurs", items: [
+      { name: "pomme", label: "10 → rouge" },
+      { name: "goutte", label: "8 → bleu" },
+      { name: "fleur", label: "12 → vert" },
+    ] },
+    { kind: "tableau", titre: "", entetes: ["", "", "", "", "", "", "", ""], lignes: [
+      ["4+4", "8+2", "3+7", "7+5", "5+3", "7+3", "4+6", "7+5"],
+      ["5+5", "6+4", "7+3", "3+7", "3+7", "7+3", "5+5", "7+3"],
+      ["3+7", "6+4", "7+3", "5+5", "6+4", "3+7", "6+4", "5+5"],
+      ["7+5", "8+2", "9+1", "3+7", "8+2", "7+3", "9+1", "6+2"],
+      ["5+3", "8+4", "4+6", "7+3", "7+3", "6+4", "6+2", "6+6"],
+      ["6+6", "4+4", "6+6", "2+8", "4+6", "4+4", "8+4", "6+2"],
+    ] },
+  ],
+};
+
 export function supportsForActivity(activityId: string): SupportFourni[] {
   if (activityId in EPS_SEQ) {
     const f = EPS_SEQ[activityId];
@@ -577,6 +662,18 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "eps-terrain-s2", label: "Courir longtemps (séance 2) — schéma du terrain & sécurité", node: EpsTerrainSupport() },
         { key: "eps-tours", label: "Fiche binôme — compter les tours (élève A puis B)", node: ficheNode(EPS_TOURS) },
+      ];
+    case "l14hist":
+      return [
+        { key: "hist-mesurer-temps", label: "Comment mesurer le temps ? — Leçon (chiffres romains inclus)", node: ficheNode(HIST_MESURER_TEMPS) },
+      ];
+    case "l14auto":
+      return [
+        { key: "denombre-ce2-2p", label: "Dénombrer jusqu'à 1 000 — Fichier autonomie CE2 (2 pages)", node: ficheNode(DENOMBRE_CE2_2P) },
+      ];
+    case "l14colo":
+      return [
+        { key: "coloriage-ce1", label: "Coloriage magique — additions (CE1)", node: ficheNode(COLORIAGE_CE1) },
       ];
     case "m9ang":
       return [

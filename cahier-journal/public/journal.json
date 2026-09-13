@@ -2355,27 +2355,27 @@
     "absentIds": [],
     "events": [
      {
-      "id": "ev-2026-09-14",
+      "id": "l14ev1",
       "type": "particulier",
-      "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+      "note": "Lundi 14 : matinée consacrée aux ÉVALUATIONS NATIONALES (CE2 puis CE1, en alternance). Pendant les évals : les CE1 font le cahier d'écriture + un coloriage magique ; les CE2 sont en autonomie sur le dénombrement jusqu'à 1000. Après-midi : silence on lit, poésie, histoire (mesurer le temps), EPS séance 3, projet Autour du monde, anglais si le temps."
      }
     ],
-    "devoirs": ""
+    "devoirs": "Histoire : relire la petite leçon « Comment mesurer le temps ? » (1 siècle = 100 ans). Poésie : commencer à apprendre la poésie."
    },
    "slots": [
     {
-     "id": "d2026-09-14s1",
+     "id": "l14s1",
      "start": "08:30",
      "end": "08:45",
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "a-autre-71089",
+       "id": "l14rit",
        "niveaux": [
         "classe"
        ],
-       "title": "Rituels du matin",
-       "objectif": "Entrer dans la journée : bonjour, appel, date, météo.",
+       "title": "Accueil & rituels du matin",
+       "objectif": "Entrer dans la journée : se saluer, faire l'appel, rituels (nombre du jour, calcul mental, phrase du jour, problème).",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -2383,50 +2383,12 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [
-        {
-         "id": "r1",
-         "label": "Accueil & appel",
-         "note": "- « Bonjour à tous, on s'installe en silence. »\n- « Je fais l'appel : quand j'appelle ton prénom, tu réponds. »\n- « Qui n'est pas là aujourd'hui ? »"
-        }
+       "organisation": [
+        "collectif"
        ],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
-     "id": "d2026-09-14s2",
-     "start": "08:45",
-     "end": "10:00",
-     "disciplineId": "francais",
-     "activities": [
-      {
-       "id": "a-francais-85194",
-       "niveaux": [
-        "classe"
+       "roleEnseignant": [
+        "guidage"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "Créneau français du matin (~1h15) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
        "deroulement": [],
        "materiel": "",
        "video": "",
@@ -2442,13 +2404,85 @@
      ]
     },
     {
-     "id": "d2026-09-14s3",
-     "start": "10:00",
-     "end": "10:15",
+     "id": "l14s2",
+     "start": "08:45",
+     "end": "09:35",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "l14evalce2",
+       "niveaux": [
+        "CE2"
+       ],
+       "title": "Évaluations nationales — CE2 (≈ 45 min)",
+       "objectif": "Passation des évaluations nationales CE2 dans le calme.",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "groupe"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [],
+       "materiel": "Livrets d'évaluation CE2, crayons, minuteur.",
+       "video": "",
+       "differenciation": "Je surveille les CE2 et lis les consignes à voix haute au rythme prévu.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      },
+      {
+       "id": "l14colo",
+       "niveaux": [
+        "CE1"
+       ],
+       "title": "CE1 — Cahier d'écriture, puis coloriage magique",
+       "objectif": "Travailler l'écriture en autonomie ; réinvestir les additions avec un coloriage magique une fois l'écriture finie.",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "groupe"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [],
+       "materiel": "Cahier d'écriture ; coloriage magique (additions) + crayons de couleur.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : se lever / faire du bruit pendant que je m'occupe des CE2. Remédiation : consigne claire « quand j'ai fini l'écriture, je prends le coloriage sans déranger » ; le coloriage occupe les plus rapides.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "l14s3",
+     "start": "09:35",
+     "end": "09:55",
      "disciplineId": "recreation",
      "activities": [
       {
-       "id": "a-recreation-94086",
+       "id": "l14rec1",
        "niveaux": [
         "classe"
        ],
@@ -2461,8 +2495,12 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
        "deroulement": [],
        "materiel": "",
        "video": "",
@@ -2478,109 +2516,85 @@
      ]
     },
     {
-     "id": "d2026-09-14s4",
-     "start": "10:15",
-     "end": "11:25",
-     "disciplineId": "maths",
+     "id": "l14s4",
+     "start": "09:55",
+     "end": "11:20",
+     "disciplineId": "francais",
      "activities": [
       {
-       "id": "m2comp",
+       "id": "l14evalce1",
        "niveaux": [
         "CE1"
        ],
-       "title": "Maths CE1 — Comparer les nombres (leçon guidée)",
-       "objectif": "Comparer deux nombres à 2 chiffres avec les signes < et > (comparer les dizaines, puis les unités).",
-       "competence": "Comparer, ranger des nombres ; utiliser les signes < et >.",
-       "competenceRef": "Maths — Nombres, cycle 2 (Tandem, mission 2).",
+       "title": "Évaluations nationales — CE1 (≈ 45 min)",
+       "objectif": "Passation des évaluations nationales CE1 dans le calme.",
+       "competence": "",
+       "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "Nombres",
-       "progSequence": "Comparer les nombres",
-       "progSeance": "2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
        "progRef": "",
        "organisation": [
-        "groupe guidé",
-        "collectif"
+        "groupe"
        ],
        "roleEnseignant": [
-        "étayage"
+        "guidage"
        ],
-       "deroulement": [
-        {
-         "id": "m9t7",
-         "label": "Phase 1 — Leçon guidée avec moi, au tableau (25 min)",
-         "note": "- « Aujourd'hui, on apprend à comparer les nombres : dire lequel est le plus grand, lequel est le plus petit. »\n- « Pour ça, on a deux signes : < veut dire “plus petit que” et > veut dire “plus grand que”. »\n- « Le truc : le signe est comme un bec ouvert, il s'ouvre toujours vers le plus grand nombre. »\n- « Regardez 47 et 52 : je compare d'abord les dizaines, 4 dizaines contre 5 dizaines. »\n- « 4 c'est moins que 5, donc 47 est plus petit : on écrit 47 < 52. »\n- « Et si les dizaines sont pareilles ? Alors on compare les unités : 63 et 61. »"
-        },
-        {
-         "id": "m9t8",
-         "label": "On s'entraîne à l'ardoise (15 min)",
-         "note": "- « J'écris deux nombres au tableau, vous montrez le bon signe sur l'ardoise. »\n- « On dit à voix haute : le bec s'ouvre vers le plus grand. »\n- « On explique : “je regarde d'abord les dizaines”. »\n- « On colle la leçon dans le cahier rouge (leçons de maths). »\n(Je vérifie que chacun sait dans quel sens tracer le signe.)"
-        }
-       ],
-       "materiel": "TBI (leçon à projeter) ; ardoises ; barres et cubes (base 10) ; leçon à coller (cahier rouge) — voir Documents à imprimer.",
-       "video": "https://www.youtube.com/watch?v=dnnoUP7Y8l4",
-       "differenciation": "Aide : matériel base 10 pour visualiser les dizaines. Pour les rapides : comparer trois nombres et les ranger.",
+       "deroulement": [],
+       "materiel": "Livrets d'évaluation CE1, crayons, minuteur.",
+       "video": "",
+       "differenciation": "Je lis les consignes aux CE1 ; je veille au temps de chaque exercice.",
        "depassement": "",
-       "correction": "47 < 52 ; 63 > 61 ; 28 < 31 ; 90 > 89 ; 45 < 54. Méthode : dizaines d'abord, puis unités.",
+       "correction": "",
+       "obstacles": "",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": "",
-       "obstacles": "Erreurs fréquentes :\n- L'élève compare les unités d'abord (« 19 > 21 car 9 > 1 »).\n- Il trace le signe dans le mauvais sens ou confond < et >.\nRemédiation rapide :\n- « On regarde TOUJOURS les dizaines en premier » (cacher les unités avec le doigt).\n- Manipuler barres et cubes pour voir concrètement qui a le plus.\n- « Le bec s'ouvre vers le plus grand » : dessiner une bouche ouverte sur le signe."
+       "notesProchaine": ""
       },
       {
-       "id": "m2compce2",
+       "id": "l14auto",
        "niveaux": [
         "CE2"
        ],
-       "title": "Maths CE2 — Comparer les nombres jusqu'à 1 000 (autonomie)",
-       "objectif": "Comparer, ranger et encadrer des nombres à 3 chiffres (centaines, dizaines, unités) en autonomie, puis institutionnalisation.",
-       "competence": "Comparer, ranger, encadrer des nombres < 1 000 ; signes <, >, =.",
-       "competenceRef": "Maths — Nombres, cycle 2 (Tandem, mission 2).",
+       "title": "CE2 — Autonomie : dénombrer jusqu'à 1 000",
+       "objectif": "Travailler seul le dénombrement jusqu'à 1000 (fichier autonomie 2 pages), pendant les évaluations des CE1.",
+       "competence": "",
+       "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "Nombres",
-       "progSequence": "Comparer les nombres",
-       "progSeance": "2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
        "progRef": "",
        "organisation": [
-        "individuel",
-        "groupe guidé"
+        "groupe"
        ],
        "roleEnseignant": [
-        "étayage"
+        "guidage"
        ],
-       "deroulement": [
-        {
-         "id": "m9t9",
-         "label": "Phase 1 — Fichier autonomie (pendant que je suis avec les CE1) (35 min)",
-         "note": "(Consigne donnée avant que je rejoigne les CE1.)\n- « Vous, les CE2, vous travaillez seuls sur le fichier autonomie : comparer les nombres jusqu'à 1 000. »\n- « Rappelez-vous la règle : on compare d'abord les centaines, puis les dizaines, puis les unités. »\n- « Si vous bloquez, vous passez à l'exercice suivant et vous entourez le numéro. »\n- « Vous chuchotez si vous avez besoin de votre voisin, sans déranger les CE1. »\n- « Quand vous avez fini, vous rangez le fichier dans le classeur. »"
-        },
-        {
-         "id": "m9t10",
-         "label": "Phase 2 — Institutionnalisation guidée avec moi (10 min)",
-         "note": "- « On corrige ensemble : comment as-tu comparé 246 et 254 ? »\n- « Les centaines sont pareilles (2 et 2), donc je regarde les dizaines : 4 contre 5, donc 246 < 254. »\n- « Pour ranger, on cherche à chaque fois le plus petit qui reste. »\n- « Encadrer, c'est trouver la dizaine juste avant et juste après : 340 < 347 < 350. »\n- « On colle la leçon CE2 dans le cahier rouge. »"
-        }
-       ],
-       "materiel": "Fichier autonomie CE2 (classeur) ; matériel base 10 ; leçon CE2 à coller (cahier rouge) — voir Documents à imprimer (rangés avec la leçon CE1).",
-       "video": "https://www.youtube.com/watch?v=FV-uBVGKIbI",
-       "differenciation": "Aide : matériel base 10. Pour les rapides : comparer des nombres jusqu'à 2 000, inventer un encadrement.",
+       "deroulement": [],
+       "materiel": "Fichier autonomie « Dénombrer jusqu'à 1 000 » (2 pages).",
+       "video": "",
+       "differenciation": "",
        "depassement": "",
-       "correction": "Compare : 426>... non 426 < 462 ; 703 > 307 ; 289 > 156 ; 98 < 201 ; 200 < 300 ; 471 > 198 ; 777 > 707 ; 123 < 321 ; 931 > 899. Ranger : 309 < 390 < 903 < 930 ; 405 < 450 < 504 < 540. Encadrer : 340 < 347 < 350. Problème : Simon = 480 € ; Alexandra = 520 € → Simon a le moins d'argent.",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : oublier une centaine dans la décomposition. Remédiation (en différé) : reprendre avec le matériel base 10 lors de l'institutionnalisation.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": "Ce fichier autonomie entre dans la banque de fichiers CE2 (à réutiliser à chaque leçon guidée CE1).",
-       "obstacles": "Erreurs fréquentes :\n- L'élève regarde le nombre de chiffres à tort, ou oublie de passer aux dizaines quand les centaines sont égales.\n- Il range dans le désordre.\nRemédiation rapide :\n- Aligner les nombres en colonnes c / d / u et comparer rang par rang.\n- Rappeler : « à 3 chiffres > à 2 chiffres » (100 > 99).\n- Pour ranger : barrer à chaque étape le plus petit déjà trouvé."
+       "notesProchaine": ""
       }
      ]
     },
     {
-     "id": "d2026-09-14s5",
-     "start": "11:25",
+     "id": "l14s5",
+     "start": "11:20",
      "end": "11:30",
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "a-autre-53621",
+       "id": "l14rang1",
        "niveaux": [
         "classe"
        ],
@@ -2593,8 +2607,12 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
        "deroulement": [],
        "materiel": "",
        "video": "",
@@ -2610,13 +2628,13 @@
      ]
     },
     {
-     "id": "d2026-09-14s6",
+     "id": "l14s6",
      "start": "11:30",
      "end": "13:30",
      "disciplineId": "cantine",
      "activities": [
       {
-       "id": "a-cantine-6654",
+       "id": "l14cant",
        "niveaux": [
         "classe"
        ],
@@ -2629,8 +2647,12 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
        "deroulement": [],
        "materiel": "",
        "video": "",
@@ -2646,18 +2668,18 @@
      ]
     },
     {
-     "id": "d2026-09-14s7",
+     "id": "l14s7",
      "start": "13:30",
      "end": "13:45",
      "disciplineId": "sol",
      "activities": [
       {
-       "id": "a-sol-34653",
+       "id": "l14sol",
        "niveaux": [
         "classe"
        ],
        "title": "Silence, on lit",
-       "objectif": "Retour au calme par la lecture individuelle.",
+       "objectif": "",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -2665,8 +2687,12 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
        "deroulement": [],
        "materiel": "",
        "video": "",
@@ -2682,18 +2708,18 @@
      ]
     },
     {
-     "id": "d2026-09-14s8",
+     "id": "l14s8",
      "start": "13:45",
-     "end": "15:00",
+     "end": "14:15",
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "a-francais-7475",
+       "id": "l14poesie",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
+       "title": "Poésie — découverte & copie",
+       "objectif": "Découvrir la nouvelle poésie, la lire ensemble, commencer à la recopier au propre (dessin à droite) pour l'apprendre et la réciter ensuite.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -2701,12 +2727,16 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
        "deroulement": [],
-       "materiel": "",
+       "materiel": "Poésie imprimée (une par élève), cahier de poésie (blanc), crayons de couleur.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : copie guidée, vers par vers. CE2 : copie autonome + soin de la mise en page.",
        "depassement": "",
        "correction": "",
        "obstacles": "",
@@ -2718,13 +2748,114 @@
      ]
     },
     {
-     "id": "d2026-09-14s9",
-     "start": "15:00",
-     "end": "15:15",
+     "id": "l14s9",
+     "start": "14:15",
+     "end": "15:05",
+     "disciplineId": "qlm",
+     "activities": [
+      {
+       "id": "l14hist",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Histoire — séance 2 : Comment mesurer le temps ?",
+       "objectif": "Comprendre et ranger les unités de mesure du temps (jour, année, décennie, siècle, millénaire).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "h1",
+         "label": "Ce qu'on va apprendre",
+         "note": "- « Aujourd'hui, on va apprendre à mesurer le temps, comme on mesure une longueur avec une règle. »\n- « Pour mesurer le temps, on a des unités : le jour, l'année, la décennie, le siècle, le millénaire. »\n- « Qui peut me dire combien il y a de jours dans une année ? … Oui, 365 jours ! »\n- « On va les ranger de la plus petite à la plus grande, comme des poupées russes. »\n- « Sortez votre ardoise, on va s'entraîner ensemble. » (je projette la frise des unités)"
+        },
+        {
+         "id": "h2",
+         "label": "Les unités de temps",
+         "note": "- « Le jour, c'est la plus petite : du matin au soir, puis la nuit. »\n- « Dix ans, ça s'appelle une décennie. Répétez : dé-cen-nie. »\n- « Cent ans, c'est un siècle. Vous, vous vivrez peut-être cent ans ! »\n- « Mille ans, c'est un millénaire. C'est très très long. »\n- « Sur l'ardoise : écris combien font 1 siècle en années. … Montrez ! (100) »\n- « Et 1 décennie ? … Montrez ! (10 ans) »"
+        },
+        {
+         "id": "h3",
+         "label": "Les chiffres romains (surtout les CE2)",
+         "note": "- « Pour écrire les siècles, on utilise des chiffres spéciaux : les chiffres romains. »\n- « I c'est 1, V c'est 5, X c'est 10, L c'est 50, C c'est 100, M c'est 1000. »\n- « Nous vivons au 21e siècle : on l'écrit XXI. »\n- « CE2, essayez d'écrire 10 puis 100 en chiffres romains sur l'ardoise. … Montrez ! (X, C) »\n- « CE1, vous, vous retenez surtout : décennie = 10 ans, siècle = 100 ans. »"
+        },
+        {
+         "id": "h4",
+         "label": "La trace écrite",
+         "note": "- « On colle la leçon dans le cahier de Questionner le monde. »\n- « On relit ensemble la phrase importante : 1 siècle = 100 ans. »\n- « CE2, vous ajoutez le tableau des chiffres romains. »\n- « Rangez le cahier, on a bien travaillé sur le temps aujourd'hui ! »"
+        }
+       ],
+       "materiel": "Frise des unités projetée, ardoises, leçon à coller (cahier de QLM).",
+       "video": "",
+       "differenciation": "CE1 : comprendre et nommer les unités (jour→année→décennie→siècle→millénaire). CE2 : manipuler siècles et millénaires, découvrir les chiffres romains (I, V, X, L, C, D, M).",
+       "depassement": "",
+       "correction": "1 décennie = 10 ans ; 1 siècle = 100 ans ; 1 millénaire = 1000 ans. X = 10, C = 100. Nous sommes au XXIᵉ siècle.",
+       "obstacles": "Erreurs fréquentes : confondre décennie (10 ans) et siècle (100 ans) ; croire qu'un siècle = 1000 ans. Remédiation rapide : revenir aux « poupées russes » des unités et faire répéter « siècle = 100 ans » ; pour les chiffres romains, s'appuyer sur X=10 et C=100 pour ne pas les mélanger.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "l14s10",
+     "start": "15:05",
+     "end": "15:50",
+     "disciplineId": "eps",
+     "activities": [
+      {
+       "id": "l14eps",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "EPS — séance 3 : courir longtemps (athlétisme)",
+       "objectif": "Poursuivre la séquence athlétisme : courir longtemps à allure régulière, gérer son souffle.",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [],
+       "materiel": "Plots, chronomètre, fiche terrain & sécurité, fiche binôme (compter les tours).",
+       "video": "",
+       "differenciation": "Objectif de tours adapté à chacun ; binôme bienveillant. Sécurité : échauffement, signal d'arrêt unique, terrain dégagé.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "l14s11",
+     "start": "15:50",
+     "end": "16:05",
      "disciplineId": "recreation",
      "activities": [
       {
-       "id": "a-recreation-94086",
+       "id": "l14rec2",
        "niveaux": [
         "classe"
        ],
@@ -2737,107 +2868,12 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
-     "id": "d2026-09-14s10",
-     "start": "15:15",
-     "end": "16:00",
-     "disciplineId": "eps",
-     "activities": [
-      {
-       "id": "epsp1s3",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "EPS — Découverte : courir vite",
-       "objectif": "Réagir vite à un signal et courir vite en ligne droite.",
-       "competence": "Courir vite ; réagir à un signal.",
-       "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
-       "progPeriode": "P1",
-       "progDomaine": "Athlétisme — courir vite",
-       "progSequence": "Athlétisme P1 — courir & lancer",
-       "progSeance": "3",
-       "progRef": "",
        "organisation": [
-        "collectif",
-        "groupe",
-        "binômes"
+        "collectif"
        ],
        "roleEnseignant": [
         "guidage"
        ],
-       "video": "",
-       "deroulement": [
-        {
-         "id": "t1",
-         "label": "Mise en train (10 min)",
-         "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
-        },
-        {
-         "id": "t2",
-         "label": "Jeux de réaction (12 min)",
-         "note": "- « On joue aux “sorciers” : au signal, on part le plus vite possible. »\n- « On part de positions différentes : debout, assis, dos tourné. »\n- « On écoute BIEN le signal, pas de départ avant. »\n- « On court tout droit jusqu'à la ligne. »"
-        },
-        {
-         "id": "t3",
-         "label": "Sprints par vagues (13 min)",
-         "note": "- « Par vagues de 3-4, vous sprintez dans votre couloir. »\n- « On court jusqu'au bout, on ralentit APRÈS la ligne. »\n- « Le juge d'arrivée regarde qui franchit la ligne. »\n- « On encourage les copains. »"
-        },
-        {
-         "id": "t9",
-         "label": "Retour au calme & bilan (7 min)",
-         "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
-        }
-       ],
-       "materiel": "3-4 couloirs ≈ 25 m ; plots (+ plot 2 m après l'arrivée) ; sifflet ou cartons — voir Documents à imprimer.",
-       "differenciation": "Distance adaptée ; départs variés ; rôle de starter/juge pour souffler.",
-       "depassement": "",
-       "correction": "Critères de réussite : partir au signal ; courir vite tout droit jusqu'au bout.",
-       "obstacles": "Erreurs fréquentes :\n- Faux départs / regarde les autres.\n- Ralentit avant la ligne.\nRemédiation :\n- Rituel « à vos marques… prêts… », signal net.\n- « Cours jusqu'au plot placé après l'arrivée ».",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
-     "id": "d2026-09-14s11",
-     "start": "16:00",
-     "end": "16:25",
-     "disciplineId": "autre",
-     "activities": [
-      {
-       "id": "a-autre-15452",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "À préparer",
-       "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
        "deroulement": [],
        "materiel": "",
        "video": "",
@@ -2853,18 +2889,18 @@
      ]
     },
     {
-     "id": "d2026-09-14s12",
-     "start": "16:25",
-     "end": "16:30",
+     "id": "l14s12",
+     "start": "16:05",
+     "end": "16:25",
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "a-autre-85332",
+       "id": "l14monde",
        "niveaux": [
         "classe"
        ],
-       "title": "Rangement, devoirs et sortie",
-       "objectif": "Noter les devoirs, ranger, cahier de liaison, rang.",
+       "title": "Projet « Autour du monde » — escale de la semaine",
+       "objectif": "Découvrir le pays de la semaine (énigme, situation, carte d'identité), en lien interdisciplinaire.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -2872,8 +2908,52 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [],
+       "materiel": "Diaporama du pays (à projeter), carte d'identité du pays à compléter.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "l14s13",
+     "start": "16:25",
+     "end": "16:30",
+     "disciplineId": "anglais",
+     "activities": [
+      {
+       "id": "l14ang",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais (si le temps) & sortie",
+       "objectif": "Reprendre le rituel de salutation en anglais (Good afternoon, goodbye) si le temps le permet, puis rangement et sortie.",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
        "deroulement": [],
        "materiel": "",
        "video": "",
@@ -2889,8 +2969,8 @@
      ]
     }
    ],
-   "createdAt": 1789700000000,
-   "updatedAt": "2026-09-08T05:14:42Z"
+   "createdAt": "2026-09-13T11:47:11Z",
+   "updatedAt": "2026-09-13T11:47:11Z"
   },
   {
    "date": "2026-09-15",
