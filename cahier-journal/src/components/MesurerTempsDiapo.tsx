@@ -97,64 +97,118 @@ export function FriseUnitesTemps({ print = false }: { print?: boolean }) {
   );
 }
 
+/* ---- Petits dessins « faits main » (originaux, façon cahier) ---- */
+function Soleil() {
+  return (
+    <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+      {Array.from({ length: 8 }).map((_, i) => {
+        const a = (i * Math.PI) / 4;
+        return <line key={i} x1={23 + Math.cos(a) * 13} y1={23 + Math.sin(a) * 13} x2={23 + Math.cos(a) * 20} y2={23 + Math.sin(a) * 20} stroke="#f59e0b" strokeWidth={3} strokeLinecap="round" />;
+      })}
+      <circle cx="23" cy="23" r="11" fill="#fde68a" stroke="#f59e0b" strokeWidth={3} />
+    </svg>
+  );
+}
+function Sablier() {
+  return (
+    <svg width="40" height="46" viewBox="0 0 40 46" aria-hidden="true">
+      <path d="M8 6 H32 L20 23 Z" fill="#bae6fd" stroke="#0369a1" strokeWidth={2.5} strokeLinejoin="round" />
+      <path d="M8 40 H32 L20 23 Z" fill="#bae6fd" stroke="#0369a1" strokeWidth={2.5} strokeLinejoin="round" />
+      <line x1="6" y1="6" x2="34" y2="6" stroke="#0369a1" strokeWidth={3} strokeLinecap="round" />
+      <line x1="6" y1="40" x2="34" y2="40" stroke="#0369a1" strokeWidth={3} strokeLinecap="round" />
+    </svg>
+  );
+}
+function Horloge() {
+  return (
+    <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+      <circle cx="23" cy="24" r="16" fill="#fff" stroke="#111" strokeWidth={3} />
+      <line x1="23" y1="24" x2="23" y2="14" stroke="#e11d48" strokeWidth={3} strokeLinecap="round" />
+      <line x1="23" y1="24" x2="31" y2="27" stroke="#111" strokeWidth={3} strokeLinecap="round" />
+      <line x1="23" y1="5" x2="23" y2="9" stroke="#111" strokeWidth={3} strokeLinecap="round" />
+    </svg>
+  );
+}
+function Calendrier() {
+  return (
+    <svg width="44" height="46" viewBox="0 0 44 46" aria-hidden="true">
+      <rect x="6" y="9" width="32" height="30" rx="4" fill="#fff" stroke="#111" strokeWidth={3} />
+      <rect x="6" y="9" width="32" height="9" rx="4" fill="#f472b6" stroke="#111" strokeWidth={3} />
+      <line x1="14" y1="5" x2="14" y2="13" stroke="#111" strokeWidth={3} strokeLinecap="round" />
+      <line x1="30" y1="5" x2="30" y2="13" stroke="#111" strokeWidth={3} strokeLinecap="round" />
+      {[24, 30, 36].flatMap((y) => [13, 22, 31].map((x) => <circle key={`${x}-${y}`} cx={x} cy={y} r="1.7" fill="#94a3b8" />))}
+    </svg>
+  );
+}
+
 /**
- * Leçon à coller « Comment mesure-t-on le temps ? » — reprend la mise en page
- * soignée du diaporama (frise réelle + chiffres romains), pas de pictos « IA ».
+ * Leçon à coller « Comment mesure-t-on le temps ? » — version ENFANTINE :
+ * gros titre, beaucoup de petits dessins, très peu de texte (CE1-CE2).
+ * Dessins originaux (SVG maison), pas de filets « IA ».
  */
 export function MesurerTempsLecon() {
+  const OR2 = "#b45309";
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "6mm 7mm", minHeight: "283mm", boxSizing: "border-box" }}>
-        <div style={{ borderBottom: "1.5px solid #111", paddingBottom: "2mm", marginBottom: "4mm", display: "flex", alignItems: "baseline", gap: "3mm" }}>
-          <h1 style={{ fontSize: "27px", margin: 0, fontWeight: 700, fontFamily: "'Caveat','Comic Neue',cursive" }}>Comment mesure-t-on le temps ?</h1>
-          <span style={{ fontSize: "14px", color: "#333", fontFamily: "'Caveat','Comic Neue',cursive" }}>· Questionner le monde · CE1-CE2</span>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box" }}>
+        {/* GROS titre + petite horloge, centré, sans filet */}
+        <div style={{ textAlign: "center", marginBottom: "5mm" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "3mm" }}>
+            <Horloge />
+            <h1 style={{ fontSize: "40px", margin: 0, fontWeight: 700, color: OR2, fontFamily: "'Caveat','Comic Neue',cursive" }}>Comment mesure-t-on le temps&nbsp;?</h1>
+            <Sablier />
+          </div>
         </div>
 
-        <p style={{ fontSize: "15px", lineHeight: 1.5, margin: "0 0 3mm" }}>
-          Pour mesurer le temps, on utilise des <b>unités</b>, de la plus petite à la plus grande.
-          Chacune est plus grande que la précédente.
-        </p>
-
-        {/* La vraie frise (comme dans le diaporama) */}
-        <div style={{ border: "1.5px solid #cbd5e1", borderRadius: "6px", padding: "3mm 4mm", marginBottom: "4mm" }}>
-          <FriseSVG />
-        </div>
-
-        <div style={{ background: "#f6f8f4", border: "1.5px solid #dfe6d8", borderRadius: "8px", padding: "3mm 4mm", marginBottom: "5mm" }}>
-          <div style={{ fontWeight: 800, fontSize: "14px", marginBottom: "1mm" }}>Je retiens</div>
-          <ul style={{ margin: 0, paddingLeft: "6mm", fontSize: "15px", lineHeight: 1.7 }}>
-            <li>1 semaine = 7 jours ; 1 année = 365 jours (12 mois).</li>
-            <li><b>1 décennie = 10 ans</b> ; <b>1 siècle = 100 ans</b> ; <b>1 millénaire = 1 000 ans</b>.</li>
-          </ul>
-        </div>
-
-        {/* Chiffres romains */}
-        <h2 style={{ fontSize: "18px", margin: "0 0 2mm", fontFamily: "'Caveat','Comic Neue',cursive" }}>Les chiffres romains (surtout les CE2)</h2>
-        <p style={{ fontSize: "14.5px", lineHeight: 1.5, margin: "0 0 3mm" }}>
-          On écrit les siècles en chiffres romains. Voici les symboles&nbsp;:
-        </p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "3mm", marginBottom: "3mm" }}>
-          {[["I", "1"], ["V", "5"], ["X", "10"], ["L", "50"], ["C", "100"], ["D", "500"], ["M", "1000"]].map(([r, n]) => (
-            <div key={r} style={{ border: "1.5px solid #111", borderRadius: "6px", padding: "1.5mm 3mm", textAlign: "center", minWidth: "16mm" }}>
-              <div style={{ fontSize: "22px", fontWeight: 800, fontFamily: "'Caveat','Comic Neue',cursive" }}>{r}</div>
-              <div style={{ fontSize: "13px", color: "#555" }}>= {n}</div>
+        {/* Autrefois : 3 petits dessins */}
+        <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", gap: "4mm", marginBottom: "6mm" }}>
+          {[{ d: <Soleil />, l: "le cadran solaire" }, { d: <Sablier />, l: "le sablier" }, { d: <Horloge />, l: "l'horloge" }].map((it) => (
+            <div key={it.l} style={{ textAlign: "center" }}>
+              <div style={{ display: "grid", placeItems: "center", width: "24mm", height: "24mm", margin: "0 auto", borderRadius: "50%", background: "#fff7ed", border: `2.5px solid ${OR2}` }}>{it.d}</div>
+              <div style={{ fontSize: "17px", marginTop: "1mm", fontFamily: "'Caveat','Comic Neue',cursive" }}>{it.l}</div>
             </div>
           ))}
         </div>
-        <div style={{ borderLeft: "4px solid #111", paddingLeft: "3mm", marginBottom: "3mm" }}>
-          <p style={{ fontSize: "14.5px", lineHeight: 1.55, margin: 0 }}>
-            <b>La règle du « moins ».</b> D'habitude, on <b>ajoute</b> : VI = 5 + 1 = <b>6</b>.
-            Mais quand un <b>petit</b> chiffre est écrit <b>avant</b> un plus grand, on <b>enlève</b>&nbsp;:
-          </p>
-          <ul style={{ margin: "1.5mm 0 0", paddingLeft: "6mm", fontSize: "16px", lineHeight: 1.7, fontFamily: "'Caveat','Comic Neue',cursive" }}>
-            <li><b>IV</b> = 5 − 1 = <b>4</b>  (le I est avant le V)</li>
-            <li><b>IX</b> = 10 − 1 = <b>9</b></li>
-            <li><b>XIX</b> = 10 + (10 − 1) = 10 + 9 = <b>19</b></li>
-          </ul>
+
+        {/* La frise, en grand */}
+        <div style={{ marginBottom: "5mm" }}>
+          <FriseSVG />
         </div>
-        <p style={{ fontSize: "15px", margin: "0" }}>
-          Exemple : nous vivons au <b>XXIᵉ siècle</b> (le 21ᵉ) → XX = 20, puis I = 1, donc <b>21</b>.
-        </p>
+
+        {/* Je retiens : 3 grosses pastilles (peu de mots) */}
+        <div style={{ display: "flex", justifyContent: "center", gap: "5mm", flexWrap: "wrap", marginBottom: "7mm" }}>
+          {[{ n: "10 ans", l: "1 décennie", c: "#a855f7" }, { n: "100 ans", l: "1 siècle", c: "#ec4899" }, { n: "1 000 ans", l: "1 millénaire", c: "#ef4444" }].map((it) => (
+            <div key={it.l} style={{ border: `3px solid ${it.c}`, borderRadius: "5mm", padding: "3mm 6mm", textAlign: "center", minWidth: "42mm" }}>
+              <div style={{ fontSize: "22px", fontWeight: 800, fontFamily: "'Caveat','Comic Neue',cursive" }}>{it.l}</div>
+              <div style={{ fontSize: "26px", fontWeight: 800, color: it.c, fontFamily: "'Caveat','Comic Neue',cursive" }}>= {it.n}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Chiffres romains : gros titre, cartes, 3 mini-exemples */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2mm", marginBottom: "3mm" }}>
+          <Calendrier />
+          <h2 style={{ fontSize: "30px", margin: 0, color: OR2, fontFamily: "'Caveat','Comic Neue',cursive" }}>Les chiffres romains</h2>
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "3mm", marginBottom: "4mm" }}>
+          {[["I", "1"], ["V", "5"], ["X", "10"], ["L", "50"], ["C", "100"], ["M", "1000"]].map(([r, n]) => (
+            <div key={r} style={{ border: "2.5px solid #111", borderRadius: "3mm", padding: "2mm 4mm", textAlign: "center", minWidth: "18mm" }}>
+              <div style={{ fontSize: "30px", fontWeight: 800, fontFamily: "'Caveat','Comic Neue',cursive" }}>{r}</div>
+              <div style={{ fontSize: "16px", color: "#555", fontFamily: "'Caveat','Comic Neue',cursive" }}>= {n}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: "center", fontSize: "18px", marginBottom: "3mm", fontFamily: "'Caveat','Comic Neue',cursive" }}>
+          Le petit chiffre <b>avant</b> le grand&nbsp;: on <b>enlève</b>&nbsp;!
+        </div>
+        <div style={{ display: "flex", justifyContent: "center", gap: "5mm", flexWrap: "wrap" }}>
+          {[["IV", "4"], ["IX", "9"], ["XIX", "19"]].map(([r, n]) => (
+            <div key={r} style={{ background: "#eef6ee", border: "2.5px solid #2f6b34", borderRadius: "3mm", padding: "2mm 5mm", textAlign: "center" }}>
+              <span style={{ fontSize: "28px", fontWeight: 800, fontFamily: "'Caveat','Comic Neue',cursive" }}>{r}</span>
+              <span style={{ fontSize: "24px", fontWeight: 800, color: "#2f6b34", fontFamily: "'Caveat','Comic Neue',cursive" }}> = {n}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
