@@ -99,6 +99,25 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
 - Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
   de vraies fiches de CE1-CE2 comme référence) pour toute nouvelle fiche.
 
+### MODÈLE DE SÉANCE VALIDÉ (à reproduire pour TOUTES les séances) — IMPORTANT
+- Référence validée par l'enseignant : le **français (déterminants)** et le
+  **maths (comparer les nombres)** du mardi 15/09. Trio gagnant, à reproduire
+  pour chaque nouvelle séance :
+  1. **un diaporama à projeter** (interactif, à révéler, dessins maison /
+     vraies photos Wikimedia si pertinent) ;
+  2. **une leçon simple à coller** (modèle enfantin ci-dessous : gros titre,
+     bulles/pastilles, 1-2 phrases, très peu de texte) ;
+  3. **une (ou deux) feuille(s) d'exercices simples**, différenciées CE1/CE2,
+     **avec un exemple résolu en tête de chaque exercice**, une seule colonne
+     (jamais de colonne « Je sais… »).
+- Plus une **vidéo précise** (Les Fondamentaux/Canopé ou Lumni) dans `video`.
+
+### Horaires de la journée (récréations) — IMPORTANT
+- **Récréation du matin : 10 h 10 → 10 h 40.** **Récréation de l'après-midi :
+  15 h 10 → 15 h 40.** (30 min chacune.) À respecter quand je bâtis une
+  journée « normale ». Exception : le lundi 14/09 avait un horaire décalé
+  (évaluations nationales).
+
 ### Leçons projetées / à coller — MODÈLE VALIDÉ « simple, efficace, enfantin »
 - Référence validée par l'enseignant : la **leçon d'histoire « Comment mesure-t-on
   le temps ? »** (`MesurerTempsLecon`) et son **diaporama** (`MesurerTempsDiapo`).
