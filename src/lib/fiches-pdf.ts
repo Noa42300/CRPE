@@ -35,7 +35,8 @@ export type FichePdfData =
   | { matiere: "geographie"; fiche: CiviqueFiche }
   | { matiere: "emc"; fiche: CiviqueFiche }
   | { matiere: "anglais"; fiche: AnglaisFiche }
-  | { matiere: "espagnol"; fiche: EspagnolFiche };
+  | { matiere: "espagnol"; fiche: EspagnolFiche }
+  | { matiere: "arts"; fiche: CiviqueFiche };
 
 const MATIERE_LABELS: Record<FichePdfData["matiere"], string> = {
   francais: "Français",
@@ -47,6 +48,7 @@ const MATIERE_LABELS: Record<FichePdfData["matiere"], string> = {
   emc: "EMC",
   anglais: "Anglais",
   espagnol: "Espagnol",
+  arts: "Arts",
 };
 
 /* ------------------------------------------------------------------ */
@@ -828,6 +830,9 @@ async function buildDoc(data: FichePdfData): Promise<import("jspdf").jsPDF> {
       break;
     case "espagnol":
       buildLangue(ctx, data.fiche, "Espagnol");
+      break;
+    case "arts":
+      buildCivique(ctx, data.fiche, "Arts");
       break;
   }
 

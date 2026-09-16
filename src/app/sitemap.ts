@@ -14,6 +14,7 @@ import { ANGLAIS_FICHES } from "@/lib/anglais-fiches";
 import { ESPAGNOL_FICHES } from "@/lib/espagnol-fiches";
 import { SVT_FICHES } from "@/lib/svt-fiches";
 import { PHYS_FICHES } from "@/lib/physique-fiches";
+import { ARTS_FICHES } from "@/lib/arts-fiches";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -109,6 +110,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  // Pages de fiches d'arts (une par notion).
+  const artsPages = ARTS_FICHES.map((f) => ({
+    url: `${base}/fiches/arts/${f.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...resourcePages,
@@ -120,5 +129,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...espagnolPages,
     ...svtPages,
     ...physPages,
+    ...artsPages,
   ];
 }

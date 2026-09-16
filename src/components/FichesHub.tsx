@@ -27,9 +27,11 @@ import { GEO_FICHES } from "@/lib/geographie-fiches";
 import { GEO_THEMES, GEO_ORDER, type GeoTheme } from "@/lib/geographie-fiches/types";
 import { EMC_FICHES } from "@/lib/emc-fiches";
 import { EMC_THEMES, EMC_ORDER, type EmcTheme } from "@/lib/emc-fiches/types";
+import { ARTS_FICHES } from "@/lib/arts-fiches";
+import { ARTS_THEMES, ARTS_ORDER, type ArtsTheme } from "@/lib/arts-fiches/types";
 
 type Matiere =
-  | "francais" | "maths" | "histoire" | "geographie" | "emc" | "anglais" | "espagnol" | "svt" | "physique-chimie";
+  | "francais" | "maths" | "histoire" | "geographie" | "emc" | "anglais" | "espagnol" | "svt" | "physique-chimie" | "arts";
 const MATH_ORDER: MathBloc[] = ["nombres", "algebre", "geometrie", "grandeurs"];
 const HIST_ORDER: HistoireBloc[] = ["monde-1945", "france-1945", "europe", "guerres-mondiales"];
 const SVT_ORDER: SvtTheme[] = ["vivant", "corps", "genetique"];
@@ -37,7 +39,7 @@ const PHYS_ORDER: PhysBloc[] = ["matiere", "energie", "electricite", "mouvement"
 
 const MATIERES: Matiere[] = [
   "francais", "maths", "histoire", "geographie", "emc",
-  "anglais", "espagnol", "svt", "physique-chimie",
+  "anglais", "espagnol", "svt", "physique-chimie", "arts",
 ];
 
 export function FichesHub() {
@@ -81,6 +83,9 @@ export function FichesHub() {
         </TabButton>
         <TabButton active={tab === "physique-chimie"} onClick={() => setTab("physique-chimie")}>
           🟦 Physique-Chimie <Count>{PHYS_FICHES.length}</Count>
+        </TabButton>
+        <TabButton active={tab === "arts"} onClick={() => setTab("arts")}>
+          🎨 Arts <Count>{ARTS_FICHES.length}</Count>
         </TabButton>
       </div>
 
@@ -138,6 +143,14 @@ export function FichesHub() {
           meta={PHYS_BLOCS}
           fiches={PHYS_FICHES}
           basePath="/fiches/physique-chimie"
+        />
+      )}
+      {tab === "arts" && (
+        <ChapterList<ArtsTheme>
+          order={ARTS_ORDER}
+          meta={ARTS_THEMES}
+          fiches={ARTS_FICHES.map((f) => ({ ...f, bloc: f.theme }))}
+          basePath="/fiches/arts"
         />
       )}
     </div>
