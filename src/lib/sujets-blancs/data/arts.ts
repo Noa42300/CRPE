@@ -509,4 +509,256 @@ export const ARTS_SUJETS: SujetBlanc[] = [
       },
     ],
   },
+
+  {
+    slug: "arts-3-action-et-recit",
+    matiere: "arts",
+    niveau: "crpe",
+    titre: "Sujet blanc n°3 — Représenter l'action : l'événement et le récit (arts plastiques & éducation musicale)",
+    description:
+      "Un dossier « Arts » : arts plastiques (Delacroix, La Liberté guidant le peuple) et éducation musicale (Dukas, L'Apprenti sorcier), en lien avec le programme 2027. Analyse d'œuvre, mise en relation et transposition pédagogique. Niveau CRPE.",
+    epreuve: "Épreuve écrite de polyvalence — Domaine des arts (arts plastiques & éducation musicale)",
+    duree: "1 h conseillée",
+    totalPoints: 20,
+    consignes: [
+      "Le sujet comporte deux parties indépendantes : arts plastiques (10 points) et éducation musicale (10 points).",
+      "Répondre à chaque question par un développement structuré et argumenté, appuyé sur les documents et sur des connaissances précises.",
+      "On valorise la culture artistique, la maîtrise du vocabulaire spécifique et la cohérence des propositions pédagogiques. Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Partie A — Arts plastiques : représenter un événement, le mouvement et l'action",
+        points: 10,
+        intro:
+          "En lien avec les questionnements « L'art et le récit » (représenter un événement) et « La représentation de l'être humain » (la figure allégorique).",
+        blocks: [
+          {
+            type: "figure",
+            illustration: "delacroix-liberte",
+            titre: "Document 1 — Eugène Delacroix, La Liberté guidant le peuple (1830)",
+            legende:
+              "Eugène Delacroix, La Liberté guidant le peuple, 1830, huile sur toile, 260 × 325 cm, musée du Louvre (œuvre du domaine public).",
+          },
+          {
+            type: "document",
+            titre: "Description de l'œuvre",
+            source: "D'après Eugène Delacroix, peintre romantique français.",
+            lines: [
+              "L'œuvre commémore les « Trois Glorieuses », les journées révolutionnaires des 27, 28 et 29 juillet 1830 qui renversent le roi Charles X. Au centre, une femme au bonnet phrygien avance en brandissant le drapeau tricolore d'une main et un fusil de l'autre : ce n'est pas une combattante réelle mais une allégorie, la Liberté personnifiée. Elle enjambe une barricade et des corps, entraînant une foule mêlée : un bourgeois en haut-de-forme armé d'un fusil, un gamin (dit « gavroche ») brandissant deux pistolets, des ouvriers. La composition, en pyramide et en diagonale, pousse tout le groupe vers l'avant, dans la fumée des combats ; au loin, dans la brume, on devine les tours de Notre-Dame de Paris.",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "Comment Delacroix fait-il « entrer » le spectateur dans l'action ? Analysez les procédés plastiques (composition, lignes de force, mouvement, lumière et couleur, place du drapeau) qui donnent à la scène sa force dramatique.",
+                points: 4,
+              },
+              {
+                num: "b.",
+                text: "L'œuvre mêle un événement réel et une figure allégorique (la Liberté). Expliquez ce que cette allégorie apporte au tableau, et situez cette manière de représenter l'être humain par rapport à un portrait « ressemblant ». Citez au moins un autre exemple d'œuvre qui représente un événement ou une idée.",
+                points: 3,
+              },
+              {
+                num: "c.",
+                text: "Proposez, pour un cycle 3, une séquence d'arts plastiques autour de « représenter un événement / mettre en mouvement une image ». Précisez l'objectif, une situation de pratique et l'articulation avec la rencontre des œuvres et le langage. Un lien avec l'EMC (symboles de la République, liberté) peut être exploité.",
+                points: 3,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie B — Éducation musicale : raconter une histoire en musique",
+        points: 10,
+        intro:
+          "En lien avec le questionnement « La musique et le récit » (la musique à programme, le poème symphonique).",
+        blocks: [
+          {
+            type: "document",
+            titre: "Document 2 — Une musique qui raconte une histoire",
+            source:
+              "Paul Dukas, L'Apprenti sorcier, scherzo symphonique (1897), d'après la ballade de Goethe (1797).",
+            lines: [
+              "L'œuvre suit pas à pas une histoire : en l'absence de son maître, l'apprenti sorcier ensorcelle un balai pour qu'il aille chercher l'eau à sa place. Mais il ne sait pas arrêter le sortilège : l'eau envahit tout. Il fend le balai d'un coup de hache… et chaque morceau devient un nouveau balai porteur d'eau. Le vieux sorcier revient enfin et rompt l'enchantement.",
+              "Dukas confie au basson un thème sautillant et têtu qui « incarne » le balai ; l'orchestre grossit par vagues et par crescendos pour figurer l'eau qui monte ; les cuivres marquent le retour du sorcier. La forme de la musique épouse ainsi le récit.",
+              "Cette œuvre est un « poème symphonique » (ou musique à programme) : une pièce d'orchestre sans paroles, mais construite pour raconter. Elle est devenue très célèbre grâce au dessin animé Fantasia (1940), où Mickey joue l'apprenti.",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "Comment la musique peut-elle « raconter » une histoire sans paroles ? À partir du document, décrivez les procédés (thème récurrent, timbres, rythme, nuances et crescendo, forme) qui permettent de suivre le récit du balai et de l'eau qui monte.",
+                points: 4,
+              },
+              {
+                num: "b.",
+                text: "Mettez cette œuvre en relation avec d'autres musiques qui racontent (par exemple Prokofiev, Pierre et le Loup ; Saint-Saëns, Le Carnaval des animaux ; Moussorgski, Une nuit sur le mont Chauve). Quelles manières différentes de « raconter » ou de « représenter » un personnage en musique repérez-vous ?",
+                points: 3,
+              },
+              {
+                num: "c.",
+                text: "Proposez, pour un cycle 2 ou 3, une activité d'écoute active et/ou de création autour de « la musique qui raconte ». Précisez l'œuvre écoutée, la consigne d'écoute (repérer le thème du balai, les moments-clés du récit) et une production possible des élèves.",
+                points: 3,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Partie", "Question", "Compétences évaluées", "Points"],
+      lignes: [
+        ["A — Arts pl.", "a.", "Analyse : composition, mouvement, force dramatique de la scène", "4"],
+        ["A", "b.", "Événement réel + allégorie ; représentation de l'être humain ; mise en relation", "3"],
+        ["A", "c.", "Transposition pédagogique (pratique + œuvres + langage), lien EMC", "3"],
+        ["B — Musique", "a.", "Procédés du récit en musique (thème, timbre, rythme, forme)", "4"],
+        ["B", "b.", "Mise en relation avec d'autres œuvres narratives", "3"],
+        ["B", "c.", "Écoute active / création autour d'une musique qui raconte", "3"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend une analyse précise appuyée sur les documents, un vocabulaire spécifique juste (plastique et musical) et des propositions pédagogiques réalistes reliant rencontre des œuvres, pratique et langage.",
+    correction: [
+      {
+        titre: "Partie A — Arts plastiques",
+        points: 10,
+        blocks: [
+          {
+            type: "qa",
+            num: "a.",
+            points: 4,
+            question: "Comment Delacroix fait-il entrer le spectateur dans l'action ?",
+            reponse: [
+              "La **composition pyramidale** culmine sur la Liberté et le drapeau, tandis que de fortes **diagonales** (les fusils, les bras, la pente de la barricade) et le **mouvement d'avancée** de tout le groupe **vers le spectateur** donnent l'impression que la scène « sort » du tableau.",
+              "La **lumière** et la **couleur** concentrent le regard : le corps éclairé de la Liberté se détache sur la fumée sombre, et le **rouge-blanc-bleu** du drapeau est **repris en écho** dans les vêtements des personnages, unifiant la foule autour de l'emblème. Les **corps au premier plan** rappellent le coût du combat et ancrent la scène dans le réel.",
+              "Delacroix mêle ainsi un **souffle romantique** (dramatisation, énergie, contraste) et une organisation très construite : la force de l'œuvre naît de cette tension entre désordre apparent de la mêlée et rigueur de la composition.",
+            ],
+            attendu:
+              "Nommer des procédés précis (composition pyramidale, diagonales, mouvement vers le spectateur, rôle de la couleur du drapeau) et les relier à l'effet dramatique.",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 3,
+            question: "Événement réel et figure allégorique ; représentation de l'être humain.",
+            reponse: [
+              "La Liberté n'est **pas une combattante réelle** mais une **allégorie** : une idée (la liberté) prend la forme d'une femme au **bonnet phrygien**, symbole républicain. L'allégorie **donne un sens universel** à un événement daté (juillet 1830) : le tableau ne montre pas seulement une émeute, il **célèbre une idée**.",
+              "Par rapport au **portrait ressemblant** (représenter une personne identifiée), on a ici une **figure-symbole** : elle vaut pour ce qu'elle **signifie**, non pour qui elle est. Les autres personnages, eux, sont **typés** (le bourgeois, le gamin, l'ouvrier) pour représenter « le peuple ».",
+              "Mise en relation possible : Géricault, **Le Radeau de la Méduse** (représenter un événement dramatique), Picasso, **Guernica** (dénoncer par l'image), ou une **Marianne** (l'allégorie de la République). Tous montrent qu'une image peut **raconter un événement ou porter une idée**.",
+            ],
+            attendu:
+              "Expliquer la fonction de l'allégorie (donner un sens universel à un événement réel), l'opposer au portrait, et citer un exemple pertinent et exact.",
+          },
+          {
+            type: "qa",
+            num: "c.",
+            points: 3,
+            question: "Séquence d'arts plastiques (cycle 3).",
+            reponse: [
+              "Objectif : comprendre qu'une image peut **raconter un événement et suggérer le mouvement**, et qu'un symbole peut porter une idée.",
+              "Pratique : réaliser une image (dessin, collage, **photomontage** ou mise en scène photographiée) qui **met en mouvement** un groupe autour d'un **symbole** (un drapeau, un objet). On travaille la **composition** (lignes de force, point culminant) et la manière de **suggérer l'action** (gestes, diagonales).",
+              "Articulation : **rencontre des œuvres** (Delacroix + une œuvre engagée plus récente), **pratique**, puis **langage** (décrire, justifier). Lien **EMC** : les **symboles de la République** (drapeau, Marianne, devise « Liberté, Égalité, Fraternité »).",
+            ],
+            attendu:
+              "Objectif clair, pratique réaliste liée à l'œuvre, articulation rencontre/pratique/langage ; le lien EMC est valorisé.",
+          },
+        ],
+      },
+      {
+        titre: "Partie B — Éducation musicale",
+        points: 10,
+        blocks: [
+          {
+            type: "qa",
+            num: "a.",
+            points: 4,
+            question: "Comment la musique raconte-t-elle une histoire sans paroles ?",
+            reponse: [
+              "Le récit est porté par un **thème récurrent** (le motif sautillant du **basson**) qui **incarne le balai** : quand il revient, on « reconnaît » le personnage — c'est le principe du **leitmotiv**. Le **timbre** comique du basson caractérise l'objet ensorcelé.",
+              "Le **rythme** régulier et têtu (ostinato) évoque la **marche mécanique** du balai ; les **nuances** et surtout un long **crescendo** (l'orchestre qui enfle) figurent l'**eau qui monte** ; les **cuivres** marquent le **retour du sorcier** et la rupture du sortilège.",
+              "La **forme** de la pièce **épouse le déroulé de l'histoire** (mise en marche → emballement → catastrophe → retour à l'ordre). C'est une **musique à programme** : sans paroles, elle **suggère et fait suivre** un récit.",
+            ],
+            attendu:
+              "Citer des procédés précis (thème/leitmotiv, timbre du basson, ostinato rythmique, crescendo, forme narrative) et les relier aux étapes de l'histoire.",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 3,
+            question: "Mise en relation avec d'autres musiques narratives.",
+            reponse: [
+              "**Prokofiev, Pierre et le Loup** (1936) : chaque personnage a un **instrument-timbre** et un **thème** (l'oiseau = flûte, le loup = cors…) ; un récitant guide l'histoire.",
+              "**Saint-Saëns, Le Carnaval des animaux** (1886) : des pièces courtes **caractérisent** des animaux par le timbre, le tempo, le registre (l'éléphant à la contrebasse, le cygne au violoncelle).",
+              "**Moussorgski, Une nuit sur le mont Chauve** (1867) : un poème symphonique qui **évoque** une nuit de sabbat par des couleurs orchestrales sombres.",
+              "On dégage ainsi plusieurs manières de « raconter » : par un **thème/leitmotiv** (Dukas, Prokofiev), par la **caractérisation d'un timbre** (Saint-Saëns), par l'**atmosphère** (Moussorgski).",
+            ],
+            attendu:
+              "Comparer au moins deux œuvres et distinguer des procédés différents (leitmotiv, timbre caractérisant, atmosphère).",
+          },
+          {
+            type: "qa",
+            num: "c.",
+            points: 3,
+            question: "Écoute active / création autour d'une musique qui raconte.",
+            reponse: [
+              "Écoute active : faire écouter des extraits de L'Apprenti sorcier ; consigne : **repérer le thème du balai** (lever la main quand il revient), puis **remettre dans l'ordre** des étapes de l'histoire (le balai part, l'eau monte, la hache, le retour du sorcier), et **décrire** avec un vocabulaire construit (timbre, nuance, tempo).",
+              "Création : **sonoriser une petite histoire** (voix, corps, objets sonores, percussions) en donnant à un personnage un **motif** ou un **instrument** reconnaissable, et en organisant une **progression** (calme → emballement → fin).",
+              "On relie **écouter, décrire et produire**, conformément aux programmes d'éducation musicale.",
+            ],
+            attendu:
+              "Une œuvre précise, une consigne d'écoute active (repérer le thème, suivre le récit) et une production réaliste des élèves.",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Traiter un dossier « Arts »",
+        blocks: [
+          {
+            type: "note",
+            variant: "methode",
+            titre: "Analyser une œuvre (plastique ou musicale)",
+            lines: [
+              "Décrire d'abord (ce que je vois / ce que j'entends), puis interpréter (ce que cela produit), enfin relier (contexte, autres œuvres).",
+              "Employer un vocabulaire spécifique : en arts plastiques (composition, lignes de force, mouvement, couleur) ; en musique (thème, timbre, rythme, nuance, forme).",
+            ],
+          },
+          {
+            type: "note",
+            variant: "attendu",
+            titre: "Réussir la question pédagogique",
+            lines: [
+              "Toujours articuler rencontre des œuvres + pratique + langage (décrire, justifier ses choix).",
+              "Proposer une situation réaliste, adaptée au cycle, avec un objectif clair et une trace ; exploiter les liens interdisciplinaires (ici, EMC).",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Prendre la Liberté pour une combattante réelle** : c'est une allégorie, une figure-symbole.",
+              "**Se limiter à raconter le sujet du tableau** sans analyser les procédés plastiques (composition, mouvement, couleur).",
+              "**Croire qu'une musique sans paroles ne peut pas raconter** : le poème symphonique suit bel et bien un récit (thème, timbres, crescendo, forme).",
+              "**Réduire la pédagogie à « faire écouter » ou « faire dessiner »** sans objectif, sans consigne précise ni verbalisation.",
+              "**Citer une œuvre ou une date de façon inexacte** : mieux vaut un exemple sûr et bien exploité.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
