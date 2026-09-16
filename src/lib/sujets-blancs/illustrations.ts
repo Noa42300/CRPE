@@ -28,6 +28,29 @@ import { MATHS_CRPE_ILLUSTRATIONS } from "./illustrations-maths-crpe";
 import { SCIENCES_ILLUSTRATIONS } from "./illustrations-sciences";
 
 const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
+  // EMPLACEMENT pour la reproduction (domaine public) de Giuseppe Arcimboldo,
+  // « L'Été » (1573, musée du Louvre). Placeholder tant que l'image n'est pas
+  // fournie : remplacer `inner` par un <image href="data:image/jpeg;base64,…"/>
+  // une fois le fichier disponible (voir sujet arts-6).
+  "arcimboldo-ete": {
+    vb: [520, 620],
+    alt: "Giuseppe Arcimboldo, L'Été (1573), musée du Louvre — visage de profil composé de fruits et légumes d'été.",
+    inner: `
+      <rect width="520" height="620" fill="#eef2f8"/>
+      <rect x="18" y="18" width="484" height="584" fill="#ffffff" stroke="#0b1730" stroke-width="3"/>
+      <rect x="32" y="32" width="456" height="556" fill="none" stroke="#c9d6ee" stroke-width="1.5"/>
+      <g stroke="#9fb2d6" stroke-width="3" fill="none">
+        <circle cx="340" cy="215" r="32"/>
+        <path d="M70 430 L190 300 L285 385 L355 330 L450 430"/>
+      </g>
+      <text x="260" y="120" font-family="Arial" font-size="15" font-weight="bold" fill="#5a6478" text-anchor="middle">REPRODUCTION À INSÉRER</text>
+      <text x="260" y="492" font-family="Arial" font-size="21" font-weight="bold" fill="#0b1730" text-anchor="middle">Giuseppe Arcimboldo</text>
+      <text x="260" y="522" font-family="Arial" font-size="18" font-style="italic" fill="#0b1730" text-anchor="middle">L'Été (1573)</text>
+      <text x="260" y="548" font-family="Arial" font-size="13" fill="#5a6478" text-anchor="middle">Huile sur toile · Musée du Louvre</text>
+      <text x="260" y="570" font-family="Arial" font-size="12" fill="#8a93a6" text-anchor="middle">Œuvre du domaine public</text>
+    `,
+  },
+
   // Portrait en clair-obscur (support pour l'analyse du portrait)
   "portrait-clair-obscur": {
     vb: [400, 300],
