@@ -41,16 +41,72 @@ function isDoc(f: File): boolean {
   );
 }
 
-/** Ouvre le fichier dans un nouvel onglet (pour impression). */
-function openBlob(rec: Attachment) {
-  const parts = rec.data.split(",");
+/** Data URL → Blob. */
+function dataUrlToBlob(data: string, fallbackMime: string): Blob {
+  const parts = data.split(",");
   const bstr = atob(parts[1] ?? "");
   const arr = new Uint8Array(bstr.length);
   for (let i = 0; i < bstr.length; i++) arr[i] = bstr.charCodeAt(i);
-  const blob = new Blob([arr], { type: rec.mime || "application/pdf" });
-  const url = URL.createObjectURL(blob);
+  const header = parts[0] ?? "";
+  const m = header.match(/data:([^;]+)/);
+  return new Blob([arr], { type: m?.[1] || fallbackMime });
+}
+
+/** Ouvre le fichier dans un nouvel onglet (pour impression). */
+function openBlob(rec: Attachment) {
+  const url = URL.createObjectURL(dataUrlToBlob(rec.data, rec.mime || "application/pdf"));
   window.open(url, "_blank", "noopener");
   setTimeout(() => URL.revokeObjectURL(url), 60000);
+}
+
+/** Nom de fichier terminant par .pdf. */
+function pdfName(name: string): string {
+  return /\.pdf$/i.test(name) ? name : `${name.replace(/\.[a-z0-9]+$/i, "")}.pdf`;
+}
+
+/** Enregistre un blob (compatible desktop ET tablette/PWA iOS). */
+function saveBlob(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const ua = navigator.userAgent || "";
+  const touch = (navigator as { maxTouchPoints?: number }).maxTouchPoints ?? 0;
+  const isIOS = /iP(hone|ad|od)/.test(ua) || (navigator.platform === "MacIntel" && touch > 1);
+  const standalone =
+    (navigator as { standalone?: boolean }).standalone === true ||
+    (typeof matchMedia !== "undefined" && matchMedia("(display-mode: standalone)").matches);
+  if (isIOS || standalone) {
+    const w = window.open(url, "_blank");
+    if (!w) { const a = document.createElement("a"); a.href = url; a.download = filename; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove(); }
+  } else {
+    const a = document.createElement("a"); a.href = url; a.download = filename; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove();
+  }
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
+}
+
+/** Télécharge le document en PDF : un PDF est enregistré tel quel ; une image
+ *  est placée dans une page A4 (centrée, à la bonne échelle). */
+async function downloadAsPdf(rec: Attachment) {
+  const isPdf = rec.mime === "application/pdf" || /\.pdf$/i.test(rec.name);
+  if (isPdf) {
+    saveBlob(dataUrlToBlob(rec.data, "application/pdf"), pdfName(rec.name));
+    return;
+  }
+  const { jsPDF } = await import("jspdf");
+  const img = new Image();
+  img.src = rec.data;
+  try { await img.decode(); } catch { /* on tente quand même */ }
+  const iw = img.naturalWidth || 1000;
+  const ih = img.naturalHeight || 1400;
+  const portrait = ih >= iw;
+  const pdf = new jsPDF({ unit: "mm", format: "a4", orientation: portrait ? "portrait" : "landscape" });
+  const pw = pdf.internal.pageSize.getWidth();
+  const ph = pdf.internal.pageSize.getHeight();
+  const margin = 8;
+  const ratio = Math.min((pw - margin * 2) / iw, (ph - margin * 2) / ih);
+  const w = iw * ratio;
+  const h = ih * ratio;
+  const fmt = /png/i.test(rec.mime) ? "PNG" : "JPEG";
+  pdf.addImage(rec.data, fmt, (pw - w) / 2, (ph - h) / 2, w, h);
+  saveBlob(pdf.output("blob"), pdfName(rec.name));
 }
 
 export function Attachments({
@@ -142,6 +198,13 @@ export function Attachments({
             <Search className="h-3.5 w-3.5" /> Aperçu
           </button>
           <button
+            onClick={() => void attachmentsDB.get(a.id).then((rec) => rec && downloadAsPdf(rec))}
+            className="btn-outline py-1 text-xs"
+            title="Télécharger en PDF"
+          >
+            📄 PDF
+          </button>
+          <button
             onClick={() => void remove(a.id, a.name)}
             className="text-stone-400 hover:text-rose-500"
             title="Supprimer"
@@ -170,6 +233,7 @@ export function Attachments({
       title={preview.name}
       onClose={() => setPreview(null)}
       onPrint={() => openBlob(preview)}
+      onDownload={() => void downloadAsPdf(preview)}
     >
       {preview.mime.startsWith("image/") ? (
         <img

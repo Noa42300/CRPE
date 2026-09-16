@@ -108,7 +108,31 @@ export const PictoLivre = (p: P) => (
   <S {...p}><path d="M10 16c8-4 14-4 22 0 8-4 14-4 22 0v34c-8-4-14-4-22 0-8-4-14-4-22 0Z" fill="#a78bfa" stroke="#6d28d9" strokeWidth="2" strokeLinejoin="round" /><path d="M32 16v34" stroke="#6d28d9" strokeWidth="2" /></S>
 );
 
+/* ---------------------------------------------- Maths */
+// Crocodile « qui mange le plus grand nombre » (mnémo des signes < et >).
+export const PictoCrocodile = (p: P) => (
+  <S {...p}><path d="M6 30c8-4 22-4 34 0 6 2 12 2 18 0-4 6-10 8-18 8-12 2-26 0-34-8Z" fill="#22c55e" stroke="#15803d" strokeWidth="2" strokeLinejoin="round" /><path d="M6 46c8 4 22 4 34 0 6-2 12-2 18 0-4-6-10-8-18-8-12-2-26 0-34 8Z" fill="#16a34a" stroke="#15803d" strokeWidth="2" strokeLinejoin="round" /><g fill="#fff"><path d="M12 34l4 4M20 33l4 5M28 33l4 5" stroke="#fff" strokeWidth="2" /></g><circle cx="16" cy="26" r="4" fill="#22c55e" stroke="#15803d" strokeWidth="2" /><circle cx="16" cy="26" r="1.8" fill="#0f172a" /></S>
+);
+// Blocs numériques (dizaines/unités) — pour dénombrer, comparer, décomposer.
+export const PictoNombre = (p: P) => (
+  <S {...p}><rect x="10" y="16" width="10" height="32" rx="2" fill="#f6b58f" stroke="#c9481f" strokeWidth="2" /><g stroke="#c9481f" strokeWidth="1.5"><path d="M10 22h10M10 28h10M10 34h10M10 40h10" /></g><rect x="30" y="38" width="9" height="9" rx="1.5" fill="#4ade80" stroke="#16a34a" strokeWidth="2" /><rect x="42" y="38" width="9" height="9" rx="1.5" fill="#4ade80" stroke="#16a34a" strokeWidth="2" /><text x="30" y="30" fontSize="16" fontWeight="700" fill="#2563eb" fontFamily="sans-serif">12</text></S>
+);
+// Globe — projet « Autour du monde », géographie.
+export const PictoGlobe = (p: P) => (
+  <S {...p}><circle cx="32" cy="32" r="22" fill="#38bdf8" stroke="#0369a1" strokeWidth="2" /><path d="M14 26c8 4 28 4 36 0M14 40c8-4 28-4 36 0" fill="none" stroke="#bae6fd" strokeWidth="2" /><path d="M32 10v44M20 14c-8 10-8 26 0 36M44 14c8 10 8 26 0 36" fill="none" stroke="#bae6fd" strokeWidth="2" /><path d="M22 24c4 2 4 6 8 6s6-4 10-2 2 8-2 10-8-2-12 0-6 6-10 2" fill="#4ade80" opacity="0.9" /></S>
+);
+
+/* ---------------------------------------------- Politesse / entraide */
+export const PictoCoeur = (p: P) => (
+  <S {...p}><path d="M32 52C16 40 10 32 10 24a10 10 0 0 1 22-4 10 10 0 0 1 22 4c0 8-6 16-22 28Z" fill="#ef4444" stroke="#b91c1c" strokeWidth="2" strokeLinejoin="round" /><path d="M20 22a6 6 0 0 1 6-2" fill="none" stroke="#fecaca" strokeWidth="3" strokeLinecap="round" /></S>
+);
+export const PictoMain = (p: P) => (
+  <S {...p}><g fill="#fcd9b6" stroke="#c9481f" strokeWidth="2" strokeLinejoin="round"><rect x="24" y="10" width="5" height="22" rx="2.5" /><rect x="30" y="7" width="5" height="25" rx="2.5" /><rect x="36" y="10" width="5" height="22" rx="2.5" /><path d="M20 24c-3-4-8-2-6 3l6 12c2 5 6 8 12 8s11-4 11-11V22a2.5 2.5 0 0 0-5 0v8h-2V16a2.5 2.5 0 0 0-5 0" /></g><path d="M46 12c3-1 6 0 6 0M48 8c2 0 4 2 4 2" stroke="#f59e0b" strokeWidth="2.5" strokeLinecap="round" fill="none" /></S>
+);
+
 export const PICTOS: Record<string, (p: P) => React.ReactNode> = {
+  crocodile: PictoCrocodile, nombre: PictoNombre, globe: PictoGlobe,
+  coeur: PictoCoeur, main: PictoMain,
   maison: PictoMaison, goutte: PictoGoutte, livre: PictoLivre,
   pomme: PictoPomme, fleur: PictoFleur, oreille: PictoOreille, saut: PictoSaut,
   oiseau: PictoOiseau, valise: PictoValise, cartable: PictoCartable, pain: PictoPain,

@@ -201,6 +201,8 @@ export interface Settings {
   theme: "light" | "dark" | "auto";
   /** Jours travaillés (0=dimanche … 6=samedi). */
   joursTravailles: number[];
+  /** true une fois les séquences-plan semées dans la Bibliothèque (une seule fois). */
+  seqPlanSeeded?: boolean;
 }
 
 /** Un modèle réutilisable (séance ou journée). */

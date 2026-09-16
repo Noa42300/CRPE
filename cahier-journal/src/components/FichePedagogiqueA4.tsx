@@ -15,12 +15,13 @@ export type FicheBloc =
   | { kind: "pictos"; titre?: string; items: { name: string; label: string }[] }
   | { kind: "timeline"; titre?: string; steps: { name: string; label: string }[] }
   | { kind: "paires"; titre?: string; paires: { avant: { name: string; label: string }; apres: { name: string; label: string } }[] }
-  | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string }
+  | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string; exemple?: string }
   | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
   | { kind: "comparer"; a: number; b: number; signe: "<" | ">" | "="; cdu?: boolean }
   | { kind: "tableau"; titre?: string; entetes: string[]; lignes: string[][] }
   | { kind: "champs"; items: string[] }
   | { kind: "traits"; n: number }
+  | { kind: "pagebreak"; label?: string }
   | { kind: "lignes"; n: number };
 
 export interface FicheData {
@@ -30,12 +31,17 @@ export interface FicheData {
   discipline?: string;
   /** true = corps de leçon en écriture cursive (police Borel). */
   cursive?: boolean;
+  /** Colonne « Je sais… » à droite (auto-évaluation), une entrée par exercice.
+   *  Réservée aux fiches d'exercices (modèle authentique CE1-CE2). */
+  competences?: string[];
   blocs: FicheBloc[];
 }
 
-const ORANGE = "#c9481f";
+// Chrome des fiches en ENCRE NOIRE (plus d'orange « IA »). Les couleurs vives
+// restent réservées aux illustrations et au matériel pédagogique (base 10…).
+const ORANGE = "#1f2937";
 const H: React.CSSProperties = { color: ORANGE, fontWeight: 800 };
-const line: React.CSSProperties = { borderBottom: "1.5px solid #b9d4ec", height: "8.5mm" };
+const line: React.CSSProperties = { borderBottom: "1.5px solid #9aa4ad", height: "9mm" };
 
 function Lignes({ n }: { n: number }) {
   return (
@@ -104,42 +110,42 @@ function CarteNombre({ n, cdu }: { n: number; cdu?: boolean }) {
 
 function Carte({ name, label, bg, border }: { name: string; label: string; bg: string; border: string }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1mm", background: bg, border: `1.5px solid ${border}`, borderRadius: "8px", padding: "2.5mm 2mm", minWidth: "24mm" }}>
-      <Picto name={name} size={46} title={label} />
-      <span style={{ fontSize: "12.5px", fontWeight: 600, textAlign: "center", color: "#334155" }}>{label}</span>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5mm", background: bg, border: `1.5px solid ${border}`, borderRadius: "10px", padding: "3mm 2.5mm", minWidth: "26mm" }}>
+      <div style={{ display: "grid", placeItems: "center", width: "18mm", height: "18mm", borderRadius: "50%", background: "#ffffff", border: `1.5px solid ${border}` }}>
+        <Picto name={name} size={56} title={label} />
+      </div>
+      <span style={{ fontSize: "13px", fontWeight: 600, textAlign: "center", color: "#334155", lineHeight: 1.2 }}>{label}</span>
     </div>
   );
 }
 
 export function FichePedagogiqueA4({ data }: { data: FicheData }) {
   const body = data.cursive ? "'Borel','Nunito',cursive" : "'Lexend','Nunito',system-ui,sans-serif";
+  // En écriture cursive (Borel, liée) il faut de plus grandes lettres et plus
+  // d'interligne pour que ce soit vraiment lisible par des CE1-CE2.
+  const cur = !!data.cursive;
+  const lh = cur ? 1.9 : 1.55;
   const isExo = data.entete.toLowerCase().includes("exercice") || data.entete.toLowerCase().includes("autonomie") || data.entete.toLowerCase().includes("distribuer");
   let exNo = 0;
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ display: "flex", alignItems: "baseline", gap: "3mm", borderBottom: `3px solid ${ORANGE}`, paddingBottom: "2mm", marginBottom: "4mm" }}>
-        <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.14em", color: ORANGE, fontWeight: 800 }}>{data.entete}</span>
-        {data.niveau && <span style={{ marginLeft: "auto", fontSize: "13px", fontWeight: 800, color: "#fff", background: ORANGE, borderRadius: "999px", padding: "0.5mm 4mm" }}>{data.niveau}</span>}
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", padding: "7mm", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+     <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "6mm 7mm", minHeight: "283mm", boxSizing: "border-box" }}>
+      {/* En-tête simple, façon manuel : titre manuscrit + prénom, un filet fin. */}
+      <div style={{ borderBottom: "1.5px solid #111", paddingBottom: "2mm", marginBottom: "4mm", display: "flex", alignItems: "baseline", gap: "3mm" }}>
+        <h1 style={{ fontSize: "27px", margin: 0, fontWeight: 700, fontFamily: "'Caveat','Comic Neue',cursive" }}>{data.titre}</h1>
+        {data.niveau && <span style={{ fontSize: "14px", fontWeight: 700, color: "#333", fontFamily: "'Caveat','Comic Neue',cursive" }}>· {data.niveau}</span>}
+        {isExo && <div style={{ marginLeft: "auto", fontSize: "13px" }}>Prénom : <span style={{ display: "inline-block", width: "42mm", borderBottom: "1px solid #333" }} /></div>}
       </div>
-      <h1 style={{ fontSize: "24px", margin: "0 0 1mm", fontWeight: 800 }}>{data.titre}</h1>
-      {data.discipline && <div style={{ fontSize: "12px", color: "#888", marginBottom: "3mm" }}>{data.discipline}</div>}
-
-      {isExo && (
-        <div style={{ display: "flex", gap: "6mm", fontSize: "13px", marginBottom: "4mm" }}>
-          <div>Prénom : <span style={{ display: "inline-block", width: "45mm", borderBottom: "1px dotted #999" }} /></div>
-          <div>Date : <span style={{ display: "inline-block", width: "35mm", borderBottom: "1px dotted #999" }} /></div>
-        </div>
-      )}
 
       <div style={{ display: "flex", flexDirection: "column", gap: "4mm" }}>
         {data.blocs.map((b, i) => {
           if (b.kind === "def") {
             return (
               <div key={i} style={{ display: "flex", gap: "3mm", alignItems: "center", background: "#f6f8f4", border: "1.5px solid #dfe6d8", borderRadius: "8px", padding: "3mm 4mm" }}>
-                {b.picto && <div style={{ flexShrink: 0 }}><Picto name={b.picto} size={52} /></div>}
+                {b.picto && <div style={{ flexShrink: 0 }}><Picto name={b.picto} size={cur ? 64 : 52} /></div>}
                 <div>
                   {b.titre && <div style={{ ...H, fontSize: "14px", marginBottom: "1mm" }}>{b.titre}</div>}
-                  <div style={{ fontSize: data.cursive ? "18px" : "14.5px", lineHeight: 1.55, fontFamily: body }}>{b.contenu}</div>
+                  <div style={{ fontSize: cur ? "22px" : "14.5px", lineHeight: lh, fontFamily: body }}>{b.contenu}</div>
                 </div>
               </div>
             );
@@ -148,7 +154,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i}>
                 {b.titre && <div style={{ ...H, fontSize: "13px", marginBottom: "1mm" }}>{b.titre}</div>}
-                <ul style={{ margin: 0, paddingLeft: "6mm", fontSize: data.cursive ? "17px" : "14px", lineHeight: 1.6, fontFamily: body }}>
+                <ul style={{ margin: 0, paddingLeft: "6mm", fontSize: cur ? "20px" : "14px", lineHeight: cur ? 1.8 : 1.6, fontFamily: body }}>
                   {b.points.map((p, j) => <li key={j}>{p}</li>)}
                 </ul>
               </div>
@@ -158,7 +164,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i} style={{ borderLeft: `4px solid ${ORANGE}`, paddingLeft: "3mm" }}>
                 {b.titre && <div style={{ ...H, fontSize: "12px", marginBottom: "1mm" }}>{b.titre}</div>}
-                <ul style={{ margin: 0, paddingLeft: "5mm", fontSize: data.cursive ? "16px" : "13.5px", lineHeight: 1.5, fontFamily: body, color: "#333" }}>
+                <ul style={{ margin: 0, paddingLeft: "5mm", fontSize: cur ? "19px" : "13.5px", lineHeight: cur ? 1.75 : 1.5, fontFamily: body, color: "#333" }}>
                   {b.points.map((p, j) => <li key={j}>{p}</li>)}
                 </ul>
               </div>
@@ -225,6 +231,20 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
               </div>
             );
           }
+          if (b.kind === "pagebreak") {
+            // Séparateur visible + grande marge blanche : l'élève voit la fin de
+            // la page 1, et la pagination PDF (coupe sur ligne blanche) tombe ici.
+            return (
+              <div key={i} className="fiche-pagebreak" style={{ margin: "6mm 0 2mm", textAlign: "center", breakBefore: "page" as React.CSSProperties["breakBefore"] }}>
+                <div style={{ borderTop: "2px dashed #94a3b8", position: "relative", height: 0 }}>
+                  <span style={{ position: "absolute", left: "50%", top: "-3mm", transform: "translateX(-50%)", background: "#fff", padding: "0 3mm", fontSize: "12px", fontWeight: 800, color: "#64748b", letterSpacing: "0.06em" }}>
+                    ✂ — — — {b.label ?? "PAGE 2"} — — —
+                  </span>
+                </div>
+                <div style={{ height: "6mm" }} />
+              </div>
+            );
+          }
           if (b.kind === "base10") {
             return (
               <div key={i} style={{ border: "1px solid #e7e2d8", borderRadius: "8px", padding: "3mm" }}>
@@ -236,7 +256,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
             return (
               <div key={i}>
                 {b.titre && <div style={{ ...H, fontSize: "13px", marginBottom: "1.5mm" }}>{b.titre}</div>}
-                <table style={{ borderCollapse: "collapse", width: "100%", fontSize: data.cursive ? "15px" : "13.5px", fontFamily: body }}>
+                <table style={{ borderCollapse: "collapse", width: "100%", fontSize: cur ? "16.5px" : "13.5px", fontFamily: body }}>
                   <thead>
                     <tr>
                       {b.entetes.map((h, j) => (
@@ -272,12 +292,19 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
               <div key={i} className="print-avoid-break" style={{ display: "flex", gap: "3mm" }}>
                 {b.picto && <div style={{ flexShrink: 0 }}><Picto name={b.picto} size={40} /></div>}
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: "14px", fontWeight: 700 }}>
-                    <span style={H}>{exNo}.</span> {b.consigne}
-                    {b.aide && <span style={{ marginLeft: "2mm", fontSize: "11px", fontWeight: 700, color: ORANGE, background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: "999px", padding: "0.3mm 2mm" }}>aide : {b.aide}</span>}
+                  <div style={{ fontSize: "15px", fontWeight: 700 }}>
+                    <span style={{ fontWeight: 800 }}>{exNo}.</span>{" "}
+                    <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{b.consigne}</span>
+                    {b.aide && <span style={{ marginLeft: "2mm", fontSize: "11px", fontWeight: 700, color: "#444", background: "#f1f3f5", border: "1px solid #ced4da", borderRadius: "999px", padding: "0.3mm 2mm" }}>aide : {b.aide}</span>}
                   </div>
+                  {b.exemple && (
+                    <div style={{ margin: "1mm 0 0", display: "inline-flex", alignItems: "baseline", gap: "2mm", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "6px", padding: "1mm 3mm" }}>
+                      <span style={{ fontSize: "11px", fontWeight: 800, color: "#2f6b34", textTransform: "uppercase", letterSpacing: "0.04em" }}>Exemple</span>
+                      <span style={{ fontFamily: "'Caveat','Comic Neue',cursive", fontSize: "20px", color: "#1c4a20" }}>{b.exemple}</span>
+                    </div>
+                  )}
                   {b.items && (
-                    <ul style={{ margin: "1mm 0 0", paddingLeft: "6mm", fontSize: "14px", lineHeight: 2 }}>
+                    <ul style={{ margin: "1.5mm 0 0", paddingLeft: "7mm", fontSize: "21px", lineHeight: 1.9, fontFamily: "'Caveat','Comic Neue',cursive", color: "#222" }}>
                       {b.items.map((it, j) => <li key={j}>{it}</li>)}
                     </ul>
                   )}
@@ -289,6 +316,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
           return <Lignes key={i} n={b.n} />;
         })}
       </div>
+     </div>
     </div>
   );
 }

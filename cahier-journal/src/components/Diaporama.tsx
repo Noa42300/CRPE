@@ -9,7 +9,7 @@
  */
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Pays } from "../lib/projets";
-import { THEMES } from "../lib/projets";
+import { THEMES, AUTOUR_DU_MONDE } from "../lib/projets";
 import { distanceKm, direction } from "../lib/geo";
 import { requestFullscreen, exitFullscreen } from "../lib/board";
 import { WorldMap } from "./WorldMap";
@@ -22,34 +22,55 @@ interface Cell { type: "letter" | "space" | "sep"; letter?: string; expr?: strin
 
 /**
  * Opération de calcul mental dont le résultat = position de la lettre (1..26).
- * Elle évolue au fil de l'année : additions (P1), soustractions (P2),
- * multiplications quand c'est possible (P3), puis mélange (P4-P5).
+ * La difficulté monte AU FIL DES PAYS du projet (et non plus par période) :
+ * - pays 0 et 1 (Italie, Espagne) : additions seulement, on installe le principe ;
+ * - à partir du pays 2 (Royaume-Uni) : soustractions, avec « un peu » de
+ *   multiplication, de plus en plus fréquente au fil des escales.
+ * `gi` = rang du pays dans le projet (0 = Italie…). `li` = rang de la lettre
+ * dans le mot (pour panacher les opérations au sein d'un même pays).
  */
-function opFor(pos: number, period: number): string {
+function opFor(pos: number, gi: number, li: number): string {
   const mult = () => {
+    // On privilégie un facteur ≥ 3 (multiplication plus « vraie » que × 2).
+    for (let d = 3; d <= 9; d++) if (pos % d === 0 && pos / d >= 2 && pos / d <= 10) return `${d} × ${pos / d}`;
     for (let d = 2; d <= 9; d++) if (pos % d === 0 && pos / d >= 2 && pos / d <= 10) return `${d} × ${pos / d}`;
     return "";
   };
   const add = () => { const a = Math.ceil(pos / 2); return `${a} + ${pos - a}`; };
-  const sub = () => `${pos + 4} − 4`;
-  if (period <= 1) return add();
-  if (period === 2) return sub();
-  if (period === 3) return mult() || add();
-  if (period === 4) return pos % 2 === 0 ? sub() : add();
-  return mult() || sub(); // P5
+  const sub = () => { const b = 3 + (li % 4); return `${pos + b} − ${b}`; };
+
+  // Italie (0) et Espagne (1) : additions seulement.
+  if (gi <= 1) return add();
+
+  // Dès le Royaume-Uni (gi ≥ 2) : soustractions + multiplication. La part de
+  // multiplication augmente avec les pays (toutes les 3 lettres, puis 2, puis
+  // dès que c'est possible).
+  const multEvery = gi < 4 ? 3 : gi < 8 ? 2 : 1;
+  if (li % multEvery === 0) {
+    const m = mult();
+    if (m) return m;
+  }
+  return sub();
 }
 
-function toCryptogramme(nom: string, period: number): Cell[] {
+function toCryptogramme(nom: string, gi: number): Cell[] {
   const norm = nom.normalize("NFD").replace(/[̀-ͯ]/g, "");
+  let li = -1; // rang de la lettre (les espaces/séparateurs ne comptent pas)
   return Array.from(norm).map((ch): Cell => {
     const up = ch.toUpperCase();
     if (up >= "A" && up <= "Z") {
+      li += 1;
       const pos = up.charCodeAt(0) - 64;
-      return { type: "letter", letter: up, expr: opFor(pos, period) };
+      return { type: "letter", letter: up, expr: opFor(pos, gi, li) };
     }
     if (ch === " ") return { type: "space" };
     return { type: "sep", ch };
   });
+}
+
+/** Rang du pays dans le projet (0 = Italie, 1 = Espagne, 2 = Royaume-Uni…). */
+function paysIndex(id: string): number {
+  return AUTOUR_DU_MONDE.flatMap((c) => c.pays).findIndex((p) => p.id === id);
 }
 
 export function Diaporama({
@@ -99,7 +120,7 @@ export function Diaporama({
       <div className="grid flex-1 place-items-center overflow-auto p-4 sm:p-8">
         <div className="w-full max-w-5xl">
           {i === 0 && <SlideIntro continent={continent} periodNumber={periodNumber} theme={theme} />}
-          {i === 1 && <SlideEnigme pays={pays} theme={theme} periodNumber={periodNumber} />}
+          {i === 1 && <SlideEnigme pays={pays} theme={theme} />}
           {i === 2 && <SlideGeo pays={pays} theme={theme} />}
           {i === 3 && <SlideVie pays={pays} theme={theme} />}
           {i === 4 && <SlideMonument pays={pays} theme={theme} />}
@@ -140,8 +161,8 @@ function SlideIntro({ continent, periodNumber, theme }: { continent: string; per
 }
 
 /* --------------------------------------------- Slide 2 : énigme */
-function SlideEnigme({ pays, theme, periodNumber }: { pays: Pays; theme: Theme; periodNumber: number }) {
-  const cells = useMemo(() => toCryptogramme(pays.nom, periodNumber), [pays.nom, periodNumber]);
+function SlideEnigme({ pays, theme }: { pays: Pays; theme: Theme }) {
+  const cells = useMemo(() => toCryptogramme(pays.nom, paysIndex(pays.id)), [pays.id, pays.nom]);
   const [revealed, setRevealed] = useState<Record<number, boolean>>({});
   const [showKey, setShowKey] = useState(false);
   const allShown = cells.every((c, k) => c.type !== "letter" || revealed[k]);

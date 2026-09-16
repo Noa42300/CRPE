@@ -73,6 +73,70 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   en plein écran **sans télécharger** ; le téléchargement PDF et l'impression se
   font depuis la ligne du document ou depuis l'aperçu.
 
+### Style des fiches élèves — MODÈLE AUTHENTIQUE (exercices & leçons) — IMPORTANT
+- Les fiches doivent **ressembler à de vraies fiches de PE CE1-CE2**, pas à des
+  documents « générés par IA ». Modèle de référence : les fiches type
+  « Fiche de Mathématiques n° X » (calcul mental en cases, additions en colonnes,
+  problème illustré, colonne « Je sais… » à droite).
+- **PAS d'orange** ni de bandeaux / filets / pastilles « déco IA ». Le **chrome
+  est en encre noire** (titres, filets, cadre). Les couleurs vives sont réservées
+  aux **illustrations** et au **matériel pédagogique** (base 10 : centaines bleues,
+  dizaines oranges, unités vertes — ça, on garde).
+- **Cadre noir** fin autour de la page ; **en-tête** « titre (manuscrit) + Prénom : …… »
+  avec un filet noir ; consignes **numérotées** et **soulignées**, courtes.
+- **Nombres et exemples en écriture manuscrite** (police type Caveat), plus grands,
+  faciles à lire pour des CE1-CE2.
+- **PAS de colonne « Je sais… »** à droite (auto-évaluation) : l'enseignant n'en veut
+  pas. Les fiches d'exercices sont sur **une seule colonne**, sans encadré de
+  compétences. (Le champ `competences` de `FicheData` n'est plus rendu.)
+- **RÈGLE ABSOLUE — un exemple résolu au DÉBUT de CHAQUE exercice.** Toute fiche
+  d'exercices (français, maths, tout niveau) : **chaque** bloc `exercice` a un champ
+  `exemple` déjà fait (ex. « le chat → **le** = déterminant », « 24 < 42 »,
+  « 2 centaines 1 dizaine 3 unités = 213 »). L'élève doit pouvoir démarrer **sans
+  appeler la maîtresse**. Ne JAMAIS livrer un exercice sans son exemple.
+- **Illustrations mignonnes et parlantes** (pictos maison agrandis, futurs vrais
+  visuels), enfant-friendly. Toujours privilégier le concret et le ludique.
+- Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
+  de vraies fiches de CE1-CE2 comme référence) pour toute nouvelle fiche.
+
+### MODÈLE DE SÉANCE VALIDÉ (à reproduire pour TOUTES les séances) — IMPORTANT
+- Référence validée par l'enseignant : le **français (déterminants)** et le
+  **maths (comparer les nombres)** du mardi 15/09. Trio gagnant, à reproduire
+  pour chaque nouvelle séance :
+  1. **un diaporama à projeter** (interactif, à révéler, dessins maison /
+     vraies photos Wikimedia si pertinent) ;
+  2. **une leçon simple à coller** (modèle enfantin ci-dessous : gros titre,
+     bulles/pastilles, 1-2 phrases, très peu de texte) ;
+  3. **une (ou deux) feuille(s) d'exercices simples**, différenciées CE1/CE2,
+     **avec un exemple résolu en tête de chaque exercice**, une seule colonne
+     (jamais de colonne « Je sais… »).
+- Plus une **vidéo précise** (Les Fondamentaux/Canopé ou Lumni) dans `video`.
+
+### Horaires de la journée (récréations) — IMPORTANT
+- **Récréation du matin : 10 h 10 → 10 h 40.** **Récréation de l'après-midi :
+  15 h 10 → 15 h 40.** (30 min chacune.) À respecter quand je bâtis une
+  journée « normale ». Exception : le lundi 14/09 avait un horaire décalé
+  (évaluations nationales).
+
+### Leçons projetées / à coller — MODÈLE VALIDÉ « simple, efficace, enfantin »
+- Référence validée par l'enseignant : la **leçon d'histoire « Comment mesure-t-on
+  le temps ? »** (`MesurerTempsLecon`) et son **diaporama** (`MesurerTempsDiapo`).
+  C'est LE modèle à reproduire pour toute leçon.
+- Recette : **très gros titre** (Caveat, coloré) **sans filet souligné** « IA » ;
+  **beaucoup de petits dessins maison** (SVG originaux : horloge, sablier, soleil,
+  calendrier…) ; **très peu de texte** ; l'essentiel en **grosses pastilles /
+  cartes** colorées. Objectif : un CE1-CE2 comprend d'un coup d'œil et ne décroche
+  pas. Éviter les blocs de texte façon manuel de CM2.
+
+### Questionner le monde — séquences dans le cahier (IMPORTANT)
+- Les 3 programmations de l'enseignant (Histoire, Sciences, Géographie, 24 séances
+  chacune) sont **transcrites en séquences réutilisables** dans `public/journal.json`
+  (`sequences`, `disciplineId: "qlm"`, ids `seq-qlm-hist/sci/geo-*`), en plus de la
+  **référence lecture seule** `PROG_QLM` (dans `progDisciplines.ts`, affichée dans
+  Progressions → Questionner le monde). Les titres sont préfixés « Histoire · »,
+  « Sciences · », « Géographie · » pour les distinguer. **Histoire = le lundi,
+  Sciences = le mardi (Période 1) ; Géographie à partir de la Période 2.**
+
 ## Organisation matérielle de la classe (référence)
 
 Quand je rédige une séance, indiquer le bon support de rangement :
@@ -101,10 +165,15 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   dictée diagnostique finale. « **1, 2, 3… Étude de la langue** » sert seulement
   d'**appoint en grammaire**.
 - **Lecture / phonologie** : **GraphoGame**.
-- **Vidéos** : pour chaque séance, si une **vidéo YouTube courte (2-3 min)**
-  explique la notion de façon enfantine, la renseigner dans le champ `video`
-  (lien exact) de l'activité — elle s'affiche en lien cliquable dans la séance
-  et sur la fiche de prép.
+- **Vidéos** : pour chaque séance, renseigner dans `video` un **lien vers UNE
+  vidéo précise** (page d'une vidéo unique) qui explique la notion de façon
+  enfantine — **JAMAIS une page de résultats de recherche YouTube**. Sources sûres
+  et stables pour le cycle 2 : **Les Fondamentaux (Réseau Canopé)**
+  (`lesfondamentaux.reseau-canope.fr/video/…` ou la vidéo YouTube Canopé
+  correspondante) et **Lumni**. Exemples validés : déterminants →
+  `https://www.youtube.com/watch?v=20lToFx4lPU` (Canopé, « Le rôle des
+  déterminants ») ; comparer les nombres → `https://www.youtube.com/watch?v=8XZptO5L3DQ` ;
+  solide/liquide → `https://www.youtube.com/watch?v=cyXMiy0lC8s`.
 - **Banque de fichiers autonomie CE2** : en maths, les tandems sont par classe.
   Pendant que je fais la **leçon guidée aux CE1** (projetée), les **CE2 sont en
   autonomie** sur un fichier préparé à l'avance (puis institutionnalisation). On

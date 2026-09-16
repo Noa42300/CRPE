@@ -51,6 +51,36 @@ const COULEURS = [
   ["Vert", "#16a34a"],
 ] as const;
 
+/**
+ * Leçons courtes « à copier » : je les charge dans le tableau d'un clic pour
+ * les projeter, et les élèves les recopient au calme. Volontairement brèves.
+ */
+const LECONS: { id: string; label: string; text: string }[] = [
+  {
+    id: "artdet",
+    label: "Français — Les déterminants",
+    text:
+      "Les déterminants\n" +
+      "\n" +
+      "Le déterminant est un petit mot placé devant le nom.\n" +
+      "Il s'accorde avec le nom : masculin ou féminin, singulier ou pluriel.\n" +
+      "Les articles : le, la, l', les — un, une, des.\n" +
+      "Exemples : le chat, la maison, les enfants, un ballon.\n",
+  },
+  {
+    id: "comparer",
+    label: "Maths — Comparer les nombres",
+    text:
+      "Comparer les nombres\n" +
+      "\n" +
+      "Comparer, c'est dire quel nombre est le plus grand.\n" +
+      "Le signe < se lit « plus petit que ».\n" +
+      "Le signe > se lit « plus grand que ».\n" +
+      "La pointe est du côté du plus petit nombre.\n" +
+      "Exemples : 24 < 42     67 > 58     35 = 35\n",
+  },
+];
+
 /** Mesure la ligne de base réellement rendue dans la 1ʳᵉ interligne. */
 function measureBaseline(family: string, size: number, lineHeight: number): number {
   const probe = document.createElement("div");
@@ -70,15 +100,16 @@ function measureBaseline(family: string, size: number, lineHeight: number): numb
 
 /** Styles cumulés à l'indice i (dernier surlignage / dernière couleur gagne). */
 function styleAt(i: number, marks: Mark[]) {
-  let hl = "", col = "", u = false;
+  let hl = "", col = "", u = false, uCol = "";
   for (const m of marks) {
     if (i >= m.start && i < m.end) {
       if (m.kind.startsWith("hl:")) hl = m.kind.slice(3);
       else if (m.kind.startsWith("col:")) col = m.kind.slice(4);
-      else if (m.kind === "u") u = true;
+      else if (m.kind === "u") { u = true; uCol = ""; }
+      else if (m.kind.startsWith("u:")) { u = true; uCol = m.kind.slice(2); }
     }
   }
-  return { hl, col, u };
+  return { hl, col, u, uCol };
 }
 
 /** Réajuste les marques quand le texte change (insertion / suppression). */
@@ -181,6 +212,16 @@ export function TableauView() {
     persist(text, next);
   };
 
+  const loadLecon = (id: string) => {
+    const lec = LECONS.find((l) => l.id === id);
+    if (!lec) return;
+    if (text.trim().length > 0 && !confirm("Remplacer le contenu actuel du tableau par cette leçon ?")) return;
+    setText(lec.text);
+    setMarks([]);
+    setSel([0, 0]);
+    persist(lec.text, []);
+  };
+
   const clearAll = () => {
     if (window.confirm("Effacer le tableau ?")) {
       setText("");
@@ -242,7 +283,7 @@ export function TableauView() {
       const ch = text[i];
       if (ch === "\n") { flush(); nodes.push(<br key={`br${i}`} />); curKey = null; continue; }
       const s = styleAt(i, marks);
-      const key = `${s.hl}|${s.col}|${s.u}`;
+      const key = `${s.hl}|${s.col}|${s.u}|${s.uCol}`;
       if (key !== curKey) {
         flush();
         curKey = key;
@@ -251,6 +292,8 @@ export function TableauView() {
           background: s.hl || undefined,
           color: s.col || undefined,
           textDecoration: s.u ? "underline" : undefined,
+          textDecorationColor: s.u && s.uCol ? s.uCol : undefined,
+          textDecorationThickness: s.u && s.uCol ? "2px" : undefined,
           borderRadius: s.hl ? "3px" : undefined,
         };
       }
@@ -269,6 +312,8 @@ export function TableauView() {
             background: s.hl || undefined,
             color: s.col || undefined,
             textDecoration: s.u ? "underline" : undefined,
+            textDecorationColor: s.u && s.uCol ? s.uCol : undefined,
+            textDecorationThickness: s.u && s.uCol ? "2px" : undefined,
             borderRadius: s.hl ? "3px" : undefined,
           }}
         >
@@ -303,6 +348,17 @@ export function TableauView() {
             <span className="w-8 text-center text-xs text-stone-500">{size}</span>
             <button onClick={() => setSize((s) => Math.min(120, s + 4))} className="btn-outline px-2 py-1">A+</button>
           </div>
+          <select
+            value=""
+            onChange={(e) => { loadLecon(e.target.value); e.target.value = ""; }}
+            className="input w-auto py-1"
+            title="Charger une leçon courte à projeter (les élèves recopient)"
+          >
+            <option value="">📋 Leçon à copier…</option>
+            {LECONS.map((l) => (
+              <option key={l.id} value={l.id}>{l.label}</option>
+            ))}
+          </select>
           <button onClick={() => requestFullscreen(frameRef.current)} className="btn-outline py-1 text-xs">⛶ Plein écran</button>
           <button onClick={clearAll} className="btn-ghost py-1 text-xs text-rose-500">Effacer tout</button>
         </div>
@@ -318,7 +374,8 @@ export function TableauView() {
         {COULEURS.map(([lab, c]) => (
           <button key={c} title={lab} onClick={() => applyKind(`col:${c}`)} className="grid h-6 w-6 place-items-center rounded-md border border-stone-300 text-sm font-bold transition hover:scale-110" style={{ color: c }}>A</button>
         ))}
-        <button onClick={() => applyKind("u")} title="Souligner" className="btn-outline px-2 py-1 text-sm underline">S</button>
+        <button onClick={() => applyKind("u")} title="Souligner (noir)" className="btn-outline px-2 py-1 text-sm underline">S</button>
+        <button onClick={() => applyKind("u:#dc2626")} title="Souligner en rouge" className="btn-outline px-2 py-1 text-sm font-bold text-rose-600 underline decoration-rose-600 decoration-2">S</button>
         <button onClick={clearStyle} title="Enlever la mise en forme" className="btn-outline px-2 py-1 text-xs">Gomme</button>
         <span className="ml-auto text-xs text-stone-400">
           {hasSel ? "Applique à la sélection" : "Sélectionne un mot d’abord"}

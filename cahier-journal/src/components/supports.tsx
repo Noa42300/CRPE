@@ -8,6 +8,11 @@ import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama } from "./AnglaisDiaporama";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
+import { ColoriageMagique } from "./ColoriageMagique";
+import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
+import { PoesieCopie } from "./PoesieCopie";
+import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
+import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon } from "./MardiSupports";
 
 export interface SupportFourni {
   key: string;
@@ -18,7 +23,7 @@ export interface SupportFourni {
 /* ============================ FRANÇAIS — Le verbe ============================ */
 
 const VERBE_AFFICHE: FicheData = {
-  entete: "Affichage (TBI)", titre: "Le verbe", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  entete: "Affichage (TBI)", titre: "Le verbe", niveau: "CE1-CE2", discipline: "Français — Grammaire", cursive: true,
   blocs: [
     { kind: "def", picto: "saut", titre: "C'est quoi un verbe ?", contenu: "Le verbe est le mot qui dit ce que l'on FAIT (une action) ou ce que l'on EST. Il change avec le temps (hier, aujourd'hui, demain) et la personne." },
     { kind: "pictos", titre: "Des verbes en images", items: [
@@ -50,6 +55,7 @@ const VERBE_LECON: FicheData = {
 
 const VERBE_CE1: FicheData = {
   entete: "Exercices", titre: "Le verbe", niveau: "CE1", discipline: "Français — Grammaire",
+  competences: ["reconnaître le verbe dans une phrase", "repérer un verbe (une action)", "compléter avec un verbe", "écrire une action"],
   blocs: [
     { kind: "exercice", picto: "chien", consigne: "Entoure le verbe (l'action) dans chaque phrase.", items: [
       "Le chien court dans le jardin.", "Papa prépare le repas.", "Les élèves écoutent la maîtresse.",
@@ -67,6 +73,7 @@ const VERBE_CE1: FicheData = {
 
 const VERBE_CE2: FicheData = {
   entete: "Exercices", titre: "Le verbe", niveau: "CE2", discipline: "Français — Grammaire",
+  competences: ["souligner le verbe et donner l'infinitif", "changer le temps d'une phrase", "trouver l'intrus (le mot qui n'est pas un verbe)", "écrire une phrase avec un verbe"],
   blocs: [
     { kind: "exercice", picto: "oiseau", consigne: "Souligne le verbe et écris son infinitif.", items: [
       "Les oiseaux chantent. → ____________", "Nous partons en voyage. → ____________",
@@ -86,7 +93,7 @@ const VERBE_CE2: FicheData = {
 /* ============================ MATHS ============================ */
 
 const MATHS_CE1_LECON: FicheData = {
-  entete: "Leçon", titre: "Dénombrer une collection jusqu'à 99", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  entete: "Leçon", titre: "Dénombrer une collection jusqu'à 99", niveau: "CE1", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
     { kind: "def", titre: "Pour compter beaucoup d'objets", contenu: "Je fais des paquets de 10. Un paquet de 10, c'est une dizaine (une barre orange). Ce qui reste tout seul, ce sont les unités (des cubes verts)." },
     { kind: "base10", dizaines: 4, unites: 6, legende: "4 barres de 10 et 6 cubes" },
@@ -98,6 +105,7 @@ const MATHS_CE1_LECON: FicheData = {
 
 const MATHS_CE2_AUTO: FicheData = {
   entete: "Fichier autonomie", titre: "Dénombrer une collection jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres",
+  competences: ["écrire un nombre en chiffres", "décomposer un nombre", "compter les dizaines et les centaines", "ranger des nombres", "trouver le nombre suivant"],
   blocs: [
     { kind: "def", titre: "Rappel", contenu: "Je groupe par 100 (plaques bleues), par 10 (barres oranges) et je compte les unités (cubes verts). 100 = 10 dizaines." },
     { kind: "base10", centaines: 3, dizaines: 5, unites: 2, legende: "3 plaques, 5 barres, 2 cubes" },
@@ -105,17 +113,17 @@ const MATHS_CE2_AUTO: FicheData = {
       "3 centaines, 5 dizaines, 2 unités = ____", "6 centaines, 0 dizaine, 4 unités = ____",
       "2 centaines, 8 dizaines, 9 unités = ____", "4 centaines, 4 dizaines, 4 unités = ____",
     ] },
-    { kind: "exercice", aide: "347 = 300 + 40 + 7", consigne: "Décompose chaque nombre.", items: [
+    { kind: "exercice", exemple: "347 = 300 + 40 + 7", consigne: "Décompose chaque nombre.", items: [
       "582 = ______________", "706 = ______________", "250 = ______________", "419 = ______________",
     ] },
-    { kind: "exercice", consigne: "Complète.", items: [
+    { kind: "exercice", exemple: "245 = 2 c 4 d 5 u", consigne: "Complète.", items: [
       "Dans 100, il y a ___ dizaines.", "Dans 1 000, il y a ___ centaines.",
       "453 = ___ c ___ d ___ u.", "608 = ___ c ___ d ___ u.",
     ] },
-    { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
+    { kind: "exercice", exemple: "230 – 203 – 320 → 203 < 230 < 320", consigne: "Range chaque liste du plus petit au plus grand.", items: [
       "903 – 309 – 930 – 390 → ____________________", "540 – 405 – 450 – 504 → ____________________",
     ] },
-    { kind: "exercice", aide: "attention aux retenues !", consigne: "Écris le nombre qui vient juste après.", items: [
+    { kind: "exercice", aide: "attention aux retenues !", exemple: "349 → 350", consigne: "Écris le nombre qui vient juste après.", items: [
       "199 → ____", "709 → ____", "890 → ____", "999 → ____",
     ] },
   ],
@@ -124,7 +132,7 @@ const MATHS_CE2_AUTO: FicheData = {
 /* ============================ HISTOIRE — Le temps ============================ */
 
 const HIST_SUPPORT: FicheData = {
-  entete: "Affichage (TBI)", titre: "Objets d'hier et d'aujourd'hui", niveau: "CE1-CE2", discipline: "Questionner le monde — Le temps",
+  entete: "Affichage (TBI)", titre: "Objets d'hier et d'aujourd'hui", niveau: "CE1-CE2", discipline: "Questionner le monde — Le temps", cursive: true,
   blocs: [
     { kind: "def", picto: "caverne", titre: "Comment sait-on qu'une chose est du passé ?", contenu: "Certains objets viennent d'autrefois, d'autres d'aujourd'hui. On observe les indices : la matière, la forme, la façon dont ça marche." },
     { kind: "paires", titre: "Autrefois → Aujourd'hui", paires: [
@@ -214,56 +222,62 @@ const EPS_TOURS: FicheData = {
 /* ===================== MATHS — Comparer les nombres ===================== */
 
 const COMP_CE1_LECON: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres (Tandem)",
+  entete: "Leçon (à coller)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
-    { kind: "def", titre: "Comparer, c'est quoi ?", contenu: "Comparer deux nombres, c'est dire lequel est le PLUS GRAND et lequel est le PLUS PETIT. J'utilise les signes < (plus petit que) et > (plus grand que)." },
-    { kind: "def", picto: "oiseau", titre: "Le truc du bec", contenu: "Le signe est comme un bec ouvert : il s'ouvre toujours du côté du plus grand nombre, et la pointe montre le plus petit." },
-    { kind: "base10", dizaines: 4, unites: 7, legende: "47" },
-    { kind: "base10", dizaines: 5, unites: 2, legende: "52" },
+    { kind: "def", contenu: "Comparer, c'est dire quel nombre est le plus grand. La bouche s'ouvre toujours vers le plus grand : < (plus petit que), > (plus grand que), = (égal)." },
     { kind: "comparer", a: 47, b: 52, signe: "<" },
-    { kind: "puces", titre: "Ma méthode (nombres à 2 chiffres)", points: [
-      "Je compare d'abord les DIZAINES.",
-      "Si les dizaines sont égales, je compare les UNITÉS.",
+    { kind: "puces", titre: "Ma méthode", points: [
+      "Je compare d'abord les dizaines.",
+      "Si elles sont égales, je compare les unités.",
     ] },
-    { kind: "comparer", a: 63, b: 61, signe: ">" },
-    { kind: "exemples", titre: "À retenir", points: ["< : le plus petit est à gauche.", "> : le plus grand est à gauche.", "Le bec s'ouvre vers le plus grand."] },
   ],
 };
 
 const COMP_CE2_LECON: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
+  entete: "Leçon (à coller)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
-    { kind: "def", titre: "Comparer des nombres à 3 chiffres", contenu: "Pour comparer deux nombres, je regarde leurs chiffres rang par rang : les centaines, puis les dizaines, puis les unités. J'utilise les signes <, > et = (égal)." },
-    { kind: "puces", titre: "Ma méthode", points: [
-      "Je compare d'abord les CENTAINES.",
-      "Si les centaines sont égales, je compare les DIZAINES.",
-      "Si les dizaines sont égales aussi, je compare les UNITÉS.",
-    ] },
+    { kind: "def", contenu: "Je compare rang par rang : les centaines, puis les dizaines, puis les unités. La bouche s'ouvre vers le plus grand : <, >, =." },
     { kind: "comparer", a: 246, b: 254, signe: "<", cdu: true },
-    { kind: "comparer", a: 531, b: 528, signe: ">", cdu: true },
-    { kind: "def", picto: "fleche", titre: "Pour aller plus loin", contenu: "Je sais aussi RANGER une liste du plus petit au plus grand, et ENCADRER un nombre entre la dizaine juste avant et la dizaine juste après." },
-    { kind: "exemples", titre: "Exemples", points: ["Ranger : 309 < 390 < 903 < 930.", "Encadrer : 340 < 347 < 350.", "Égalité : 300 + 40 + 7 = 347."] },
+    { kind: "puces", titre: "Je sais aussi", points: [
+      "ranger : 309 < 390 < 903 ;",
+      "encadrer : 340 < 347 < 350.",
+    ] },
+  ],
+};
+
+const COMP_EX_CE1: FicheData = {
+  entete: "Exercices", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "24 < 42", aide: "la bouche vers le plus grand", consigne: "Compare avec < ou >.", items: [
+      "37 ____ 73", "58 ____ 52", "90 ____ 19", "46 ____ 64", "81 ____ 78", "25 ____ 30",
+    ] },
+    { kind: "exercice", exemple: "45 < ___ → 45 < 50", consigne: "Complète avec un nombre qui convient.", items: [
+      "32 < ______", "67 > ______", "______ < 80", "______ > 54",
+    ] },
+    { kind: "exercice", exemple: "23 – 32 – 13 → 13 < 23 < 32", consigne: "Range du plus petit au plus grand.", items: [
+      "45 – 54 – 15 → ______________", "70 – 17 – 71 → ______________",
+    ] },
   ],
 };
 
 const COMP_CE2_AUTO: FicheData = {
   entete: "Fichier autonomie", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
   blocs: [
-    { kind: "exercice", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
-      "426 ____ 462", "703 ____ 307", "289 ____ 156", "98 ____ 201",
-      "200 ____ 300", "471 ____ 198", "777 ____ 707", "123 ____ 321", "931 ____ 899",
+    { kind: "exercice", exemple: "426 < 462", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
+      "703 ____ 307", "289 ____ 156", "98 ____ 201", "200 ____ 300",
+      "471 ____ 198", "777 ____ 707", "123 ____ 321", "931 ____ 899",
     ] },
-    { kind: "exercice", picto: "fleche", consigne: "Complète avec un nombre qui convient.", items: [
-      "125 < ______", "142 < ______", "317 > ______", "______ < 590", "______ > 898", "267 > ______",
+    { kind: "exercice", picto: "fleche", exemple: "125 < ___ → 125 < 130", consigne: "Complète avec un nombre qui convient.", items: [
+      "142 < ______", "317 > ______", "______ < 590", "______ > 898", "267 > ______",
     ] },
-    { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
-      "309 – 390 – 903 – 930 → ____________________",
+    { kind: "exercice", exemple: "309 – 390 – 903 → 309 < 390 < 903", consigne: "Range chaque liste du plus petit au plus grand.", items: [
       "540 – 405 – 450 – 504 → ____________________",
+      "812 – 128 – 281 – 218 → ____________________",
     ] },
-    { kind: "exercice", aide: "la dizaine avant / la dizaine après", consigne: "Encadre chaque nombre.", items: [
-      "______ < 347 < ______", "______ < 508 < ______", "______ < 690 < ______",
+    { kind: "exercice", exemple: "340 < 347 < 350", aide: "la dizaine avant / la dizaine après", consigne: "Encadre chaque nombre.", items: [
+      "______ < 508 < ______", "______ < 690 < ______", "______ < 273 < ______",
     ] },
-    { kind: "exercice", picto: "valise", consigne: "Problème. Simon a 4 billets de 100 € et 4 billets de 20 €. Alexandra a 5 billets de 100 € et 2 billets de 10 €. Qui a le moins d'argent ?", lignes: 3 },
+    { kind: "exercice", picto: "valise", exemple: "Je compte l'argent de chacun, puis je compare.", consigne: "Problème. Simon a 4 billets de 100 € et 4 billets de 20 €. Alexandra a 5 billets de 100 € et 2 billets de 10 €. Qui a le moins d'argent ?", lignes: 3 },
   ],
 };
 
@@ -304,33 +318,98 @@ const DICTEE_MONDE1: FicheData = {
 /* ===================== ANGLAIS — Se présenter (fiche récap) ===================== */
 
 const ANGLAIS_PRESENT_RECAP: FicheData = {
-  entete: "Fiche récapitulative (à coller — cahier violet)", titre: "Se présenter en anglais", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais",
+  entete: "Fiche récapitulative (à coller — cahier violet)", titre: "Se présenter et être poli en anglais", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais", cursive: true,
   blocs: [
-    { kind: "def", picto: "sourire", contenu: "Pour se présenter en anglais, on utilise de petites phrases. Voici les phrases utiles et leur traduction en français." },
-    { kind: "pictos", titre: "Les phrases (anglais = français)", items: [
-      { name: "sourire", label: "Hello! = Bonjour !" },
+    { kind: "def", picto: "main", contenu: "En anglais, on se salue, on se présente et on reste poli avec de petites phrases. Voici les phrases utiles et leur traduction." },
+    { kind: "pictos", titre: "Se saluer et se présenter", items: [
+      { name: "main", label: "Hello! / Hi! = Bonjour ! / Salut !" },
       { name: "oreille", label: "What's your name? = Comment tu t'appelles ?" },
       { name: "plume", label: "My name is… = Je m'appelle…" },
-      { name: "sourire", label: "Nice to meet you! = Enchanté(e) !" },
-      { name: "oiseau", label: "How are you? = Comment ça va ?" },
+      { name: "coeur", label: "Nice to meet you! = Enchanté(e) !" },
+      { name: "sourire", label: "How are you? = Comment ça va ?" },
       { name: "pomme", label: "I'm fine, thank you! = Ça va bien, merci !" },
-      { name: "valise", label: "Goodbye! = Au revoir !" },
+      { name: "valise", label: "Goodbye! / Bye! = Au revoir !" },
     ] },
-    { kind: "puces", titre: "Je m'entraîne à deux", points: [
-      "Je demande : « What's your name? »",
-      "Je réponds : « My name is … »",
-      "J'ajoute : « Nice to meet you! »",
+    { kind: "pictos", titre: "Les mots de politesse (magic words)", items: [
+      { name: "coeur", label: "Please = S'il te plaît" },
+      { name: "sourire", label: "Thank you! = Merci !" },
+      { name: "main", label: "You're welcome = De rien" },
+      { name: "oreille", label: "Sorry = Pardon / Désolé" },
+      { name: "plume", label: "Excuse me = Excuse-moi" },
+      { name: "pomme", label: "Yes / No = Oui / Non" },
+    ] },
+    { kind: "puces", titre: "Je m'entraîne à deux (I ask, you answer)", points: [
+      "— Hello! What's your name?",
+      "— My name is … . Nice to meet you!",
+      "— How are you? — I'm fine, thank you!",
+      "— Goodbye! — Bye!",
     ] },
     { kind: "exemples", titre: "À écouter (chanson)", points: ["The Beatles — « Hello, Goodbye » : on repère hello et goodbye."] },
+  ],
+};
+
+/* ===================== ANGLAIS — Dialogue à projeter ===================== */
+
+const ANGLAIS_DIALOGUE: FicheData = {
+  entete: "À projeter au tableau", titre: "On se parle en anglais !", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais", cursive: true,
+  blocs: [
+    { kind: "def", picto: "main", contenu: "On se met par deux. L'un pose la question (A), l'autre répond (B) — à l'oral, sans lire si possible. Puis on échange les rôles. On essaie, ce n'est pas grave si on se trompe !" },
+    { kind: "tableau", titre: "Le dialogue (A ↔ B)", entetes: ["A demande", "B répond"], lignes: [
+      ["Hello! What's your name?", "Hello! My name is …"],
+      ["How are you?", "I'm fine, thank you! And you?"],
+      ["Nice to meet you!", "Nice to meet you too!"],
+      ["Goodbye!", "Bye! See you!"],
+    ] },
+    { kind: "puces", titre: "Pour bien faire (good job!)", points: [
+      "Je regarde mon camarade dans les yeux.",
+      "Je parle fort et lentement.",
+      "Je n'oublie pas « please » et « thank you ».",
+    ] },
+  ],
+};
+
+/* ===================== ANGLAIS — « Hello, Goodbye » (Beatles) ===================== */
+
+const ANGLAIS_HELLO_GOODBYE: FicheData = {
+  entete: "Anglais — chanson des Beatles (à coller — cahier violet)",
+  titre: "« Hello, Goodbye » — The Beatles",
+  niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais",
+  blocs: [
+    { kind: "def", picto: "sourire", contenu: "Les Beatles sont un célèbre groupe anglais. Dans « Hello, Goodbye », ils chantent des mots contraires : bonjour / au revoir, oui / non. On écoute la chanson, on repère les mots, puis on chante le refrain ensemble." },
+    { kind: "pictos", titre: "Les mots à connaître (anglais = français)", items: [
+      { name: "sourire", label: "Hello = Bonjour" },
+      { name: "valise", label: "Goodbye = Au revoir" },
+      { name: "pomme", label: "Yes = Oui" },
+      { name: "chien", label: "No = Non" },
+    ] },
+    { kind: "tableau", titre: "Un extrait du refrain (anglais → français)", entetes: ["Anglais", "Français"], lignes: [
+      ["You say yes, I say no.", "Tu dis oui, moi je dis non."],
+      ["You say stop and I say go.", "Tu dis stop et moi je dis vas-y."],
+      ["You say goodbye and I say hello.", "Tu dis au revoir et moi je dis bonjour."],
+    ] },
+    { kind: "puces", titre: "Les contraires de la chanson", points: [
+      "yes (oui) ↔ no (non)",
+      "stop (stop) ↔ go (vas-y)",
+      "goodbye (au revoir) ↔ hello (bonjour)",
+      "high (en haut) ↔ low (en bas)",
+    ] },
+    { kind: "def", picto: "plume", titre: "Je recopie en anglais", contenu: "You say goodbye and I say hello." },
+    { kind: "lignes", n: 3 },
   ],
 };
 
 /* ============ FRANÇAIS — Les articles et les déterminants (1,2,3 ÉdL) ============ */
 
 const ARTDET_AFFICHE: FicheData = {
-  entete: "Leçon (à projeter)", titre: "Les articles et les déterminants", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  entete: "Leçon (à projeter)", titre: "Les articles et les déterminants", niveau: "CE1-CE2", discipline: "Français — Grammaire", cursive: true,
   blocs: [
     { kind: "def", picto: "livre", contenu: "Le déterminant est un petit mot placé DEVANT le nom. Il a le même genre (masculin ou féminin) et le même nombre (singulier ou pluriel) que le nom qu'il accompagne. Ex. : le lapin, la voiture, les enfants." },
+    { kind: "pictos", titre: "Le déterminant + le nom (exemples)", items: [
+      { name: "chat", label: "le chat" },
+      { name: "maison", label: "la maison" },
+      { name: "oiseau", label: "les oiseaux" },
+      { name: "pomme", label: "une pomme" },
+    ] },
     { kind: "tableau", titre: "Les articles", entetes: ["", "Masculin singulier", "Féminin singulier", "Pluriel"], lignes: [
       ["Article défini", "le, l'", "la, l'", "les"],
       ["Article indéfini", "un", "une", "des"],
@@ -365,27 +444,66 @@ const ARTDET_LECON: FicheData = {
   ],
 };
 
+/* Déterminants — nouvelles feuilles d'entraînement (modèle authentique) */
+const DET_ENTRAINE_CE1: FicheData = {
+  entete: "Exercices", titre: "Les déterminants", niveau: "CE1", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", picto: "chat", exemple: "le chat → j'entoure le", consigne: "Entoure le déterminant dans chaque groupe.", items: [
+      "une maison", "les oiseaux", "ma trousse", "des fleurs", "cette voiture", "un ballon",
+    ] },
+    { kind: "exercice", picto: "pomme", exemple: "___ soleil → le soleil", consigne: "Complète avec le ou la.", items: [
+      "___ lune", "___ maîtresse", "___ cartable", "___ pomme", "___ tableau", "___ récréation",
+    ] },
+    { kind: "exercice", picto: "oiseau", exemple: "le chien → les chiens", consigne: "Récris au pluriel.", items: [
+      "une fleur → ______________", "la table → ______________", "un ami → ______________",
+    ] },
+    { kind: "exercice", picto: "maison", exemple: "____ école → mon école (ou : l'école)", consigne: "Complète chaque nom avec un déterminant qui convient.", items: [
+      "______ vélo", "______ amis", "______ image", "______ cahier",
+    ] },
+  ],
+};
+
+const DET_ENTRAINE_CE2: FicheData = {
+  entete: "Exercices", titre: "Les déterminants", niveau: "CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", picto: "livre", exemple: "Le renard traverse la forêt. → dét. : Le, la ; noms : renard, forêt", consigne: "Souligne le déterminant et entoure le nom.", items: [
+      "Une abeille butine des fleurs.", "Mes amis rangent leurs cahiers.", "Cette histoire raconte un voyage.",
+    ] },
+    { kind: "exercice", exemple: "les élèves → D (défini)", aide: "défini : le/la/les — indéfini : un/une/des", consigne: "Classe : article défini (D) ou indéfini (I) ?", items: [
+      "une pomme ___", "le maître ___", "des livres ___", "l'école ___", "un cartable ___",
+    ] },
+    { kind: "exercice", picto: "cartable", exemple: "le cheval → les chevaux", aide: "il s'accorde avec le nom", consigne: "Récris au pluriel (attention au déterminant).", items: [
+      "cette fleur → ______________", "mon crayon → ______________", "un oiseau → ______________",
+    ] },
+    { kind: "exercice", exemple: "le chien de Léa → ce chien / mon chien", aide: "garde le même sens", consigne: "Remplace le déterminant en gras par un autre qui convient.", items: [
+      "**une** voiture rouge → ______________", "**des** oiseaux → ______________", "**la** maison → ______________",
+    ] },
+    { kind: "exercice", picto: "ampoule", exemple: "______ matin → Ce matin", consigne: "Complète avec un déterminant démonstratif (ce, cet, cette, ces) ou possessif (mon, ma, mes…).", items: [
+      "Range ______ affaires.", "Regarde ______ étoile !", "______ enfants jouent dehors.",
+    ] },
+  ],
+};
+
 /* ===================== EMC — La solidarité ===================== */
 
 const EMC_SOLIDARITE: FicheData = {
-  entete: "Séance (affichage + trace)", titre: "La solidarité", niveau: "CE1-CE2", discipline: "EMC — la sensibilité (soi et les autres)",
+  entete: "Séance (affichage + trace)", titre: "La solidarité", niveau: "CE1-CE2", discipline: "EMC — la sensibilité (soi et les autres)", cursive: true,
   blocs: [
-    { kind: "def", picto: "sourire", contenu: "Être solidaire, c'est s'entraider : quand un camarade a besoin d'aide, je l'aide ; quand j'ai un problème, les autres m'aident. Comme la toile d'araignée de la rentrée : si un fil lâche, toute la classe le sent." },
+    { kind: "def", picto: "coeur", contenu: "Être solidaire, c'est s'entraider : quand un camarade a besoin d'aide, je l'aide ; quand j'ai un problème, les autres m'aident." },
     { kind: "pictos", titre: "Des gestes solidaires", items: [
-      { name: "pomme", label: "partager son goûter" },
-      { name: "oreille", label: "écouter un camarade triste" },
-      { name: "cartable", label: "aider à ranger" },
-      { name: "sourire", label: "consoler quelqu'un" },
-      { name: "livre", label: "expliquer à qui n'a pas compris" },
-      { name: "fleur", label: "inviter à jouer celui qui est seul" },
+      { name: "pomme", label: "partager" },
+      { name: "oreille", label: "écouter" },
+      { name: "main", label: "prêter, aider" },
+      { name: "coeur", label: "consoler" },
+      { name: "livre", label: "expliquer" },
+      { name: "fleur", label: "inviter à jouer" },
     ] },
     { kind: "puces", titre: "Dans notre classe, je suis solidaire quand…", points: [
-      "j'aide un camarade qui n'a pas compris, sans faire à sa place ;",
-      "je prête mon matériel ;",
-      "je console quelqu'un qui a de la peine ;",
-      "je ne me moque jamais et j'invite celui qui est tout seul.",
+      "j'aide sans faire à la place de l'autre ;",
+      "je prête mon matériel et je console un camarade triste ;",
+      "je ne me moque jamais et j'invite celui qui est seul.",
     ] },
-    { kind: "def", picto: "fleur", titre: "Ma trace", contenu: "Je dessine ou j'écris un geste solidaire que je peux faire cette semaine." },
+    { kind: "def", picto: "fleur", titre: "Ma trace", contenu: "Je dessine ou j'écris un geste solidaire que je ferai cette semaine." },
     { kind: "lignes", n: 2 },
   ],
 };
@@ -449,6 +567,52 @@ const EPS_SEQ: Record<string, EpsFiche> = {
   },
 };
 
+/* ============ QLM — Histoire séance 2 : mesurer le temps ============ */
+/* La leçon et la frise sont dans MesurerTempsDiapo.tsx (mise en page soignée,
+   frise réelle + chiffres romains IV/XIX), plus le diaporama à projeter. */
+
+/* ============ MATHS — Fichier autonomie CE2 : dénombrer jusqu'à 1000 (2 pages) ============ */
+
+const DENOMBRE_CE2_2P: FicheData = {
+  entete: "Fichier autonomie (2 pages)", titre: "Dénombrer les collections jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
+  competences: [
+    "grouper par centaines, dizaines, unités", "écrire le nombre représenté", "décomposer un nombre",
+    "compléter c / d / u", "comparer avec < et >", "ranger des nombres", "encadrer un nombre", "trouver le nombre juste après",
+  ],
+  blocs: [
+    { kind: "def", titre: "Je me rappelle", contenu: "Je groupe par 100 (plaques), par 10 (barres) et je compte les unités (cubes). 100 = 10 dizaines ; 1000 = 10 centaines." },
+    { kind: "base10", centaines: 3, dizaines: 5, unites: 2, legende: "3 plaques, 5 barres, 2 cubes" },
+    { kind: "exercice", aide: "c · d · u", exemple: "2 centaines, 1 dizaine, 3 unités = 213", consigne: "Écris le nombre représenté.", items: [
+      "3 centaines, 5 dizaines, 2 unités = ____", "6 centaines, 0 dizaine, 4 unités = ____",
+      "2 centaines, 8 dizaines, 9 unités = ____", "4 centaines, 4 dizaines, 4 unités = ____",
+    ] },
+    { kind: "exercice", aide: "347 = 300 + 40 + 7", consigne: "Décompose chaque nombre.", items: [
+      "582 = ______________", "706 = ______________", "250 = ______________", "419 = ______________",
+    ] },
+    { kind: "base10", centaines: 2, dizaines: 3, unites: 6, legende: "combien de cubes en tout ?" },
+    { kind: "exercice", consigne: "Complète.", items: [
+      "Dans 100, il y a ___ dizaines.", "Dans 1 000, il y a ___ centaines.",
+      "453 = ___ c ___ d ___ u.", "608 = ___ c ___ d ___ u.",
+    ] },
+    { kind: "pagebreak", label: "PAGE 2" },
+    { kind: "exercice", aide: "je compare rang par rang", exemple: "318 < 381", consigne: "Compare avec < ou >.", items: [
+      "426 ____ 462", "703 ____ 307", "289 ____ 156", "540 ____ 504",
+    ] },
+    { kind: "exercice", consigne: "Range chaque liste du plus petit au plus grand.", items: [
+      "903 – 309 – 930 – 390 → ____________________", "540 – 405 – 450 – 504 → ____________________",
+    ] },
+    { kind: "exercice", aide: "la centaine avant / après", exemple: "200 < 254 < 300", consigne: "Encadre chaque nombre entre deux centaines.", items: [
+      "____ < 347 < ____", "____ < 508 < ____", "____ < 690 < ____",
+    ] },
+    { kind: "exercice", aide: "attention aux retenues !", consigne: "Écris le nombre qui vient juste après.", items: [
+      "199 → ____", "709 → ____", "890 → ____", "999 → ____",
+    ] },
+  ],
+};
+
+/* ============ MATHS — Coloriage magique CE1 (calcul → couleur) ============ */
+
+
 export function supportsForActivity(activityId: string): SupportFourni[] {
   if (activityId in EPS_SEQ) {
     const f = EPS_SEQ[activityId];
@@ -510,9 +674,54 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "eps-terrain-s2", label: "Courir longtemps (séance 2) — schéma du terrain & sécurité", node: EpsTerrainSupport() },
         { key: "eps-tours", label: "Fiche binôme — compter les tours (élève A puis B)", node: ficheNode(EPS_TOURS) },
       ];
+    case "l14eps":
+    case "m15eps":
+      return [
+        { key: "eps-s3-seance", label: "Séance « courir vite » — la séance mise en page (à lire d'un coup d'œil)", node: <EpsSeanceFiche data={EPS_COURIR_VITE_S3} /> },
+        { key: "eps-s3-terrain", label: "Séance « courir vite » — schéma du terrain & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s3) },
+      ];
+    case "m15det":
+      return [
+        { key: "det-lecon", label: "Les déterminants — Leçon à coller (à projeter aussi)", node: <DeterminantsLecon /> },
+        { key: "det-ce1", label: "Les déterminants — Exercices CE1 (A4)", node: ficheNode(DET_ENTRAINE_CE1) },
+        { key: "det-ce2", label: "Les déterminants — Exercices CE2 (A4)", node: ficheNode(DET_ENTRAINE_CE2) },
+      ];
+    case "m15comp":
+      return [
+        { key: "comp-diapo", label: "Comparer les nombres — Diaporama à projeter (les signes < > =)", node: <ComparerDiapo /> },
+        { key: "comp-ce1-lecon", label: "Comparer les nombres — Leçon CE1 (à coller)", node: ficheNode(COMP_CE1_LECON) },
+        { key: "comp-ce2-lecon", label: "Comparer les nombres — Leçon CE2 (à coller)", node: ficheNode(COMP_CE2_LECON) },
+        { key: "comp-ex-ce1", label: "Comparer les nombres — Exercices CE1 (A4)", node: ficheNode(COMP_EX_CE1) },
+        { key: "comp-ce2-auto", label: "Comparer les nombres — Fichier autonomie CE2 (tandem)", node: ficheNode(COMP_CE2_AUTO) },
+      ];
+    case "m15sci":
+      return [
+        { key: "sci-diapo", label: "Solide ou liquide ? — Diaporama à projeter (photos réelles)", node: <SolideLiquideDiapo /> },
+        { key: "sci-lecon", label: "Solide ou liquide ? — Leçon à coller (enfantine)", node: <SolideLiquideLecon /> },
+      ];
+    case "l14poesie":
+      return [
+        { key: "poesie-ponctuation", label: "« La ponctuation » (Maurice Carême) — fiche copie & illustration (A4)", node: <PoesieCopie /> },
+      ];
+    case "l14hist":
+      return [
+        { key: "hist-mesurer-diapo", label: "Comment mesure-t-on le temps ? — Diaporama à projeter (photos réelles)", node: <MesurerTempsDiapo /> },
+        { key: "hist-mesurer-lecon", label: "Comment mesure-t-on le temps ? — Leçon à coller (frise + chiffres romains IV, XIX)", node: <MesurerTempsLecon /> },
+        { key: "hist-mesurer-frise", label: "La frise des unités de temps — 3 exemplaires à découper & coller (A4)", node: <FriseUnitesTemps print /> },
+      ];
+    case "l14auto":
+      return [
+        { key: "denombre-ce2-2p", label: "Dénombrer jusqu'à 1 000 — Fichier autonomie CE2 (2 pages)", node: ficheNode(DENOMBRE_CE2_2P) },
+      ];
+    case "l14colo":
+      return [
+        { key: "coloriage-ce1", label: "Coloriage magique — additions (CE1)", node: <ColoriageMagique /> },
+      ];
     case "m9ang":
       return [
-        { key: "ang-present-recap", label: "Se présenter en anglais — Fiche récap (EN = FR)", node: ficheNode(ANGLAIS_PRESENT_RECAP) },
+        { key: "ang-dialogue", label: "On se parle en anglais ! — Dialogue à projeter (A ↔ B)", node: ficheNode(ANGLAIS_DIALOGUE) },
+        { key: "ang-present-recap", label: "Se présenter et être poli — Fiche récap (EN = FR)", node: ficheNode(ANGLAIS_PRESENT_RECAP) },
+        { key: "ang-hello-goodbye", label: "« Hello, Goodbye » (Beatles) — Traduction & trace à recopier", node: ficheNode(ANGLAIS_HELLO_GOODBYE) },
       ];
     case "emcsolid":
       return [

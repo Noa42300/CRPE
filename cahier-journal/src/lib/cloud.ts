@@ -58,6 +58,12 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
     ],
   });
 
+  // updatedAt peut être un nombre (ms) OU une chaîne ISO : on compare toujours
+  // des nombres (sinon « ISO > nombre » donne NaN et la journée n'est jamais
+  // mise à jour).
+  const ts = (v: unknown): number =>
+    typeof v === "number" ? v : typeof v === "string" ? Date.parse(v) || 0 : 0;
+
   let added = 0;
   let updated = 0;
   let skipped = 0;
@@ -67,7 +73,7 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
       // Journée déjà présente : on ne la met à jour que si la version publiée
       // est plus récente (par updatedAt) — ainsi les corrections de contenu te
       // parviennent, sans écraser une retouche locale plus récente.
-      const cloudNewer = (day.updatedAt ?? 0) > (existing.updatedAt ?? 0);
+      const cloudNewer = ts(day.updatedAt) > ts(existing.updatedAt);
       if (!overwrite && !cloudNewer) {
         skipped++;
         continue;
@@ -90,7 +96,7 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
   for (const plan of parsed.plans) {
     const existing = existingPlans.get(plan.id);
     const cloudNewer =
-      !existing || (plan.updatedAt ?? 0) > (existing.updatedAt ?? 0);
+      !existing || ts(plan.updatedAt) > ts(existing.updatedAt);
     if (existing && !overwrite && !cloudNewer) continue;
     await plansDB.put(plan);
   }
@@ -102,7 +108,7 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
   for (const seq of parsed.sequences) {
     const existing = existingSeq.get(seq.id);
     const cloudNewer =
-      !existing || (seq.updatedAt ?? 0) > (existing.updatedAt ?? 0);
+      !existing || ts(seq.updatedAt) > ts(existing.updatedAt);
     if (existing && !overwrite && !cloudNewer) continue;
     await sequencesDB.put(seq);
   }
@@ -112,7 +118,7 @@ export async function syncFromCloud(overwrite = false): Promise<SyncResult> {
   for (const rit of parsed.rituals) {
     const existing = existingRit.get(rit.id);
     const cloudNewer =
-      !existing || (rit.updatedAt ?? 0) > (existing.updatedAt ?? 0);
+      !existing || ts(rit.updatedAt) > ts(existing.updatedAt);
     if (existing && !overwrite && !cloudNewer) continue;
     await ritualsDB.put(rit);
   }

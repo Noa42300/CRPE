@@ -195,3 +195,97 @@ export function FichePrepA4({
     </div>
   );
 }
+
+/* ------------------------------------------------------------------ */
+/*  Fiche de préparation VIERGE (à imprimer et remplir à la main)      */
+/* ------------------------------------------------------------------ */
+function LignesVierges({ n }: { n: number }) {
+  return (
+    <div style={{ marginTop: "1mm" }}>
+      {Array.from({ length: n }).map((_, i) => (
+        <div key={i} style={{ borderBottom: "1px dotted #aaa", height: "8mm" }} />
+      ))}
+    </div>
+  );
+}
+const titreV: React.CSSProperties = { color: "#c9481f", fontWeight: 800, fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 1mm" };
+
+export function FichePrepVierge({ settings }: { settings: Settings }) {
+  const p = settings.profile;
+  const teacher = [p.prenom, p.nom].filter(Boolean).join(" ");
+  const InfoV = ({ label, value }: { label: string; value?: string }) => (
+    <td style={cell}>
+      <div style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.05em", color: "#888" }}>{label}</div>
+      <div style={{ fontWeight: 600, minHeight: "5mm", borderBottom: value ? "none" : "1px dotted #bbb" }}>{value || " "}</div>
+    </td>
+  );
+  const RowVierge = () => (
+    <tr>
+      <td style={{ ...cell, height: "16mm" }} />
+      <td style={cell} />
+      <td style={cell} />
+    </tr>
+  );
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ textAlign: "center", marginBottom: "4mm" }}>
+        <div style={{ fontSize: "12px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9481f", fontWeight: 700 }}>Fiche de préparation</div>
+        <div style={{ marginTop: "2mm", borderBottom: "1px dotted #aaa", height: "9mm", maxWidth: "70%", marginLeft: "auto", marginRight: "auto" }} />
+        <div style={{ fontSize: "9px", color: "#aaa", marginTop: "1mm" }}>Titre de la séance</div>
+      </div>
+
+      <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "5mm" }}>
+        <tbody>
+          <tr>
+            <InfoV label="École" value={p.ecole} />
+            <InfoV label="Enseignant·e" value={teacher} />
+            <InfoV label="Classe" value={p.classe} />
+            <InfoV label="Année" value={p.annee} />
+          </tr>
+          <tr>
+            <InfoV label="Date" />
+            <InfoV label="Discipline / domaine" />
+            <InfoV label="Niveau(x)" />
+            <InfoV label="Durée · effectif" />
+          </tr>
+          <tr>
+            <InfoV label="Période" />
+            <InfoV label="Séquence" />
+            <InfoV label="Séance n°" />
+            <InfoV label="Support / cahier" />
+          </tr>
+        </tbody>
+      </table>
+
+      <section style={{ marginBottom: "3mm" }}><h2 style={titreV}>Objectif de la séance</h2><LignesVierges n={2} /></section>
+      <section style={{ marginBottom: "3mm" }}><h2 style={titreV}>Compétences visées (programmes)</h2><LignesVierges n={2} /></section>
+      <section style={{ marginBottom: "3mm" }}><h2 style={titreV}>Matériel</h2><LignesVierges n={1} /></section>
+
+      <section style={{ marginBottom: "3mm" }}>
+        <h2 style={titreV}>Déroulement</h2>
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr>
+              <th style={{ ...cellHead, width: "26%" }}>Phase · durée</th>
+              <th style={cellHead}>Consignes et rôle de l'enseignant·e</th>
+              <th style={{ ...cellHead, width: "18%" }}>Modalité</th>
+            </tr>
+          </thead>
+          <tbody><RowVierge /><RowVierge /><RowVierge /><RowVierge /><RowVierge /></tbody>
+        </table>
+      </section>
+
+      <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "3mm" }}>
+        <tbody>
+          <tr>
+            <td style={cell}><div style={{ fontSize: "10px", textTransform: "uppercase", color: "#c9481f", fontWeight: 700, marginBottom: "1mm" }}>Différenciation</div><LignesVierges n={2} /></td>
+            <td style={cell}><div style={{ fontSize: "10px", textTransform: "uppercase", color: "#c9481f", fontWeight: 700, marginBottom: "1mm" }}>Prolongement / autonomie</div><LignesVierges n={2} /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section style={{ marginBottom: "3mm" }}><h2 style={titreV}>Erreurs fréquentes &amp; remédiation</h2><LignesVierges n={2} /></section>
+      <section><h2 style={titreV}>Bilan / observations (après la séance)</h2><LignesVierges n={3} /></section>
+    </div>
+  );
+}
