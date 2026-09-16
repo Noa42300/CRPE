@@ -32,6 +32,11 @@ import {
   VERMEER_PERLE_W,
   VERMEER_PERLE_H,
 } from "./vermeer-perle-image";
+import {
+  DELACROIX_LIBERTE_JPEG,
+  DELACROIX_LIBERTE_W,
+  DELACROIX_LIBERTE_H,
+} from "./delacroix-liberte-image";
 
 const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
   // Reproduction (domaine public) de Giuseppe Arcimboldo, « L'Été » (1573,
@@ -50,6 +55,15 @@ const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
     vb: [VERMEER_PERLE_W, VERMEER_PERLE_H],
     alt: "Johannes Vermeer, La Jeune Fille à la perle (v.1665), Mauritshuis — jeune fille au turban bleu et jaune, perle à l'oreille, tournée vers le spectateur sur fond sombre.",
     inner: `<image href="${VERMEER_PERLE_JPEG}" x="0" y="0" width="${VERMEER_PERLE_W}" height="${VERMEER_PERLE_H}"/>`,
+  },
+
+  // Reproduction (domaine public) d'Eugène Delacroix, « La Liberté guidant le
+  // peuple » (1830, musée du Louvre). Image encodée en data URI
+  // (voir delacroix-liberte-image.ts) : rendu identique site + PDF.
+  "delacroix-liberte": {
+    vb: [DELACROIX_LIBERTE_W, DELACROIX_LIBERTE_H],
+    alt: "Eugène Delacroix, La Liberté guidant le peuple (1830), musée du Louvre — une femme au bonnet phrygien, allégorie de la Liberté, brandit le drapeau tricolore et un fusil en enjambant une barricade, entraînant une foule (un bourgeois en haut-de-forme, un jeune garçon armé, des combattants) au milieu de la fumée ; au loin, les tours de Notre-Dame.",
+    inner: `<image href="${DELACROIX_LIBERTE_JPEG}" x="0" y="0" width="${DELACROIX_LIBERTE_W}" height="${DELACROIX_LIBERTE_H}"/>`,
   },
 
   // Portrait en clair-obscur (support pour l'analyse du portrait)
