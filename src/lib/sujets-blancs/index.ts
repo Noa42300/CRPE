@@ -16,8 +16,7 @@ import { MATHS_SUJETS } from "./data/maths";
 import { MATHS_CRPE_SUJETS } from "./data/maths-crpe";
 import { SCIENCES_SUJETS } from "./data/sciences";
 import { HGEMC_SUJETS } from "./data/histoire-geo-emc";
-import { ARTS_SUJETS } from "./data/arts-plastiques";
-import { MUSIQUE_SUJETS } from "./data/musique";
+import { ARTS_SUJETS } from "./data/arts";
 import { LANGUES_SUJETS } from "./data/langues";
 
 /** Tous les sujets blancs du site (dans l'ordre des matières). */
@@ -28,7 +27,6 @@ export const ALL_SUJETS: SujetBlanc[] = [
   ...SCIENCES_SUJETS,
   ...HGEMC_SUJETS,
   ...ARTS_SUJETS,
-  ...MUSIQUE_SUJETS,
   ...LANGUES_SUJETS,
 ];
 

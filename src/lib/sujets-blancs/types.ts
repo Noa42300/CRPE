@@ -22,6 +22,7 @@ export type SujetMatiere =
   | "maths"
   | "sciences"
   | "histoire-geo-emc"
+  | "arts"
   | "arts-plastiques"
   | "musique"
   | "langues";
@@ -179,6 +180,15 @@ export const SUJET_MATIERES: Record<
     pill: "bg-amber-100 text-amber-700 border-amber-200",
     swatch: "bg-amber-500",
   },
+  // Catégorie unifiée « Arts » (arts plastiques + éducation musicale).
+  arts: {
+    label: "Arts",
+    emoji: "🎨",
+    pill: "bg-rose-100 text-rose-700 border-rose-200",
+    swatch: "bg-rose-500",
+  },
+  // Anciennes catégories séparées — conservées pour les sujets archivés,
+  // mais retirées de l'affichage (voir SUJET_MATIERE_ORDER).
   "arts-plastiques": {
     label: "Arts plastiques",
     emoji: "🎨",
@@ -220,7 +230,6 @@ export const SUJET_MATIERE_ORDER: SujetMatiere[] = [
   "maths",
   "sciences",
   "histoire-geo-emc",
-  "arts-plastiques",
-  "musique",
+  "arts",
   "langues",
 ];
