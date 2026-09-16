@@ -27,6 +27,11 @@ import { MATHS_ILLUSTRATIONS } from "./illustrations-maths";
 import { MATHS_CRPE_ILLUSTRATIONS } from "./illustrations-maths-crpe";
 import { SCIENCES_ILLUSTRATIONS } from "./illustrations-sciences";
 import { ARCIMBOLDO_ETE_JPEG } from "./arcimboldo-ete-image";
+import {
+  VERMEER_PERLE_JPEG,
+  VERMEER_PERLE_W,
+  VERMEER_PERLE_H,
+} from "./vermeer-perle-image";
 
 const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
   // Reproduction (domaine public) de Giuseppe Arcimboldo, « L'Été » (1573,
@@ -36,6 +41,15 @@ const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
     vb: [499, 599],
     alt: "Giuseppe Arcimboldo, L'Été (1573), musée du Louvre — buste de profil composé de fruits et légumes d'été, entouré d'une guirlande de fleurs et de fruits.",
     inner: `<image href="${ARCIMBOLDO_ETE_JPEG}" x="0" y="0" width="499" height="599"/>`,
+  },
+
+  // Reproduction (domaine public) de Johannes Vermeer, « La Jeune Fille à la
+  // perle » (v.1665, Mauritshuis, La Haye). Image encodée en data URI
+  // (voir vermeer-perle-image.ts) : rendu identique site + PDF.
+  "vermeer-jeune-fille": {
+    vb: [VERMEER_PERLE_W, VERMEER_PERLE_H],
+    alt: "Johannes Vermeer, La Jeune Fille à la perle (v.1665), Mauritshuis — jeune fille au turban bleu et jaune, perle à l'oreille, tournée vers le spectateur sur fond sombre.",
+    inner: `<image href="${VERMEER_PERLE_JPEG}" x="0" y="0" width="${VERMEER_PERLE_W}" height="${VERMEER_PERLE_H}"/>`,
   },
 
   // Portrait en clair-obscur (support pour l'analyse du portrait)

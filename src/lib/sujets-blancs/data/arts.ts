@@ -261,4 +261,252 @@ export const ARTS_SUJETS: SujetBlanc[] = [
       },
     ],
   },
+
+  {
+    slug: "arts-2-portrait-et-mer",
+    matiere: "arts",
+    niveau: "crpe",
+    titre: "Sujet blanc n°2 — Le portrait et la mer (arts plastiques & éducation musicale)",
+    description:
+      "Un dossier « Arts » : arts plastiques (Vermeer, La Jeune Fille à la perle) et éducation musicale (Debussy, La Mer), en lien avec le programme 2027. Analyse d'œuvre, mise en relation et transposition pédagogique. Niveau CRPE.",
+    epreuve: "Épreuve écrite de polyvalence — Domaine des arts (arts plastiques & éducation musicale)",
+    duree: "1 h conseillée",
+    totalPoints: 20,
+    consignes: [
+      "Le sujet comporte deux parties indépendantes : arts plastiques (10 points) et éducation musicale (10 points).",
+      "Répondre à chaque question par un développement structuré et argumenté, appuyé sur les documents et sur des connaissances précises.",
+      "On valorise la culture artistique, la maîtrise du vocabulaire spécifique et la cohérence des propositions pédagogiques. Barème indicatif, sur 20 points.",
+    ],
+    sujet: [
+      {
+        titre: "Partie A — Arts plastiques : questionner la ressemblance",
+        points: 10,
+        intro:
+          "En lien avec les questionnements « Questionner la ressemblance » et « La représentation de l'être humain ».",
+        blocks: [
+          {
+            type: "figure",
+            illustration: "vermeer-jeune-fille",
+            titre: "Document 1 — Johannes Vermeer, La Jeune Fille à la perle (v.1665)",
+            legende:
+              "Johannes Vermeer, La Jeune Fille à la perle, v.1665, huile sur toile, 44,5 × 39 cm, Mauritshuis, La Haye (œuvre du domaine public).",
+          },
+          {
+            type: "document",
+            titre: "Description de l'œuvre",
+            source: "D'après Johannes Vermeer, peintre du Siècle d'or néerlandais.",
+            lines: [
+              "Sur un fond sombre et neutre, une jeune fille tourne la tête vers le spectateur, comme surprise, les lèvres légèrement entrouvertes. Elle porte un turban bleu et jaune et une grande perle à l'oreille. La lumière, douce, glisse sur le visage et fait briller la perle. On ne sait pas qui elle est : l'œuvre n'est pas le portrait d'une personne identifiée, mais une « tronie », c'est-à-dire une étude de visage et d'expression.",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "En quoi cette œuvre invite-t-elle à « questionner la ressemblance » ? Analysez les moyens plastiques (lumière, cadrage, regard, fond, la perle) et expliquez ce que change le fait qu'il s'agisse d'une « tronie » plutôt que d'un portrait.",
+                points: 4,
+              },
+              {
+                num: "b.",
+                text: "En vous appuyant sur vos connaissances (histoire des arts), situez cette manière de représenter l'être humain. Comparez-la à un portrait « ressemblant » d'une personne identifiée, et citez au moins un autre exemple pertinent.",
+                points: 3,
+              },
+              {
+                num: "c.",
+                text: "Proposez, pour un cycle 3, une séquence d'arts plastiques inspirée de cette œuvre. Précisez l'objectif, une situation de pratique et l'articulation avec la rencontre des œuvres et le langage.",
+                points: 3,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Partie B — Éducation musicale : le paysage en musique",
+        points: 10,
+        intro: "En lien avec le questionnement « Le paysage en musique ».",
+        blocks: [
+          {
+            type: "document",
+            titre: "Document 2 — La mer mise en musique",
+            source:
+              "Claude Debussy, La Mer, trois esquisses symphoniques pour orchestre (1905).",
+            lines: [
+              "L'œuvre comporte trois parties : 1. « De l'aube à midi sur la mer » ; 2. « Jeux de vagues » ; 3. « Dialogue du vent et de la mer ».",
+              "Debussy ne raconte pas une histoire et n'imite pas des bruits : par les timbres, les couleurs de l'orchestre, les nuances et des motifs mouvants, il évoque la lumière et le mouvement de l'eau — une musique souvent qualifiée d'« impressionniste ».",
+              "Fait notable : la couverture de la première édition (1905) reproduisait une célèbre estampe japonaise, La Grande Vague de Kanagawa d'Hokusai — un paysage marin peint.",
+            ],
+          },
+          {
+            type: "questions",
+            items: [
+              {
+                num: "a.",
+                text: "Comment la musique évoque-t-elle ici un paysage marin ? Décrivez les procédés musicaux (timbres, nuances, motifs, forme) et expliquez la différence entre « imiter » des bruits et « évoquer » une impression.",
+                points: 4,
+              },
+              {
+                num: "b.",
+                text: "Mettez cette œuvre en relation avec le programme 2027 « Le paysage en musique » (Vivaldi, L'Été ; Smetana, La Moldau ; Nougaro, Toulouse). Quelles manières différentes de représenter un paysage en musique repérez-vous ?",
+                points: 3,
+              },
+              {
+                num: "c.",
+                text: "Proposez, pour un cycle 2 ou 3, une activité d'écoute active et/ou de création autour du « paysage sonore » marin. Vous pouvez exploiter le lien avec l'estampe d'Hokusai. Précisez l'œuvre écoutée, la consigne d'écoute et une production possible.",
+                points: 3,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    bareme: {
+      entetes: ["Partie", "Question", "Compétences évaluées", "Points"],
+      lignes: [
+        ["A — Arts pl.", "a.", "Analyse : ressemblance, « tronie », moyens plastiques", "4"],
+        ["A", "b.", "Histoire des arts : représentation de l'être humain, mise en relation", "3"],
+        ["A", "c.", "Transposition pédagogique (pratique + œuvres + langage)", "3"],
+        ["B — Musique", "a.", "Procédés du « paysage en musique », imitation vs évocation", "4"],
+        ["B", "b.", "Mise en relation avec les œuvres au programme 2027", "3"],
+        ["B", "c.", "Écoute active / création d'un paysage sonore", "3"],
+      ],
+      total: "20 points",
+    },
+    correctionIntro:
+      "On attend une analyse précise appuyée sur les documents, un vocabulaire spécifique juste (plastique et musical) et des propositions pédagogiques réalistes reliant rencontre des œuvres, pratique et langage.",
+    correction: [
+      {
+        titre: "Partie A — Arts plastiques",
+        points: 10,
+        blocks: [
+          {
+            type: "qa",
+            num: "a.",
+            points: 4,
+            question: "En quoi l'œuvre questionne-t-elle la ressemblance ?",
+            reponse: [
+              "Vermeer construit une **présence** plus qu'une identité : le **fond sombre et neutre** isole la figure, le **cadrage serré** (buste, gros plan) concentre le regard sur le visage, et la **lumière douce** modèle la joue et fait vivre l'expression. Le **regard tourné vers le spectateur** et les **lèvres entrouvertes** créent un instant, une adresse.",
+              "La fameuse **perle** est un trompe-l'œil : de près, ce ne sont que **quelques touches de blanc** ; la « ressemblance » est donc une **illusion** produite par la peinture et interprétée par l'œil.",
+              "Surtout, l'œuvre est une **« tronie »** : elle ne représente pas une personne identifiée mais un **type**, une étude d'expression et de costume. Un visage peut donc être saisissant de vérité sans être le portrait « ressemblant » de quelqu'un de précis.",
+            ],
+            attendu:
+              "Nommer les moyens plastiques (fond, cadrage, lumière, regard) ET exploiter la notion de tronie (ressemblance ≠ portrait d'un modèle identifié).",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 3,
+            question: "Situer cette représentation de l'être humain (histoire des arts).",
+            reponse: [
+              "Le **portrait** au sens strict vise la ressemblance d'une **personne identifiée** (souvent le commanditaire, avec son statut). La **tronie** cherche l'**expression** et la **virtuosité** (rendu des étoffes, de la lumière), sans identité précise.",
+              "Mise en relation possible : les **autoportraits de Rembrandt** (même époque, intériorité), un **portrait d'apparat** classique (montrer un statut), ou, à l'inverse, les **portraits du XXᵉ siècle** qui déforment le visage (Modigliani) et poussent plus loin la question de la ressemblance.",
+            ],
+            attendu:
+              "Distinguer portrait (personne identifiée) et tronie/expression, avec un exemple pertinent et exact.",
+          },
+          {
+            type: "qa",
+            num: "c.",
+            points: 3,
+            question: "Séquence d'arts plastiques (cycle 3).",
+            reponse: [
+              "Objectif : comprendre qu'un visage peut exprimer une **présence et une émotion** sans viser la ressemblance exacte d'une personne.",
+              "Pratique : réaliser un **« visage expressif »** (dessin, peinture ou **photographie**) en travaillant la **lumière** (source latérale douce), le **cadrage** (gros plan) et le **regard** ; on peut ajouter un **détail brillant** (comme la perle) obtenu d'une simple touche claire.",
+              "Articulation : **rencontre des œuvres** (Vermeer + un portrait ou une photo contemporaine), **pratique**, puis **langage** (décrire et justifier ses choix, verbaliser l'effet produit).",
+            ],
+            attendu:
+              "Objectif clair, pratique réaliste liée à l'œuvre, articulation rencontre/pratique/langage.",
+          },
+        ],
+      },
+      {
+        titre: "Partie B — Éducation musicale",
+        points: 10,
+        blocks: [
+          {
+            type: "qa",
+            num: "a.",
+            points: 4,
+            question: "Comment la musique évoque-t-elle un paysage marin ?",
+            reponse: [
+              "Procédés : la **couleur orchestrale** et les **timbres** (cordes divisées, harpes, bois, cuivres) suggèrent l'eau et la lumière ; des **motifs courts et mouvants** et des **ostinatos** imitent le balancement des vagues ; les **nuances** et les **crescendos/decrescendos** figurent la houle qui enfle puis retombe ; la **forme fluide** (sans thèmes « carrés ») évoque le mouvement continu de la mer.",
+              "Différence **imiter / évoquer** : Debussy ne « bruite » pas la mer ; il en donne une **impression**, une atmosphère, qui agit sur la **sensation** et l'imagination de l'auditeur. C'est le principe de l'**impressionnisme** musical.",
+            ],
+            attendu:
+              "Citer des procédés précis (timbre, motif, nuance, forme) ET opposer imitation littérale et évocation impressionniste.",
+          },
+          {
+            type: "qa",
+            num: "b.",
+            points: 3,
+            question: "Mise en relation avec les œuvres du programme 2027.",
+            reponse: [
+              "**Vivaldi, L'Été** (1725) : baroque descriptif, imitation directe guidée par un sonnet (orage, chaleur).",
+              "**Smetana, La Moldau** (1874) : poème symphonique qui **raconte** le cours d'une rivière (récit-programme).",
+              "**Nougaro, Toulouse** (1967) : une **chanson**, paysage urbain porté par le texte.",
+              "**Debussy, La Mer** : ni récit ni imitation littérale, mais **évocation impressionniste** (couleur, lumière, mouvement). On dégage ainsi plusieurs manières de représenter un paysage : imitation, récit, texte, impression.",
+            ],
+            attendu:
+              "Comparer au moins deux œuvres du programme et distinguer des procédés différents (imitation, récit, texte, évocation).",
+          },
+          {
+            type: "qa",
+            num: "c.",
+            points: 3,
+            question: "Écoute active / création d'un paysage sonore marin.",
+            reponse: [
+              "Écoute active : faire écouter « Jeux de vagues » ou « De l'aube à midi sur la mer » ; consigne : **repérer** les moments où la mer est calme puis agitée, **décrire** avec un vocabulaire construit (timbre, nuance, tempo), lever un geste ou une image quand la houle enfle.",
+              "Lien arts visuels : mettre en regard **La Grande Vague d'Hokusai** (couverture de la partition) pour comparer paysage peint et paysage sonore.",
+              "Création : réaliser un **paysage sonore marin** (voix, souffles, objets, percussions douces) avec une progression (calme → tempête → retour au calme) ; travailler l'écoute mutuelle.",
+            ],
+            attendu:
+              "Une œuvre précise, une consigne d'écoute active (pas seulement « écouter ») et une production réaliste ; le lien avec Hokusai est valorisé.",
+          },
+        ],
+      },
+    ],
+    methodologie: [
+      {
+        titre: "Méthodologie — Traiter un dossier « Arts »",
+        blocks: [
+          {
+            type: "note",
+            variant: "methode",
+            titre: "Analyser une œuvre (plastique ou musicale)",
+            lines: [
+              "Décrire d'abord (ce que je vois / ce que j'entends), puis interpréter (ce que cela produit), enfin relier (contexte, autres œuvres).",
+              "Employer un vocabulaire spécifique : en arts plastiques (composition, cadrage, lumière, matière) ; en musique (timbre, nuance, tempo, forme).",
+            ],
+          },
+          {
+            type: "note",
+            variant: "attendu",
+            titre: "Réussir la question pédagogique",
+            lines: [
+              "Toujours articuler rencontre des œuvres + pratique + langage (décrire, justifier ses choix).",
+              "Proposer une situation réaliste, adaptée au cycle, avec un objectif clair et une trace.",
+            ],
+          },
+        ],
+      },
+    ],
+    erreursFrequentes: [
+      {
+        titre: "Erreurs fréquentes à éviter",
+        blocks: [
+          {
+            type: "note",
+            variant: "attention",
+            titre: "Pièges classiques",
+            lines: [
+              "**Prendre La Jeune Fille à la perle pour le portrait d'une personne réelle** : c'est une « tronie », une étude d'expression.",
+              "**Confondre imitation et évocation** en musique : Debussy suggère la mer, il ne la « bruite » pas.",
+              "**Réduire la pédagogie à « faire écouter » ou « faire dessiner »** sans objectif ni verbalisation.",
+              "**Citer une œuvre ou une date de façon inexacte** : mieux vaut un exemple sûr et bien exploité.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
