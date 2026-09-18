@@ -380,27 +380,41 @@ function MotsConsignes() {
 
 /* ==================== NUMÉRATION (suite) ==================== */
 
-function BandeNumerique() {
-  const W = 1000, y = 60;
+/** Une portion de bande numérique (20 nombres), graduée à l'unité. */
+function LigneNombres({ start }: { start: number }) {
+  const W = 1000, m = 26, span = 20;
+  const step = (W - 2 * m) / span;
+  const axisY = 46;
+  const BL = "#2563eb";
   return (
-    <AideCard color={DOMAINES.numeration.color} titre="La bande numérique" sous="0 → 100 (de 10 en 10)">
-      <svg viewBox={`0 0 ${W} 110`} style={{ width: "100%", height: "auto" }} aria-hidden="true">
-        <line x1="20" y1={y} x2={W - 10} y2={y} stroke="#111" strokeWidth="3" />
-        {Array.from({ length: 11 }).map((_, i) => {
-          const x = 30 + (i * (W - 60)) / 10;
-          return (
-            <g key={i}>
-              <line x1={x} y1={y - 12} x2={x} y2={y + 12} stroke="#2563eb" strokeWidth="3" />
-              <text x={x} y={y + 34} textAnchor="middle" fontSize="22" fontWeight="800" fill="#111" fontFamily={cursive}>{i * 10}</text>
-              {i < 10 && <text x={x + (W - 60) / 20} y={y - 18} textAnchor="middle" fontSize="13" fill="#94a3b8">+10</text>}
-            </g>
-          );
-        })}
-      </svg>
-      <p style={{ marginTop: "6mm", textAlign: "center", fontSize: "18px", fontFamily: cursive }}>
-        J'avance vers la <b>droite</b> pour ajouter, vers la <b>gauche</b> pour enlever.
+    <svg viewBox="0 0 1000 96" style={{ width: "100%", height: "auto" }} aria-hidden="true">
+      <line x1={m - 6} y1={axisY} x2={W - m + 6} y2={axisY} stroke="#111" strokeWidth={6} strokeLinecap="round" />
+      {Array.from({ length: span + 1 }).map((_, i) => {
+        const num = start + i;
+        const x = m + i * step;
+        const ten = num % 10 === 0, five = num % 5 === 0;
+        const h = ten ? 24 : five ? 16 : 9;
+        return (
+          <g key={i}>
+            <line x1={x} y1={axisY - h} x2={x} y2={axisY} stroke={ten ? BL : "#111"} strokeWidth={ten ? 5 : five ? 3 : 1.6} strokeLinecap="round" />
+            {ten
+              ? <text x={x} y={axisY + 30} textAnchor="middle" fontSize={30} fontWeight={800} fill={BL} fontFamily={cursive}>{num}</text>
+              : <text x={x} y={axisY + 24} textAnchor="middle" fontSize={16} fill="#333" fontFamily={cursive}>{num}</text>}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function BandeNumerique() {
+  return (
+    <AideCard color={DOMAINES.numeration.color} titre="La bande numérique" sous="✂ de 0 à 100 — à découper et scotcher bout à bout">
+      {[0, 20, 40, 60, 80].map((s) => <LigneNombres key={s} start={s} />)}
+      <p style={{ textAlign: "center", fontSize: "22px", fontFamily: cursive }}>
+        👉 vers la <b style={{ color: "#16a34a" }}>droite</b> j'ajoute · 👈 vers la <b style={{ color: "#dc2626" }}>gauche</b> j'enlève
+        &nbsp;·&nbsp; les CE2 : la même bande existe de 0 à 1 000 (de 100 en 100).
       </p>
-      <p style={{ marginTop: "3mm", textAlign: "center", fontSize: "15px", color: "#555" }}>Pour les CE2 : la même bande existe de 0 à 1 000 (de 100 en 100).</p>
     </AideCard>
   );
 }
