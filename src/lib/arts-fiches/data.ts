@@ -791,6 +791,9 @@ export const ARTS_FICHES: ArtsFiche[] = [
     titre: "Arcimboldo — L'Été (1573)",
     intro:
       "Un visage entièrement composé de fruits et de légumes : la ressemblance comme jeu d'assemblage.",
+    illustration: "arcimboldo-ete",
+    illustrationLegende:
+      "Giuseppe Arcimboldo, L'Été, 1573, huile sur toile, musée du Louvre (domaine public).",
     definition:
       "**L'Été** de Giuseppe **Arcimboldo** (**1573**, musée du Louvre) est un buste de profil **composé de fruits et de légumes d'été**. C'est à la fois un **portrait** et une **nature morte** : l'œuvre illustre parfaitement le questionnement « **questionner la ressemblance** ».",
     sections: [
@@ -848,6 +851,9 @@ export const ARTS_FICHES: ArtsFiche[] = [
     titre: "Vermeer — La Jeune Fille à la perle (v.1665)",
     intro:
       "Un visage saisissant… qui n'est pourtant le portrait de personne : une « tronie ».",
+    illustration: "vermeer-jeune-fille",
+    illustrationLegende:
+      "Johannes Vermeer, La Jeune Fille à la perle, v.1665, huile sur toile, Mauritshuis, La Haye (domaine public).",
     definition:
       "**La Jeune Fille à la perle** de Johannes **Vermeer** (**v.1665**, Mauritshuis, La Haye) est une **tronie** : une **étude de visage et d'expression**, non le portrait d'une personne identifiée. Elle interroge donc la ressemblance autrement.",
     sections: [
@@ -905,6 +911,9 @@ export const ARTS_FICHES: ArtsFiche[] = [
     titre: "Delacroix — La Liberté guidant le peuple (1830)",
     intro:
       "Un événement réel et une allégorie réunis dans une image en mouvement.",
+    illustration: "delacroix-liberte",
+    illustrationLegende:
+      "Eugène Delacroix, La Liberté guidant le peuple, 1830, huile sur toile, musée du Louvre (domaine public).",
     definition:
       "**La Liberté guidant le peuple** d'Eugène **Delacroix** (**1830**, musée du Louvre) commémore les **Trois Glorieuses** (juillet 1830). Une **allégorie** — la Liberté au bonnet phrygien — entraîne le peuple : l'œuvre relie **représentation de l'être humain** et **récit d'un événement**.",
     sections: [

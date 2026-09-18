@@ -97,6 +97,11 @@ const PDF_CHAR_MAP: Array<[RegExp, string]> = [
   [/[“”]/g, '"'],
   [/²/g, "2"],
   [/³/g, "3"],
+  [/Œ/g, "OE"],
+  [/œ/g, "oe"],
+  [/Æ/g, "AE"],
+  [/æ/g, "ae"],
+  [/[—–]/g, "-"],
 ];
 
 /** Neutralise les symboles non gérés par la police PDF (hors accents). */
@@ -119,6 +124,58 @@ interface Ctx {
   readonly H: number;
   readonly M: number;
   footer: string;
+  /** Image d'œuvre déjà rasterisée (PNG data URI + dimensions), facultative. */
+  cover_image?: { data: string; w: number; h: number; legende?: string };
+}
+
+/** Rasterise un SVG (data URI) en PNG via un canvas hors écran. */
+function rasterizeSvgToPng(
+  svg: string
+): Promise<{ data: string; w: number; h: number }> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const scale = 2;
+      const w = img.width || 400;
+      const h = img.height || 300;
+      const canvas = document.createElement("canvas");
+      canvas.width = w * scale;
+      canvas.height = h * scale;
+      const c = canvas.getContext("2d");
+      if (!c) return reject(new Error("canvas context indisponible"));
+      c.fillStyle = "#ffffff";
+      c.fillRect(0, 0, canvas.width, canvas.height);
+      c.drawImage(img, 0, 0, canvas.width, canvas.height);
+      resolve({ data: canvas.toDataURL("image/png"), w, h });
+    };
+    img.onerror = () => reject(new Error("rasterisation SVG impossible"));
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  });
+}
+
+/** Dessine l'image d'œuvre (si présente) centrée, avec saut de page si besoin. */
+function drawCoverImage(ctx: Ctx) {
+  const im = ctx.cover_image;
+  if (!im) return;
+  const { doc, W, M } = ctx;
+  const maxW = Math.min(W - 2 * M, 110); // largeur max (mm)
+  const dispW = maxW;
+  const dispH = (im.h / im.w) * dispW;
+  ensure(ctx, dispH + (im.legende ? 8 : 3) + 2);
+  const x = (W - dispW) / 2;
+  doc.addImage(im.data, "PNG", x, ctx.y, dispW, dispH);
+  ctx.y += dispH + 2;
+  if (im.legende) {
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(8);
+    doc.setTextColor(...GREY);
+    const lines = doc.splitTextToSize(sanitize(im.legende), W - 2 * M) as string[];
+    for (const ln of lines) {
+      doc.text(ln, W / 2, ctx.y, { align: "center" });
+      ctx.y += 3.6;
+    }
+    ctx.y += 1;
+  }
 }
 
 function drawFooter(ctx: Ctx) {
@@ -702,6 +759,8 @@ function buildCivique(ctx: Ctx, f: CiviqueFiche, label: string) {
   const sectionAccents = [C.emerald.strong, C.indigo.strong, C.sky.strong];
   cover(ctx, label, f.titre, f.intro);
 
+  drawCoverImage(ctx);
+
   rubricBar(ctx, "La notion", C.sky.strong);
   writeRich(ctx, f.definition);
 
@@ -802,6 +861,20 @@ async function buildDoc(data: FichePdfData): Promise<import("jspdf").jsPDF> {
     M: 16,
     footer: `Fiche ${MATIERE_LABELS[data.matiere]} — CRPE avec Noa`,
   };
+
+  // Fiches d'arts : rasteriser l'image de l'œuvre (si présente) pour le PDF.
+  if (data.matiere === "arts" && data.fiche.illustration) {
+    const { svgString } = await import("@/lib/sujets-blancs/illustrations");
+    const svg = svgString(data.fiche.illustration);
+    if (svg) {
+      try {
+        const png = await rasterizeSvgToPng(svg);
+        ctx.cover_image = { ...png, legende: data.fiche.illustrationLegende };
+      } catch {
+        // En cas d'échec, la fiche s'imprime sans image.
+      }
+    }
+  }
 
   switch (data.matiere) {
     case "francais":

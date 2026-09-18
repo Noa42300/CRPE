@@ -58,6 +58,15 @@ export interface CiviqueFiche {
   titre: string;
   intro: string;
 
+  /**
+   * Illustration facultative (image de l'œuvre) affichée en tête de fiche.
+   * `illustration` est une clé du registre ILLUSTRATIONS (voir
+   * lib/sujets-blancs/illustrations). Utilisée surtout par les fiches d'arts
+   * pour montrer l'œuvre étudiée (rendu web + PDF).
+   */
+  illustration?: string; // clé dans ILLUSTRATIONS
+  illustrationLegende?: string; // légende sous l'image
+
   definition: string; // 🟦 la notion clé
   sections: CiviqueSection[]; // 1 à 3 sections thématiques (points groupés)
   exemples?: string[]; // 🗺️ exemples concrets / mise en œuvre
