@@ -20,6 +20,7 @@ import { SequencesView } from "./components/SequencesView";
 import { SequencesPlanView } from "./components/SequencesPlanView";
 import { IdeesSeancesView } from "./components/IdeesSeancesView";
 import { RessourcesView } from "./components/RessourcesView";
+import { MaterielView } from "./components/MaterielView";
 import { HorairesView } from "./components/HorairesView";
 import { InfoElevesView } from "./components/InfoElevesView";
 import { RitualsView } from "./components/RitualsView";
@@ -121,6 +122,7 @@ export function App() {
             {view === "library" && <SequencesView />}
             {view === "idees" && <IdeesSeancesView />}
             {view === "ressources" && <RessourcesView />}
+            {view === "materiel" && <MaterielView />}
             {view === "horaires" && <HorairesView />}
             {view === "rituals" && <RitualsView />}
             {view === "projets" && <ProjetsView />}
