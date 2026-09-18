@@ -10,8 +10,10 @@ export const DOMAINES: Record<string, { label: string; color: string; emoji: str
   numeration: { label: "Nombres / numération", color: "#2563eb", emoji: "🔵" },
   calcul: { label: "Calcul", color: "#159a63", emoji: "🟢" },
   mesures: { label: "Grandeurs / mesures", color: "#d97706", emoji: "🟠" },
+  geometrie: { label: "Géométrie", color: "#7c3aed", emoji: "🟣" },
   grammaire: { label: "Français / grammaire", color: "#dc2626", emoji: "🔴" },
   ortho: { label: "Orthographe / conjugaison", color: "#ca8a04", emoji: "🟡" },
+  lecture: { label: "Lecture / vocabulaire", color: "#db2777", emoji: "🩷" },
   methodo: { label: "Méthodo / autonomie", color: "#334155", emoji: "⚫" },
 };
 
@@ -372,6 +374,323 @@ function MotsConsignes() {
   );
 }
 
+/* ==================== NUMÉRATION (suite) ==================== */
+
+function BandeNumerique() {
+  const W = 1000, y = 60;
+  return (
+    <AideCard color={DOMAINES.numeration.color} titre="La bande numérique" sous="0 → 100 (de 10 en 10)">
+      <svg viewBox={`0 0 ${W} 110`} style={{ width: "100%", height: "auto" }} aria-hidden="true">
+        <line x1="20" y1={y} x2={W - 10} y2={y} stroke="#111" strokeWidth="3" />
+        {Array.from({ length: 11 }).map((_, i) => {
+          const x = 30 + (i * (W - 60)) / 10;
+          return (
+            <g key={i}>
+              <line x1={x} y1={y - 12} x2={x} y2={y + 12} stroke="#2563eb" strokeWidth="3" />
+              <text x={x} y={y + 34} textAnchor="middle" fontSize="22" fontWeight="800" fill="#111" fontFamily={cursive}>{i * 10}</text>
+              {i < 10 && <text x={x + (W - 60) / 20} y={y - 18} textAnchor="middle" fontSize="13" fill="#94a3b8">+10</text>}
+            </g>
+          );
+        })}
+      </svg>
+      <p style={{ marginTop: "6mm", textAlign: "center", fontSize: "18px", fontFamily: cursive }}>
+        J'avance vers la <b>droite</b> pour ajouter, vers la <b>gauche</b> pour enlever.
+      </p>
+      <p style={{ marginTop: "3mm", textAlign: "center", fontSize: "15px", color: "#555" }}>Pour les CE2 : la même bande existe de 0 à 1 000 (de 100 en 100).</p>
+    </AideCard>
+  );
+}
+
+function NombresEnLettres() {
+  const petits = [["0", "zéro"], ["1", "un"], ["2", "deux"], ["3", "trois"], ["4", "quatre"], ["5", "cinq"], ["6", "six"], ["7", "sept"], ["8", "huit"], ["9", "neuf"], ["10", "dix"], ["11", "onze"], ["12", "douze"], ["13", "treize"], ["14", "quatorze"], ["15", "quinze"], ["16", "seize"]];
+  const diz = [["20", "vingt"], ["30", "trente"], ["40", "quarante"], ["50", "cinquante"], ["60", "soixante"], ["70", "soixante-dix"], ["80", "quatre-vingts"], ["90", "quatre-vingt-dix"], ["100", "cent"]];
+  return (
+    <AideCard color={DOMAINES.numeration.color} titre="Les nombres en lettres" sous="je sais les écrire">
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "1.5mm", marginBottom: "4mm" }}>
+        {petits.map(([n, m]) => (
+          <div key={n} style={{ border: "1.5px solid #2563eb", borderRadius: "2mm", padding: "1.5mm", textAlign: "center", fontSize: "14px", fontFamily: cursive }}><b>{n}</b> {m}</div>
+        ))}
+      </div>
+      <div style={{ fontWeight: 800, fontSize: "15px", marginBottom: "1.5mm", color: "#2563eb" }}>Les dizaines :</div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5mm" }}>
+        {diz.map(([n, m]) => (
+          <div key={n} style={{ border: "1.5px solid #2563eb", borderRadius: "2mm", padding: "1.5mm", textAlign: "center", fontSize: "15px", fontFamily: cursive }}><b>{n}</b> {m}</div>
+        ))}
+      </div>
+      <p style={{ marginTop: "5mm", textAlign: "center", fontSize: "17px", fontFamily: cursive }}>
+        Exemple&nbsp;: <b>74</b> = soixante-quatorze &nbsp;·&nbsp; <b>92</b> = quatre-vingt-douze
+      </p>
+    </AideCard>
+  );
+}
+
+/* ==================== CALCUL (suite) ==================== */
+
+function PoserMultiplication() {
+  return (
+    <AideCard color={DOMAINES.calcul.color} titre="Poser une multiplication" sous="par 1 chiffre">
+      <div style={{ display: "flex", justifyContent: "center", gap: "10mm", alignItems: "center" }}>
+        <div style={{ fontFamily: cursive, fontSize: "38px", lineHeight: 1.15, textAlign: "right" }}>
+          <div style={{ color: D, fontSize: "18px" }}>¹</div>
+          <div><span style={{ color: D }}>2</span><span style={{ color: U }}>4</span></div>
+          <div style={{ borderBottom: "3px solid #111" }}>× &nbsp;<span style={{ color: U }}>3</span></div>
+          <div><span style={{ color: C }}>7</span><span style={{ color: D }}>2</span></div>
+        </div>
+        <div style={{ fontSize: "17px", lineHeight: 1.8 }}>
+          1. Je multiplie les <span style={{ color: U }}>unités</span> : 3 × 4 = 12.<br />
+          2. J'écris 2, je <b>retiens 1</b>.<br />
+          3. Je multiplie les <span style={{ color: D }}>dizaines</span> : 3 × 2 = 6, <b>+1</b> = 7.<br />
+          4. Résultat : <b>72</b>.
+        </div>
+      </div>
+    </AideCard>
+  );
+}
+
+function Division() {
+  return (
+    <AideCard color={DOMAINES.calcul.color} titre="La division (CE2)" sous="partager en parts égales">
+      <div style={{ border: "2px solid #159a63", borderRadius: "3mm", padding: "4mm", marginBottom: "5mm", fontSize: "18px", lineHeight: 1.9 }}>
+        <b>Le vocabulaire :</b>
+        <div><span style={{ color: "#2563eb" }}>dividende</span> ÷ <span style={{ color: "#d97706" }}>diviseur</span> = <span style={{ color: "#16a34a" }}>quotient</span> (+ <b>reste</b>)</div>
+        <div style={{ fontFamily: cursive, fontSize: "24px" }}>13 ÷ 4 = 3 &nbsp;reste&nbsp; 1</div>
+      </div>
+      <p style={{ fontSize: "18px", lineHeight: 1.7 }}>
+        Je cherche&nbsp;: <b>« dans la table du 4, combien de fois pour approcher 13 ? »</b><br />
+        4 × 3 = 12 → il reste 1. &nbsp;Le reste est toujours <b>plus petit</b> que le diviseur.
+      </p>
+      <p style={{ marginTop: "5mm", textAlign: "center", fontSize: "17px", fontFamily: cursive }}>Partager 13 billes entre 4 enfants → 3 chacun, il en reste 1.</p>
+    </AideCard>
+  );
+}
+
+function Fractions() {
+  const bar = (parts: number, label: string) => (
+    <div style={{ marginBottom: "3mm" }}>
+      <div style={{ fontSize: "15px", fontFamily: cursive, marginBottom: "0.5mm" }}>{label}</div>
+      <div style={{ display: "flex", border: "2px solid #159a63", borderRadius: "1mm", overflow: "hidden", height: "12mm" }}>
+        {Array.from({ length: parts }).map((_, i) => (
+          <div key={i} style={{ flex: 1, borderRight: i < parts - 1 ? "1.5px solid #159a63" : "none", display: "grid", placeItems: "center", fontSize: "13px", fontFamily: cursive, background: i % 2 ? "#dcfce7" : "#fff" }}>{parts === 1 ? "1" : `1/${parts}`}</div>
+        ))}
+      </div>
+    </div>
+  );
+  return (
+    <AideCard color={DOMAINES.calcul.color} titre="Les fractions" sous="bandes à découper & superposer">
+      {bar(1, "1 entier")}
+      {bar(2, "les demis")}
+      {bar(3, "les tiers")}
+      {bar(4, "les quarts")}
+      {bar(6, "les sixièmes")}
+      {bar(8, "les huitièmes")}
+      <p style={{ marginTop: "4mm", textAlign: "center", fontSize: "17px", fontFamily: cursive }}>
+        <b>numérateur / dénominateur</b> · 1/2 = 2/4 = 4/8 · ✂ je découpe et je superpose.
+      </p>
+    </AideCard>
+  );
+}
+
+/* ==================== MESURES (suite) ==================== */
+
+function Longueurs() {
+  return (
+    <AideCard color={DOMAINES.mesures.color} titre="Les longueurs" sous="mm · cm · m · km">
+      {/* petite règle graduée */}
+      <svg viewBox="0 0 1000 90" style={{ width: "100%", height: "auto", marginBottom: "4mm" }} aria-hidden="true">
+        <rect x="10" y="20" width="980" height="45" fill="#fef3c7" stroke="#d97706" strokeWidth="2" />
+        {Array.from({ length: 21 }).map((_, i) => {
+          const x = 20 + i * 48; const big = i % 5 === 0;
+          return (
+            <g key={i}>
+              <line x1={x} y1="20" x2={x} y2={big ? 45 : 33} stroke="#111" strokeWidth={big ? 2.5 : 1.5} />
+              {big && <text x={x} y="60" textAnchor="middle" fontSize="15" fontWeight="700" fill="#111">{i / 5 * 5}</text>}
+            </g>
+          );
+        })}
+      </svg>
+      <div style={{ border: "2px solid #d97706", borderRadius: "3mm", padding: "3mm", fontSize: "17px", lineHeight: 1.8, marginBottom: "4mm" }}>
+        1 cm = 10 mm · 1 m = 100 cm · 1 km = 1 000 m
+      </div>
+      <div style={{ fontSize: "17px", fontFamily: cursive, textAlign: "center" }}>
+        crayon ≈ des <b>cm</b> · porte ≈ des <b>m</b> · trajet ≈ des <b>km</b>
+      </div>
+    </AideCard>
+  );
+}
+
+/* ==================== GÉOMÉTRIE ==================== */
+
+function FiguresPlanes() {
+  const G = DOMAINES.geometrie.color;
+  const fig = (draw: ReactNode, nom: string, props: string) => (
+    <div style={{ border: `2px solid ${G}`, borderRadius: "3mm", padding: "3mm", textAlign: "center" }}>
+      <svg width="70" height="60" viewBox="0 0 70 60" aria-hidden="true">{draw}</svg>
+      <div style={{ fontSize: "18px", fontWeight: 800, color: G, fontFamily: cursive }}>{nom}</div>
+      <div style={{ fontSize: "12px", color: "#555", lineHeight: 1.25 }}>{props}</div>
+    </div>
+  );
+  const st = { fill: "#ede9fe", stroke: G, strokeWidth: 2.5 } as const;
+  return (
+    <AideCard color={G} titre="Les figures planes" sous="je les reconnais">
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3mm" }}>
+        {fig(<rect x="12" y="8" width="44" height="44" {...st} />, "le carré", "4 côtés égaux · 4 angles droits")}
+        {fig(<rect x="6" y="14" width="58" height="32" {...st} />, "le rectangle", "4 angles droits · côtés opposés égaux")}
+        {fig(<polygon points="35,8 62,52 8,52" {...st} />, "le triangle", "3 côtés · 3 sommets")}
+        {fig(<polygon points="14,10 60,10 46,52 8,52" {...st} />, "le losange / autre", "4 côtés")}
+        {fig(<circle cx="35" cy="30" r="22" {...st} />, "le cercle", "rond · un centre · un rayon")}
+        {fig(<polygon points="35,8 62,52 8,52 8,52" fill="#ede9fe" stroke={G} strokeWidth="2.5" />, "triangle rectangle", "un angle droit")}
+      </div>
+    </AideCard>
+  );
+}
+
+function AngleSymetrie() {
+  const G = DOMAINES.geometrie.color;
+  return (
+    <AideCard color={G} titre="Angle droit & symétrie" sous="mes repères de géométrie">
+      <div style={{ display: "flex", gap: "5mm", marginBottom: "5mm" }}>
+        <div style={{ flex: 1, border: `2px solid ${G}`, borderRadius: "3mm", padding: "3mm", textAlign: "center" }}>
+          <svg width="90" height="80" viewBox="0 0 90 80" aria-hidden="true">
+            <path d="M15 10 L15 65 L80 65" fill="none" stroke="#111" strokeWidth="3" />
+            <rect x="15" y="52" width="13" height="13" fill="none" stroke="#e11d48" strokeWidth="2" />
+          </svg>
+          <div style={{ fontSize: "17px", fontFamily: cursive }}>L'<b>angle droit</b></div>
+          <div style={{ fontSize: "13px", color: "#555" }}>je vérifie avec l'équerre 📐</div>
+        </div>
+        <div style={{ flex: 1, border: `2px solid ${G}`, borderRadius: "3mm", padding: "3mm", textAlign: "center" }}>
+          <svg width="90" height="80" viewBox="0 0 90 80" aria-hidden="true">
+            <line x1="45" y1="6" x2="45" y2="74" stroke="#e11d48" strokeWidth="2" strokeDasharray="5 4" />
+            <polygon points="40,20 12,40 40,60" fill="#ede9fe" stroke={G} strokeWidth="2" />
+            <polygon points="50,20 78,40 50,60" fill="#ede9fe" stroke={G} strokeWidth="2" />
+          </svg>
+          <div style={{ fontSize: "17px", fontFamily: cursive }}>La <b>symétrie</b></div>
+          <div style={{ fontSize: "13px", color: "#555" }}>pareil de chaque côté de l'axe</div>
+        </div>
+      </div>
+      <p style={{ textAlign: "center", fontSize: "16px", color: "#444" }}>Pour tracer : je pose bien ma règle, je trace un trait net au crayon.</p>
+    </AideCard>
+  );
+}
+
+/* ==================== GRAMMAIRE (suite) ==================== */
+
+function SujetVerbe() {
+  return (
+    <AideCard color={DOMAINES.grammaire.color} titre="Le sujet et le verbe" sous="qui fait l'action ?">
+      <div style={{ border: "2px solid #dc2626", borderRadius: "3mm", padding: "4mm", textAlign: "center", fontSize: "24px", fontFamily: cursive, marginBottom: "5mm" }}>
+        <span style={{ color: "#2563eb", fontWeight: 800 }}>Le chat</span> <span style={{ color: "#16a34a", fontWeight: 800 }}>dort</span> sur le lit.
+        <div style={{ fontSize: "15px", color: "#555" }}><span style={{ color: "#2563eb" }}>sujet</span> → <span style={{ color: "#16a34a" }}>verbe</span></div>
+      </div>
+      <div style={{ fontSize: "18px", lineHeight: 1.9 }}>
+        <b style={{ color: "#16a34a" }}>Trouver le verbe :</b> le mot qui change si je dis « hier… / demain… ».<br />
+        <b style={{ color: "#2563eb" }}>Trouver le sujet :</b> je demande <b>« Qui est-ce qui</b> dort ? »
+      </div>
+      <p style={{ marginTop: "5mm", textAlign: "center", fontSize: "16px", color: "#444" }}>Le verbe s'accorde avec le sujet.</p>
+    </AideCard>
+  );
+}
+
+function GroupeNominal() {
+  return (
+    <AideCard color={DOMAINES.grammaire.color} titre="Le groupe nominal" sous="autour du nom">
+      <p style={{ textAlign: "center", fontSize: "20px", fontFamily: cursive, margin: "0 0 4mm" }}>
+        déterminant + (adjectif) + <b>nom</b>
+      </p>
+      <div style={{ border: "2px solid #dc2626", borderRadius: "3mm", padding: "4mm", textAlign: "center", fontSize: "24px", fontFamily: cursive, marginBottom: "5mm" }}>
+        <span style={{ color: "#2563eb" }}>un</span> <span style={{ color: "#ca8a04" }}>gros</span> <span style={{ color: "#111", fontWeight: 800 }}>chien</span>
+        <div style={{ fontSize: "14px", color: "#555" }}>déterminant · adjectif · nom</div>
+      </div>
+      <div style={{ fontSize: "17px", lineHeight: 1.8 }}>
+        Le <b>nom</b> est le mot le plus important. Je le trouve : il désigne une personne, un animal, une chose. Autour, le déterminant et l'adjectif <b>s'accordent</b> avec lui.
+      </div>
+    </AideCard>
+  );
+}
+
+/* ==================== ORTHOGRAPHE (suite) ==================== */
+
+function AccordSujetVerbe() {
+  return (
+    <AideCard color={DOMAINES.ortho.color} titre="L'accord sujet-verbe" sous="le verbe suit le sujet">
+      <div style={{ border: "2px solid #ca8a04", borderRadius: "3mm", padding: "4mm", fontSize: "24px", fontFamily: cursive, textAlign: "center", marginBottom: "5mm", lineHeight: 1.7 }}>
+        Le chat mang<b style={{ color: "#16a34a" }}>e</b>.<br />
+        Les chats mang<b style={{ color: "#dc2626" }}>ent</b>.
+      </div>
+      <div style={{ fontSize: "18px", lineHeight: 1.9 }}>
+        1. Je trouve le <b style={{ color: "#2563eb" }}>sujet</b> (Qui est-ce qui… ?).<br />
+        2. Je trouve le <b style={{ color: "#16a34a" }}>verbe</b>.<br />
+        3. <b>Plusieurs</b> → souvent <b>-nt</b> à la fin du verbe.
+      </div>
+      <p style={{ marginTop: "5mm", textAlign: "center", fontSize: "17px", fontFamily: cursive }}>ils / elles + verbe → <b>-nt</b></p>
+    </AideCard>
+  );
+}
+
+/* ==================== LECTURE / VOCABULAIRE ==================== */
+
+function Dictionnaire() {
+  return (
+    <AideCard color={DOMAINES.lecture.color} titre="Chercher dans le dictionnaire" sous="l'ordre alphabétique">
+      <div style={{ background: "#fce7f3", border: "2px solid #db2777", borderRadius: "3mm", padding: "3mm", textAlign: "center", fontSize: "19px", fontFamily: cursive, letterSpacing: "1px", marginBottom: "5mm" }}>
+        a b c d e f g h i j k l m<br />n o p q r s t u v w x y z
+      </div>
+      <div style={{ fontSize: "18px", lineHeight: 1.8 }}>
+        1. Je regarde la <b>1re lettre</b> du mot.<br />
+        2. Même lettre ? je regarde la <b>2e</b>, puis la <b>3e</b>.<br />
+        3. J'utilise les <b>mots-repères</b> en haut des pages.
+      </div>
+      <p style={{ marginTop: "5mm", textAlign: "center", fontSize: "17px", fontFamily: cursive }}>
+        <b>chat</b> vient avant <b>chien</b> (c-h-<b>a</b>… avant c-h-<b>i</b>…)
+      </p>
+    </AideCard>
+  );
+}
+
+function ComprendreTexte() {
+  return (
+    <AideCard color={DOMAINES.lecture.color} titre="Comprendre un texte" sous="les questions que je me pose">
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3mm", marginBottom: "5mm" }}>
+        {[["Qui ?", "les personnages"], ["Où ?", "le lieu"], ["Quand ?", "le moment"], ["Quoi ?", "ce qui se passe"], ["Pourquoi ?", "la raison"], ["Comment ?", "de quelle façon"]].map(([q, s]) => (
+          <div key={q} style={{ border: "2px solid #db2777", borderRadius: "3mm", padding: "3mm", textAlign: "center" }}>
+            <div style={{ fontSize: "22px", fontWeight: 800, color: "#db2777", fontFamily: cursive }}>{q}</div>
+            <div style={{ fontSize: "14px", color: "#555" }}>{s}</div>
+          </div>
+        ))}
+      </div>
+      <p style={{ textAlign: "center", fontSize: "17px", fontFamily: cursive }}>
+        Un mot inconnu ? Je relis la phrase et je regarde les mots autour.
+      </p>
+    </AideCard>
+  );
+}
+
+/* ==================== MÉTHODO (suite) ==================== */
+
+function MethodeCopie() {
+  const step = (emoji: string, txt: string) => (
+    <div style={{ flex: 1, textAlign: "center", border: "2px solid #334155", borderRadius: "3mm", padding: "3mm" }}>
+      <div style={{ fontSize: "30px" }}>{emoji}</div>
+      <div style={{ fontSize: "16px", fontFamily: cursive, fontWeight: 700 }}>{txt}</div>
+    </div>
+  );
+  return (
+    <AideCard color={DOMAINES.methodo.color} titre="La méthode de copie" sous="copier sans erreur">
+      <div style={{ display: "flex", gap: "2.5mm", marginBottom: "6mm" }}>
+        {step("👀", "je regarde")}
+        {step("🧠", "je mémorise")}
+        {step("🙈", "je cache")}
+        {step("✍️", "j'écris")}
+        {step("🔎", "je vérifie")}
+      </div>
+      <div style={{ border: "2px solid #334155", borderRadius: "3mm", padding: "4mm", fontSize: "18px", lineHeight: 1.9 }}>
+        <b>Je relis :</b><br />
+        ✓ tous les mots ? ✓ les majuscules ? ✓ les points ?<br />
+        ✓ les accords ? ✓ mon écriture est lisible ?
+      </div>
+    </AideCard>
+  );
+}
+
 export interface Aide { id: string; domaine: keyof typeof DOMAINES; titre: string; node: ReactNode; }
 
 export const MATERIEL: Aide[] = [
@@ -386,7 +705,21 @@ export const MATERIEL: Aide[] = [
   { id: "accords-gn", domaine: "ortho", titre: "Les accords (groupe du nom)", node: <AccordsGN /> },
   { id: "homophones", domaine: "ortho", titre: "Les homophones (a/à, et/est…)", node: <Homophones /> },
   { id: "terminaisons", domaine: "ortho", titre: "Les terminaisons (présent/futur/imparfait)", node: <Terminaisons /> },
+  { id: "bande-num", domaine: "numeration", titre: "La bande numérique (0 → 100)", node: <BandeNumerique /> },
+  { id: "nombres-lettres", domaine: "numeration", titre: "Les nombres en lettres", node: <NombresEnLettres /> },
+  { id: "poser-multiplication", domaine: "calcul", titre: "Poser une multiplication", node: <PoserMultiplication /> },
+  { id: "division", domaine: "calcul", titre: "La division (CE2)", node: <Division /> },
+  { id: "fractions", domaine: "calcul", titre: "Les fractions (bandes à découper)", node: <Fractions /> },
+  { id: "longueurs", domaine: "mesures", titre: "Les longueurs (mm · cm · m · km)", node: <Longueurs /> },
+  { id: "figures", domaine: "geometrie", titre: "Les figures planes", node: <FiguresPlanes /> },
+  { id: "angle-symetrie", domaine: "geometrie", titre: "Angle droit & symétrie", node: <AngleSymetrie /> },
+  { id: "sujet-verbe", domaine: "grammaire", titre: "Le sujet et le verbe", node: <SujetVerbe /> },
+  { id: "groupe-nominal", domaine: "grammaire", titre: "Le groupe nominal", node: <GroupeNominal /> },
+  { id: "accord-sv", domaine: "ortho", titre: "L'accord sujet-verbe", node: <AccordSujetVerbe /> },
+  { id: "dictionnaire", domaine: "lecture", titre: "Chercher dans le dictionnaire", node: <Dictionnaire /> },
+  { id: "comprendre-texte", domaine: "lecture", titre: "Comprendre un texte", node: <ComprendreTexte /> },
   { id: "je-bloque", domaine: "methodo", titre: "Je bloque, que faire ?", node: <JeBloque /> },
   { id: "probleme", domaine: "methodo", titre: "Résoudre un problème", node: <ResoudreProbleme /> },
   { id: "consignes", domaine: "methodo", titre: "Les mots des consignes", node: <MotsConsignes /> },
+  { id: "copie", domaine: "methodo", titre: "La méthode de copie", node: <MethodeCopie /> },
 ];
