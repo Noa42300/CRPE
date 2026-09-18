@@ -37,6 +37,11 @@ import {
   DELACROIX_LIBERTE_W,
   DELACROIX_LIBERTE_H,
 } from "./delacroix-liberte-image";
+import {
+  TURNER_TEMPETE_JPEG,
+  TURNER_TEMPETE_W,
+  TURNER_TEMPETE_H,
+} from "./turner-tempete-image";
 
 const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
   // Reproduction (domaine public) de Giuseppe Arcimboldo, « L'Été » (1573,
@@ -64,6 +69,14 @@ const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
     vb: [DELACROIX_LIBERTE_W, DELACROIX_LIBERTE_H],
     alt: "Eugène Delacroix, La Liberté guidant le peuple (1830), musée du Louvre — une femme au bonnet phrygien, allégorie de la Liberté, brandit le drapeau tricolore et un fusil en enjambant une barricade, entraînant une foule (un bourgeois en haut-de-forme, un jeune garçon armé, des combattants) au milieu de la fumée ; au loin, les tours de Notre-Dame.",
     inner: `<image href="${DELACROIX_LIBERTE_JPEG}" x="0" y="0" width="${DELACROIX_LIBERTE_W}" height="${DELACROIX_LIBERTE_H}"/>`,
+  },
+
+  // Reproduction (domaine public) de J.M.W. Turner, « Tempête de neige en mer »
+  // (Snow Storm: Steam-Boat off a Harbour's Mouth, 1842, Tate). Data URI.
+  "turner-tempete-neige": {
+    vb: [TURNER_TEMPETE_W, TURNER_TEMPETE_H],
+    alt: "J.M.W. Turner, Tempête de neige en mer (1842) — un bateau à vapeur pris dans une tempête, tourbillon de neige, d'eau et de lumière ; formes dissoutes dans le mouvement.",
+    inner: `<image href="${TURNER_TEMPETE_JPEG}" x="0" y="0" width="${TURNER_TEMPETE_W}" height="${TURNER_TEMPETE_H}"/>`,
   },
 
   // Portrait en clair-obscur (support pour l'analyse du portrait)

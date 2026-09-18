@@ -419,6 +419,9 @@ export const ARTS_FICHES: ArtsFiche[] = [
     titre: "Vivaldi — L'Été (Les Quatre Saisons, 1725)",
     intro:
       "Un orage d'été « peint » par la musique baroque, guidé par un poème.",
+    illustration: "turner-tempete-neige",
+    illustrationLegende:
+      "Écho visuel : J.M.W. Turner, Tempête de neige en mer (1842, Tate) — la fureur des éléments, comme dans le 3ᵉ mouvement de L'Été (domaine public).",
     definition:
       "L'Été est le **deuxième concerto** des **Quatre Saisons** d'Antonio **Vivaldi** (publiées en **1725**). Chaque concerto est accompagné d'un **sonnet** : la musique **illustre** le texte. Le **3ᵉ mouvement** (Presto) dépeint un violent **orage d'été**.",
     sections: [
