@@ -20,11 +20,11 @@ export const DOMAINES: Record<string, { label: string; color: string; emoji: str
 function AideCard({ color, titre, sous, children }: { color: string; titre: string; sous?: string; children: ReactNode }) {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ border: `3px solid ${color}`, borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box" }}>
-        <div style={{ background: color, color: "#fff", borderRadius: "3mm", padding: "3mm 5mm", marginBottom: "6mm", textAlign: "center" }}>
-          <div style={{ fontSize: "32px", fontWeight: 800, fontFamily: "'Caveat','Comic Neue',cursive", lineHeight: 1.1 }}>{titre}</div>
-          {sous && <div style={{ fontSize: "15px", opacity: 0.92 }}>{sous}</div>}
-        </div>
+      <div style={{ border: `5px solid ${color}`, borderRadius: "6mm", padding: "9mm 8mm", minHeight: "283mm", boxSizing: "border-box" }}>
+        {/* Gros titre manuscrit, coloré, sans bandeau « appli » */}
+        <h1 style={{ fontSize: "50px", lineHeight: 1.05, textAlign: "center", color, fontFamily: "'Caveat','Comic Neue',cursive", fontWeight: 700, margin: "0 0 1mm" }}>{titre}</h1>
+        {sous && <div style={{ textAlign: "center", fontSize: "22px", color: "#555", fontFamily: "'Caveat','Comic Neue',cursive", marginBottom: "7mm" }}>{sous}</div>}
+        {!sous && <div style={{ height: "6mm" }} />}
         {children}
       </div>
     </div>
@@ -465,26 +465,31 @@ function Division() {
 }
 
 function Fractions() {
-  const bar = (parts: number, label: string) => (
-    <div style={{ marginBottom: "3mm" }}>
-      <div style={{ fontSize: "15px", fontFamily: cursive, marginBottom: "0.5mm" }}>{label}</div>
-      <div style={{ display: "flex", border: "2px solid #159a63", borderRadius: "1mm", overflow: "hidden", height: "12mm" }}>
-        {Array.from({ length: parts }).map((_, i) => (
-          <div key={i} style={{ flex: 1, borderRight: i < parts - 1 ? "1.5px solid #159a63" : "none", display: "grid", placeItems: "center", fontSize: "13px", fontFamily: cursive, background: i % 2 ? "#dcfce7" : "#fff" }}>{parts === 1 ? "1" : `1/${parts}`}</div>
-        ))}
+  const G = "#159a63";
+  const bar = (parts: number, label: string, color: string) => (
+    <div style={{ marginBottom: "5mm" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "3mm" }}>
+        <span style={{ width: "34mm", fontSize: "22px", fontFamily: cursive, fontWeight: 700, color }}>{label}</span>
+        <div style={{ flex: 1, display: "flex", border: `2.5px solid ${color}`, borderRadius: "1mm", overflow: "hidden", height: "18mm" }}>
+          {Array.from({ length: parts }).map((_, i) => (
+            <div key={i} style={{ flex: 1, borderRight: i < parts - 1 ? `2px dashed ${color}` : "none", display: "grid", placeItems: "center", fontSize: parts > 6 ? "16px" : "22px", fontFamily: cursive, fontWeight: 700, background: i % 2 ? `${color}22` : "#fff" }}>{parts === 1 ? "1" : `1/${parts}`}</div>
+          ))}
+        </div>
       </div>
     </div>
   );
   return (
-    <AideCard color={DOMAINES.calcul.color} titre="Les fractions" sous="bandes à découper & superposer">
-      {bar(1, "1 entier")}
-      {bar(2, "les demis")}
-      {bar(3, "les tiers")}
-      {bar(4, "les quarts")}
-      {bar(6, "les sixièmes")}
-      {bar(8, "les huitièmes")}
-      <p style={{ marginTop: "4mm", textAlign: "center", fontSize: "17px", fontFamily: cursive }}>
-        <b>numérateur / dénominateur</b> · 1/2 = 2/4 = 4/8 · ✂ je découpe et je superpose.
+    <AideCard color={G} titre="Les bandes de fractions" sous="✂ à découper et à superposer (même longueur)">
+      {bar(1, "1 entier", "#111")}
+      {bar(2, "les demis", "#dc2626")}
+      {bar(3, "les tiers", "#ea580c")}
+      {bar(4, "les quarts", "#ca8a04")}
+      {bar(5, "les cinquièmes", "#16a34a")}
+      {bar(6, "les sixièmes", "#0891b2")}
+      {bar(8, "les huitièmes", "#2563eb")}
+      {bar(10, "les dixièmes", "#7c3aed")}
+      <p style={{ marginTop: "3mm", textAlign: "center", fontSize: "20px", fontFamily: cursive }}>
+        Je superpose&nbsp;: <b>1/2 = 2/4 = 4/8</b> · le haut = <b>numérateur</b>, le bas = <b>dénominateur</b>.
       </p>
     </AideCard>
   );
@@ -691,9 +696,72 @@ function MethodeCopie() {
   );
 }
 
+/* ==================== NUMÉRATION — matériel base 10 à découper ==================== */
+
+const U_BG = "#4ade80", U_BD = "#16a34a"; // unités (vert)
+const D_BG = "#f6b58f", D_BD = "#c9481f"; // dizaines (orange)
+const C_BG = "#93c5fd", C_BD = "#2563eb"; // centaines (bleu)
+const SZ = "6mm";
+
+function miniCube(bg: string) {
+  return { width: SZ, height: SZ, background: bg, border: "0.4mm solid #fff", boxSizing: "border-box" as const };
+}
+function Plaque() {
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: `repeat(10, ${SZ})`, gridAutoRows: SZ, border: `0.8mm solid ${C_BD}`, borderRadius: "1mm" }}>
+      {Array.from({ length: 100 }).map((_, k) => <div key={k} style={miniCube(C_BG)} />)}
+    </div>
+  );
+}
+function Barre() {
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: SZ, gridAutoRows: SZ, border: `0.8mm solid ${D_BD}`, borderRadius: "1mm" }}>
+      {Array.from({ length: 10 }).map((_, k) => <div key={k} style={miniCube(D_BG)} />)}
+    </div>
+  );
+}
+function CubeU() {
+  return <div style={{ width: SZ, height: SZ, background: U_BG, border: `0.8mm solid ${U_BD}`, borderRadius: "1mm", boxSizing: "border-box" }} />;
+}
+
+function Base10Cutout() {
+  return (
+    <AideCard color={DOMAINES.numeration.color} titre="Le matériel base 10" sous="✂ à découper : centaines · dizaines · unités">
+      {/* Légende parlante */}
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "flex-end", marginBottom: "6mm", padding: "3mm", background: "#f8fafc", borderRadius: "3mm" }}>
+        <div style={{ textAlign: "center" }}><CubeU /><div style={{ fontSize: "18px", fontFamily: cursive, marginTop: "1mm" }}>1 cube<br /><b style={{ color: U_BD }}>= 1</b></div></div>
+        <div style={{ fontSize: "26px", color: "#94a3b8" }}>·</div>
+        <div style={{ textAlign: "center" }}><div style={{ display: "inline-block" }}><Barre /></div><div style={{ fontSize: "18px", fontFamily: cursive, marginTop: "1mm" }}>1 barre<br /><b style={{ color: D_BD }}>= 1 dizaine = 10</b></div></div>
+        <div style={{ fontSize: "26px", color: "#94a3b8" }}>·</div>
+        <div style={{ textAlign: "center" }}><div style={{ display: "inline-block" }}><Plaque /></div><div style={{ fontSize: "18px", fontFamily: cursive, marginTop: "1mm" }}>1 plaque<br /><b style={{ color: C_BD }}>= 1 centaine = 100</b></div></div>
+      </div>
+
+      <div style={{ fontSize: "20px", fontFamily: cursive, fontWeight: 700, color: DOMAINES.numeration.color, marginBottom: "2mm" }}>✂ À découper :</div>
+
+      {/* plaque + barres à côté */}
+      <div style={{ display: "flex", gap: "8mm", alignItems: "flex-start", marginBottom: "5mm", flexWrap: "wrap" }}>
+        <Plaque />
+        <div style={{ display: "flex", gap: "2mm" }}>
+          {Array.from({ length: 9 }).map((_, i) => <Barre key={i} />)}
+        </div>
+      </div>
+
+      {/* cubes unités */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "2mm" }}>
+        {Array.from({ length: 20 }).map((_, i) => <CubeU key={i} />)}
+      </div>
+
+      <p style={{ marginTop: "6mm", textAlign: "center", fontSize: "19px", fontFamily: cursive }}>
+        10 cubes = 1 barre · 10 barres = 1 plaque · <b>je fabrique mes nombres !</b>
+      </p>
+    </AideCard>
+  );
+}
+
 export interface Aide { id: string; domaine: keyof typeof DOMAINES; titre: string; node: ReactNode; }
 
 export const MATERIEL: Aide[] = [
+  { id: "base10", domaine: "numeration", titre: "Le matériel base 10 (à découper)", node: <Base10Cutout /> },
   { id: "cdu", domaine: "numeration", titre: "Le tableau des nombres (c · d · u)", node: <CDU /> },
   { id: "comparer", domaine: "numeration", titre: "Comparer 2 nombres (< > =)", node: <Comparer /> },
   { id: "calcul-mental", domaine: "calcul", titre: "Le calcul mental (mes trucs)", node: <CalculMental /> },
