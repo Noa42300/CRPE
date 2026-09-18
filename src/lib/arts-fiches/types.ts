@@ -11,7 +11,12 @@
  */
 import type { CiviqueFiche, ThemeMeta } from "@/lib/civique-fiches/types";
 
-export type ArtsTheme = "thematiques" | "vocabulaire" | "oeuvres";
+export type ArtsTheme =
+  | "thematiques"
+  | "vocabulaire"
+  | "methodo"
+  | "oeuvres-plastiques"
+  | "oeuvres";
 
 /** Une fiche d'arts = une fiche « civique » dont le thème est typé. */
 export type ArtsFiche = Omit<CiviqueFiche, "theme"> & { theme: ArtsTheme };
@@ -20,6 +25,8 @@ export type ArtsFiche = Omit<CiviqueFiche, "theme"> & { theme: ArtsTheme };
 export const ARTS_ORDER: ArtsTheme[] = [
   "thematiques",
   "vocabulaire",
+  "methodo",
+  "oeuvres-plastiques",
   "oeuvres",
 ];
 
@@ -36,6 +43,18 @@ export const ARTS_THEMES: Record<ArtsTheme, ThemeMeta> = {
     emoji: "📖",
     pill: "bg-indigo-100 text-indigo-700 border-indigo-200",
     swatch: "bg-indigo-500",
+  },
+  methodo: {
+    label: "Méthodologie & analyse d'œuvre",
+    emoji: "🧭",
+    pill: "bg-sky-100 text-sky-700 border-sky-200",
+    swatch: "bg-sky-500",
+  },
+  "oeuvres-plastiques": {
+    label: "Œuvres de référence (arts plastiques)",
+    emoji: "🖼️",
+    pill: "bg-amber-100 text-amber-700 border-amber-200",
+    swatch: "bg-amber-500",
   },
   oeuvres: {
     label: "Œuvres au programme (musique)",

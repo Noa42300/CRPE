@@ -587,4 +587,372 @@ export const ARTS_FICHES: ArtsFiche[] = [
       "Contraste avec Vivaldi (imiter) et Smetana (raconter).",
     ],
   },
+
+  // ===================== THÈME 4 — MÉTHODOLOGIE & ANALYSE D'ŒUVRE =====================
+  {
+    slug: "analyser-une-oeuvre-plastique",
+    theme: "methodo",
+    numero: 1,
+    titre: "Analyser une œuvre d'arts plastiques",
+    intro:
+      "Une méthode en trois temps pour ne rien oublier et éviter la simple paraphrase.",
+    definition:
+      "Analyser une œuvre plastique, c'est passer du **constat** à l'**interprétation** : on **décrit** d'abord ce que l'on voit, on **interprète** les effets produits, puis on **relie** l'œuvre à son contexte et à d'autres œuvres.",
+    sections: [
+      {
+        titre: "Les étapes de l'analyse",
+        groupes: [
+          {
+            titre: "1. Identifier",
+            points: [
+              "**Auteur, titre, date, lieu de conservation** (si connus).",
+              "**Nature et technique** : peinture, sculpture, photographie… ; **support** et **format**.",
+              "**Genre** : portrait, paysage, nature morte, scène…",
+            ],
+          },
+          {
+            titre: "2. Décrire (ce que je vois)",
+            points: [
+              "**Composition** : organisation, lignes de force, plans, cadrage.",
+              "**Couleur et lumière** : gammes, contrastes, valeurs, clair-obscur.",
+              "**Matière et geste** : touche, relief, netteté.",
+            ],
+          },
+          {
+            titre: "3. Interpréter et relier",
+            points: [
+              "**Quels effets ?** (mouvement, calme, tension, profondeur…) et **quel sens ?**",
+              "**Contexte** : époque, courant, intention de l'artiste.",
+              "**Mise en relation** avec d'autres œuvres (comparaison, héritage, rupture).",
+            ],
+          },
+        ],
+      },
+    ],
+    exemples: [
+      "Décrire : « un fond sombre, un cadrage serré ». Interpréter : « cela isole et met en valeur le visage » (Vermeer).",
+      "Relier : rapprocher Arcimboldo (assemblage) et un portrait cubiste (décomposition) au titre du questionnement de la ressemblance.",
+    ],
+    vocabulaire: [
+      { terme: "Décrire", sens: "dire objectivement ce que l'on voit, sans interpréter." },
+      { terme: "Interpréter", sens: "expliquer les effets et le sens produits par les choix plastiques." },
+      { terme: "Mise en relation", sens: "comparer l'œuvre à d'autres pour l'éclairer." },
+    ],
+    pieges: [
+      {
+        erreur: "Paraphraser (« on voit un homme ») sans analyser.",
+        pourquoi: "Le correcteur attend une interprétation des choix plastiques, pas un simple inventaire.",
+      },
+      {
+        erreur: "Interpréter sans avoir décrit.",
+        pourquoi: "L'interprétation doit s'appuyer sur des observations précises et nommées.",
+      },
+    ],
+    retenir: [
+      "Trois temps : identifier → décrire → interpréter/relier.",
+      "Toujours appuyer l'interprétation sur une description précise.",
+      "Mobiliser le vocabulaire plastique (composition, couleur, valeur…).",
+    ],
+  },
+  {
+    slug: "analyser-une-oeuvre-musicale",
+    theme: "methodo",
+    numero: 2,
+    titre: "Analyser une œuvre musicale (l'écoute)",
+    intro:
+      "Décrire une musique avec des mots justes, en s'appuyant sur les paramètres du son.",
+    definition:
+      "Analyser une écoute, c'est repérer et nommer les **paramètres du son** (hauteur, durée, intensité, timbre) et l'**organisation** (mélodie, rythme, forme), puis dire quels **effets** ils produisent et à quoi ils renvoient.",
+    sections: [
+      {
+        titre: "Une démarche d'écoute",
+        groupes: [
+          {
+            titre: "1. Repérer",
+            points: [
+              "**Effectif** : voix, instruments, familles (cordes, bois, cuivres, percussions).",
+              "**Caractère** général : calme, dansant, dramatique…",
+              "**Tempo** et **nuances** (rapide/lent, fort/doux).",
+            ],
+          },
+          {
+            titre: "2. Décrire l'organisation",
+            points: [
+              "**Mélodie** et **thèmes** : reviennent-ils ? sont-ils transformés ?",
+              "**Rythme** et **pulsation** ; **timbres** dominants.",
+              "**Forme** : parties, répétitions, contrastes (couplet-refrain, mouvements…).",
+            ],
+          },
+          {
+            titre: "3. Interpréter et relier",
+            points: [
+              "**Quel effet ?** (l'orage, le mouvement de l'eau, une émotion).",
+              "**Imiter, raconter ou suggérer ?**",
+              "**Contexte** (époque, style) et **mise en relation** avec d'autres œuvres.",
+            ],
+          },
+        ],
+      },
+    ],
+    exemples: [
+      "Repérer un long crescendo → interpréter « l'eau qui monte » (Dukas, L'Apprenti sorcier).",
+      "Relier : comparer Vivaldi (imiter l'orage) et Debussy (suggérer la mer).",
+    ],
+    vocabulaire: [
+      { terme: "Paramètres du son", sens: "hauteur, durée, intensité, timbre." },
+      { terme: "Thème", sens: "mélodie principale, reconnaissable et souvent réutilisée." },
+      { terme: "Forme", sens: "plan d'ensemble de l'œuvre (parties, répétitions, contrastes)." },
+    ],
+    pieges: [
+      {
+        erreur: "Dire seulement « c'est beau » ou « c'est joyeux ».",
+        pourquoi: "Il faut justifier par des éléments musicaux précis (tempo, timbre, nuance…).",
+      },
+      {
+        erreur: "Confondre imiter et suggérer.",
+        pourquoi: "Toutes les musiques descriptives ne « bruitent » pas : certaines évoquent une atmosphère.",
+      },
+    ],
+    retenir: [
+      "Repérer (effectif, caractère, tempo) → décrire (mélodie, rythme, forme) → interpréter/relier.",
+      "Nommer les paramètres du son pour justifier.",
+      "Imiter / raconter / suggérer : trois rapports au réel.",
+    ],
+  },
+  {
+    slug: "construire-une-sequence-en-arts",
+    theme: "methodo",
+    numero: 3,
+    titre: "Construire une séquence en arts (transposition pédagogique)",
+    intro:
+      "La question pédagogique attend une séquence réaliste, pas une simple « activité ».",
+    definition:
+      "La **transposition pédagogique** consiste à passer d'une œuvre à une **situation d'enseignement**. En arts, elle articule toujours **trois pôles** : la **rencontre des œuvres**, la **pratique** et le **langage** (décrire, justifier).",
+    sections: [
+      {
+        titre: "Les ingrédients d'une bonne réponse",
+        groupes: [
+          {
+            points: [
+              "**Cycle et niveau** visés (cycle 2 ou cycle 3).",
+              "**Objectif** clair, formulé en termes d'apprentissage.",
+              "**Situation de pratique** concrète (consigne, matériel, contrainte).",
+              "**Rencontre des œuvres** : quelle(s) œuvre(s), et comment on les regarde/écoute.",
+              "**Langage** : verbaliser, décrire, justifier ses choix.",
+              "**Trace et évaluation** : cahier, exposition, critères simples.",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Relier aux programmes",
+        groupes: [
+          {
+            points: [
+              "En **arts plastiques** : expérimenter, produire, créer ; s'exprimer, analyser sa pratique ; se repérer dans les domaines artistiques.",
+              "En **éducation musicale** : chanter, écouter/comparer, explorer/créer, échanger.",
+              "**Interdisciplinarité** : liens possibles avec le français (langage), l'histoire, l'EMC.",
+            ],
+          },
+        ],
+      },
+    ],
+    exemples: [
+      "Objectif : « comprendre qu'on peut représenter un visage sans le copier » → pratique de photomontage « à la manière d'Arcimboldo » → verbalisation.",
+      "Écoute : « repérer le thème du balai » dans L'Apprenti sorcier → sonoriser une petite histoire → présentation à la classe.",
+    ],
+    vocabulaire: [
+      { terme: "Transposition pédagogique", sens: "passage d'un savoir/œuvre à une situation d'enseignement." },
+      { terme: "Objectif d'apprentissage", sens: "ce que l'élève doit apprendre (pas seulement « faire »)." },
+      { terme: "Trace", sens: "garde-mémoire du travail (cahier, affichage, enregistrement)." },
+    ],
+    pieges: [
+      {
+        erreur: "Proposer « faire écouter » ou « faire dessiner » sans objectif.",
+        pourquoi: "Une activité n'est pas une séquence : il faut un but d'apprentissage et une verbalisation.",
+      },
+      {
+        erreur: "Oublier la rencontre des œuvres ou le langage.",
+        pourquoi: "Les trois pôles (œuvres + pratique + langage) doivent être présents et articulés.",
+      },
+    ],
+    retenir: [
+      "Trois pôles : rencontre des œuvres + pratique + langage.",
+      "Cycle, objectif, situation, trace, évaluation.",
+      "Une séquence, pas une activité isolée.",
+    ],
+  },
+
+  // ===================== THÈME 5 — ŒUVRES DE RÉFÉRENCE (ARTS PLASTIQUES) =====================
+  {
+    slug: "arcimboldo-l-ete",
+    theme: "oeuvres-plastiques",
+    numero: 1,
+    titre: "Arcimboldo — L'Été (1573)",
+    intro:
+      "Un visage entièrement composé de fruits et de légumes : la ressemblance comme jeu d'assemblage.",
+    definition:
+      "**L'Été** de Giuseppe **Arcimboldo** (**1573**, musée du Louvre) est un buste de profil **composé de fruits et de légumes d'été**. C'est à la fois un **portrait** et une **nature morte** : l'œuvre illustre parfaitement le questionnement « **questionner la ressemblance** ».",
+    sections: [
+      {
+        titre: "Repères",
+        groupes: [
+          {
+            points: [
+              "**Artiste** : Giuseppe Arcimboldo (peintre italien, maniérisme).",
+              "**Œuvre** : L'Été, huile sur toile, ~76 × 64 cm, série des **Quatre Saisons**.",
+              "**Lieu** : musée du Louvre (domaine public).",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Ce qu'il faut voir",
+        groupes: [
+          {
+            points: [
+              "Un **assemblage** : pêche (joue), poire (nez), cerises (bouche), épi (sourcil)…",
+              "Une **double lecture** : de loin un visage, de près une accumulation de végétaux.",
+              "La **signature** et la date sont tissées dans le col de paille.",
+              "Une dimension **allégorique** : la saison, l'abondance, le pouvoir du prince sur la nature.",
+            ],
+          },
+        ],
+      },
+    ],
+    exemples: [
+      "À relier au questionnement : la ressemblance est construite, pas copiée.",
+      "En classe (cycle 3) : composer une tête « à la manière d'Arcimboldo » par collage ou photomontage.",
+    ],
+    vocabulaire: [
+      { terme: "Maniérisme", sens: "style de la fin de la Renaissance, goût de la virtuosité et de l'artifice." },
+      { terme: "Nature morte", sens: "représentation d'objets inanimés (fruits, fleurs…)." },
+      { terme: "Allégorie", sens: "représentation d'une idée par une image (ici la saison)." },
+    ],
+    pieges: [
+      {
+        erreur: "N'y voir qu'une « image amusante ».",
+        pourquoi: "L'œuvre pose une vraie question : qu'est-ce que ressembler ?",
+      },
+    ],
+    retenir: [
+      "Arcimboldo, L'Été (1573), Louvre : visage composé de fruits/légumes.",
+      "Portrait + nature morte, double lecture.",
+      "Illustre « questionner la ressemblance ».",
+    ],
+  },
+  {
+    slug: "vermeer-jeune-fille-a-la-perle",
+    theme: "oeuvres-plastiques",
+    numero: 2,
+    titre: "Vermeer — La Jeune Fille à la perle (v.1665)",
+    intro:
+      "Un visage saisissant… qui n'est pourtant le portrait de personne : une « tronie ».",
+    definition:
+      "**La Jeune Fille à la perle** de Johannes **Vermeer** (**v.1665**, Mauritshuis, La Haye) est une **tronie** : une **étude de visage et d'expression**, non le portrait d'une personne identifiée. Elle interroge donc la ressemblance autrement.",
+    sections: [
+      {
+        titre: "Repères",
+        groupes: [
+          {
+            points: [
+              "**Artiste** : Johannes Vermeer (Siècle d'or néerlandais).",
+              "**Œuvre** : huile sur toile, ~44,5 × 39 cm.",
+              "**Lieu** : Mauritshuis, La Haye (domaine public).",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Ce qu'il faut voir",
+        groupes: [
+          {
+            points: [
+              "**Fond sombre et neutre** : il isole et met en valeur le visage.",
+              "**Lumière douce** qui glisse sur la joue et fait briller la perle.",
+              "Le **regard** vers le spectateur et les **lèvres entrouvertes** créent un instant.",
+              "La **perle** est un trompe-l'œil : de près, quelques touches de blanc.",
+            ],
+          },
+        ],
+      },
+    ],
+    exemples: [
+      "À relier : un visage peut être vrai et intense sans être « ressemblant » à quelqu'un de précis.",
+      "En classe (cycle 3) : un « visage expressif » en travaillant lumière, cadrage et regard.",
+    ],
+    vocabulaire: [
+      { terme: "Tronie", sens: "étude de visage/expression, sans identité précise (peinture néerlandaise)." },
+      { terme: "Clair-obscur", sens: "opposition de zones éclairées et de zones d'ombre." },
+      { terme: "Trompe-l'œil", sens: "illusion visuelle qui fait prendre la peinture pour du réel." },
+    ],
+    pieges: [
+      {
+        erreur: "Prendre l'œuvre pour le portrait d'une personne réelle.",
+        pourquoi: "C'est une tronie : une étude d'expression, pas un portrait identifié.",
+      },
+    ],
+    retenir: [
+      "Vermeer, La Jeune Fille à la perle (v.1665), Mauritshuis.",
+      "Une tronie : étude d'expression, pas un portrait.",
+      "Fond sombre, lumière douce, perle en trompe-l'œil.",
+    ],
+  },
+  {
+    slug: "delacroix-la-liberte-guidant-le-peuple",
+    theme: "oeuvres-plastiques",
+    numero: 3,
+    titre: "Delacroix — La Liberté guidant le peuple (1830)",
+    intro:
+      "Un événement réel et une allégorie réunis dans une image en mouvement.",
+    definition:
+      "**La Liberté guidant le peuple** d'Eugène **Delacroix** (**1830**, musée du Louvre) commémore les **Trois Glorieuses** (juillet 1830). Une **allégorie** — la Liberté au bonnet phrygien — entraîne le peuple : l'œuvre relie **représentation de l'être humain** et **récit d'un événement**.",
+    sections: [
+      {
+        titre: "Repères",
+        groupes: [
+          {
+            points: [
+              "**Artiste** : Eugène Delacroix (romantisme français).",
+              "**Œuvre** : huile sur toile, ~260 × 325 cm.",
+              "**Lieu** : musée du Louvre (domaine public).",
+            ],
+          },
+        ],
+      },
+      {
+        titre: "Ce qu'il faut voir",
+        groupes: [
+          {
+            points: [
+              "**Composition pyramidale** culminant sur le **drapeau tricolore**.",
+              "**Mouvement** vers le spectateur (diagonales, avancée du groupe).",
+              "Une **allégorie** (la Liberté) mêlée à des personnages **typés** (bourgeois, gamin, ouvrier).",
+              "Au loin, dans la fumée, les **tours de Notre-Dame** de Paris.",
+            ],
+          },
+        ],
+      },
+    ],
+    exemples: [
+      "À relier : une image peut raconter un événement ET porter une idée (l'allégorie).",
+      "Lien EMC : les symboles de la République (drapeau, bonnet phrygien, Marianne).",
+    ],
+    vocabulaire: [
+      { terme: "Allégorie", sens: "représentation d'une idée par une figure (ici la Liberté)." },
+      { terme: "Bonnet phrygien", sens: "coiffe symbole de liberté et de la République." },
+      { terme: "Composition pyramidale", sens: "organisation en triangle qui culmine sur un point fort." },
+    ],
+    pieges: [
+      {
+        erreur: "Prendre la Liberté pour une combattante réelle.",
+        pourquoi: "C'est une allégorie, une figure-symbole, pas une personne identifiée.",
+      },
+    ],
+    retenir: [
+      "Delacroix, La Liberté guidant le peuple (1830), Louvre.",
+      "Événement réel (Trois Glorieuses) + allégorie de la Liberté.",
+      "Composition pyramidale, mouvement, drapeau tricolore.",
+    ],
+  },
 ];
