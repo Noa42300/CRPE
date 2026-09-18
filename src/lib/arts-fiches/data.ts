@@ -143,6 +143,9 @@ export const ARTS_FICHES: ArtsFiche[] = [
     titre: "La représentation de l'être humain (histoire des arts)",
     intro:
       "Comment les artistes ont-ils figuré le corps et le visage humains, de l'Antiquité à aujourd'hui ?",
+    illustration: "vitruve-homme",
+    illustrationLegende:
+      "Léonard de Vinci, L'Homme de Vitruve (v.1490), Gallerie dell'Accademia, Venise — les proportions idéales du corps (domaine public).",
     definition:
       "La **représentation de l'être humain** traverse toute l'histoire des arts : chaque époque invente ses **canons** (règles de proportion) et ses manières de figurer le corps, le visage et les émotions — pour imiter, idéaliser, raconter ou exprimer.",
     sections: [

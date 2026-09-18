@@ -42,6 +42,7 @@ import {
   TURNER_TEMPETE_W,
   TURNER_TEMPETE_H,
 } from "./turner-tempete-image";
+import { VITRUVE_JPEG, VITRUVE_W, VITRUVE_H } from "./vitruve-image";
 
 const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
   // Reproduction (domaine public) de Giuseppe Arcimboldo, « L'Été » (1573,
@@ -77,6 +78,15 @@ const ARTS_ILLUSTRATIONS: Record<string, Illustration> = {
     vb: [TURNER_TEMPETE_W, TURNER_TEMPETE_H],
     alt: "J.M.W. Turner, Tempête de neige en mer (1842) — un bateau à vapeur pris dans une tempête, tourbillon de neige, d'eau et de lumière ; formes dissoutes dans le mouvement.",
     inner: `<image href="${TURNER_TEMPETE_JPEG}" x="0" y="0" width="${TURNER_TEMPETE_W}" height="${TURNER_TEMPETE_H}"/>`,
+  },
+
+  // Reproduction (domaine public) de Léonard de Vinci, « L'Homme de Vitruve »
+  // (v.1490, Gallerie dell'Accademia, Venise). Data URI (feuille complète,
+  // dessin + notes manuscrites).
+  "vitruve-homme": {
+    vb: [VITRUVE_W, VITRUVE_H],
+    alt: "Léonard de Vinci, L'Homme de Vitruve (v.1490) — un homme nu inscrit dans un cercle et un carré, bras et jambes écartés, entouré des notes manuscrites de l'artiste, illustrant les proportions idéales du corps humain.",
+    inner: `<image href="${VITRUVE_JPEG}" x="0" y="0" width="${VITRUVE_W}" height="${VITRUVE_H}"/>`,
   },
 
   // Portrait en clair-obscur (support pour l'analyse du portrait)
