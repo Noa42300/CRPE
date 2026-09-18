@@ -27,37 +27,37 @@ const UNITES = [
   { label: "le millénaire", detail: "1 000 ans", couleur: "#ef4444" },
 ];
 
-/** La frise seule (SVG), sans chrome de page — réutilisable partout. */
+/** La frise seule (SVG) — grande, horizontale, traits épais. Réutilisable partout. */
 export function FriseSVG() {
-  const W = 1050;
-  const H = 300;
+  const W = 1120;
+  const H = 360;
   const n = UNITES.length;
-  const marginX = 40;
+  const marginX = 60;
   const usable = W - marginX * 2;
   const step = usable / (n - 1);
-  const axisY = 150;
+  const axisY = 180;
+  const boxW = 168, boxH = 88;
   return (
     <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", height: "auto" }} role="img" aria-label="Frise des unités de temps, du jour au millénaire">
       <defs>
-        <marker id="frise-arrow" markerWidth="12" markerHeight="12" refX="8" refY="6" orient="auto">
-          <path d="M0,0 L12,6 L0,12 Z" fill="#111" />
+        <marker id="frise-arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+          <path d="M0,0 L10,5 L0,10 Z" fill="#111" />
         </marker>
       </defs>
-      <line x1={marginX - 10} y1={axisY} x2={W - marginX + 18} y2={axisY} stroke="#111" strokeWidth={3} markerEnd="url(#frise-arrow)" />
-      <text x={marginX - 10} y={axisY - 14} fontSize={18} fontWeight={700} fill="#555">petit</text>
-      <text x={W - marginX - 30} y={axisY - 14} fontSize={18} fontWeight={700} fill="#555">grand</text>
+      {/* axe horizontal épais avec flèche « du plus petit au plus grand » */}
+      <line x1={marginX - 24} y1={axisY} x2={W - marginX + 30} y2={axisY} stroke="#111" strokeWidth={9} strokeLinecap="round" markerEnd="url(#frise-arrow)" />
+      <text x={marginX - 26} y={axisY - 22} fontSize={24} fontWeight={800} fill="#777" fontFamily="'Caveat','Comic Neue',cursive">petit</text>
+      <text x={W - marginX - 24} y={axisY - 22} fontSize={24} fontWeight={800} fill="#777" fontFamily="'Caveat','Comic Neue',cursive">grand</text>
       {UNITES.map((u, k) => {
         const x = marginX + step * k;
         const up = k % 2 === 0; // alterne au-dessus / au-dessous pour aérer
-        const boxW = 128;
-        const boxH = 60;
         return (
           <g key={u.label}>
-            <circle cx={x} cy={axisY} r={9} fill={u.couleur} stroke="#111" strokeWidth={2} />
-            <line x1={x} y1={axisY} x2={x} y2={up ? axisY - 24 : axisY + 24} stroke="#111" strokeWidth={1.5} />
-            <rect x={x - boxW / 2} y={up ? axisY - 84 : axisY + 24} width={boxW} height={boxH} rx={10} fill="#fff" stroke={u.couleur} strokeWidth={2.5} />
-            <text x={x} y={up ? axisY - 60 : axisY + 48} textAnchor="middle" fontSize={19} fontWeight={800} fill="#111" fontFamily="'Caveat','Comic Neue',cursive">{u.label}</text>
-            <text x={x} y={up ? axisY - 38 : axisY + 70} textAnchor="middle" fontSize={14} fontWeight={600} fill="#555">{u.detail}</text>
+            <line x1={x} y1={axisY} x2={x} y2={up ? axisY - 30 : axisY + 30} stroke={u.couleur} strokeWidth={5} />
+            <circle cx={x} cy={axisY} r={16} fill={u.couleur} stroke="#111" strokeWidth={4} />
+            <rect x={x - boxW / 2} y={up ? axisY - 30 - boxH : axisY + 30} width={boxW} height={boxH} rx={14} fill="#fff" stroke={u.couleur} strokeWidth={5} />
+            <text x={x} y={up ? axisY - 30 - boxH + 40 : axisY + 30 + 40} textAnchor="middle" fontSize={30} fontWeight={800} fill="#111" fontFamily="'Caveat','Comic Neue',cursive">{u.label}</text>
+            <text x={x} y={up ? axisY - 30 - boxH + 68 : axisY + 30 + 68} textAnchor="middle" fontSize={19} fontWeight={700} fill={u.couleur} fontFamily="'Caveat','Comic Neue',cursive">{u.detail}</text>
           </g>
         );
       })}

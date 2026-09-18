@@ -19,13 +19,17 @@ export const DOMAINES: Record<string, { label: string; color: string; emoji: str
 
 function AideCard({ color, titre, sous, children }: { color: string; titre: string; sous?: string; children: ReactNode }) {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ border: `5px solid ${color}`, borderRadius: "6mm", padding: "9mm 8mm", minHeight: "283mm", boxSizing: "border-box" }}>
-        {/* Gros titre manuscrit, coloré, sans bandeau « appli » */}
-        <h1 style={{ fontSize: "50px", lineHeight: 1.05, textAlign: "center", color, fontFamily: "'Caveat','Comic Neue',cursive", fontWeight: 700, margin: "0 0 1mm" }}>{titre}</h1>
-        {sous && <div style={{ textAlign: "center", fontSize: "22px", color: "#555", fontFamily: "'Caveat','Comic Neue',cursive", marginBottom: "7mm" }}>{sous}</div>}
-        {!sous && <div style={{ height: "6mm" }} />}
-        {children}
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "8mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: `6px solid ${color}`, borderRadius: "7mm", padding: "9mm 9mm 11mm", minHeight: "285mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        {/* Gros titre manuscrit, coloré, sur toute la largeur, sans bandeau « appli » */}
+        <h1 style={{ fontSize: "56px", lineHeight: 1.02, textAlign: "center", color, fontFamily: "'Caveat','Comic Neue',cursive", fontWeight: 700, margin: 0 }}>{titre}</h1>
+        {sous && <div style={{ textAlign: "center", fontSize: "24px", color: "#555", fontFamily: "'Caveat','Comic Neue',cursive", marginTop: "1mm" }}>{sous}</div>}
+        {/* Un filet coloré épais sous le titre (repère franc, pas « IA ») */}
+        <div style={{ height: "3px", background: color, borderRadius: "2px", margin: "4mm 0 0" }} />
+        {/* Le corps s'étale sur toute la hauteur de la page */}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-around", gap: "5mm", paddingTop: "5mm" }}>
+          {children}
+        </div>
       </div>
     </div>
   );
