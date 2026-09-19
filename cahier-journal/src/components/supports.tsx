@@ -536,6 +536,164 @@ const DET_EVAL: FicheData = {
   ],
 };
 
+/* ===================== MATHS — Nombres (Période 1, suite) ===================== */
+// S1 — Construire 100 / 1000
+const NB1_LECON: FicheData = {
+  entete: "Leçon (à coller)", titre: "Construire 100 et 1000", niveau: "CE1-CE2", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
+  blocs: [
+    { kind: "def", contenu: "Avec 10 dizaines, je construis 1 centaine : 100. Avec 10 centaines, je construis 1 millier : 1 000." },
+    { kind: "base10", dizaines: 10, unites: 0, legende: "10 dizaines = 1 centaine = 100" },
+    { kind: "puces", titre: "Je retiens", points: ["100 = 10 dizaines", "1 000 = 10 centaines", "1 000 = 100 dizaines"] },
+  ],
+};
+const NB1_CE1: FicheData = {
+  entete: "Exercices", titre: "Construire 100", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "90 + 10 = 100", consigne: "Complète pour arriver à 100.", items: [
+      "80 + ___ = 100", "70 + ___ = 100", "___ + 40 = 100", "50 + ___ = 100",
+    ] },
+    { kind: "exercice", exemple: "10 dizaines = 100", consigne: "Complète.", items: [
+      "___ dizaines = 100", "9 dizaines et ___ dizaine = 100", "100 = ___ dizaines",
+    ] },
+  ],
+};
+const NB1_CE2: FicheData = {
+  entete: "Exercices", titre: "Construire 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "900 + 100 = 1 000", consigne: "Complète pour arriver à 1 000.", items: [
+      "800 + ___ = 1 000", "___ + 300 = 1 000", "500 + ___ = 1 000", "990 + ___ = 1 000",
+    ] },
+    { kind: "exercice", exemple: "10 centaines = 1 000", consigne: "Complète.", items: [
+      "___ centaines = 1 000", "1 000 = ___ dizaines", "9 centaines et ___ centaine = 1 000",
+    ] },
+  ],
+};
+// S2 — Les nombres en lettres
+const NB2_LECON: FicheData = {
+  entete: "Leçon (à coller)", titre: "Écrire les nombres en lettres", niveau: "CE1-CE2", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
+  blocs: [
+    { kind: "tableau", titre: "Les mots à connaître", entetes: ["Nombre", "En lettres"], lignes: [
+      ["20", "vingt"], ["60", "soixante"], ["70", "soixante-dix"], ["80", "quatre-vingts"], ["90", "quatre-vingt-dix"], ["100", "cent"],
+    ] },
+    { kind: "puces", titre: "Je retiens", points: ["71 = soixante et onze", "80 = quatre-vingts (un s) mais 81 = quatre-vingt-un (sans s)", "200 = deux cents ; 203 = deux cent trois"] },
+  ],
+};
+const NB2_CE1: FicheData = {
+  entete: "Exercices", titre: "Les nombres en lettres", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "34 → trente-quatre", consigne: "Écris en lettres.", items: ["26 → ______________", "48 → ______________", "72 → ______________", "90 → ______________"] },
+    { kind: "exercice", exemple: "cinquante-six → 56", consigne: "Écris en chiffres.", items: ["quarante-trois → ____", "soixante-quinze → ____", "quatre-vingt-un → ____"] },
+  ],
+};
+const NB2_CE2: FicheData = {
+  entete: "Exercices", titre: "Les nombres en lettres", niveau: "CE2", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "347 → trois cent quarante-sept", consigne: "Écris en lettres.", items: ["206 → ______________", "480 → ______________", "715 → ______________", "999 → ______________"] },
+    { kind: "exercice", exemple: "cinq cent douze → 512", consigne: "Écris en chiffres.", items: ["huit cent quatre → ____", "mille → ____", "deux cent quatre-vingts → ____"] },
+  ],
+};
+// S3 — La suite des nombres jusqu'à 200 / 2000
+const NB3_LECON: FicheData = {
+  entete: "Leçon (à coller)", titre: "La suite des nombres", niveau: "CE1-CE2", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
+  blocs: [
+    { kind: "def", contenu: "Je sais dire, lire et écrire la suite des nombres : de 1 en 1, de 10 en 10, de 100 en 100. Chaque nombre a un précédent (juste avant) et un suivant (juste après)." },
+    { kind: "puces", titre: "Attention aux passages", points: ["…98, 99, 100, 101…", "…109, 110, 111…", "CE2 : …199, 200, 201… et …1 999, 2 000, 2 001…"] },
+  ],
+};
+const NB3_CE1: FicheData = {
+  entete: "Exercices", titre: "La suite jusqu'à 200", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "98 – 99 – 100 – 101", consigne: "Complète la suite (de 1 en 1).", items: ["108 – ___ – ___ – 111", "___ – 150 – ___ – 152", "197 – ___ – ___ – 200"] },
+    { kind: "exercice", exemple: "avant 100 : 99 · après 100 : 101", consigne: "Écris le nombre avant et après.", items: ["___ / 130 / ___", "___ / 189 / ___", "___ / 200 / ___"] },
+    { kind: "exercice", exemple: "10 – 20 – 30", consigne: "Compte de 10 en 10.", items: ["40 – ___ – ___ – ___", "120 – ___ – ___ – 150"] },
+  ],
+};
+const NB3_CE2: FicheData = {
+  entete: "Exercices", titre: "La suite jusqu'à 2 000", niveau: "CE2", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "998 – 999 – 1 000 – 1 001", consigne: "Complète la suite (de 1 en 1).", items: ["1 098 – ___ – ___ – 1 101", "1 998 – ___ – ___ – 2 001", "___ – 1 500 – ___ – 1 502"] },
+    { kind: "exercice", exemple: "avant 1 000 : 999 · après : 1 001", consigne: "Écris le nombre avant et après.", items: ["___ / 1 300 / ___", "___ / 1 890 / ___", "___ / 2 000 / ___"] },
+    { kind: "exercice", exemple: "100 – 200 – 300", consigne: "Compte de 100 en 100.", items: ["400 – ___ – ___ – ___", "1 200 – ___ – ___ – 1 500"] },
+  ],
+};
+const NB_EVAL: FicheData = {
+  entete: "Évaluation", titre: "Nombres — Évaluation (Période 1)", niveau: "CE1-CE2", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "exercice", exemple: "70 + 30 = 100", consigne: "Complète (CE1 : à 100 · CE2 : à 1 000).", items: ["60 + ___ = 100", "___ + 40 = 100", "700 + ___ = 1 000 (CE2)", "___ + 300 = 1 000 (CE2)"] },
+    { kind: "exercice", exemple: "48 → quarante-huit", consigne: "Écris en lettres.", items: ["76 → ______________", "90 → ______________", "305 → ______________ (CE2)"] },
+    { kind: "exercice", exemple: "98 – 99 – 100 – 101", consigne: "Complète la suite.", items: ["108 – ___ – ___ – 111", "198 – ___ – ___ – 201", "1 998 – ___ – ___ – 2 001 (CE2)"] },
+    { kind: "exercice", exemple: "avant/après 130 : 129 / 131", consigne: "Écris le nombre juste avant et juste après.", items: ["___ / 100 / ___", "___ / 200 / ___", "___ / 1 000 / ___ (CE2)"] },
+  ],
+};
+
+/* ===================== MATHS — Espace & Géométrie (Période 1) ===================== */
+// CE1 = se repérer / se déplacer · CE2 = la symétrie (tandem)
+const GEO1_LECON: FicheData = {
+  entete: "Leçon (à coller)", titre: "Se repérer · La symétrie", niveau: "CE1-CE2", discipline: "Mathématiques — Espace & Géométrie", cursive: true,
+  blocs: [
+    { kind: "def", titre: "CE1 — se repérer", contenu: "Pour dire où se trouve un objet, j'utilise les mots de l'espace : à gauche, à droite, devant, derrière, au-dessus, en dessous, entre, à côté de." },
+    { kind: "def", titre: "CE2 — la symétrie", contenu: "Deux parties sont symétriques quand elles sont pareilles de chaque côté d'un trait : l'axe de symétrie. Comme dans un miroir, ou en pliant la feuille sur l'axe." },
+  ],
+};
+const GEO1_CE1: FicheData = {
+  entete: "Exercices", titre: "Se repérer dans l'école", niveau: "CE1", discipline: "Mathématiques — Espace",
+  blocs: [
+    { kind: "exercice", exemple: "Le tableau est DEVANT moi.", consigne: "Complète avec un mot de l'espace (à gauche, à droite, devant, derrière…).", items: [
+      "La porte est ______________ de la classe.", "Mon cahier est ______________ ma table.", "La cour est ______________ l'école.",
+    ] },
+    { kind: "exercice", consigne: "Dessine le plan de ta table : place ta trousse, ton cahier et ton crayon (écris à gauche / à droite).", lignes: 6 },
+  ],
+};
+const GEO1_CE2: FicheData = {
+  entete: "Exercices", titre: "La symétrie", niveau: "CE2", discipline: "Mathématiques — Géométrie",
+  blocs: [
+    { kind: "def", contenu: "Sur du quadrillage, je complète l'autre moitié en comptant les carreaux de chaque côté de l'axe (comme dans un miroir)." },
+    { kind: "exercice", exemple: "Je compte : 3 carreaux à gauche → 3 carreaux à droite.", consigne: "Colorie « oui » si le trait est un axe de symétrie, « non » sinon.", items: [
+      "un cœur plié en deux → oui / non", "la lettre A → oui / non", "la lettre F → oui / non", "un papillon → oui / non",
+    ] },
+    { kind: "exercice", consigne: "Sur ton cahier de quadrillage, trace l'axe puis complète la figure symétrique (donnée par le maître).", lignes: 4 },
+  ],
+};
+const GEO2_CE1: FicheData = {
+  entete: "Exercices", titre: "Se repérer dans le quartier", niveau: "CE1", discipline: "Mathématiques — Espace",
+  blocs: [
+    { kind: "exercice", exemple: "Pour aller à l'école, je tourne à droite après la boulangerie.", consigne: "Complète le trajet avec à gauche / à droite / tout droit.", items: [
+      "Je sors, je vais ______________.", "Au feu, je tourne ______________.", "L'école est ______________ le parc.",
+    ] },
+    { kind: "exercice", consigne: "Dessine le trajet de ta maison à l'école (les rues, les repères).", lignes: 6 },
+  ],
+};
+const GEO2_CE2: FicheData = {
+  entete: "Exercices", titre: "Compléter par symétrie (1)", niveau: "CE2", discipline: "Mathématiques — Géométrie",
+  blocs: [
+    { kind: "exercice", exemple: "Point à 2 carreaux à gauche de l'axe → point à 2 carreaux à droite.", consigne: "Sur quadrillage, complète chaque figure par symétrie (axe vertical).", lignes: 6 },
+    { kind: "exercice", exemple: "Je vérifie en pliant sur l'axe.", consigne: "Coche : ma figure est-elle bien symétrique ? Explique.", lignes: 3 },
+  ],
+};
+const GEO3_CE1: FicheData = {
+  entete: "Exercices", titre: "Se déplacer sur un plan", niveau: "CE1", discipline: "Mathématiques — Espace",
+  blocs: [
+    { kind: "exercice", exemple: "Case A1 → je vais à droite jusqu'à B1.", consigne: "Sur le quadrillage-plan, suis le déplacement (droite/gauche/haut/bas).", lignes: 6 },
+    { kind: "exercice", consigne: "Écris le chemin pour aller de la maison à l'école (en cases).", lignes: 3 },
+  ],
+};
+const GEO3_CE2: FicheData = {
+  entete: "Exercices", titre: "Compléter par symétrie (2)", niveau: "CE2", discipline: "Mathématiques — Géométrie",
+  blocs: [
+    { kind: "exercice", exemple: "Axe horizontal : je descends autant que je monte.", consigne: "Complète les figures par symétrie (axe horizontal, puis oblique).", lignes: 6 },
+    { kind: "exercice", consigne: "Invente une figure et son symétrique sur le quadrillage.", lignes: 3 },
+  ],
+};
+const GEO_EVAL: FicheData = {
+  entete: "Évaluation", titre: "Espace & Géométrie — Évaluation (P1)", niveau: "CE1-CE2", discipline: "Mathématiques — Espace & Géométrie",
+  blocs: [
+    { kind: "exercice", exemple: "Le crayon est À GAUCHE du cahier.", consigne: "CE1 — Complète avec un mot de l'espace.", items: ["La règle est ______________ la trousse.", "Le tableau est ______________ moi."] },
+    { kind: "exercice", consigne: "CE1 — Suis le déplacement sur le quadrillage-plan (donné par le maître).", lignes: 3 },
+    { kind: "exercice", exemple: "Je compte les carreaux de chaque côté de l'axe.", consigne: "CE2 — Complète la figure par symétrie (axe vertical).", lignes: 5 },
+    { kind: "exercice", consigne: "CE2 — Le trait est-il un axe de symétrie ? Justifie.", lignes: 3 },
+  ],
+};
+
 /* ===================== FRANÇAIS — Le nom (séquence) ===================== */
 const NOM_S1_CE1: FicheData = {
   entete: "Exercices", titre: "Le nom", niveau: "CE1", discipline: "Français — Grammaire",
@@ -841,6 +999,52 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "det-s4-eval", label: "Séance 4 — Évaluation : les déterminants", node: ficheNode(DET_EVAL) },
         { key: "det-s4-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(DET_ENTRAINE_CE1) },
         { key: "det-s4-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(DET_ENTRAINE_CE2) },
+      ];
+    case "nbS1":
+      return [
+        { key: "nb1-lecon", label: "Séance 1 — Leçon : construire 100 / 1000", node: ficheNode(NB1_LECON) },
+        { key: "nb1-ce1", label: "Séance 1 — Exercices CE1 (100)", node: ficheNode(NB1_CE1) },
+        { key: "nb1-ce2", label: "Séance 1 — Exercices CE2 (1000)", node: ficheNode(NB1_CE2) },
+      ];
+    case "nbS2":
+      return [
+        { key: "nb2-lecon", label: "Séance 2 — Leçon : les nombres en lettres", node: ficheNode(NB2_LECON) },
+        { key: "nb2-ce1", label: "Séance 2 — Exercices CE1", node: ficheNode(NB2_CE1) },
+        { key: "nb2-ce2", label: "Séance 2 — Exercices CE2", node: ficheNode(NB2_CE2) },
+      ];
+    case "nbS3":
+      return [
+        { key: "nb3-lecon", label: "Séance 3 — Leçon : la suite des nombres", node: ficheNode(NB3_LECON) },
+        { key: "nb3-ce1", label: "Séance 3 — Exercices CE1 (jusqu'à 200)", node: ficheNode(NB3_CE1) },
+        { key: "nb3-ce2", label: "Séance 3 — Exercices CE2 (jusqu'à 2000)", node: ficheNode(NB3_CE2) },
+      ];
+    case "nbS4":
+      return [
+        { key: "nb-eval", label: "Séance 4 — Évaluation : les nombres", node: ficheNode(NB_EVAL) },
+        { key: "nb-ent-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(NB3_CE1) },
+        { key: "nb-ent-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(NB3_CE2) },
+      ];
+    case "geoS1":
+      return [
+        { key: "geo1-lecon", label: "Séance 1 — Leçon : se repérer / la symétrie", node: ficheNode(GEO1_LECON) },
+        { key: "geo1-ce1", label: "Séance 1 — CE1 : se repérer dans l'école", node: ficheNode(GEO1_CE1) },
+        { key: "geo1-ce2", label: "Séance 1 — CE2 : la symétrie", node: ficheNode(GEO1_CE2) },
+      ];
+    case "geoS2":
+      return [
+        { key: "geo2-ce1", label: "Séance 2 — CE1 : se repérer dans le quartier", node: ficheNode(GEO2_CE1) },
+        { key: "geo2-ce2", label: "Séance 2 — CE2 : compléter par symétrie (1)", node: ficheNode(GEO2_CE2) },
+      ];
+    case "geoS3":
+      return [
+        { key: "geo3-ce1", label: "Séance 3 — CE1 : se déplacer sur un plan", node: ficheNode(GEO3_CE1) },
+        { key: "geo3-ce2", label: "Séance 3 — CE2 : compléter par symétrie (2)", node: ficheNode(GEO3_CE2) },
+      ];
+    case "geoS4":
+      return [
+        { key: "geo-eval", label: "Séance 4 — Évaluation : espace & géométrie", node: ficheNode(GEO_EVAL) },
+        { key: "geo-ent-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(GEO3_CE1) },
+        { key: "geo-ent-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(GEO3_CE2) },
       ];
     case "nomS1":
       return [

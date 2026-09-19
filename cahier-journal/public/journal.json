@@ -3720,27 +3720,49 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "a-maths-9524",
+       "id": "nbS1",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Mathématiques",
-       "objectif": "Créneau maths du matin (~1h10) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Nombres S1 — Construire 100 et 1000",
+       "objectif": "Comprendre que 100 = 10 dizaines et 1000 = 10 centaines ; construire ces nombres.",
+       "competence": "Construire et représenter 100 / 1000.",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Mathématiques — Nombres",
+       "progSequence": "Nombres — Période 1 (suite)",
+       "progSeance": "1",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « On a du matériel base 10 : combien de barres pour faire une plaque de 100 ? »\n- « 10 dizaines = 1 centaine = 100. »\n- « Et pour faire 1000 ? … 10 plaques de 100 ! »\n- « On colle la leçon et on manipule le matériel base 10. »"
+        },
+        {
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : vous complétez pour arriver à 100 (feuille verte). »\n- « CE2 : vous construisez 1000 (feuille bleue). »\n- « On commence par l'exemple, je passe aider. »"
+        },
+        {
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « On corrige : 100 = 10 dizaines, 1000 = 10 centaines. »\n- « On range le cahier de maths. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : construire 100 (compléter à 100, groupements de 10).\nCE2 : construire 1000 (compléter à 1000, 10 centaines).",
        "depassement": "",
-       "correction": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
        "bilan": "",
        "aReprendre": "",
@@ -4030,7 +4052,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789941000000
+   "updatedAt": 1789951000000
   },
   {
    "date": "2026-09-22",
@@ -4231,27 +4253,49 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "a-maths-9524",
+       "id": "geoS1",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Mathématiques",
-       "objectif": "Créneau maths du matin (~1h10) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Géométrie S1 — Se repérer (CE1) / La symétrie (CE2)",
+       "objectif": "CE1 : utiliser le vocabulaire spatial pour se repérer dans l'école. CE2 : découvrir l'axe de symétrie.",
+       "competence": "Se repérer (CE1) ; symétrie (CE2).",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Mathématiques — Espace & Géométrie",
+       "progSequence": "Espace & Géométrie — Période 1",
+       "progSeance": "1",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « CE1, avec moi : où est la porte ? à gauche, à droite ? On se repère dans la classe. »\n- « CE2, vous découvrez la symétrie : le miroir, on plie sur l'axe. »\n- « On colle la leçon (deux parties : se repérer / la symétrie). »"
+        },
+        {
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : feuille “se repérer dans l'école” (mots de l'espace, plan de la table). »\n- « CE2 : feuille “la symétrie” (axe ou pas ? compléter sur quadrillage). »\n- « On commence par l'exemple ; ensuite on échange, je viens voir les CE2. »"
+        },
+        {
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « CE1 : on nomme des positions au tableau. »\n- « CE2 : on vérifie une symétrie en pliant. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 (avec le PE) : gauche/droite, devant/derrière, se repérer dans la classe et l'école.\nCE2 (autonomie puis reprise) : reconnaître un axe de symétrie, l'idée du miroir/pliage.",
        "depassement": "",
-       "correction": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
        "bilan": "",
        "aReprendre": "",
@@ -4541,7 +4585,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789941000000
+   "updatedAt": 1789951000000
   },
   {
    "date": "2026-09-28",
@@ -4703,27 +4747,49 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "a-maths-9524",
+       "id": "nbS2",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Mathématiques",
-       "objectif": "Créneau maths du matin (~1h10) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Nombres S2 — Écrire les nombres en lettres",
+       "objectif": "Lire et écrire les nombres en lettres (dizaines particulières : 70, 80, 90 ; centaines pour les CE2).",
+       "competence": "Nommer et écrire les nombres en lettres.",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Mathématiques — Nombres",
+       "progSequence": "Nombres — Période 1 (suite)",
+       "progSeance": "2",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « Comment on écrit 80 en lettres ? … quatre-vingts, avec un s ! »\n- « 71 = soixante et onze ; 90 = quatre-vingt-dix. »\n- « On regarde le tableau de la leçon ensemble. »\n- « On colle la leçon. »"
+        },
+        {
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : écrire en lettres jusqu'à 99. »\n- « CE2 : jusqu'à 999, attention à cent et cents. »\n- « On démarre par l'exemple. »"
+        },
+        {
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « On corrige quelques nombres au tableau. »\n- « On repère les pièges : quatre-vingts / quatre-vingt-un. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : nombres jusqu'à 99 en lettres.\nCE2 : nombres jusqu'à 999 (et 1000) en lettres.",
        "depassement": "",
-       "correction": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
        "bilan": "",
        "aReprendre": "",
@@ -5013,7 +5079,2207 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789941000000
+   "updatedAt": 1789951000000
+  },
+  {
+   "date": "2026-09-29",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "absentIds": [],
+    "events": [
+     {
+      "id": "ev-2026-09-29",
+      "type": "particulier",
+      "note": "Maths : Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2). Reste de la journée à préparer."
+     }
+    ],
+    "devoirs": ""
+   },
+   "slots": [
+    {
+     "id": "d2026-09-29s1",
+     "start": "08:30",
+     "end": "08:45",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20260929a1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s2",
+     "start": "08:45",
+     "end": "10:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20260929fr1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (matin)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s3",
+     "start": "10:10",
+     "end": "10:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20260929re1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s4",
+     "start": "10:40",
+     "end": "11:25",
+     "disciplineId": "maths",
+     "activities": [
+      {
+       "id": "geoS2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2)",
+       "objectif": "CE1 : se repérer et décrire un trajet dans le quartier. CE2 : compléter une figure par symétrie (axe vertical).",
+       "competence": "Se repérer / se déplacer (CE1) ; symétrie (CE2).",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Mathématiques — Espace & Géométrie",
+       "progSequence": "Espace & Géométrie — Période 1",
+       "progSeance": "2",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « CE1 : comment tu vas de chez toi à l'école ? On décrit le trajet. »\n- « CE2 : on complète l'autre moitié d'une figure, en comptant les carreaux. »\n- « On rappelle : symétrique = pareil de chaque côté de l'axe. »"
+        },
+        {
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : feuille “se repérer dans le quartier” + dessiner son trajet. »\n- « CE2 : feuille “compléter par symétrie (1)”, axe vertical. »\n- « On commence par l'exemple. »"
+        },
+        {
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « CE2 : on vérifie en pliant sur l'axe. »\n- « On range. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : décrire un trajet (à gauche, à droite, tout droit), lire des repères.\nCE2 : compléter une figure symétrique sur quadrillage (axe vertical).",
+       "depassement": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s5",
+     "start": "11:25",
+     "end": "11:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20260929rg1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement avant la cantine",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s6",
+     "start": "11:30",
+     "end": "13:30",
+     "disciplineId": "cantine",
+     "activities": [
+      {
+       "id": "20260929ca1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Pause méridienne",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s7",
+     "start": "13:30",
+     "end": "13:45",
+     "disciplineId": "sol",
+     "activities": [
+      {
+       "id": "20260929sol",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Silence, on lit",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s8",
+     "start": "13:45",
+     "end": "15:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20260929fr2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (après-midi)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s9",
+     "start": "15:10",
+     "end": "15:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20260929re2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s10",
+     "start": "15:40",
+     "end": "16:25",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20260929ap",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer (EPS / autre)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-29s11",
+     "start": "16:25",
+     "end": "16:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20260929sor",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    }
+   ],
+   "createdAt": "2026-09-19T10:00:00Z",
+   "updatedAt": 1789951000000
+  },
+  {
+   "date": "2026-10-05",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "absentIds": [],
+    "events": [
+     {
+      "id": "ev-2026-10-05",
+      "type": "particulier",
+      "note": "Maths : Nombres S3 — La suite des nombres. Reste de la journée à préparer."
+     }
+    ],
+    "devoirs": ""
+   },
+   "slots": [
+    {
+     "id": "d2026-10-05s1",
+     "start": "08:30",
+     "end": "08:45",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261005a1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s2",
+     "start": "08:45",
+     "end": "10:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261005fr1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (matin)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s3",
+     "start": "10:10",
+     "end": "10:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261005re1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s4",
+     "start": "10:40",
+     "end": "11:25",
+     "disciplineId": "maths",
+     "activities": [
+      {
+       "id": "nbS3",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Nombres S3 — La suite des nombres",
+       "objectif": "Dire, lire, écrire la suite des nombres (jusqu'à 200 pour les CE1, 2000 pour les CE2) ; avant / après.",
+       "competence": "Connaître la suite des nombres.",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Mathématiques — Nombres",
+       "progSequence": "Nombres — Période 1 (suite)",
+       "progSeance": "3",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « On compte ensemble : 98, 99, 100, 101… attention au passage à la centaine ! »\n- « CE2 : 999, 1000, 1001… et 1999, 2000, 2001. »\n- « Chaque nombre a un précédent et un suivant. »\n- « On colle la leçon. »"
+        },
+        {
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : compléter les suites jusqu'à 200. »\n- « CE2 : jusqu'à 2000, et compter de 100 en 100. »\n- « On commence par l'exemple. »"
+        },
+        {
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « On corrige les passages difficiles (99→100, 1999→2000). »\n- « On range. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : suite jusqu'à 200, de 1 en 1 et de 10 en 10.\nCE2 : suite jusqu'à 2000, de 1 en 1 et de 100 en 100.",
+       "depassement": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s5",
+     "start": "11:25",
+     "end": "11:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261005rg1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement avant la cantine",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s6",
+     "start": "11:30",
+     "end": "13:30",
+     "disciplineId": "cantine",
+     "activities": [
+      {
+       "id": "20261005ca1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Pause méridienne",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s7",
+     "start": "13:30",
+     "end": "13:45",
+     "disciplineId": "sol",
+     "activities": [
+      {
+       "id": "20261005sol",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Silence, on lit",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s8",
+     "start": "13:45",
+     "end": "15:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261005fr2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (après-midi)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s9",
+     "start": "15:10",
+     "end": "15:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261005re2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s10",
+     "start": "15:40",
+     "end": "16:25",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261005ap",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer (EPS / autre)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-05s11",
+     "start": "16:25",
+     "end": "16:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261005sor",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    }
+   ],
+   "createdAt": "2026-09-19T10:00:00Z",
+   "updatedAt": 1789951000000
+  },
+  {
+   "date": "2026-10-06",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "absentIds": [],
+    "events": [
+     {
+      "id": "ev-2026-10-06",
+      "type": "particulier",
+      "note": "Maths : Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2). Reste de la journée à préparer."
+     }
+    ],
+    "devoirs": ""
+   },
+   "slots": [
+    {
+     "id": "d2026-10-06s1",
+     "start": "08:30",
+     "end": "08:45",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261006a1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s2",
+     "start": "08:45",
+     "end": "10:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261006fr1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (matin)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s3",
+     "start": "10:10",
+     "end": "10:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261006re1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s4",
+     "start": "10:40",
+     "end": "11:25",
+     "disciplineId": "maths",
+     "activities": [
+      {
+       "id": "geoS3",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2)",
+       "objectif": "CE1 : se déplacer sur un quadrillage-plan (cases, directions). CE2 : compléter par symétrie (axe horizontal, oblique).",
+       "competence": "Se déplacer sur un plan (CE1) ; symétrie (CE2).",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Mathématiques — Espace & Géométrie",
+       "progSequence": "Espace & Géométrie — Période 1",
+       "progSeance": "3",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « CE1 : sur le plan quadrillé, on avance case par case : droite, gauche, haut, bas. »\n- « CE2 : aujourd'hui l'axe peut être horizontal, ou penché ! »\n- « On rappelle la méthode : compter les carreaux. »"
+        },
+        {
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : feuille “se déplacer sur un plan”, écrire un chemin. »\n- « CE2 : feuille “compléter par symétrie (2)”. »\n- « On commence par l'exemple. »"
+        },
+        {
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « On met en commun quelques réponses. »\n- « On range. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : suivre et écrire un déplacement sur un plan quadrillé.\nCE2 : compléter des figures symétriques (axe horizontal puis oblique).",
+       "depassement": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s5",
+     "start": "11:25",
+     "end": "11:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261006rg1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement avant la cantine",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s6",
+     "start": "11:30",
+     "end": "13:30",
+     "disciplineId": "cantine",
+     "activities": [
+      {
+       "id": "20261006ca1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Pause méridienne",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s7",
+     "start": "13:30",
+     "end": "13:45",
+     "disciplineId": "sol",
+     "activities": [
+      {
+       "id": "20261006sol",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Silence, on lit",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s8",
+     "start": "13:45",
+     "end": "15:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261006fr2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (après-midi)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s9",
+     "start": "15:10",
+     "end": "15:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261006re2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s10",
+     "start": "15:40",
+     "end": "16:25",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261006ap",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer (EPS / autre)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-06s11",
+     "start": "16:25",
+     "end": "16:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261006sor",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    }
+   ],
+   "createdAt": "2026-09-19T10:00:00Z",
+   "updatedAt": 1789951000000
+  },
+  {
+   "date": "2026-10-12",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "absentIds": [],
+    "events": [
+     {
+      "id": "ev-2026-10-12",
+      "type": "particulier",
+      "note": "Maths : Nombres S4 — Évaluation (libre) ou entraînement. Reste de la journée à préparer."
+     }
+    ],
+    "devoirs": ""
+   },
+   "slots": [
+    {
+     "id": "d2026-10-12s1",
+     "start": "08:30",
+     "end": "08:45",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261012a1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s2",
+     "start": "08:45",
+     "end": "10:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261012fr1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (matin)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s3",
+     "start": "10:10",
+     "end": "10:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261012re1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s4",
+     "start": "10:40",
+     "end": "11:25",
+     "disciplineId": "maths",
+     "activities": [
+      {
+       "id": "nbS4",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Nombres S4 — Évaluation (libre) ou entraînement",
+       "objectif": "Évaluer les compétences Nombres de la période (construire 100/1000, en lettres, la suite). Évaluation LIBRE, à la demande.",
+       "competence": "Bilan Nombres P1.",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Mathématiques — Nombres",
+       "progSequence": "Nombres — Période 1 (suite)",
+       "progSeance": "4",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "e1",
+         "label": "Consignes (10 min)",
+         "note": "- « L'évaluation des nombres est LIBRE : tu la fais quand tu te sens prêt(e). »\n- « Tu me demandes, tu t'installes au fond, au calme. »\n- « Sinon, tu prends la feuille d'entraînement. »"
+        },
+        {
+         "id": "e2",
+         "label": "Évaluation / entraînement (35 min)",
+         "note": "- « Chacun sa feuille ; on commence par l'exemple de chaque exercice. »\n- « Je circule sans donner les réponses. »"
+        },
+        {
+         "id": "e3",
+         "label": "Correction (15 min)",
+         "note": "- « On corrige ensemble ; chacun voit ce qu'il a réussi. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : jusqu'à 200.\nCE2 : jusqu'à 2000.",
+       "depassement": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s5",
+     "start": "11:25",
+     "end": "11:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261012rg1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement avant la cantine",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s6",
+     "start": "11:30",
+     "end": "13:30",
+     "disciplineId": "cantine",
+     "activities": [
+      {
+       "id": "20261012ca1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Pause méridienne",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s7",
+     "start": "13:30",
+     "end": "13:45",
+     "disciplineId": "sol",
+     "activities": [
+      {
+       "id": "20261012sol",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Silence, on lit",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s8",
+     "start": "13:45",
+     "end": "15:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261012fr2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (après-midi)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s9",
+     "start": "15:10",
+     "end": "15:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261012re2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s10",
+     "start": "15:40",
+     "end": "16:25",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261012ap",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer (EPS / autre)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-12s11",
+     "start": "16:25",
+     "end": "16:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261012sor",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    }
+   ],
+   "createdAt": "2026-09-19T10:00:00Z",
+   "updatedAt": 1789951000000
+  },
+  {
+   "date": "2026-10-13",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "absentIds": [],
+    "events": [
+     {
+      "id": "ev-2026-10-13",
+      "type": "particulier",
+      "note": "Maths : Géométrie S4 — Évaluation (libre) ou entraînement. Reste de la journée à préparer."
+     }
+    ],
+    "devoirs": ""
+   },
+   "slots": [
+    {
+     "id": "d2026-10-13s1",
+     "start": "08:30",
+     "end": "08:45",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261013a1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s2",
+     "start": "08:45",
+     "end": "10:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261013fr1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (matin)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s3",
+     "start": "10:10",
+     "end": "10:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261013re1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s4",
+     "start": "10:40",
+     "end": "11:25",
+     "disciplineId": "maths",
+     "activities": [
+      {
+       "id": "geoS4",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géométrie S4 — Évaluation (libre) ou entraînement",
+       "objectif": "Évaluer : se repérer / se déplacer (CE1) et la symétrie (CE2). Évaluation LIBRE, à la demande.",
+       "competence": "Bilan Espace & Géométrie P1.",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Mathématiques — Espace & Géométrie",
+       "progSequence": "Espace & Géométrie — Période 1",
+       "progSeance": "4",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "groupe",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "e1",
+         "label": "Consignes (10 min)",
+         "note": "- « L'évaluation de géométrie est LIBRE : tu la fais quand tu te sens prêt(e), au fond. »\n- « Sinon, feuille d'entraînement. »"
+        },
+        {
+         "id": "e2",
+         "label": "Évaluation / entraînement (35 min)",
+         "note": "- « Chacun sa feuille ; on commence par l'exemple. »\n- « Je circule sans donner les réponses. »"
+        },
+        {
+         "id": "e3",
+         "label": "Correction (15 min)",
+         "note": "- « On corrige ensemble. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : vocabulaire spatial, déplacement sur plan.\nCE2 : reconnaître et compléter une symétrie.",
+       "depassement": "",
+       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s5",
+     "start": "11:25",
+     "end": "11:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261013rg1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement avant la cantine",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s6",
+     "start": "11:30",
+     "end": "13:30",
+     "disciplineId": "cantine",
+     "activities": [
+      {
+       "id": "20261013ca1",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Pause méridienne",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s7",
+     "start": "13:30",
+     "end": "13:45",
+     "disciplineId": "sol",
+     "activities": [
+      {
+       "id": "20261013sol",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Silence, on lit",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s8",
+     "start": "13:45",
+     "end": "15:10",
+     "disciplineId": "francais",
+     "activities": [
+      {
+       "id": "20261013fr2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer — Français (après-midi)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s9",
+     "start": "15:10",
+     "end": "15:40",
+     "disciplineId": "recreation",
+     "activities": [
+      {
+       "id": "20261013re2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s10",
+     "start": "15:40",
+     "end": "16:25",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261013ap",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "À préparer (EPS / autre)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-10-13s11",
+     "start": "16:25",
+     "end": "16:30",
+     "disciplineId": "autre",
+     "activities": [
+      {
+       "id": "20261013sor",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    }
+   ],
+   "createdAt": "2026-09-19T10:00:00Z",
+   "updatedAt": 1789951000000
   }
  ],
  "templates": [],
@@ -8294,6 +10560,430 @@
     }
    ],
    "updatedAt": 1789940000000
+  },
+  {
+   "id": "seq-maths-nombres-p1",
+   "title": "Maths — Nombres (Période 1, suite) : Construire → Éval",
+   "disciplineId": "maths",
+   "niveaux": [
+    "classe"
+   ],
+   "objectif": "Suite du domaine Nombres (P1) après dénombrer & comparer : construire 100/1000, écrire en lettres, la suite des nombres, puis évaluation libre. 1 chapitre par séance, leçon simple + exercices avec exemple.",
+   "seances": [
+    {
+     "id": "nbS1",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Nombres S1 — Construire 100 et 1000",
+     "objectif": "Comprendre que 100 = 10 dizaines et 1000 = 10 centaines ; construire ces nombres.",
+     "competence": "Construire et représenter 100 / 1000.",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Nombres",
+     "progSequence": "Nombres — Période 1 (suite)",
+     "progSeance": "1",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "x1",
+       "label": "Découverte / rappel (15 min)",
+       "note": "- « On a du matériel base 10 : combien de barres pour faire une plaque de 100 ? »\n- « 10 dizaines = 1 centaine = 100. »\n- « Et pour faire 1000 ? … 10 plaques de 100 ! »\n- « On colle la leçon et on manipule le matériel base 10. »"
+      },
+      {
+       "id": "x2",
+       "label": "Entraînement en tandems (30 min)",
+       "note": "- « CE1 : vous complétez pour arriver à 100 (feuille verte). »\n- « CE2 : vous construisez 1000 (feuille bleue). »\n- « On commence par l'exemple, je passe aider. »"
+      },
+      {
+       "id": "x3",
+       "label": "Mise en commun (10 min)",
+       "note": "- « On corrige : 100 = 10 dizaines, 1000 = 10 centaines. »\n- « On range le cahier de maths. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : construire 100 (compléter à 100, groupements de 10).\nCE2 : construire 1000 (compléter à 1000, 10 centaines).",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "nbS2",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Nombres S2 — Écrire les nombres en lettres",
+     "objectif": "Lire et écrire les nombres en lettres (dizaines particulières : 70, 80, 90 ; centaines pour les CE2).",
+     "competence": "Nommer et écrire les nombres en lettres.",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Nombres",
+     "progSequence": "Nombres — Période 1 (suite)",
+     "progSeance": "2",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "x1",
+       "label": "Découverte / rappel (15 min)",
+       "note": "- « Comment on écrit 80 en lettres ? … quatre-vingts, avec un s ! »\n- « 71 = soixante et onze ; 90 = quatre-vingt-dix. »\n- « On regarde le tableau de la leçon ensemble. »\n- « On colle la leçon. »"
+      },
+      {
+       "id": "x2",
+       "label": "Entraînement en tandems (30 min)",
+       "note": "- « CE1 : écrire en lettres jusqu'à 99. »\n- « CE2 : jusqu'à 999, attention à cent et cents. »\n- « On démarre par l'exemple. »"
+      },
+      {
+       "id": "x3",
+       "label": "Mise en commun (10 min)",
+       "note": "- « On corrige quelques nombres au tableau. »\n- « On repère les pièges : quatre-vingts / quatre-vingt-un. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : nombres jusqu'à 99 en lettres.\nCE2 : nombres jusqu'à 999 (et 1000) en lettres.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "nbS3",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Nombres S3 — La suite des nombres",
+     "objectif": "Dire, lire, écrire la suite des nombres (jusqu'à 200 pour les CE1, 2000 pour les CE2) ; avant / après.",
+     "competence": "Connaître la suite des nombres.",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Nombres",
+     "progSequence": "Nombres — Période 1 (suite)",
+     "progSeance": "3",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "x1",
+       "label": "Découverte / rappel (15 min)",
+       "note": "- « On compte ensemble : 98, 99, 100, 101… attention au passage à la centaine ! »\n- « CE2 : 999, 1000, 1001… et 1999, 2000, 2001. »\n- « Chaque nombre a un précédent et un suivant. »\n- « On colle la leçon. »"
+      },
+      {
+       "id": "x2",
+       "label": "Entraînement en tandems (30 min)",
+       "note": "- « CE1 : compléter les suites jusqu'à 200. »\n- « CE2 : jusqu'à 2000, et compter de 100 en 100. »\n- « On commence par l'exemple. »"
+      },
+      {
+       "id": "x3",
+       "label": "Mise en commun (10 min)",
+       "note": "- « On corrige les passages difficiles (99→100, 1999→2000). »\n- « On range. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : suite jusqu'à 200, de 1 en 1 et de 10 en 10.\nCE2 : suite jusqu'à 2000, de 1 en 1 et de 100 en 100.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "nbS4",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Nombres S4 — Évaluation (libre) ou entraînement",
+     "objectif": "Évaluer les compétences Nombres de la période (construire 100/1000, en lettres, la suite). Évaluation LIBRE, à la demande.",
+     "competence": "Bilan Nombres P1.",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Nombres",
+     "progSequence": "Nombres — Période 1 (suite)",
+     "progSeance": "4",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "e1",
+       "label": "Consignes (10 min)",
+       "note": "- « L'évaluation des nombres est LIBRE : tu la fais quand tu te sens prêt(e). »\n- « Tu me demandes, tu t'installes au fond, au calme. »\n- « Sinon, tu prends la feuille d'entraînement. »"
+      },
+      {
+       "id": "e2",
+       "label": "Évaluation / entraînement (35 min)",
+       "note": "- « Chacun sa feuille ; on commence par l'exemple de chaque exercice. »\n- « Je circule sans donner les réponses. »"
+      },
+      {
+       "id": "e3",
+       "label": "Correction (15 min)",
+       "note": "- « On corrige ensemble ; chacun voit ce qu'il a réussi. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : jusqu'à 200.\nCE2 : jusqu'à 2000.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    }
+   ],
+   "updatedAt": 1789950000000
+  },
+  {
+   "id": "seq-maths-geo-p1",
+   "title": "Maths — Espace & Géométrie (Période 1) : tandem CE1/CE2",
+   "disciplineId": "maths",
+   "niveaux": [
+    "classe"
+   ],
+   "objectif": "Espace & Géométrie P1 en tandem double-niveau : CE1 se repérer / se déplacer, CE2 la symétrie. Découverte → 2 consolidations → évaluation libre.",
+   "seances": [
+    {
+     "id": "geoS1",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Géométrie S1 — Se repérer (CE1) / La symétrie (CE2)",
+     "objectif": "CE1 : utiliser le vocabulaire spatial pour se repérer dans l'école. CE2 : découvrir l'axe de symétrie.",
+     "competence": "Se repérer (CE1) ; symétrie (CE2).",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Espace & Géométrie",
+     "progSequence": "Espace & Géométrie — Période 1",
+     "progSeance": "1",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "x1",
+       "label": "Découverte / rappel (15 min)",
+       "note": "- « CE1, avec moi : où est la porte ? à gauche, à droite ? On se repère dans la classe. »\n- « CE2, vous découvrez la symétrie : le miroir, on plie sur l'axe. »\n- « On colle la leçon (deux parties : se repérer / la symétrie). »"
+      },
+      {
+       "id": "x2",
+       "label": "Entraînement en tandems (30 min)",
+       "note": "- « CE1 : feuille “se repérer dans l'école” (mots de l'espace, plan de la table). »\n- « CE2 : feuille “la symétrie” (axe ou pas ? compléter sur quadrillage). »\n- « On commence par l'exemple ; ensuite on échange, je viens voir les CE2. »"
+      },
+      {
+       "id": "x3",
+       "label": "Mise en commun (10 min)",
+       "note": "- « CE1 : on nomme des positions au tableau. »\n- « CE2 : on vérifie une symétrie en pliant. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 (avec le PE) : gauche/droite, devant/derrière, se repérer dans la classe et l'école.\nCE2 (autonomie puis reprise) : reconnaître un axe de symétrie, l'idée du miroir/pliage.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "geoS2",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2)",
+     "objectif": "CE1 : se repérer et décrire un trajet dans le quartier. CE2 : compléter une figure par symétrie (axe vertical).",
+     "competence": "Se repérer / se déplacer (CE1) ; symétrie (CE2).",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Espace & Géométrie",
+     "progSequence": "Espace & Géométrie — Période 1",
+     "progSeance": "2",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "x1",
+       "label": "Découverte / rappel (15 min)",
+       "note": "- « CE1 : comment tu vas de chez toi à l'école ? On décrit le trajet. »\n- « CE2 : on complète l'autre moitié d'une figure, en comptant les carreaux. »\n- « On rappelle : symétrique = pareil de chaque côté de l'axe. »"
+      },
+      {
+       "id": "x2",
+       "label": "Entraînement en tandems (30 min)",
+       "note": "- « CE1 : feuille “se repérer dans le quartier” + dessiner son trajet. »\n- « CE2 : feuille “compléter par symétrie (1)”, axe vertical. »\n- « On commence par l'exemple. »"
+      },
+      {
+       "id": "x3",
+       "label": "Mise en commun (10 min)",
+       "note": "- « CE2 : on vérifie en pliant sur l'axe. »\n- « On range. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : décrire un trajet (à gauche, à droite, tout droit), lire des repères.\nCE2 : compléter une figure symétrique sur quadrillage (axe vertical).",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "geoS3",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2)",
+     "objectif": "CE1 : se déplacer sur un quadrillage-plan (cases, directions). CE2 : compléter par symétrie (axe horizontal, oblique).",
+     "competence": "Se déplacer sur un plan (CE1) ; symétrie (CE2).",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Espace & Géométrie",
+     "progSequence": "Espace & Géométrie — Période 1",
+     "progSeance": "3",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "x1",
+       "label": "Découverte / rappel (15 min)",
+       "note": "- « CE1 : sur le plan quadrillé, on avance case par case : droite, gauche, haut, bas. »\n- « CE2 : aujourd'hui l'axe peut être horizontal, ou penché ! »\n- « On rappelle la méthode : compter les carreaux. »"
+      },
+      {
+       "id": "x2",
+       "label": "Entraînement en tandems (30 min)",
+       "note": "- « CE1 : feuille “se déplacer sur un plan”, écrire un chemin. »\n- « CE2 : feuille “compléter par symétrie (2)”. »\n- « On commence par l'exemple. »"
+      },
+      {
+       "id": "x3",
+       "label": "Mise en commun (10 min)",
+       "note": "- « On met en commun quelques réponses. »\n- « On range. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : suivre et écrire un déplacement sur un plan quadrillé.\nCE2 : compléter des figures symétriques (axe horizontal puis oblique).",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "geoS4",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Géométrie S4 — Évaluation (libre) ou entraînement",
+     "objectif": "Évaluer : se repérer / se déplacer (CE1) et la symétrie (CE2). Évaluation LIBRE, à la demande.",
+     "competence": "Bilan Espace & Géométrie P1.",
+     "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Mathématiques — Espace & Géométrie",
+     "progSequence": "Espace & Géométrie — Période 1",
+     "progSeance": "4",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "e1",
+       "label": "Consignes (10 min)",
+       "note": "- « L'évaluation de géométrie est LIBRE : tu la fais quand tu te sens prêt(e), au fond. »\n- « Sinon, feuille d'entraînement. »"
+      },
+      {
+       "id": "e2",
+       "label": "Évaluation / entraînement (35 min)",
+       "note": "- « Chacun sa feuille ; on commence par l'exemple. »\n- « Je circule sans donner les réponses. »"
+      },
+      {
+       "id": "e3",
+       "label": "Correction (15 min)",
+       "note": "- « On corrige ensemble. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : vocabulaire spatial, déplacement sur plan.\nCE2 : reconnaître et compléter une symétrie.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
+     "obstacles": "",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    }
+   ],
+   "updatedAt": 1789950000000
   }
  ]
 }
