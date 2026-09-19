@@ -298,6 +298,12 @@ Le temps que l'enseignant s'approprie **Graphémo**, on fait des **dictées mais
   non publiée). **Ne JAMAIS réhéberger un PDF/visuel protégé** sur le dépôt (public →
   GitHub Pages) : on met le lien, jamais le fichier. Si rien ne convient, on **crée**
   une leçon originale (modèle validé).
+- **Ressources gratuites d'abord** : Pass-Education est en grande partie **payant** →
+  préférer des sources **gratuites et bien illustrées** (Lutin Bazar, Bout de Gomme,
+  Canopé, Lumni). Sinon **créer** une leçon **richement illustrée** (dessins SVG maison,
+  libres de droits), jamais « platonique ». Ex. : « Lire une frise » = frise **intégrée
+  à la leçon** (pas en doc à part) avec un dessin par période (homme des cavernes,
+  temple antique, château/chevalier, caravelle, tour Eiffel).
 
 ## Volumes horaires hebdomadaires à respecter (IMPORTANT)
 
