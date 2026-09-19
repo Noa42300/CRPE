@@ -22,7 +22,7 @@ import {
   emptyEvent,
   emptySlot,
 } from "../lib/factory";
-import type { Day, DayEvent, Settings, Slot } from "../lib/types";
+import type { Day, DayEvent, DayRappel, Settings, Slot } from "../lib/types";
 import { SlotCard } from "./SlotCard";
 import { Attachments } from "./Attachments";
 import { PrintDay } from "./PrintDay";
@@ -35,6 +35,43 @@ import {
   Trash,
   Copy,
 } from "./ui";
+
+/** Style (icône, couleurs) par type de rappel. */
+const RAPPEL_STYLE: Record<
+  NonNullable<DayRappel["type"]>,
+  { icon: string; ring: string; bg: string; text: string; chip: string }
+> = {
+  rdv: { icon: "📌", ring: "border-indigo-300 dark:border-indigo-500/40", bg: "bg-indigo-50 dark:bg-indigo-500/10", text: "text-indigo-900 dark:text-indigo-100", chip: "bg-indigo-600" },
+  securite: { icon: "🚨", ring: "border-red-300 dark:border-red-500/40", bg: "bg-red-50 dark:bg-red-500/10", text: "text-red-900 dark:text-red-100", chip: "bg-red-600" },
+  reunion: { icon: "👥", ring: "border-sky-300 dark:border-sky-500/40", bg: "bg-sky-50 dark:bg-sky-500/10", text: "text-sky-900 dark:text-sky-100", chip: "bg-sky-600" },
+  autre: { icon: "🔔", ring: "border-amber-300 dark:border-amber-500/40", bg: "bg-amber-50 dark:bg-amber-500/10", text: "text-amber-900 dark:text-amber-100", chip: "bg-amber-600" },
+};
+
+/** Bannière « Rappels du jour » — tout en haut de la journée, avant les rituels. */
+function RappelsBanner({ rappels }: { rappels?: DayRappel[] }) {
+  if (!rappels || rappels.length === 0) return null;
+  return (
+    <div className="mb-4 space-y-2">
+      {rappels.map((r) => {
+        const s = RAPPEL_STYLE[r.type ?? "rdv"];
+        return (
+          <div
+            key={r.id}
+            className={`flex items-center gap-3 rounded-2xl border-2 px-4 py-3 ${s.ring} ${s.bg}`}
+          >
+            <span className="text-2xl leading-none">{s.icon}</span>
+            {r.heure && (
+              <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-bold text-white ${s.chip}`}>
+                {r.heure}
+              </span>
+            )}
+            <span className={`text-sm font-semibold ${s.text}`}>{r.texte}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export function DayView({
   date,
@@ -177,6 +214,9 @@ export function DayView({
           <ChevronRight className={`h-4 w-4 transition-transform ${showInfo ? "rotate-90" : ""}`} />
         </button>
       </div>
+
+      {/* Rappels / rendez-vous du jour J : bannière tout en haut, avant les rituels. */}
+      <RappelsBanner rappels={day.info.rappels} />
 
       {/* Appel : toujours visible, en haut de la journée */}
       <AppelCard day={day} settings={settings} onChange={update} />
