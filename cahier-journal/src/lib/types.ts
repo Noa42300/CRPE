@@ -101,6 +101,21 @@ export interface Slot {
   activities: Activity[];
 }
 
+/**
+ * Un rappel / rendez-vous du jour J : visite du tuteur, réunion, exercice de
+ * sécurité (incendie, PPMS), rendez-vous parents… S'affiche en BANNIÈRE tout en
+ * haut de la journée, AVANT les rituels, pour ne rien oublier le matin.
+ * Contenu administratif (pas de donnée élève nominative dans le champ synchronisé).
+ */
+export interface DayRappel {
+  id: string;
+  /** Heure précise si connue ("HH:MM"), sinon rappel « dans la journée ». */
+  heure?: string;
+  texte: string;
+  /** Pilote l'icône et la couleur : rendez-vous, sécurité, réunion, autre. */
+  type?: "rdv" | "securite" | "reunion" | "autre";
+}
+
 /** Informations générales d'une journée. */
 export interface DayInfo {
   effectifPrevu: number | null;
@@ -111,6 +126,8 @@ export interface DayInfo {
   absentIds?: string[];
   /** Devoirs à donner pour la prochaine fois (affiché en fin de journée). */
   devoirs?: string;
+  /** Rappels / rendez-vous du jour J (bannière en haut, avant les rituels). */
+  rappels?: DayRappel[];
   events: DayEvent[];
 }
 

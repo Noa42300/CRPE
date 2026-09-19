@@ -243,6 +243,22 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   (le reste de la semaine = complément). Ne préparer que ces deux jours
   (`settings.joursTravailles = [1, 2]`).
 
+## Rappels / rendez-vous du jour J (IMPORTANT)
+- Chaque journée peut porter des **rappels** (`day.info.rappels`, type `DayRappel`)
+  affichés en **bannière tout en haut de la journée, AVANT les rituels** (avant 8h30) :
+  visite du tuteur, réunion, exercice de sécurité (incendie/PPMS), rendez-vous parents…
+  Champs : `heure?` (HH:MM), `texte`, `type` = `rdv` (📌) · `securite` (🚨) · `reunion` (👥) · `autre` (🔔).
+- On y **cale les événements de l'école le jour J** pour ne rien oublier le matin.
+  Si le jour n'existe pas encore, créer un **squelette de journée** (slots vides) qui
+  porte juste le rappel — la bannière s'affiche même sans créneaux.
+- Événements de sécurité déjà calés : **incendie 21/09 10h**, **PPMS intrusion 12/10 10h**,
+  **PPMS risque majeur 14/12**, **incendie 18/01**, **incendie sem. du 05/04**. Visite
+  tuteur (Valentin Garoux) **mardi 29/09**.
+- **CONFIDENTIALITÉ ESS/EBEP** : les entretiens ESS (équipe de suivi) concernent des
+  élèves à besoins particuliers = **données de santé sur mineurs**. Ne **jamais** écrire
+  de **prénom d'élève** dans un rappel synchronisé (`journal.json`) : on note l'horaire
+  seul (ex. « ESS — 3 entretiens 9h15 · 10h00 · 10h45 »), les noms restent **en local**.
+
 ## Devoirs — À NE JAMAIS OUBLIER (IMPORTANT)
 Chaque jour préparé doit avoir des **devoirs** (champ `info.devoirs` du jour), donnés
 **pour la semaine suivante** (classe à mi-temps) :

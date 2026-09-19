@@ -3575,7 +3575,15 @@
       "note": "Français matin : déterminants séance 3 (démonstratifs & possessifs). EPS : lancer loin."
      }
     ],
-    "devoirs": "Pour mardi : finir la feuille d'exercices (déterminants). À apprendre pour la semaine prochaine : la leçon sur les déterminants."
+    "devoirs": "Pour mardi : finir la feuille d'exercices (déterminants). À apprendre pour la semaine prochaine : la leçon sur les déterminants.",
+    "rappels": [
+     {
+      "id": "rap-incendie-2609",
+      "texte": "Exercice incendie — évacuation (1er de l'année)",
+      "type": "securite",
+      "heure": "10:00"
+     }
+    ]
    },
    "slots": [
     {
@@ -4123,7 +4131,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1790500000000
+   "updatedAt": 1790600000000
   },
   {
    "date": "2026-09-22",
@@ -5266,7 +5274,14 @@
       "note": "Maths : Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 2) pour le lundi 5 octobre. Finir les feuilles d'exercices."
+    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 2) pour le lundi 5 octobre. Finir les feuilles d'exercices.",
+    "rappels": [
+     {
+      "id": "rap-tuteur-2909",
+      "texte": "Visite de mon tuteur — Valentin Garoux",
+      "type": "rdv"
+     }
+    ]
    },
    "slots": [
     {
@@ -5727,7 +5742,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500000003
+   "updatedAt": 1790600000001
   },
   {
    "date": "2026-10-05",
@@ -6700,7 +6715,15 @@
       "note": "Maths : Nombres S4 — Évaluation (libre) ou entraînement. Reste de la journée à préparer."
      }
     ],
-    "devoirs": "Réviser pour les évaluations libres (nombres, déterminants, nom) — pour ceux qui veulent les faire."
+    "devoirs": "Réviser pour les évaluations libres (nombres, déterminants, nom) — pour ceux qui veulent les faire.",
+    "rappels": [
+     {
+      "id": "rap-ppms-1210",
+      "texte": "PPMS intrusion — exercice (alerte intrusion)",
+      "type": "securite",
+      "heure": "10:00"
+     }
+    ]
    },
    "slots": [
     {
@@ -7161,7 +7184,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500000006
+   "updatedAt": 1790600000002
   },
   {
    "date": "2026-10-13",
@@ -7602,6 +7625,71 @@
    ],
    "createdAt": "2026-09-19T10:00:00Z",
    "updatedAt": 1790500000007
+  },
+  {
+   "date": "2026-12-14",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-ppms-1412",
+      "texte": "PPMS risque majeur — exercice",
+      "type": "securite"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790600000000,
+   "updatedAt": 1790600000003
+  },
+  {
+   "date": "2027-01-18",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-incendie-1801",
+      "texte": "Exercice incendie — évacuation",
+      "type": "securite"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790600000000,
+   "updatedAt": 1790600000004
+  },
+  {
+   "date": "2027-04-05",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-incendie-0504",
+      "texte": "Exercice incendie — évacuation",
+      "type": "securite"
+     },
+     {
+      "id": "rap-ess-0504",
+      "texte": "ESS — 3 entretiens (9h15 · 10h00 · 10h45)",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790600000000,
+   "updatedAt": 1790600000005
   }
  ],
  "templates": [],
