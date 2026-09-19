@@ -4530,8 +4530,70 @@
      ]
     },
     {
-     "id": "d2026-09-22s8",
+     "id": "m22-sci-slot",
      "start": "13:45",
+     "end": "14:25",
+     "disciplineId": "qlm",
+     "activities": [
+      {
+       "id": "sciS3",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Sciences — Les solides ont-ils tous les mêmes propriétés ?",
+       "objectif": "Comparer des solides (éponge, bois, pâte à modeler, pierre, métal) et décrire leurs propriétés (dur/mou, lisse/rugueux, lourd/léger) ; comprendre qu'un solide garde sa forme.",
+       "competence": "Observer, décrire et comparer des matières ; classer selon des propriétés.",
+       "competenceRef": "Questionner le monde — La matière, cycle 2.",
+       "progPeriode": "P1",
+       "progDomaine": "qlm",
+       "progSequence": "Sciences · La matière autour de nous",
+       "progSeance": "3",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "groupe"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "s1",
+         "label": "La question & les hypothèses (10 min)",
+         "note": "- « La dernière fois, on a vu solide ou liquide. Aujourd'hui : est-ce que tous les solides sont pareils ? »\n- « Je vous montre 5 objets : une éponge, du bois, de la pâte à modeler, une pierre, du métal. »\n- « Ils sont tous solides : ils gardent leur forme. Mais sont-ils identiques ? »\n- « À votre avis, lequel est dur ? lequel est mou ? »\n- « On va vérifier en les touchant, par groupes. »\n- (Je note quelques hypothèses au tableau.)"
+        },
+        {
+         "id": "s2",
+         "label": "On manipule par groupes (20 min)",
+         "note": "- « Chaque groupe a les 5 objets et la fiche d'expérience. »\n- « On touche : est-ce dur ou mou ? On appuie doucement. »\n- « On regarde et on frotte : lisse ou rugueux ? »\n- « On soupèse : lourd ou léger ? »\n- « On remplit le tableau pour chaque objet. »\n- (Je circule, je fais reformuler « dur », « rugueux », « léger ».)"
+        },
+        {
+         "id": "s3",
+         "label": "Mise en commun & classement (15 min)",
+         "note": "- « On compare nos résultats groupe par groupe. »\n- « Quels objets sont durs ? … le bois, la pierre, le métal. »\n- « Quels objets sont mous ? … l'éponge, la pâte à modeler. »\n- « Lequel se déforme mais garde sa forme ? … la pâte à modeler. »\n- « On range les objets dans deux familles : durs / mous. »\n- « Un solide garde toujours sa forme, mais chacun a ses propriétés. »"
+        },
+        {
+         "id": "s4",
+         "label": "Institutionnalisation (10 min)",
+         "note": "- « On colle la leçon : les solides n'ont pas tous les mêmes propriétés. »\n- « On relit : dur/mou, lisse/rugueux, lourd/léger. »\n- « Chacun écrit une phrase de comparaison sur sa fiche. »\n- « On range le matériel et le cahier de QLM. »\n- « La prochaine fois, on mesurera (masse, volume, température). »"
+        }
+       ],
+       "materiel": "Par groupe : une éponge, un morceau de bois, de la pâte à modeler, une pierre (caillou), un objet en métal. Diaporama à projeter, leçon à coller, fiche d'expérience (tableau à remplir) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=cyXMiy0lC8s",
+       "differenciation": "CE1 : trier « dur / mou » et décrire avec un mot. CE2 : remplir tout le tableau et écrire une phrase de comparaison (« La pierre est plus lourde que l'éponge »).",
+       "depassement": "",
+       "correction": "Durs : bois, pierre, métal. Mous : éponge, pâte à modeler. La pâte à modeler se déforme mais garde sa forme. Tous sont des solides (ils gardent leur forme), mais leurs propriétés diffèrent.",
+       "obstacles": "Erreurs fréquentes :\n- Croire que « solide » = « dur » (l'éponge est solide mais molle).\n- Confondre lisse/rugueux et dur/mou.\nRemédiation rapide :\n- Rappeler : solide = garde sa forme ; ce n'est pas forcément dur.\n- Faire toucher les yeux fermés et nommer une seule propriété à la fois.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "id": "d2026-09-22s8",
+     "start": "14:25",
      "end": "15:10",
      "disciplineId": "francais",
      "activities": [
@@ -4756,10 +4818,72 @@
        "notesProchaine": ""
       }
      ]
+    },
+    {
+     "id": "m22-hist-slot",
+     "start": "16:30",
+     "end": "17:15",
+     "disciplineId": "qlm",
+     "activities": [
+      {
+       "id": "histS3",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Histoire — Lire une frise",
+       "objectif": "Lire une frise chronologique : comprendre le sens du temps (passé → présent), nommer et ordonner les 5 grandes périodes, se repérer (avant / après).",
+       "competence": "Se repérer dans le temps et le représenter ; ordonner des périodes sur une frise.",
+       "competenceRef": "Questionner le monde — Se situer dans le temps, cycle 2.",
+       "progPeriode": "P1",
+       "progDomaine": "qlm",
+       "progSequence": "Histoire · Construire le temps historique",
+       "progSeance": "3",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "h1",
+         "label": "Qu'est-ce qu'une frise ? (10 min)",
+         "note": "- « Aujourd'hui, on apprend à LIRE une frise du temps. »\n- « Une frise, c'est une ligne du temps : on la lit de gauche à droite. »\n- « À gauche, c'est il y a très longtemps ; à droite, c'est aujourd'hui. »\n- « Je projette la frise : regardez la flèche du temps. »\n- « Montrez-moi le côté du passé… et le côté d'aujourd'hui. »\n- (Je fais verbaliser « avant » à gauche, « après » à droite.)"
+        },
+        {
+         "id": "h2",
+         "label": "Les 5 grandes périodes (15 min)",
+         "note": "- « La frise est partagée en 5 grandes périodes, chacune sa couleur. »\n- « Dans l'ordre : la Préhistoire, l'Antiquité, le Moyen Âge, les Temps modernes, l'Époque contemporaine. »\n- « On les relit ensemble en montrant la frise. »\n- « Quelle période vient AVANT le Moyen Âge ? … l'Antiquité. »\n- « Quelle période vient APRÈS ? … les Temps modernes. »\n- « Dans quelle période vivons-nous ? … l'Époque contemporaine. »"
+        },
+        {
+         "id": "h3",
+         "label": "Tandem : je range les périodes (20 min)",
+         "note": "- « Chaque groupe reçoit les 5 étiquettes-périodes mélangées. »\n- « Vous les remettez dans l'ordre, de la plus ancienne à la plus récente. »\n- « CE1 : vous vous aidez de la frise affichée. »\n- « CE2 : vous placez aussi un petit événement (un trait) sur la frise. »\n- « On vérifie : est-ce que ça va bien du passé vers aujourd'hui ? »\n- « On colle sa frise dans le cahier de QLM. »"
+        },
+        {
+         "id": "h4",
+         "label": "Mise en commun & leçon (10 min)",
+         "note": "- « On corrige l'ordre des périodes au tableau. »\n- « Comment on lit une frise ? … de gauche (passé) à droite (aujourd'hui). »\n- « On colle la leçon « Lire une frise du temps ». »\n- « On relit les 5 périodes une dernière fois. »\n- « La prochaine fois, on construira notre propre frise. »"
+        }
+       ],
+       "materiel": "Diaporama « Lire une frise » à projeter ; frise des 5 périodes à afficher/coller (fournie, dessin original) ; étiquettes-périodes à remettre dans l'ordre ; cahier de QLM. Frises prêtes à télécharger (PDF) si besoin : Pass-Education (leçon CE2 « frise chronologique »), Classe et Grimaces (« les grandes périodes »). Voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=ebDUx9CRXFc",
+       "differenciation": "CE1 : ordonner et nommer les 5 périodes avec la frise sous les yeux. CE2 : placer un événement sur la frise et dire ce qui vient avant / après sans modèle.",
+       "depassement": "",
+       "correction": "Ordre des périodes : 1) Préhistoire, 2) Antiquité, 3) Moyen Âge, 4) Temps modernes, 5) Époque contemporaine. On lit toujours de gauche (le passé) vers la droite (aujourd'hui).",
+       "obstacles": "Erreurs fréquentes :\n- Lire la frise à l'envers (de droite à gauche).\n- Confondre l'ordre des périodes (mettre le Moyen Âge avant l'Antiquité).\nRemédiation rapide :\n- Garder la flèche du temps affichée (passé → aujourd'hui) et la montrer du doigt.\n- Faire mémoriser l'ordre par une phrase-repère répétée en chœur.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Revoir la leçon « Lire une frise » (les 5 grandes périodes dans l'ordre).",
+       "notesProchaine": ""
+      }
+     ]
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1790700000001
+   "updatedAt": 1791200000000
   },
   {
    "date": "2026-09-28",
@@ -8874,31 +8998,57 @@
      "notesProchaine": ""
     },
     {
-     "id": "qlm-hist-1-3",
+     "id": "histS3",
      "niveaux": [
       "classe"
      ],
-     "title": "Lire une frise",
-     "objectif": "Se repérer sur une frise chronologique.",
-     "competence": "",
-     "competenceRef": "",
+     "title": "Histoire — Lire une frise",
+     "objectif": "Lire une frise chronologique : comprendre le sens du temps (passé → présent), nommer et ordonner les 5 grandes périodes, se repérer (avant / après).",
+     "competence": "Se repérer dans le temps et le représenter ; ordonner des périodes sur une frise.",
+     "competenceRef": "Questionner le monde — Se situer dans le temps, cycle 2.",
      "progPeriode": "P1",
-     "progDomaine": "Histoire",
-     "progSequence": "Histoire · Séq. 1 — Construire le temps historique",
+     "progDomaine": "qlm",
+     "progSequence": "Histoire · Construire le temps historique",
      "progSeance": "3",
      "progRef": "",
-     "organisation": [],
-     "roleEnseignant": [],
-     "deroulement": [],
-     "materiel": "",
-     "video": "",
-     "differenciation": "CE1 : avant/après, placer des événements\nCE2 : dates, siècles, simultanéité",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "h1",
+       "label": "Qu'est-ce qu'une frise ? (10 min)",
+       "note": "- « Aujourd'hui, on apprend à LIRE une frise du temps. »\n- « Une frise, c'est une ligne du temps : on la lit de gauche à droite. »\n- « À gauche, c'est il y a très longtemps ; à droite, c'est aujourd'hui. »\n- « Je projette la frise : regardez la flèche du temps. »\n- « Montrez-moi le côté du passé… et le côté d'aujourd'hui. »\n- (Je fais verbaliser « avant » à gauche, « après » à droite.)"
+      },
+      {
+       "id": "h2",
+       "label": "Les 5 grandes périodes (15 min)",
+       "note": "- « La frise est partagée en 5 grandes périodes, chacune sa couleur. »\n- « Dans l'ordre : la Préhistoire, l'Antiquité, le Moyen Âge, les Temps modernes, l'Époque contemporaine. »\n- « On les relit ensemble en montrant la frise. »\n- « Quelle période vient AVANT le Moyen Âge ? … l'Antiquité. »\n- « Quelle période vient APRÈS ? … les Temps modernes. »\n- « Dans quelle période vivons-nous ? … l'Époque contemporaine. »"
+      },
+      {
+       "id": "h3",
+       "label": "Tandem : je range les périodes (20 min)",
+       "note": "- « Chaque groupe reçoit les 5 étiquettes-périodes mélangées. »\n- « Vous les remettez dans l'ordre, de la plus ancienne à la plus récente. »\n- « CE1 : vous vous aidez de la frise affichée. »\n- « CE2 : vous placez aussi un petit événement (un trait) sur la frise. »\n- « On vérifie : est-ce que ça va bien du passé vers aujourd'hui ? »\n- « On colle sa frise dans le cahier de QLM. »"
+      },
+      {
+       "id": "h4",
+       "label": "Mise en commun & leçon (10 min)",
+       "note": "- « On corrige l'ordre des périodes au tableau. »\n- « Comment on lit une frise ? … de gauche (passé) à droite (aujourd'hui). »\n- « On colle la leçon « Lire une frise du temps ». »\n- « On relit les 5 périodes une dernière fois. »\n- « La prochaine fois, on construira notre propre frise. »"
+      }
+     ],
+     "materiel": "Diaporama « Lire une frise » à projeter ; frise des 5 périodes à afficher/coller (fournie, dessin original) ; étiquettes-périodes à remettre dans l'ordre ; cahier de QLM. Frises prêtes à télécharger (PDF) si besoin : Pass-Education (leçon CE2 « frise chronologique »), Classe et Grimaces (« les grandes périodes »). Voir Documents à imprimer.",
+     "video": "https://www.youtube.com/watch?v=ebDUx9CRXFc",
+     "differenciation": "CE1 : ordonner et nommer les 5 périodes avec la frise sous les yeux. CE2 : placer un événement sur la frise et dire ce qui vient avant / après sans modèle.",
      "depassement": "",
-     "correction": "",
-     "obstacles": "",
+     "correction": "Ordre des périodes : 1) Préhistoire, 2) Antiquité, 3) Moyen Âge, 4) Temps modernes, 5) Époque contemporaine. On lit toujours de gauche (le passé) vers la droite (aujourd'hui).",
+     "obstacles": "Erreurs fréquentes :\n- Lire la frise à l'envers (de droite à gauche).\n- Confondre l'ordre des périodes (mettre le Moyen Âge avant l'Antiquité).\nRemédiation rapide :\n- Garder la flèche du temps affichée (passé → aujourd'hui) et la montrer du doigt.\n- Faire mémoriser l'ordre par une phrase-repère répétée en chœur.",
      "bilan": "",
      "aReprendre": "",
-     "devoirs": "",
+     "devoirs": "Revoir la leçon « Lire une frise » (les 5 grandes périodes dans l'ordre).",
      "notesProchaine": ""
     },
     {
@@ -8930,7 +9080,7 @@
      "notesProchaine": ""
     }
    ],
-   "updatedAt": 1789890000000
+   "updatedAt": 1791200000000
   },
   {
    "id": "seq-qlm-hist-2",
@@ -9644,28 +9794,54 @@
      "notesProchaine": ""
     },
     {
-     "id": "qlm-sci-1-3",
+     "id": "sciS3",
      "niveaux": [
       "classe"
      ],
-     "title": "Les solides ont-ils tous les mêmes propriétés ?",
-     "objectif": "Comparer éponge, bois, pâte à modeler, pierre, métal.",
-     "competence": "",
-     "competenceRef": "",
+     "title": "Sciences — Les solides ont-ils tous les mêmes propriétés ?",
+     "objectif": "Comparer des solides (éponge, bois, pâte à modeler, pierre, métal) et décrire leurs propriétés (dur/mou, lisse/rugueux, lourd/léger) ; comprendre qu'un solide garde sa forme.",
+     "competence": "Observer, décrire et comparer des matières ; classer selon des propriétés.",
+     "competenceRef": "Questionner le monde — La matière, cycle 2.",
      "progPeriode": "P1",
-     "progDomaine": "Sciences",
-     "progSequence": "Sciences · Séq. 1 — La matière autour de nous",
+     "progDomaine": "qlm",
+     "progSequence": "Sciences · La matière autour de nous",
      "progSeance": "3",
      "progRef": "",
-     "organisation": [],
-     "roleEnseignant": [],
-     "deroulement": [],
-     "materiel": "",
-     "video": "",
-     "differenciation": "CE1 : dur/mou, déformable/non déformable\nCE2 : comparer les propriétés, matériaux différents",
+     "organisation": [
+      "collectif",
+      "groupe"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "s1",
+       "label": "La question & les hypothèses (10 min)",
+       "note": "- « La dernière fois, on a vu solide ou liquide. Aujourd'hui : est-ce que tous les solides sont pareils ? »\n- « Je vous montre 5 objets : une éponge, du bois, de la pâte à modeler, une pierre, du métal. »\n- « Ils sont tous solides : ils gardent leur forme. Mais sont-ils identiques ? »\n- « À votre avis, lequel est dur ? lequel est mou ? »\n- « On va vérifier en les touchant, par groupes. »\n- (Je note quelques hypothèses au tableau.)"
+      },
+      {
+       "id": "s2",
+       "label": "On manipule par groupes (20 min)",
+       "note": "- « Chaque groupe a les 5 objets et la fiche d'expérience. »\n- « On touche : est-ce dur ou mou ? On appuie doucement. »\n- « On regarde et on frotte : lisse ou rugueux ? »\n- « On soupèse : lourd ou léger ? »\n- « On remplit le tableau pour chaque objet. »\n- (Je circule, je fais reformuler « dur », « rugueux », « léger ».)"
+      },
+      {
+       "id": "s3",
+       "label": "Mise en commun & classement (15 min)",
+       "note": "- « On compare nos résultats groupe par groupe. »\n- « Quels objets sont durs ? … le bois, la pierre, le métal. »\n- « Quels objets sont mous ? … l'éponge, la pâte à modeler. »\n- « Lequel se déforme mais garde sa forme ? … la pâte à modeler. »\n- « On range les objets dans deux familles : durs / mous. »\n- « Un solide garde toujours sa forme, mais chacun a ses propriétés. »"
+      },
+      {
+       "id": "s4",
+       "label": "Institutionnalisation (10 min)",
+       "note": "- « On colle la leçon : les solides n'ont pas tous les mêmes propriétés. »\n- « On relit : dur/mou, lisse/rugueux, lourd/léger. »\n- « Chacun écrit une phrase de comparaison sur sa fiche. »\n- « On range le matériel et le cahier de QLM. »\n- « La prochaine fois, on mesurera (masse, volume, température). »"
+      }
+     ],
+     "materiel": "Par groupe : une éponge, un morceau de bois, de la pâte à modeler, une pierre (caillou), un objet en métal. Diaporama à projeter, leçon à coller, fiche d'expérience (tableau à remplir) — voir Documents à imprimer.",
+     "video": "https://www.youtube.com/watch?v=cyXMiy0lC8s",
+     "differenciation": "CE1 : trier « dur / mou » et décrire avec un mot. CE2 : remplir tout le tableau et écrire une phrase de comparaison (« La pierre est plus lourde que l'éponge »).",
      "depassement": "",
-     "correction": "",
-     "obstacles": "",
+     "correction": "Durs : bois, pierre, métal. Mous : éponge, pâte à modeler. La pâte à modeler se déforme mais garde sa forme. Tous sont des solides (ils gardent leur forme), mais leurs propriétés diffèrent.",
+     "obstacles": "Erreurs fréquentes :\n- Croire que « solide » = « dur » (l'éponge est solide mais molle).\n- Confondre lisse/rugueux et dur/mou.\nRemédiation rapide :\n- Rappeler : solide = garde sa forme ; ce n'est pas forcément dur.\n- Faire toucher les yeux fermés et nommer une seule propriété à la fois.",
      "bilan": "",
      "aReprendre": "",
      "devoirs": "",
@@ -9700,7 +9876,7 @@
      "notesProchaine": ""
     }
    ],
-   "updatedAt": 1789890000000
+   "updatedAt": 1791200000000
   },
   {
    "id": "seq-qlm-sci-2",
