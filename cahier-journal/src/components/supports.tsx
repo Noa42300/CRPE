@@ -13,6 +13,7 @@ import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./Mesure
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
+import { MotsAApprendre, DICTEES } from "./DicteeMaison";
 
 export interface SupportFourni {
   key: string;
@@ -1000,6 +1001,12 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "det-s4-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(DET_ENTRAINE_CE1) },
         { key: "det-s4-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(DET_ENTRAINE_CE2) },
       ];
+    case "mots1": case "dictee1":
+      return [{ key: "mots-1", label: "Mots à apprendre — semaine 1 (à donner mardi)", node: <MotsAApprendre d={DICTEES[0]} /> }];
+    case "mots2": case "dictee2":
+      return [{ key: "mots-2", label: "Mots à apprendre — semaine 2 (à donner mardi)", node: <MotsAApprendre d={DICTEES[1]} /> }];
+    case "mots3": case "dictee3":
+      return [{ key: "mots-3", label: "Mots à apprendre — semaine 3 (à donner mardi)", node: <MotsAApprendre d={DICTEES[2]} /> }];
     case "nbS1":
       return [
         { key: "nb1-lecon", label: "Séance 1 — Leçon : construire 100 / 1000", node: ficheNode(NB1_LECON) },

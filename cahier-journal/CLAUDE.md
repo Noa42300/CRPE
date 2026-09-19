@@ -230,6 +230,23 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   (le reste de la semaine = complément). Ne préparer que ces deux jours
   (`settings.joursTravailles = [1, 2]`).
 
+## Devoirs — À NE JAMAIS OUBLIER (IMPORTANT)
+Chaque jour préparé doit avoir des **devoirs** (champ `info.devoirs` du jour), donnés
+**pour la semaine suivante** (classe à mi-temps) :
+- une **leçon** vue → « apprendre la leçon » ;
+- des **exercices** commencés → « finir la feuille » ;
+- **vocabulaire / mots de dictée** : toutes les semaines ;
+- **poésie** : une nouvelle ~toutes les 3 semaines (à réciter).
+
+## Dictées « maison » (transition avant Graphémo)
+Le temps que l'enseignant s'approprie **Graphémo**, on fait des **dictées maison** :
+- le **mardi**, on donne une **liste de mots à apprendre** (feuille `MotsAApprendre`,
+  `DicteeMaison.tsx`) → devoirs pour le **lundi** suivant ;
+- le **lundi**, **dictée** de ces mots + 2 courtes phrases (les phrases restent côté
+  enseignant, dans la séance ; pas sur la feuille élève) ;
+- CE2 = mots CE1 **+** quelques mots en plus. Contenu original (pas de manuel).
+- Cahier de dictée = **vert**.
+
 ## Volumes horaires hebdomadaires à respecter (IMPORTANT)
 
 Service à mi-temps : les volumes s'entendent **sur les DEUX jours (lundi + mardi)

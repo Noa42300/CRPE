@@ -776,7 +776,39 @@ function Base10Cutout() {
   );
 }
 
-export interface Aide { id: string; domaine: keyof typeof DOMAINES; titre: string; node: ReactNode; }
+/* ==================== ÉTIQUETTES POUR LES BACS (A3) ==================== */
+function IcoEval() { return (<svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><rect x="16" y="10" width="38" height="50" rx="4" fill="#fff" stroke="#fff" strokeWidth="3"/><path d="M24 26h22M24 34h22M24 42h14" stroke="#dc2626" strokeWidth="3" strokeLinecap="round"/><path d="M50 44l6 6 12-14" fill="none" stroke="#fff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/></svg>); }
+function IcoExo() { return (<svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><path d="M14 52l4-12 26-26 8 8-26 26-12 4z" fill="#fff" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/><path d="M40 18l8 8" stroke="#16a34a" strokeWidth="3"/><path d="M14 52l4-12" stroke="#16a34a" strokeWidth="2"/></svg>); }
+function IcoAdmin() { return (<svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><path d="M10 20h18l6 6h26v30H10z" fill="#fff" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/><path d="M10 26h50" stroke="#334155" strokeWidth="3"/></svg>); }
+function IcoRegle() { return (<svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><rect x="8" y="26" width="54" height="18" rx="2" fill="#fff"/>{[16,24,32,40,48,56].map((x)=><line key={x} x1={x} y1="26" x2={x} y2={x%16===0?"38":"33"} stroke="#2563eb" strokeWidth="2.5"/>)}<text x="35" y="58" textAnchor="middle" fontSize="16" fill="#fff" fontFamily="'Caveat',cursive" fontWeight="800">123</text></svg>); }
+function IcoLivre() { return (<svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><path d="M35 18c-6-5-16-5-22-2v34c6-3 16-3 22 2 6-5 16-5 22-2V16c-6-3-16-3-22 2z" fill="#fff" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/><path d="M35 18v34" stroke="#7c3aed" strokeWidth="3"/></svg>); }
+function IcoBac() { return (<svg width="70" height="70" viewBox="0 0 70 70" aria-hidden="true"><path d="M12 24h46l-5 30H17z" fill="#fff" stroke="#fff" strokeWidth="2" strokeLinejoin="round"/><path d="M12 24h46" stroke="#d97706" strokeWidth="3"/><rect x="28" y="16" width="14" height="8" rx="2" fill="#fff"/></svg>); }
+
+const ETIQUETTES = [
+  { txt: "ÉVALUATIONS", color: "#dc2626", ico: <IcoEval /> },
+  { txt: "EXERCICES", color: "#16a34a", ico: <IcoExo /> },
+  { txt: "ADMINISTRATIF", color: "#334155", ico: <IcoAdmin /> },
+  { txt: "MATÉRIEL MATHS", color: "#2563eb", ico: <IcoRegle /> },
+  { txt: "MATÉRIEL FRANÇAIS", color: "#7c3aed", ico: <IcoLivre /> },
+  { txt: "AUTRE MATÉRIEL", color: "#d97706", ico: <IcoBac /> },
+];
+
+function Etiquettes() {
+  return (
+    <div className="etiquettes-a3" style={{ width: "420mm", height: "297mm", background: "#fff", boxSizing: "border-box", padding: "10mm", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "8mm", height: "100%" }}>
+        {ETIQUETTES.map((e) => (
+          <div key={e.txt} style={{ background: e.color, borderRadius: "8mm", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "6mm", border: "4px solid rgba(0,0,0,.12)", color: "#fff" }}>
+            <div style={{ transform: "scale(2)" }}>{e.ico}</div>
+            <div style={{ fontSize: "40px", fontWeight: 800, textAlign: "center", fontFamily: "'Caveat','Comic Neue',cursive", lineHeight: 1.05, padding: "0 6mm" }}>{e.txt}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export interface Aide { id: string; domaine: keyof typeof DOMAINES; titre: string; node: ReactNode; pdf?: { format?: "a3"; orientation?: "landscape"; singlePage?: boolean } }
 
 export const MATERIEL: Aide[] = [
   { id: "base10", domaine: "numeration", titre: "Le matériel base 10 (à découper)", node: <Base10Cutout /> },
@@ -808,4 +840,5 @@ export const MATERIEL: Aide[] = [
   { id: "probleme", domaine: "methodo", titre: "Résoudre un problème", node: <ResoudreProbleme /> },
   { id: "consignes", domaine: "methodo", titre: "Les mots des consignes", node: <MotsConsignes /> },
   { id: "copie", domaine: "methodo", titre: "La méthode de copie", node: <MethodeCopie /> },
+  { id: "etiquettes", domaine: "methodo", titre: "Étiquettes pour les bacs (A3 — à découper)", node: <Etiquettes />, pdf: { format: "a3", orientation: "landscape", singlePage: true } },
 ];
