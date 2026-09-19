@@ -192,6 +192,79 @@ export function DeterminantsLecon() {
   );
 }
 
+/** Diaporama projeté « Démonstratifs & possessifs » (cartes à révéler). */
+function CarteDet({ mot, phrase, color }: { mot: string; phrase: string; color: string }) {
+  const [on, setOn] = useState(false);
+  return (
+    <button onClick={() => setOn((v) => !v)} className="flex flex-col items-center gap-1 rounded-2xl border-2 bg-white p-3 transition hover:scale-105" style={{ borderColor: color }} title="Cliquer pour révéler">
+      <span className="text-4xl font-extrabold" style={{ color, fontFamily: "'Caveat','Comic Neue',cursive" }}>{mot}</span>
+      <span className={`text-lg font-semibold ${on ? "" : "opacity-0"}`} style={{ color: "#334155" }}>{on ? phrase : "?"}</span>
+    </button>
+  );
+}
+const DP_ETAPES = ["C'est quoi ?", "Je montre", "À qui c'est", "Bravo"];
+export function DeterminantsDemoPossDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const last = DP_ETAPES.length - 1;
+  const CY = "#0891b2", PK = "#db2777";
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[960px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: DET }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Français · D'autres déterminants</span>
+        <div className="ml-2 flex gap-1.5">{DP_ETAPES.map((t, k) => <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full" style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />)}</div>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
+        {i === 0 && (
+          <div className="text-center">
+            <h1 className="text-4xl font-extrabold sm:text-5xl" style={{ color: DET }}>Il existe d'autres déterminants !</h1>
+            <p className="mt-3 text-2xl font-semibold text-stone-500">Pas seulement le, la, les, un, une, des…</p>
+            <p className="mt-4 text-3xl font-bold" style={{ fontFamily: "'Caveat','Comic Neue',cursive" }}>👉 les démonstratifs &nbsp;·&nbsp; 💛 les possessifs</p>
+          </div>
+        )}
+        {i === 1 && (
+          <div className="w-full text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: CY }}>Les démonstratifs — je MONTRE</h2>
+            <p className="mt-1 text-xl text-stone-500">Devine la fin, puis clique.</p>
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <CarteDet mot="ce" phrase="ce chien" color={CY} />
+              <CarteDet mot="cet" phrase="cet arbre" color={CY} />
+              <CarteDet mot="cette" phrase="cette fleur" color={CY} />
+              <CarteDet mot="ces" phrase="ces enfants" color={CY} />
+            </div>
+            <p className="mt-5 text-lg" style={{ color: CY }}>Devant une voyelle : <b>ce → cet</b> (cet arbre).</p>
+          </div>
+        )}
+        {i === 2 && (
+          <div className="w-full text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: PK }}>Les possessifs — à QUI c'est</h2>
+            <p className="mt-1 text-xl text-stone-500">Devine, puis clique.</p>
+            <div className="mt-6 grid grid-cols-3 gap-4">
+              <CarteDet mot="mon" phrase="mon cartable" color={PK} />
+              <CarteDet mot="ta" phrase="ta trousse" color={PK} />
+              <CarteDet mot="ses" phrase="ses crayons" color={PK} />
+            </div>
+            <p className="mt-5 text-lg text-stone-500">mon / ton / son · ma / ta / sa · mes / tes / ses</p>
+          </div>
+        )}
+        {i === 3 && (
+          <div className="text-center">
+            <div className="mb-4 text-7xl">🎉</div>
+            <h1 className="text-5xl font-extrabold" style={{ color: DET }}>Bravo !</h1>
+            <p className="mt-3 text-2xl font-semibold text-stone-500">Démonstratifs (je montre) et possessifs (à qui c'est) sont des déterminants.</p>
+          </div>
+        )}
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: DET, color: DET }}>◀</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{DP_ETAPES.length} · {DP_ETAPES[i]}</span>
+        <button onClick={() => setI((n) => Math.min(last, n + 1))} disabled={i === last} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: DET }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
 /** Leçon « Les déterminants démonstratifs et possessifs » — style enfantin. */
 export function DeterminantsDemoPossLecon() {
   return (

@@ -202,8 +202,15 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   (jeudi/vendredi) prend le **Calcul** (et le reste : Grandeurs, Problèmes).
   Donc, à mi-temps, on ne fait PAS toute la programmation Tandem d'une période :
   on ne prépare que sa part. Séquences maths P1 construites : `seq-maths-nombres-p1`,
-  `seq-maths-geo-p1` (posées lundi = Nombres, mardi = Géométrie, du 21/09 au 13/10,
-  éval libre en fin). Rythme visé : **1 chapitre = 1 séance = 1 créneau**.
+  `seq-maths-geo-p1` (posées lundi = Nombres, mardi = Géométrie, éval libre en fin).
+  Rythme visé : **1 chapitre = 1 séance = 1 créneau**.
+- **Ordre des Nombres P1 (validé) : COMPARER d'abord, PUIS construire 100/1000.**
+  « Comparer les nombres (< > =) » est un prérequis : découverte lundi 21/09,
+  consolidation (ranger/encadrer) mardi 22/09 — donc, exceptionnellement, les
+  DEUX jours de la semaine du 21/09 sont sur les Nombres (pas de géométrie cette
+  semaine-là). La géométrie reprend le mardi 29/09. Suite des Nombres décalée
+  d'une semaine : construire 100/1000 (28/09), écrire en lettres (05/10), suite
+  des nombres (12/10).
 - **Banque de fichiers autonomie CE2** : en maths, les tandems sont par classe.
   Pendant que je fais la **leçon guidée aux CE1** (projetée), les **CE2 sont en
   autonomie** sur un fichier préparé à l'avance (puis institutionnalisation). On
@@ -215,6 +222,12 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   la précédente (P1 : « courir longtemps » S1 → S2 → …). **Chaque séance EPS a une
   fiche qui schématise le terrain** (plots, distances idéales) et précise la
   **sécurité active / passive / affective** (voir `EpsTerrainSupport`).
+- **Matériel minimal privilégié** : l'enseignant a peu de matériel. Éviter les
+  séances gourmandes (ex. « lancer loin » : vortex/balles lestées). Modèle validé
+  low-cost : **« courir longtemps — le jeu des petits carrés »** (`EPS_COURIR_CARRES_L21/M22`
+  dans `EpsSeanceFiche.tsx`) : chaque élève a des carrés de papier, un BLEU par
+  tour couru sans s'arrêter, un JAUNE par tour marché ; on compte les carrés à la
+  fin (objectif = un max de bleus). Posé les 21 et 22/09 à la place de « lancer loin ».
 - **Anglais** : la programmation annuelle (18 séquences) vient du document de
   l'enseignant·e, transcrite dans `PROG_ANGLAIS` (ordre des séquences et des
   séances fidèle au document ; rattachement par période à confirmer). Vidéos
