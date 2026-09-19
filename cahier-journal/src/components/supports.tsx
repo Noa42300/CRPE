@@ -11,8 +11,8 @@ import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
-import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
-import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
+import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22 } from "./EpsSeanceFiche";
+import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { MotsAApprendre, DICTEES } from "./DicteeMaison";
 
 export interface SupportFourni {
@@ -977,6 +977,16 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "eps-s3-seance", label: "Séance « courir vite » — la séance mise en page (à lire d'un coup d'œil)", node: <EpsSeanceFiche data={EPS_COURIR_VITE_S3} /> },
         { key: "eps-s3-terrain", label: "Séance « courir vite » — schéma du terrain & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s3) },
       ];
+    case "l21eps":
+      return [
+        { key: "eps-carres-l21", label: "Séance « les petits carrés » — la séance mise en page (à lire d'un coup d'œil)", node: <EpsSeanceFiche data={EPS_COURIR_CARRES_L21} /> },
+        { key: "eps-carres-l21-terrain", label: "Courir longtemps — schéma de la boucle & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s1) },
+      ];
+    case "m22eps":
+      return [
+        { key: "eps-carres-m22", label: "Séance « je bats mon record » — la séance mise en page", node: <EpsSeanceFiche data={EPS_COURIR_CARRES_M22} /> },
+        { key: "eps-carres-m22-terrain", label: "Courir longtemps — schéma de la boucle & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s1) },
+      ];
     case "detS1":
       return [
         { key: "det-s1-lecon", label: "Séance 1 — Leçon : qu'est-ce qu'un déterminant ?", node: <DeterminantsLecon /> },
@@ -991,6 +1001,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "detS3":
       return [
+        { key: "det-s3-diapo", label: "Séance 3 — Diaporama à projeter (démonstratifs & possessifs)", node: <DeterminantsDemoPossDiapo /> },
         { key: "det-s3-lecon", label: "Séance 3 — Leçon : démonstratifs & possessifs", node: <DeterminantsDemoPossLecon /> },
         { key: "det-s3-ce1", label: "Séance 3 — Exercices CE1", node: ficheNode(DET_DEMOPOS_CE1) },
         { key: "det-s3-ce2", label: "Séance 3 — Exercices CE2", node: ficheNode(DET_DEMOPOS_CE2) },
@@ -1082,6 +1093,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "det-ce2", label: "Les déterminants — Exercices CE2 (A4)", node: ficheNode(DET_ENTRAINE_CE2) },
       ];
     case "m15comp":
+    case "l21comp":
+    case "m22comp":
       return [
         { key: "comp-diapo", label: "Comparer les nombres — Diaporama à projeter (les signes < > =)", node: <ComparerDiapo /> },
         { key: "comp-ce1-lecon", label: "Comparer les nombres — Leçon CE1 (à coller)", node: ficheNode(COMP_CE1_LECON) },

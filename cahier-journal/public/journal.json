@@ -3720,50 +3720,54 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "nbS1",
+       "id": "l21comp",
        "niveaux": [
         "classe"
        ],
-       "title": "Nombres S1 — Construire 100 et 1000",
-       "objectif": "Comprendre que 100 = 10 dizaines et 1000 = 10 centaines ; construire ces nombres.",
-       "competence": "Construire et représenter 100 / 1000.",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+       "title": "Nombres S1 — Comparer les nombres (< > =) · Découverte",
+       "objectif": "Comparer et ranger des nombres (CE1 jusqu'à 99, CE2 jusqu'à 1000) en utilisant <, > et =.",
+       "competence": "",
+       "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "Mathématiques — Nombres",
-       "progSequence": "Nombres — Période 1 (suite)",
+       "progDomaine": "maths",
+       "progSequence": "Nombres P1",
        "progSeance": "1",
        "progRef": "",
        "organisation": [
         "collectif",
-        "groupe",
-        "individuel"
+        "groupe"
        ],
        "roleEnseignant": [
         "guidage"
        ],
        "deroulement": [
         {
-         "id": "x1",
-         "label": "Découverte / rappel (15 min)",
-         "note": "- « On a du matériel base 10 : combien de barres pour faire une plaque de 100 ? »\n- « 10 dizaines = 1 centaine = 100. »\n- « Et pour faire 1000 ? … 10 plaques de 100 ! »\n- « On colle la leçon et on manipule le matériel base 10. »"
+         "id": "m1",
+         "label": "Découverte : la bouche mange le plus grand (15 min)",
+         "note": "- « Aujourd'hui, on apprend à comparer les nombres : lequel est le plus grand ? »\n- « Je projette : la bouche s'ouvre toujours vers le nombre le plus grand. »\n- « 3 … 8 : la bouche mange le 8, on écrit 3 < 8. »\n- « Trois signes : < plus petit, > plus grand, = égal. »\n- « Sortez l'ardoise, on s'entraîne avec le diaporama. »\n- « Montrez-moi le bon signe ! »"
         },
         {
-         "id": "x2",
-         "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : vous complétez pour arriver à 100 (feuille verte). »\n- « CE2 : vous construisez 1000 (feuille bleue). »\n- « On commence par l'exemple, je passe aider. »"
+         "id": "m2",
+         "label": "On institutionnalise (10 min)",
+         "note": "- « On colle la leçon : < plus petit que, > plus grand que, = égal. »\n- « Pour comparer, je regarde d'abord le rang le plus grand. »\n- « CE1 : on compare jusqu'à 99 ; CE2 : jusqu'à 1000. »\n- « Le petit truc : la pointe est du côté du plus petit. »\n- « On relit la règle tous ensemble. »"
         },
         {
-         "id": "x3",
-         "label": "Mise en commun (10 min)",
-         "note": "- « On corrige : 100 = 10 dizaines, 1000 = 10 centaines. »\n- « On range le cahier de maths. »"
+         "id": "m3",
+         "label": "Tandem : CE1 avec moi / CE2 en autonomie (30 min)",
+         "note": "- « CE1, on reste ensemble : on compare des nombres jusqu'à 99. »\n- « CE2, vous prenez le fichier autonomie : comparer jusqu'à 1000. »\n- « On place le bon signe entre les deux nombres. »\n- « CE2, vous rangez aussi des listes du plus petit au plus grand. »\n- « Ensuite, on échange : je viens voir les CE2. »\n- « Si c'est fini, je vérifie avec mon voisin. »"
+        },
+        {
+         "id": "m4",
+         "label": "Mise en commun (15 min)",
+         "note": "- « On corrige quelques comparaisons au tableau. »\n- « Comment tu as fait pour savoir ? … je regarde les centaines d'abord. »\n- « On vérifie le sens de la bouche : vers le plus grand. »\n- « On range le cahier de maths. »"
         }
        ],
-       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
-       "video": "",
-       "differenciation": "CE1 : construire 100 (compléter à 100, groupements de 10).\nCE2 : construire 1000 (compléter à 1000, 10 centaines).",
+       "materiel": "Diaporama « Comparer les nombres » projeté, ardoises, leçon CE1 et CE2 à coller, fichier autonomie CE2 (tandem) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
+       "differenciation": "CE1 : comparer et ranger des nombres jusqu'à 99, placer < > =.\nCE2 : comparer jusqu'à 1000, ranger des listes, encadrer.",
        "depassement": "",
-       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
-       "obstacles": "",
+       "correction": "Le signe s'ouvre vers le plus grand nombre. On compare rang par rang (centaines, puis dizaines, puis unités).",
+       "obstacles": "Erreurs fréquentes :\n- Écrire le signe à l'envers.\n- Comparer les chiffres un par un sans regarder le rang (dire 89 > 100 car 8 > 1).\nRemédiation rapide :\n- « La bouche mange le plus grand » ; faire tracer la pointe vers le petit.\n- Revenir à la valeur : « combien de centaines ? » d'abord.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3886,28 +3890,97 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "a-francais-7475",
+       "id": "l21monde",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Autour du monde — Escale 2 : l'Espagne (Europe)",
+       "objectif": "Découvrir un pays d'Europe : le situer sur la carte, découvrir un mode de vie et un monument.",
+       "competence": "Se repérer sur une carte ; découvrir cultures et patrimoines.",
+       "competenceRef": "QLM / Histoire des arts / Oral, cycle 2.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
+       "progDomaine": "Projet — Autour du monde",
+       "progSequence": "Europe",
+       "progSeance": "2",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "découverte"
+       ],
+       "deroulement": [
+        {
+         "id": "p1",
+         "label": "On devine le pays",
+         "note": "- « On continue notre voyage en Europe : devinez le pays de la semaine. »\n- « Indices : on y parle espagnol, il y a la mer, le soleil, la paella… »\n- « On situe l'Espagne sur la carte, juste à côté de la France. »\n- « On regarde le drapeau : rouge et jaune. »"
+        },
+        {
+         "id": "p2",
+         "label": "Carte d'identité du pays",
+         "note": "- « Chacun remplit sa carte d'identité de l'Espagne : nom, capitale, drapeau, spécialité, monument. »\n- « Capitale : Madrid ; monument : la Sagrada Família ; spécialité : la paella. »\n- « On la range dans la pochette noire (projet voyage). »"
+        }
+       ],
+       "materiel": "Diaporama Autour du monde (onglet Projets), carte d'identité Espagne A4 à imprimer, pochette noire (projet voyage).",
+       "video": "",
+       "differenciation": "CE1 : carte d'identité guidée (mots à recopier). CE2 : compléter seuls + une phrase sur le monument.",
+       "depassement": "",
+       "correction": "Espagne — capitale : Madrid ; monument : la Sagrada Família (Barcelone) ; spécialité : la paella.",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      },
+      {
+       "id": "l21rangement",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement & organisation de la classe — on met tout au clair",
+       "objectif": "Mettre au clair l'organisation matérielle : ce qu'on apporte, où on range chaque cahier et chaque travail, comment on prépare son bureau.",
+       "competence": "Autonomie et organisation ; devenir élève ; coopérer et respecter les règles de la classe.",
+       "competenceRef": "EMC / Méthodologie — cycle 2 (autonomie, vie de classe).",
+       "progPeriode": "P1",
+       "progDomaine": "Méthodologie / EMC",
+       "progSequence": "Vie de classe",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "r1",
+         "label": "Pourquoi bien ranger ? (10 min)",
+         "note": "- « On va prendre un bon moment pour tout mettre au clair dans la classe. »\n- « Quand tout est rangé, on gagne du temps et on ne perd rien. »\n- « On va voir ensemble : ce que j'apporte, où je range mes cahiers, où je range mes fiches. »\n- « Je montre le coin des casiers, le coin des pochettes, le tableau des responsabilités. »\n- « On écoute bien : après, chacun rangera son propre matériel. »"
+        },
+        {
+         "id": "r2",
+         "label": "Le code des cahiers (20 min)",
+         "note": "- « Chaque cahier a sa couleur, on va les reconnaître. »\n- « Cahier rouge = leçons de maths ; cahier bleu = leçons de français. »\n- « Cahier gris = exercices d'entraînement ; classeur = fiches de français et de maths. »\n- « Cahier vert = dictées ; cahier violet = anglais et évaluations de français ; cahier orange = évaluations de maths. »\n- « Cahier jaune = liaison (pour la maison) ; pochette noire = travail pas fini / projet voyage. »\n- « On range chacun ses cahiers au bon endroit dans son casier. »"
+        },
+        {
+         "id": "r3",
+         "label": "Où je range mon travail (20 min)",
+         "note": "- « Une fiche d'exercices finie : je la range dans le classeur, à la bonne intercalaire. »\n- « Un travail pas fini : il va dans la pochette noire, je le reprendrai. »\n- « Une leçon : je la colle dans le bon cahier avant de la ranger. »\n- « Je vous montre comment coller droit et sans plis. »\n- « On s'entraîne : je vous donne une fiche, vous la rangez au bon endroit. »\n- « On vérifie ensemble que tout est à sa place. »"
+        },
+        {
+         "id": "r4",
+         "label": "Ce que j'apporte & mon bureau (12 min)",
+         "note": "- « Le matin, dans mon cartable : mes cahiers du jour, ma trousse, mon goûter, ma gourde. »\n- « Sur mon bureau, je garde juste ce dont j'ai besoin : le reste est rangé. »\n- « On prépare ensemble le bureau pour demain. »\n- « On finit par un grand rangement de la classe, chacun sa zone. »\n- « Bravo : maintenant on sait où va chaque chose ! »"
+        }
+       ],
+       "materiel": "Les cahiers de couleur, le classeur et ses intercalaires, les pochettes (noire, jaune), quelques fiches d'entraînement pour s'exercer à ranger, l'affiche du code des cahiers.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : rangement guidé avec l'affiche des couleurs sous les yeux. CE2 : aident un CE1 (tutorat) et rangent seuls.",
        "depassement": "",
        "correction": "",
-       "obstacles": "",
+       "obstacles": "Erreurs fréquentes :\n- Confondre les couleurs de cahiers.\n- Ranger une fiche finie dans la pochette « pas fini ».\nRemédiation rapide :\n- Afficher le code couleur bien en vue toute la semaine.\n- Faire verbaliser : « c'est fini ? alors ça va dans le classeur ».",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3958,55 +4031,53 @@
      "disciplineId": "eps",
      "activities": [
       {
-       "id": "epsp1s5",
+       "id": "l21eps",
        "niveaux": [
         "classe"
        ],
-       "title": "EPS — Découverte : lancer loin",
-       "objectif": "Découvrir le lancer loin d'engins variés en respectant la sécurité.",
-       "competence": "Lancer loin ; respecter des règles de sécurité.",
-       "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+       "title": "EPS — Courir longtemps : le jeu des petits carrés",
+       "objectif": "Courir le plus longtemps possible sans s'arrêter et sans marcher, sur une grande boucle (matériel minimal : des carrés de papier).",
+       "competence": "Courir longtemps en gérant son allure ; connaître son corps et ses limites.",
+       "competenceRef": "EPS — Champ 1 : produire une performance mesurable, cycle 2.",
        "progPeriode": "P1",
-       "progDomaine": "Athlétisme — lancer",
-       "progSequence": "Athlétisme P1 — courir & lancer",
-       "progSeance": "5",
+       "progDomaine": "EPS",
+       "progSequence": "Athlétisme — courir longtemps",
+       "progSeance": "",
        "progRef": "",
        "organisation": [
-        "collectif",
-        "groupe",
-        "binômes"
+        "collectif"
        ],
        "roleEnseignant": [
         "guidage"
        ],
-       "video": "",
        "deroulement": [
         {
-         "id": "t1",
-         "label": "Mise en train (10 min)",
-         "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+         "id": "e1",
+         "label": "J'explique le jeu des carrés (8 min)",
+         "note": "- « Aujourd'hui on court longtemps, et on compte avec des petits carrés de couleur. »\n- « À chaque tour, vous prenez un carré BLEU si vous avez couru tout le tour sans vous arrêter. »\n- « Un carré JAUNE si vous avez marché, même un tout petit peu. »\n- « On glisse son carré dans son enveloppe à chaque passage devant moi. »\n- « Le but : avoir le plus de carrés BLEUS possible. »\n- « On court à son rythme : on veut aller LONGTEMPS, pas forcément vite. »"
         },
         {
-         "id": "t2",
-         "label": "Je découvre les engins (12 min)",
-         "note": "- « On découvre plusieurs objets à lancer : vortex, balle lestée, anneau. »\n- « On lance TOUS au signal, on ramasse TOUS au signal : jamais avant. »\n- « Personne ne passe devant la ligne de lancer. »\n- « On essaie de lancer le plus loin possible. »"
+         "id": "e2",
+         "label": "Échauffement (8 min)",
+         "note": "- « On réveille le corps : on trottine tranquillement un tour, tous ensemble. »\n- « On tourne les bras, on monte les genoux, on souffle. »\n- « Si je peux parler en courant, mon allure est bonne. »\n- « On repère le sens de la boucle : toujours le même sens. »\n- « On serre ses lacets avant de partir. »\n(Je repère qui part déjà trop vite pour le cadrer.)"
         },
         {
-         "id": "t3",
-         "label": "Dans quelle zone ? (13 min)",
-         "note": "- « On regarde dans quelle zone (1-2-3) tombe l'engin. »\n- « On essaie de dépasser la zone d'avant. »\n- « Chacun son tour : lanceur, juge, ramasseur. »\n- « On range les engins au signal. »"
+         "id": "e3",
+         "label": "La course des carrés (18 min)",
+         "note": "- « Au signal, on part DOUCEMENT, tous dans le même sens. »\n- « À chaque tour, vous passez devant moi et vous prenez votre carré : bleu ou jaune. »\n- « On reste honnête : tu sais si tu as couru tout le tour. »\n- « Fatigué ? Ralentis en petit trot plutôt que de t'arrêter. »\n- « On continue jusqu'au signal de fin. »\n(Je me place au point de passage, je distribue les carrés et j'encourage.)"
         },
         {
-         "id": "t9",
-         "label": "Retour au calme & bilan (7 min)",
-         "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+         "id": "e4",
+         "label": "On compte et on range (8 min)",
+         "note": "- « Videz votre enveloppe : comptez vos carrés bleus, puis vos jaunes. »\n- « Combien de tours en tout ? Combien sans t'arrêter ? »\n- « La prochaine fois, on essaiera d'avoir plus de bleus. »\n- « Qu'est-ce qui aide à ne pas s'arrêter ? … partir doucement, respirer, garder le rythme. »\n- « On ramasse tous les carrés par terre, on range les enveloppes. »"
         }
        ],
-       "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées, anneaux ; plots, cordes — voir Documents à imprimer.",
-       "differenciation": "Engin plus ou moins léger ; distance de zones adaptée ; rôles tournants.",
+       "materiel": "Une grande boucle balisée par 4 plots (≈ 100 m). Pour chaque élève : des carrés de papier JAUNES et BLEUS + une enveloppe (ou un gobelet) à son prénom. C'est tout.",
+       "video": "",
+       "differenciation": "CE1 : objectif de durée court (viser 3-4 carrés bleus). CE2 : viser plus de tours bleus et une allure régulière. Droit de marcher (carré jaune) pour tout le monde.",
        "depassement": "",
-       "correction": "Critères de réussite : lancer au signal, loin, en sécurité ; identifier sa zone.",
-       "obstacles": "Erreurs fréquentes :\n- Lance vers le bas / sans élan du bras.\n- Avance devant la ligne pour ramasser.\nRemédiation :\n- « Lance haut et loin, comme par-dessus un arbre » ; geste bras cassé à vide.\n- Règle stricte : on ramasse UNIQUEMENT au signal.",
+       "correction": "On compte les carrés : bleus = tours courus sans s'arrêter, jaunes = tours marchés.",
+       "obstacles": "Erreurs fréquentes :\n- Partir trop vite et devoir marcher au bout d'un tour.\n- Ne pas être honnête sur la couleur du carré.\nRemédiation rapide :\n- « Pars au rythme où tu peux parler » ; imposer un départ lent groupé.\n- Rappeler que le carré, c'est pour SOI, pour voir ses progrès (pas une compétition).",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -4052,7 +4123,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000000
   },
   {
    "date": "2026-09-22",
@@ -4253,50 +4324,54 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "geoS1",
+       "id": "m22comp",
        "niveaux": [
         "classe"
        ],
-       "title": "Géométrie S1 — Se repérer (CE1) / La symétrie (CE2)",
-       "objectif": "CE1 : utiliser le vocabulaire spatial pour se repérer dans l'école. CE2 : découvrir l'axe de symétrie.",
-       "competence": "Se repérer (CE1) ; symétrie (CE2).",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "title": "Nombres S1 (suite) — Comparer et ranger les nombres · Consolidation",
+       "objectif": "Consolider la comparaison : ranger des nombres du plus petit au plus grand et les encadrer (CE1 jusqu'à 99, CE2 jusqu'à 1000), avec <, > et =.",
+       "competence": "",
+       "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "Mathématiques — Espace & Géométrie",
-       "progSequence": "Espace & Géométrie — Période 1",
-       "progSeance": "1",
+       "progDomaine": "maths",
+       "progSequence": "Nombres P1",
+       "progSeance": "1b",
        "progRef": "",
        "organisation": [
         "collectif",
-        "groupe",
-        "individuel"
+        "groupe"
        ],
        "roleEnseignant": [
         "guidage"
        ],
        "deroulement": [
         {
-         "id": "x1",
-         "label": "Découverte / rappel (15 min)",
-         "note": "- « CE1, avec moi : où est la porte ? à gauche, à droite ? On se repère dans la classe. »\n- « CE2, vous découvrez la symétrie : le miroir, on plie sur l'axe. »\n- « On colle la leçon (deux parties : se repérer / la symétrie). »"
+         "id": "c1",
+         "label": "On se rappelle les signes (10 min)",
+         "note": "- « Hier, on a appris à comparer : la bouche mange le plus grand. »\n- « Qui me redit ce que veut dire < ? et > ? et = ? »\n- « Sortez l'ardoise : je montre deux nombres, vous écrivez le bon signe. »\n- « 46 … 64 : quel signe ? … 46 < 64. »\n- « On regarde toujours le rang le plus grand d'abord. »\n- « Aujourd'hui, on va aussi RANGER des nombres et les ENCADRER. »"
         },
         {
-         "id": "x2",
-         "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : feuille “se repérer dans l'école” (mots de l'espace, plan de la table). »\n- « CE2 : feuille “la symétrie” (axe ou pas ? compléter sur quadrillage). »\n- « On commence par l'exemple ; ensuite on échange, je viens voir les CE2. »"
+         "id": "c2",
+         "label": "Ranger du plus petit au plus grand (12 min)",
+         "note": "- « Ranger, c'est mettre dans l'ordre, du plus petit au plus grand. »\n- « Je projette 4 étiquettes-nombres : on cherche le plus petit, puis le suivant… »\n- « CE1, on range des nombres jusqu'à 99 ; CE2, jusqu'à 1000. »\n- « Astuce : je compare deux par deux pour trouver le plus petit. »\n- « On vérifie en relisant : ça monte bien à chaque fois ? »\n- « À vous sur l'ardoise, je vous donne 4 nombres à ranger. »"
         },
         {
-         "id": "x3",
-         "label": "Mise en commun (10 min)",
-         "note": "- « CE1 : on nomme des positions au tableau. »\n- « CE2 : on vérifie une symétrie en pliant. »"
+         "id": "c3",
+         "label": "Tandem : CE1 avec moi / CE2 en autonomie (25 min)",
+         "note": "- « CE1, on reste ensemble : on range et on encadre des nombres jusqu'à 99. »\n- « CE2, vous prenez le fichier autonomie : ranger et encadrer jusqu'à 1000. »\n- « Encadrer, c'est trouver le nombre juste avant et le nombre juste après. »\n- « Exemple : 49 < 50 < 51. »\n- « Quand j'ai fini, je vérifie avec mon voisin. »\n- « Ensuite je viens voir les CE2 pour corriger. »"
+        },
+        {
+         "id": "c4",
+         "label": "Mise en commun & leçon (13 min)",
+         "note": "- « On corrige quelques rangements au tableau. »\n- « Comment tu as trouvé le plus petit ? … je compare les centaines d'abord. »\n- « On complète la leçon : comparer, ranger, encadrer. »\n- « On relit la règle tous ensemble. »\n- « On range le cahier de maths (leçon = cahier rouge, exercices = classeur). »"
         }
        ],
-       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
-       "video": "",
-       "differenciation": "CE1 (avec le PE) : gauche/droite, devant/derrière, se repérer dans la classe et l'école.\nCE2 (autonomie puis reprise) : reconnaître un axe de symétrie, l'idée du miroir/pliage.",
+       "materiel": "Diaporama « Comparer les nombres » (rappel), ardoises, étiquettes-nombres à ranger, leçon CE1 et CE2 à compléter, fichier autonomie CE2 (tandem) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
+       "differenciation": "CE1 : comparer et ranger des nombres jusqu'à 99, placer < > =.\nCE2 : comparer jusqu'à 1000, ranger des listes, encadrer.",
        "depassement": "",
-       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
-       "obstacles": "",
+       "correction": "Ranger = du plus petit au plus grand (on compare rang par rang). Encadrer = nombre juste avant < nombre < nombre juste après (ex. 49 < 50 < 51).",
+       "obstacles": "Erreurs fréquentes :\n- Ranger du plus grand au plus petit (sens inversé).\n- Encadrer avec un écart trop grand (48 < 50 < 52 au lieu de 49/51).\nRemédiation rapide :\n- Montrer la flèche qui MONTE : petit → grand.\n- « Le nombre juste avant/juste après » = on ajoute ou on enlève 1.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -4419,28 +4494,49 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "a-francais-7475",
+       "id": "m22ortho",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "Créneau français de l'après-midi (~1h15) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — Orthographe & vocabulaire (préparer la liste de mots)",
+       "objectif": "Travailler l'orthographe et le vocabulaire de la semaine, et préparer la liste de mots à apprendre (dictée du lundi suivant).",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; enrichir le vocabulaire ; copier sans erreur.",
+       "competenceRef": "Français — Étude de la langue / Lexique, cycle 2.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
+       "progDomaine": "francais",
+       "progSequence": "Orthographe — dictée maison",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "o1",
+         "label": "On découvre les mots de la semaine (12 min)",
+         "note": "- « Voici les mots qu'on va apprendre cette semaine pour la dictée de lundi. »\n- « On les lit ensemble, on repère les lettres difficiles (les pièges). »\n- « Que veut dire ce mot ? On l'explique et on fait une phrase à l'oral. »\n- « On souligne la partie du mot qu'il faut bien retenir. »\n- « On classe : les mots de la classe, un petit mot-outil… »"
+        },
+        {
+         "id": "o2",
+         "label": "Je m'entraîne à écrire (18 min)",
+         "note": "- « On applique la méthode : je lis → je cache → j'écris → je vérifie. »\n- « Sur l'ardoise, j'écris un mot, je le compare au modèle. »\n- « Je corrige tout de suite si je me suis trompé. »\n- « CE1 : les mots pour tout le monde ; CE2 : les mots en plus aussi. »\n- « On écrit deux mots dans une petite phrase. »\n(Je passe voir les mots difficiles pour chacun.)"
+        },
+        {
+         "id": "o3",
+         "label": "On range et on note les devoirs (10 min)",
+         "note": "- « On colle la feuille « Mots à apprendre » dans le cahier de liaison (jaune). »\n- « Pour lundi : apprendre les mots avec la méthode lire-cacher-écrire-vérifier. »\n- « Lundi, ce sera la dictée de ces mots + deux petites phrases. »\n- « On range le classeur et le cahier de liaison. »"
+        }
+       ],
+       "materiel": "Feuille « Mots à apprendre » (voir Documents à imprimer), ardoises, cahier de liaison (jaune). Contenu original.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : liste de base, mots courts. CE2 : liste de base + mots en plus, une phrase à écrire.",
        "depassement": "",
        "correction": "",
-       "obstacles": "",
+       "obstacles": "Erreurs fréquentes :\n- Recopier sans regarder les lettres difficiles.\n- Oublier la liste à la maison.\nRemédiation rapide :\n- Faire épeler la partie soulignée du mot.\n- Coller tout de suite la feuille dans le cahier jaune.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -4529,55 +4625,53 @@
      "disciplineId": "eps",
      "activities": [
       {
-       "id": "epsp1s6",
+       "id": "m22eps",
        "niveaux": [
         "classe"
        ],
-       "title": "EPS — Consolidation : lancer loin (technique)",
-       "objectif": "Améliorer son lancer (geste bras cassé) et viser sa meilleure zone.",
-       "competence": "Lancer loin ; améliorer un geste technique.",
-       "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+       "title": "EPS — Courir longtemps : je bats mon record de carrés bleus",
+       "objectif": "Tenir une allure régulière pour gagner plus de carrés bleus que la dernière fois (courir sans s'arrêter, plus longtemps).",
+       "competence": "Courir longtemps en gérant son allure ; connaître son corps et ses limites.",
+       "competenceRef": "EPS — Champ 1 : produire une performance mesurable, cycle 2.",
        "progPeriode": "P1",
-       "progDomaine": "Athlétisme — lancer",
-       "progSequence": "Athlétisme P1 — courir & lancer",
-       "progSeance": "6",
+       "progDomaine": "EPS",
+       "progSequence": "Athlétisme — courir longtemps",
+       "progSeance": "",
        "progRef": "",
        "organisation": [
-        "collectif",
-        "groupe",
-        "binômes"
+        "collectif"
        ],
        "roleEnseignant": [
         "guidage"
        ],
-       "video": "",
        "deroulement": [
         {
-         "id": "t1",
-         "label": "Mise en train (10 min)",
-         "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
+         "id": "e1",
+         "label": "On se rappelle le jeu (6 min)",
+         "note": "- « On rejoue au jeu des carrés : bleu = tour couru sans s'arrêter, jaune = tour marché. »\n- « Aujourd'hui, le défi : avoir PLUS de carrés bleus que lundi. »\n- « Le secret : partir doucement et garder le même rythme. »\n- « Si je peux parler en courant, mon allure est bonne. »\n- « On se souvient de son score ? On essaie de faire mieux. »"
         },
         {
-         "id": "t2",
-         "label": "Le geste bras cassé (12 min)",
-         "note": "- « On lance bras cassé, coude haut, on lance HAUT et loin. »\n- « On prend un petit élan derrière la ligne. »\n- « On lance TOUS au signal, on ramasse TOUS au signal. »\n- « On regarde jusqu'où va l'engin. »"
+         "id": "e2",
+         "label": "Échauffement (7 min)",
+         "note": "- « On trottine un tour tranquille, tous ensemble. »\n- « On mobilise : bras, genoux, chevilles ; on souffle bien. »\n- « On teste l'allure « parler » : je cours en récitant les jours de la semaine. »\n- « On repère le sens de la boucle. »\n(Je cadre au départ les élèves partis trop vite lundi.)"
         },
         {
-         "id": "t3",
-         "label": "Je bats mon record (13 min)",
-         "note": "- « On essaie de dépasser sa meilleure zone. »\n- « Le juge note la zone atteinte. »\n- « On tourne les rôles : lanceur, juge, ramasseur. »\n- « On se félicite des progrès. »"
+         "id": "e3",
+         "label": "La course des carrés, plus longue (20 min)",
+         "note": "- « Au signal, on part DOUCEMENT : on garde des forces pour tenir longtemps. »\n- « À chaque tour, je prends mon carré : bleu si je n'ai pas marché, jaune sinon. »\n- « Objectif : enchaîner les bleus, ne pas s'arrêter. »\n- « Fatigué ? Je ralentis en petit trot plutôt que de marcher. »\n- « On tient jusqu'au signal de fin. »\n(Je circule et j'encourage à garder le trot plutôt que marcher.)"
         },
         {
-         "id": "t9",
-         "label": "Retour au calme & bilan (7 min)",
-         "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+         "id": "e4",
+         "label": "Bilan : ai-je progressé ? (7 min)",
+         "note": "- « Comptez vos carrés bleus, puis les jaunes. »\n- « Plus de bleus que lundi ? Bravo, tu as progressé ! »\n- « Qu'est-ce qui t'a aidé à ne pas t'arrêter aujourd'hui ? »\n- « La prochaine fois, on tiendra encore un peu plus longtemps. »\n- « On ramasse tous les carrés et on range les enveloppes. »"
         }
        ],
-       "materiel": "Ligne de lancer + zones 1-2-3 ; vortex, balles lestées ; plots, cordes — voir Documents à imprimer.",
-       "differenciation": "Engin adapté ; distance de zones adaptée ; aide au geste (bras cassé) si besoin.",
+       "materiel": "Une grande boucle balisée par 4 plots (≈ 100 m). Pour chaque élève : des carrés de papier JAUNES et BLEUS + une enveloppe (ou un gobelet) à son prénom. C'est tout.",
+       "video": "",
+       "differenciation": "CE1 : objectif de durée court (viser 3-4 carrés bleus). CE2 : viser plus de tours bleus et une allure régulière. Droit de marcher (carré jaune) pour tout le monde.",
        "depassement": "",
-       "correction": "Critères de réussite : geste bras cassé ; progrès de zone par rapport à S5.",
-       "obstacles": "Erreurs fréquentes :\n- Lance à bras tendu, trop bas.\n- Ne prend pas d'élan.\nRemédiation :\n- Geste à vide « coude haut, on vise le ciel » ; cible haute (au-dessus d'une corde).\n- Marquer les pas d'élan derrière la ligne.",
+       "correction": "On compte les carrés : bleus = tours courus sans s'arrêter, jaunes = tours marchés.",
+       "obstacles": "Erreurs fréquentes :\n- Partir trop vite et devoir marcher au bout d'un tour.\n- Ne pas être honnête sur la couleur du carré.\nRemédiation rapide :\n- « Pars au rythme où tu peux parler » ; imposer un départ lent groupé.\n- Rappeler que le carré, c'est pour SOI, pour voir ses progrès (pas une compétition).",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -4623,7 +4717,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000001
   },
   {
    "date": "2026-09-28",
@@ -4785,18 +4879,18 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "nbS2",
+       "id": "nbS1",
        "niveaux": [
         "classe"
        ],
-       "title": "Nombres S2 — Écrire les nombres en lettres",
-       "objectif": "Lire et écrire les nombres en lettres (dizaines particulières : 70, 80, 90 ; centaines pour les CE2).",
-       "competence": "Nommer et écrire les nombres en lettres.",
+       "title": "Nombres S1 — Construire 100 et 1000",
+       "objectif": "Comprendre que 100 = 10 dizaines et 1000 = 10 centaines ; construire ces nombres.",
+       "competence": "Construire et représenter 100 / 1000.",
        "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Nombres",
        "progSequence": "Nombres — Période 1 (suite)",
-       "progSeance": "2",
+       "progSeance": "1",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -4810,22 +4904,22 @@
         {
          "id": "x1",
          "label": "Découverte / rappel (15 min)",
-         "note": "- « Comment on écrit 80 en lettres ? … quatre-vingts, avec un s ! »\n- « 71 = soixante et onze ; 90 = quatre-vingt-dix. »\n- « On regarde le tableau de la leçon ensemble. »\n- « On colle la leçon. »"
+         "note": "- « On a du matériel base 10 : combien de barres pour faire une plaque de 100 ? »\n- « 10 dizaines = 1 centaine = 100. »\n- « Et pour faire 1000 ? … 10 plaques de 100 ! »\n- « On colle la leçon et on manipule le matériel base 10. »"
         },
         {
          "id": "x2",
          "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : écrire en lettres jusqu'à 99. »\n- « CE2 : jusqu'à 999, attention à cent et cents. »\n- « On démarre par l'exemple. »"
+         "note": "- « CE1 : vous complétez pour arriver à 100 (feuille verte). »\n- « CE2 : vous construisez 1000 (feuille bleue). »\n- « On commence par l'exemple, je passe aider. »"
         },
         {
          "id": "x3",
          "label": "Mise en commun (10 min)",
-         "note": "- « On corrige quelques nombres au tableau. »\n- « On repère les pièges : quatre-vingts / quatre-vingt-un. »"
+         "note": "- « On corrige : 100 = 10 dizaines, 1000 = 10 centaines. »\n- « On range le cahier de maths. »"
         }
        ],
        "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : nombres jusqu'à 99 en lettres.\nCE2 : nombres jusqu'à 999 (et 1000) en lettres.",
+       "differenciation": "CE1 : construire 100 (compléter à 100, groupements de 10).\nCE2 : construire 1000 (compléter à 1000, 10 centaines).",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
@@ -5155,7 +5249,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000002
   },
   {
    "date": "2026-09-29",
@@ -5290,18 +5384,18 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "geoS2",
+       "id": "geoS1",
        "niveaux": [
         "classe"
        ],
-       "title": "Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2)",
-       "objectif": "CE1 : se repérer et décrire un trajet dans le quartier. CE2 : compléter une figure par symétrie (axe vertical).",
-       "competence": "Se repérer / se déplacer (CE1) ; symétrie (CE2).",
+       "title": "Géométrie S1 — Se repérer (CE1) / La symétrie (CE2)",
+       "objectif": "CE1 : utiliser le vocabulaire spatial pour se repérer dans l'école. CE2 : découvrir l'axe de symétrie.",
+       "competence": "Se repérer (CE1) ; symétrie (CE2).",
        "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Espace & Géométrie",
        "progSequence": "Espace & Géométrie — Période 1",
-       "progSeance": "2",
+       "progSeance": "1",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -5315,22 +5409,22 @@
         {
          "id": "x1",
          "label": "Découverte / rappel (15 min)",
-         "note": "- « CE1 : comment tu vas de chez toi à l'école ? On décrit le trajet. »\n- « CE2 : on complète l'autre moitié d'une figure, en comptant les carreaux. »\n- « On rappelle : symétrique = pareil de chaque côté de l'axe. »"
+         "note": "- « CE1, avec moi : où est la porte ? à gauche, à droite ? On se repère dans la classe. »\n- « CE2, vous découvrez la symétrie : le miroir, on plie sur l'axe. »\n- « On colle la leçon (deux parties : se repérer / la symétrie). »"
         },
         {
          "id": "x2",
          "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : feuille “se repérer dans le quartier” + dessiner son trajet. »\n- « CE2 : feuille “compléter par symétrie (1)”, axe vertical. »\n- « On commence par l'exemple. »"
+         "note": "- « CE1 : feuille “se repérer dans l'école” (mots de l'espace, plan de la table). »\n- « CE2 : feuille “la symétrie” (axe ou pas ? compléter sur quadrillage). »\n- « On commence par l'exemple ; ensuite on échange, je viens voir les CE2. »"
         },
         {
          "id": "x3",
          "label": "Mise en commun (10 min)",
-         "note": "- « CE2 : on vérifie en pliant sur l'axe. »\n- « On range. »"
+         "note": "- « CE1 : on nomme des positions au tableau. »\n- « CE2 : on vérifie une symétrie en pliant. »"
         }
        ],
        "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : décrire un trajet (à gauche, à droite, tout droit), lire des repères.\nCE2 : compléter une figure symétrique sur quadrillage (axe vertical).",
+       "differenciation": "CE1 (avec le PE) : gauche/droite, devant/derrière, se repérer dans la classe et l'école.\nCE2 (autonomie puis reprise) : reconnaître un axe de symétrie, l'idée du miroir/pliage.",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
@@ -5633,7 +5727,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000003
   },
   {
    "date": "2026-10-05",
@@ -5768,18 +5862,18 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "nbS3",
+       "id": "nbS2",
        "niveaux": [
         "classe"
        ],
-       "title": "Nombres S3 — La suite des nombres",
-       "objectif": "Dire, lire, écrire la suite des nombres (jusqu'à 200 pour les CE1, 2000 pour les CE2) ; avant / après.",
-       "competence": "Connaître la suite des nombres.",
+       "title": "Nombres S2 — Écrire les nombres en lettres",
+       "objectif": "Lire et écrire les nombres en lettres (dizaines particulières : 70, 80, 90 ; centaines pour les CE2).",
+       "competence": "Nommer et écrire les nombres en lettres.",
        "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Nombres",
        "progSequence": "Nombres — Période 1 (suite)",
-       "progSeance": "3",
+       "progSeance": "2",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -5793,22 +5887,22 @@
         {
          "id": "x1",
          "label": "Découverte / rappel (15 min)",
-         "note": "- « On compte ensemble : 98, 99, 100, 101… attention au passage à la centaine ! »\n- « CE2 : 999, 1000, 1001… et 1999, 2000, 2001. »\n- « Chaque nombre a un précédent et un suivant. »\n- « On colle la leçon. »"
+         "note": "- « Comment on écrit 80 en lettres ? … quatre-vingts, avec un s ! »\n- « 71 = soixante et onze ; 90 = quatre-vingt-dix. »\n- « On regarde le tableau de la leçon ensemble. »\n- « On colle la leçon. »"
         },
         {
          "id": "x2",
          "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : compléter les suites jusqu'à 200. »\n- « CE2 : jusqu'à 2000, et compter de 100 en 100. »\n- « On commence par l'exemple. »"
+         "note": "- « CE1 : écrire en lettres jusqu'à 99. »\n- « CE2 : jusqu'à 999, attention à cent et cents. »\n- « On démarre par l'exemple. »"
         },
         {
          "id": "x3",
          "label": "Mise en commun (10 min)",
-         "note": "- « On corrige les passages difficiles (99→100, 1999→2000). »\n- « On range. »"
+         "note": "- « On corrige quelques nombres au tableau. »\n- « On repère les pièges : quatre-vingts / quatre-vingt-un. »"
         }
        ],
        "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : suite jusqu'à 200, de 1 en 1 et de 10 en 10.\nCE2 : suite jusqu'à 2000, de 1 en 1 et de 100 en 100.",
+       "differenciation": "CE1 : nombres jusqu'à 99 en lettres.\nCE2 : nombres jusqu'à 999 (et 1000) en lettres.",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
@@ -6111,7 +6205,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000004
   },
   {
    "date": "2026-10-06",
@@ -6246,18 +6340,18 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "geoS3",
+       "id": "geoS2",
        "niveaux": [
         "classe"
        ],
-       "title": "Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2)",
-       "objectif": "CE1 : se déplacer sur un quadrillage-plan (cases, directions). CE2 : compléter par symétrie (axe horizontal, oblique).",
-       "competence": "Se déplacer sur un plan (CE1) ; symétrie (CE2).",
+       "title": "Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2)",
+       "objectif": "CE1 : se repérer et décrire un trajet dans le quartier. CE2 : compléter une figure par symétrie (axe vertical).",
+       "competence": "Se repérer / se déplacer (CE1) ; symétrie (CE2).",
        "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Espace & Géométrie",
        "progSequence": "Espace & Géométrie — Période 1",
-       "progSeance": "3",
+       "progSeance": "2",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -6271,22 +6365,22 @@
         {
          "id": "x1",
          "label": "Découverte / rappel (15 min)",
-         "note": "- « CE1 : sur le plan quadrillé, on avance case par case : droite, gauche, haut, bas. »\n- « CE2 : aujourd'hui l'axe peut être horizontal, ou penché ! »\n- « On rappelle la méthode : compter les carreaux. »"
+         "note": "- « CE1 : comment tu vas de chez toi à l'école ? On décrit le trajet. »\n- « CE2 : on complète l'autre moitié d'une figure, en comptant les carreaux. »\n- « On rappelle : symétrique = pareil de chaque côté de l'axe. »"
         },
         {
          "id": "x2",
          "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : feuille “se déplacer sur un plan”, écrire un chemin. »\n- « CE2 : feuille “compléter par symétrie (2)”. »\n- « On commence par l'exemple. »"
+         "note": "- « CE1 : feuille “se repérer dans le quartier” + dessiner son trajet. »\n- « CE2 : feuille “compléter par symétrie (1)”, axe vertical. »\n- « On commence par l'exemple. »"
         },
         {
          "id": "x3",
          "label": "Mise en commun (10 min)",
-         "note": "- « On met en commun quelques réponses. »\n- « On range. »"
+         "note": "- « CE2 : on vérifie en pliant sur l'axe. »\n- « On range. »"
         }
        ],
        "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : suivre et écrire un déplacement sur un plan quadrillé.\nCE2 : compléter des figures symétriques (axe horizontal puis oblique).",
+       "differenciation": "CE1 : décrire un trajet (à gauche, à droite, tout droit), lire des repères.\nCE2 : compléter une figure symétrique sur quadrillage (axe vertical).",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
@@ -6589,7 +6683,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000005
   },
   {
    "date": "2026-10-12",
@@ -6724,18 +6818,18 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "nbS4",
+       "id": "nbS3",
        "niveaux": [
         "classe"
        ],
-       "title": "Nombres S4 — Évaluation (libre) ou entraînement",
-       "objectif": "Évaluer les compétences Nombres de la période (construire 100/1000, en lettres, la suite). Évaluation LIBRE, à la demande.",
-       "competence": "Bilan Nombres P1.",
+       "title": "Nombres S3 — La suite des nombres",
+       "objectif": "Dire, lire, écrire la suite des nombres (jusqu'à 200 pour les CE1, 2000 pour les CE2) ; avant / après.",
+       "competence": "Connaître la suite des nombres.",
        "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Nombres",
        "progSequence": "Nombres — Période 1 (suite)",
-       "progSeance": "4",
+       "progSeance": "3",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -6747,24 +6841,24 @@
        ],
        "deroulement": [
         {
-         "id": "e1",
-         "label": "Consignes (10 min)",
-         "note": "- « L'évaluation des nombres est LIBRE : tu la fais quand tu te sens prêt(e). »\n- « Tu me demandes, tu t'installes au fond, au calme. »\n- « Sinon, tu prends la feuille d'entraînement. »"
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « On compte ensemble : 98, 99, 100, 101… attention au passage à la centaine ! »\n- « CE2 : 999, 1000, 1001… et 1999, 2000, 2001. »\n- « Chaque nombre a un précédent et un suivant. »\n- « On colle la leçon. »"
         },
         {
-         "id": "e2",
-         "label": "Évaluation / entraînement (35 min)",
-         "note": "- « Chacun sa feuille ; on commence par l'exemple de chaque exercice. »\n- « Je circule sans donner les réponses. »"
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : compléter les suites jusqu'à 200. »\n- « CE2 : jusqu'à 2000, et compter de 100 en 100. »\n- « On commence par l'exemple. »"
         },
         {
-         "id": "e3",
-         "label": "Correction (15 min)",
-         "note": "- « On corrige ensemble ; chacun voit ce qu'il a réussi. »"
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « On corrige les passages difficiles (99→100, 1999→2000). »\n- « On range. »"
         }
        ],
        "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : jusqu'à 200.\nCE2 : jusqu'à 2000.",
+       "differenciation": "CE1 : suite jusqu'à 200, de 1 en 1 et de 10 en 10.\nCE2 : suite jusqu'à 2000, de 1 en 1 et de 100 en 100.",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
@@ -7067,7 +7161,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000006
   },
   {
    "date": "2026-10-13",
@@ -7202,18 +7296,18 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "geoS4",
+       "id": "geoS3",
        "niveaux": [
         "classe"
        ],
-       "title": "Géométrie S4 — Évaluation (libre) ou entraînement",
-       "objectif": "Évaluer : se repérer / se déplacer (CE1) et la symétrie (CE2). Évaluation LIBRE, à la demande.",
-       "competence": "Bilan Espace & Géométrie P1.",
+       "title": "Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2)",
+       "objectif": "CE1 : se déplacer sur un quadrillage-plan (cases, directions). CE2 : compléter par symétrie (axe horizontal, oblique).",
+       "competence": "Se déplacer sur un plan (CE1) ; symétrie (CE2).",
        "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Espace & Géométrie",
        "progSequence": "Espace & Géométrie — Période 1",
-       "progSeance": "4",
+       "progSeance": "3",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -7225,24 +7319,24 @@
        ],
        "deroulement": [
         {
-         "id": "e1",
-         "label": "Consignes (10 min)",
-         "note": "- « L'évaluation de géométrie est LIBRE : tu la fais quand tu te sens prêt(e), au fond. »\n- « Sinon, feuille d'entraînement. »"
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « CE1 : sur le plan quadrillé, on avance case par case : droite, gauche, haut, bas. »\n- « CE2 : aujourd'hui l'axe peut être horizontal, ou penché ! »\n- « On rappelle la méthode : compter les carreaux. »"
         },
         {
-         "id": "e2",
-         "label": "Évaluation / entraînement (35 min)",
-         "note": "- « Chacun sa feuille ; on commence par l'exemple. »\n- « Je circule sans donner les réponses. »"
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : feuille “se déplacer sur un plan”, écrire un chemin. »\n- « CE2 : feuille “compléter par symétrie (2)”. »\n- « On commence par l'exemple. »"
         },
         {
-         "id": "e3",
-         "label": "Correction (15 min)",
-         "note": "- « On corrige ensemble. »"
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « On met en commun quelques réponses. »\n- « On range. »"
         }
        ],
        "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : vocabulaire spatial, déplacement sur plan.\nCE2 : reconnaître et compléter une symétrie.",
+       "differenciation": "CE1 : suivre et écrire un déplacement sur un plan quadrillé.\nCE2 : compléter des figures symétriques (axe horizontal puis oblique).",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
@@ -7507,7 +7601,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1789960000000
+   "updatedAt": 1790500000007
   }
  ],
  "templates": [],

@@ -143,3 +143,130 @@ export const EPS_COURIR_VITE_S3: EpsSeanceData = {
     "Je ralentis seulement après la ligne d'arrivée.",
   ],
 };
+
+/* Lundi 21 — Courir longtemps « les petits carrés » (matériel minimal). */
+export const EPS_COURIR_CARRES_L21: EpsSeanceData = {
+  titre: "EPS — Courir longtemps : les petits carrés",
+  sousTitre: "Athlétisme · Période 1 · Découverte du jeu des carrés · lundi 21 septembre · classe entière",
+  objectif: "Courir le plus longtemps possible SANS s'arrêter et sans marcher, en gérant son allure sur une grande boucle.",
+  materiel: "Une grande boucle balisée par 4 plots (≈ 100 m). Pour chaque élève : une petite réserve de carrés de papier JAUNES et BLEUS + une enveloppe (ou un gobelet) à son prénom. C'est TOUT — pas d'autre matériel.",
+  phases: [
+    {
+      titre: "J'explique le jeu des carrés",
+      duree: "8 min",
+      points: [
+        "« Aujourd'hui, on court longtemps, et on va compter avec des petits carrés de couleur. »",
+        "« À chaque tour de la boucle, vous prenez un carré : BLEU si vous avez couru tout le tour sans vous arrêter. »",
+        "« JAUNE si vous avez marché pendant le tour, même un tout petit peu. »",
+        "« On glisse son carré dans son enveloppe à chaque passage devant moi. »",
+        "« Le but, c'est d'avoir le plus de carrés BLEUS possible : courir sans s'arrêter. »",
+        "« On court à son rythme, on n'est pas obligé d'aller vite : on veut aller LONGTEMPS. »",
+      ],
+    },
+    {
+      titre: "Échauffement",
+      duree: "8 min",
+      points: [
+        "« On réveille le corps : on trottine tranquillement un tour, tous ensemble. »",
+        "« On tourne les bras, on monte les genoux, on souffle. »",
+        "« On respire par le nez : si je peux parler en courant, mon allure est bonne. »",
+        "« On repère bien le sens de la boucle : toujours dans le même sens. »",
+        "(J'observe qui part déjà trop vite pour le rappeler avant le départ.)",
+      ],
+    },
+    {
+      titre: "La course des carrés",
+      duree: "18 min",
+      points: [
+        "« Au signal, on part doucement, tous dans le même sens. »",
+        "« À chaque tour, vous passez devant moi et vous prenez votre carré : bleu si vous n'avez pas marché, jaune si vous avez marché. »",
+        "« On reste honnête : c'est TON carré, tu sais si tu as couru tout le tour. »",
+        "« Si tu es fatigué, ralentis mais essaie de ne pas t'arrêter : garde un petit trot. »",
+        "« On continue jusqu'au signal de fin. »",
+        "(Je me place au point de passage, je distribue les carrés et j'encourage.)",
+      ],
+    },
+    {
+      titre: "On compte et on range",
+      duree: "8 min",
+      points: [
+        "« Videz votre enveloppe : comptez vos carrés bleus, puis vos carrés jaunes. »",
+        "« Combien de tours en tout ? Combien sans t'arrêter ? »",
+        "« On note son score dans sa tête : la prochaine fois, on essaiera d'avoir plus de bleus. »",
+        "« Qu'est-ce qui aide à ne pas s'arrêter ? … partir doucement, respirer, garder le même rythme. »",
+        "« On ramasse tous les carrés par terre, on range les enveloppes. »",
+      ],
+    },
+  ],
+  securite: [
+    "Boucle plate et dégagée, plots bien visibles, un seul sens de course.",
+    "Départ échelonné pour éviter les bousculades au point de passage.",
+    "Droit de ralentir ou de marcher (carré jaune) : personne ne se met en danger.",
+    "Gourde d'eau à disposition, lacets serrés avant de partir.",
+  ],
+  reussite: [
+    "Je cours à mon rythme sans m'arrêter.",
+    "Je gagne des carrés BLEUS (tours courus sans marcher).",
+    "Je sais dire combien de tours j'ai faits.",
+  ],
+};
+
+/* Mardi 22 — Consolidation : battre son record de carrés bleus. */
+export const EPS_COURIR_CARRES_M22: EpsSeanceData = {
+  ...EPS_COURIR_CARRES_L21,
+  titre: "EPS — Courir longtemps : je bats mon record de carrés bleus",
+  sousTitre: "Athlétisme · Période 1 · Consolidation (les carrés) · mardi 22 septembre · classe entière",
+  objectif: "Tenir une allure RÉGULIÈRE pour gagner plus de carrés bleus que la dernière fois (courir sans s'arrêter, plus longtemps).",
+  phases: [
+    {
+      titre: "On se rappelle le jeu",
+      duree: "6 min",
+      points: [
+        "« On rejoue au jeu des carrés : bleu = j'ai couru le tour sans m'arrêter, jaune = j'ai marché. »",
+        "« Aujourd'hui, le défi : avoir PLUS de carrés bleus que la dernière fois. »",
+        "« Le secret, ce n'est pas d'aller vite : c'est de partir doucement et de garder le même rythme. »",
+        "« Si je peux parler en courant, mon allure est bonne. »",
+        "« On se souvient de son score de lundi ? On essaie de faire mieux. »",
+      ],
+    },
+    {
+      titre: "Échauffement",
+      duree: "7 min",
+      points: [
+        "« On trottine un tour tranquille, tous ensemble. »",
+        "« On mobilise : bras, genoux, chevilles ; on souffle bien. »",
+        "« On teste une allure « parler » : je cours et je récite les jours de la semaine. »",
+        "« On repère le sens de la boucle. »",
+        "(Je repère les élèves partis trop vite lundi pour les cadrer au départ.)",
+      ],
+    },
+    {
+      titre: "La course des carrés (plus longue)",
+      duree: "20 min",
+      points: [
+        "« Au signal, on part DOUCEMENT : on garde des forces pour tenir longtemps. »",
+        "« À chaque tour, je prends mon carré : bleu si je n'ai pas marché, jaune sinon. »",
+        "« Objectif : enchaîner les bleus, ne pas s'arrêter. »",
+        "« Fatigué ? Je ralentis en petit trot plutôt que de marcher. »",
+        "« On tient jusqu'au signal de fin. »",
+        "(Je circule, j'encourage ceux qui ralentissent à garder le trot.)",
+      ],
+    },
+    {
+      titre: "Bilan : ai-je progressé ?",
+      duree: "7 min",
+      points: [
+        "« Comptez vos carrés bleus, puis les jaunes. »",
+        "« Plus de bleus que lundi ? Bravo, tu as progressé ! »",
+        "« Qu'est-ce qui t'a aidé à ne pas t'arrêter aujourd'hui ? »",
+        "« La prochaine fois, on essaiera de tenir encore un peu plus longtemps. »",
+        "« On ramasse tous les carrés et on range les enveloppes. »",
+      ],
+    },
+  ],
+  reussite: [
+    "Je pars doucement et je garde la même allure.",
+    "J'ai plus de carrés bleus que la dernière fois.",
+    "Je cours plus longtemps sans m'arrêter.",
+  ],
+};
