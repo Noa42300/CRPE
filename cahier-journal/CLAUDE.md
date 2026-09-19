@@ -299,11 +299,19 @@ Le temps que l'enseignant s'approprie **Graphémo**, on fait des **dictées mais
   GitHub Pages) : on met le lien, jamais le fichier. Si rien ne convient, on **crée**
   une leçon originale (modèle validé).
 - **Ressources gratuites d'abord** : Pass-Education est en grande partie **payant** →
-  préférer des sources **gratuites et bien illustrées** (Lutin Bazar, Bout de Gomme,
-  Canopé, Lumni). Sinon **créer** une leçon **richement illustrée** (dessins SVG maison,
-  libres de droits), jamais « platonique ». Ex. : « Lire une frise » = frise **intégrée
-  à la leçon** (pas en doc à part) avec un dessin par période (homme des cavernes,
-  temple antique, château/chevalier, caravelle, tour Eiffel).
+  préférer des sources **gratuites** (Lutin Bazar, Bout de Gomme, Canopé, Lumni),
+  proposées en **lien** (jamais réhéberger un PDF protégé).
+- **RÈGLE PERMANENTE — NE JAMAIS CHANGER (validée par l'enseignant) : illustrer CHAQUE
+  cours avec de VRAIES images libres de droits.** Toute **leçon** ET tout **diaporama**
+  s'illustrent avec de **vraies photos libres de droits** (type Wikimedia Commons, via
+  le composant `WikiImage`), **jamais** des dessins générés/SVG maison. C'est **le modèle
+  de mise en page retenu** pour tout le cahier (français, maths, QLM, anglais…).
+  - Idéal : images **figées en dur** (fichiers embarqués en assets) pour l'impression
+    **hors-ligne**. ⚠️ L'environnement de build **bloque le téléchargement Wikimedia**
+    (proxy egress) : pour figer, **l'enseignant fournit les fichiers image** (comme les
+    PDF) et on les embarque dans `src/assets` ; **sinon** `WikiImage` les charge **en
+    ligne** (parfait en projection ; pour imprimer, être connecté une fois → cache
+    navigateur). Toujours créditer « Wikimedia Commons (licences libres) ».
 
 ## Volumes horaires hebdomadaires à respecter (IMPORTANT)
 

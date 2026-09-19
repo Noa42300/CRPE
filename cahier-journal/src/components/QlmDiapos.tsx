@@ -243,66 +243,15 @@ export function SolidesProprietesDiapo() {
   );
 }
 
-/* ===== Dessins originaux (libres de droits) pour chaque grande période ===== */
-function PeriodDrawing({ id, size = 54 }: { id: string; size?: number }) {
-  const c = { width: size, height: size, display: "block" as const };
-  if (id === "prehistoire") return (
-    <svg viewBox="0 0 48 48" style={c}>
-      <path d="M12 14 q2 -8 8 -8 q6 0 8 7" fill="#5b3a1a" />
-      <circle cx="20" cy="17" r="7" fill="#f2c79a" stroke="#7c3aed" strokeWidth="1.5" />
-      <circle cx="18" cy="17" r="1" fill="#4b2e12" /><circle cx="22" cy="17" r="1" fill="#4b2e12" />
-      <path d="M14 42 L16 26 Q20 23 24 26 L26 42 Z" fill="#8b5e34" stroke="#7c3aed" strokeWidth="1" />
-      <line x1="26" y1="24" x2="39" y2="12" stroke="#6b4423" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="40" cy="11" r="4" fill="#6b4423" />
-    </svg>
-  );
-  if (id === "antiquite") return (
-    <svg viewBox="0 0 48 48" style={c}>
-      <path d="M7 17 L24 6 L41 17 Z" fill="#dc2626" />
-      <rect x="9" y="17" width="30" height="4" fill="#ef4444" />
-      {[13, 22, 31].map((x) => <rect key={x} x={x} y="21" width="4" height="18" fill="#f3d9a0" stroke="#dc2626" strokeWidth="1" />)}
-      <rect x="8" y="39" width="32" height="3" fill="#dc2626" />
-    </svg>
-  );
-  if (id === "moyenage") return (
-    <svg viewBox="0 0 48 48" style={c}>
-      <rect x="14" y="16" width="20" height="26" fill="#93b4d6" stroke="#2563eb" strokeWidth="1.5" />
-      {[14, 22, 30].map((x) => <rect key={x} x={x} y="11" width="4" height="6" fill="#2563eb" />)}
-      <path d="M20 42 L20 31 Q24 27 28 31 L28 42 Z" fill="#1e3a8a" />
-      <line x1="24" y1="11" x2="24" y2="3" stroke="#1e3a8a" strokeWidth="1.5" />
-      <path d="M24 4 L33 6.5 L24 9 Z" fill="#dc2626" />
-    </svg>
-  );
-  if (id === "moderne") return (
-    <svg viewBox="0 0 48 48" style={c}>
-      <path d="M4 37 q6 3 11 0 q5 -3 11 0 q6 3 11 0 v7 H4 Z" fill="#60a5fa" />
-      <line x1="24" y1="10" x2="24" y2="33" stroke="#6b4423" strokeWidth="2" />
-      <path d="M24 12 L35 30 L24 30 Z" fill="#ecfdf5" stroke="#16a34a" strokeWidth="1.2" />
-      <path d="M24 12 L13 30 L24 30 Z" fill="#d1fae5" stroke="#16a34a" strokeWidth="1.2" />
-      <path d="M12 33 L36 33 L32 40 L16 40 Z" fill="#6b4423" stroke="#166534" strokeWidth="1" />
-    </svg>
-  );
-  // contemporaine — Tour Eiffel
-  return (
-    <svg viewBox="0 0 48 48" style={c}>
-      <path d="M24 5 L17 43 M24 5 L31 43" stroke="#f59e0b" strokeWidth="2" fill="none" />
-      <path d="M15 43 Q24 31 33 43" stroke="#f59e0b" strokeWidth="2" fill="none" />
-      <line x1="21.8" y1="13" x2="26.2" y2="13" stroke="#f59e0b" strokeWidth="1.5" />
-      <line x1="20" y1="24" x2="28" y2="24" stroke="#f59e0b" strokeWidth="1.5" />
-      <line x1="18" y1="34" x2="30" y2="34" stroke="#f59e0b" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
 const LF_PERIODES = [
-  { id: "prehistoire", nom: "Préhistoire", couleur: "#7c3aed", date: "il y a très longtemps" },
-  { id: "antiquite", nom: "Antiquité", couleur: "#dc2626", date: "–3000 (l'écriture)" },
-  { id: "moyenage", nom: "Moyen Âge", couleur: "#2563eb", date: "476" },
-  { id: "moderne", nom: "Temps modernes", couleur: "#16a34a", date: "1492" },
-  { id: "contemporaine", nom: "Époque contemporaine", couleur: "#f59e0b", date: "1789 → aujourd'hui" },
+  { id: "prehistoire", wiki: "Préhistoire", nom: "Préhistoire", couleur: "#7c3aed", date: "il y a très longtemps" },
+  { id: "antiquite", wiki: "Colisée", nom: "Antiquité", couleur: "#dc2626", date: "–3000 (l'écriture)" },
+  { id: "moyenage", wiki: "Château fort", nom: "Moyen Âge", couleur: "#2563eb", date: "476" },
+  { id: "moderne", wiki: "Caravelle", nom: "Temps modernes", couleur: "#16a34a", date: "1492" },
+  { id: "contemporaine", wiki: "Tour Eiffel", nom: "Époque contemporaine", couleur: "#f59e0b", date: "1789 → aujourd'hui" },
 ];
 
-/** Leçon illustrée « Lire une frise » (A4) — frise intégrée + dessins maison. */
+/** Leçon illustrée « Lire une frise » (A4) — frise intégrée + vraies photos (Wikimedia). */
 export function LireFriseLecon() {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
@@ -310,11 +259,11 @@ export function LireFriseLecon() {
         <h1 style={{ fontSize: "38px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive" }}>Lire une frise du temps</h1>
         <p style={{ textAlign: "center", fontSize: "18px", margin: "0 0 5mm", fontFamily: "'Caveat','Comic Neue',cursive", color: "#555" }}>Je lis de gauche (le passé) → à droite (aujourd'hui)</p>
 
-        {/* La frise illustrée */}
-        <div style={{ display: "flex", alignItems: "flex-end", marginBottom: "1mm" }}>
+        {/* La frise illustrée (vraies photos) */}
+        <div style={{ display: "flex", gap: "1.5mm", marginBottom: "1.5mm" }}>
           {LF_PERIODES.map((p) => (
-            <div key={p.id} style={{ flex: 1, display: "flex", justifyContent: "center" }}>
-              <PeriodDrawing id={p.id} size={62} />
+            <div key={p.id} style={{ flex: 1 }}>
+              <WikiImage title={p.wiki} alt={p.nom} accent={p.couleur} height="20mm" />
             </div>
           ))}
         </div>
@@ -337,19 +286,20 @@ export function LireFriseLecon() {
         </div>
 
         <div style={{ background: "#fff7ed", border: "1.5px solid #fed7aa", borderRadius: "8px", padding: "3mm 4mm", marginBottom: "4mm", fontSize: "15px" }}>
-          <b>Comment je lis une frise&nbsp;?</b> Une frise, c'est une <b>ligne du temps</b>. <b>Plus on est à gauche, plus c'est lointain</b> (il y a longtemps)&nbsp;; <b>plus on est à droite, plus on se rapproche du présent</b> (aujourd'hui). Chaque grande période a sa <b>couleur</b> et son <b>dessin</b>.
+          <b>Comment je lis une frise&nbsp;?</b> Une frise, c'est une <b>ligne du temps</b>. <b>Plus on est à gauche, plus c'est lointain</b> (il y a longtemps)&nbsp;; <b>plus on est à droite, plus on se rapproche du présent</b> (aujourd'hui). Chaque grande période a sa <b>couleur</b> et son image.
         </div>
 
-        {/* Les 5 périodes détaillées avec dessin */}
+        {/* Les 5 périodes détaillées avec photo */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "3mm" }}>
           {LF_PERIODES.map((p, i) => (
             <div key={p.id} style={{ display: "flex", alignItems: "center", gap: "3mm", border: `2px solid ${p.couleur}`, borderRadius: "8px", padding: "2mm 3mm" }}>
-              <PeriodDrawing id={p.id} size={40} />
-              <div style={{ fontSize: "16px", fontWeight: 800, color: p.couleur, minWidth: "52mm" }}>{i + 1}. {p.nom}</div>
+              <div style={{ width: "24mm", flexShrink: 0 }}><WikiImage title={p.wiki} alt={p.nom} accent={p.couleur} height="16mm" /></div>
+              <div style={{ fontSize: "16px", fontWeight: 800, color: p.couleur, minWidth: "48mm" }}>{i + 1}. {p.nom}</div>
               <div style={{ fontSize: "13px", color: "#555" }}>commence à {p.date}</div>
             </div>
           ))}
         </div>
+        <p style={{ fontSize: "10px", color: "#94a3b8", textAlign: "center", marginTop: "3mm" }}>Photos : Wikipédia / Wikimedia Commons (libres de droits, chargées en ligne).</p>
       </div>
     </div>
   );
