@@ -11854,6 +11854,73 @@
     }
    ],
    "updatedAt": 1789950000000
+  },
+  {
+   "id": "seq-ang-verbs",
+   "title": "Anglais · Action verbs (verbes d'action)",
+   "disciplineId": "anglais",
+   "niveaux": [
+    "classe"
+   ],
+   "objectif": "Découvrir et mémoriser 10 verbes d'action en anglais par le mime (TPR), avec diaporama à projeter et leçon à coller.",
+   "seances": [
+    {
+     "id": "angVerbs",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Anglais — Action verbs (verbes d'action, jeu du mime)",
+     "objectif": "Découvrir et mémoriser 10 verbes d'action en anglais (run, jump, swim…) par le mime (TPR), et commencer à les utiliser.",
+     "competence": "Comprendre et utiliser des mots familiers ; répéter et mimer ; participer à un échange simple.",
+     "competenceRef": "Langues vivantes (anglais) — comprendre l'oral / parler en continu, cycle 2.",
+     "progPeriode": "P1",
+     "progDomaine": "anglais",
+     "progSequence": "Entrée dans la langue + USA",
+     "progSeance": "3",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "groupe"
+     ],
+     "roleEnseignant": [
+      "guidage",
+      "découverte"
+     ],
+     "deroulement": [
+      {
+       "id": "a1",
+       "label": "Warm up & découverte (10 min)",
+       "note": "- « Today we learn action verbs: des verbes d'action, ce qu'on FAIT. »\n- « Je projette le diaporama : regardez bien, je dis et je mime chaque verbe. »\n- « Run! (je cours sur place) — Jump! (je saute) — Swim! (je nage). »\n- « On répète tous ensemble en faisant le geste. »\n- « Watch, listen and repeat : on écoute, on répète, on mime. »\n- (Je révèle la traduction française seulement après avoir fait deviner.)"
+      },
+      {
+       "id": "a2",
+       "label": "Watch, listen, repeat — les 10 verbes (12 min)",
+       "note": "- « On découvre les 10 verbes : run, jump, swim, dance, sing, clap, eat, drink, sleep, walk. »\n- « À chaque verbe, je fais le geste et je le dis deux fois. »\n- « Now you: all together, on mime et on répète. »\n- « Show me « dance »! Show me « eat »! » (je vérifie qui a compris)\n- « On accélère : je dis un verbe, vous faites juste le geste. »\n- « Very good! On connaît nos 10 verbes. »"
+      },
+      {
+       "id": "a3",
+       "label": "Let's mime! — le jeu (18 min)",
+       "note": "- « On va jouer : un élève passe au tableau et pioche un verbe. »\n- « Il le mime SANS parler ; les autres devinent en anglais. »\n- « Quand tu sais, tu lèves la main et tu dis : « Run! », « Jump! »… »\n- « Bonne réponse : bravo, c'est toi qui viens mimer ! »\n- « On passe un maximum d'élèves ; tout le monde mime au moins une fois. »\n- (Je note qui participe et qui prononce bien, pour le suivi.)"
+      },
+      {
+       "id": "a4",
+       "label": "La leçon & les devoirs (5 min)",
+       "note": "- « On colle la leçon des action verbs dans le cahier violet. »\n- « Vous devez apprendre ces 10 verbes pour la semaine d'après. »\n- « À la maison : je lis, je mime, je répète chaque verbe. »\n- « La prochaine fois, on refait le jeu et on ajoutera des phrases. »\n- « Well done today, goodbye! »"
+      }
+     ],
+     "materiel": "Diaporama « Action verbs! » à projeter, étiquettes-verbes à piocher (à préparer), leçon à coller (cahier violet). Voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : comprendre et mimer les verbes, répéter à l'oral. CE2 : dire le verbe en anglais sans modèle et l'employer dans un ordre court (« Run! », « Jump! »).",
+     "depassement": "",
+     "correction": "run = courir · jump = sauter · swim = nager · dance = danser · sing = chanter · clap = taper des mains · eat = manger · drink = boire · sleep = dormir · walk = marcher.",
+     "obstacles": "Erreurs fréquentes :\n- Prononcer « à la française » (jump → « jumpe »).\n- Confondre deux verbes proches par le geste (walk / run).\nRemédiation rapide :\n- Je remodèle la prononciation, l'élève répète juste après moi.\n- J'exagère le geste (walk lent / run rapide) pour bien les distinguer.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "Apprendre les 10 verbes d'action (cahier violet) pour la semaine suivante.",
+     "notesProchaine": ""
+    }
+   ],
+   "updatedAt": 1790900000000
   }
  ]
 }

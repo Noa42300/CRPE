@@ -142,3 +142,113 @@ export function AnglaisDiaporama() {
     </div>
   );
 }
+
+/* =============== Diaporama « Action verbs! » (verbes d'action, jeu du mime) =============== */
+
+const VERT = "#16a34a";
+const AV_ETAPES = ["Action verbs", "Watch & repeat (1)", "Watch & repeat (2)", "Let's mime!", "Well done"];
+
+/** Les 10 verbes d'action : emoji (mimable) + anglais + français. */
+const ACTION_VERBS: { emoji: string; en: string; fr: string }[] = [
+  { emoji: "🏃", en: "run", fr: "courir" },
+  { emoji: "🦘", en: "jump", fr: "sauter" },
+  { emoji: "🏊", en: "swim", fr: "nager" },
+  { emoji: "💃", en: "dance", fr: "danser" },
+  { emoji: "🎤", en: "sing", fr: "chanter" },
+  { emoji: "👏", en: "clap", fr: "taper des mains" },
+  { emoji: "🍽️", en: "eat", fr: "manger" },
+  { emoji: "🥤", en: "drink", fr: "boire" },
+  { emoji: "😴", en: "sleep", fr: "dormir" },
+  { emoji: "🚶", en: "walk", fr: "marcher" },
+];
+
+function VerbCard({ emoji, en, fr }: { emoji: string; en: string; fr: string }) {
+  const [on, setOn] = useState(false);
+  return (
+    <button
+      onClick={() => setOn((v) => !v)}
+      className="flex flex-col items-center gap-1 rounded-2xl border-2 bg-white p-3 transition hover:scale-105"
+      style={{ borderColor: VERT }}
+      title="Cliquer pour révéler"
+    >
+      <span className="text-5xl leading-none">{emoji}</span>
+      <span className="text-xl font-extrabold" style={{ color: VERT }}>{en}</span>
+      <span className={`text-base font-semibold ${on ? "" : "opacity-0"}`} style={{ color: "#334155" }}>
+        {on ? fr : "?"}
+      </span>
+    </button>
+  );
+}
+
+export function AnglaisActionVerbsDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const last = AV_ETAPES.length - 1;
+  const next = () => setI((n) => Math.min(last, n + 1));
+  const prev = () => setI((n) => Math.max(0, n - 1));
+
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[900px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: VERT }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">English · Action verbs!</span>
+        <div className="ml-2 flex gap-1.5">
+          {AV_ETAPES.map((t, k) => (
+            <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full"
+              style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />
+          ))}
+        </div>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+
+      <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
+        {i === 0 && (
+          <div className="text-center">
+            <div className="mb-4 text-7xl">🏃 🦘 💃</div>
+            <h1 className="text-5xl font-extrabold" style={{ color: VERT }}>Action verbs!</h1>
+            <p className="mt-2 text-2xl font-semibold text-stone-500">Les verbes d'action : ce qu'on FAIT.</p>
+            <p className="mt-4 text-xl text-stone-500">Watch, listen, repeat… and mime!</p>
+          </div>
+        )}
+
+        {(i === 1 || i === 2) && (
+          <div className="w-full text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: VERT }}>Watch and repeat!</h2>
+            <p className="mt-1 text-xl text-stone-500">Je dis et je mime, tu répètes. Clique pour la traduction.</p>
+            <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-5">
+              {(i === 1 ? ACTION_VERBS.slice(0, 5) : ACTION_VERBS.slice(5)).map((w) => (
+                <VerbCard key={w.en} {...w} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {i === 3 && (
+          <div className="w-full max-w-2xl text-center">
+            <div className="mb-3 text-6xl">🎭</div>
+            <h2 className="text-4xl font-extrabold" style={{ color: VERT }}>Let's mime!</h2>
+            <div className="mt-5 space-y-3 text-left text-xl text-stone-700">
+              <p>1️⃣ Un élève passe au tableau et pioche un verbe.</p>
+              <p>2️⃣ Il le <b>mime</b> (sans parler !).</p>
+              <p>3️⃣ Les autres devinent en anglais : « <b>Run!</b> », « <b>Jump!</b> »…</p>
+              <p>4️⃣ Bonne réponse → c'est à toi de mimer !</p>
+            </div>
+          </div>
+        )}
+
+        {i === 4 && (
+          <div className="text-center">
+            <div className="mb-4 text-7xl">🎉</div>
+            <h1 className="text-5xl font-extrabold" style={{ color: VERT }}>Well done! Bravo !</h1>
+            <p className="mt-3 text-2xl font-semibold text-stone-500">On apprend ses verbes d'action pour la semaine prochaine.</p>
+          </div>
+        )}
+      </div>
+
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={prev} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: VERT, color: VERT }}>◀</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{AV_ETAPES.length} · {AV_ETAPES[i]}</span>
+        <button onClick={next} disabled={i === last} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: VERT }}>▶</button>
+      </div>
+    </div>
+  );
+}
