@@ -13,7 +13,7 @@ import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./Mesure
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22 } from "./EpsSeanceFiche";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
-import { MotsAApprendre, DICTEES } from "./DicteeMaison";
+import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
 
 export interface SupportFourni {
   key: string;
@@ -1048,17 +1048,26 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "det-s4-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(DET_ENTRAINE_CE1) },
         { key: "det-s4-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(DET_ENTRAINE_CE2) },
       ];
-    case "mots1": case "dictee1":
-      return [{ key: "mots-1", label: "Mots à apprendre — semaine 1 (à donner mardi)", node: <MotsAApprendre d={DICTEES[0]} /> }];
-    case "mots2": case "dictee2":
-      return [{ key: "mots-2", label: "Mots à apprendre — semaine 2 (à donner mardi)", node: <MotsAApprendre d={DICTEES[1]} /> }];
-    case "mots3": case "dictee3":
-      return [{ key: "mots-3", label: "Mots à apprendre — semaine 3 (à donner mardi)", node: <MotsAApprendre d={DICTEES[2]} /> }];
+    case "mots1": case "dictee1": {
+      const dd = dicteeById("dict-animaux");
+      return dd ? [{ key: "mots-animaux", label: `Mots à apprendre — ${dd.theme} (à donner mardi)`, node: <MotsAApprendre d={dd} /> }] : [];
+    }
+    case "mots2": case "dictee2": {
+      const dd = dicteeById("dict-maison");
+      return dd ? [{ key: "mots-maison", label: `Mots à apprendre — ${dd.theme} (à donner mardi)`, node: <MotsAApprendre d={dd} /> }] : [];
+    }
+    case "mots3": case "dictee3": {
+      const dd = dicteeById("dict-automne");
+      return dd ? [{ key: "mots-automne", label: `Mots à apprendre — ${dd.theme} (à donner mardi)`, node: <MotsAApprendre d={dd} /> }] : [];
+    }
     case "l21fr": {
-      const dict0 = DICTEES.find((x) => x.id === "dict0");
+      const dict0 = dicteeById("dict0");
+      const suivante = dicteeById("dict-animaux");
       return [
         ...(dict0 ? [{ key: "l21-mots", label: "Mots à réviser — CE1 / CE2 (feuille élève)", node: <MotsAApprendre d={dict0} /> }] : []),
         { key: "l21-dictee", label: "Première dictée — CE1 & CE2 (à lire, enseignant)", node: ficheNode(DICTEE_L21_LIRE) },
+        ...(suivante ? [{ key: "l21-mots-suivante", label: `Liste pour la semaine d'après — ${suivante.theme} (à donner)`, node: <MotsAApprendre d={suivante} /> }] : []),
+        { key: "l21-prog-dictees", label: "Programmation des dictées de l'année (thèmes)", node: <ProgDicteesAnnee /> },
       ];
     }
     case "nbS1":
