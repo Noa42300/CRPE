@@ -6,7 +6,7 @@
 import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
-import { AnglaisDiaporama } from "./AnglaisDiaporama";
+import { AnglaisDiaporama, AnglaisActionVerbsDiapo } from "./AnglaisDiaporama";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
@@ -333,6 +333,22 @@ const DICTEE_L21_LIRE: FicheData = {
     { kind: "puces", titre: "Dictée CE2 (2 phrases)", points: [
       "À la rentrée, la maîtresse et les copains apprennent ensemble.",
       "Je range mon cartable dans la classe.",
+    ] },
+  ],
+};
+
+/* Anglais — Leçon « Action verbs » (à coller, cahier violet). */
+const ANGLAIS_VERBS_LECON: FicheData = {
+  entete: "Leçon à coller — cahier violet", titre: "Action verbs — les verbes d'action", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais", cursive: true,
+  blocs: [
+    { kind: "def", picto: "main", contenu: "Un verbe d'action dit ce qu'on FAIT. On les mime pour bien les retenir. J'apprends ces verbes pour la semaine prochaine." },
+    { kind: "tableau", titre: "Mes 10 verbes d'action (English → français)", entetes: ["English", "Français"], lignes: [
+      ["run", "courir"], ["jump", "sauter"], ["swim", "nager"], ["dance", "danser"], ["sing", "chanter"],
+      ["clap", "taper des mains"], ["eat", "manger"], ["drink", "boire"], ["sleep", "dormir"], ["walk", "marcher"],
+    ] },
+    { kind: "puces", titre: "Le jeu du mime", points: [
+      "Un élève passe au tableau et mime un verbe (sans parler).",
+      "Les autres devinent en anglais : « Run! », « Jump! »…",
     ] },
   ],
 };
@@ -1161,6 +1177,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "emcsolid":
       return [
         { key: "emc-solidarite", label: "La solidarité — Séance (affichage + trace)", node: ficheNode(EMC_SOLIDARITE) },
+      ];
+    case "angVerbs":
+      return [
+        { key: "ang-verbs-diapo", label: "Action verbs — Diaporama à projeter (jeu du mime)", node: <AnglaisActionVerbsDiapo /> },
+        { key: "ang-verbs-lecon", label: "Action verbs — Leçon à coller (10 verbes EN → FR)", node: ficheNode(ANGLAIS_VERBS_LECON) },
       ];
     case "artdet":
       return [
