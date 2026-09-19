@@ -12,7 +12,7 @@ import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
-import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon } from "./MardiSupports";
+import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossLecon } from "./MardiSupports";
 
 export interface SupportFourni {
   key: string;
@@ -484,6 +484,58 @@ const DET_ENTRAINE_CE2: FicheData = {
   ],
 };
 
+/* Déterminants — séance 3 : démonstratifs & possessifs */
+const DET_DEMOPOS_CE1: FicheData = {
+  entete: "Exercices", titre: "Ce, cette, mon, ma…", niveau: "CE1", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", picto: "chat", exemple: "___ chat → ce chat", consigne: "Complète avec ce ou cette.", items: [
+      "___ chien", "___ maison", "___ fleur", "___ ballon", "___ image", "___ cartable",
+    ] },
+    { kind: "exercice", picto: "cartable", exemple: "___ trousse (à moi) → ma trousse", consigne: "Complète avec mon, ma ou mes.", items: [
+      "___ vélo", "___ affaires", "___ cahier", "___ règle", "___ crayons",
+    ] },
+    { kind: "exercice", picto: "oiseau", exemple: "Regarde ce chien ! → démonstratif", consigne: "Entoure le déterminant démonstratif (ce, cette, ces).", items: [
+      "Ces oiseaux chantent.", "Mon frère joue.", "Cette pomme est rouge.", "Ce livre est grand.",
+    ] },
+  ],
+};
+
+const DET_DEMOPOS_CE2: FicheData = {
+  entete: "Exercices", titre: "Démonstratifs & possessifs", niveau: "CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", exemple: "cette fleur → démonstratif ; ma fleur → possessif", consigne: "Classe : démonstratif (D) ou possessif (P) ?", items: [
+      "mon sac ___", "ces arbres ___", "ta règle ___", "cette rue ___", "ses amis ___", "cet enfant ___",
+    ] },
+    { kind: "exercice", picto: "ampoule", exemple: "___ homme → cet homme (devant une voyelle)", consigne: "Complète avec ce ou cet.", items: [
+      "___ garçon", "___ arbre", "___ oiseau", "___ chien", "___ éléphant",
+    ] },
+    { kind: "exercice", picto: "cartable", exemple: "mon crayon → ses crayons (à lui)", consigne: "Récris avec le possessif « à lui/elle » (son, sa, ses).", items: [
+      "ma trousse → ______________", "mes livres → ______________", "ton vélo → ______________",
+    ] },
+    { kind: "exercice", exemple: "… voiture est belle → Cette voiture est belle.", consigne: "Complète chaque phrase avec un démonstratif ou un possessif qui convient.", items: [
+      "______ matin, je me lève tôt.", "Range ______ affaires (à toi).", "Regarde ______ étoile !", "______ élèves travaillent bien.",
+    ] },
+  ],
+};
+
+const DET_EVAL: FicheData = {
+  entete: "Évaluation", titre: "Les déterminants — Évaluation", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", exemple: "Le chat dort. → j'entoure Le", consigne: "Entoure tous les déterminants.", items: [
+      "Une abeille butine des fleurs.", "Mon frère range ses jouets.", "Cette histoire est belle.",
+    ] },
+    { kind: "exercice", exemple: "les élèves → défini", consigne: "Article défini (D) ou indéfini (I) ?", items: [
+      "un livre ___", "la maîtresse ___", "des crayons ___", "les tables ___",
+    ] },
+    { kind: "exercice", exemple: "le chien → les chiens", consigne: "Récris au pluriel.", items: [
+      "une fleur → ______________", "cette pomme → ______________", "mon cahier → ______________",
+    ] },
+    { kind: "exercice", exemple: "… chat est noir → Ce chat est noir.", consigne: "Complète avec le déterminant qui convient.", items: [
+      "______ école est grande.", "Range ______ affaires (à toi).", "Regarde ______ oiseaux !",
+    ] },
+  ],
+};
+
 /* ===================== EMC — La solidarité ===================== */
 
 const EMC_SOLIDARITE: FicheData = {
@@ -679,6 +731,30 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "eps-s3-seance", label: "Séance « courir vite » — la séance mise en page (à lire d'un coup d'œil)", node: <EpsSeanceFiche data={EPS_COURIR_VITE_S3} /> },
         { key: "eps-s3-terrain", label: "Séance « courir vite » — schéma du terrain & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s3) },
+      ];
+    case "detS1":
+      return [
+        { key: "det-s1-lecon", label: "Séance 1 — Leçon : qu'est-ce qu'un déterminant ?", node: <DeterminantsLecon /> },
+        { key: "det-s1-ce1", label: "Séance 1 — Exercices CE1", node: ficheNode(DET_ENTRAINE_CE1) },
+        { key: "det-s1-ce2", label: "Séance 1 — Exercices CE2", node: ficheNode(DET_ENTRAINE_CE2) },
+      ];
+    case "detS2":
+      return [
+        { key: "det-s2-lecon", label: "Séance 2 — Leçon : les articles (le/la/les · un/une/des)", node: ficheNode(ARTDET_LECON) },
+        { key: "det-s2-ce1", label: "Séance 2 — Exercices CE1 (articles)", node: ficheNode(DET_ENTRAINE_CE1) },
+        { key: "det-s2-ce2", label: "Séance 2 — Exercices CE2 (défini/indéfini)", node: ficheNode(DET_ENTRAINE_CE2) },
+      ];
+    case "detS3":
+      return [
+        { key: "det-s3-lecon", label: "Séance 3 — Leçon : démonstratifs & possessifs", node: <DeterminantsDemoPossLecon /> },
+        { key: "det-s3-ce1", label: "Séance 3 — Exercices CE1", node: ficheNode(DET_DEMOPOS_CE1) },
+        { key: "det-s3-ce2", label: "Séance 3 — Exercices CE2", node: ficheNode(DET_DEMOPOS_CE2) },
+      ];
+    case "detS4":
+      return [
+        { key: "det-s4-eval", label: "Séance 4 — Évaluation : les déterminants", node: ficheNode(DET_EVAL) },
+        { key: "det-s4-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(DET_ENTRAINE_CE1) },
+        { key: "det-s4-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(DET_ENTRAINE_CE2) },
       ];
     case "m15det":
       return [

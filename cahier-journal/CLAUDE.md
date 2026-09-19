@@ -128,6 +128,17 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   cartes** colorées. Objectif : un CE1-CE2 comprend d'un coup d'œil et ne décroche
   pas. Éviter les blocs de texte façon manuel de CM2.
 
+### Structure d'une séquence (français, maths…) — IMPORTANT
+- Une notion se travaille en **séquence organisée**, pas en séances éparpillées.
+  Modèle validé (ex. « Les déterminants », `seq-fr-determinants` dans
+  `journal.json`) : **S1 Découverte** (leçon + exercices) → **S2/S3
+  Consolidation** (un sous-point par séance) → **Séance finale = Évaluation**
+  (avec, en repli, une feuille d'entraînement si l'éval n'est pas faite).
+- Chaque séance suit le modèle validé : leçon simple + exercices avec un
+  **exemple en tête de chaque exercice** + vidéo précise. Les séquences de
+  français vivent dans `journal.json` (`sequences`, `disciplineId:"francais"`),
+  visibles dans **Séquences** / **Bibliothèque**, à poser sur un jour.
+
 ### Questionner le monde — séquences dans le cahier (IMPORTANT)
 - Les 3 programmations de l'enseignant (Histoire, Sciences, Géographie, 24 séances
   chacune) sont **transcrites en séquences réutilisables** dans `public/journal.json`

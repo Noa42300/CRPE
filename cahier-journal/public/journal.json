@@ -7884,6 +7884,214 @@
     }
    ],
    "updatedAt": 1789890000000
+  },
+  {
+   "id": "seq-fr-determinants",
+   "title": "Français — Les déterminants (Période 1) : Découverte → Éval",
+   "disciplineId": "francais",
+   "niveaux": [
+    "classe"
+   ],
+   "objectif": "Séquence de grammaire en 4 séances : Découverte (qu'est-ce qu'un déterminant ?) → Consolidation (les articles) → Consolidation (démonstratifs & possessifs) → Évaluation (ou entraînement). Chaque séance = leçon simple + exercices avec un exemple en tête.",
+   "seances": [
+    {
+     "id": "detS1",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 1 — Découverte : qu'est-ce qu'un déterminant ?",
+     "objectif": "Reconnaître le déterminant (petit mot placé devant le nom) et commencer à repérer les articles.",
+     "competence": "Reconnaître et employer les déterminants.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Les déterminants (P1)",
+     "progSeance": "1",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "d1",
+       "label": "Découverte (15 min)",
+       "note": "- « Aujourd'hui, on découvre les déterminants : ce petit mot placé devant le nom. »\n- « Écoutez : LE chat, UNE maison, LES oiseaux… quel est le petit mot ? »\n- « On les cherche ensemble dans des phrases au tableau. »\n- « On range ce qu'on trouve : le, la, les, un, une, des… »\n- « On va apprendre à les reconnaître tout seuls. »"
+      },
+      {
+       "id": "d2",
+       "label": "Leçon (10 min)",
+       "note": "- « On colle la leçon : le déterminant est devant le nom, il s'accorde avec lui. »\n- « On relit ensemble les exemples. »\n- « Mon astuce : si “le …” marche devant le mot, c'est un déterminant. »"
+      },
+      {
+       "id": "d3",
+       "label": "Exercices (30 min, tandems)",
+       "note": "- « CE1 votre feuille, CE2 la vôtre ; on lit et on souligne la consigne. »\n- « On commence par l'exemple, puis on continue seul. »\n- « Je passe vous aider ; si c'est fini, on vérifie avec le voisin. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+     "differenciation": "CE1 : repérer le déterminant, choisir le/la, accorder au pluriel.\nCE2 : distinguer défini/indéfini, remplacer un déterminant.",
+     "depassement": "",
+     "correction": "Voir les corrigés des feuilles (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le déterminant avec un autre petit mot (de, à).\n- Oublier l'accord au pluriel.\nRemédiation rapide :\n- Test « le … » devant le nom ; faire dire le groupe au pluriel à l'oral.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "detS2",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 2 — Consolidation : les articles (le/la/les · un/une/des)",
+     "objectif": "Distinguer l'article défini (le, la, les) de l'article indéfini (un, une, des) et l'accorder.",
+     "competence": "Reconnaître et employer les déterminants.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Les déterminants (P1)",
+     "progSeance": "2",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "a1",
+       "label": "Rappel & découverte (15 min)",
+       "note": "- « La semaine dernière : les déterminants. Aujourd'hui, on regarde de près les ARTICLES. »\n- « Défini : le, la, les → on sait de quoi on parle. »\n- « Indéfini : un, une, des → on ne sait pas encore. »\n- « Devant une voyelle : l' (l'école). »\n- « On teste ensemble au tableau. »"
+      },
+      {
+       "id": "a2",
+       "label": "Leçon (5 min)",
+       "note": "- « On complète la leçon avec le tableau des articles. »\n- « On relit : défini / indéfini. »"
+      },
+      {
+       "id": "a3",
+       "label": "Exercices (35 min, tandems)",
+       "note": "- « CE1 : entourer les articles, choisir le/la, accorder au pluriel. »\n- « CE2 : classer défini/indéfini, remplacer un article. »\n- « On démarre par l'exemple. Je passe aider. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+     "differenciation": "CE1 : choisir le/la, accorder au pluriel (les/des).\nCE2 : distinguer défini/indéfini, remplacer un article par un autre.",
+     "depassement": "",
+     "correction": "Voir les corrigés des feuilles (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le déterminant avec un autre petit mot (de, à).\n- Oublier l'accord au pluriel.\nRemédiation rapide :\n- Test « le … » devant le nom ; faire dire le groupe au pluriel à l'oral.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "detS3",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 3 — Consolidation : démonstratifs (ce, cette, ces) & possessifs (mon, ma, mes…)",
+     "objectif": "Découvrir et employer les déterminants démonstratifs (je montre) et possessifs (je dis à qui c'est).",
+     "competence": "Reconnaître et employer les déterminants.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Les déterminants (P1)",
+     "progSeance": "3",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "p1",
+       "label": "Découverte (15 min)",
+       "note": "- « Il existe d'AUTRES déterminants que les articles ! »\n- « Quand je MONTRE : ce chien, cette fleur, ces enfants → les démonstratifs. »\n- « Quand je dis à QUI c'est : mon cartable, ta trousse, ses crayons → les possessifs. »\n- « Vous en connaissez d'autres ? On les note au tableau. »\n- « Attention : devant une voyelle, ce devient cet (cet arbre). »"
+      },
+      {
+       "id": "p2",
+       "label": "Leçon (10 min)",
+       "note": "- « On colle la leçon : démonstratifs (je montre) et possessifs (à qui c'est). »\n- « On relit les deux familles ensemble. »\n- « Ils sont devant le nom et s'accordent avec lui, comme les autres déterminants. »"
+      },
+      {
+       "id": "p3",
+       "label": "Exercices (30 min, tandems)",
+       "note": "- « CE1 : compléter avec ce/cette, mon/ma/mes ; entourer les démonstratifs. »\n- « CE2 : classer démonstratif/possessif, ce/cet, transformer avec son/sa/ses. »\n- « On commence par l'exemple. Je passe vous aider. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+     "differenciation": "CE1 : compléter avec ce/cette, mon/ma/mes ; repérer un démonstratif.\nCE2 : distinguer démonstratif/possessif, ce/cet, accorder son/sa/ses.",
+     "depassement": "",
+     "correction": "Voir les corrigés des feuilles (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le déterminant avec un autre petit mot (de, à).\n- Oublier l'accord au pluriel.\nRemédiation rapide :\n- Test « le … » devant le nom ; faire dire le groupe au pluriel à l'oral.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "detS4",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 4 — Évaluation (ou entraînement)",
+     "objectif": "Évaluer la maîtrise des déterminants (articles, démonstratifs, possessifs). S'ils ne font pas l'éval : séance d'entraînement.",
+     "competence": "Reconnaître et employer les déterminants.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Les déterminants (P1)",
+     "progSeance": "4",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "e1",
+       "label": "Consignes (10 min)",
+       "note": "- « Aujourd'hui, on montre tout ce qu'on sait sur les déterminants. »\n- « On lit chaque consigne, on regarde l'exemple, on fait seul. »\n- « On travaille en silence ; si un mot est difficile, je le lis. »\n- « (Si on ne fait pas l'évaluation : on prend la feuille d'entraînement.) »"
+      },
+      {
+       "id": "e2",
+       "label": "Évaluation / entraînement (35 min)",
+       "note": "- « Chacun sa feuille. On commence par l'exemple de chaque exercice. »\n- « Je circule sans donner les réponses. »\n- « Quand j'ai fini, je relis mon travail. »"
+      },
+      {
+       "id": "e3",
+       "label": "Correction (15 min)",
+       "note": "- « On corrige ensemble ; chacun voit ce qu'il a réussi. »\n- « On range la feuille dans le classeur / le cahier. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+     "differenciation": "CE1 : repérer les déterminants, choisir, accorder.\nCE2 : + distinguer défini/indéfini et démonstratif/possessif.",
+     "depassement": "",
+     "correction": "Voir les corrigés des feuilles (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le déterminant avec un autre petit mot (de, à).\n- Oublier l'accord au pluriel.\nRemédiation rapide :\n- Test « le … » devant le nom ; faire dire le groupe au pluriel à l'oral.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    }
+   ],
+   "updatedAt": 1789930000000
   }
  ]
 }
