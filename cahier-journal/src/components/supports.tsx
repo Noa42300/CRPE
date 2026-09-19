@@ -316,8 +316,28 @@ const DICTEE_MONDE1: FicheData = {
   ],
 };
 
-/* ===================== ANGLAIS — Se présenter (fiche récap) ===================== */
+/* Lundi 21 — Première dictée « maison », différenciée CE1/CE2 (côté enseignant). */
+const DICTEE_L21_LIRE: FicheData = {
+  entete: "Dictée du lundi — à lire (côté enseignant)", titre: "Première dictée — CE1 & CE2", niveau: "CE1-CE2", discipline: "Français — Orthographe (dictée maison)",
+  blocs: [
+    { kind: "def", picto: "plume", contenu: "On révise d'abord les mots ensemble (je lis, on épelle les pièges), puis je dicte lentement, deux fois. CE1 et CE2 ont une dictée différente. Les phrases restent de mon côté (pas sur la feuille élève)." },
+    { kind: "puces", titre: "Mots à réviser ensemble", points: [
+      "CE1 : la rentrée · la classe · un copain · l'école · la maîtresse · content",
+      "CE2 en plus : le cartable · apprendre · ensemble",
+    ] },
+    { kind: "puces", titre: "Dictée CE1 (mots + 1 phrase)", points: [
+      "Les mots : la classe, un copain, l'école.",
+      "C'est la rentrée à l'école.",
+      "Je suis content dans ma classe.",
+    ] },
+    { kind: "puces", titre: "Dictée CE2 (2 phrases)", points: [
+      "À la rentrée, la maîtresse et les copains apprennent ensemble.",
+      "Je range mon cartable dans la classe.",
+    ] },
+  ],
+};
 
+/* ===================== ANGLAIS — Se présenter (fiche récap) ===================== */
 const ANGLAIS_PRESENT_RECAP: FicheData = {
   entete: "Fiche récapitulative (à coller — cahier violet)", titre: "Se présenter et être poli en anglais", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais", cursive: true,
   blocs: [
@@ -1018,6 +1038,13 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [{ key: "mots-2", label: "Mots à apprendre — semaine 2 (à donner mardi)", node: <MotsAApprendre d={DICTEES[1]} /> }];
     case "mots3": case "dictee3":
       return [{ key: "mots-3", label: "Mots à apprendre — semaine 3 (à donner mardi)", node: <MotsAApprendre d={DICTEES[2]} /> }];
+    case "l21fr": {
+      const dict0 = DICTEES.find((x) => x.id === "dict0");
+      return [
+        ...(dict0 ? [{ key: "l21-mots", label: "Mots à réviser — CE1 / CE2 (feuille élève)", node: <MotsAApprendre d={dict0} /> }] : []),
+        { key: "l21-dictee", label: "Première dictée — CE1 & CE2 (à lire, enseignant)", node: ficheNode(DICTEE_L21_LIRE) },
+      ];
+    }
     case "nbS1":
       return [
         { key: "nb1-lecon", label: "Séance 1 — Leçon : construire 100 / 1000", node: ficheNode(NB1_LECON) },
@@ -1100,7 +1127,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "comp-ce1-lecon", label: "Comparer les nombres — Leçon CE1 (à coller)", node: ficheNode(COMP_CE1_LECON) },
         { key: "comp-ce2-lecon", label: "Comparer les nombres — Leçon CE2 (à coller)", node: ficheNode(COMP_CE2_LECON) },
         { key: "comp-ex-ce1", label: "Comparer les nombres — Exercices CE1 (A4)", node: ficheNode(COMP_EX_CE1) },
-        { key: "comp-ce2-auto", label: "Comparer les nombres — Fichier autonomie CE2 (tandem)", node: ficheNode(COMP_CE2_AUTO) },
+        { key: "comp-ce2-auto", label: "Comparer les nombres — Exercices CE2 / fichier autonomie (tandem)", node: ficheNode(COMP_CE2_AUTO) },
       ];
     case "m15sci":
       return [

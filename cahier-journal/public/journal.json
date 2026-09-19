@@ -3905,60 +3905,17 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "l21monde",
+       "id": "l21fr",
        "niveaux": [
         "classe"
        ],
-       "title": "Autour du monde — Escale 2 : l'Espagne (Europe)",
-       "objectif": "Découvrir un pays d'Europe : le situer sur la carte, découvrir un mode de vie et un monument.",
-       "competence": "Se repérer sur une carte ; découvrir cultures et patrimoines.",
-       "competenceRef": "QLM / Histoire des arts / Oral, cycle 2.",
+       "title": "Français — Révision du vocabulaire & première dictée (CE1/CE2)",
+       "objectif": "Réviser le vocabulaire de la classe (rentrée) et écrire une première dictée, différenciée CE1/CE2.",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; écrire sous la dictée ; copier sans erreur.",
+       "competenceRef": "Français — Étude de la langue / Orthographe, cycle 2.",
        "progPeriode": "P1",
-       "progDomaine": "Projet — Autour du monde",
-       "progSequence": "Europe",
-       "progSeance": "2",
-       "progRef": "",
-       "organisation": [
-        "collectif"
-       ],
-       "roleEnseignant": [
-        "découverte"
-       ],
-       "deroulement": [
-        {
-         "id": "p1",
-         "label": "On devine le pays",
-         "note": "- « On continue notre voyage en Europe : devinez le pays de la semaine. »\n- « Indices : on y parle espagnol, il y a la mer, le soleil, la paella… »\n- « On situe l'Espagne sur la carte, juste à côté de la France. »\n- « On regarde le drapeau : rouge et jaune. »"
-        },
-        {
-         "id": "p2",
-         "label": "Carte d'identité du pays",
-         "note": "- « Chacun remplit sa carte d'identité de l'Espagne : nom, capitale, drapeau, spécialité, monument. »\n- « Capitale : Madrid ; monument : la Sagrada Família ; spécialité : la paella. »\n- « On la range dans la pochette noire (projet voyage). »"
-        }
-       ],
-       "materiel": "Diaporama Autour du monde (onglet Projets), carte d'identité Espagne A4 à imprimer, pochette noire (projet voyage).",
-       "video": "",
-       "differenciation": "CE1 : carte d'identité guidée (mots à recopier). CE2 : compléter seuls + une phrase sur le monument.",
-       "depassement": "",
-       "correction": "Espagne — capitale : Madrid ; monument : la Sagrada Família (Barcelone) ; spécialité : la paella.",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      },
-      {
-       "id": "l21rangement",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "Rangement & organisation de la classe — on met tout au clair",
-       "objectif": "Mettre au clair l'organisation matérielle : ce qu'on apporte, où on range chaque cahier et chaque travail, comment on prépare son bureau.",
-       "competence": "Autonomie et organisation ; devenir élève ; coopérer et respecter les règles de la classe.",
-       "competenceRef": "EMC / Méthodologie — cycle 2 (autonomie, vie de classe).",
-       "progPeriode": "P1",
-       "progDomaine": "Méthodologie / EMC",
-       "progSequence": "Vie de classe",
+       "progDomaine": "francais",
+       "progSequence": "Orthographe — dictée maison",
        "progSeance": "",
        "progRef": "",
        "organisation": [
@@ -3970,32 +3927,32 @@
        ],
        "deroulement": [
         {
-         "id": "r1",
-         "label": "Pourquoi bien ranger ? (10 min)",
-         "note": "- « On va prendre un bon moment pour tout mettre au clair dans la classe. »\n- « Quand tout est rangé, on gagne du temps et on ne perd rien. »\n- « On va voir ensemble : ce que j'apporte, où je range mes cahiers, où je range mes fiches. »\n- « Je montre le coin des casiers, le coin des pochettes, le tableau des responsabilités. »\n- « On écoute bien : après, chacun rangera son propre matériel. »"
+         "id": "f1",
+         "label": "Je révise mes mots (12 min)",
+         "note": "- « Cet après-midi, on révise des mots, puis on écrira notre toute première dictée. »\n- « Je lis les mots au tableau, on les lit ensemble : la rentrée, la classe, un copain, l'école, la maîtresse, content. »\n- « CE2, vous en avez trois de plus : le cartable, apprendre, ensemble. »\n- « Que veut dire ce mot ? On fait une petite phrase à l'oral. »\n- « On repère la lettre difficile de chaque mot, je la souligne au tableau. »\n- « Sortez l'ardoise, on va s'entraîner. »"
         },
         {
-         "id": "r2",
-         "label": "Le code des cahiers (20 min)",
-         "note": "- « Chaque cahier a sa couleur, on va les reconnaître. »\n- « Cahier rouge = leçons de maths ; cahier bleu = leçons de français. »\n- « Cahier gris = exercices d'entraînement ; classeur = fiches de français et de maths. »\n- « Cahier vert = dictées ; cahier violet = anglais et évaluations de français ; cahier orange = évaluations de maths. »\n- « Cahier jaune = liaison (pour la maison) ; pochette noire = travail pas fini / projet voyage. »\n- « On range chacun ses cahiers au bon endroit dans son casier. »"
+         "id": "f2",
+         "label": "Je m'entraîne (10 min)",
+         "note": "- « On applique la méthode : je lis → je cache → j'écris → je vérifie. »\n- « J'écris un mot sur l'ardoise, je le compare au modèle. »\n- « Je corrige tout de suite si je me suis trompé. »\n- « On épelle ensemble les mots les plus durs (l'école, la maîtresse). »\n- « Quand je suis prêt, je range l'ardoise : on passe à la dictée. »"
         },
         {
-         "id": "r3",
-         "label": "Où je range mon travail (20 min)",
-         "note": "- « Une fiche d'exercices finie : je la range dans le classeur, à la bonne intercalaire. »\n- « Un travail pas fini : il va dans la pochette noire, je le reprendrai. »\n- « Une leçon : je la colle dans le bon cahier avant de la ranger. »\n- « Je vous montre comment coller droit et sans plis. »\n- « On s'entraîne : je vous donne une fiche, vous la rangez au bon endroit. »\n- « On vérifie ensemble que tout est à sa place. »"
+         "id": "f3",
+         "label": "La dictée, différenciée CE1 / CE2 (25 min)",
+         "note": "- « On prend le cahier de dictée (le vert), on écrit la date. »\n- « Je dicte lentement, deux fois. On lève le crayon quand on n'écrit pas. »\n- « CE1 : je vous dicte les trois mots, puis une phrase : C'est la rentrée à l'école. »\n- « CE1, deuxième phrase : Je suis content dans ma classe. »\n- « CE2 : À la rentrée, la maîtresse et les copains apprennent ensemble. »\n- « CE2, deuxième phrase : Je range mon cartable dans la classe. »"
         },
         {
-         "id": "r4",
-         "label": "Ce que j'apporte & mon bureau (12 min)",
-         "note": "- « Le matin, dans mon cartable : mes cahiers du jour, ma trousse, mon goûter, ma gourde. »\n- « Sur mon bureau, je garde juste ce dont j'ai besoin : le reste est rangé. »\n- « On prépare ensemble le bureau pour demain. »\n- « On finit par un grand rangement de la classe, chacun sa zone. »\n- « Bravo : maintenant on sait où va chaque chose ! »"
+         "id": "f4",
+         "label": "On relit et on range (8 min)",
+         "note": "- « On relit sa dictée tout seul : je vérifie les majuscules et les points. »\n- « Je vérifie les mots qu'on a révisés : sont-ils bien écrits ? »\n- « Je ramasse les cahiers (je corrige pour repérer qui a besoin d'aide). »\n- « Bravo pour cette première dictée ! »\n- « On range le cahier de dictée (vert) et la feuille de mots dans le cahier de liaison. »"
         }
        ],
-       "materiel": "Les cahiers de couleur, le classeur et ses intercalaires, les pochettes (noire, jaune), quelques fiches d'entraînement pour s'exercer à ranger, l'affiche du code des cahiers.",
+       "materiel": "Feuille « mots à réviser » CE1/CE2, ardoises, cahier de dictée (vert). Les textes de dictée restent côté enseignant — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : rangement guidé avec l'affiche des couleurs sous les yeux. CE2 : aident un CE1 (tutorat) et rangent seuls.",
+       "differenciation": "CE1 : 3 mots + 2 phrases courtes. CE2 : mots en plus + 2 phrases plus longues.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "Erreurs fréquentes :\n- Confondre les couleurs de cahiers.\n- Ranger une fiche finie dans la pochette « pas fini ».\nRemédiation rapide :\n- Afficher le code couleur bien en vue toute la semaine.\n- Faire verbaliser : « c'est fini ? alors ça va dans le classeur ».",
+       "correction": "CE1 : « C'est la rentrée à l'école. » / « Je suis content dans ma classe. » — CE2 : « À la rentrée, la maîtresse et les copains apprennent ensemble. » / « Je range mon cartable dans la classe. »",
+       "obstacles": "Erreurs fréquentes :\n- Oublier l'accord du pluriel (les copains).\n- Confondre é / er en fin de mot ; oublier l'apostrophe (l'école).\nRemédiation rapide :\n- Faire épeler la partie soulignée du mot avant d'écrire.\n- « On entend [é] : é ou -er ? » avec un exemple au tableau.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -4138,7 +4095,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1790600000000
+   "updatedAt": 1790800000000
   },
   {
    "date": "2026-09-22",
