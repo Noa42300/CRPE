@@ -279,6 +279,18 @@ Le temps que l'enseignant s'approprie **Graphémo**, on fait des **dictées mais
   enseignant, dans la séance ; pas sur la feuille élève) ;
 - CE2 = mots CE1 **+** quelques mots en plus. Contenu original (pas de manuel).
 - Cahier de dictée = **vert**.
+- **Programmation THÉMATIQUE sur l'année** (`DICTEES` dans `DicteeMaison.tsx`) : une
+  dictée = un **thème** (la classe, les animaux, les pièces de la maison, l'automne,
+  le corps, les aliments, le voyage, l'hiver, Noël, les vêtements, la famille, les
+  métiers, la météo, le jardin, les fruits/légumes, la ville, la mer, le printemps,
+  le sport, les émotions…) pour un **vocabulaire enrichi et varié**. Fiche
+  `ProgDicteesAnnee` = la programmation imprimable. Toujours **donner la liste de la
+  semaine d'après** en devoirs le jour de la dictée.
+- **Modèle de mise en page OBLIGATOIRE, créé DIRECTEMENT** : pour CHAQUE séance
+  (français, maths, anglais…), ne pas se contenter du script + fiche de prép. Il faut
+  AUSSI **le diaporama à projeter ET la leçon à coller**, réellement mis en page
+  (composant projeté + `FicheData`), câblés dans `supportsForActivity` → visibles dans
+  « 📄 Documents à imprimer ». C'est non négociable, même si c'est plus long à faire.
 
 ## Volumes horaires hebdomadaires à respecter (IMPORTANT)
 
