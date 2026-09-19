@@ -138,6 +138,18 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   **exemple en tête de chaque exercice** + vidéo précise. Les séquences de
   français vivent dans `journal.json` (`sequences`, `disciplineId:"francais"`),
   visibles dans **Séquences** / **Bibliothèque**, à poser sur un jour.
+- **RÈGLE — en français, une séquence = AU MOINS 4 séances**, toujours ce rythme :
+  **Découverte → Consolidation → Consolidation → Évaluation**. Grâce à ça, on
+  sait quel jour poser la leçon, les exercices et l'évaluation.
+- **L'ÉVALUATION est LIBRE / à la demande** : l'élève la fait **quand il se sent
+  prêt**, au fond de la classe, sur demande (pour déstresser). Ceux qui ne la
+  font pas prennent une **feuille d'entraînement**. Concrètement, l'éval d'une
+  notion reste **disponible pendant la séquence suivante** (ex. l'éval des
+  déterminants proposée en libre pendant les exercices de la séquence « Le nom »).
+- Séquences de français déjà construites : `seq-fr-determinants` (Les
+  déterminants), `seq-fr-nom` (Le nom). Enchaînement type : quand une notion
+  arrive à sa séance d'évaluation, on **démarre la découverte de la notion
+  suivante** en parallèle.
 
 ### Questionner le monde — séquences dans le cahier (IMPORTANT)
 - Les 3 programmations de l'enseignant (Histoire, Sciences, Géographie, 24 séances

@@ -12,7 +12,7 @@ import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3 } from "./EpsSeanceFiche";
-import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossLecon } from "./MardiSupports";
+import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 
 export interface SupportFourni {
   key: string;
@@ -536,6 +536,92 @@ const DET_EVAL: FicheData = {
   ],
 };
 
+/* ===================== FRANÇAIS — Le nom (séquence) ===================== */
+const NOM_S1_CE1: FicheData = {
+  entete: "Exercices", titre: "Le nom", niveau: "CE1", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", picto: "chat", exemple: "Le chat dort. → j'entoure chat", consigne: "Entoure le nom dans chaque phrase.", items: [
+      "La maîtresse écrit.", "Un oiseau chante.", "Léa mange une pomme.", "Le vélo roule vite.",
+    ] },
+    { kind: "exercice", picto: "maison", exemple: "un animal → un chien", consigne: "Écris un nom pour chaque dessin (ou idée).", items: [
+      "une personne → ______________", "un animal → ______________", "une chose → ______________", "un lieu → ______________",
+    ] },
+    { kind: "exercice", picto: "pomme", exemple: "Je range mon ___ → cartable", consigne: "Complète chaque phrase avec un nom.", items: [
+      "Je mange une ______________.", "Le ______________ aboie.", "Nous allons à l'______________.",
+    ] },
+  ],
+};
+const NOM_S1_CE2: FicheData = {
+  entete: "Exercices", titre: "Le nom", niveau: "CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", picto: "livre", exemple: "Le chien de Léa. → chien (commun), Léa (propre)", consigne: "Souligne les noms et écris C (commun) ou P (propre).", items: [
+      "Médor court dans le jardin.", "Ma sœur habite à Lyon.", "Les élèves lisent un livre.",
+    ] },
+    { kind: "exercice", exemple: "un animal : le chat, le lapin", consigne: "Trouve 2 noms pour chaque famille.", items: [
+      "une personne : ______________", "un animal : ______________", "un lieu : ______________", "une chose : ______________",
+    ] },
+    { kind: "exercice", picto: "cartable", exemple: "Le maître écrit. → Le boulanger écrit.", consigne: "Remplace le nom souligné par un autre nom.", items: [
+      "Le _chat_ dort.", "Nous visitons _Paris_.", "Je lis un _livre_.",
+    ] },
+  ],
+};
+const NOM_S2_CE1: FicheData = {
+  entete: "Exercices", titre: "Le nom propre (la majuscule)", niveau: "CE1", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", picto: "maison", exemple: "léa habite à paris → Léa habite à Paris", consigne: "Récris en mettant la majuscule aux noms propres.", items: [
+      "médor est un chien.", "je vais à lyon.", "mon amie s'appelle jade.",
+    ] },
+    { kind: "exercice", picto: "oiseau", exemple: "un chat / Léa → j'entoure Léa", consigne: "Entoure seulement les noms propres.", items: [
+      "chien · Médor · maison", "Paris · ville · école", "Jade · fille · Lucas",
+    ] },
+  ],
+};
+const NOM_S2_CE2: FicheData = {
+  entete: "Exercices", titre: "Nom commun / nom propre", niveau: "CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", exemple: "la ville → commun ; Paris → propre", consigne: "Classe : nom commun (C) ou nom propre (P) ?", items: [
+      "un chien ___", "Médor ___", "la France ___", "une école ___", "Saint-Étienne ___",
+    ] },
+    { kind: "exercice", exemple: "lucas joue au foot. → Lucas joue au foot.", consigne: "Corrige : ajoute les majuscules oubliées.", items: [
+      "la maîtresse s'appelle madame durand.", "nous partons en italie.", "le fleuve loire traverse la ville.",
+    ] },
+    { kind: "exercice", exemple: "une ville → Lyon", consigne: "Écris un nom propre pour chaque.", items: [
+      "un prénom → ______________", "une ville → ______________", "un pays → ______________",
+    ] },
+  ],
+};
+const NOM_S3: FicheData = {
+  entete: "Exercices", titre: "Le nom : genre & nombre", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", exemple: "___ table → une table (féminin)", consigne: "Complète avec un ou une, puis écris (m.) ou (f.).", items: [
+      "___ chat", "___ maison", "___ soleil", "___ école", "___ ballon", "___ fleur",
+    ] },
+    { kind: "exercice", exemple: "un chat → des chats", consigne: "Écris chaque nom au pluriel.", items: [
+      "une fleur → ______________", "le livre → ______________", "un ami → ______________", "la table → ______________",
+    ] },
+    { kind: "exercice", exemple: "un cheval → des chevaux (CE2)", consigne: "CE2 : écris au pluriel (attention !).", items: [
+      "un animal → ______________", "un journal → ______________", "un jeu → ______________",
+    ] },
+  ],
+};
+const NOM_EVAL: FicheData = {
+  entete: "Évaluation", titre: "Le nom — Évaluation", niveau: "CE1-CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "exercice", exemple: "Le chat dort. → j'entoure chat", consigne: "Entoure tous les noms.", items: [
+      "Léa range ses livres.", "Le chien court dans le jardin.", "Nous visitons Paris.",
+    ] },
+    { kind: "exercice", exemple: "la ville → C ; Paris → P", consigne: "Nom commun (C) ou nom propre (P) ?", items: [
+      "un arbre ___", "Médor ___", "la France ___", "une école ___",
+    ] },
+    { kind: "exercice", exemple: "jade habite à nice → Jade habite à Nice", consigne: "Ajoute les majuscules oubliées.", items: [
+      "mon ami lucas vient de lyon.",
+    ] },
+    { kind: "exercice", exemple: "un chat → des chats", consigne: "Écris au pluriel.", items: [
+      "une fleur → ______________", "le cheval → ______________", "un jeu → ______________",
+    ] },
+  ],
+};
+
 /* ===================== EMC — La solidarité ===================== */
 
 const EMC_SOLIDARITE: FicheData = {
@@ -755,6 +841,28 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "det-s4-eval", label: "Séance 4 — Évaluation : les déterminants", node: ficheNode(DET_EVAL) },
         { key: "det-s4-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(DET_ENTRAINE_CE1) },
         { key: "det-s4-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(DET_ENTRAINE_CE2) },
+      ];
+    case "nomS1":
+      return [
+        { key: "nom-s1-lecon", label: "Séance 1 — Leçon : le nom (commun & propre)", node: <LeNomLecon /> },
+        { key: "nom-s1-ce1", label: "Séance 1 — Exercices CE1", node: ficheNode(NOM_S1_CE1) },
+        { key: "nom-s1-ce2", label: "Séance 1 — Exercices CE2", node: ficheNode(NOM_S1_CE2) },
+      ];
+    case "nomS2":
+      return [
+        { key: "nom-s2-lecon", label: "Séance 2 — Leçon : le nom (rappel)", node: <LeNomLecon /> },
+        { key: "nom-s2-ce1", label: "Séance 2 — Exercices CE1 (nom propre, majuscule)", node: ficheNode(NOM_S2_CE1) },
+        { key: "nom-s2-ce2", label: "Séance 2 — Exercices CE2 (commun/propre, majuscules)", node: ficheNode(NOM_S2_CE2) },
+      ];
+    case "nomS3":
+      return [
+        { key: "nom-s3-exos", label: "Séance 3 — Exercices : genre & nombre du nom", node: ficheNode(NOM_S3) },
+      ];
+    case "nomS4":
+      return [
+        { key: "nom-s4-eval", label: "Séance 4 — Évaluation : le nom", node: ficheNode(NOM_EVAL) },
+        { key: "nom-s4-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(NOM_S1_CE1) },
+        { key: "nom-s4-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(NOM_S1_CE2) },
       ];
     case "m15det":
       return [

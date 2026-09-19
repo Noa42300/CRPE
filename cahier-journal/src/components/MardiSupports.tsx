@@ -226,6 +226,39 @@ export function DeterminantsDemoPossLecon() {
   );
 }
 
+/** Leçon « Le nom » — style enfantin (bulles). */
+export function LeNomLecon() {
+  const NOM = "#dc2626";
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <h1 style={{ fontSize: "46px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: NOM, fontFamily: "'Caveat','Comic Neue',cursive" }}>Le nom</h1>
+        <p style={{ textAlign: "center", fontSize: "19px", margin: "0 auto 5mm", maxWidth: "155mm", lineHeight: 1.4 }}>
+          Le <b>nom</b> est un mot qui désigne une <b>personne</b>, un <b>animal</b>, une <b>chose</b> ou un <b>lieu</b>.
+        </p>
+
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-around", gap: "5mm" }}>
+          <div style={{ border: "3px solid #2563eb", borderRadius: "5mm", padding: "5mm", textAlign: "center" }}>
+            <div style={{ fontSize: "30px", fontWeight: 800, color: "#2563eb", fontFamily: "'Caveat','Comic Neue',cursive" }}>le nom commun</div>
+            <div style={{ fontSize: "16px", color: "#555", marginBottom: "2mm" }}>il nomme tout le monde pareil — avec un petit mot devant</div>
+            <div>{["un chat", "une école", "la ville", "un arbre", "le bonheur"].map((m) => <Bulle key={m} mot={m} color="#2563eb" />)}</div>
+          </div>
+
+          <div style={{ border: "3px solid #16a34a", borderRadius: "5mm", padding: "5mm", textAlign: "center" }}>
+            <div style={{ fontSize: "30px", fontWeight: 800, color: "#16a34a", fontFamily: "'Caveat','Comic Neue',cursive" }}>le nom propre</div>
+            <div style={{ fontSize: "16px", color: "#555", marginBottom: "2mm" }}>un nom à lui tout seul — il prend une <b>MAJUSCULE</b></div>
+            <div>{["Léa", "Médor", "Paris", "la France", "Saint-Étienne"].map((m) => <Bulle key={m} mot={m} color="#16a34a" />)}</div>
+          </div>
+
+          <p style={{ textAlign: "center", fontSize: "18px", fontFamily: "'Caveat','Comic Neue',cursive" }}>
+            Mon astuce&nbsp;: si je peux mettre « <b>un</b> » ou « <b>le</b> » devant, c'est un nom&nbsp;!
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* =================== SCIENCES — Solide ou liquide ? =================== */
 
 const SCI = "#0e7490";

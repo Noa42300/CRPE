@@ -3572,7 +3572,7 @@
      {
       "id": "ev-2026-09-21",
       "type": "particulier",
-      "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+      "note": "Français matin : déterminants séance 3 (démonstratifs & possessifs). EPS : lancer loin."
      }
     ],
     "devoirs": ""
@@ -3623,32 +3623,53 @@
     {
      "id": "d2026-09-21s2",
      "start": "08:45",
-     "end": "10:00",
+     "end": "10:10",
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "a-francais-85194",
+       "id": "detS3",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "Créneau français du matin (~1h15) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Séance 3 — Consolidation : démonstratifs (ce, cette, ces) & possessifs (mon, ma, mes…)",
+       "objectif": "Découvrir et employer les déterminants démonstratifs (je montre) et possessifs (je dis à qui c'est).",
+       "competence": "Reconnaître et employer les déterminants.",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Les déterminants (P1)",
+       "progSeance": "3",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "p1",
+         "label": "Découverte (15 min)",
+         "note": "- « Il existe d'AUTRES déterminants que les articles ! »\n- « Quand je MONTRE : ce chien, cette fleur, ces enfants → les démonstratifs. »\n- « Quand je dis à QUI c'est : mon cartable, ta trousse, ses crayons → les possessifs. »\n- « Vous en connaissez d'autres ? On les note au tableau. »\n- « Attention : devant une voyelle, ce devient cet (cet arbre). »"
+        },
+        {
+         "id": "p2",
+         "label": "Leçon (10 min)",
+         "note": "- « On colle la leçon : démonstratifs (je montre) et possessifs (à qui c'est). »\n- « On relit les deux familles ensemble. »\n- « Ils sont devant le nom et s'accordent avec lui, comme les autres déterminants. »"
+        },
+        {
+         "id": "p3",
+         "label": "Exercices (30 min, tandems)",
+         "note": "- « CE1 : compléter avec ce/cette, mon/ma/mes ; entourer les démonstratifs. »\n- « CE2 : classer démonstratif/possessif, ce/cet, transformer avec son/sa/ses. »\n- « On commence par l'exemple. Je passe vous aider. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+       "differenciation": "CE1 : compléter avec ce/cette, mon/ma/mes ; repérer un démonstratif.\nCE2 : distinguer démonstratif/possessif, ce/cet, accorder son/sa/ses.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Voir les corrigés des feuilles (exemple donné en tête de chaque exercice).",
+       "obstacles": "Erreurs fréquentes :\n- Confondre le déterminant avec un autre petit mot (de, à).\n- Oublier l'accord au pluriel.\nRemédiation rapide :\n- Test « le … » devant le nom ; faire dire le groupe au pluriel à l'oral.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -3658,8 +3679,8 @@
     },
     {
      "id": "d2026-09-21s3",
-     "start": "10:00",
-     "end": "10:15",
+     "start": "10:10",
+     "end": "10:40",
      "disciplineId": "recreation",
      "activities": [
       {
@@ -3694,7 +3715,7 @@
     },
     {
      "id": "d2026-09-21s4",
-     "start": "10:15",
+     "start": "10:40",
      "end": "11:25",
      "disciplineId": "maths",
      "activities": [
@@ -3839,7 +3860,7 @@
     {
      "id": "d2026-09-21s8",
      "start": "13:45",
-     "end": "15:00",
+     "end": "15:10",
      "disciplineId": "francais",
      "activities": [
       {
@@ -3874,8 +3895,8 @@
     },
     {
      "id": "d2026-09-21s9",
-     "start": "15:00",
-     "end": "15:15",
+     "start": "15:10",
+     "end": "15:40",
      "disciplineId": "recreation",
      "activities": [
       {
@@ -3910,8 +3931,8 @@
     },
     {
      "id": "d2026-09-21s10",
-     "start": "15:15",
-     "end": "16:00",
+     "start": "15:40",
+     "end": "16:25",
      "disciplineId": "eps",
      "activities": [
       {
@@ -3972,42 +3993,6 @@
      ]
     },
     {
-     "id": "d2026-09-21s11",
-     "start": "16:00",
-     "end": "16:25",
-     "disciplineId": "autre",
-     "activities": [
-      {
-       "id": "a-autre-15452",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "À préparer",
-       "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
      "id": "d2026-09-21s12",
      "start": "16:25",
      "end": "16:30",
@@ -4045,7 +4030,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789800000000
+   "updatedAt": 1789941000000
   },
   {
    "date": "2026-09-22",
@@ -4059,7 +4044,7 @@
      {
       "id": "ev-2026-09-22",
       "type": "particulier",
-      "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+      "note": "Français matin : « Le nom » séance 1 (découverte) + évaluation déterminants EN LIBRE (au fond, à la demande). EPS : lancer loin (technique)."
      }
     ],
     "devoirs": ""
@@ -4110,32 +4095,92 @@
     {
      "id": "d2026-09-22s2",
      "start": "08:45",
-     "end": "10:00",
+     "end": "10:10",
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "a-francais-85194",
+       "id": "nomS1",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "Créneau français du matin (~1h15) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Séance 1 — Découverte : qu'est-ce qu'un nom ?",
+       "objectif": "Reconnaître un nom (personne, animal, chose, lieu) et distinguer nom commun / nom propre.",
+       "competence": "Reconnaître et employer le nom.",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Le nom (P1)",
+       "progSeance": "1",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "n1",
+         "label": "Découverte (15 min)",
+         "note": "- « Aujourd'hui, on découvre le NOM : le mot qui nomme une personne, un animal, une chose ou un lieu. »\n- « Écoutez : chat, école, Léa, ville… ce sont des noms. »\n- « On en cherche ensemble dans la classe : une table, un cahier… »\n- « Certains prennent une MAJUSCULE : Léa, Paris → les noms propres. »\n- « On va apprendre à les reconnaître tout seuls. »"
+        },
+        {
+         "id": "n2",
+         "label": "Leçon (10 min)",
+         "note": "- « On colle la leçon : nom commun (avec un petit mot devant) et nom propre (majuscule). »\n- « On relit les deux familles ensemble. »\n- « Mon astuce : si “un” ou “le” marche devant, c'est un nom. »"
+        },
+        {
+         "id": "n3",
+         "label": "Exercices (30 min, tandems)",
+         "note": "- « CE1 votre feuille, CE2 la vôtre ; on lit et on souligne la consigne. »\n- « On commence par l'exemple, puis on continue seul. »\n- « Je passe vous aider ; si c'est fini, on vérifie avec le voisin. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : repérer un nom, en trouver, compléter avec un nom.\nCE2 : + distinguer commun/propre, remplacer un nom.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Voir les corrigés (exemple donné en tête de chaque exercice).",
+       "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un autre mot.\n- Oublier la majuscule des noms propres.\nRemédiation rapide :\n- Test « un / le … » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      },
+      {
+       "id": "detS4",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Déterminants — Évaluation LIBRE (au fond, à la demande)",
+       "objectif": "Évaluation des déterminants proposée en LIBRE : l'élève la fait quand il se sent prêt, au fond de la classe, sur demande. Ceux qui ne la font pas : feuille d'entraînement.",
+       "competence": "Reconnaître et employer les déterminants.",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Les déterminants (P1)",
+       "progSeance": "4",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "l1",
+         "label": "En libre, pendant la séance du nom",
+         "note": "- « L'évaluation des déterminants est disponible au fond de la classe. »\n- « Tu la fais quand tu veux : tu me demandes, tu t'installes au calme. »\n- « Pas de stress : si tu ne te sens pas prêt(e), tu prends la feuille d'entraînement. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+       "differenciation": "CE1 : repérer les déterminants, choisir, accorder.\nCE2 : + distinguer défini/indéfini et démonstratif/possessif.",
+       "depassement": "",
+       "correction": "Voir les corrigés des feuilles (exemple donné en tête de chaque exercice).",
+       "obstacles": "Erreurs fréquentes :\n- Confondre le déterminant avec un autre petit mot (de, à).\n- Oublier l'accord au pluriel.\nRemédiation rapide :\n- Test « le … » devant le nom ; faire dire le groupe au pluriel à l'oral.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -4145,8 +4190,8 @@
     },
     {
      "id": "d2026-09-22s3",
-     "start": "10:00",
-     "end": "10:15",
+     "start": "10:10",
+     "end": "10:40",
      "disciplineId": "recreation",
      "activities": [
       {
@@ -4181,7 +4226,7 @@
     },
     {
      "id": "d2026-09-22s4",
-     "start": "10:15",
+     "start": "10:40",
      "end": "11:25",
      "disciplineId": "maths",
      "activities": [
@@ -4326,7 +4371,7 @@
     {
      "id": "d2026-09-22s8",
      "start": "13:45",
-     "end": "15:00",
+     "end": "15:10",
      "disciplineId": "francais",
      "activities": [
       {
@@ -4361,8 +4406,8 @@
     },
     {
      "id": "d2026-09-22s9",
-     "start": "15:00",
-     "end": "15:15",
+     "start": "15:10",
+     "end": "15:40",
      "disciplineId": "recreation",
      "activities": [
       {
@@ -4397,8 +4442,8 @@
     },
     {
      "id": "d2026-09-22s10",
-     "start": "15:15",
-     "end": "16:00",
+     "start": "15:40",
+     "end": "16:25",
      "disciplineId": "eps",
      "activities": [
       {
@@ -4459,42 +4504,6 @@
      ]
     },
     {
-     "id": "d2026-09-22s11",
-     "start": "16:00",
-     "end": "16:25",
-     "disciplineId": "autre",
-     "activities": [
-      {
-       "id": "a-autre-15452",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "À préparer",
-       "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
      "id": "d2026-09-22s12",
      "start": "16:25",
      "end": "16:30",
@@ -4532,7 +4541,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789800000000
+   "updatedAt": 1789941000000
   },
   {
    "date": "2026-09-28",
@@ -4546,7 +4555,7 @@
      {
       "id": "ev-2026-09-28",
       "type": "particulier",
-      "note": "EPS athlétisme P1 posée (après la récré). Reste de la journée à préparer."
+      "note": "Semaine de l'inspecteur. Français matin : « Le nom » séance 2 (consolidation), la leçon a déjà été donnée mardi. EPS : rencontre athlétique."
      }
     ],
     "devoirs": ""
@@ -4597,32 +4606,53 @@
     {
      "id": "d2026-09-28s2",
      "start": "08:45",
-     "end": "10:00",
+     "end": "10:10",
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "a-francais-85194",
+       "id": "nomS2",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "Créneau français du matin (~1h15) : à compléter.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Séance 2 — Consolidation : nom commun / nom propre (la majuscule)",
+       "objectif": "Distinguer le nom commun du nom propre et mettre la majuscule aux noms propres.",
+       "competence": "Reconnaître et employer le nom.",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Le nom (P1)",
+       "progSeance": "2",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "m1",
+         "label": "Rappel & consolidation (15 min)",
+         "note": "- « La semaine dernière, on a découvert le nom. Aujourd'hui : commun ou propre ? »\n- « Le nom commun nomme tout le monde pareil : un chien, une ville. »\n- « Le nom propre est un nom à lui, avec une MAJUSCULE : Médor, Paris. »\n- « On teste ensemble au tableau : on cherche les majuscules. »"
+        },
+        {
+         "id": "m2",
+         "label": "Leçon / rappel (5 min)",
+         "note": "- « On relit la leçon, partie noms propres. »\n- « On souligne : un nom propre prend toujours une majuscule. »"
+        },
+        {
+         "id": "m3",
+         "label": "Exercices (35 min, tandems)",
+         "note": "- « CE1 : mettre les majuscules, entourer les noms propres. »\n- « CE2 : classer commun/propre, corriger les majuscules oubliées. »\n- « On démarre par l'exemple. Je passe aider. »"
+        }
+       ],
+       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : mettre la majuscule aux noms propres, les repérer.\nCE2 : classer commun/propre, corriger les majuscules.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Voir les corrigés (exemple donné en tête de chaque exercice).",
+       "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un autre mot.\n- Oublier la majuscule des noms propres.\nRemédiation rapide :\n- Test « un / le … » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -4632,8 +4662,8 @@
     },
     {
      "id": "d2026-09-28s3",
-     "start": "10:00",
-     "end": "10:15",
+     "start": "10:10",
+     "end": "10:40",
      "disciplineId": "recreation",
      "activities": [
       {
@@ -4668,7 +4698,7 @@
     },
     {
      "id": "d2026-09-28s4",
-     "start": "10:15",
+     "start": "10:40",
      "end": "11:25",
      "disciplineId": "maths",
      "activities": [
@@ -4813,7 +4843,7 @@
     {
      "id": "d2026-09-28s8",
      "start": "13:45",
-     "end": "15:00",
+     "end": "15:10",
      "disciplineId": "francais",
      "activities": [
       {
@@ -4848,8 +4878,8 @@
     },
     {
      "id": "d2026-09-28s9",
-     "start": "15:00",
-     "end": "15:15",
+     "start": "15:10",
+     "end": "15:40",
      "disciplineId": "recreation",
      "activities": [
       {
@@ -4884,8 +4914,8 @@
     },
     {
      "id": "d2026-09-28s10",
-     "start": "15:15",
-     "end": "16:00",
+     "start": "15:40",
+     "end": "16:25",
      "disciplineId": "eps",
      "activities": [
       {
@@ -4946,42 +4976,6 @@
      ]
     },
     {
-     "id": "d2026-09-28s11",
-     "start": "16:00",
-     "end": "16:25",
-     "disciplineId": "autre",
-     "activities": [
-      {
-       "id": "a-autre-15452",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "À préparer",
-       "objectif": "Anglais / EMC / Questionner le monde / projet : à compléter.",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
      "id": "d2026-09-28s12",
      "start": "16:25",
      "end": "16:30",
@@ -5019,7 +5013,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1789800000000
+   "updatedAt": 1789941000000
   }
  ],
  "templates": [],
@@ -8092,6 +8086,214 @@
     }
    ],
    "updatedAt": 1789930000000
+  },
+  {
+   "id": "seq-fr-nom",
+   "title": "Français — Le nom (Période 1) : Découverte → Éval",
+   "disciplineId": "francais",
+   "niveaux": [
+    "classe"
+   ],
+   "objectif": "Séquence de grammaire en 4 séances : Découverte (qu'est-ce qu'un nom ?) → Consolidation (nom commun / propre, la majuscule) → Consolidation (genre & nombre) → Évaluation LIBRE (à la demande, au fond de la classe) ou entraînement. Chaque séance = leçon simple + exercices avec un exemple en tête.",
+   "seances": [
+    {
+     "id": "nomS1",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 1 — Découverte : qu'est-ce qu'un nom ?",
+     "objectif": "Reconnaître un nom (personne, animal, chose, lieu) et distinguer nom commun / nom propre.",
+     "competence": "Reconnaître et employer le nom.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Le nom (P1)",
+     "progSeance": "1",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "n1",
+       "label": "Découverte (15 min)",
+       "note": "- « Aujourd'hui, on découvre le NOM : le mot qui nomme une personne, un animal, une chose ou un lieu. »\n- « Écoutez : chat, école, Léa, ville… ce sont des noms. »\n- « On en cherche ensemble dans la classe : une table, un cahier… »\n- « Certains prennent une MAJUSCULE : Léa, Paris → les noms propres. »\n- « On va apprendre à les reconnaître tout seuls. »"
+      },
+      {
+       "id": "n2",
+       "label": "Leçon (10 min)",
+       "note": "- « On colle la leçon : nom commun (avec un petit mot devant) et nom propre (majuscule). »\n- « On relit les deux familles ensemble. »\n- « Mon astuce : si “un” ou “le” marche devant, c'est un nom. »"
+      },
+      {
+       "id": "n3",
+       "label": "Exercices (30 min, tandems)",
+       "note": "- « CE1 votre feuille, CE2 la vôtre ; on lit et on souligne la consigne. »\n- « On commence par l'exemple, puis on continue seul. »\n- « Je passe vous aider ; si c'est fini, on vérifie avec le voisin. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : repérer un nom, en trouver, compléter avec un nom.\nCE2 : + distinguer commun/propre, remplacer un nom.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un autre mot.\n- Oublier la majuscule des noms propres.\nRemédiation rapide :\n- Test « un / le … » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "nomS2",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 2 — Consolidation : nom commun / nom propre (la majuscule)",
+     "objectif": "Distinguer le nom commun du nom propre et mettre la majuscule aux noms propres.",
+     "competence": "Reconnaître et employer le nom.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Le nom (P1)",
+     "progSeance": "2",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "m1",
+       "label": "Rappel & consolidation (15 min)",
+       "note": "- « La semaine dernière, on a découvert le nom. Aujourd'hui : commun ou propre ? »\n- « Le nom commun nomme tout le monde pareil : un chien, une ville. »\n- « Le nom propre est un nom à lui, avec une MAJUSCULE : Médor, Paris. »\n- « On teste ensemble au tableau : on cherche les majuscules. »"
+      },
+      {
+       "id": "m2",
+       "label": "Leçon / rappel (5 min)",
+       "note": "- « On relit la leçon, partie noms propres. »\n- « On souligne : un nom propre prend toujours une majuscule. »"
+      },
+      {
+       "id": "m3",
+       "label": "Exercices (35 min, tandems)",
+       "note": "- « CE1 : mettre les majuscules, entourer les noms propres. »\n- « CE2 : classer commun/propre, corriger les majuscules oubliées. »\n- « On démarre par l'exemple. Je passe aider. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : mettre la majuscule aux noms propres, les repérer.\nCE2 : classer commun/propre, corriger les majuscules.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un autre mot.\n- Oublier la majuscule des noms propres.\nRemédiation rapide :\n- Test « un / le … » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "nomS3",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 3 — Consolidation : le genre et le nombre du nom",
+     "objectif": "Reconnaître le genre (un/une) et le nombre (singulier/pluriel) du nom.",
+     "competence": "Reconnaître et employer le nom.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Le nom (P1)",
+     "progSeance": "3",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "g1",
+       "label": "Rappel & découverte (12 min)",
+       "note": "- « Un nom peut être masculin (un) ou féminin (une). »\n- « Il peut être au singulier (un) ou au pluriel (des). »\n- « Au pluriel, on ajoute souvent un -s : un chat → des chats. »\n- « Attention aux CE2 : un cheval → des chevaux ! »"
+      },
+      {
+       "id": "g2",
+       "label": "Exercices (33 min, tandems)",
+       "note": "- « CE1 : choisir un/une, écrire les noms au pluriel. »\n- « CE2 : les pluriels particuliers en -aux, -eux. »\n- « On commence par l'exemple. »"
+      },
+      {
+       "id": "g3",
+       "label": "Mise en commun (10 min)",
+       "note": "- « On corrige quelques noms au tableau. »\n- « On range la feuille dans le classeur. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : choisir un/une, écrire au pluriel simple (+s).\nCE2 : pluriels particuliers (-al → -aux, -eu/-eau → +x).",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un autre mot.\n- Oublier la majuscule des noms propres.\nRemédiation rapide :\n- Test « un / le … » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "nomS4",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Séance 4 — Évaluation (ou entraînement)",
+     "objectif": "Évaluer la maîtrise du nom (reconnaître, commun/propre, majuscule, pluriel). Évaluation LIBRE, à la demande.",
+     "competence": "Reconnaître et employer le nom.",
+     "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
+     "progPeriode": "P1",
+     "progDomaine": "Français — Grammaire",
+     "progSequence": "Le nom (P1)",
+     "progSeance": "4",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "guidage"
+     ],
+     "deroulement": [
+      {
+       "id": "v1",
+       "label": "Consignes (10 min)",
+       "note": "- « On montre tout ce qu'on sait sur le nom. »\n- « L'évaluation est LIBRE : tu la fais quand tu te sens prêt(e). »\n- « Tu me demandes, et tu vas la faire au fond de la classe, au calme. »\n- « Sinon, tu prends la feuille d'entraînement. »"
+      },
+      {
+       "id": "v2",
+       "label": "Évaluation / entraînement (35 min)",
+       "note": "- « Chacun sa feuille ; on commence par l'exemple de chaque exercice. »\n- « Je circule sans donner les réponses. »\n- « Quand j'ai fini, je relis mon travail. »"
+      },
+      {
+       "id": "v3",
+       "label": "Correction (15 min)",
+       "note": "- « On corrige ensemble ; chacun voit ce qu'il a réussi. »\n- « On range la feuille. »"
+      }
+     ],
+     "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+     "video": "",
+     "differenciation": "CE1 : repérer les noms, majuscules, pluriel simple.\nCE2 : + commun/propre et pluriels particuliers.",
+     "depassement": "",
+     "correction": "Voir les corrigés (exemple donné en tête de chaque exercice).",
+     "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un autre mot.\n- Oublier la majuscule des noms propres.\nRemédiation rapide :\n- Test « un / le … » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    }
+   ],
+   "updatedAt": 1789940000000
   }
  ]
 }
