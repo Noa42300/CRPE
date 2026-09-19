@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama, AnglaisActionVerbsDiapo } from "./AnglaisDiaporama";
+import { LireFriseDiapo, SolidesProprietesDiapo, FriseCinqPeriodes } from "./QlmDiapos";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
@@ -350,6 +351,52 @@ const ANGLAIS_VERBS_LECON: FicheData = {
       "Un élève passe au tableau et mime un verbe (sans parler).",
       "Les autres devinent en anglais : « Run! », « Jump! »…",
     ] },
+  ],
+};
+
+/* ===================== QLM — Histoire « Lire une frise » & Sciences « Les solides » ===================== */
+
+const LIRE_FRISE_LECON: FicheData = {
+  entete: "Leçon à coller — cahier de QLM", titre: "Lire une frise du temps", niveau: "CE1-CE2", discipline: "Questionner le monde — Histoire", cursive: true,
+  blocs: [
+    { kind: "def", picto: "plume", contenu: "Une frise chronologique, c'est une ligne du temps. Je la lis de GAUCHE (il y a très longtemps, le passé) vers la DROITE (aujourd'hui)." },
+    { kind: "puces", titre: "Les 5 grandes périodes (dans l'ordre)", points: [
+      "1. la Préhistoire", "2. l'Antiquité", "3. le Moyen Âge", "4. les Temps modernes", "5. l'Époque contemporaine (nous)",
+    ] },
+    { kind: "puces", titre: "Pour me repérer", points: [
+      "Chaque période a sa couleur sur la frise.",
+      "« Avant » = à gauche ; « après » = à droite.",
+      "Je place un événement avec un petit trait sur la frise.",
+    ] },
+  ],
+};
+
+const SOLIDES_PROP_LECON: FicheData = {
+  entete: "Leçon à coller — cahier de QLM", titre: "Les solides n'ont pas tous les mêmes propriétés", niveau: "CE1-CE2", discipline: "Questionner le monde — Sciences", cursive: true,
+  blocs: [
+    { kind: "def", picto: "ampoule", contenu: "Tous les solides gardent leur forme quand on les déplace. Mais ils sont différents : ils n'ont pas tous les mêmes propriétés." },
+    { kind: "puces", titre: "Les propriétés qu'on observe", points: [
+      "dur ou mou (le bois / l'éponge)",
+      "lisse ou rugueux (le métal / le bois)",
+      "lourd ou léger (la pierre / l'éponge)",
+      "certains se déforment et gardent la forme (la pâte à modeler)",
+    ] },
+    { kind: "def", picto: "sourire", titre: "Je retiens", contenu: "Un solide garde sa forme, mais chaque matière a ses propres propriétés." },
+  ],
+};
+
+const SOLIDES_OBS: FicheData = {
+  entete: "Fiche d'expérience", titre: "J'observe et je compare des solides", niveau: "CE1-CE2", discipline: "Questionner le monde — Sciences",
+  blocs: [
+    { kind: "def", picto: "ampoule", contenu: "Je touche chaque objet et je coche ou j'écris ce que j'observe. Un solide garde sa forme : je vérifie s'il est dur ou mou, lisse ou rugueux, lourd ou léger." },
+    { kind: "tableau", titre: "Mon tableau d'observation", entetes: ["Objet", "dur / mou", "lisse / rugueux", "lourd / léger"], lignes: [
+      ["une éponge", "", "", ""],
+      ["le bois", "", "", ""],
+      ["la pâte à modeler", "", "", ""],
+      ["une pierre", "", "", ""],
+      ["le métal", "", "", ""],
+    ] },
+    { kind: "exercice", exemple: "La pierre est dure et lourde.", consigne: "Écris une phrase pour comparer deux objets.", lignes: 3 },
   ],
 };
 
@@ -1191,6 +1238,18 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "ang-verbs-diapo", label: "Action verbs — Diaporama à projeter (jeu du mime)", node: <AnglaisActionVerbsDiapo /> },
         { key: "ang-verbs-lecon", label: "Action verbs — Leçon à coller (10 verbes EN → FR)", node: ficheNode(ANGLAIS_VERBS_LECON) },
+      ];
+    case "histS3":
+      return [
+        { key: "hist-frise-diapo", label: "Lire une frise — Diaporama à projeter (sens du temps, 5 périodes)", node: <LireFriseDiapo /> },
+        { key: "hist-frise-lecon", label: "Lire une frise — Leçon à coller", node: ficheNode(LIRE_FRISE_LECON) },
+        { key: "hist-frise-affiche", label: "La frise des 5 grandes périodes — à afficher / coller (A4)", node: <FriseCinqPeriodes /> },
+      ];
+    case "sciS3":
+      return [
+        { key: "sci-solides-diapo", label: "Les solides — Diaporama à projeter (comparer des matières)", node: <SolidesProprietesDiapo /> },
+        { key: "sci-solides-lecon", label: "Les solides — Leçon à coller", node: ficheNode(SOLIDES_PROP_LECON) },
+        { key: "sci-solides-obs", label: "Les solides — Fiche d'expérience (tableau à remplir)", node: ficheNode(SOLIDES_OBS) },
       ];
     case "artdet":
       return [
