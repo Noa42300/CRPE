@@ -192,6 +192,40 @@ export function DeterminantsLecon() {
   );
 }
 
+/** Leçon « Les déterminants démonstratifs et possessifs » — style enfantin. */
+export function DeterminantsDemoPossLecon() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <h1 style={{ fontSize: "40px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: DET, fontFamily: "'Caveat','Comic Neue',cursive" }}>D'autres déterminants</h1>
+        <p style={{ textAlign: "center", fontSize: "19px", margin: "0 0 5mm", fontFamily: "'Caveat','Comic Neue',cursive", color: "#555" }}>les démonstratifs &amp; les possessifs</p>
+
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-around", gap: "5mm" }}>
+          {/* Démonstratifs */}
+          <div style={{ border: "3px solid #0891b2", borderRadius: "5mm", padding: "5mm", textAlign: "center" }}>
+            <div style={{ fontSize: "30px", fontWeight: 800, color: "#0891b2", fontFamily: "'Caveat','Comic Neue',cursive" }}>👉 Les démonstratifs</div>
+            <div style={{ fontSize: "17px", color: "#555", marginBottom: "2mm" }}>je MONTRE quelque chose</div>
+            <div>{["ce", "cet", "cette", "ces"].map((m) => <Bulle key={m} mot={m} color="#0891b2" />)}</div>
+            <div style={{ fontSize: "22px", fontFamily: "'Caveat','Comic Neue',cursive", marginTop: "2mm" }}><b>ce</b> chien · <b>cette</b> fleur · <b>ces</b> enfants</div>
+          </div>
+
+          {/* Possessifs */}
+          <div style={{ border: "3px solid #db2777", borderRadius: "5mm", padding: "5mm", textAlign: "center" }}>
+            <div style={{ fontSize: "30px", fontWeight: 800, color: "#db2777", fontFamily: "'Caveat','Comic Neue',cursive" }}>💛 Les possessifs</div>
+            <div style={{ fontSize: "17px", color: "#555", marginBottom: "2mm" }}>je dis à QUI c'est</div>
+            <div>{["mon", "ma", "mes", "ton", "ta", "tes", "son", "sa", "ses"].map((m) => <Bulle key={m} mot={m} color="#db2777" />)}</div>
+            <div style={{ fontSize: "22px", fontFamily: "'Caveat','Comic Neue',cursive", marginTop: "2mm" }}><b>mon</b> cartable · <b>ta</b> trousse · <b>ses</b> crayons</div>
+          </div>
+
+          <p style={{ textAlign: "center", fontSize: "18px", fontFamily: "'Caveat','Comic Neue',cursive" }}>
+            Comme tous les déterminants, ils sont <b>devant le nom</b> et <b>s'accordent</b> avec lui.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* =================== SCIENCES — Solide ou liquide ? =================== */
 
 const SCI = "#0e7490";
