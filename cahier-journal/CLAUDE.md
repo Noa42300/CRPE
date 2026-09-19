@@ -291,6 +291,13 @@ Le temps que l'enseignant s'approprie **Graphémo**, on fait des **dictées mais
   AUSSI **le diaporama à projeter ET la leçon à coller**, réellement mis en page
   (composant projeté + `FicheData`), câblés dans `supportsForActivity` → visibles dans
   « 📄 Documents à imprimer ». C'est non négociable, même si c'est plus long à faire.
+- **Leçons — chercher en ligne D'ABORD, proposer, puis intégrer (IMPORTANT)** : avant
+  de créer une leçon, **proposer d'abord des ressources en ligne** (liens : Pass-Education,
+  Classe et Grimaces, Lutin Bazar, Canopé…). Si l'enseignant **valide**, on l'intègre
+  **par lien** dans le `materiel` de la séance (+ possibilité de **pièce jointe locale**,
+  non publiée). **Ne JAMAIS réhéberger un PDF/visuel protégé** sur le dépôt (public →
+  GitHub Pages) : on met le lien, jamais le fichier. Si rien ne convient, on **crée**
+  une leçon originale (modèle validé).
 
 ## Volumes horaires hebdomadaires à respecter (IMPORTANT)
 
