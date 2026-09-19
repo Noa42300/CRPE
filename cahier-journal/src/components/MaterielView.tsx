@@ -19,9 +19,10 @@ export function MaterielView() {
 
   const downloadPdf = async (id: string, titre: string) => {
     const container = document.getElementById(`mat-${id}`);
-    const el = (container?.querySelector(".fiche-a4") as HTMLElement | null) ?? container;
+    const el = (container?.querySelector(".fiche-a4, .etiquettes-a3") as HTMLElement | null) ?? container;
     if (!el) return;
-    await downloadElementPdf(el, `${safeFileName("Aide - " + titre)}.pdf`);
+    const aide = MATERIEL.find((a) => a.id === id);
+    await downloadElementPdf(el, `${safeFileName("Aide - " + titre)}.pdf`, aide?.pdf ?? {});
   };
 
   return (

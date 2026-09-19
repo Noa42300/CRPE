@@ -3,7 +3,14 @@
  * Rendu fidèle à la mise en page A4 (html2canvas → jsPDF), pagination
  * automatique sur plusieurs pages A4 si nécessaire.
  */
-export async function downloadElementPdf(el: HTMLElement, filename: string): Promise<void> {
+export interface PdfOptions {
+  format?: "a4" | "a3";
+  orientation?: "portrait" | "landscape";
+  /** true = tout l'élément tient sur UNE page (mis à l'échelle), sans pagination. */
+  singlePage?: boolean;
+}
+
+export async function downloadElementPdf(el: HTMLElement, filename: string, opts: PdfOptions = {}): Promise<void> {
   // Chargées à la demande (grosses librairies) → n'alourdit pas le démarrage.
   const [{ default: html2canvas }, { jsPDF }] = await Promise.all([
     import("html2canvas"),
@@ -32,11 +39,21 @@ export async function downloadElementPdf(el: HTMLElement, filename: string): Pro
     el.style.cssText = prev;
   }
 
-  const pdf = new jsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
+  const pdf = new jsPDF({ unit: "mm", format: opts.format ?? "a4", orientation: opts.orientation ?? "portrait" });
   const pageW = pdf.internal.pageSize.getWidth();
   const pageH = pdf.internal.pageSize.getHeight();
   const cw = canvas.width;
   const ch = canvas.height;
+
+  // Mode « une seule page » : on met tout l'élément à l'échelle pour qu'il tienne
+  // entièrement sur la page (utile pour une planche A3 d'étiquettes, un schéma…).
+  if (opts.singlePage) {
+    const ratio = Math.min(pageW / cw, pageH / ch);
+    const w = cw * ratio, h = ch * ratio;
+    pdf.addImage(canvas.toDataURL("image/jpeg", 0.95), "JPEG", (pageW - w) / 2, (pageH - h) / 2, w, h);
+    return finalizePdf(pdf, filename);
+  }
+
   const pxPerMm = cw / pageW;
   const pageHpx = Math.max(1, Math.floor(pageH * pxPerMm));
 
@@ -88,10 +105,13 @@ export async function downloadElementPdf(el: HTMLElement, filename: string): Pro
     if (ch - start < pageHpx * 0.04) break;
   }
 
-  // Enregistrement robuste, compatible desktop ET tablette/PWA (iPad).
-  // Sur iOS / application installée, le téléchargement par lien est souvent
-  // ignoré silencieusement : on ouvre alors le PDF dans un nouvel onglet
-  // (l'utilisateur l'enregistre / le partage depuis la visionneuse).
+  finalizePdf(pdf, filename);
+}
+
+/** Enregistrement robuste du PDF, compatible desktop ET tablette/PWA (iPad).
+ *  Sur iOS / appli installée, le lien de téléchargement est souvent ignoré :
+ *  on ouvre alors le PDF dans un nouvel onglet. */
+function finalizePdf(pdf: { output: (t: "blob") => Blob }, filename: string): void {
   const blob = pdf.output("blob");
   const url = URL.createObjectURL(blob);
   const ua = navigator.userAgent || "";
@@ -104,7 +124,6 @@ export async function downloadElementPdf(el: HTMLElement, filename: string): Pro
   if (isIOS || standalone) {
     const w = window.open(url, "_blank");
     if (!w) {
-      // popup bloqué → dernier recours : lien de téléchargement.
       const a = document.createElement("a");
       a.href = url; a.download = filename; a.rel = "noopener";
       document.body.appendChild(a); a.click(); a.remove();
