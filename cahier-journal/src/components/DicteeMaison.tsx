@@ -40,6 +40,13 @@ export const DICTEES: DicteeSemaine[] = [
     phrasesCE1: ["Hier, c'était lundi.", "Demain, je vais à l'école."],
     phrasesCE2: ["Aujourd'hui, c'est mardi ; hier c'était lundi et demain ce sera mercredi.", "Le matin, je travaille toujours bien."],
   },
+  {
+    id: "dict0", semaine: "Première dictée — lundi 21 sept.", theme: "les mots de la classe (rentrée)",
+    motsCE1: ["la rentrée", "la classe", "un copain", "l'école", "la maîtresse", "content"],
+    motsCE2Plus: ["le cartable", "apprendre", "ensemble"],
+    phrasesCE1: ["C'est la rentrée à l'école.", "Je suis content dans ma classe."],
+    phrasesCE2: ["À la rentrée, la maîtresse et les copains apprennent ensemble.", "Je range mon cartable dans la classe."],
+  },
 ];
 
 export function MotsAApprendre({ d }: { d: DicteeSemaine }) {

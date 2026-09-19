@@ -269,6 +269,10 @@ Chaque jour préparé doit avoir des **devoirs** (champ `info.devoirs` du jour),
 
 ## Dictées « maison » (transition avant Graphémo)
 Le temps que l'enseignant s'approprie **Graphémo**, on fait des **dictées maison** :
+- **Le français de l'après-midi ne se remplace jamais** par « Autour du monde » ou le
+  rangement (ce sont des activités **à part**). Un après-midi français type = **révision
+  du vocabulaire + dictée différenciée CE1/CE2** (ex. `l21fr` le lundi 21 : première
+  dictée, mots de la rentrée). Textes de dictée côté enseignant, mots élève sur feuille.
 - le **mardi**, on donne une **liste de mots à apprendre** (feuille `MotsAApprendre`,
   `DicteeMaison.tsx`) → devoirs pour le **lundi** suivant ;
 - le **lundi**, **dictée** de ces mots + 2 courtes phrases (les phrases restent côté
