@@ -197,6 +197,13 @@ Quand je rédige une séance, indiquer le bon support de rangement :
   `https://www.youtube.com/watch?v=20lToFx4lPU` (Canopé, « Le rôle des
   déterminants ») ; comparer les nombres → `https://www.youtube.com/watch?v=8XZptO5L3DQ` ;
   solide/liquide → `https://www.youtube.com/watch?v=cyXMiy0lC8s`.
+- **Répartition des maths avec le binôme (mi-temps) — IMPORTANT** : M. Da Costa
+  (lundi/mardi) prend **Nombres + Espace & Géométrie** ; M. Goujon
+  (jeudi/vendredi) prend le **Calcul** (et le reste : Grandeurs, Problèmes).
+  Donc, à mi-temps, on ne fait PAS toute la programmation Tandem d'une période :
+  on ne prépare que sa part. Séquences maths P1 construites : `seq-maths-nombres-p1`,
+  `seq-maths-geo-p1` (posées lundi = Nombres, mardi = Géométrie, du 21/09 au 13/10,
+  éval libre en fin). Rythme visé : **1 chapitre = 1 séance = 1 créneau**.
 - **Banque de fichiers autonomie CE2** : en maths, les tandems sont par classe.
   Pendant que je fais la **leçon guidée aux CE1** (projetée), les **CE2 sont en
   autonomie** sur un fichier préparé à l'avance (puis institutionnalisation). On
