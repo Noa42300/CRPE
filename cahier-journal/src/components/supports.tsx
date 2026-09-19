@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama, AnglaisActionVerbsDiapo } from "./AnglaisDiaporama";
-import { LireFriseDiapo, SolidesProprietesDiapo, LireFriseLecon } from "./QlmDiapos";
+import { LireFriseDiapo, SolidesProprietesDiapo, LireFriseLecon, SolidesLecon } from "./QlmDiapos";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
@@ -355,20 +355,6 @@ const ANGLAIS_VERBS_LECON: FicheData = {
 };
 
 /* ===================== QLM — Histoire « Lire une frise » & Sciences « Les solides » ===================== */
-
-const SOLIDES_PROP_LECON: FicheData = {
-  entete: "Leçon à coller — cahier de QLM", titre: "Les solides n'ont pas tous les mêmes propriétés", niveau: "CE1-CE2", discipline: "Questionner le monde — Sciences", cursive: true,
-  blocs: [
-    { kind: "def", picto: "ampoule", contenu: "Tous les solides gardent leur forme quand on les déplace. Mais ils sont différents : ils n'ont pas tous les mêmes propriétés." },
-    { kind: "puces", titre: "Les propriétés qu'on observe", points: [
-      "dur ou mou (le bois / l'éponge)",
-      "lisse ou rugueux (le métal / le bois)",
-      "lourd ou léger (la pierre / l'éponge)",
-      "certains se déforment et gardent la forme (la pâte à modeler)",
-    ] },
-    { kind: "def", picto: "sourire", titre: "Je retiens", contenu: "Un solide garde sa forme, mais chaque matière a ses propres propriétés." },
-  ],
-};
 
 const SOLIDES_OBS: FicheData = {
   entete: "Fiche d'expérience", titre: "J'observe et je compare des solides", niveau: "CE1-CE2", discipline: "Questionner le monde — Sciences",
@@ -1231,8 +1217,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "sciS3":
       return [
-        { key: "sci-solides-diapo", label: "Les solides — Diaporama à projeter (comparer des matières)", node: <SolidesProprietesDiapo /> },
-        { key: "sci-solides-lecon", label: "Les solides — Leçon à coller", node: ficheNode(SOLIDES_PROP_LECON) },
+        { key: "sci-solides-diapo", label: "Les solides — Diaporama à projeter (vraies photos)", node: <SolidesProprietesDiapo /> },
+        { key: "sci-solides-lecon", label: "Les solides — Leçon illustrée à coller (photos libres de droits)", node: <SolidesLecon /> },
         { key: "sci-solides-obs", label: "Les solides — Fiche d'expérience (tableau à remplir)", node: ficheNode(SOLIDES_OBS) },
       ];
     case "artdet":

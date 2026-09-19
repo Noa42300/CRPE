@@ -11,6 +11,7 @@
  */
 import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
+import { WikiImage } from "./WikiImage";
 
 const HIST = "#b45309";   // ocre histoire
 const SCI = "#0891b2";    // cyan sciences
@@ -107,7 +108,7 @@ export function LireFriseDiapo() {
           <div className="w-full text-center">
             <h2 className="mb-4 text-4xl font-extrabold" style={{ color: HIST }}>Le sens du temps</h2>
             <div className="mx-auto max-w-3xl"><FriseSVG /></div>
-            <p className="mt-4 text-2xl font-semibold text-stone-600">On lit de <b>gauche</b> (le passé) vers la <b>droite</b> (aujourd'hui).</p>
+            <p className="mt-4 text-2xl font-semibold text-stone-600">Plus on va à <b>gauche</b>, plus c'est <b>lointain</b> ; plus on va à <b>droite</b>, plus on se rapproche d'<b>aujourd'hui</b>.</p>
           </div>
         )}
         {i === 2 && (
@@ -154,18 +155,18 @@ export function LireFriseDiapo() {
 
 const SP_ETAPES = ["La question", "Nos objets", "On teste", "On classe", "Bilan"];
 const OBJETS = [
-  { emoji: "🧽", nom: "une éponge", prop: "mou, léger" },
-  { emoji: "🪵", nom: "le bois", prop: "dur, rugueux" },
-  { emoji: "🎨", nom: "la pâte à modeler", prop: "mou, se déforme" },
-  { emoji: "🪨", nom: "une pierre", prop: "dur, lourd" },
-  { emoji: "🔩", nom: "le métal", prop: "dur, lisse, froid" },
+  { wiki: "Éponge", emoji: "🧽", nom: "une éponge", prop: "mou, léger" },
+  { wiki: "Bois", emoji: "🪵", nom: "le bois", prop: "dur, rugueux" },
+  { wiki: "Pâte à modeler", emoji: "🎨", nom: "la pâte à modeler", prop: "mou, se déforme" },
+  { wiki: "Roche", emoji: "🪨", nom: "une pierre", prop: "dur, lourd" },
+  { wiki: "Métal", emoji: "🔩", nom: "le métal", prop: "dur, lisse, froid" },
 ];
 
-function ObjetCard({ emoji, nom, prop }: { emoji: string; nom: string; prop: string }) {
+function ObjetCard({ wiki, nom, prop }: { wiki: string; emoji: string; nom: string; prop: string }) {
   const [on, setOn] = useState(false);
   return (
-    <button onClick={() => setOn((v) => !v)} className="flex flex-col items-center gap-1 rounded-2xl border-2 bg-white p-3 transition hover:scale-105" style={{ borderColor: SCI }} title="Cliquer pour révéler">
-      <span className="text-5xl leading-none">{emoji}</span>
+    <button onClick={() => setOn((v) => !v)} className="flex flex-col items-center gap-1 rounded-2xl border-2 bg-white p-2 transition hover:scale-105" style={{ borderColor: SCI }} title="Cliquer pour révéler">
+      <div className="w-full"><WikiImage title={wiki} alt={nom} accent={SCI} height="clamp(90px,16vh,150px)" /></div>
       <span className="text-lg font-extrabold" style={{ color: SCI }}>{nom}</span>
       <span className={`text-base font-semibold ${on ? "" : "opacity-0"}`} style={{ color: "#334155" }}>{on ? prop : "?"}</span>
     </button>
@@ -336,7 +337,7 @@ export function LireFriseLecon() {
         </div>
 
         <div style={{ background: "#fff7ed", border: "1.5px solid #fed7aa", borderRadius: "8px", padding: "3mm 4mm", marginBottom: "4mm", fontSize: "15px" }}>
-          <b>Comment je lis une frise&nbsp;?</b> Une frise, c'est une <b>ligne du temps</b>. À <b>gauche</b>, c'est il y a très longtemps&nbsp;; à <b>droite</b>, c'est aujourd'hui. Chaque grande période a sa <b>couleur</b> et son <b>dessin</b>.
+          <b>Comment je lis une frise&nbsp;?</b> Une frise, c'est une <b>ligne du temps</b>. <b>Plus on est à gauche, plus c'est lointain</b> (il y a longtemps)&nbsp;; <b>plus on est à droite, plus on se rapproche du présent</b> (aujourd'hui). Chaque grande période a sa <b>couleur</b> et son <b>dessin</b>.
         </div>
 
         {/* Les 5 périodes détaillées avec dessin */}
@@ -349,6 +350,47 @@ export function LireFriseLecon() {
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* Leçon illustrée « Les solides » (A4) — vraies photos libres de droits (Wikimedia). */
+const SP_MATIERES = [
+  { wiki: "Éponge", nom: "l'éponge", prop: "molle et légère" },
+  { wiki: "Bois", nom: "le bois", prop: "dur et rugueux" },
+  { wiki: "Pâte à modeler", nom: "la pâte à modeler", prop: "molle, elle se déforme" },
+  { wiki: "Roche", nom: "la pierre", prop: "dure et lourde" },
+  { wiki: "Métal", nom: "le métal", prop: "dur, lisse et froid" },
+];
+
+export function SolidesLecon() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <h1 style={{ fontSize: "34px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: SCI, fontFamily: "'Caveat','Comic Neue',cursive" }}>Les solides n'ont pas tous les mêmes propriétés</h1>
+        <p style={{ textAlign: "center", fontSize: "17px", margin: "0 0 5mm", fontFamily: "'Caveat','Comic Neue',cursive", color: "#555" }}>Tous gardent leur forme… mais ils sont différents !</p>
+
+        <div style={{ background: "#ecfeff", border: "1.5px solid #a5f3fc", borderRadius: "8px", padding: "3mm 4mm", marginBottom: "5mm", fontSize: "15px" }}>
+          Un <b>solide</b> garde toujours sa forme quand on le déplace. Mais chaque matière a ses <b>propriétés</b> : elle peut être <b>dure ou molle</b>, <b>lisse ou rugueuse</b>, <b>lourde ou légère</b>.
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4mm", flex: 1, alignContent: "start" }}>
+          {SP_MATIERES.map((m) => (
+            <div key={m.wiki} style={{ border: `2px solid ${SCI}`, borderRadius: "10px", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+              <WikiImage title={m.wiki} alt={m.nom} accent={SCI} height="38mm" />
+              <div style={{ padding: "2.5mm 3mm" }}>
+                <div style={{ fontSize: "17px", fontWeight: 800, color: SCI }}>{m.nom}</div>
+                <div style={{ fontSize: "14px", color: "#333" }}>→ {m.prop}</div>
+              </div>
+            </div>
+          ))}
+          <div style={{ border: "2px dashed #94a3b8", borderRadius: "10px", padding: "3mm 4mm", display: "flex", flexDirection: "column", justifyContent: "center", fontSize: "15px", background: "#f8fafc" }}>
+            <b style={{ color: "#0e7490" }}>Je retiens</b>
+            <span style={{ marginTop: "1.5mm" }}>Un solide garde sa forme, mais chaque matière a ses propres propriétés (dur/mou, lisse/rugueux, lourd/léger).</span>
+          </div>
+        </div>
+        <p style={{ fontSize: "10px", color: "#94a3b8", textAlign: "center", marginTop: "3mm" }}>Photos : Wikipédia / Wikimedia Commons (libres de droits, chargées en ligne).</p>
       </div>
     </div>
   );
