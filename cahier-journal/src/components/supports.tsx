@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama, AnglaisActionVerbsDiapo } from "./AnglaisDiaporama";
-import { LireFriseDiapo, SolidesProprietesDiapo, FriseCinqPeriodes } from "./QlmDiapos";
+import { LireFriseDiapo, SolidesProprietesDiapo, LireFriseLecon } from "./QlmDiapos";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
@@ -355,21 +355,6 @@ const ANGLAIS_VERBS_LECON: FicheData = {
 };
 
 /* ===================== QLM — Histoire « Lire une frise » & Sciences « Les solides » ===================== */
-
-const LIRE_FRISE_LECON: FicheData = {
-  entete: "Leçon à coller — cahier de QLM", titre: "Lire une frise du temps", niveau: "CE1-CE2", discipline: "Questionner le monde — Histoire", cursive: true,
-  blocs: [
-    { kind: "def", picto: "plume", contenu: "Une frise chronologique, c'est une ligne du temps. Je la lis de GAUCHE (il y a très longtemps, le passé) vers la DROITE (aujourd'hui)." },
-    { kind: "puces", titre: "Les 5 grandes périodes (dans l'ordre)", points: [
-      "1. la Préhistoire", "2. l'Antiquité", "3. le Moyen Âge", "4. les Temps modernes", "5. l'Époque contemporaine (nous)",
-    ] },
-    { kind: "puces", titre: "Pour me repérer", points: [
-      "Chaque période a sa couleur sur la frise.",
-      "« Avant » = à gauche ; « après » = à droite.",
-      "Je place un événement avec un petit trait sur la frise.",
-    ] },
-  ],
-};
 
 const SOLIDES_PROP_LECON: FicheData = {
   entete: "Leçon à coller — cahier de QLM", titre: "Les solides n'ont pas tous les mêmes propriétés", niveau: "CE1-CE2", discipline: "Questionner le monde — Sciences", cursive: true,
@@ -1242,8 +1227,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "histS3":
       return [
         { key: "hist-frise-diapo", label: "Lire une frise — Diaporama à projeter (sens du temps, 5 périodes)", node: <LireFriseDiapo /> },
-        { key: "hist-frise-lecon", label: "Lire une frise — Leçon à coller", node: ficheNode(LIRE_FRISE_LECON) },
-        { key: "hist-frise-affiche", label: "La frise des 5 grandes périodes — à afficher / coller (A4)", node: <FriseCinqPeriodes /> },
+        { key: "hist-frise-lecon", label: "Lire une frise — Leçon illustrée à coller (frise intégrée)", node: <LireFriseLecon /> },
       ];
     case "sciS3":
       return [
