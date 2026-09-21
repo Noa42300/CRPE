@@ -8,7 +8,23 @@
  * + mots en plus. Les PHRASES de la dictée restent côté enseignant (dans la
  * séance), pas sur la feuille élève. Contenu original, aucun copyright.
  */
+import { WikiImage } from "./WikiImage";
+
 const cursive = "'Caveat','Comic Neue',cursive";
+const ecoleCursive = "'Borel','Comic Neue',cursive"; // vraie cursive attachée (élèves)
+
+/** Titre Wikipédia pour illustrer un mot (photo libre de droits via WikiImage). */
+const MOT_IMG: Record<string, string> = {
+  "la rentrée": "Rentrée scolaire", "la classe": "Salle de classe", "un copain": "Amitié",
+  "l'école": "École primaire en France", "la maîtresse": "Professeur des écoles", "content": "Sourire",
+  "le cartable": "Cartable", "apprendre": "Apprentissage", "ensemble": "Amitié",
+};
+function wikiTitleForMot(mot: string): string {
+  const key = mot.trim().toLowerCase();
+  if (MOT_IMG[key]) return MOT_IMG[key];
+  let m = mot.trim().replace(/^(l['’]|d['’]|le |la |les |un |une |des )/i, "");
+  return m.charAt(0).toUpperCase() + m.slice(1);
+}
 
 export interface DicteeSemaine {
   id: string;
@@ -176,9 +192,12 @@ export function dicteeById(id: string): DicteeSemaine | undefined {
 
 export function MotsAApprendre({ d }: { d: DicteeSemaine }) {
   const line = (mot: string, accent: string) => (
-    <div key={mot} style={{ display: "flex", alignItems: "flex-end", gap: "4mm", marginBottom: "3.5mm" }}>
-      <span style={{ minWidth: "48mm", fontSize: "26px", fontWeight: 700, fontFamily: cursive, color: accent }}>{mot}</span>
-      <span style={{ flex: 1, borderBottom: "1.5px solid #94a3b8", height: "9mm" }} />
+    <div key={mot} style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "3mm" }}>
+      <div style={{ width: "16mm", flexShrink: 0 }}>
+        <WikiImage title={wikiTitleForMot(mot)} alt={mot} accent={accent} height="14mm" />
+      </div>
+      <span style={{ minWidth: "40mm", fontSize: "27px", fontWeight: 400, fontFamily: ecoleCursive, color: accent, lineHeight: 1.1 }}>{mot}</span>
+      <span style={{ flex: 1, borderBottom: "1.5px solid #94a3b8", height: "11mm" }} />
     </div>
   );
   return (
