@@ -57,8 +57,11 @@ export default defineConfig({
         navigateFallback: "index.html",
         // Les mises à jour de l'appli (nouvelles séances, diapo, leçons) doivent
         // arriver de façon fiable : on nettoie les anciens caches et le nouveau
-        // service worker prend la main tout de suite (rechargement auto).
-        cleanupOutdatedCaches: true,
+        // Le nouveau service worker prend la main tout de suite (mise à jour au
+        // rechargement). On NE nettoie PAS agressivement les anciens caches :
+        // une page déjà ouverte doit pouvoir encore charger ses modules « à la
+        // demande » (génération PDF, etc.) tant qu'elle n'a pas été rechargée.
+        cleanupOutdatedCaches: false,
         skipWaiting: true,
         clientsClaim: true,
         // journal.json (les données) : toujours réseau d'abord, avec repli cache
