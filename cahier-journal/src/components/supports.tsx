@@ -6,7 +6,7 @@
 import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
-import { AnglaisDiaporama, AnglaisActionVerbsDiapo } from "./AnglaisDiaporama";
+import { AnglaisDiaporama, AnglaisActionVerbsDiapo, AnglaisVerbsLecon, AnglaisVerbsCartes } from "./AnglaisDiaporama";
 import { LireFriseDiapo, SolidesProprietesDiapo, LireFriseLecon, SolidesLecon } from "./QlmDiapos";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
@@ -339,21 +339,6 @@ const DICTEE_L21_LIRE: FicheData = {
 };
 
 /* Anglais — Leçon « Action verbs » (à coller, cahier violet). */
-const ANGLAIS_VERBS_LECON: FicheData = {
-  entete: "Leçon à coller — cahier violet", titre: "Action verbs — les verbes d'action", niveau: "CE1-CE2", discipline: "Langues vivantes — Anglais", cursive: true,
-  blocs: [
-    { kind: "def", picto: "main", contenu: "Un verbe d'action dit ce qu'on FAIT. On les mime pour bien les retenir. J'apprends ces verbes pour la semaine prochaine." },
-    { kind: "tableau", titre: "Mes 10 verbes d'action (English → français)", entetes: ["English", "Français"], lignes: [
-      ["run", "courir"], ["jump", "sauter"], ["swim", "nager"], ["dance", "danser"], ["sing", "chanter"],
-      ["clap", "taper des mains"], ["eat", "manger"], ["drink", "boire"], ["sleep", "dormir"], ["walk", "marcher"],
-    ] },
-    { kind: "puces", titre: "Le jeu du mime", points: [
-      "Un élève passe au tableau et mime un verbe (sans parler).",
-      "Les autres devinent en anglais : « Run! », « Jump! »…",
-    ] },
-  ],
-};
-
 /* ===================== QLM — Histoire « Lire une frise » & Sciences « Les solides » ===================== */
 
 const SOLIDES_OBS: FicheData = {
@@ -1207,8 +1192,9 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "angVerbs":
       return [
-        { key: "ang-verbs-diapo", label: "Action verbs — Diaporama à projeter (jeu du mime)", node: <AnglaisActionVerbsDiapo /> },
-        { key: "ang-verbs-lecon", label: "Action verbs — Leçon à coller (10 verbes EN → FR)", node: ficheNode(ANGLAIS_VERBS_LECON) },
+        { key: "ang-verbs-diapo", label: "Action verbs — Diaporama à projeter (vraies photos, jeu du mime)", node: <AnglaisActionVerbsDiapo /> },
+        { key: "ang-verbs-lecon", label: "Action verbs — Leçon illustrée à coller (cursive + photos)", node: <AnglaisVerbsLecon /> },
+        { key: "ang-verbs-cartes", label: "Action verbs — Cartes à découper (image + « I run »)", node: <AnglaisVerbsCartes /> },
       ];
     case "histS3":
       return [

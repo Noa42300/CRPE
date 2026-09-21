@@ -148,30 +148,32 @@ export function AnglaisDiaporama() {
 const VERT = "#16a34a";
 const AV_ETAPES = ["Action verbs", "Watch & repeat (1)", "Watch & repeat (2)", "Let's mime!", "Well done"];
 
-/** Les 10 verbes d'action : emoji (mimable) + anglais + français. */
-const ACTION_VERBS: { emoji: string; en: string; fr: string }[] = [
-  { emoji: "🏃", en: "run", fr: "courir" },
-  { emoji: "🦘", en: "jump", fr: "sauter" },
-  { emoji: "🏊", en: "swim", fr: "nager" },
-  { emoji: "💃", en: "dance", fr: "danser" },
-  { emoji: "🎤", en: "sing", fr: "chanter" },
-  { emoji: "👏", en: "clap", fr: "taper des mains" },
-  { emoji: "🍽️", en: "eat", fr: "manger" },
-  { emoji: "🥤", en: "drink", fr: "boire" },
-  { emoji: "😴", en: "sleep", fr: "dormir" },
-  { emoji: "🚶", en: "walk", fr: "marcher" },
+const ecoleCursive = "'Borel','Comic Neue',cursive";
+
+/** Les 10 verbes d'action : image (Wikimedia) + anglais + français + phrase. */
+const ACTION_VERBS: { wiki: string; en: string; fr: string; phrase: string }[] = [
+  { wiki: "Course à pied", en: "run", fr: "courir", phrase: "I run" },
+  { wiki: "Saut", en: "jump", fr: "sauter", phrase: "I jump" },
+  { wiki: "Natation", en: "swim", fr: "nager", phrase: "I swim" },
+  { wiki: "Danse", en: "dance", fr: "danser", phrase: "I dance" },
+  { wiki: "Chant", en: "sing", fr: "chanter", phrase: "I sing" },
+  { wiki: "Applaudissement", en: "clap", fr: "taper des mains", phrase: "I clap" },
+  { wiki: "Repas", en: "eat", fr: "manger", phrase: "I eat" },
+  { wiki: "Boisson", en: "drink", fr: "boire", phrase: "I drink" },
+  { wiki: "Sommeil", en: "sleep", fr: "dormir", phrase: "I sleep" },
+  { wiki: "Marche à pied", en: "walk", fr: "marcher", phrase: "I walk" },
 ];
 
-function VerbCard({ emoji, en, fr }: { emoji: string; en: string; fr: string }) {
+function VerbCard({ wiki, en, fr }: { wiki: string; en: string; fr: string; phrase: string }) {
   const [on, setOn] = useState(false);
   return (
     <button
       onClick={() => setOn((v) => !v)}
-      className="flex flex-col items-center gap-1 rounded-2xl border-2 bg-white p-3 transition hover:scale-105"
+      className="flex flex-col items-center gap-1 rounded-2xl border-2 bg-white p-2 transition hover:scale-105"
       style={{ borderColor: VERT }}
       title="Cliquer pour révéler"
     >
-      <span className="text-5xl leading-none">{emoji}</span>
+      <div className="w-full"><WikiImage title={wiki} alt={en} accent={VERT} height="clamp(90px,16vh,150px)" /></div>
       <span className="text-xl font-extrabold" style={{ color: VERT }}>{en}</span>
       <span className={`text-base font-semibold ${on ? "" : "opacity-0"}`} style={{ color: "#334155" }}>
         {on ? fr : "?"}
@@ -249,6 +251,52 @@ export function AnglaisActionVerbsDiapo() {
         <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{AV_ETAPES.length} · {AV_ETAPES[i]}</span>
         <button onClick={next} disabled={i === last} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: VERT }}>▶</button>
       </div>
+    </div>
+  );
+}
+
+/* Leçon illustrée « Action verbs » (A4) — cursive + vraies photos (Wikimedia). */
+export function AnglaisVerbsLecon() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <h1 style={{ fontSize: "34px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: VERT, fontFamily: "'Caveat','Comic Neue',cursive" }}>Action verbs — les verbes d'action</h1>
+        <p style={{ textAlign: "center", fontSize: "16px", margin: "0 0 4mm", color: "#555" }}>Un verbe d'action dit ce qu'on FAIT. Je les apprends pour la semaine prochaine.</p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4mm", flex: 1, alignContent: "start" }}>
+          {ACTION_VERBS.map((v) => (
+            <div key={v.en} style={{ display: "flex", alignItems: "center", gap: "3mm", border: `2px solid ${VERT}`, borderRadius: "10px", padding: "2mm 3mm" }}>
+              <div style={{ width: "22mm", flexShrink: 0 }}><WikiImage title={v.wiki} alt={v.en} accent={VERT} height="16mm" /></div>
+              <div>
+                <div style={{ fontSize: "26px", color: VERT, fontFamily: ecoleCursive, lineHeight: 1.1 }}>{v.en}</div>
+                <div style={{ fontSize: "13px", color: "#555" }}>= {v.fr}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{ background: "#f0fdf4", border: "1.5px solid #bbf7d0", borderRadius: "8px", padding: "3mm 4mm", marginTop: "3mm", fontSize: "14px", textAlign: "center" }}>
+          <b>Let's mime!</b> Un élève mime un verbe, les autres devinent en anglais : « Run! », « Jump! »…
+        </div>
+        <p style={{ fontSize: "10px", color: "#94a3b8", textAlign: "center", marginTop: "2mm" }}>Photos : Wikimedia Commons (licences libres, chargées en ligne).</p>
+      </div>
+    </div>
+  );
+}
+
+/* Cartes « Action verbs » à découper (A4) : image + phrase « I run ». */
+export function AnglaisVerbsCartes() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "8mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <h1 style={{ fontSize: "22px", margin: "0 0 3mm", textAlign: "center", fontWeight: 800, color: VERT }}>Action verbs — cartes à découper ✂️</h1>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4mm" }}>
+        {ACTION_VERBS.map((v) => (
+          <div key={v.en} style={{ border: `2px dashed ${VERT}`, borderRadius: "10px", padding: "3mm", display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5mm", height: "48mm", boxSizing: "border-box" }}>
+            <div style={{ width: "100%", flex: 1, minHeight: 0 }}><WikiImage title={v.wiki} alt={v.en} accent={VERT} height="26mm" /></div>
+            <div style={{ fontSize: "30px", color: VERT, fontFamily: ecoleCursive, lineHeight: 1 }}>{v.phrase}</div>
+            <div style={{ fontSize: "12px", color: "#64748b" }}>({v.fr})</div>
+          </div>
+        ))}
+      </div>
+      <p style={{ fontSize: "10px", color: "#94a3b8", textAlign: "center", marginTop: "3mm" }}>Photos : Wikimedia Commons (licences libres, chargées en ligne).</p>
     </div>
   );
 }
