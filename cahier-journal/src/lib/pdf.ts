@@ -19,6 +19,23 @@ export async function downloadElementPdf(el: HTMLElement, filename: string, opts
   // S'assurer que les polices (Borel, Lexend…) sont chargées avant la capture.
   try { await (document as { fonts?: { ready?: Promise<unknown> } }).fonts?.ready; } catch { /* ignore */ }
 
+  // Attendre que TOUTES les images (photos Wikimedia…) soient chargées : sinon
+  // elles manquent dans le PDF, ou pire, une image encore en cours de chargement
+  // fait échouer la capture. Chaque image a un délai de sécurité de 6 s.
+  const imgs = Array.from(el.querySelectorAll("img"));
+  await Promise.all(
+    imgs.map(
+      (img) =>
+        new Promise<void>((resolve) => {
+          if (img.complete && img.naturalWidth > 0) return resolve();
+          const done = () => resolve();
+          img.addEventListener("load", done, { once: true });
+          img.addEventListener("error", done, { once: true });
+          setTimeout(done, 6000);
+        }),
+    ),
+  );
+
   // On rend l'élément capturable (il est normalement hors écran, à gauche).
   const prev = el.style.cssText;
   el.style.position = "fixed";
