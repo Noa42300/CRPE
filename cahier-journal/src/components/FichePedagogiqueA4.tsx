@@ -7,6 +7,7 @@
  */
 import type { ReactNode } from "react";
 import { Picto } from "./pictos";
+import { WikiImage } from "./WikiImage";
 
 export type FicheBloc =
   | { kind: "def"; titre?: string; contenu: string; picto?: string }
@@ -21,6 +22,7 @@ export type FicheBloc =
   | { kind: "tableau"; titre?: string; entetes: string[]; lignes: string[][] }
   | { kind: "champs"; items: string[] }
   | { kind: "traits"; n: number }
+  | { kind: "wiki"; title: string; alt: string; height?: string; legende?: string }
   | { kind: "pagebreak"; label?: string }
   | { kind: "lignes"; n: number };
 
@@ -222,6 +224,16 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
               </div>
             );
           }
+          if (b.kind === "wiki") {
+            return (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "3mm" }}>
+                <div style={{ width: "34mm", flexShrink: 0 }}>
+                  <WikiImage title={b.title} alt={b.alt} accent="#16a34a" height={b.height ?? "26mm"} />
+                </div>
+                {b.legende && <div style={{ fontSize: "14px", color: "#333", fontStyle: "italic" }}>{b.legende}</div>}
+              </div>
+            );
+          }
           if (b.kind === "traits") {
             return (
               <div key={i} style={{ border: "1.5px solid #94a3b8", borderRadius: "8px", padding: "4mm", display: "flex", flexWrap: "wrap", gap: "3mm 5mm" }}>
@@ -298,7 +310,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
                     {b.aide && <span style={{ marginLeft: "2mm", fontSize: "11px", fontWeight: 700, color: "#444", background: "#f1f3f5", border: "1px solid #ced4da", borderRadius: "999px", padding: "0.3mm 2mm" }}>aide : {b.aide}</span>}
                   </div>
                   {b.exemple && (
-                    <div style={{ margin: "1mm 0 0", display: "inline-flex", alignItems: "baseline", gap: "2mm", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "6px", padding: "1mm 3mm" }}>
+                    <div style={{ margin: "1mm 0 0", display: "flex", width: "fit-content", maxWidth: "100%", alignItems: "center", gap: "2mm", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "6px", padding: "1mm 3mm" }}>
                       <span style={{ fontSize: "11px", fontWeight: 800, color: "#2f6b34", textTransform: "uppercase", letterSpacing: "0.04em" }}>Exemple</span>
                       <span style={{ fontFamily: "'Caveat','Comic Neue',cursive", fontSize: "20px", color: "#1c4a20" }}>{b.exemple}</span>
                     </div>

@@ -227,6 +227,7 @@ const COMP_CE1_LECON: FicheData = {
   entete: "Leçon (à coller)", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
     { kind: "def", contenu: "Comparer, c'est dire quel nombre est le plus grand. La bouche s'ouvre toujours vers le plus grand : < (plus petit que), > (plus grand que), = (égal)." },
+    { kind: "wiki", title: "Crocodile", alt: "un crocodile", height: "24mm", legende: "La bouche du crocodile s'ouvre toujours vers le plus GRAND nombre : 3 < 8." },
     { kind: "comparer", a: 47, b: 52, signe: "<" },
     { kind: "puces", titre: "Ma méthode", points: [
       "Je compare d'abord les dizaines.",
@@ -239,6 +240,7 @@ const COMP_CE2_LECON: FicheData = {
   entete: "Leçon (à coller)", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres", cursive: true,
   blocs: [
     { kind: "def", contenu: "Je compare rang par rang : les centaines, puis les dizaines, puis les unités. La bouche s'ouvre vers le plus grand : <, >, =." },
+    { kind: "wiki", title: "Crocodile", alt: "un crocodile", height: "24mm", legende: "La bouche s'ouvre vers le plus GRAND : 246 < 254." },
     { kind: "comparer", a: 246, b: 254, signe: "<", cdu: true },
     { kind: "puces", titre: "Je sais aussi", points: [
       "ranger : 309 < 390 < 903 ;",
