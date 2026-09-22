@@ -55,7 +55,13 @@ export function ActivityEditor({
       return;
     }
     try {
-      await downloadElementPdf(el, `${safeFileName(name)}.pdf`);
+      // Garde-fou « une seule A4 » : une fiche élève (.fiche-a4) sans saut de
+      // page explicite (.fiche-pagebreak) est forcée sur UNE page (mise à
+      // l'échelle si besoin) — jamais de 2e feuille gaspillée.
+      const isFiche = (el as HTMLElement).classList?.contains("fiche-a4");
+      const hasBreak = !!el.querySelector?.(".fiche-pagebreak");
+      const opts = isFiche && !hasBreak ? { singlePage: true } : {};
+      await downloadElementPdf(el, `${safeFileName(name)}.pdf`, opts);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
       alert(

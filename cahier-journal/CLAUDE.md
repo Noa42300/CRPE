@@ -98,6 +98,12 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   visuels), enfant-friendly. Toujours privilégier le concret et le ludique.
 - Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
   de vraies fiches de CE1-CE2 comme référence) pour toute nouvelle fiche.
+- **RÈGLE ABSOLUE — UNE FICHE ÉLÈVE = UNE SEULE A4, JAMAIS PLUS (CE1 ET CE2).**
+  Ne jamais laisser une feuille d'exercices déborder sur une 2ᵉ page (gaspillage de
+  papier). Dimensionner le contenu (nombre d'exercices/items) pour tenir sur **une
+  A4**. Filet de sécurité en place : à l'export PDF, toute `.fiche-a4` sans saut de
+  page explicite (`pagebreak`) est **forcée sur une seule page** (`singlePage`).
+  N'utiliser un `pagebreak` (2 pages) **que** si l'enseignant le demande explicitement.
 
 ### MODÈLE DE SÉANCE VALIDÉ (à reproduire pour TOUTES les séances) — IMPORTANT
 - Référence validée par l'enseignant : le **français (déterminants)** et le
