@@ -268,22 +268,20 @@ const COMP_EX_CE1: FicheData = {
 const COMP_CE2_AUTO: FicheData = {
   entete: "Fichier autonomie", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
   blocs: [
-    { kind: "wiki", title: "Crocodile", alt: "un crocodile", height: "22mm", legende: "Rappel : la bouche s'ouvre vers le plus GRAND ; je compare rang par rang." },
+    { kind: "wiki", title: "Crocodile", alt: "un crocodile", height: "20mm", legende: "Rappel : la bouche s'ouvre vers le plus GRAND ; je compare rang par rang." },
     { kind: "exercice", exemple: "426 < 462", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
-      "703 ____ 307", "289 ____ 156", "98 ____ 201", "200 ____ 300",
-      "471 ____ 198", "777 ____ 707", "123 ____ 321", "931 ____ 899",
+      "703 ____ 307", "289 ____ 156", "98 ____ 201", "471 ____ 198", "777 ____ 707", "931 ____ 899",
     ] },
     { kind: "exercice", picto: "fleche", exemple: "125 < ___ → 125 < 130", consigne: "Complète avec un nombre qui convient.", items: [
-      "142 < ______", "317 > ______", "______ < 590", "______ > 898", "267 > ______",
+      "142 < ______", "317 > ______", "______ < 590", "______ > 898",
     ] },
-    { kind: "exercice", exemple: "309 – 390 – 903 → 309 < 390 < 903", consigne: "Range chaque liste du plus petit au plus grand.", items: [
+    { kind: "exercice", exemple: "309 – 390 – 903 → 309 < 390 < 903", consigne: "Range du plus petit au plus grand.", items: [
       "540 – 405 – 450 – 504 → ____________________",
       "812 – 128 – 281 – 218 → ____________________",
     ] },
-    { kind: "exercice", exemple: "340 < 347 < 350", aide: "la dizaine avant / la dizaine après", consigne: "Encadre chaque nombre.", items: [
-      "______ < 508 < ______", "______ < 690 < ______", "______ < 273 < ______",
+    { kind: "exercice", exemple: "340 < 347 < 350", aide: "la dizaine avant / après", consigne: "Encadre chaque nombre.", items: [
+      "______ < 508 < ______", "______ < 690 < ______",
     ] },
-    { kind: "exercice", picto: "valise", exemple: "Je compte l'argent de chacun, puis je compare.", consigne: "Problème. Simon a 4 billets de 100 € et 4 billets de 20 €. Alexandra a 5 billets de 100 € et 2 billets de 10 €. Qui a le moins d'argent ?", lignes: 3 },
   ],
 };
 
