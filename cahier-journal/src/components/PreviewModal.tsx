@@ -7,9 +7,10 @@
  * fichiers joints (PDF affiché dans un cadre, image affichée telle quelle).
  * Montée dans <body> via un portail pour rester au-dessus de toute l'appli.
  */
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { Printer } from "./ui";
+import { requestFullscreen } from "../lib/board";
 
 export function PreviewModal({
   title,
@@ -24,6 +25,9 @@ export function PreviewModal({
   onDownload?: () => void;
   children: ReactNode;
 }) {
+  const fsRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -37,6 +41,25 @@ export function PreviewModal({
     };
   }, [onClose]);
 
+  // Plein écran : on met le document à l'échelle pour remplir l'écran (projection
+  // au tableau pendant la correction).
+  useEffect(() => {
+    const onFs = () => {
+      const el = fsRef.current;
+      if (document.fullscreenElement === el && el) {
+        const child = el.firstElementChild as HTMLElement | null;
+        if (child && child.offsetWidth && child.offsetHeight) {
+          const s = Math.min(window.innerWidth / child.offsetWidth, window.innerHeight / child.offsetHeight) * 0.97;
+          setScale(s > 0 ? s : 1);
+        }
+      } else {
+        setScale(1);
+      }
+    };
+    document.addEventListener("fullscreenchange", onFs);
+    return () => document.removeEventListener("fullscreenchange", onFs);
+  }, []);
+
   return createPortal(
     <div
       className="fixed inset-0 z-[100] flex flex-col bg-black/70 backdrop-blur-sm"
@@ -47,6 +70,17 @@ export function PreviewModal({
         <span className="mr-auto min-w-0 flex-1 truncate text-sm font-semibold">
           🔍 Aperçu — {title}
         </span>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            requestFullscreen(fsRef.current);
+          }}
+          className="rounded-lg bg-white/15 px-3 py-1.5 text-xs font-semibold text-white hover:bg-white/25"
+          title="Projeter en plein écran (correction au tableau)"
+        >
+          ⛶ Plein écran
+        </button>
         {onDownload && (
           <button
             type="button"
@@ -85,7 +119,9 @@ export function PreviewModal({
         className="flex-1 overflow-auto px-3 pb-6 sm:px-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="mx-auto w-fit max-w-full">{children}</div>
+        <div ref={fsRef} className="preview-fs mx-auto w-fit max-w-full">
+          <div style={{ transform: `scale(${scale})`, transformOrigin: "center center" }}>{children}</div>
+        </div>
       </div>
     </div>,
     document.body,
