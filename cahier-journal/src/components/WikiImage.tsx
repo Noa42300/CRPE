@@ -74,6 +74,7 @@ export function WikiImage({
         src={src}
         alt={alt}
         loading="lazy"
+        crossOrigin="anonymous"
         onError={() => setFailed(true)}
         className="h-full w-full object-cover"
         style={{ height }}
