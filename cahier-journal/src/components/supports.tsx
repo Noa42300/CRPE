@@ -252,6 +252,7 @@ const COMP_CE2_LECON: FicheData = {
 const COMP_EX_CE1: FicheData = {
   entete: "Exercices", titre: "Comparer les nombres", niveau: "CE1", discipline: "Mathématiques — Nombres",
   blocs: [
+    { kind: "wiki", title: "Crocodile", alt: "un crocodile", height: "22mm", legende: "Rappel : la bouche du crocodile s'ouvre vers le plus GRAND nombre." },
     { kind: "exercice", exemple: "24 < 42", aide: "la bouche vers le plus grand", consigne: "Compare avec < ou >.", items: [
       "37 ____ 73", "58 ____ 52", "90 ____ 19", "46 ____ 64", "81 ____ 78", "25 ____ 30",
     ] },
@@ -267,6 +268,7 @@ const COMP_EX_CE1: FicheData = {
 const COMP_CE2_AUTO: FicheData = {
   entete: "Fichier autonomie", titre: "Comparer les nombres jusqu'à 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres (Tandem)",
   blocs: [
+    { kind: "wiki", title: "Crocodile", alt: "un crocodile", height: "22mm", legende: "Rappel : la bouche s'ouvre vers le plus GRAND ; je compare rang par rang." },
     { kind: "exercice", exemple: "426 < 462", aide: "centaines, puis dizaines, puis unités", consigne: "Compare avec le bon signe : < ou >.", items: [
       "703 ____ 307", "289 ____ 156", "98 ____ 201", "200 ____ 300",
       "471 ____ 198", "777 ____ 707", "123 ____ 321", "931 ____ 899",
