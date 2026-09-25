@@ -338,6 +338,21 @@ Règle de préparation : quand je bâtis lundi + mardi, vérifier que le cumul d
 créneaux atteint **300 min de français** et **135 min de maths** sur les deux
 jours. On peut réduire le reste, jamais ces deux-là.
 
+## Référence aux programmes (IMPORTANT — à jour)
+
+- **Français et mathématiques, cycle 2** : utiliser les **nouveaux programmes 2025**
+  (**BO n° 41 du 31 octobre 2024**, en vigueur à la **rentrée 2025**, applicables en CP,
+  CE1 et CE2). **Ne plus écrire « Programmes 2020 »** pour le français et les maths.
+  - Français : 5 composantes (lecture, écriture, oral, **vocabulaire** — désormais un
+    domaine à part —, **grammaire et orthographe**) ; repères annuels par niveau. Le
+    **nom** (nom commun/propre, genre & nombre) relève de « grammaire et orthographe ».
+- **Questionner le monde, EPS, anglais, EMC** : à défaut de refonte récente, référence
+  aux **programmes 2018/2020** (le « Choc des savoirs » 2024 n'a refondu que français &
+  maths au cycle 2). À réévaluer si de nouveaux programmes paraissent.
+- Formulation type dans `competenceRef` d'une séance de français :
+  « Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur rentrée
+  2025), domaine "grammaire et orthographe" … ».
+
 ## Programmations annuelles intégrées (référence permanente)
 
 - Les programmations officielles (Français : répartition annuelle + dictées
