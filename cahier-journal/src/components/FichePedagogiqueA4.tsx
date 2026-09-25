@@ -16,7 +16,7 @@ export type FicheBloc =
   | { kind: "pictos"; titre?: string; items: { name: string; label: string }[] }
   | { kind: "timeline"; titre?: string; steps: { name: string; label: string }[] }
   | { kind: "paires"; titre?: string; paires: { avant: { name: string; label: string }; apres: { name: string; label: string } }[] }
-  | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string; exemple?: string }
+  | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string; exemple?: string; reponses?: boolean }
   | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
   | { kind: "comparer"; a: number; b: number; signe: "<" | ">" | "="; cdu?: boolean }
   | { kind: "tableau"; titre?: string; entetes: string[]; lignes: string[][] }
@@ -315,10 +315,22 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
                       <span style={{ fontFamily: "'Caveat','Comic Neue',cursive", fontSize: "20px", color: "#1c4a20" }}>{b.exemple}</span>
                     </div>
                   )}
-                  {b.items && (
+                  {b.items && !b.reponses && (
                     <ul style={{ margin: "1.5mm 0 0", paddingLeft: "7mm", fontSize: "21px", lineHeight: 1.9, fontFamily: "'Caveat','Comic Neue',cursive", color: "#222" }}>
                       {b.items.map((it, j) => <li key={j}>{it}</li>)}
                     </ul>
+                  )}
+                  {/* « Petits points à la suite » : chaque item est suivi d'une
+                      ligne pointillée pour écrire la phrase-réponse. */}
+                  {b.items && b.reponses && (
+                    <ol style={{ margin: "1.5mm 0 0", paddingLeft: "7mm", listStyle: "decimal" }}>
+                      {b.items.map((it, j) => (
+                        <li key={j} style={{ marginBottom: "2mm" }}>
+                          <div style={{ fontSize: "21px", lineHeight: 1.5, fontFamily: "'Caveat','Comic Neue',cursive", color: "#222" }}>{it}</div>
+                          <div style={{ borderBottom: "2.2px dotted #64748b", height: "8mm" }} />
+                        </li>
+                      ))}
+                    </ol>
                   )}
                   {b.lignes ? <Lignes n={b.lignes} /> : null}
                 </div>
