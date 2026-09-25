@@ -260,6 +260,9 @@ Quand je rédige une séance, indiquer le bon support de rangement :
 - Événements de sécurité déjà calés : **incendie 21/09 10h**, **PPMS intrusion 12/10 10h**,
   **PPMS risque majeur 14/12**, **incendie 18/01**, **incendie sem. du 05/04**. Visite
   tuteur (Valentin Garoux) **mardi 29/09**.
+- **Formations PES « Entrée dans le métier » (DIU)** à l'**École Estiallet, Montbrison**
+  (mercredis 9h-12h, hors jours travaillés) : **07/10** (session 1/3) et **18/11** (session 2/3) ;
+  3 sessions au total. Calées en squelettes de journée (rappel `reunion`).
 - **CONFIDENTIALITÉ ESS/EBEP** : les entretiens ESS (équipe de suivi) concernent des
   élèves à besoins particuliers = **données de santé sur mineurs**. Ne **jamais** écrire
   de **prénom d'élève** dans un rappel synchronisé (`journal.json`) : on note l'horaire

@@ -4900,7 +4900,7 @@
       "note": "Semaine de l'inspecteur. Français matin : « Le nom » séance 2 (consolidation), la leçon a déjà été donnée mardi. EPS : rencontre athlétique."
      }
     ],
-    "devoirs": "Pour mardi : finir les exercices du « nom ». Continuer à apprendre la leçon.",
+    "devoirs": "Pour mardi : apprendre la leçon « le genre et le nombre du nom » (cahier bleu). Finir la feuille d'exercices si besoin. Réviser les mots de la dictée.",
     "rappels": [
      {
       "id": "rap-20260928-cm-ebep-c2",
@@ -4959,14 +4959,14 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "nomS2",
+       "id": "nomGN",
        "niveaux": [
         "classe"
        ],
-       "title": "Séance 2 — Consolidation : nom commun / nom propre (la majuscule)",
-       "objectif": "Distinguer le nom commun du nom propre et mettre la majuscule aux noms propres.",
-       "competence": "Reconnaître et employer le nom.",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
+       "title": "Français — Le genre et le nombre du nom",
+       "objectif": "Reconnaître le genre (masculin / féminin) et le nombre (singulier / pluriel) d'un nom.",
+       "competence": "Reconnaître et employer le nom : identifier son genre et son nombre.",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom : genre et nombre). À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Français — Grammaire",
        "progSequence": "Le nom (P1)",
@@ -4982,26 +4982,36 @@
        "deroulement": [
         {
          "id": "m1",
-         "label": "Rappel & consolidation (15 min)",
-         "note": "- « La semaine dernière, on a découvert le nom. Aujourd'hui : commun ou propre ? »\n- « Le nom commun nomme tout le monde pareil : un chien, une ville. »\n- « Le nom propre est un nom à lui, avec une MAJUSCULE : Médor, Paris. »\n- « On teste ensemble au tableau : on cherche les majuscules. »"
+         "label": "Découverte & rappel (15 min)",
+         "note": "- « Depuis quelques jours, on apprend ce qu'est un nom : il désigne une personne, un animal, une chose ou un lieu. »\n- « Aujourd'hui, on va apprendre deux choses nouvelles sur le nom : son genre et son nombre. »\n- « Le genre, c'est masculin ou féminin : je mets “un” ou “le” devant, ou bien “une” ou “la”. »\n- « Le nombre, c'est un seul (singulier) ou plusieurs (pluriel). »\n- « On va d'abord regarder ensemble au tableau, puis vous vous entraînerez sur votre feuille. »\n(Je projette le diaporama et j'affiche la première image.)"
         },
         {
          "id": "m2",
-         "label": "Leçon / rappel (5 min)",
-         "note": "- « On relit la leçon, partie noms propres. »\n- « On souligne : un nom propre prend toujours une majuscule. »"
+         "label": "Le genre, au tableau (15 min)",
+         "note": "- « Regardez cette image : je dis “un chat” — c'est masculin. »\n- « Et cette fleur ? Je dis “une fleur” — c'est féminin. »\n- « À vous : je montre un mot, vous dites tout bas “un” ou “une”. »\n- « Si je peux mettre “le” ou “un”, c'est masculin ; si je peux mettre “la” ou “une”, c'est féminin. »\n- « On clique pour révéler la réponse et on vérifie tous ensemble. »\n(Je fais passer plusieurs élèves au tableau pour classer masculin / féminin.)"
         },
         {
          "id": "m3",
-         "label": "Exercices (35 min, tandems)",
-         "note": "- « CE1 : mettre les majuscules, entourer les noms propres. »\n- « CE2 : classer commun/propre, corriger les majuscules oubliées. »\n- « On démarre par l'exemple. Je passe aider. »"
+         "label": "Le nombre, au tableau (10 min)",
+         "note": "- « Maintenant, le nombre : combien y en a-t-il ? »\n- « “Une fleur”, c'est une seule : c'est le singulier. »\n- « “Des fleurs”, c'est plusieurs : c'est le pluriel, et je vois un “s” à la fin ! »\n- « Quand il y a plusieurs, j'ajoute très souvent un “s” au nom. »\n- « À vous : je dis un nom au singulier, vous le mettez au pluriel. »\n(Je note au tableau : un chat → des chats, une pomme → des pommes.)"
+        },
+        {
+         "id": "m4",
+         "label": "Leçon à coller (10 min)",
+         "note": "- « On colle la leçon dans le cahier bleu, celui des leçons de français. »\n- « On lit ensemble les deux parties : le genre, puis le nombre. »\n- « On souligne en couleur les petits mots “un / le / une / la”. »\n- « On entoure le petit “s” du pluriel. »\n- « Je vous laisse un moment pour bien regarder les images de la leçon. »\n(Cahier bleu = leçons de français.)"
+        },
+        {
+         "id": "m5",
+         "label": "Exercices en tandems (35 min)",
+         "note": "- « Chacun prend sa feuille d'exercices : les CE1 la leur, les CE2 la leur. »\n- « On commence toujours par lire l'exemple en vert, tout en haut de l'exercice. »\n- « Pour le genre : vous écrivez “un” ou “une”, puis vous notez (m.) ou (f.). »\n- « Sur les pointillés, vous écrivez votre phrase-réponse en entier, bien lisible. »\n- « Si vous vous sentez prêts, vous pouvez aller faire l'évaluation des déterminants au fond, tranquillement. »\n(Je circule et j'aide les tandems ; les CE2 ont un exercice de plus.)"
         }
        ],
-       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
-       "video": "",
-       "differenciation": "CE1 : mettre la majuscule aux noms propres, les repérer.\nCE2 : classer commun/propre, corriger les majuscules.",
+       "materiel": "Diaporama à projeter + leçon imagée à coller (cahier bleu) + feuilles d'exercices CE1/CE2 — voir Documents à imprimer. Éval des déterminants proposée en libre (au fond de la classe, pour ceux qui se sentent prêts). Classeur pour les fiches d'exercices.",
+       "video": "https://lesfondamentaux.reseau-canope.fr/video/francais/grammaire/les-noms/le-genre-du-nom-feminin-et-masculin",
+       "differenciation": "CE1 : repérer le genre (un/une), mettre au pluriel avec -s, phrases-réponses courtes.\nCE2 : classer masculin/féminin, pluriels particuliers (-aux, -x), passer une phrase entière du singulier au pluriel.",
        "depassement": "",
-       "correction": "Voir les corrigés (exemple donné en tête de chaque exercice).",
-       "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un autre mot.\n- Oublier la majuscule des noms propres.\nRemédiation rapide :\n- Test « un / le … » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule.",
+       "correction": "Voir les corrigés (un exemple résolu en tête de chaque exercice). Genre : un/le = masculin, une/la = féminin. Nombre : + s au pluriel (pluriels particuliers pour les CE2 : animal→animaux, journal→journaux, jeu→jeux, château→châteaux, souris→souris).",
+       "obstacles": "Erreurs fréquentes :\n- Confondre le genre et le nombre (masculin n'est pas singulier).\n- Oublier le -s du pluriel, ou en mettre partout (pluriels en -aux).\n- Se tromper sur des noms au genre trompeur (une école, un pétale).\nRemédiation rapide :\n- Faire dire le nom avec un/une puis avec des ; repasser en couleur le petit mot devant et la marque du pluriel ; garder la leçon sous les yeux pour les pluriels particuliers.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5422,7 +5432,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1790700000002
+   "updatedAt": 1790700001002
   },
   {
    "date": "2026-09-29",
@@ -5439,7 +5449,7 @@
       "note": "Maths : Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 2) pour le lundi 5 octobre. Finir les feuilles d'exercices.",
+    "devoirs": "DICTÉE (Graphémo) : réviser les mots de la semaine pour lundi. Apprendre par cœur les 10 verbes d'action en anglais avec les mimes. Finir la feuille de géométrie si besoin.",
     "rappels": [
      {
       "id": "rap-tuteur-2909",
@@ -5766,69 +5776,52 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20260929fr2",
+       "id": "graphemoJ2",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — Graphémo : jour 2 (copie + dictée du jour)",
+       "objectif": "Mémoriser l'orthographe des mots de la semaine (Graphémo) par la copie active et la dictée du jour.",
+       "competence": "Orthographier les mots étudiés ; copier sans erreur ; segmenter une phrase dictée.",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, orthographe (méthode Graphémo). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      },
-      {
-       "id": "mots2",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "Dictée maison — donner les mots (semaine 2)",
-       "objectif": "Distribuer et lire ensemble la liste de mots à apprendre pour la dictée de lundi prochain.",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "Français — Orthographe (dictée maison)",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Orthographe (Graphémo)",
+       "progSequence": "Graphémo",
+       "progSeance": "jour 2",
        "progRef": "",
        "organisation": [
-        "collectif"
+        "collectif",
+        "individuel"
        ],
        "roleEnseignant": [
         "guidage"
        ],
        "deroulement": [
         {
-         "id": "d1",
-         "label": "Donner les mots (10 min)",
-         "note": "- « Voici les mots de la semaine, on les lit ensemble. »\n- « On les épelle, on repère les difficultés. »\n- « Vous les apprenez à la maison : je lis, je cache, j'écris, je vérifie. »\n- « Dictée de ces mots lundi prochain. »"
+         "id": "g1",
+         "label": "Copie du jour (15 min)",
+         "note": "- « On ouvre le cahier vert : aujourd'hui, c'est le jour 2 de Graphémo. »\n- « Je copie les mots de la semaine sans erreur, en soignant mes lettres. »\n- « J'utilise la stratégie : je lis le mot, je le cache, je l'écris, puis je vérifie. »\n- « J'entoure la lettre que l'on étudie cette semaine dans chaque mot. »\n- « Si je me trompe, je barre proprement d'un trait et je réécris. »\n(Je circule et je vérifie la tenue du cahier vert.)"
+        },
+        {
+         "id": "g2",
+         "label": "Dictée du jour (20 min)",
+         "note": "- « On range les modèles, maintenant je vais vous dicter. »\n- « J'écoute la phrase en entier, puis j'écris quand je la répète lentement. »\n- « Je pense à la majuscule au début et au point à la fin. »\n- « CE2, vous aurez une phrase un peu plus longue à la fin. »\n- « Quand j'ai fini, je relis en pointant chaque mot avec mon doigt. »\n(Je dicte deux fois, lentement ; phrases côté enseignant.)"
+        },
+        {
+         "id": "g3",
+         "label": "Correction (10 min)",
+         "note": "- « On corrige tous ensemble au tableau. »\n- « Je vérifie mot par mot et je souligne mes réussites. »\n- « Si j'ai une erreur, je la corrige en vert, juste au-dessus. »\n- « On compte combien de mots sont justes, sans se moquer des autres. »\n- « On range le cahier vert dans le casier. »\n(Correction collective et valorisante.)"
         }
        ],
-       "materiel": "Feuille « Mots à apprendre » (une par élève) — voir Documents à imprimer.",
+       "materiel": "Cahier vert (dictées) ; affichage Graphémo de la semaine (mots + lettre étudiée). Phrases de la dictée côté enseignant.",
        "video": "",
-       "differenciation": "CE1 : mots de base.\nCE2 : mots de base + mots en plus.",
+       "differenciation": "CE1 : liste de mots de base, dictée raccourcie.\nCE2 : mêmes mots + une phrase plus longue à la fin.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Correction immédiate au tableau ; chaque élève vérifie et corrige en vert sous sa dictée.",
+       "obstacles": "Erreurs fréquentes : oublier la majuscule ou le point ; confondre des graphies proches ; copier lettre à lettre sans mémoriser.\nRemédiation rapide : segmenter la phrase en petits morceaux, faire épeler le mot difficile, rappeler la stratégie lire-cacher-écrire-vérifier.",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "Apprendre la liste de mots pour la dictée de lundi.",
+       "devoirs": "",
        "notesProchaine": ""
       }
      ]
@@ -5872,32 +5865,97 @@
     {
      "id": "d2026-09-29s10",
      "start": "15:40",
-     "end": "16:25",
+     "end": "16:10",
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "20260929ap",
+       "id": "m22eps",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer (EPS / autre)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "EPS — Courir longtemps : le jeu des petits carrés (reprise)",
+       "objectif": "Courir longtemps sans s'arrêter (sans marcher) et battre son record de tours.",
+       "competence": "Courir longtemps en gérant son effort (activités athlétiques).",
+       "competenceRef": "Programmes cycle 2 (2020) — EPS, produire une performance optimale (courir longtemps). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "EPS — Athlétisme",
+       "progSequence": "Courir longtemps (P1)",
+       "progSeance": "reprise",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage",
+        "observation"
+       ],
+       "deroulement": [
+        {
+         "id": "e1",
+         "label": "Rappel & mise en route (10 min)",
+         "note": "- « On refait le jeu des petits carrés : on court le plus longtemps possible sans marcher. »\n- « Chacun reçoit ses carrés : un carré BLEU par tour couru sans s'arrêter, un carré JAUNE si vous marchez. »\n- « Le but, c'est d'avoir un maximum de carrés bleus, comme la dernière fois. »\n- « On s'échauffe d'abord : on trotte doucement autour des plots. »\n- « On règle son allure : pas trop vite au début, pour tenir longtemps. »\n(Sécurité : je délimite le parcours aux plots, je place les élèves fragiles à l'intérieur.)"
+        },
+        {
+         "id": "e2",
+         "label": "Je bats mon record (25 min)",
+         "note": "- « C'est parti : à chaque tour complet couru, vous prenez un carré bleu. »\n- « Si vous devez marcher, prenez un carré jaune, mais essayez de repartir en courant. »\n- « Respirez régulièrement, gardez la même allure, ne foncez pas. »\n- « Je compte le temps ; vous, vous comptez vos carrés. »\n- « On essaie de faire mieux que la dernière fois : un ou deux tours de plus ! »\n(J'observe les allures et j'encourage ; sécurité active tout le long.)"
+        },
+        {
+         "id": "e3",
+         "label": "Retour au calme & bilan (10 min)",
+         "note": "- « On marche doucement pour récupérer et on respire calmement. »\n- « Chacun compte ses carrés bleus et ses carrés jaunes. »\n- « Qui a battu son record de tours ? On se félicite. »\n- « On boit un peu d'eau et on range le matériel. »\n- « La prochaine fois, on essaiera de courir encore un peu plus longtemps. »\n(Bilan collectif court, valorisant les progrès.)"
+        }
+       ],
+       "materiel": "Des petits carrés de papier par élève (bleus = tour couru, jaunes = tour marché), plots pour délimiter le tour. Voir la fiche de séance dans Documents à imprimer.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "Adapter le nombre de tours visés ; laisser marcher puis relancer en course pour les élèves les plus fatigables.",
        "depassement": "",
        "correction": "",
-       "obstacles": "",
+       "obstacles": "Erreurs fréquentes : partir trop vite et devoir marcher ; ne pas gérer son souffle.\nRemédiation rapide : rappeler de garder une allure régulière, courir à côté d'un élève-repère, fixer un objectif de tours atteignable.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "start": "16:10",
+     "end": "16:20",
+     "activities": [
+      {
+       "id": "angVerbs",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais — Action verbs : révision par les mimes",
+       "objectif": "Vérifier la mémorisation des 10 verbes d'action (jeu du mime) et les réutiliser à l'oral.",
+       "competence": "Comprendre et dire des verbes d'action en anglais ; réagir à une consigne orale.",
+       "competenceRef": "Programmes cycle 2 (2020) — Langue vivante (anglais), comprendre à l'oral, réagir et dialoguer. À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Anglais",
+       "progSequence": "Action verbs",
+       "progSeance": "révision",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "a1",
+         "label": "Vérification par le mime (10 min)",
+         "note": "- « On révise les verbes d'action appris à la maison : run, jump, walk, swim… »\n- « Je dis un verbe en anglais, vous faites le mime tous ensemble. »\n- « Maintenant, un élève mime, la classe devine et dit le verbe en anglais. »\n- « On dit la phrase en entier : “I run”, “I jump”, “I swim”. »\n- « Bravo, vous les avez bien appris ! On les garde pour la suite. »\n(Je repère qui hésite pour reprendre avec eux ; leçon et cartes dans Documents.)"
+        }
+       ],
+       "materiel": "Diaporama Action verbs + leçon illustrée + cartes à mimer — voir Documents à imprimer. Cahier violet (anglais).",
+       "video": "",
+       "differenciation": "Élèves à l'aise : mènent le mime et corrigent. Élèves plus fragiles : répètent après un modèle, mime d'abord sans parler.",
+       "depassement": "",
+       "correction": "Chaque verbe est associé à son mime et à la phrase « I + verbe » (I run, I jump, I walk, I swim…).",
+       "obstacles": "Erreurs fréquentes : confondre deux verbes proches (walk/run) ; prononciation approximative.\nRemédiation rapide : re-mimer lentement, faire répéter en chœur puis individuellement.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5907,17 +5965,55 @@
     },
     {
      "id": "d2026-09-29s11",
-     "start": "16:25",
+     "start": "16:20",
      "end": "16:30",
      "disciplineId": "autre",
      "activities": [
+      {
+       "id": "paysSem29",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — Le pays de la semaine : l'Espagne (escale 2)",
+       "objectif": "Découvrir le pays de la semaine (situation, carte d'identité, culture), avant de sortir.",
+       "competence": "Se repérer dans l'espace ; découvrir un pays et sa culture (projet Autour du monde).",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "Questionner le monde — Géographie (projet Autour du monde)",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "p1",
+         "label": "L'escale de la semaine (10 min)",
+         "note": "- « Avant de partir, on découvre notre nouvelle escale : l'Espagne ! »\n- « On situe l'Espagne sur la carte : juste à côté de la France, au sud. »\n- « Sa capitale, c'est Madrid ; son drapeau est rouge et jaune. »\n- « Là-bas, on danse le flamenco et on peut visiter la Sagrada Família à Barcelone. »\n- « On complètera la carte d'identité du pays et on écoutera la dictée de l'escale cette semaine. »\n(Diaporama et carte d'identité dans Projets → Autour du monde.)"
+        }
+       ],
+       "materiel": "Projets → Autour du monde : diaporama de l'Espagne (à projeter) + carte d'identité du pays à compléter. Pochette du projet voyage.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      },
       {
        "id": "20260929sor",
        "niveaux": [
         "classe"
        ],
        "title": "Rangement, devoirs et sortie",
-       "objectif": "",
+       "objectif": "Ranger la classe, noter les devoirs et se préparer à sortir dans le calme.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -5925,10 +6021,20 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "s1",
+         "label": "Rangement & devoirs (5 min)",
+         "note": "- « On range son casier et on prépare son cartable. »\n- « On note (ou on colle) les devoirs pour la semaine prochaine. »\n- « On vérifie qu'on a bien la fiche à finir et les mots à réviser. »\n- « On se met en rang dans le calme. »\n- « Bonne fin de semaine, à lundi ! »\n(Cahier jaune = liaison pour un mot aux familles si besoin.)"
+        }
+       ],
+       "materiel": "Cahier de liaison (jaune) si mot aux familles.",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -5943,7 +6049,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1791500000000
+   "updatedAt": 1791500001000
   },
   {
    "date": "2026-10-05",
@@ -6900,6 +7006,27 @@
    ],
    "createdAt": "2026-09-19T10:00:00Z",
    "updatedAt": 1790500000005
+  },
+  {
+   "date": "2026-10-07",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261007-formation-pes-montbrison",
+      "texte": "Formation PES — Entrée dans le métier (session 1/3) · 9h-12h · École Estiallet, 10 rue de la blanchisserie, 42600 Montbrison",
+      "type": "reunion",
+      "heure": "09:00"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790318817545,
+   "updatedAt": 1790318817545
   },
   {
    "date": "2026-10-12",
@@ -7873,6 +8000,27 @@
    "slots": [],
    "createdAt": 1790700000000,
    "updatedAt": 1790700000006
+  },
+  {
+   "date": "2026-11-18",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261118-formation-pes-montbrison",
+      "texte": "Formation PES — Entrée dans le métier (session 2/3) · 9h-12h · École Estiallet, 10 rue de la blanchisserie, 42600 Montbrison",
+      "type": "reunion",
+      "heure": "09:00"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790318817545,
+   "updatedAt": 1790318817545
   },
   {
    "date": "2026-11-24",

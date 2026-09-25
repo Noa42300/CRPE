@@ -15,6 +15,7 @@ import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./Mesure
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22 } from "./EpsSeanceFiche";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
+import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
 
 export interface SupportFourni {
@@ -592,22 +593,33 @@ const NB1_LECON: FicheData = {
 const NB1_CE1: FicheData = {
   entete: "Exercices", titre: "Construire 100", niveau: "CE1", discipline: "Mathématiques — Nombres",
   blocs: [
-    { kind: "exercice", exemple: "90 + 10 = 100", consigne: "Complète pour arriver à 100.", items: [
-      "80 + ___ = 100", "70 + ___ = 100", "___ + 40 = 100", "50 + ___ = 100",
+    { kind: "wiki", title: "Boulier", alt: "un boulier", height: "24mm", legende: "Avec 10 dizaines, je fabrique une centaine : 100." },
+    { kind: "exercice", exemple: "90 + 10 = 100 (il manque 10 pour aller à 100)", consigne: "Cherche le nombre qui manque pour arriver à 100. Écris-le sur les pointillés.", items: [
+      "80 + ___ = 100", "70 + ___ = 100", "___ + 40 = 100", "50 + ___ = 100", "60 + ___ = 100", "20 + ___ = 100",
     ] },
-    { kind: "exercice", exemple: "10 dizaines = 100", consigne: "Complète.", items: [
-      "___ dizaines = 100", "9 dizaines et ___ dizaine = 100", "100 = ___ dizaines",
+    { kind: "exercice", exemple: "10 dizaines = 100", consigne: "Complète en comptant par dizaines (10, 20, 30…).", items: [
+      "___ dizaines = 100", "9 dizaines et ___ dizaine = 100", "100 = ___ dizaines", "7 dizaines = ___",
+    ] },
+    { kind: "exercice", exemple: "J'ai 60 billes, il m'en faut 100. → il manque 40 billes.", consigne: "Résous le problème. Écris ton calcul et ta réponse.", reponses: true, items: [
+      "Léa a 30 images. Elle veut en avoir 100. Combien lui en manque-t-il ?",
     ] },
   ],
 };
 const NB1_CE2: FicheData = {
   entete: "Exercices", titre: "Construire 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres",
   blocs: [
-    { kind: "exercice", exemple: "900 + 100 = 1 000", consigne: "Complète pour arriver à 1 000.", items: [
-      "800 + ___ = 1 000", "___ + 300 = 1 000", "500 + ___ = 1 000", "990 + ___ = 1 000",
+    { kind: "wiki", title: "Boulier", alt: "un boulier", height: "24mm", legende: "10 dizaines = 1 centaine (100) · 10 centaines = 1 millier (1 000)." },
+    { kind: "exercice", exemple: "900 + 100 = 1 000 (il manque 100 pour aller à 1 000)", consigne: "Cherche le nombre qui manque pour arriver à 1 000. Écris-le sur les pointillés.", items: [
+      "800 + ___ = 1 000", "___ + 300 = 1 000", "500 + ___ = 1 000", "990 + ___ = 1 000", "250 + ___ = 1 000", "___ + 750 = 1 000",
     ] },
-    { kind: "exercice", exemple: "10 centaines = 1 000", consigne: "Complète.", items: [
-      "___ centaines = 1 000", "1 000 = ___ dizaines", "9 centaines et ___ centaine = 1 000",
+    { kind: "exercice", exemple: "10 centaines = 1 000", consigne: "Complète en pensant aux centaines et aux dizaines.", items: [
+      "___ centaines = 1 000", "1 000 = ___ dizaines", "9 centaines et ___ centaine = 1 000", "1 000 = ___ centaines", "60 dizaines = ___",
+    ] },
+    { kind: "exercice", exemple: "708 = 7 centaines, 0 dizaine et 8 unités", consigne: "Décompose chaque nombre (centaines, dizaines, unités).", items: [
+      "465 = ___ c ___ d ___ u", "530 = ___ c ___ d ___ u", "907 = ___ c ___ d ___ u",
+    ] },
+    { kind: "exercice", exemple: "J'ai 600 €, il m'en faut 1 000. → il manque 400 €.", consigne: "Résous le problème. Écris ton calcul et ta réponse.", reponses: true, items: [
+      "Un club a récolté 750 €. Il veut atteindre 1 000 €. Combien manque-t-il ?",
     ] },
   ],
 };
@@ -804,6 +816,42 @@ const NOM_S3: FicheData = {
     ] },
     { kind: "exercice", exemple: "un cheval → des chevaux (CE2)", consigne: "CE2 : écris au pluriel (attention !).", items: [
       "un animal → ______________", "un journal → ______________", "un jeu → ______________",
+    ] },
+  ],
+};
+/* Genre & nombre du nom — feuilles différenciées (lundi 28/09).
+   Illustrées (Wikimedia), consignes explicites, « petits points » pour les
+   phrases-réponses (reponses:true). Chaque feuille tient sur UNE A4. */
+const GN_CE1: FicheData = {
+  entete: "Exercices", titre: "Le genre et le nombre du nom", niveau: "CE1", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "wiki", title: "Chat", alt: "un chat", height: "24mm", legende: "un chat (masculin) · une fleur (féminin)" },
+    { kind: "exercice", picto: "chat", exemple: "___ chat → un chat  (masculin)", consigne: "Écris un ou une devant chaque nom, puis entoure le bon genre : (m.) ou (f.).", items: [
+      "___ ballon   (m. / f.)", "___ maison   (m. / f.)", "___ soleil   (m. / f.)", "___ pomme   (m. / f.)", "___ école   (m. / f.)", "___ chien   (m. / f.)",
+    ] },
+    { kind: "exercice", picto: "fleur", exemple: "un chat → des chats", consigne: "Recopie chaque nom au pluriel (j'ajoute un -s).", items: [
+      "une fleur → ______________", "le livre → ______________", "un ami → ______________", "la table → ______________", "un vélo → ______________",
+    ] },
+    { kind: "exercice", exemple: "J'ai un chat. → J'ai des chats.", consigne: "Récris la phrase au pluriel (attention au petit mot et au nom).", reponses: true, items: [
+      "Je vois une fleur.", "Le garçon range un livre.",
+    ] },
+  ],
+};
+const GN_CE2: FicheData = {
+  entete: "Exercices", titre: "Le genre et le nombre du nom", niveau: "CE2", discipline: "Français — Grammaire",
+  blocs: [
+    { kind: "wiki", title: "Marguerite commune", alt: "une fleur", height: "24mm", legende: "le genre = masculin (un/le) ou féminin (une/la) · le nombre = singulier ou pluriel" },
+    { kind: "exercice", exemple: "chat → un chat (m.) ; fleur → une fleur (f.)", consigne: "Écris un ou une devant chaque nom, puis note son genre : (m.) pour masculin, (f.) pour féminin.", items: [
+      "___ ballon ___", "___ maison ___", "___ soleil ___", "___ étoile ___", "___ arbre ___", "___ récréation ___",
+    ] },
+    { kind: "exercice", exemple: "un cheval → des chevaux", consigne: "Écris chaque nom au pluriel. Attention : certains pluriels sont particuliers !", items: [
+      "un animal → ______________", "un journal → ______________", "un jeu → ______________", "un château → ______________", "une souris → ______________",
+    ] },
+    { kind: "exercice", exemple: "des chats → un chat", consigne: "Fais le contraire : écris chaque groupe au singulier.", items: [
+      "des maisons → ______________", "les oiseaux → ______________", "des tables → ______________",
+    ] },
+    { kind: "exercice", exemple: "Le chat dort. → Les chats dorment.", consigne: "Récris chaque phrase au pluriel (le petit mot ET le nom changent).", reponses: true, items: [
+      "La fille lit un livre.", "Le chien joue dans le jardin.", "Une fleur pousse dans le pré.",
     ] },
   ],
 };
@@ -1129,8 +1177,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "nomEDL":
       return [
         { key: "nom-edl-lecon", label: "Le nom — Leçon à revoir (avant les exercices)", node: <LeNomLecon /> },
+        { key: "nom-edl-gn", label: "Le genre & le nombre — Leçon (rappel lundi)", node: <GenreNombreLecon /> },
         { key: "nom-edl-ce1", label: "Le nom — Exercices CE1 (en dépannage)", node: ficheNode(NOM_S1_CE1) },
         { key: "nom-edl-ce2", label: "Le nom — Exercices CE2 (en dépannage)", node: ficheNode(NOM_S1_CE2) },
+        { key: "nom-edl-eval-det", label: "Éval déterminants (libre, pour ceux qui se sentent prêts)", node: ficheNode(DET_EVAL) },
       ];
     case "nomS1":
       return [
@@ -1142,6 +1192,14 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "nom-s2-lecon", label: "Séance 2 — Leçon : le nom (rappel)", node: <LeNomLecon /> },
         { key: "nom-s2-ce1", label: "Séance 2 — Exercices CE1 (nom propre, majuscule)", node: ficheNode(NOM_S2_CE1) },
         { key: "nom-s2-ce2", label: "Séance 2 — Exercices CE2 (commun/propre, majuscules)", node: ficheNode(NOM_S2_CE2) },
+      ];
+    case "nomGN":
+      return [
+        { key: "nomgn-diapo", label: "Le genre & le nombre du nom — Diaporama à projeter", node: <GenreNombreDiapo /> },
+        { key: "nomgn-lecon", label: "Le genre & le nombre du nom — Leçon à coller (imagée)", node: <GenreNombreLecon /> },
+        { key: "nomgn-ce1", label: "Le genre & le nombre — Exercices CE1 (A4)", node: ficheNode(GN_CE1) },
+        { key: "nomgn-ce2", label: "Le genre & le nombre — Exercices CE2 (A4)", node: ficheNode(GN_CE2) },
+        { key: "nomgn-eval-det", label: "Éval déterminants (libre, pour ceux qui se sentent prêts)", node: ficheNode(DET_EVAL) },
       ];
     case "nomS3":
       return [
