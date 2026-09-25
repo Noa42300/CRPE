@@ -8,6 +8,7 @@ import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
 import { AnglaisDiaporama, AnglaisActionVerbsDiapo, AnglaisVerbsLecon, AnglaisVerbsCartes } from "./AnglaisDiaporama";
 import { LireFriseDiapo, SolidesProprietesDiapo, LireFriseLecon, SolidesLecon } from "./QlmDiapos";
+import { SeRepererDiapo, SymetrieDiapo } from "./GeoDiapos";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
@@ -673,8 +674,10 @@ const NB_EVAL: FicheData = {
 const GEO1_LECON: FicheData = {
   entete: "Leçon (à coller)", titre: "Se repérer · La symétrie", niveau: "CE1-CE2", discipline: "Mathématiques — Espace & Géométrie", cursive: true,
   blocs: [
-    { kind: "def", titre: "CE1 — se repérer", contenu: "Pour dire où se trouve un objet, j'utilise les mots de l'espace : à gauche, à droite, devant, derrière, au-dessus, en dessous, entre, à côté de." },
-    { kind: "def", titre: "CE2 — la symétrie", contenu: "Deux parties sont symétriques quand elles sont pareilles de chaque côté d'un trait : l'axe de symétrie. Comme dans un miroir, ou en pliant la feuille sur l'axe." },
+    { kind: "def", titre: "CE1 — se repérer", contenu: "Pour dire où se trouve un objet, j'utilise les mots de l'espace : à gauche, à droite, devant, derrière, au-dessus, en dessous, entre, à côté de. Le plan, c'est la vue de dessus." },
+    { kind: "wiki", title: "Rose des vents", alt: "une rose des vents (les directions)", height: "24mm", legende: "Je me repère avec les mots de l'espace : gauche/droite, devant/derrière." },
+    { kind: "def", titre: "CE2 — la symétrie", contenu: "Deux parties sont symétriques quand elles sont pareilles de chaque côté d'un trait : l'axe de symétrie. Comme dans un miroir, ou en pliant la feuille sur l'axe. Une figure peut avoir plusieurs axes." },
+    { kind: "wiki", title: "Papillon", alt: "un papillon symétrique", height: "26mm", legende: "Le papillon est symétrique : en pliant sur l'axe, les deux ailes se superposent." },
   ],
 };
 const GEO1_CE1: FicheData = {
@@ -1101,7 +1104,9 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "geoS1":
       return [
-        { key: "geo1-lecon", label: "Séance 1 — Leçon : se repérer / la symétrie", node: ficheNode(GEO1_LECON) },
+        { key: "geo1-diapo-ce1", label: "Séance 1 — Diaporama CE1 : se repérer dans l'espace (à projeter)", node: <SeRepererDiapo /> },
+        { key: "geo1-diapo-ce2", label: "Séance 1 — Diaporama CE2 : la symétrie (à projeter)", node: <SymetrieDiapo /> },
+        { key: "geo1-lecon", label: "Séance 1 — Leçon illustrée : se repérer / la symétrie", node: ficheNode(GEO1_LECON) },
         { key: "geo1-ce1", label: "Séance 1 — CE1 : se repérer dans l'école", node: ficheNode(GEO1_CE1) },
         { key: "geo1-ce2", label: "Séance 1 — CE2 : la symétrie", node: ficheNode(GEO1_CE2) },
       ];
@@ -1121,10 +1126,15 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "geo-ent-ce1", label: "Séance 4 — Sinon, entraînement CE1", node: ficheNode(GEO3_CE1) },
         { key: "geo-ent-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(GEO3_CE2) },
       ];
+    case "nomEDL":
+      return [
+        { key: "nom-edl-lecon", label: "Le nom — Leçon à revoir (avant les exercices)", node: <LeNomLecon /> },
+        { key: "nom-edl-ce1", label: "Le nom — Exercices CE1 (en dépannage)", node: ficheNode(NOM_S1_CE1) },
+        { key: "nom-edl-ce2", label: "Le nom — Exercices CE2 (en dépannage)", node: ficheNode(NOM_S1_CE2) },
+      ];
     case "nomS1":
       return [
-        { key: "nom-s1-lecon", label: "Séance 1 — Leçon : le nom (commun & propre)", node: <LeNomLecon /> },
-        { key: "nom-s1-ce1", label: "Séance 1 — Exercices CE1", node: ficheNode(NOM_S1_CE1) },
+        { key: "nom-s1-lecon", label: "Séance 1 — Leçon : le nom (commun & propre)", node: <LeNomLecon /> },        { key: "nom-s1-ce1", label: "Séance 1 — Exercices CE1", node: ficheNode(NOM_S1_CE1) },
         { key: "nom-s1-ce2", label: "Séance 1 — Exercices CE2", node: ficheNode(NOM_S1_CE2) },
       ];
     case "nomS2":

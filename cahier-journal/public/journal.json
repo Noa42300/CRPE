@@ -5502,28 +5502,54 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20260929fr1",
+       "id": "nomEDL",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — Le nom : exercices (1-2-3 Étude de la langue)",
+       "objectif": "Réinvestir la notion de nom (commun/propre) : la reverbaliser, puis s'entraîner sur les exercices du manuel « 1-2-3 Étude de la langue », différenciés CE1/CE2.",
+       "competence": "Identifier le nom, distinguer nom commun et nom propre ; utiliser le déterminant comme indice.",
+       "competenceRef": "Français — Étude de la langue (grammaire), cycle 2.",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "francais",
+       "progSequence": "Le nom",
+       "progSeance": "exercices",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "n1",
+         "label": "On reverbalise ensemble (10 min)",
+         "note": "- « Vous vous êtes entraînés lundi : qui peut me redire ce qu'est un nom ? »\n- « Un nom, ça désigne quoi ? … une personne, un animal, une chose, un lieu. »\n- « Comment je repère un nom dans la phrase ? … souvent un petit mot devant (le, la, un, une, mes…). »\n- « Différence entre nom commun et nom propre ? … le nom propre prend une majuscule. »\n- « On note au tableau tout ce que vous savez (brainstorm). »"
+        },
+        {
+         "id": "n2",
+         "label": "On remet la vidéo Canopé (5 min)",
+         "note": "- « On regarde à nouveau la petite vidéo pour bien fixer. »\n- « Vous écoutez : je vous poserai une question après. »\n- « Qu'est-ce qui montre qu'un nom est un nom propre ? … la majuscule. »\n- (Vidéo : Les Fondamentaux — le nom commun et le nom propre.)"
+        },
+        {
+         "id": "n3",
+         "label": "Consigne & départ en exercices (5 min)",
+         "note": "- « Je distribue votre fiche : CE1 la vôtre, CE2 la vôtre (1-2-3 Étude de la langue). »\n- « On lit la première consigne ensemble, je montre un exemple. »\n- « Vous soulignez les noms, vous entourez la majuscule des noms propres. »\n- « Si vous bloquez : je relis la leçon dans le cahier bleu, puis j'essaie seul. »\n- « Quand j'ai fini, je vérifie avec mon voisin. »"
+        },
+        {
+         "id": "n4",
+         "label": "Mise en commun & correction (15 min)",
+         "note": "- « On corrige ensemble : donne-moi un nom que tu as trouvé. »\n- « Commun ou propre ? Pourquoi ? »\n- « On vérifie les majuscules des noms propres. »\n- « On range la fiche dans le classeur (exercices de français). »"
+        }
+       ],
+       "materiel": "Fiches « 1-2-3 Étude de la langue » sur le nom (photocopies : une CE1, une CE2), leçon « le nom » (cahier bleu) à revoir, vidéo Canopé. Voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=Ap5UBJ5CmJ4",
+       "differenciation": "CE1 : identifier et classer des noms (commun/propre). CE2 : idem + justifier avec le déterminant et corriger les majuscules.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Un nom désigne une personne, un animal, une chose ou un lieu ; il est souvent précédé d'un déterminant. Le nom propre prend une majuscule.",
+       "obstacles": "Erreurs fréquentes :\n- Confondre nom et verbe.\n- Oublier la majuscule du nom propre.\nRemédiation rapide :\n- Test du déterminant : « le/la/un/une … » devant → c'est un nom.\n- Rappeler : un prénom, une ville → majuscule.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5612,9 +5638,9 @@
          "note": "- « CE1 : on nomme des positions au tableau. »\n- « CE2 : on vérifie une symétrie en pliant. »"
         }
        ],
-       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
-       "video": "",
-       "differenciation": "CE1 (avec le PE) : gauche/droite, devant/derrière, se repérer dans la classe et l'école.\nCE2 (autonomie puis reprise) : reconnaître un axe de symétrie, l'idée du miroir/pliage.",
+       "materiel": "Diaporamas à projeter (CE1 se repérer / CE2 symétrie), leçon illustrée à coller, exercices CE1/CE2 — voir Documents à imprimer. Manuel : les fiches de géométrie photocopiées (CE1 se repérer / CE2 symétrie). Vidéos : symétrie https://www.youtube.com/watch?v=Otwnpst8bvA · se repérer dans l'espace https://www.youtube.com/watch?v=ZWIL7LxPrm8",
+       "video": "https://www.youtube.com/watch?v=Otwnpst8bvA",
+       "differenciation": "CE1 : se repérer dans l'espace (mots de l'espace, lire un plan / vue de dessus). CE2 : la symétrie (reconnaître un axe, compléter une figure sur quadrillage, plusieurs axes possibles).",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
        "obstacles": "",
@@ -5917,7 +5943,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790700000003
+   "updatedAt": 1791500000000
   },
   {
    "date": "2026-10-05",
