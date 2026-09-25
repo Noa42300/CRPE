@@ -5540,7 +5540,7 @@
       "note": "Maths : Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "Réviser la leçon de géométrie (se repérer / symétrie). Relire la leçon d'Histoire (la Préhistoire, dates clés) et de Sciences (mesurer : masse, volume, température). Finir les exercices non terminés.",
+    "devoirs": "Réviser la leçon de géométrie (se repérer / symétrie). Relire la leçon d'Histoire (la Préhistoire, dates clés) et de Sciences (la masse : la balance, g et kg). Finir les exercices non terminés.",
     "rappels": [
      {
       "id": "rap-tuteur-2909",
@@ -5910,7 +5910,7 @@
         }
        ],
        "materiel": "Diaporama à projeter (avec dates clés) + leçon imagée à coller (frise des dates clés incluse) — voir Documents à imprimer.",
-       "video": "",
+       "video": "https://www.youtube.com/watch?v=Cz4TpP2Isgs",
        "differenciation": "CE1 : retenir « Préhistoire = avant l'écriture », le feu, les grottes.\nCE2 : ajouter nomade/sédentaire et l'idée de traces (archéologie).",
        "depassement": "",
        "correction": "Préhistoire = 1re période, avant l'écriture ; feu, grottes, chasse, outils en pierre ; traces = peintures, outils, mégalithes.",
@@ -5969,14 +5969,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Sciences — Mesurer : masse, volume et température (clôture de séquence)",
-       "objectif": "Savoir quelle grandeur on mesure (masse, volume, température), avec quel instrument et dans quelle unité.",
-       "competence": "Identifier des grandeurs mesurables et les instruments de mesure ; connaître les unités usuelles.",
-       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde de la matière ; grandeurs et mesures. À vérifier sur eduscol.",
+       "title": "Sciences — La masse : peser avec la balance (1/2)",
+       "objectif": "Comprendre ce qu'est la masse et la mesurer avec une balance (en g et kg), par la manipulation.",
+       "competence": "Mesurer une masse ; connaître les unités usuelles (g, kg) ; utiliser une balance.",
+       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde : grandeurs et mesures (masses). À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Questionner le monde — Sciences (grandeurs & mesures)",
-       "progSequence": "Explorer la matière",
-       "progSeance": "clôture",
+       "progSequence": "Mesurer des grandeurs",
+       "progSeance": "1/2 — la masse",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -5988,26 +5988,26 @@
        "deroulement": [
         {
          "id": "s1",
-         "label": "Mesurer, c'est quoi ? (10 min)",
-         "note": "- « Pour clôturer notre séquence, on va apprendre à mesurer. »\n- « Mesurer, c'est dire COMBIEN il y a, avec un instrument et une unité. »\n- « Aujourd'hui, trois choses à mesurer : la masse, le volume et la température. »\n- « À votre avis, avec quoi pèse-t-on des pommes ? Avec quoi mesure-t-on l'eau ? »\n- « On note vos idées au tableau. »\n(Je projette le diaporama et je recueille leurs propositions.)"
+         "label": "C'est quoi la masse ? (10 min)",
+         "note": "- « Aujourd'hui, on apprend à mesurer la masse : est-ce qu'un objet est lourd ou léger ? »\n- « Soupesez ces deux objets : lequel est le plus lourd ? Comment en être sûr ? »\n- « Pour être précis, on ne devine pas : on utilise une balance. »\n- « La balance nous donne la masse en grammes et en kilogrammes. »\n- « On regarde la vidéo, puis on pèse pour de vrai. »\n(Je projette le diaporama et la vidéo.)"
         },
         {
          "id": "s2",
-         "label": "Les trois grandeurs (18 min)",
-         "note": "- « La masse : je pèse avec une balance ; l'unité, ce sont les grammes (g) et les kilogrammes (kg). »\n- « Le volume : je mesure un liquide avec un verre doseur ; l'unité, ce sont les litres (L) et les millilitres (mL). »\n- « La température : je la mesure avec un thermomètre ; l'unité, ce sont les degrés Celsius (°C). »\n- « On observe chaque instrument sur les photos. »\n- « On manipule si possible : je fais lire une balance, un verre doseur, un thermomètre. »\n(Manipulation collective si le matériel est disponible.)"
+         "label": "On pèse avec la balance (20 min)",
+         "note": "- « Voici notre balance : je pose un objet, je lis le nombre affiché. »\n- « Un petit objet se mesure en grammes (g) ; un objet plus lourd en kilogrammes (kg). »\n- « Retenez : 1 kilogramme = 1000 grammes. »\n- « À tour de rôle, venez peser un objet de la classe et lire sa masse. »\n- « On compare : quel objet est le plus lourd ? le plus léger ? »\n(Manipulation par petits groupes avec la balance de la classe.)"
         },
         {
          "id": "s3",
-         "label": "On s'exerce & leçon (17 min)",
-         "note": "- « À vous : quel instrument pour peser un cartable ? Pour mesurer du sirop ? Pour la fièvre ? »\n- « On associe chaque grandeur à son instrument et à son unité. »\n- « On colle la leçon et on lit les trois lignes ensemble. »\n- « On souligne les unités : g / kg, L / mL, °C. »\n- « On range le cahier de Questionner le monde. »\n(Leçon imagée à coller ; validation collective.)"
+         "label": "On s'exerce & leçon (15 min)",
+         "note": "- « Devine : un crayon, on le mesure en g ou en kg ? Et un cartable ? »\n- « Range ces objets du plus léger au plus lourd. »\n- « On colle la leçon et on lit ensemble : balance, grammes, kilogrammes. »\n- « On souligne : 1 kg = 1000 g. »\n- « On range le cahier de Questionner le monde. »\n(Leçon imagée à coller ; validation collective.)"
         }
        ],
-       "materiel": "Diaporama à projeter + leçon imagée à coller (vraies photos : balance, verre doseur/éprouvette, thermomètre) — voir Documents à imprimer. Si possible : une balance, un verre doseur, un thermomètre à montrer.",
-       "video": "",
-       "differenciation": "CE1 : associer grandeur ↔ instrument (masse/balance, volume/verre doseur, température/thermomètre).\nCE2 : ajouter les unités (g/kg, L/mL, °C) et lire une graduation simple.",
+       "materiel": "La balance de la classe + des objets à peser (trousse, livre, pomme, paquet…). Diaporama + leçon imagée — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=W9mo-MeRMy0",
+       "differenciation": "CE1 : lire la masse affichée, comparer lourd/léger.\nCE2 : choisir l'unité (g ou kg), utiliser 1 kg = 1000 g, ranger des masses.",
        "depassement": "",
-       "correction": "Masse → balance → g, kg. Volume → verre doseur / éprouvette → L, mL. Température → thermomètre → °C.",
-       "obstacles": "Erreurs fréquentes : confondre masse et volume ; se tromper d'unité (peser en litres…).\nRemédiation rapide : revenir à l'instrument (« avec quoi je mesure ? »), manipuler pour associer grandeur, instrument et unité.",
+       "correction": "La masse se mesure avec une balance, en g et kg. 1 kg = 1000 g. Petits objets → g ; gros objets → kg.",
+       "obstacles": "Erreurs fréquentes : croire que « gros = lourd » (un gros objet léger) ; confondre g et kg.\nRemédiation rapide : faire peser deux objets trompeurs, revenir à la lecture de la balance et aux repères (pomme ≈ 150 g, sucre = 1 kg).",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -6063,7 +6063,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1791500005000
+   "updatedAt": 1791500006000
   },
   {
    "date": "2026-09-30",
@@ -7050,10 +7050,65 @@
        "notesProchaine": ""
       }
      ]
+    },
+    {
+     "start": "13:45",
+     "end": "14:45",
+     "activities": [
+      {
+       "id": "sciS5",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Sciences — Le volume et la température : clôture (2/2)",
+       "objectif": "Mesurer le volume d'un liquide (verre doseur, L/mL) et la température (thermomètre, °C) ; clôturer la séquence.",
+       "competence": "Mesurer un volume et une température ; connaître les instruments et les unités (L, mL, °C).",
+       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde : grandeurs et mesures (contenances, températures). À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Questionner le monde — Sciences (grandeurs & mesures)",
+       "progSequence": "Mesurer des grandeurs",
+       "progSeance": "2/2 — volume & température",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "s1",
+         "label": "Le volume (15 min)",
+         "note": "- « La semaine dernière, on a mesuré la masse. Aujourd'hui : le volume et la température. »\n- « Le volume, c'est combien de liquide il y a : je le mesure avec un verre doseur. »\n- « Les unités sont le litre (L) et le millilitre (mL) ; 1 L = 1000 mL. »\n- « Je verse de l'eau et on lit ensemble la graduation. »\n- « À vous : combien de mL dans ce verre ? »\n(Manipulation d'un verre doseur / éprouvette si disponible.)"
+        },
+        {
+         "id": "s2",
+         "label": "La température (15 min)",
+         "note": "- « La température dit s'il fait chaud ou froid : je la mesure avec un thermomètre. »\n- « L'unité, c'est le degré Celsius (°C). »\n- « Repères : l'eau gèle à 0 °C, notre corps est à 37 °C. »\n- « On lit la température de la classe sur le thermomètre. »\n- « À votre avis, fait-il plus chaud dans la classe ou dehors ? »\n(Lecture d'un thermomètre ; observation.)"
+        },
+        {
+         "id": "s3",
+         "label": "On récapitule & leçon (15 min)",
+         "note": "- « On récapitule les trois grandeurs de la séquence : masse, volume, température. »\n- « Quel instrument pour chacune ? Quelle unité ? »\n- « On colle la leçon et on lit les deux parties (volume, température). »\n- « On souligne : 1 L = 1000 mL, et le °C pour la température. »\n- « On range le cahier : la séquence « mesurer » est terminée. »\n(Leçon imagée à coller ; bilan de séquence.)"
+        }
+       ],
+       "materiel": "Un verre doseur / une éprouvette graduée + de l'eau ; un thermomètre. Diaporama + leçon imagée — voir Documents à imprimer. Vidéo complémentaire « Le thermomètre » : https://www.youtube.com/watch?v=VNHRmdELNu4",
+       "video": "https://www.youtube.com/watch?v=jquO9Ryf5ks",
+       "differenciation": "CE1 : associer instrument ↔ grandeur, lire une graduation simple.\nCE2 : utiliser les unités (L/mL, °C), convertir 1 L = 1000 mL, lire une température.",
+       "depassement": "",
+       "correction": "Volume → verre doseur → L, mL (1 L = 1000 mL). Température → thermomètre → °C (eau gèle à 0 °C, corps à 37 °C).",
+       "obstacles": "Erreurs fréquentes : confondre masse et volume ; mal lire une graduation.\nRemédiation rapide : revenir à l'instrument (« avec quoi je mesure ? »), lire la graduation au niveau du liquide, manipuler.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500001005
+   "updatedAt": 1790500002005
   },
   {
    "date": "2026-10-07",
