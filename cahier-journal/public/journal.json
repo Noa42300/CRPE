@@ -4900,7 +4900,7 @@
       "note": "Semaine de l'inspecteur. Français matin : « Le nom » séance 2 (consolidation), la leçon a déjà été donnée mardi. EPS : rencontre athlétique."
      }
     ],
-    "devoirs": "Pour mardi : apprendre la leçon « le genre et le nombre du nom » (cahier bleu). Finir la feuille d'exercices si besoin. Réviser les mots de la dictée.",
+    "devoirs": "Pour mardi : apprendre la leçon « le genre et le nombre du nom » (cahier bleu). Finir la feuille d'exercices si besoin. Réviser les mots de la dictée. Apprendre les 10 verbes d'action en anglais (avec les mimes).",
     "rappels": [
      {
       "id": "rap-20260928-cm-ebep-c2",
@@ -5334,59 +5334,102 @@
     {
      "id": "d2026-09-28s10",
      "start": "15:40",
-     "end": "16:25",
+     "end": "16:10",
      "disciplineId": "eps",
      "activities": [
       {
-       "id": "epsp1s7",
+       "id": "epsEval",
        "niveaux": [
         "classe"
        ],
-       "title": "EPS — Évaluation : rencontre athlétique",
-       "objectif": "Mesurer ses performances sur 3 ateliers (vitesse, endurance, lancer).",
-       "competence": "Mesurer et comparer ses performances ; réinvestir les acquis.",
-       "competenceRef": "Programmes cycle 2 (2020, en vigueur) — EPS, champ 1 « Produire une performance optimale, mesurable à une échéance donnée ». À vérifier sur eduscol.",
+       "title": "EPS — Courir longtemps : ÉVALUATION (tours sans s'arrêter, objectif différencié)",
+       "objectif": "Courir sans s'arrêter le nombre de tours fixé pour soi (objectif différencié donné avant la course), en gardant une allure régulière.",
+       "competence": "Courir longtemps en gérant son effort (activités athlétiques) — évaluation.",
+       "competenceRef": "Programmes cycle 2 (2020) — EPS, produire une performance optimale (courir longtemps). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "Athlétisme — évaluation",
-       "progSequence": "Athlétisme P1 — courir & lancer",
-       "progSeance": "7",
+       "progDomaine": "EPS — Athlétisme",
+       "progSequence": "Courir longtemps (P1)",
+       "progSeance": "évaluation",
        "progRef": "",
        "organisation": [
-        "collectif",
-        "groupe",
-        "binômes"
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "observation",
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "e1",
+         "label": "J'annonce l'évaluation & les objectifs (8 min)",
+         "note": "- « Aujourd'hui, c'est une évaluation de course longue : on regarde combien de tours vous tenez SANS vous arrêter. »\n- « Chacun a SON objectif de tours, écrit pour lui : ce n'est pas le même pour tout le monde, et c'est normal. »\n- « Le but n'est pas d'aller vite, mais de courir sans marcher jusqu'à son objectif. »\n- « Allure « parler » : si je peux encore parler en courant, c'est la bonne vitesse. »\n- « À chaque tour couru, je garde un repère pour compter. »\n(J'affiche les objectifs différenciés ; je vérifie que chacun connaît le sien.)"
+        },
+        {
+         "id": "e2",
+         "label": "Échauffement (7 min)",
+         "note": "- « On trottine un tour tranquille, tous ensemble. »\n- « On réveille bras, genoux et chevilles ; on souffle bien. »\n- « On teste l'allure « parler » sur une demi-boucle. »\n- « On repère le sens de la course et la ligne de passage. »\n- « On se concentre : chacun pense à son objectif. »\n(Je place les élèves à objectif plus court à l'intérieur pour bien les suivre.)"
+        },
+        {
+         "id": "e3",
+         "label": "L'évaluation : je cours mon objectif (20 min)",
+         "note": "- « Au signal, on part DOUCEMENT pour tenir jusqu'à son objectif. »\n- « À chaque tour complet couru, je prends mon repère (je ne compte que les tours SANS m'arrêter). »\n- « Fatigué ? Je ralentis en petit trot plutôt que de marcher : je continue ! »\n- « Quand j'ai atteint mon objectif, je peux tenter un tour de plus. »\n- « On s'encourage : personne ne se moque, chacun a son défi. »\n(Je chronomètre, j'observe l'allure et je note qui atteint / dépasse son objectif.)"
+        },
+        {
+         "id": "e4",
+         "label": "Bilan de l'évaluation (7 min)",
+         "note": "- « On marche doucement pour récupérer et on respire calmement. »\n- « Chacun compte ses tours courus sans s'arrêter. »\n- « Qui a atteint son objectif ? Qui l'a dépassé ? Bravo à ceux qui ont tenu sans marcher ! »\n- « Qu'est-ce qui t'a aidé à ne pas t'arrêter ? »\n- « On boit un peu d'eau et on range le matériel. »\n(Je garde une trace du résultat de chacun pour le suivi.)"
+        }
+       ],
+       "materiel": "Boucle balisée par 4 plots (≈ 100 m). Pour chaque élève : son OBJECTIF de tours différencié (étiquette / tableau) + une enveloppe au prénom. Chronomètre. Fiche de séance dans Documents à imprimer.",
+       "video": "",
+       "differenciation": "Objectif de tours ADAPTÉ à chaque élève (donné avant la course) : plus court pour les élèves fragiles, plus long pour les plus endurants ; on autorise le petit trot.",
+       "depassement": "",
+       "correction": "Réussite = objectif différencié atteint sans s'arrêter (évaluation positive).",
+       "obstacles": "Erreurs fréquentes : partir trop vite et devoir marcher ; viser plus que son objectif et s'épuiser.\nRemédiation rapide : rappeler l'allure « parler », courir à côté d'un élève-repère, valider dès l'objectif atteint.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "start": "16:10",
+     "end": "16:20",
+     "activities": [
+      {
+       "id": "angVerbs",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais — Action verbs : révision par les mimes",
+       "objectif": "Vérifier la mémorisation des 10 verbes d'action (jeu du mime) et les réutiliser à l'oral.",
+       "competence": "Comprendre et dire des verbes d'action en anglais ; réagir à une consigne orale.",
+       "competenceRef": "Programmes cycle 2 (2020) — Langue vivante (anglais), comprendre à l'oral, réagir et dialoguer. À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Anglais",
+       "progSequence": "Action verbs",
+       "progSeance": "révision",
+       "progRef": "",
+       "organisation": [
+        "collectif"
        ],
        "roleEnseignant": [
         "guidage"
        ],
-       "video": "",
        "deroulement": [
         {
-         "id": "t1",
-         "label": "Mise en train (10 min)",
-         "note": "- « On réveille le corps : trottiner, tourner les bras, monter les genoux. »\n- « On revoit le signal d'arrêt : au signal, tout le monde s'arrête net. »\n- « On teste le signal une fois pour de vrai. »\n- « Aujourd'hui, on va s'entraîner en s'amusant. »"
-        },
-        {
-         "id": "t2",
-         "label": "Les 3 ateliers (25 min)",
-         "note": "- « On tourne sur 3 ateliers : vitesse, endurance, lancer. »\n- « À chaque atelier, tu notes ton MEILLEUR essai sur ta fiche. »\n- « Au lancer, on lance et on ramasse au signal. »\n- « On change d'atelier au signal, en équipe. »"
-        },
-        {
-         "id": "t3",
-         "label": "Bilan (5 min)",
-         "note": "- « Regarde tes progrès depuis le début de la séquence. »\n- « De quoi es-tu le plus fier ? »\n- « On félicite toutes les équipes. »"
-        },
-        {
-         "id": "t9",
-         "label": "Retour au calme & bilan (7 min)",
-         "note": "- « On marche pour récupérer, on respire doucement. »\n- « Qu'est-ce qui t'a aidé à réussir aujourd'hui ? »\n- « Qu'est-ce que tu veux améliorer la prochaine fois ? »\n- « On range le matériel tous ensemble. »"
+         "id": "a1",
+         "label": "Vérification par le mime (10 min)",
+         "note": "- « On révise les verbes d'action : run, jump, walk, swim… »\n- « Je dis un verbe en anglais, vous faites le mime tous ensemble. »\n- « Maintenant, un élève mime, la classe devine et dit le verbe en anglais. »\n- « On dit la phrase en entier : “I run”, “I jump”, “I swim”. »\n- « Bravo, vous les avez bien appris ! On les garde pour la suite. »\n(Je repère qui hésite pour reprendre avec eux ; leçon et cartes dans Documents.)"
         }
        ],
-       "materiel": "3 ateliers : vitesse (sprint chrono ≈ 25 m), endurance (contrat de course), lancer (zones) ; plots, chronomètre, vortex/balles, fiche résultats — voir Documents à imprimer.",
-       "differenciation": "Barèmes adaptés par niveau ; on évalue les PROGRÈS par rapport à soi, pas un classement.",
+       "materiel": "Diaporama Action verbs + leçon illustrée + cartes à mimer — voir Documents à imprimer. Cahier violet (anglais).",
+       "video": "",
+       "differenciation": "Élèves à l'aise : mènent le mime et corrigent. Élèves plus fragiles : répètent après un modèle, mime d'abord sans parler.",
        "depassement": "",
-       "correction": "Critères de réussite : participer aux 3 ateliers ; mesurer et noter ses performances ; progrès depuis S1.",
-       "obstacles": "Erreurs fréquentes :\n- Se compare aux autres et se décourage.\n- Oublie de noter son résultat.\nRemédiation :\n- « On se compare à SOI, à la 1re séance » ; binôme qui aide à noter.",
+       "correction": "Chaque verbe est associé à son mime et à la phrase « I + verbe » (I run, I jump, I walk, I swim…).",
+       "obstacles": "Erreurs fréquentes : confondre deux verbes proches (walk/run) ; prononciation approximative.\nRemédiation rapide : re-mimer lentement, faire répéter en chœur puis individuellement.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5396,17 +5439,55 @@
     },
     {
      "id": "d2026-09-28s12",
-     "start": "16:25",
+     "start": "16:20",
      "end": "16:30",
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "a-autre-85332",
+       "id": "paysSem29",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — Le pays de la semaine : l'Espagne (escale 2)",
+       "objectif": "Découvrir le pays de la semaine (situation, carte d'identité, culture), avant les devoirs.",
+       "competence": "Se repérer dans l'espace ; découvrir un pays et sa culture (projet Autour du monde).",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "Questionner le monde — Géographie (projet Autour du monde)",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "p1",
+         "label": "L'escale de la semaine (10 min)",
+         "note": "- « Avant de partir, on découvre notre nouvelle escale : l'Espagne ! »\n- « On situe l'Espagne sur la carte : juste à côté de la France, au sud. »\n- « Sa capitale, c'est Madrid ; son drapeau est rouge et jaune. »\n- « Là-bas, on danse le flamenco et on peut visiter la Sagrada Família à Barcelone. »\n- « On complètera la carte d'identité du pays et on écoutera la dictée de l'escale cette semaine. »\n(Diaporama et carte d'identité dans Projets → Autour du monde.)"
+        }
+       ],
+       "materiel": "Projets → Autour du monde : diaporama de l'Espagne (à projeter) + carte d'identité du pays à compléter. Pochette du projet voyage.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      },
+      {
+       "id": "20260928sor",
        "niveaux": [
         "classe"
        ],
        "title": "Rangement, devoirs et sortie",
-       "objectif": "Noter les devoirs, ranger, cahier de liaison, rang.",
+       "objectif": "Ranger, noter les devoirs, sortir dans le calme.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -5414,10 +5495,20 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "s1",
+         "label": "Rangement & devoirs (5 min)",
+         "note": "- « On range son casier et on prépare son cartable. »\n- « On note (ou on colle) les devoirs pour la semaine prochaine. »\n- « On vérifie qu'on a bien la leçon à apprendre et les mots à réviser. »\n- « On se met en rang dans le calme. »\n- « Bonne soirée, à demain ! »"
+        }
+       ],
+       "materiel": "Cahier de liaison (jaune) si mot aux familles.",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -5432,7 +5523,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1790700001002
+   "updatedAt": 1790700002002
   },
   {
    "date": "2026-09-29",
@@ -5449,7 +5540,7 @@
       "note": "Maths : Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "DICTÉE (Graphémo) : réviser les mots de la semaine pour lundi. Apprendre par cœur les 10 verbes d'action en anglais avec les mimes. Finir la feuille de géométrie si besoin.",
+    "devoirs": "DICTÉE (Graphémo) : réviser les mots de la semaine pour lundi. Relire la leçon d'Histoire (la Préhistoire) et de Sciences (le vivant). Finir la feuille « le nom » si besoin.",
     "rappels": [
      {
       "id": "rap-tuteur-2909",
@@ -5610,50 +5701,40 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "geoS1",
+       "id": "nomEDLexo",
        "niveaux": [
         "classe"
        ],
-       "title": "Géométrie S1 — Se repérer (CE1) / La symétrie (CE2)",
-       "objectif": "CE1 : utiliser le vocabulaire spatial pour se repérer dans l'école. CE2 : découvrir l'axe de symétrie.",
-       "competence": "Se repérer (CE1) ; symétrie (CE2).",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "title": "Français — Le nom : exercices & évaluation libre (suite)",
+       "objectif": "Consolider « le nom » : exercices différenciés ; les élèves prêts passent l'évaluation des déterminants (en libre).",
+       "competence": "Reconnaître et employer le nom (genre, nombre, nom propre).",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "Mathématiques — Espace & Géométrie",
-       "progSequence": "Espace & Géométrie — Période 1",
-       "progSeance": "1",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Le nom (P1)",
+       "progSeance": "consolidation",
        "progRef": "",
        "organisation": [
         "collectif",
-        "groupe",
         "individuel"
        ],
        "roleEnseignant": [
-        "guidage"
+        "guidage",
+        "observation"
        ],
        "deroulement": [
         {
-         "id": "x1",
-         "label": "Découverte / rappel (15 min)",
-         "note": "- « CE1, avec moi : où est la porte ? à gauche, à droite ? On se repère dans la classe. »\n- « CE2, vous découvrez la symétrie : le miroir, on plie sur l'axe. »\n- « On colle la leçon (deux parties : se repérer / la symétrie). »"
-        },
-        {
-         "id": "x2",
-         "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : feuille “se repérer dans l'école” (mots de l'espace, plan de la table). »\n- « CE2 : feuille “la symétrie” (axe ou pas ? compléter sur quadrillage). »\n- « On commence par l'exemple ; ensuite on échange, je viens voir les CE2. »"
-        },
-        {
-         "id": "x3",
-         "label": "Mise en commun (10 min)",
-         "note": "- « CE1 : on nomme des positions au tableau. »\n- « CE2 : on vérifie une symétrie en pliant. »"
+         "id": "n1",
+         "label": "Exercices en tandems (30 min)",
+         "note": "- « On continue le travail sur le nom commencé tout à l'heure. »\n- « Chacun reprend sa feuille : on lit l'exemple, puis on fait l'exercice. »\n- « Ceux qui se sentent prêts vont passer l'évaluation des déterminants au fond, tranquillement. »\n- « Les autres s'entraînent : on prend son temps, on s'applique. »\n- « Si vous êtes bloqués, vous relisez la leçon avant de m'appeler. »\n(Je circule, j'aide les tandems ; l'évaluation reste libre, à la demande.)"
         }
        ],
-       "materiel": "Diaporamas à projeter (CE1 se repérer / CE2 symétrie), leçon illustrée à coller, exercices CE1/CE2 — voir Documents à imprimer. Manuel : les fiches de géométrie photocopiées (CE1 se repérer / CE2 symétrie). Vidéos : symétrie https://www.youtube.com/watch?v=Otwnpst8bvA · se repérer dans l'espace https://www.youtube.com/watch?v=ZWIL7LxPrm8",
-       "video": "https://www.youtube.com/watch?v=Otwnpst8bvA",
-       "differenciation": "CE1 : se repérer dans l'espace (mots de l'espace, lire un plan / vue de dessus). CE2 : la symétrie (reconnaître un axe, compléter une figure sur quadrillage, plusieurs axes possibles).",
+       "materiel": "Feuilles d'exercices « le nom » (CE1/CE2) + évaluation des déterminants (libre) — voir Documents à imprimer. Classeur (exercices) ; cahier violet (évaluations de français).",
+       "video": "",
+       "differenciation": "CE1 / CE2 : feuilles distinctes. Éval déterminants proposée à la demande, pour ceux qui se sentent prêts ; feuille d'entraînement pour les autres.",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
-       "obstacles": "",
+       "obstacles": "Erreurs fréquentes : confondre nom et autre mot ; oublier genre/nombre.\nRemédiation rapide : test « un/le… » devant le mot ; relire la leçon (cahier bleu).",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5772,7 +5853,7 @@
     {
      "id": "d2026-09-29s8",
      "start": "13:45",
-     "end": "15:10",
+     "end": "14:30",
      "disciplineId": "francais",
      "activities": [
       {
@@ -5799,26 +5880,81 @@
        "deroulement": [
         {
          "id": "g1",
-         "label": "Copie du jour (15 min)",
-         "note": "- « On ouvre le cahier vert : aujourd'hui, c'est le jour 2 de Graphémo. »\n- « Je copie les mots de la semaine sans erreur, en soignant mes lettres. »\n- « J'utilise la stratégie : je lis le mot, je le cache, je l'écris, puis je vérifie. »\n- « J'entoure la lettre que l'on étudie cette semaine dans chaque mot. »\n- « Si je me trompe, je barre proprement d'un trait et je réécris. »\n(Je circule et je vérifie la tenue du cahier vert.)"
+         "label": "Copie du jour (12 min)",
+         "note": "- « On ouvre le cahier vert : aujourd'hui, c'est le jour 2 de Graphémo. »\n- « Je copie les mots de la semaine sans erreur, en soignant mes lettres. »\n- « Stratégie : je lis le mot, je le cache, je l'écris, puis je vérifie. »\n- « J'entoure la lettre que l'on étudie cette semaine dans chaque mot. »\n- « Si je me trompe, je barre proprement et je réécris. »\n(Je vérifie la tenue du cahier vert.)"
         },
         {
          "id": "g2",
-         "label": "Dictée du jour (20 min)",
-         "note": "- « On range les modèles, maintenant je vais vous dicter. »\n- « J'écoute la phrase en entier, puis j'écris quand je la répète lentement. »\n- « Je pense à la majuscule au début et au point à la fin. »\n- « CE2, vous aurez une phrase un peu plus longue à la fin. »\n- « Quand j'ai fini, je relis en pointant chaque mot avec mon doigt. »\n(Je dicte deux fois, lentement ; phrases côté enseignant.)"
+         "label": "Dictée du jour (18 min)",
+         "note": "- « On range les modèles, je vais vous dicter. »\n- « J'écoute la phrase en entier, puis j'écris quand je la répète lentement. »\n- « Je pense à la majuscule au début et au point à la fin. »\n- « CE2 : une phrase un peu plus longue à la fin. »\n- « Quand j'ai fini, je relis en pointant chaque mot du doigt. »\n(Je dicte deux fois, lentement ; phrases côté enseignant.)"
         },
         {
          "id": "g3",
          "label": "Correction (10 min)",
-         "note": "- « On corrige tous ensemble au tableau. »\n- « Je vérifie mot par mot et je souligne mes réussites. »\n- « Si j'ai une erreur, je la corrige en vert, juste au-dessus. »\n- « On compte combien de mots sont justes, sans se moquer des autres. »\n- « On range le cahier vert dans le casier. »\n(Correction collective et valorisante.)"
+         "note": "- « On corrige ensemble au tableau. »\n- « Je vérifie mot par mot et je souligne mes réussites. »\n- « Une erreur ? Je corrige en vert, juste au-dessus. »\n- « On compte les mots justes, sans se moquer. »\n- « On range le cahier vert. »\n(Correction collective et valorisante.)"
         }
        ],
-       "materiel": "Cahier vert (dictées) ; affichage Graphémo de la semaine (mots + lettre étudiée). Phrases de la dictée côté enseignant.",
+       "materiel": "Cahier vert (dictées) ; affichage Graphémo de la semaine (mots + lettre étudiée). Phrases côté enseignant.",
        "video": "",
-       "differenciation": "CE1 : liste de mots de base, dictée raccourcie.\nCE2 : mêmes mots + une phrase plus longue à la fin.",
+       "differenciation": "CE1 : liste de base, dictée raccourcie.\nCE2 : mêmes mots + une phrase plus longue.",
        "depassement": "",
-       "correction": "Correction immédiate au tableau ; chaque élève vérifie et corrige en vert sous sa dictée.",
-       "obstacles": "Erreurs fréquentes : oublier la majuscule ou le point ; confondre des graphies proches ; copier lettre à lettre sans mémoriser.\nRemédiation rapide : segmenter la phrase en petits morceaux, faire épeler le mot difficile, rappeler la stratégie lire-cacher-écrire-vérifier.",
+       "correction": "Correction immédiate au tableau ; chacun corrige en vert sous sa dictée.",
+       "obstacles": "Erreurs fréquentes : oublier majuscule/point ; graphies proches ; copie sans mémoriser.\nRemédiation rapide : segmenter la phrase, faire épeler le mot difficile, rappeler lire-cacher-écrire-vérifier.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "start": "14:30",
+     "end": "15:10",
+     "activities": [
+      {
+       "id": "histS4",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Histoire — La Préhistoire",
+       "objectif": "Situer la Préhistoire (avant l'écriture) et découvrir comment vivaient les premiers hommes et les traces qu'ils ont laissées.",
+       "competence": "Se repérer dans le temps ; identifier une grande période de l'histoire (la Préhistoire).",
+       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde : le temps, se repérer dans le temps et le représenter. À vérifier sur eduscol.",
+       "progPeriode": "P1",
+       "progDomaine": "Questionner le monde — Le temps (Histoire)",
+       "progSequence": "Les grandes périodes",
+       "progSeance": "4",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "h1",
+         "label": "Rappel de la frise & entrée (8 min)",
+         "note": "- « La dernière fois, on a appris à lire une frise : plus on va à gauche, plus c'est loin dans le passé. »\n- « Tout à gauche de la frise, il y a la première grande période : la Préhistoire. »\n- « La Préhistoire, c'est il y a très, très longtemps, AVANT l'écriture. »\n- « Aujourd'hui, on découvre comment vivaient les hommes à cette époque. »\n- « On regarde ensemble des images de ce qu'on a retrouvé. »\n(Je projette le diaporama de la Préhistoire.)"
+        },
+        {
+         "id": "h2",
+         "label": "Comment vivaient-ils ? (15 min)",
+         "note": "- « Regardez : ils vivaient dans des grottes et faisaient du feu. »\n- « Ils chassaient les animaux et cueillaient des fruits pour manger. »\n- « Leurs outils étaient en pierre, comme le silex. »\n- « Au début ils se déplaçaient tout le temps (nomades), puis ils se sont installés. »\n- « À votre avis, pourquoi le feu était-il si important pour eux ? »\n(On révèle les réponses du diaporama ensemble ; j'accueille leurs idées.)"
+        },
+        {
+         "id": "h3",
+         "label": "Les traces & leçon (15 min)",
+         "note": "- « On connaît la Préhistoire grâce aux objets et aux dessins retrouvés. »\n- « Regardez ces peintures dans les grottes : ce sont eux qui les ont faites. »\n- « Ces grandes pierres, les dolmens, ont été dressées à la Préhistoire. »\n- « On colle la leçon dans le cahier et on lit les deux parties. »\n- « On souligne : Préhistoire = avant l'écriture. »\n(Cahier de Questionner le monde ; leçon imagée à coller.)"
+        }
+       ],
+       "materiel": "Diaporama à projeter + leçon imagée à coller (vraies photos libres de droits) — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : retenir « Préhistoire = avant l'écriture », le feu, les grottes.\nCE2 : ajouter nomade/sédentaire et l'idée de traces (archéologie).",
+       "depassement": "",
+       "correction": "Préhistoire = 1re période, avant l'écriture ; feu, grottes, chasse, outils en pierre ; traces = peintures, outils, mégalithes.",
+       "obstacles": "Erreurs fréquentes : croire que les dinosaures vivaient avec les hommes ; confondre « vieux » et « préhistorique ».\nRemédiation rapide : replacer sur la frise, rappeler que la Préhistoire s'arrête à l'invention de l'écriture.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5865,108 +6001,53 @@
     {
      "id": "d2026-09-29s10",
      "start": "15:40",
-     "end": "16:10",
+     "end": "16:25",
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "epsBinome",
+       "id": "sciS4",
        "niveaux": [
         "classe"
        ],
-       "title": "EPS — Courir longtemps : coureur & observateur (cartons)",
-       "objectif": "Courir longtemps sans marcher ; tenir le rôle d'observateur en comptant les tours de son binôme (carton ROUGE = tour couru, carton BLEU = tour marché).",
-       "competence": "Courir longtemps en gérant son effort ; observer et co-évaluer un camarade.",
-       "competenceRef": "Programmes cycle 2 (2020) — EPS, produire une performance optimale (courir longtemps) ; assumer des rôles (observateur). À vérifier sur eduscol.",
+       "title": "Sciences — Le vivant et le non-vivant",
+       "objectif": "Distinguer ce qui est vivant de ce qui ne l'est pas, à partir des caractéristiques du vivant (naître, grandir, se nourrir, se reproduire, mourir).",
+       "competence": "Connaître des caractéristiques du vivant ; classer le vivant et le non-vivant.",
+       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde du vivant : reconnaître des caractéristiques du vivant. À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "EPS — Athlétisme",
-       "progSequence": "Courir longtemps (P1)",
-       "progSeance": "binôme",
+       "progDomaine": "Questionner le monde — Le vivant (Sciences)",
+       "progSequence": "Le vivant",
+       "progSeance": "4",
        "progRef": "",
        "organisation": [
-        "binome",
-        "collectif"
-       ],
-       "roleEnseignant": [
-        "guidage",
-        "observation"
-       ],
-       "deroulement": [
-        {
-         "id": "e1",
-         "label": "J'explique les deux rôles (8 min)",
-         "note": "- « Aujourd'hui, on court par deux : un coureur et un observateur. »\n- « Le coureur tourne autour de la boucle et essaie de courir sans s'arrêter. »\n- « L'observateur regarde son binôme : à chaque tour, il pioche un carton ROUGE si son copain a COURU tout le tour, un carton BLEU s'il a MARCHÉ. »\n- « L'observateur glisse le carton dans l'enveloppe du coureur à chaque passage devant moi. »\n- « Le but du coureur : avoir le plus de cartons ROUGES possible. »\n(Je forme les binômes et je montre le geste : je cours → carton rouge ; je marche → carton bleu.)"
-        },
-        {
-         "id": "e2",
-         "label": "Échauffement (7 min)",
-         "note": "- « On trottine un tour tranquille, tous ensemble. »\n- « On réveille bras, genoux et chevilles ; on souffle bien. »\n- « On teste l'allure « parler » : je cours et je récite les jours de la semaine. »\n- « Les observateurs repèrent la ligne de passage devant moi. »\n- « On reste honnête et bienveillant avec son binôme. »\n(Je cadre au départ les élèves qui partent trop vite.)"
-        },
-        {
-         "id": "e3",
-         "label": "La course — 1er coureur (12 min)",
-         "note": "- « Au signal, les coureurs partent DOUCEMENT pour tenir longtemps. »\n- « Observateurs : carton ROUGE si le copain a couru le tour, carton BLEU s'il a marché. »\n- « Coureurs fatigués : ralentissez en petit trot plutôt que de marcher. »\n- « On tient jusqu'au signal de fin. »\n- « Observateurs, encouragez : « Vas-y, tu tiens, continue ! » »\n(Je vérifie que chaque observateur suit bien SON coureur.)"
-        },
-        {
-         "id": "e4",
-         "label": "On inverse les rôles — 2e coureur (12 min)",
-         "note": "- « On échange : l'observateur devient coureur, le coureur devient observateur. »\n- « Même règle : carton ROUGE = tour couru, carton BLEU = tour marché. »\n- « Nouveaux coureurs : on part doucement, on garde le même rythme. »\n- « Observateurs : on compte bien chaque tour, on ne triche pas. »\n- « On tient jusqu'au signal. »\n(Je veille à ce que tout le monde ait couru une fois.)"
-        },
-        {
-         "id": "e5",
-         "label": "Bilan à deux (6 min)",
-         "note": "- « Chaque coureur vide son enveloppe : on compte les cartons ROUGES, puis les BLEUS. »\n- « Beaucoup de rouges ? Bravo, tu as couru longtemps sans t'arrêter ! »\n- « On dit merci à son observateur : c'est grâce à lui qu'on connaît son score. »\n- « La prochaine fois, on essaiera d'avoir encore plus de rouges. »\n- « On ramasse tous les cartons et on range les enveloppes. »\n(Bilan court et valorisant.)"
-        }
-       ],
-       "materiel": "Une grande boucle balisée par 4 plots (≈ 100 m). Par binôme : cartons ROUGES et BLEUS + une enveloppe au prénom du coureur. On travaille par deux (un coureur, un observateur). Fiche de séance dans Documents à imprimer.",
-       "video": "",
-       "differenciation": "Adapter la durée de course ; autoriser le petit trot ; pour les observateurs les plus fragiles, compter à voix haute avec un repère (un carton par passage).",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "Erreurs fréquentes : le coureur part trop vite et doit marcher ; l'observateur perd son binôme des yeux ou compte mal.\nRemédiation rapide : rappeler l'allure « parler », faire pointer le coureur du doigt à chaque passage, un carton par tour sans se tromper.",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
-     "start": "16:10",
-     "end": "16:20",
-     "activities": [
-      {
-       "id": "angVerbs",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "Anglais — Action verbs : révision par les mimes",
-       "objectif": "Vérifier la mémorisation des 10 verbes d'action (jeu du mime) et les réutiliser à l'oral.",
-       "competence": "Comprendre et dire des verbes d'action en anglais ; réagir à une consigne orale.",
-       "competenceRef": "Programmes cycle 2 (2020) — Langue vivante (anglais), comprendre à l'oral, réagir et dialoguer. À vérifier sur eduscol.",
-       "progPeriode": "P1",
-       "progDomaine": "Anglais",
-       "progSequence": "Action verbs",
-       "progSeance": "révision",
-       "progRef": "",
-       "organisation": [
-        "collectif"
+        "collectif",
+        "individuel"
        ],
        "roleEnseignant": [
         "guidage"
        ],
        "deroulement": [
         {
-         "id": "a1",
-         "label": "Vérification par le mime (10 min)",
-         "note": "- « On révise les verbes d'action appris à la maison : run, jump, walk, swim… »\n- « Je dis un verbe en anglais, vous faites le mime tous ensemble. »\n- « Maintenant, un élève mime, la classe devine et dit le verbe en anglais. »\n- « On dit la phrase en entier : “I run”, “I jump”, “I swim”. »\n- « Bravo, vous les avez bien appris ! On les garde pour la suite. »\n(Je repère qui hésite pour reprendre avec eux ; leçon et cartes dans Documents.)"
+         "id": "s1",
+         "label": "Vivant ou non-vivant ? (10 min)",
+         "note": "- « Autour de nous, certaines choses sont vivantes, d'autres non. »\n- « Un chat est vivant ; un ballon n'est pas vivant. Comment le sait-on ? »\n- « On va chercher ensemble ce qui rend une chose vivante. »\n- « Levez la main : donnez-moi un exemple de chose vivante, puis non-vivante. »\n- « On note vos idées au tableau. »\n(Je projette le diaporama et je recueille leurs propositions.)"
+        },
+        {
+         "id": "s2",
+         "label": "Les caractéristiques du vivant (15 min)",
+         "note": "- « Un être vivant naît, puis il grandit. »\n- « Il se nourrit pour vivre, et il peut se reproduire (avoir des petits, des graines). »\n- « Et un jour, il meurt. »\n- « Les plantes aussi sont vivantes : elles naissent, grandissent, se nourrissent. »\n- « Attention : ce qui bouge n'est pas toujours vivant, comme une voiture ! »\n(On révèle les cartes du diaporama ; on discute les pièges.)"
+        },
+        {
+         "id": "s3",
+         "label": "On trie & leçon (15 min)",
+         "note": "- « À vous : je montre une image, vous dites « vivant » ou « non-vivant ». »\n- « On justifie : pourquoi le champignon est-il vivant ? »\n- « On colle la leçon et on lit les deux colonnes ensemble. »\n- « On souligne les 5 mots : naître, grandir, se nourrir, se reproduire, mourir. »\n- « On range le cahier de Questionner le monde. »\n(Leçon imagée à coller ; validation collective du tri.)"
         }
        ],
-       "materiel": "Diaporama Action verbs + leçon illustrée + cartes à mimer — voir Documents à imprimer. Cahier violet (anglais).",
+       "materiel": "Diaporama à projeter + leçon imagée à coller (vraies photos libres de droits) — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "Élèves à l'aise : mènent le mime et corrigent. Élèves plus fragiles : répètent après un modèle, mime d'abord sans parler.",
+       "differenciation": "CE1 : trier vivant / non-vivant avec des exemples simples.\nCE2 : justifier avec les caractéristiques du vivant et repérer les pièges (ce qui bouge).",
        "depassement": "",
-       "correction": "Chaque verbe est associé à son mime et à la phrase « I + verbe » (I run, I jump, I walk, I swim…).",
-       "obstacles": "Erreurs fréquentes : confondre deux verbes proches (walk/run) ; prononciation approximative.\nRemédiation rapide : re-mimer lentement, faire répéter en chœur puis individuellement.",
+       "correction": "Vivant = naît, grandit, se nourrit, se reproduit, meurt (plantes et animaux). Non-vivant = objets, roches. Ce qui bouge n'est pas forcément vivant.",
+       "obstacles": "Erreurs fréquentes : penser que « ce qui bouge = vivant » (voiture, nuage, eau) ; oublier que les plantes sont vivantes.\nRemédiation rapide : revenir aux 5 caractéristiques, comparer une plante et un objet.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5976,55 +6057,17 @@
     },
     {
      "id": "d2026-09-29s11",
-     "start": "16:20",
+     "start": "16:25",
      "end": "16:30",
      "disciplineId": "autre",
      "activities": [
-      {
-       "id": "paysSem29",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "Autour du monde — Le pays de la semaine : l'Espagne (escale 2)",
-       "objectif": "Découvrir le pays de la semaine (situation, carte d'identité, culture), avant de sortir.",
-       "competence": "Se repérer dans l'espace ; découvrir un pays et sa culture (projet Autour du monde).",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "Questionner le monde — Géographie (projet Autour du monde)",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [
-        "collectif"
-       ],
-       "roleEnseignant": [
-        "guidage"
-       ],
-       "deroulement": [
-        {
-         "id": "p1",
-         "label": "L'escale de la semaine (10 min)",
-         "note": "- « Avant de partir, on découvre notre nouvelle escale : l'Espagne ! »\n- « On situe l'Espagne sur la carte : juste à côté de la France, au sud. »\n- « Sa capitale, c'est Madrid ; son drapeau est rouge et jaune. »\n- « Là-bas, on danse le flamenco et on peut visiter la Sagrada Família à Barcelone. »\n- « On complètera la carte d'identité du pays et on écoutera la dictée de l'escale cette semaine. »\n(Diaporama et carte d'identité dans Projets → Autour du monde.)"
-        }
-       ],
-       "materiel": "Projets → Autour du monde : diaporama de l'Espagne (à projeter) + carte d'identité du pays à compléter. Pochette du projet voyage.",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      },
       {
        "id": "20260929sor",
        "niveaux": [
         "classe"
        ],
        "title": "Rangement, devoirs et sortie",
-       "objectif": "Ranger la classe, noter les devoirs et se préparer à sortir dans le calme.",
+       "objectif": "Ranger, noter les devoirs, sortir dans le calme.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -6042,7 +6085,7 @@
         {
          "id": "s1",
          "label": "Rangement & devoirs (5 min)",
-         "note": "- « On range son casier et on prépare son cartable. »\n- « On note (ou on colle) les devoirs pour la semaine prochaine. »\n- « On vérifie qu'on a bien la fiche à finir et les mots à réviser. »\n- « On se met en rang dans le calme. »\n- « Bonne fin de semaine, à lundi ! »\n(Cahier jaune = liaison pour un mot aux familles si besoin.)"
+         "note": "- « On range son casier et on prépare son cartable. »\n- « On note (ou on colle) les devoirs pour la semaine prochaine. »\n- « On vérifie la fiche à finir et les mots à réviser. »\n- « On se met en rang dans le calme. »\n- « Bonne fin de semaine, à lundi ! »"
         }
        ],
        "materiel": "Cahier de liaison (jaune) si mot aux familles.",
@@ -6060,7 +6103,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1791500002000
+   "updatedAt": 1791500003000
   },
   {
    "date": "2026-09-30",
@@ -6072,7 +6115,7 @@
     "rappels": [
      {
       "id": "rap-20260930-inspe-ue2-oral-sante",
-      "texte": "INSPÉ — UE 2 « Promouvoir le bien-être, les CPS et l'égalité filles-garçons » : ÉVALUATION = note d'ORAL lors de la dernière séance. Analyser un outil / dispositif de promotion de la santé en milieu scolaire, en mobilisant le cadrage théorique du TD, pour mettre en évidence le rôle central des enseignants comme acteurs de la promotion de la santé. → Préparer l'oral.",
+      "texte": "INSPÉ — UE 2 « Promouvoir le bien-être, les CPS et l'égalité filles-garçons » : ÉVALUATION = note d'ORAL (dernière séance). Analyser un outil / dispositif de promotion de la santé en milieu scolaire, en mobilisant le cadrage théorique du TD, pour montrer le rôle central de l'enseignant comme acteur de la promotion de la santé. À préparer : ① choisir ~10 références MAXIMUM, de qualité ; ② présenter l'outil en lien explicite avec le RÔLE de l'enseignant ; ③ prévoir une analyse CRITIQUE de l'outil (limites, points de vigilance). → Préparer l'oral.",
       "type": "reunion"
      }
     ],
@@ -6080,7 +6123,7 @@
    },
    "slots": [],
    "createdAt": 1790324462087,
-   "updatedAt": 1790324463087
+   "updatedAt": 1790325618120
   },
   {
    "date": "2026-10-05",
