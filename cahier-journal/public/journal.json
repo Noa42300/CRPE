@@ -5540,7 +5540,7 @@
       "note": "Maths : Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "DICTÉE (Graphémo) : réviser les mots de la semaine pour lundi. Relire la leçon d'Histoire (la Préhistoire) et de Sciences (le vivant). Finir la feuille « le nom » si besoin.",
+    "devoirs": "Réviser la leçon de géométrie (se repérer / symétrie). Relire la leçon d'Histoire (la Préhistoire, dates clés) et de Sciences (mesurer : masse, volume, température). Finir les exercices non terminés.",
     "rappels": [
      {
       "id": "rap-tuteur-2909",
@@ -5701,40 +5701,50 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "nomEDLexo",
+       "id": "geoS1",
        "niveaux": [
         "classe"
        ],
-       "title": "Français — Le nom : exercices & évaluation libre (suite)",
-       "objectif": "Consolider « le nom » : exercices différenciés ; les élèves prêts passent l'évaluation des déterminants (en libre).",
-       "competence": "Reconnaître et employer le nom (genre, nombre, nom propre).",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom). À vérifier sur eduscol.",
+       "title": "Géométrie S1 — Se repérer (CE1) / La symétrie (CE2)",
+       "objectif": "CE1 : utiliser le vocabulaire spatial pour se repérer dans l'école. CE2 : découvrir l'axe de symétrie.",
+       "competence": "Se repérer (CE1) ; symétrie (CE2).",
+       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "Français — Grammaire",
-       "progSequence": "Le nom (P1)",
-       "progSeance": "consolidation",
+       "progDomaine": "Mathématiques — Espace & Géométrie",
+       "progSequence": "Espace & Géométrie — Période 1",
+       "progSeance": "1",
        "progRef": "",
        "organisation": [
         "collectif",
+        "groupe",
         "individuel"
        ],
        "roleEnseignant": [
-        "guidage",
-        "observation"
+        "guidage"
        ],
        "deroulement": [
         {
-         "id": "n1",
-         "label": "Exercices en tandems (30 min)",
-         "note": "- « On continue le travail sur le nom commencé tout à l'heure. »\n- « Chacun reprend sa feuille : on lit l'exemple, puis on fait l'exercice. »\n- « Ceux qui se sentent prêts vont passer l'évaluation des déterminants au fond, tranquillement. »\n- « Les autres s'entraînent : on prend son temps, on s'applique. »\n- « Si vous êtes bloqués, vous relisez la leçon avant de m'appeler. »\n(Je circule, j'aide les tandems ; l'évaluation reste libre, à la demande.)"
+         "id": "x1",
+         "label": "Découverte / rappel (15 min)",
+         "note": "- « CE1, avec moi : où est la porte ? à gauche, à droite ? On se repère dans la classe. »\n- « CE2, vous découvrez la symétrie : le miroir, on plie sur l'axe. »\n- « On colle la leçon (deux parties : se repérer / la symétrie). »"
+        },
+        {
+         "id": "x2",
+         "label": "Entraînement en tandems (30 min)",
+         "note": "- « CE1 : feuille “se repérer dans l'école” (mots de l'espace, plan de la table). »\n- « CE2 : feuille “la symétrie” (axe ou pas ? compléter sur quadrillage). »\n- « On commence par l'exemple ; ensuite on échange, je viens voir les CE2. »"
+        },
+        {
+         "id": "x3",
+         "label": "Mise en commun (10 min)",
+         "note": "- « CE1 : on nomme des positions au tableau. »\n- « CE2 : on vérifie une symétrie en pliant. »"
         }
        ],
-       "materiel": "Feuilles d'exercices « le nom » (CE1/CE2) + évaluation des déterminants (libre) — voir Documents à imprimer. Classeur (exercices) ; cahier violet (évaluations de français).",
-       "video": "",
-       "differenciation": "CE1 / CE2 : feuilles distinctes. Éval déterminants proposée à la demande, pour ceux qui se sentent prêts ; feuille d'entraînement pour les autres.",
+       "materiel": "Diaporama à projeter (CE1 se repérer / CE2 symétrie) + leçon imagée + feuilles d'exercices CE1/CE2 — voir Documents à imprimer. Exercices : « Se repérer dans l'espace de l'école » (plan, vocabulaire spatial) et « Identifier la symétrie » (axes, figures).",
+       "video": "https://www.youtube.com/watch?v=Otwnpst8bvA",
+       "differenciation": "CE1 : se repérer dans l'espace (mots de l'espace, lire un plan / vue de dessus). CE2 : la symétrie (reconnaître un axe, compléter une figure sur quadrillage, plusieurs axes possibles).",
        "depassement": "",
        "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
-       "obstacles": "Erreurs fréquentes : confondre nom et autre mot ; oublier genre/nombre.\nRemédiation rapide : test « un/le… » devant le mot ; relire la leçon (cahier bleu).",
+       "obstacles": "",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -5853,77 +5863,22 @@
     {
      "id": "d2026-09-29s8",
      "start": "13:45",
-     "end": "14:30",
-     "disciplineId": "francais",
-     "activities": [
-      {
-       "id": "graphemoJ2",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "Français — Graphémo : jour 2 (copie + dictée du jour)",
-       "objectif": "Mémoriser l'orthographe des mots de la semaine (Graphémo) par la copie active et la dictée du jour.",
-       "competence": "Orthographier les mots étudiés ; copier sans erreur ; segmenter une phrase dictée.",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, orthographe (méthode Graphémo). À vérifier sur eduscol.",
-       "progPeriode": "P1",
-       "progDomaine": "Français — Orthographe (Graphémo)",
-       "progSequence": "Graphémo",
-       "progSeance": "jour 2",
-       "progRef": "",
-       "organisation": [
-        "collectif",
-        "individuel"
-       ],
-       "roleEnseignant": [
-        "guidage"
-       ],
-       "deroulement": [
-        {
-         "id": "g1",
-         "label": "Copie du jour (12 min)",
-         "note": "- « On ouvre le cahier vert : aujourd'hui, c'est le jour 2 de Graphémo. »\n- « Je copie les mots de la semaine sans erreur, en soignant mes lettres. »\n- « Stratégie : je lis le mot, je le cache, je l'écris, puis je vérifie. »\n- « J'entoure la lettre que l'on étudie cette semaine dans chaque mot. »\n- « Si je me trompe, je barre proprement et je réécris. »\n(Je vérifie la tenue du cahier vert.)"
-        },
-        {
-         "id": "g2",
-         "label": "Dictée du jour (18 min)",
-         "note": "- « On range les modèles, je vais vous dicter. »\n- « J'écoute la phrase en entier, puis j'écris quand je la répète lentement. »\n- « Je pense à la majuscule au début et au point à la fin. »\n- « CE2 : une phrase un peu plus longue à la fin. »\n- « Quand j'ai fini, je relis en pointant chaque mot du doigt. »\n(Je dicte deux fois, lentement ; phrases côté enseignant.)"
-        },
-        {
-         "id": "g3",
-         "label": "Correction (10 min)",
-         "note": "- « On corrige ensemble au tableau. »\n- « Je vérifie mot par mot et je souligne mes réussites. »\n- « Une erreur ? Je corrige en vert, juste au-dessus. »\n- « On compte les mots justes, sans se moquer. »\n- « On range le cahier vert. »\n(Correction collective et valorisante.)"
-        }
-       ],
-       "materiel": "Cahier vert (dictées) ; affichage Graphémo de la semaine (mots + lettre étudiée). Phrases côté enseignant.",
-       "video": "",
-       "differenciation": "CE1 : liste de base, dictée raccourcie.\nCE2 : mêmes mots + une phrase plus longue.",
-       "depassement": "",
-       "correction": "Correction immédiate au tableau ; chacun corrige en vert sous sa dictée.",
-       "obstacles": "Erreurs fréquentes : oublier majuscule/point ; graphies proches ; copie sans mémoriser.\nRemédiation rapide : segmenter la phrase, faire épeler le mot difficile, rappeler lire-cacher-écrire-vérifier.",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
-    },
-    {
-     "start": "14:30",
      "end": "15:10",
+     "disciplineId": "francais",
      "activities": [
       {
        "id": "histS4",
        "niveaux": [
         "classe"
        ],
-       "title": "Histoire — La Préhistoire",
+       "title": "Histoire — La Préhistoire (dates clés, la période la plus ancienne)",
        "objectif": "Situer la Préhistoire (avant l'écriture) et découvrir comment vivaient les premiers hommes et les traces qu'ils ont laissées.",
        "competence": "Se repérer dans le temps ; identifier une grande période de l'histoire (la Préhistoire).",
        "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde : le temps, se repérer dans le temps et le représenter. À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "Questionner le monde — Le temps (Histoire)",
-       "progSequence": "Les grandes périodes",
-       "progSeance": "4",
+       "progSequence": "Les grandes périodes (dans l'ordre chronologique)",
+       "progSeance": "1 — Préhistoire",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -5947,9 +5902,14 @@
          "id": "h3",
          "label": "Les traces & leçon (15 min)",
          "note": "- « On connaît la Préhistoire grâce aux objets et aux dessins retrouvés. »\n- « Regardez ces peintures dans les grottes : ce sont eux qui les ont faites. »\n- « Ces grandes pierres, les dolmens, ont été dressées à la Préhistoire. »\n- « On colle la leçon dans le cahier et on lit les deux parties. »\n- « On souligne : Préhistoire = avant l'écriture. »\n(Cahier de Questionner le monde ; leçon imagée à coller.)"
+        },
+        {
+         "id": "h4",
+         "label": "Les dates clés & la frise (bonus)",
+         "note": "- « On place la Préhistoire sur la frise : c'est la période la plus À GAUCHE, la plus ancienne. »\n- « Quelques repères : les premiers hommes il y a très longtemps, puis le feu, puis les peintures des grottes. »\n- « La Préhistoire se termine quand on invente l'écriture. »\n- « On lit la frise de gauche (le plus ancien) vers la droite (vers nous). »\n- « On repère ces dates clés dans la leçon. »\n(Voir la frise des dates clés dans le diaporama et la leçon.)"
         }
        ],
-       "materiel": "Diaporama à projeter + leçon imagée à coller (vraies photos libres de droits) — voir Documents à imprimer.",
+       "materiel": "Diaporama à projeter (avec dates clés) + leçon imagée à coller (frise des dates clés incluse) — voir Documents à imprimer.",
        "video": "",
        "differenciation": "CE1 : retenir « Préhistoire = avant l'écriture », le feu, les grottes.\nCE2 : ajouter nomade/sédentaire et l'idée de traces (archéologie).",
        "depassement": "",
@@ -6009,14 +5969,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Sciences — Le vivant et le non-vivant",
-       "objectif": "Distinguer ce qui est vivant de ce qui ne l'est pas, à partir des caractéristiques du vivant (naître, grandir, se nourrir, se reproduire, mourir).",
-       "competence": "Connaître des caractéristiques du vivant ; classer le vivant et le non-vivant.",
-       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde du vivant : reconnaître des caractéristiques du vivant. À vérifier sur eduscol.",
+       "title": "Sciences — Mesurer : masse, volume et température (clôture de séquence)",
+       "objectif": "Savoir quelle grandeur on mesure (masse, volume, température), avec quel instrument et dans quelle unité.",
+       "competence": "Identifier des grandeurs mesurables et les instruments de mesure ; connaître les unités usuelles.",
+       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde de la matière ; grandeurs et mesures. À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "Questionner le monde — Le vivant (Sciences)",
-       "progSequence": "Le vivant",
-       "progSeance": "4",
+       "progDomaine": "Questionner le monde — Sciences (grandeurs & mesures)",
+       "progSequence": "Explorer la matière",
+       "progSeance": "clôture",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -6028,26 +5988,26 @@
        "deroulement": [
         {
          "id": "s1",
-         "label": "Vivant ou non-vivant ? (10 min)",
-         "note": "- « Autour de nous, certaines choses sont vivantes, d'autres non. »\n- « Un chat est vivant ; un ballon n'est pas vivant. Comment le sait-on ? »\n- « On va chercher ensemble ce qui rend une chose vivante. »\n- « Levez la main : donnez-moi un exemple de chose vivante, puis non-vivante. »\n- « On note vos idées au tableau. »\n(Je projette le diaporama et je recueille leurs propositions.)"
+         "label": "Mesurer, c'est quoi ? (10 min)",
+         "note": "- « Pour clôturer notre séquence, on va apprendre à mesurer. »\n- « Mesurer, c'est dire COMBIEN il y a, avec un instrument et une unité. »\n- « Aujourd'hui, trois choses à mesurer : la masse, le volume et la température. »\n- « À votre avis, avec quoi pèse-t-on des pommes ? Avec quoi mesure-t-on l'eau ? »\n- « On note vos idées au tableau. »\n(Je projette le diaporama et je recueille leurs propositions.)"
         },
         {
          "id": "s2",
-         "label": "Les caractéristiques du vivant (15 min)",
-         "note": "- « Un être vivant naît, puis il grandit. »\n- « Il se nourrit pour vivre, et il peut se reproduire (avoir des petits, des graines). »\n- « Et un jour, il meurt. »\n- « Les plantes aussi sont vivantes : elles naissent, grandissent, se nourrissent. »\n- « Attention : ce qui bouge n'est pas toujours vivant, comme une voiture ! »\n(On révèle les cartes du diaporama ; on discute les pièges.)"
+         "label": "Les trois grandeurs (18 min)",
+         "note": "- « La masse : je pèse avec une balance ; l'unité, ce sont les grammes (g) et les kilogrammes (kg). »\n- « Le volume : je mesure un liquide avec un verre doseur ; l'unité, ce sont les litres (L) et les millilitres (mL). »\n- « La température : je la mesure avec un thermomètre ; l'unité, ce sont les degrés Celsius (°C). »\n- « On observe chaque instrument sur les photos. »\n- « On manipule si possible : je fais lire une balance, un verre doseur, un thermomètre. »\n(Manipulation collective si le matériel est disponible.)"
         },
         {
          "id": "s3",
-         "label": "On trie & leçon (15 min)",
-         "note": "- « À vous : je montre une image, vous dites « vivant » ou « non-vivant ». »\n- « On justifie : pourquoi le champignon est-il vivant ? »\n- « On colle la leçon et on lit les deux colonnes ensemble. »\n- « On souligne les 5 mots : naître, grandir, se nourrir, se reproduire, mourir. »\n- « On range le cahier de Questionner le monde. »\n(Leçon imagée à coller ; validation collective du tri.)"
+         "label": "On s'exerce & leçon (17 min)",
+         "note": "- « À vous : quel instrument pour peser un cartable ? Pour mesurer du sirop ? Pour la fièvre ? »\n- « On associe chaque grandeur à son instrument et à son unité. »\n- « On colle la leçon et on lit les trois lignes ensemble. »\n- « On souligne les unités : g / kg, L / mL, °C. »\n- « On range le cahier de Questionner le monde. »\n(Leçon imagée à coller ; validation collective.)"
         }
        ],
-       "materiel": "Diaporama à projeter + leçon imagée à coller (vraies photos libres de droits) — voir Documents à imprimer.",
+       "materiel": "Diaporama à projeter + leçon imagée à coller (vraies photos : balance, verre doseur/éprouvette, thermomètre) — voir Documents à imprimer. Si possible : une balance, un verre doseur, un thermomètre à montrer.",
        "video": "",
-       "differenciation": "CE1 : trier vivant / non-vivant avec des exemples simples.\nCE2 : justifier avec les caractéristiques du vivant et repérer les pièges (ce qui bouge).",
+       "differenciation": "CE1 : associer grandeur ↔ instrument (masse/balance, volume/verre doseur, température/thermomètre).\nCE2 : ajouter les unités (g/kg, L/mL, °C) et lire une graduation simple.",
        "depassement": "",
-       "correction": "Vivant = naît, grandit, se nourrit, se reproduit, meurt (plantes et animaux). Non-vivant = objets, roches. Ce qui bouge n'est pas forcément vivant.",
-       "obstacles": "Erreurs fréquentes : penser que « ce qui bouge = vivant » (voiture, nuage, eau) ; oublier que les plantes sont vivantes.\nRemédiation rapide : revenir aux 5 caractéristiques, comparer une plante et un objet.",
+       "correction": "Masse → balance → g, kg. Volume → verre doseur / éprouvette → L, mL. Température → thermomètre → °C.",
+       "obstacles": "Erreurs fréquentes : confondre masse et volume ; se tromper d'unité (peser en litres…).\nRemédiation rapide : revenir à l'instrument (« avec quoi je mesure ? »), manipuler pour associer grandeur, instrument et unité.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -6103,7 +6063,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1791500003000
+   "updatedAt": 1791500005000
   },
   {
    "date": "2026-09-30",

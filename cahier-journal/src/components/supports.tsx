@@ -14,7 +14,7 @@ import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME, EPS_COURIR_EVAL } from "./EpsSeanceFiche";
-import { PrehistoireDiapo, PrehistoireLecon, VivantDiapo, VivantLecon } from "./QlmS4Supports";
+import { PrehistoireDiapo, PrehistoireLecon, MesureGrandeursDiapo, MesureGrandeursLecon } from "./QlmS4Supports";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
@@ -1299,8 +1299,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "sciS4":
       return [
-        { key: "sci-vivant-diapo", label: "Le vivant et le non-vivant — Diaporama à projeter (vraies photos)", node: <VivantDiapo /> },
-        { key: "sci-vivant-lecon", label: "Le vivant et le non-vivant — Leçon imagée à coller (photos libres de droits)", node: <VivantLecon /> },
+        { key: "sci-mesure-diapo", label: "Mesurer : masse, volume, température — Diaporama à projeter (vraies photos)", node: <MesureGrandeursDiapo /> },
+        { key: "sci-mesure-lecon", label: "Mesurer : masse, volume, température — Leçon imagée à coller (photos libres de droits)", node: <MesureGrandeursLecon /> },
       ];
     case "artdet":
       return [
