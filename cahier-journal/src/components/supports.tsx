@@ -13,7 +13,7 @@ import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
-import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22 } from "./EpsSeanceFiche";
+import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME } from "./EpsSeanceFiche";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
@@ -585,9 +585,12 @@ const DET_EVAL: FicheData = {
 const NB1_LECON: FicheData = {
   entete: "Leçon (à coller)", titre: "Construire 100 et 1000", niveau: "CE1-CE2", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
   blocs: [
-    { kind: "def", contenu: "Avec 10 dizaines, je construis 1 centaine : 100. Avec 10 centaines, je construis 1 millier : 1 000." },
-    { kind: "base10", dizaines: 10, unites: 0, legende: "10 dizaines = 1 centaine = 100" },
-    { kind: "puces", titre: "Je retiens", points: ["100 = 10 dizaines", "1 000 = 10 centaines", "1 000 = 100 dizaines"] },
+    { kind: "def", contenu: "Je groupe toujours par 10 : 10 unités font 1 dizaine, 10 dizaines font 1 centaine (100), et 10 centaines font 1 millier (1 000)." },
+    { kind: "base10", dizaines: 0, unites: 10, legende: "① 10 unités (vertes) = 1 dizaine" },
+    { kind: "base10", dizaines: 10, unites: 0, legende: "② 10 dizaines (oranges) = 1 centaine = 100" },
+    { kind: "base10", centaines: 10, dizaines: 0, unites: 0, legende: "③ 10 centaines (bleues) = 1 millier = 1 000" },
+    { kind: "puces", titre: "Je retiens", points: ["100 = 10 dizaines = 100 unités", "1 000 = 10 centaines = 100 dizaines", "Je compte de 10 en 10, puis de 100 en 100."] },
+    { kind: "wiki", title: "Boulier", alt: "un boulier", height: "22mm", legende: "Le boulier aussi range les nombres par groupes de 10." },
   ],
 };
 const NB1_CE1: FicheData = {
@@ -1078,6 +1081,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "eps-carres-m22", label: "Séance « je bats mon record » — la séance mise en page", node: <EpsSeanceFiche data={EPS_COURIR_CARRES_M22} /> },
         { key: "eps-carres-m22-terrain", label: "Courir longtemps — schéma de la boucle & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s1) },
+      ];
+    case "epsBinome":
+      return [
+        { key: "eps-binome-seance", label: "Séance « coureur & observateur » (cartons rouge/bleu) — la séance mise en page", node: <EpsSeanceFiche data={EPS_COURIR_CARTONS_BINOME} /> },
+        { key: "eps-binome-terrain", label: "Courir longtemps — schéma de la boucle & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s1) },
       ];
     case "detS1":
       return [
