@@ -351,3 +351,71 @@ export const EPS_COURIR_CARTONS_BINOME: EpsSeanceData = {
     "Observateur : je suis bien mon binôme et je compte juste chaque tour.",
   ],
 };
+
+/* Lundi 28 — Évaluation : courir un nombre de tours SANS s'arrêter (objectif différencié). */
+export const EPS_COURIR_EVAL: EpsSeanceData = {
+  titre: "EPS — Courir longtemps : ÉVALUATION (mon nombre de tours sans m'arrêter)",
+  sousTitre: "Athlétisme · Période 1 · Évaluation « courir longtemps » · lundi 28 septembre · classe entière",
+  objectif: "Courir SANS s'arrêter le nombre de tours fixé pour moi (objectif différencié, donné avant la course), en gardant une allure régulière.",
+  materiel: "Une grande boucle balisée par 4 plots (≈ 100 m). Pour chaque élève : son OBJECTIF de tours (différencié, écrit sur une étiquette / au tableau) + une enveloppe au prénom pour glisser un repère à chaque tour couru. Chronomètre.",
+  phases: [
+    {
+      titre: "J'annonce l'évaluation & les objectifs",
+      duree: "8 min",
+      points: [
+        "« Aujourd'hui, c'est une évaluation de course longue : on va voir combien de tours vous tenez SANS vous arrêter. »",
+        "« Chacun a SON objectif de tours, écrit pour lui : ce n'est pas le même pour tout le monde, et c'est normal. »",
+        "« Le but n'est pas d'aller vite, mais de courir sans marcher jusqu'à son objectif. »",
+        "« Je rappelle l'allure « parler » : si je peux encore parler en courant, c'est la bonne vitesse. »",
+        "« À chaque tour couru, on garde un repère pour compter. »",
+        "(J'affiche les objectifs différenciés ; je vérifie que chacun connaît le sien.)",
+      ],
+    },
+    {
+      titre: "Échauffement",
+      duree: "7 min",
+      points: [
+        "« On trottine un tour tranquille, tous ensemble. »",
+        "« On réveille bras, genoux et chevilles ; on souffle bien. »",
+        "« On teste l'allure « parler » sur une demi-boucle. »",
+        "« On repère le sens de la course et la ligne de passage. »",
+        "(Je place les élèves à objectif plus court à l'intérieur pour bien les suivre.)",
+      ],
+    },
+    {
+      titre: "L'évaluation : je cours mon objectif",
+      duree: "20 min",
+      points: [
+        "« Au signal, on part DOUCEMENT : on garde des forces pour tenir jusqu'à son objectif. »",
+        "« À chaque tour complet couru, je prends mon repère (je ne compte que les tours SANS m'arrêter). »",
+        "« Fatigué ? Je ralentis en petit trot plutôt que de marcher : je continue ! »",
+        "« Quand j'ai atteint mon objectif, je peux tenter un tour de plus. »",
+        "« On s'encourage : personne ne se moque, chacun a son défi. »",
+        "(Je chronomètre, j'observe l'allure et je note qui atteint / dépasse son objectif — évaluation positive.)",
+      ],
+    },
+    {
+      titre: "Bilan de l'évaluation",
+      duree: "7 min",
+      points: [
+        "« On marche doucement pour récupérer et on respire calmement. »",
+        "« Chacun compte ses tours courus sans s'arrêter. »",
+        "« Qui a atteint son objectif ? Qui l'a dépassé ? Bravo à tous ceux qui ont tenu sans marcher ! »",
+        "« Qu'est-ce qui t'a aidé à ne pas t'arrêter ? »",
+        "« On boit un peu d'eau et on range le matériel. »",
+        "(Je garde une trace du résultat de chacun pour le suivi — réussite = objectif différencié atteint.)",
+      ],
+    },
+  ],
+  securite: [
+    "Boucle dégagée, balisée par 4 plots ; sens de course unique.",
+    "Droit de ralentir en petit trot ; on ne force jamais au-delà du raisonnable.",
+    "Objectif adapté à chaque élève (différenciation) : personne n'est mis en échec.",
+    "Une gorgée d'eau au bilan ; je surveille les élèves essoufflés.",
+  ],
+  reussite: [
+    "J'atteins MON objectif de tours (différencié) sans m'arrêter.",
+    "Je pars doucement et je garde la même allure.",
+    "Je ralentis en trottant plutôt que de marcher.",
+  ],
+};

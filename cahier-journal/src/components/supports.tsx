@@ -13,7 +13,8 @@ import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
 import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
-import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME } from "./EpsSeanceFiche";
+import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME, EPS_COURIR_EVAL } from "./EpsSeanceFiche";
+import { PrehistoireDiapo, PrehistoireLecon, VivantDiapo, VivantLecon } from "./QlmS4Supports";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
@@ -1087,6 +1088,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "eps-binome-seance", label: "Séance « coureur & observateur » (cartons rouge/bleu) — la séance mise en page", node: <EpsSeanceFiche data={EPS_COURIR_CARTONS_BINOME} /> },
         { key: "eps-binome-terrain", label: "Courir longtemps — schéma de la boucle & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s1) },
       ];
+    case "epsEval":
+      return [
+        { key: "eps-eval-seance", label: "Évaluation « courir longtemps » (nombre de tours différencié) — la séance mise en page", node: <EpsSeanceFiche data={EPS_COURIR_EVAL} /> },
+        { key: "eps-eval-terrain", label: "Courir longtemps — schéma de la boucle & sécurité", node: EpsTerrainSupport(EPS_SEQ.epsp1s1) },
+      ];
     case "detS1":
       return [
         { key: "det-s1-lecon", label: "Séance 1 — Leçon : qu'est-ce qu'un déterminant ?", node: <DeterminantsLecon /> },
@@ -1183,6 +1189,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "geo-ent-ce2", label: "Séance 4 — Sinon, entraînement CE2", node: ficheNode(GEO3_CE2) },
       ];
     case "nomEDL":
+    case "nomEDLexo":
       return [
         { key: "nom-edl-lecon", label: "Le nom — Leçon à revoir (avant les exercices)", node: <LeNomLecon /> },
         { key: "nom-edl-gn", label: "Le genre & le nombre — Leçon (rappel lundi)", node: <GenreNombreLecon /> },
@@ -1284,6 +1291,16 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "sci-solides-diapo", label: "Les solides — Diaporama à projeter (vraies photos)", node: <SolidesProprietesDiapo /> },
         { key: "sci-solides-lecon", label: "Les solides — Leçon illustrée à coller (photos libres de droits)", node: <SolidesLecon /> },
         { key: "sci-solides-obs", label: "Les solides — Fiche d'expérience (tableau à remplir)", node: ficheNode(SOLIDES_OBS) },
+      ];
+    case "histS4":
+      return [
+        { key: "hist-prehist-diapo", label: "La Préhistoire — Diaporama à projeter (vraies photos)", node: <PrehistoireDiapo /> },
+        { key: "hist-prehist-lecon", label: "La Préhistoire — Leçon imagée à coller (photos libres de droits)", node: <PrehistoireLecon /> },
+      ];
+    case "sciS4":
+      return [
+        { key: "sci-vivant-diapo", label: "Le vivant et le non-vivant — Diaporama à projeter (vraies photos)", node: <VivantDiapo /> },
+        { key: "sci-vivant-lecon", label: "Le vivant et le non-vivant — Leçon imagée à coller (photos libres de droits)", node: <VivantLecon /> },
       ];
     case "artdet":
       return [
