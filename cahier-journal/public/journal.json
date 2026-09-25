@@ -3649,7 +3649,7 @@
        "title": "Séance 3 — Consolidation : démonstratifs (ce, cette, ces) & possessifs (mon, ma, mes…)",
        "objectif": "Découvrir et employer les déterminants démonstratifs (je montre) et possessifs (je dis à qui c'est).",
        "competence": "Reconnaître et employer les déterminants.",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025), domaine « grammaire et orthographe » : le nom (nom commun / nom propre, genre et nombre).",
        "progPeriode": "P1",
        "progDomaine": "Français — Grammaire",
        "progSequence": "Les déterminants (P1)",
@@ -4158,7 +4158,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1791100000000
+   "updatedAt": 1791100001000
   },
   {
    "date": "2026-09-22",
@@ -4241,7 +4241,7 @@
        "title": "Séance 1 — Découverte : qu'est-ce qu'un nom ?",
        "objectif": "Reconnaître un nom (personne, animal, chose, lieu) et distinguer nom commun / nom propre.",
        "competence": "Reconnaître et employer le nom.",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom, nom commun / nom propre, genre & nombre). À vérifier sur eduscol.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025), domaine « grammaire et orthographe » : le nom (nom commun / nom propre, genre et nombre).",
        "progPeriode": "P1",
        "progDomaine": "Français — Grammaire",
        "progSequence": "Le nom (P1)",
@@ -4290,7 +4290,7 @@
        "title": "Déterminants — Évaluation LIBRE (au fond, à la demande)",
        "objectif": "Évaluation des déterminants proposée en LIBRE : l'élève la fait quand il se sent prêt, au fond de la classe, sur demande. Ceux qui ne la font pas : feuille d'entraînement.",
        "competence": "Reconnaître et employer les déterminants.",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le déterminant, le groupe nominal). À vérifier sur eduscol.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025), domaine « grammaire et orthographe » : le nom (nom commun / nom propre, genre et nombre).",
        "progPeriode": "P1",
        "progDomaine": "Français — Grammaire",
        "progSequence": "Les déterminants (P1)",
@@ -4883,7 +4883,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1791400000000
+   "updatedAt": 1791400001000
   },
   {
    "date": "2026-09-28",
@@ -4966,7 +4966,7 @@
        "title": "Français — Le genre et le nombre du nom",
        "objectif": "Reconnaître le genre (masculin / féminin) et le nombre (singulier / pluriel) d'un nom.",
        "competence": "Reconnaître et employer le nom : identifier son genre et son nombre.",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue (le nom : genre et nombre). À vérifier sur eduscol.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025), domaine « grammaire et orthographe » : le nom (nom commun / nom propre, genre et nombre).",
        "progPeriode": "P1",
        "progDomaine": "Français — Grammaire",
        "progSequence": "Le nom (P1)",
@@ -5069,7 +5069,7 @@
        "title": "Nombres S1 — Construire 100 et 1000",
        "objectif": "Comprendre que 100 = 10 dizaines et 1000 = 10 centaines ; construire ces nombres.",
        "competence": "Construire et représenter 100 / 1000.",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Nombres",
        "progSequence": "Nombres — Période 1 (suite)",
@@ -5523,7 +5523,7 @@
     }
    ],
    "createdAt": 1789700000000,
-   "updatedAt": 1790700002002
+   "updatedAt": 1790700003002
   },
   {
    "date": "2026-09-29",
@@ -5611,7 +5611,7 @@
        "title": "Français — Le nom : je m'entraîne (1, 2, 3… Étude de la langue)",
        "objectif": "Reconnaître un nom et distinguer le nom commun du nom propre (avec sa majuscule).",
        "competence": "Identifier le nom (nom commun / nom propre) et l'employer ; le classer selon son sens.",
-       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue : le nom (nom commun / nom propre, genre et nombre). À vérifier sur eduscol.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025), domaine « grammaire et orthographe » : le nom (nom commun / nom propre, genre et nombre).",
        "progPeriode": "P1",
        "progDomaine": "Français — Grammaire",
        "progSequence": "Le nom (P1)",
@@ -5710,7 +5710,7 @@
        "title": "Géométrie S1 — Se repérer (CE1) / La symétrie (CE2)",
        "objectif": "CE1 : utiliser le vocabulaire spatial pour se repérer dans l'école. CE2 : découvrir l'axe de symétrie.",
        "competence": "Se repérer (CE1) ; symétrie (CE2).",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Espace & Géométrie",
        "progSequence": "Espace & Géométrie — Période 1",
@@ -6065,7 +6065,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1791500009000
+   "updatedAt": 1791500010000
   },
   {
    "date": "2026-09-30",
@@ -6234,7 +6234,7 @@
        "title": "Nombres S2 — Écrire les nombres en lettres",
        "objectif": "Lire et écrire les nombres en lettres (dizaines particulières : 70, 80, 90 ; centaines pour les CE2).",
        "competence": "Nommer et écrire les nombres en lettres.",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Nombres",
        "progSequence": "Nombres — Période 1 (suite)",
@@ -6570,7 +6570,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500001004
+   "updatedAt": 1790500002004
   },
   {
    "date": "2026-10-06",
@@ -6719,7 +6719,7 @@
        "title": "Géométrie S2 — Se repérer dans le quartier (CE1) / Symétrie 1 (CE2)",
        "objectif": "CE1 : se repérer et décrire un trajet dans le quartier. CE2 : compléter une figure par symétrie (axe vertical).",
        "competence": "Se repérer / se déplacer (CE1) ; symétrie (CE2).",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Espace & Géométrie",
        "progSequence": "Espace & Géométrie — Période 1",
@@ -7110,7 +7110,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500002005
+   "updatedAt": 1790500003005
   },
   {
    "date": "2026-10-07",
@@ -7287,7 +7287,7 @@
        "title": "Nombres S3 — La suite des nombres",
        "objectif": "Dire, lire, écrire la suite des nombres (jusqu'à 200 pour les CE1, 2000 pour les CE2) ; avant / après.",
        "competence": "Connaître la suite des nombres.",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, Nombres et calculs. À vérifier sur eduscol.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Nombres",
        "progSequence": "Nombres — Période 1 (suite)",
@@ -7623,7 +7623,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790600000002
+   "updatedAt": 1790600001002
   },
   {
    "date": "2026-10-13",
@@ -7772,7 +7772,7 @@
        "title": "Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2)",
        "objectif": "CE1 : se déplacer sur un quadrillage-plan (cases, directions). CE2 : compléter par symétrie (axe horizontal, oblique).",
        "competence": "Se déplacer sur un plan (CE1) ; symétrie (CE2).",
-       "competenceRef": "Programmes cycle 2 (2020) — Mathématiques, (se repérer, se déplacer) Espace & Géométrie (symétrie). À vérifier sur eduscol.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Espace & Géométrie",
        "progSequence": "Espace & Géométrie — Période 1",
@@ -8070,7 +8070,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790700000004
+   "updatedAt": 1790700001004
   },
   {
    "date": "2026-11-03",
