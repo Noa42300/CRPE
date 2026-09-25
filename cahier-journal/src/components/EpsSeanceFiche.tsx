@@ -270,3 +270,84 @@ export const EPS_COURIR_CARRES_M22: EpsSeanceData = {
     "Je cours plus longtemps sans m'arrêter.",
   ],
 };
+
+/* Mardi 29 — En binôme : le coureur et l'observateur (cartons rouge/bleu).
+   Un élève court, son binôme observe : carton ROUGE à chaque tour COURU,
+   carton BLEU à chaque tour MARCHÉ. On compte les rouges, puis on inverse. */
+export const EPS_COURIR_CARTONS_BINOME: EpsSeanceData = {
+  titre: "EPS — Courir longtemps : coureur & observateur (cartons)",
+  sousTitre: "Athlétisme · Période 1 · Courir longtemps en binôme · mardi 29 septembre · classe entière",
+  objectif: "Courir longtemps sans marcher et tenir le rôle d'observateur : compter les tours de son binôme (carton ROUGE = tour couru, carton BLEU = tour marché).",
+  materiel: "Une grande boucle balisée par 4 plots (≈ 100 m). Pour chaque binôme : une réserve de cartons ROUGES et BLEUS + une enveloppe (ou un gobelet) au prénom du coureur. On travaille par deux : un coureur, un observateur. C'est TOUT.",
+  phases: [
+    {
+      titre: "J'explique les deux rôles",
+      duree: "8 min",
+      points: [
+        "« Aujourd'hui, on court par deux : un coureur et un observateur. »",
+        "« Le coureur tourne autour de la boucle et essaie de courir sans s'arrêter. »",
+        "« L'observateur regarde son binôme : à chaque tour, il pioche un carton ROUGE si son copain a COURU tout le tour, un carton BLEU s'il a MARCHÉ. »",
+        "« L'observateur glisse le carton dans l'enveloppe du coureur à chaque passage. »",
+        "« Le but du coureur : avoir le plus de cartons ROUGES possible (courir sans s'arrêter). »",
+        "(Je forme les binômes et je montre le geste : je cours → carton rouge ; je marche → carton bleu.)",
+      ],
+    },
+    {
+      titre: "Échauffement",
+      duree: "7 min",
+      points: [
+        "« On trottine un tour tranquille, tous ensemble. »",
+        "« On réveille les articulations : bras, genoux, chevilles ; on souffle bien. »",
+        "« On teste l'allure « parler » : je cours et je récite les jours de la semaine. »",
+        "« Les observateurs repèrent bien la ligne de passage devant moi. »",
+        "(Je rappelle que l'observateur reste honnête et bienveillant avec son binôme.)",
+      ],
+    },
+    {
+      titre: "La course (1er coureur)",
+      duree: "12 min",
+      points: [
+        "« Au signal, les coureurs partent DOUCEMENT pour tenir longtemps. »",
+        "« Observateurs : à chaque passage, un carton ROUGE si le copain a couru, un carton BLEU s'il a marché. »",
+        "« Coureurs, si vous êtes fatigués, ralentissez en petit trot plutôt que de marcher. »",
+        "« On tient jusqu'au signal de fin. »",
+        "« Observateurs, encouragez votre binôme : « Vas-y, continue, tu tiens ! » »",
+        "(Je circule, je vérifie que chaque observateur suit bien SON coureur.)",
+      ],
+    },
+    {
+      titre: "On inverse les rôles (2e coureur)",
+      duree: "12 min",
+      points: [
+        "« On échange : l'observateur devient coureur, le coureur devient observateur. »",
+        "« Même règle : carton ROUGE = tour couru, carton BLEU = tour marché. »",
+        "« Nouveaux coureurs, souvenez-vous : on part doucement, on garde le même rythme. »",
+        "« Observateurs, on compte bien chaque tour, on ne triche pas. »",
+        "« On tient jusqu'au signal. »",
+        "(Je veille à ce que tout le monde ait bien couru une fois.)",
+      ],
+    },
+    {
+      titre: "Bilan à deux",
+      duree: "6 min",
+      points: [
+        "« Chaque coureur vide son enveloppe : on compte les cartons ROUGES, puis les BLEUS. »",
+        "« Qui a beaucoup de rouges ? Bravo, tu as couru longtemps sans t'arrêter ! »",
+        "« On dit un merci à son observateur : c'est grâce à lui qu'on connaît son score. »",
+        "« La prochaine fois, on essaiera d'avoir encore plus de rouges. »",
+        "« On ramasse tous les cartons et on range les enveloppes. »",
+      ],
+    },
+  ],
+  securite: [
+    "Boucle dégagée, balisée par 4 plots ; sens de course unique pour éviter les chocs.",
+    "Droit de ralentir ou de marcher (carton bleu) : personne ne se met en danger.",
+    "Observateur placé au bord de la boucle, jamais sur le passage des coureurs.",
+    "Une gorgée d'eau au bilan ; on repère les élèves essoufflés.",
+  ],
+  reussite: [
+    "Coureur : je gagne des cartons ROUGES (tours courus sans marcher).",
+    "Coureur : je pars doucement et je garde la même allure.",
+    "Observateur : je suis bien mon binôme et je compte juste chaque tour.",
+  ],
+};

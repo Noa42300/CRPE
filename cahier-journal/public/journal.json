@@ -5869,20 +5869,21 @@
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "m22eps",
+       "id": "epsBinome",
        "niveaux": [
         "classe"
        ],
-       "title": "EPS — Courir longtemps : le jeu des petits carrés (reprise)",
-       "objectif": "Courir longtemps sans s'arrêter (sans marcher) et battre son record de tours.",
-       "competence": "Courir longtemps en gérant son effort (activités athlétiques).",
-       "competenceRef": "Programmes cycle 2 (2020) — EPS, produire une performance optimale (courir longtemps). À vérifier sur eduscol.",
+       "title": "EPS — Courir longtemps : coureur & observateur (cartons)",
+       "objectif": "Courir longtemps sans marcher ; tenir le rôle d'observateur en comptant les tours de son binôme (carton ROUGE = tour couru, carton BLEU = tour marché).",
+       "competence": "Courir longtemps en gérant son effort ; observer et co-évaluer un camarade.",
+       "competenceRef": "Programmes cycle 2 (2020) — EPS, produire une performance optimale (courir longtemps) ; assumer des rôles (observateur). À vérifier sur eduscol.",
        "progPeriode": "P1",
        "progDomaine": "EPS — Athlétisme",
        "progSequence": "Courir longtemps (P1)",
-       "progSeance": "reprise",
+       "progSeance": "binôme",
        "progRef": "",
        "organisation": [
+        "binome",
         "collectif"
        ],
        "roleEnseignant": [
@@ -5892,26 +5893,36 @@
        "deroulement": [
         {
          "id": "e1",
-         "label": "Rappel & mise en route (10 min)",
-         "note": "- « On refait le jeu des petits carrés : on court le plus longtemps possible sans marcher. »\n- « Chacun reçoit ses carrés : un carré BLEU par tour couru sans s'arrêter, un carré JAUNE si vous marchez. »\n- « Le but, c'est d'avoir un maximum de carrés bleus, comme la dernière fois. »\n- « On s'échauffe d'abord : on trotte doucement autour des plots. »\n- « On règle son allure : pas trop vite au début, pour tenir longtemps. »\n(Sécurité : je délimite le parcours aux plots, je place les élèves fragiles à l'intérieur.)"
+         "label": "J'explique les deux rôles (8 min)",
+         "note": "- « Aujourd'hui, on court par deux : un coureur et un observateur. »\n- « Le coureur tourne autour de la boucle et essaie de courir sans s'arrêter. »\n- « L'observateur regarde son binôme : à chaque tour, il pioche un carton ROUGE si son copain a COURU tout le tour, un carton BLEU s'il a MARCHÉ. »\n- « L'observateur glisse le carton dans l'enveloppe du coureur à chaque passage devant moi. »\n- « Le but du coureur : avoir le plus de cartons ROUGES possible. »\n(Je forme les binômes et je montre le geste : je cours → carton rouge ; je marche → carton bleu.)"
         },
         {
          "id": "e2",
-         "label": "Je bats mon record (25 min)",
-         "note": "- « C'est parti : à chaque tour complet couru, vous prenez un carré bleu. »\n- « Si vous devez marcher, prenez un carré jaune, mais essayez de repartir en courant. »\n- « Respirez régulièrement, gardez la même allure, ne foncez pas. »\n- « Je compte le temps ; vous, vous comptez vos carrés. »\n- « On essaie de faire mieux que la dernière fois : un ou deux tours de plus ! »\n(J'observe les allures et j'encourage ; sécurité active tout le long.)"
+         "label": "Échauffement (7 min)",
+         "note": "- « On trottine un tour tranquille, tous ensemble. »\n- « On réveille bras, genoux et chevilles ; on souffle bien. »\n- « On teste l'allure « parler » : je cours et je récite les jours de la semaine. »\n- « Les observateurs repèrent la ligne de passage devant moi. »\n- « On reste honnête et bienveillant avec son binôme. »\n(Je cadre au départ les élèves qui partent trop vite.)"
         },
         {
          "id": "e3",
-         "label": "Retour au calme & bilan (10 min)",
-         "note": "- « On marche doucement pour récupérer et on respire calmement. »\n- « Chacun compte ses carrés bleus et ses carrés jaunes. »\n- « Qui a battu son record de tours ? On se félicite. »\n- « On boit un peu d'eau et on range le matériel. »\n- « La prochaine fois, on essaiera de courir encore un peu plus longtemps. »\n(Bilan collectif court, valorisant les progrès.)"
+         "label": "La course — 1er coureur (12 min)",
+         "note": "- « Au signal, les coureurs partent DOUCEMENT pour tenir longtemps. »\n- « Observateurs : carton ROUGE si le copain a couru le tour, carton BLEU s'il a marché. »\n- « Coureurs fatigués : ralentissez en petit trot plutôt que de marcher. »\n- « On tient jusqu'au signal de fin. »\n- « Observateurs, encouragez : « Vas-y, tu tiens, continue ! » »\n(Je vérifie que chaque observateur suit bien SON coureur.)"
+        },
+        {
+         "id": "e4",
+         "label": "On inverse les rôles — 2e coureur (12 min)",
+         "note": "- « On échange : l'observateur devient coureur, le coureur devient observateur. »\n- « Même règle : carton ROUGE = tour couru, carton BLEU = tour marché. »\n- « Nouveaux coureurs : on part doucement, on garde le même rythme. »\n- « Observateurs : on compte bien chaque tour, on ne triche pas. »\n- « On tient jusqu'au signal. »\n(Je veille à ce que tout le monde ait couru une fois.)"
+        },
+        {
+         "id": "e5",
+         "label": "Bilan à deux (6 min)",
+         "note": "- « Chaque coureur vide son enveloppe : on compte les cartons ROUGES, puis les BLEUS. »\n- « Beaucoup de rouges ? Bravo, tu as couru longtemps sans t'arrêter ! »\n- « On dit merci à son observateur : c'est grâce à lui qu'on connaît son score. »\n- « La prochaine fois, on essaiera d'avoir encore plus de rouges. »\n- « On ramasse tous les cartons et on range les enveloppes. »\n(Bilan court et valorisant.)"
         }
        ],
-       "materiel": "Des petits carrés de papier par élève (bleus = tour couru, jaunes = tour marché), plots pour délimiter le tour. Voir la fiche de séance dans Documents à imprimer.",
+       "materiel": "Une grande boucle balisée par 4 plots (≈ 100 m). Par binôme : cartons ROUGES et BLEUS + une enveloppe au prénom du coureur. On travaille par deux (un coureur, un observateur). Fiche de séance dans Documents à imprimer.",
        "video": "",
-       "differenciation": "Adapter le nombre de tours visés ; laisser marcher puis relancer en course pour les élèves les plus fatigables.",
+       "differenciation": "Adapter la durée de course ; autoriser le petit trot ; pour les observateurs les plus fragiles, compter à voix haute avec un repère (un carton par passage).",
        "depassement": "",
        "correction": "",
-       "obstacles": "Erreurs fréquentes : partir trop vite et devoir marcher ; ne pas gérer son souffle.\nRemédiation rapide : rappeler de garder une allure régulière, courir à côté d'un élève-repère, fixer un objectif de tours atteignable.",
+       "obstacles": "Erreurs fréquentes : le coureur part trop vite et doit marcher ; l'observateur perd son binôme des yeux ou compte mal.\nRemédiation rapide : rappeler l'allure « parler », faire pointer le coureur du doigt à chaque passage, un carton par tour sans se tromper.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -6049,7 +6060,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1791500001000
+   "updatedAt": 1791500002000
   },
   {
    "date": "2026-10-05",
@@ -6066,7 +6077,14 @@
       "note": "Maths : Nombres S3 — La suite des nombres. Reste de la journée à préparer."
      }
     ],
-    "devoirs": "Pour mardi : finir les exercices. Réviser les nombres et le nom."
+    "devoirs": "Pour mardi : finir les exercices. Réviser les nombres et le nom.",
+    "rappels": [
+     {
+      "id": "rap-20261005-inspe-photos-reglesdevie",
+      "texte": "À ENVOYER avant le 09/10 (INSPÉ — M. Fargère) : par mail à magalie.fargere@univ-lyon1.fr, des photos de vie de classe. Objet du mail : « règlesdevie-nométudiant-nomécole » (remplace par ton nom et le nom de ton école).",
+      "type": "autre"
+     }
+    ]
    },
    "slots": [
     {
@@ -6527,7 +6545,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500000004
+   "updatedAt": 1790500001004
   },
   {
    "date": "2026-10-06",
@@ -6544,7 +6562,14 @@
       "note": "Maths : Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 3) pour le lundi 12 octobre."
+    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 3) pour le lundi 12 octobre.",
+    "rappels": [
+     {
+      "id": "rap-20261006-inspe-photos-reglesdevie",
+      "texte": "À ENVOYER avant le 09/10 (INSPÉ — M. Fargère) : par mail à magalie.fargere@univ-lyon1.fr, des photos de vie de classe. Objet du mail : « règlesdevie-nométudiant-nomécole » (remplace par ton nom et le nom de ton école).",
+      "type": "autre"
+     }
+    ]
    },
    "slots": [
     {
@@ -7005,7 +7030,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500000005
+   "updatedAt": 1790500001005
   },
   {
    "date": "2026-10-07",
