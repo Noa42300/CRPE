@@ -6063,6 +6063,26 @@
    "updatedAt": 1791500002000
   },
   {
+   "date": "2026-09-30",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20260930-inspe-ue2-oral-sante",
+      "texte": "INSPÉ — UE 2 « Promouvoir le bien-être, les CPS et l'égalité filles-garçons » : ÉVALUATION = note d'ORAL lors de la dernière séance. Analyser un outil / dispositif de promotion de la santé en milieu scolaire, en mobilisant le cadrage théorique du TD, pour mettre en évidence le rôle central des enseignants comme acteurs de la promotion de la santé. → Préparer l'oral.",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790324462087,
+   "updatedAt": 1790324463087
+  },
+  {
    "date": "2026-10-05",
    "info": {
     "effectifPrevu": 23,
