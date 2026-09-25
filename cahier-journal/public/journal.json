@@ -5605,52 +5605,54 @@
       {
        "id": "nomEDL",
        "niveaux": [
-        "classe"
+        "CE1",
+        "CE2"
        ],
-       "title": "Français — Le nom : exercices (1-2-3 Étude de la langue)",
-       "objectif": "Réinvestir la notion de nom (commun/propre) : la reverbaliser, puis s'entraîner sur les exercices du manuel « 1-2-3 Étude de la langue », différenciés CE1/CE2.",
-       "competence": "Identifier le nom, distinguer nom commun et nom propre ; utiliser le déterminant comme indice.",
-       "competenceRef": "Français — Étude de la langue (grammaire), cycle 2.",
+       "title": "Français — Le nom : je m'entraîne (1, 2, 3… Étude de la langue)",
+       "objectif": "Reconnaître un nom et distinguer le nom commun du nom propre (avec sa majuscule).",
+       "competence": "Identifier le nom (nom commun / nom propre) et l'employer ; le classer selon son sens.",
+       "competenceRef": "Programmes cycle 2 (2020) — Français, étude de la langue : le nom (nom commun / nom propre, genre et nombre). À vérifier sur eduscol.",
        "progPeriode": "P1",
-       "progDomaine": "francais",
-       "progSequence": "Le nom",
-       "progSeance": "exercices",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Le nom (P1)",
+       "progSeance": "Consolidation — Je m'entraîne",
        "progRef": "",
        "organisation": [
         "collectif",
         "individuel"
        ],
        "roleEnseignant": [
-        "guidage"
+        "guidage",
+        "observation"
        ],
        "deroulement": [
         {
-         "id": "n1",
-         "label": "On reverbalise ensemble (10 min)",
-         "note": "- « Vous vous êtes entraînés lundi : qui peut me redire ce qu'est un nom ? »\n- « Un nom, ça désigne quoi ? … une personne, un animal, une chose, un lieu. »\n- « Comment je repère un nom dans la phrase ? … souvent un petit mot devant (le, la, un, une, mes…). »\n- « Différence entre nom commun et nom propre ? … le nom propre prend une majuscule. »\n- « On note au tableau tout ce que vous savez (brainstorm). »"
+         "id": "m1",
+         "label": "Rappel collectif (10 min)",
+         "note": "- « Depuis la semaine dernière, on travaille sur le nom : qui peut me redire ce qu'est un nom ? »\n- « Le nom désigne une personne, un animal, une chose ou un lieu. »\n- « Il y a deux sortes de noms : le nom commun et le nom propre, qui prend une majuscule. »\n- « On se rappelle aussi le genre (un/une) et le nombre (singulier/pluriel) vus lundi. »\n- « Donnez-moi un nom commun… et maintenant un nom propre. »\n(Brainstorm rapide au tableau ; je note quelques exemples des élèves.)"
         },
         {
-         "id": "n2",
-         "label": "On remet la vidéo Canopé (5 min)",
-         "note": "- « On regarde à nouveau la petite vidéo pour bien fixer. »\n- « Vous écoutez : je vous poserai une question après. »\n- « Qu'est-ce qui montre qu'un nom est un nom propre ? … la majuscule. »\n- (Vidéo : Les Fondamentaux — le nom commun et le nom propre.)"
+         "id": "m2",
+         "label": "Consigne & lancement (10 min)",
+         "note": "- « Aujourd'hui, vous vous entraînez sur votre fichier : chacun a ses fiches. »\n- « Les CE1 font les parcours 1 et 2 ; les CE2 font les parcours 3 et 4. »\n- « On lit d'abord la consigne, puis on regarde l'exemple avant de commencer. »\n- « On travaille seul et en silence ; si on est bloqué, on relit la leçon avant de m'appeler. »\n- « Ceux qui se sentent prêts pourront aller passer l'évaluation des déterminants au fond. »\n(Je distribue les fiches différenciées et je montre où écrire.)"
         },
         {
-         "id": "n3",
-         "label": "Consigne & départ en exercices (5 min)",
-         "note": "- « Je distribue votre fiche : CE1 la vôtre, CE2 la vôtre (1-2-3 Étude de la langue). »\n- « On lit la première consigne ensemble, je montre un exemple. »\n- « Vous soulignez les noms, vous entourez la majuscule des noms propres. »\n- « Si vous bloquez : je relis la leçon dans le cahier bleu, puis j'essaie seul. »\n- « Quand j'ai fini, je vérifie avec mon voisin. »"
+         "id": "m3",
+         "label": "Entraînement différencié (40 min)",
+         "note": "- « CE1 : je colorie les étiquettes qui sont des noms, je barre l'intrus, je repère les noms propres et je mets les majuscules. »\n- « CE2 : j'entoure les noms dans le texte, je classe les noms (personne, objet, sentiment, lieu), je relie chaque nom commun à son nom propre. »\n- « Je prends mon temps, je m'applique, j'écris proprement. »\n- « Quand j'ai fini un parcours, je passe au suivant. »\n- « Les élèves prêts vont passer l'évaluation des déterminants, tranquillement, au fond de la classe. »\n(Je circule dans les rangs, j'aide, j'observe qui a compris ; je veille à passer autant chez les CE1 que chez les CE2.)"
         },
         {
-         "id": "n4",
-         "label": "Mise en commun & correction (15 min)",
-         "note": "- « On corrige ensemble : donne-moi un nom que tu as trouvé. »\n- « Commun ou propre ? Pourquoi ? »\n- « On vérifie les majuscules des noms propres. »\n- « On range la fiche dans le classeur (exercices de français). »"
+         "id": "m4",
+         "label": "Correction & mise en commun (15 min)",
+         "note": "- « On corrige ensemble : qui veut lire sa réponse ? »\n- « On vérifie les noms propres : est-ce qu'on a bien mis la majuscule ? »\n- « Comment sait-on que ce mot est un nom ? (je peux mettre un/le/une/la devant). »\n- « On corrige en vert ce qu'on avait oublié, sans se moquer. »\n- « On range les fiches dans le classeur. »\n(Correction collective valorisante ; j'insiste sur la majuscule du nom propre.)"
         }
        ],
-       "materiel": "Fiches « 1-2-3 Étude de la langue » sur le nom (photocopies : une CE1, une CE2), leçon « le nom » (cahier bleu) à revoir, vidéo Canopé. Voir Documents à imprimer.",
+       "materiel": "Fichier « 1, 2, 3… Étude de la langue » CE1-CE2 (MDI / SEJER, 2020) — fiches « Je m'entraîne : Le nom » : Parcours 1 & 2 pour les CE1, Parcours 3 & 4 pour les CE2. Leçons « Le nom » et « le genre et le nombre » à revoir (cahier bleu). Classeur pour les fiches d'exercices ; cahier violet pour l'évaluation des déterminants (proposée en libre).",
        "video": "https://www.youtube.com/watch?v=Ap5UBJ5CmJ4",
-       "differenciation": "CE1 : identifier et classer des noms (commun/propre). CE2 : idem + justifier avec le déterminant et corriger les majuscules.",
-       "depassement": "",
-       "correction": "Un nom désigne une personne, un animal, une chose ou un lieu ; il est souvent précédé d'un déterminant. Le nom propre prend une majuscule.",
-       "obstacles": "Erreurs fréquentes :\n- Confondre nom et verbe.\n- Oublier la majuscule du nom propre.\nRemédiation rapide :\n- Test du déterminant : « le/la/un/une … » devant → c'est un nom.\n- Rappeler : un prénom, une ville → majuscule.",
+       "differenciation": "CE1 — Parcours 1 & 2 : identifier les noms (colorier les étiquettes-noms, barrer l'intrus, grille de noms) ; identifier les noms propres (souligner et remettre les majuscules) ; distinguer nom commun / nom propre (relier).\nCE2 — Parcours 3 & 4 : repérer les noms dans un texte, classer les noms (personne / objet / sentiment / lieu), relier chaque nom commun à son nom propre, mots-croisés (mot secret), défi d'écriture (inventer des phrases avec des noms donnés).",
+       "depassement": "Pour les plus rapides : le « défi écriture » (inventer des phrases avec les noms donnés) ; sinon, l'évaluation des déterminants proposée en libre.",
+       "correction": "Attendus (corrigé complet dans le fichier MDI) :\n• Reconnaître un nom = pouvoir mettre un / le / une / la devant.\n• Identifier les noms (CE1) : sont des noms « un chantier, un arrosoir, l'Argentine, le fer, le dégoût » (garder, voir, faire = verbes).\n• Intrus (CE1) : on barre le nom qui n'est pas de la même sorte que les autres (le nom propre au milieu des noms communs, ou l'inverse) — ex. « les Alpes », « Louisa », « la Terre »…\n• Noms propres + majuscule (CE1) : François Ier, Chambord ; Allemagne, Berlin ; Jacques Prévert.\n• Classer les noms (CE2) : personne = César, le maire ; objet = la chaise, le cartable ; sentiment = la tendresse, l'amitié ; lieu = le camping, l'Alaska.\n• Relier commun → propre (CE2) : une reine → Cléopâtre ; un fleuve → la Seine ; une région → la Bretagne ; une ville → Orléans.\n• Grille-lettre et mots-croisés (mot secret) : voir le corrigé du fichier.",
+       "obstacles": "Erreurs fréquentes :\n- Confondre le nom avec un verbe ou un adjectif.\n- Oublier la majuscule du nom propre.\n- Hésiter à classer un nom abstrait (un sentiment) ou un lieu.\nRemédiation rapide :\n- Test « un / le / une / la » devant le mot ; rappeler qu'un nom propre prend toujours une majuscule ; pour le classement, se demander « est-ce une personne, une chose, un lieu, un sentiment ? ».",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -6063,7 +6065,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1791500006000
+   "updatedAt": 1791500008000
   },
   {
    "date": "2026-09-30",
