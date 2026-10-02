@@ -17,7 +17,7 @@ export type FicheBloc =
   | { kind: "timeline"; titre?: string; steps: { name: string; label: string }[] }
   | { kind: "paires"; titre?: string; paires: { avant: { name: string; label: string }; apres: { name: string; label: string } }[] }
   | { kind: "exercice"; consigne: string; items?: string[]; lignes?: number; picto?: string; aide?: string; exemple?: string; reponses?: boolean }
-  | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string }
+  | { kind: "base10"; dizaines: number; unites: number; centaines?: number; legende?: string; masquer?: boolean }
   | { kind: "comparer"; a: number; b: number; signe: "<" | ">" | "="; cdu?: boolean }
   | { kind: "tableau"; titre?: string; entetes: string[]; lignes: string[][] }
   | { kind: "champs"; items: string[] }
@@ -54,7 +54,7 @@ function Lignes({ n }: { n: number }) {
 }
 
 /** Base 10 : plaques (100), barres (10), cubes (1). */
-function Base10({ centaines = 0, dizaines, unites, legende }: { centaines?: number; dizaines: number; unites: number; legende?: string }) {
+function Base10({ centaines = 0, dizaines, unites, legende, masquer }: { centaines?: number; dizaines: number; unites: number; legende?: string; masquer?: boolean }) {
   const u = "4mm";
   const cube = (bg: string): React.CSSProperties => ({ width: u, height: u, background: bg, border: "0.4mm solid #fff", boxSizing: "border-box" });
   const total = centaines * 100 + dizaines * 10 + unites;
@@ -78,7 +78,9 @@ function Base10({ centaines = 0, dizaines, unites, legende }: { centaines?: numb
         )}
       </div>
       <div style={{ fontSize: "12px", color: "#555" }}>
-        {legende ?? `${centaines ? centaines + " centaine(s) · " : ""}${dizaines} dizaine(s) et ${unites} unité(s)`} = <strong style={{ color: ORANGE, fontSize: "15px" }}>{total}</strong>
+        {masquer
+          ? <>{legende ?? "Écris le nombre"} = <strong style={{ color: ORANGE, fontSize: "17px" }}>……………</strong></>
+          : <>{legende ?? `${centaines ? centaines + " centaine(s) · " : ""}${dizaines} dizaine(s) et ${unites} unité(s)`} = <strong style={{ color: ORANGE, fontSize: "15px" }}>{total}</strong></>}
       </div>
     </div>
   );
@@ -260,7 +262,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
           if (b.kind === "base10") {
             return (
               <div key={i} style={{ border: "1px solid #e7e2d8", borderRadius: "8px", padding: "3mm" }}>
-                <Base10 centaines={b.centaines} dizaines={b.dizaines} unites={b.unites} legende={b.legende} />
+                <Base10 centaines={b.centaines} dizaines={b.dizaines} unites={b.unites} legende={b.legende} masquer={b.masquer} />
               </div>
             );
           }

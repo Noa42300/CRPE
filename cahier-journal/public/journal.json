@@ -6254,50 +6254,56 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "nbS2",
+       "id": "nbCons2",
        "niveaux": [
-        "classe"
+        "CE1",
+        "CE2"
        ],
-       "title": "Nombres S2 — Écrire les nombres en lettres",
-       "objectif": "Lire et écrire les nombres en lettres (dizaines particulières : 70, 80, 90 ; centaines pour les CE2).",
-       "competence": "Nommer et écrire les nombres en lettres.",
+       "title": "Maths — Construire 100 (CE1) / 1 000 (CE2) : manipulation & entraînement",
+       "objectif": "Construire et décomposer 100 (CE1) et 1 000 (CE2) en groupant par 10, avec le matériel base 10.",
+       "competence": "Comprendre et utiliser les groupements par dix (unités, dizaines, centaines, millier) ; composer, décomposer, compléter.",
        "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
        "progPeriode": "P1",
        "progDomaine": "Mathématiques — Nombres",
-       "progSequence": "Nombres — Période 1 (suite)",
-       "progSeance": "2",
-       "progRef": "",
+       "progSequence": "Les nombres (P1)",
+       "progSeance": "Construire 100/1000 — prolongement",
        "organisation": [
         "collectif",
-        "groupe",
-        "individuel"
+        "individuel",
+        "binome"
        ],
        "roleEnseignant": [
-        "guidage"
+        "guidage",
+        "observation"
        ],
        "deroulement": [
         {
-         "id": "x1",
-         "label": "Découverte / rappel (15 min)",
-         "note": "- « Comment on écrit 80 en lettres ? … quatre-vingts, avec un s ! »\n- « 71 = soixante et onze ; 90 = quatre-vingt-dix. »\n- « On regarde le tableau de la leçon ensemble. »\n- « On colle la leçon. »"
+         "id": "m1",
+         "label": "Rappel & manipulation (15 min)",
+         "note": "- « La semaine dernière, on a appris que 10 dizaines font une centaine (100) et 10 centaines font un millier (1 000). »\n- « Aujourd'hui, on va le fabriquer pour de vrai avec le matériel. »\n- « Chacun découpe (ou prend) ses plaques de 100, ses barres de 10 et ses unités. »\n- « CE1 : montrez-moi 100 avec vos barres. Combien de barres de 10 faut-il ? »\n- « CE2 : montrez-moi 1 000 avec vos plaques. Combien de plaques de 100 faut-il ? »\n(Matériel base 10 à découper distribué ; manipulation en binôme.)"
         },
         {
-         "id": "x2",
-         "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : écrire en lettres jusqu'à 99. »\n- « CE2 : jusqu'à 999, attention à cent et cents. »\n- « On démarre par l'exemple. »"
+         "id": "m2",
+         "label": "Institutionnalisation (10 min)",
+         "note": "- « On range : 10 unités = 1 dizaine ; 10 dizaines = 1 centaine = 100 ; 10 centaines = 1 millier = 1 000. »\n- « On relit la leçon ensemble et on observe les plaques, barres et cubes. »\n- « On repère : pour écrire un nombre, je compte les centaines, les dizaines, puis les unités. »\n- « CE2 : 1 000 = 10 centaines = 100 dizaines. »\n- « On garde le matériel à côté pour s'aider pendant les exercices. »\n(Leçon à coller / rappel au tableau.)"
         },
         {
-         "id": "x3",
-         "label": "Mise en commun (10 min)",
-         "note": "- « On corrige quelques nombres au tableau. »\n- « On repère les pièges : quatre-vingts / quatre-vingt-un. »"
+         "id": "m3",
+         "label": "Entraînement différencié (30 min)",
+         "note": "- « CE1 : fiche “Je construis 100” ; CE2 : fiche “Je construis 1 000”. »\n- « On lit l'exemple, puis on fait l'exercice ; on peut poser le matériel pour vérifier. »\n- « Exercice 1 : j'écris le nombre représenté par les plaques et les barres. »\n- « Puis : je complète pour arriver à 100 (ou 1 000). »\n- « Sur les pointillés du problème, j'écris mon calcul et ma phrase-réponse. »\n(Étayage renforcé : les deux élèves à besoin, aller directement les voir dès le lancement pour les mettre en route, avec le matériel et un exemple fait.)"
+        },
+        {
+         "id": "m4",
+         "label": "Correction (10 min)",
+         "note": "- « On corrige : comment as-tu trouvé le nombre représenté ? »\n- « Combien fallait-il ajouter pour arriver à 100 ? à 1 000 ? »\n- « On vérifie une décomposition avec le matériel. »\n- « On corrige en vert, on range la fiche dans le classeur. »\n- « On range le matériel base 10 dans la pochette. »\n(Correction collective, retour au matériel si besoin.)"
         }
        ],
-       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
-       "video": "",
-       "differenciation": "CE1 : nombres jusqu'à 99 en lettres.\nCE2 : nombres jusqu'à 999 (et 1000) en lettres.",
-       "depassement": "",
-       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
-       "obstacles": "",
+       "materiel": "Matériel base 10 À DÉCOUPER (plaques 100, barres 10, unités 1) — voir Documents à imprimer (imprimer plusieurs feuilles, idéalement plastifier). Fiches « Je construis 100 » (CE1) et « Je construis 1 000 » (CE2) + leçon rappel. Cahier rouge (leçon de maths), classeur (exercices).",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
+       "differenciation": "CE1 : construire et compléter jusqu'à 100 (dizaines/unités), avec le matériel.\nCE2 : construire et décomposer jusqu'à 1 000 (centaines/dizaines/unités), compléments et équivalences (1 000 = 10 c = 100 d).\nÉtayage renforcé : les deux élèves à besoin, aller directement les voir dès le lancement pour les mettre en route, avec le matériel manipulable et un exemple déjà fait.",
+       "depassement": "Fiche finie → fabriquer un nombre « mystère » avec le matériel et le faire deviner au binôme ; ou aller plus loin (nombres jusqu'à 999 / au-delà de 1 000).",
+       "correction": "Groupements : 10 u = 1 d ; 10 d = 1 c = 100 ; 10 c = 1 millier = 1 000. Compléments à 100 (70+30, 40+60…) et à 1 000 (700+300, 250+750…). Décompositions en c/d/u. Problèmes : 7 barres = 70, il manque 30 pour 100 ; 8 centaines = 800, il manque 200 pour 1 000.",
+       "obstacles": "Erreurs fréquentes : confondre dizaines et centaines ; oublier un rang (ex. 0 dizaine) ; penser que « plus de chiffres = plus grand » sans compter les groupements.\nRemédiation rapide : revenir au matériel (poser plaques/barres/unités), nommer chaque rang à voix haute, utiliser la leçon-repère.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -6597,7 +6603,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790925739539
+   "updatedAt": 1790937760517
   },
   {
    "date": "2026-10-06",
