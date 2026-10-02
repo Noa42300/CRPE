@@ -31,6 +31,12 @@ function Chip({ mot, img, alt }: { mot: string; img?: string; alt?: string }) {
   );
 }
 
+function Entoure({ children }: { children: React.ReactNode }) {
+  return (
+    <span style={{ display: "inline-block", border: "2px solid #111", borderRadius: "60% 55% 58% 62% / 70% 72% 68% 66%", padding: "0 2.5mm", lineHeight: 1.1 }}>{children}</span>
+  );
+}
+
 function Exemple({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ margin: "0 0 1.5mm", display: "flex", width: "fit-content", maxWidth: "100%", alignItems: "center", gap: "2mm", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "6px", padding: "0.5mm 3mm" }}>
@@ -132,7 +138,7 @@ export function GNPaysageCE1() {
         </div>
         <div>
           <Consigne n={2}>Entoure les noms féminins dans chaque liste.</Consigne>
-          <Exemple>un vélo · <u>une table</u> · un livre</Exemple>
+          <Exemple>un vélo · <Entoure>une table</Entoure> · un livre</Exemple>
           <Liste mots={["la mer", "le sac", "une étoile", "un jardin"]} />
           <Liste mots={["un ami", "une amie", "le bus", "une école"]} />
           <Liste mots={["le chat", "une souris", "un arbre", "la pluie"]} />
@@ -179,7 +185,7 @@ export function GNPaysageCE2() {
         </div>
         <div>
           <Consigne n={2}>Entoure les noms féminins dans chaque liste (attention aux noms de sentiments et de lieux !).</Consigne>
-          <Exemple>le courage · <u>une idée</u> · un désert</Exemple>
+          <Exemple>le courage · <Entoure>une idée</Entoure> · un désert</Exemple>
           <Liste mots={["la tendresse", "le silence", "une saison", "un voyage"]} />
           <Liste mots={["une forêt", "un fleuve", "la montagne", "un océan"]} />
           <Liste mots={["une amitié", "le bonheur", "une peur", "un rêve"]} />
