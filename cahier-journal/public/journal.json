@@ -6155,28 +6155,55 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20261005fr1",
+       "id": "nomGN5",
        "niveaux": [
-        "classe"
+        "CE1",
+        "CE2"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — Le genre et le nombre du nom (entraînement)",
+       "objectif": "Consolider le genre (masculin/féminin) et le nombre (singulier/pluriel) du nom, à l'écrit.",
+       "competence": "Reconnaître le genre et le nombre du nom ; amorcer la chaîne d'accord dans le groupe nominal (déterminant – nom).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025), domaine « grammaire et orthographe » : le nom (nom commun / nom propre, genre et nombre).",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Le nom (P1)",
+       "progSeance": "Entraînement — genre & nombre",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage",
+        "observation"
+       ],
+       "deroulement": [
+        {
+         "id": "m1",
+         "label": "Rappel avec le nuage (10 min)",
+         "note": "- « On réactive ce qu'on a appris : qu'est-ce que le genre d'un nom ? »\n- « Masculin, je mets un ou le devant ; féminin, je mets une ou la. »\n- « Et le nombre ? Singulier = un seul ; pluriel = plusieurs, souvent avec un -s. »\n- « On lit ensemble le nuage « Je me rappelle » en haut de la fiche. »\n- « On donne chacun un exemple à l'oral. »\n(Je projette le diaporama / je montre le nuage de la fiche.)"
+        },
+        {
+         "id": "m2",
+         "label": "Passation des consignes (10 min)",
+         "note": "- « Aujourd'hui, la fiche est en paysage : elle est séparée en deux parties, comme deux pages. »\n- « On lit chaque consigne et on regarde l'exemple avant de commencer. »\n- « Pour le genre : je colorie en BLEU les noms féminins, en ROUGE les masculins. »\n- « Pour le nombre : je colorie en VERT le singulier, en VIOLET le pluriel. »\n- « Je fais reformuler une consigne par un élève pour vérifier. »\n(Je m'assure que chacun a ses crayons de couleur et a bien compris le code couleur.)"
+        },
+        {
+         "id": "m3",
+         "label": "Entraînement différencié (40 min)",
+         "note": "- « CE1 et CE2, chacun prend SA fiche (elles sont différentes). »\n- « On avance partie 1 (à gauche), puis partie 2 (à droite). »\n- « Sur les pointillés, on écrit la phrase-réponse en entier, bien lisible. »\n- « Ceux qui se sentent prêts peuvent aller passer l'évaluation des déterminants au fond. »\n- « On s'applique : le travail doit être soigné. »\n(Étayage renforcé : les deux élèves à besoin, aller directement les voir dès le lancement pour les mettre en route, avec un exemple déjà fait.)"
+        },
+        {
+         "id": "m4",
+         "label": "Correction (15 min)",
+         "note": "- « On corrige ensemble : comment sais-tu que ce nom est féminin ? (je peux dire une/la). »\n- « Pour le pluriel, qu'est-ce qui a changé ? (le petit mot et le -s). »\n- « On vérifie les phrases réécrites au pluriel. »\n- « On corrige en vert ce qu'on avait oublié. »\n- « On range la fiche dans le classeur. »\n(Correction collective valorisante.)"
+        }
+       ],
+       "materiel": "Fiche d'exercices PAYSAGE différenciée CE1 / CE2 (variée et illustrée) + diaporama + leçon imagée — voir Documents à imprimer. Crayons de couleur (bleu, rouge, vert, violet). Classeur (exercices) ; cahier bleu (leçon).",
+       "video": "https://lesfondamentaux.reseau-canope.fr/video/francais/grammaire/les-noms/le-genre-du-nom-feminin-et-masculin",
+       "differenciation": "CE1 : genre (un/une) et pluriel en -s, listes et phrases courtes.\nCE2 : genres trompeurs (une avenue, un aimant…), noms abstraits, pluriels particuliers (-aux, -x), passage au féminin.\nÉtayage renforcé : les deux élèves à besoin, aller directement les voir dès le lancement pour les mettre en route, avec un exemple déjà fait et une consigne fractionnée.",
+       "depassement": "Fiche terminée → évaluation des déterminants (en libre) ou défi : inventer 3 groupes nominaux au pluriel.",
+       "correction": "Genre : un/le = masculin (rouge), une/la = féminin (bleu). Nombre : singulier (vert) / pluriel (violet), + s au pluriel ; pluriels particuliers CE2 : cheval→chevaux, journal→journaux, jeu→jeux, souris→souris. Féminin (CE2) : marchand→marchande, lion→lionne, chat→chatte.",
+       "obstacles": "Erreurs fréquentes : confondre genre et nombre ; genres trompeurs ; oublier le -s ou en mettre partout (pluriels en -aux).\nRemédiation rapide : faire dire le nom avec un/une puis avec des ; repasser en couleur le déterminant et la marque du pluriel ; garder le nuage et la leçon sous les yeux.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -6570,7 +6597,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500002004
+   "updatedAt": 1790925739539
   },
   {
    "date": "2026-10-06",
