@@ -59,8 +59,11 @@ export function ActivityEditor({
       // page explicite (.fiche-pagebreak) est forcée sur UNE page (mise à
       // l'échelle si besoin) — jamais de 2e feuille gaspillée.
       const isFiche = (el as HTMLElement).classList?.contains("fiche-a4");
+      const isPaysage = (el as HTMLElement).classList?.contains("fiche-a4-landscape");
       const hasBreak = !!el.querySelector?.(".fiche-pagebreak");
-      const opts = isFiche && !hasBreak ? { singlePage: true } : {};
+      const opts = isPaysage
+        ? { orientation: "landscape" as const, singlePage: true }
+        : (isFiche && !hasBreak ? { singlePage: true } : {});
       await downloadElementPdf(el, `${safeFileName(name)}.pdf`, opts);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);

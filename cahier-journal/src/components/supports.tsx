@@ -17,6 +17,7 @@ import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_C
 import { PrehistoireDiapo, PrehistoireLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon } from "./QlmS4Supports";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
+import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
 import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
 
 export interface SupportFourni {
@@ -1207,6 +1208,13 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "nom-s2-lecon", label: "Séance 2 — Leçon : le nom (rappel)", node: <LeNomLecon /> },
         { key: "nom-s2-ce1", label: "Séance 2 — Exercices CE1 (nom propre, majuscule)", node: ficheNode(NOM_S2_CE1) },
         { key: "nom-s2-ce2", label: "Séance 2 — Exercices CE2 (commun/propre, majuscules)", node: ficheNode(NOM_S2_CE2) },
+      ];
+    case "nomGN5":
+      return [
+        { key: "nomgn5-diapo", label: "Le genre & le nombre du nom — Diaporama à projeter", node: <GenreNombreDiapo /> },
+        { key: "nomgn5-lecon", label: "Le genre & le nombre du nom — Leçon à coller (imagée)", node: <GenreNombreLecon /> },
+        { key: "nomgn5-ce1", label: "Le genre & le nombre — Fiche CE1 (A4 paysage, variée & imagée)", node: <GNPaysageCE1 /> },
+        { key: "nomgn5-ce2", label: "Le genre & le nombre — Fiche CE2 (A4 paysage, variée & imagée)", node: <GNPaysageCE2 /> },
       ];
     case "nomGN":
       return [

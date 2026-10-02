@@ -98,6 +98,13 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   visuels), enfant-friendly. Toujours privilégier le concret et le ludique.
 - Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
   de vraies fiches de CE1-CE2 comme référence) pour toute nouvelle fiche.
+- **Format PAYSAGE disponible** (nouveau modèle validé, ex. `FicheGenreNombrePaysage`) :
+  feuille **A4 paysage** (`.fiche-a4 .fiche-a4-landscape`) avec **exercices variés et
+  illustrés** (vraies photos Wikimedia, étiquettes à colorier, listes, réécriture…), un
+  **nuage « Je me rappelle »** en tête, et un **trait vertical au milieu qui sépare la
+  feuille en deux « pages »**, dans l'esprit de « 1, 2, 3… Étude de la langue ». L'export
+  PDF bascule en **paysage** automatiquement quand la fiche porte `.fiche-a4-landscape`
+  (détecté dans `ActivityEditor`). Une fiche par niveau (CE1 / CE2).
 - **RÈGLE ABSOLUE — UNE FICHE ÉLÈVE = UNE SEULE A4, JAMAIS PLUS (CE1 ET CE2).**
   Ne jamais laisser une feuille d'exercices déborder sur une 2ᵉ page (gaspillage de
   papier). Dimensionner le contenu (nombre d'exercices/items) pour tenir sur **une
