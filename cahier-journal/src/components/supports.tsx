@@ -18,6 +18,7 @@ import { PrehistoireDiapo, PrehistoireLecon, MasseDiapo, MasseLecon, VolTempDiap
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
+import { Base10Plaques, Base10BarresUnites } from "./Base10Manip";
 import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
 
 export interface SupportFourni {
@@ -628,6 +629,43 @@ const NB1_CE2: FicheData = {
     ] },
   ],
 };
+// Prolongement (lundi 5/10) — construire 100 / 1000 : exercices variés avec base 10
+const NB1B_CE1: FicheData = {
+  entete: "Exercices", titre: "Je construis 100", niveau: "CE1", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "base10", dizaines: 8, unites: 4, legende: "Écris le nombre représenté", masquer: true },
+    { kind: "exercice", exemple: "7 dizaines et 3 unités = 73", consigne: "Avec le matériel (plaques, barres, cubes), écris le nombre.", items: [
+      "5 dizaines et 6 unités = ______", "9 dizaines = ______", "10 dizaines = ______",
+    ] },
+    { kind: "exercice", exemple: "80 + 20 = 100", consigne: "Complète pour faire 100.", items: [
+      "70 + ___ = 100", "___ + 60 = 100", "40 + ___ = 100", "100 = 90 + ___", "100 = 55 + ___",
+    ] },
+    { kind: "exercice", exemple: "100 = 10 dizaines", consigne: "Complète.", items: [
+      "100 = ___ dizaines", "9 dizaines et ___ unités = 100", "100 = 50 + ___", "100 = ___ + 30",
+    ] },
+    { kind: "exercice", exemple: "J'ai 8 barres de 10. → 80 ; il manque 20 pour faire 100.", consigne: "Résous. Écris ton calcul et ta réponse.", reponses: true, items: [
+      "Tom a rangé 7 barres de 10 cubes. Combien a-t-il de cubes ? Combien en manque-t-il pour faire 100 ?",
+    ] },
+  ],
+};
+const NB1B_CE2: FicheData = {
+  entete: "Exercices", titre: "Je construis 1 000", niveau: "CE2", discipline: "Mathématiques — Nombres",
+  blocs: [
+    { kind: "base10", centaines: 3, dizaines: 5, unites: 2, legende: "Écris le nombre représenté", masquer: true },
+    { kind: "exercice", exemple: "3 centaines, 5 dizaines, 2 unités = 352", consigne: "Avec le matériel (plaques de 100, barres, cubes), écris le nombre.", items: [
+      "4 centaines et 6 dizaines = ______", "7 centaines, 0 dizaine, 8 unités = ______", "10 centaines = ______",
+    ] },
+    { kind: "exercice", exemple: "900 + 100 = 1 000", consigne: "Complète pour faire 1 000.", items: [
+      "700 + ___ = 1 000", "___ + 250 = 1 000", "1 000 = 990 + ___", "1 000 = 600 + ___", "___ + 1 = 1 000",
+    ] },
+    { kind: "exercice", exemple: "1 000 = 10 centaines = 100 dizaines", consigne: "Complète.", items: [
+      "1 000 = ___ centaines", "1 000 = ___ dizaines", "9 centaines et ___ centaine = 1 000", "7 centaines 5 dizaines = ___",
+    ] },
+    { kind: "exercice", exemple: "J'ai 600 €, il m'en faut 1 000. → il manque 400 €.", consigne: "Résous. Écris ton calcul et ta réponse.", reponses: true, items: [
+      "Une école a récolté 8 centaines d'euros. Combien cela fait-il ? Combien manque-t-il pour atteindre 1 000 € ?",
+    ] },
+  ],
+};
 // S2 — Les nombres en lettres
 const NB2_LECON: FicheData = {
   entete: "Leçon (à coller)", titre: "Écrire les nombres en lettres", niveau: "CE1-CE2", discipline: "Mathématiques — Nombres (Tandem)", cursive: true,
@@ -1146,6 +1184,14 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "nb1-lecon", label: "Séance 1 — Leçon : construire 100 / 1000", node: ficheNode(NB1_LECON) },
         { key: "nb1-ce1", label: "Séance 1 — Exercices CE1 (100)", node: ficheNode(NB1_CE1) },
         { key: "nb1-ce2", label: "Séance 1 — Exercices CE2 (1000)", node: ficheNode(NB1_CE2) },
+      ];
+    case "nbCons2":
+      return [
+        { key: "nbc2-lecon", label: "Construire 100 / 1000 — Leçon (rappel, base 10)", node: ficheNode(NB1_LECON) },
+        { key: "nbc2-ce1", label: "Construire 100 — Exercices CE1 (variés, base 10)", node: ficheNode(NB1B_CE1) },
+        { key: "nbc2-ce2", label: "Construire 1000 — Exercices CE2 (variés, base 10)", node: ficheNode(NB1B_CE2) },
+        { key: "nbc2-plaques", label: "Matériel à découper — plaques « centaines » (100)", node: <Base10Plaques /> },
+        { key: "nbc2-barres", label: "Matériel à découper — barres (10) & unités (1)", node: <Base10BarresUnites /> },
       ];
     case "nbS2":
       return [
