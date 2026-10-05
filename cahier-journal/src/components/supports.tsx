@@ -14,7 +14,7 @@ import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME, EPS_COURIR_EVAL } from "./EpsSeanceFiche";
-import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon } from "./QlmS4Supports";
+import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon, ExperienceBouteilleMaison } from "./QlmS4Supports";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
@@ -1339,8 +1339,9 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "sciS5":
       return [
-        { key: "sci-voltemp-diapo", label: "Le volume et la température (2/2) — Diaporama à projeter", node: <VolTempDiapo /> },
-        { key: "sci-voltemp-lecon", label: "Le volume et la température (2/2) — Leçon imagée à coller", node: <VolTempLecon /> },
+        { key: "sci-voltemp-diapo", label: "Le volume et la température (2/2) — Diaporama à projeter (avec tableau de conversion)", node: <VolTempDiapo /> },
+        { key: "sci-voltemp-lecon", label: "Le volume et la température (2/2) — Leçon imagée à coller (tableau de conversion inclus)", node: <VolTempLecon /> },
+        { key: "sci-exp-maison", label: "Expérience à la maison — « 1 L, combien de verres ? » (fiche à faire à la maison)", node: <ExperienceBouteilleMaison /> },
       ];
     case "artdet":
       return [

@@ -6741,7 +6741,7 @@
       "note": "Maths : Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 3) pour le lundi 12 octobre. POÉSIE : continuer à apprendre « Le temps a laissé son manteau » (récitation à venir). Terminer les fiches commencées si besoin.",
+    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 3) pour le lundi 12 octobre. SCIENCES : faire l'expérience « 1 L, combien de verres ? » à la maison et rapporter la fiche. POÉSIE : continuer « Le temps a laissé son manteau ». Terminer les fiches commencées si besoin.",
     "rappels": [
      {
       "id": "rap-20261006-inspe-photos-reglesdevie",
@@ -7107,7 +7107,7 @@
          "note": "- « On récapitule les trois grandeurs de la séquence : masse, volume, température. »\n- « Quel instrument pour chacune ? Quelle unité ? »\n- « On colle la leçon et on lit les deux parties (volume, température). »\n- « On souligne : 1 L = 1000 mL, et le °C pour la température. »\n- « On range le cahier : la séquence « mesurer » est terminée. »\n(Leçon imagée à coller ; bilan de séquence.)"
         }
        ],
-       "materiel": "Un verre doseur / une éprouvette graduée + de l'eau ; un thermomètre. Diaporama + leçon imagée — voir Documents à imprimer. Vidéo complémentaire « Le thermomètre » : https://www.youtube.com/watch?v=VNHRmdELNu4",
+       "materiel": "Un verre doseur / une éprouvette graduée + de l'eau ; un thermomètre. Diaporama (avec le tableau de conversion L/dL/cL/mL) + leçon imagée à coller (tableau de conversion inclus) + fiche « Expérience à la maison : 1 L, combien de verres ? » — voir Documents à imprimer. Vidéo complémentaire « Le thermomètre » : https://www.youtube.com/watch?v=VNHRmdELNu4",
        "video": "https://www.youtube.com/watch?v=jquO9Ryf5ks",
        "differenciation": "CE1 : associer instrument ↔ grandeur, lire une graduation simple.\nCE2 : utiliser les unités (L/mL, °C), convertir 1 L = 1000 mL, lire une température.",
        "depassement": "",
@@ -7115,7 +7115,7 @@
        "obstacles": "Erreurs fréquentes : confondre masse et volume ; mal lire une graduation.\nRemédiation rapide : revenir à l'instrument (« avec quoi je mesure ? »), lire la graduation au niveau du liquide, manipuler.",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "",
+       "devoirs": "Faire l'expérience à la maison « 1 L, combien de verres ? » (fiche distribuée) et rapporter la fiche remplie.",
        "notesProchaine": ""
       }
      ]
@@ -7205,8 +7205,8 @@
          "note": "- « On colle la leçon dans le cahier de Questionner le monde et on la lit ensemble. »\n- « On souligne les deux mots importants : agriculture et élevage. »\n- « On retient : au Néolithique, l'homme devient agriculteur et éleveur, et il se sédentarise. »\n- « On replace ce moment sur la frise, tout à la fin de la Préhistoire. »\n- « Et après la Préhistoire, savez-vous ce qui commence ? » (l'invention de l'écriture, qui ouvre l'Antiquité)\n(Leçon imagée à coller ; je relie à la frise des dates clés vue en S4.)"
         }
        ],
-       "materiel": "Diaporama à projeter (vraies photos libres de droits) + leçon imagée à coller dans le cahier de Questionner le monde — voir Documents à imprimer. On réutilise la frise des dates clés de la S4 pour repérer « il y a ~10 000 ans ».",
-       "video": "",
+       "materiel": "Diaporama à projeter (9 écrans : repères, avant/après, agriculture, élevage, village, objets, mégalithes, dates clés — vraies photos libres de droits) + leçon imagée à coller (avec mini-frise des dates clés) dans le cahier de Questionner le monde — voir Documents à imprimer. Vidéo : extrait de « C'est pas sorcier — Le Néolithique, un tournant pour l'humanité » (en montrer un passage) ; sur Lumni, extraits courts « L'invention de l'agriculture / de l'élevage au Néolithique » (~1-3 min). On réutilise la frise des dates clés de la S4.",
+       "video": "https://www.youtube.com/watch?v=p1UKVXA25EM",
        "differenciation": "CE1 : retenir le changement principal (nomade → sédentaire) et les deux mots « agriculture / élevage ».\nCE2 : ajouter « sédentaire », « premiers villages », la pierre polie, et expliquer pourquoi c'est une « révolution » (l'homme produit et stocke sa nourriture).",
        "depassement": "",
        "correction": "Agriculture = cultiver la terre (semer, récolter le blé). Élevage = garder et nourrir des animaux (mouton, chèvre, vache). Sédentaire = qui reste au même endroit (≠ nomade). Nouveautés du Néolithique : premiers villages, outils en pierre polie, poteries, tissage. La Préhistoire se termine avec l'invention de l'écriture (début de l'Antiquité).",
@@ -7256,7 +7256,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790501003005
+   "updatedAt": 1790502003005
   },
   {
    "date": "2026-10-07",

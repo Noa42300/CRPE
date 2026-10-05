@@ -172,7 +172,23 @@ export function PrehistoireLecon() {
 /* ===================== HISTOIRE — Le Néolithique (séance 5) ===================== */
 /* Suite de « La Préhistoire » : on zoome sur LE grand changement du Néolithique
    (l'homme devient agriculteur et éleveur, se sédentarise). Vraies photos libres. */
-const NEO_ETAPES = ["Le grand changement", "Les nouveautés", "Une vraie révolution !", "Je retiens"];
+const NEO_ETAPES = ["On se repère", "Avant / après", "L'agriculture", "L'élevage", "Le village", "De nouveaux objets", "Les mégalithes", "Les dates clés", "Je retiens"];
+/** Repères simplifiés du Néolithique (cycle 2) : on retient surtout l'ordre et le début/la fin. */
+const NEO_DATES = [
+  { quand: "il y a ~10 000 ans", quoi: "au Proche-Orient, l'homme invente l'agriculture et l'élevage 🌾" },
+  { quand: "il y a ~9 000 ans", quoi: "il construit les premiers villages de maisons 🏘️" },
+  { quand: "il y a ~7 500 ans", quoi: "le Néolithique arrive en Europe, puis en France 🚶" },
+  { quand: "il y a ~6 500 ans", quoi: "il dresse les grandes pierres : menhirs et dolmens (Carnac) 🪨" },
+  { quand: "il y a ~5 000 ans", quoi: "les premiers métaux, puis l'écriture ✍️ → fin de la Préhistoire" },
+];
+function ImgCard({ title, alt, legende }: { title: string; alt: string; legende: string }) {
+  return (
+    <div className="rounded-2xl border-4 bg-white p-2 text-center" style={{ borderColor: HIST }}>
+      <WikiImage title={title} alt={alt} accent={HIST} height="clamp(110px,20vh,190px)" />
+      <div className="mt-1 text-base font-bold text-stone-700">{legende}</div>
+    </div>
+  );
+}
 export function NeolithiqueDiapo() {
   const [i, setI] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -181,58 +197,110 @@ export function NeolithiqueDiapo() {
     <div ref={ref} className="flex w-[92vw] max-w-[980px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
       <div className="flex items-center gap-3 px-4 py-2" style={{ background: HIST }}>
         <span className="text-sm font-extrabold uppercase tracking-wide text-white">Histoire · Le Néolithique</span>
-        <div className="ml-2 flex gap-1.5">{NEO_ETAPES.map((t, k) => <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full" style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />)}</div>
+        <div className="ml-2 flex flex-wrap gap-1.5">{NEO_ETAPES.map((t, k) => <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full" style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />)}</div>
         <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
       </div>
       <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
         {i === 0 && (
-          <div className="w-full max-w-4xl">
-            <h1 className="text-center text-4xl font-extrabold sm:text-5xl" style={{ color: HIST }}>L'homme devient agriculteur</h1>
-            <p className="mx-auto mt-2 max-w-3xl text-center text-xl font-semibold text-stone-600">Il y a environ <b>10 000 ans</b>, à la fin de la Préhistoire, tout change : c'est le <b>Néolithique</b>.</p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border-4 p-2 text-center" style={{ borderColor: "#a8a29e" }}>
-                <div className="text-sm font-extrabold uppercase text-stone-500">Avant</div>
-                <WikiImage title="Chasse" alt="la chasse" accent={HIST} height="clamp(110px,20vh,180px)" />
-                <div className="mt-1 text-lg font-bold text-stone-700">Il chasse et cueille, il se <b>déplace</b> tout le temps (<b>nomade</b>).</div>
-              </div>
-              <div className="rounded-2xl border-4 p-2 text-center" style={{ borderColor: HIST }}>
-                <div className="text-sm font-extrabold uppercase" style={{ color: HIST }}>Après</div>
-                <WikiImage title="Blé" alt="un champ de blé" accent={HIST} height="clamp(110px,20vh,180px)" />
-                <div className="mt-1 text-lg font-bold text-stone-700">Il <b>cultive</b> la terre et <b>élève</b> des animaux, il s'<b>installe</b> (<b>sédentaire</b>).</div>
-              </div>
-            </div>
+          <div className="w-full max-w-3xl text-center">
+            <h1 className="text-4xl font-extrabold sm:text-5xl" style={{ color: HIST }}>Le Néolithique</h1>
+            <p className="mx-auto mt-2 max-w-2xl text-xl font-semibold text-stone-600">La <b>dernière partie</b> de la Préhistoire, il y a environ <b>10 000 ans</b>.</p>
+            <div className="mx-auto mt-4 max-w-lg"><WikiImage title="Çatal Höyük" alt="village néolithique" accent={HIST} height="clamp(150px,28vh,250px)" /></div>
+            <p className="mt-2 text-lg text-stone-500">Çatal Höyük : un des plus vieux villages du monde (reconstitution).</p>
+            <p className="mt-2 text-base text-stone-500">« Néo » = nouveau, « lithos » = pierre : c'est l'âge de la <b>pierre nouvelle, polie</b>.</p>
           </div>
         )}
         {i === 1 && (
           <div className="w-full max-w-4xl">
-            <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: HIST }}>Les nouveautés du Néolithique</h2>
-            <div className="grid gap-3 sm:grid-cols-4">
-              <ImgReveal title="Blé" alt="champ de blé" mot="Pour manger ?" rep="il cultive (agriculture)" accent={HIST} />
-              <ImgReveal title="Mouton" alt="un mouton" mot="Les animaux ?" rep="il les élève (élevage)" accent={HIST} />
-              <ImgReveal title="Poterie" alt="une poterie" mot="Pour ranger ?" rep="il fabrique des poteries" accent={HIST} />
-              <ImgReveal title="Dolmen" alt="un dolmen" mot="Où vit-il ?" rep="dans des villages" accent={HIST} />
+            <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: HIST }}>Le grand changement</h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border-4 p-2 text-center" style={{ borderColor: "#a8a29e" }}>
+                <div className="text-sm font-extrabold uppercase text-stone-500">Avant (Paléolithique)</div>
+                <WikiImage title="Chasse" alt="la chasse" accent={HIST} height="clamp(110px,20vh,180px)" />
+                <div className="mt-1 text-lg font-bold text-stone-700">Il chasse et cueille, il se <b>déplace</b> tout le temps (<b>nomade</b>).</div>
+              </div>
+              <div className="rounded-2xl border-4 p-2 text-center" style={{ borderColor: HIST }}>
+                <div className="text-sm font-extrabold uppercase" style={{ color: HIST }}>Après (Néolithique)</div>
+                <WikiImage title="Blé" alt="un champ de blé" accent={HIST} height="clamp(110px,20vh,180px)" />
+                <div className="mt-1 text-lg font-bold text-stone-700">Il <b>cultive</b> et <b>élève</b> des animaux, il s'<b>installe</b> (<b>sédentaire</b>).</div>
+              </div>
             </div>
-            <p className="mt-4 text-center text-lg text-stone-600">Il invente aussi de <b>nouveaux outils</b> en pierre <b>polie</b> (bien lisse) et se met à <b>tisser</b> des vêtements.</p>
           </div>
         )}
         {i === 2 && (
-          <div className="w-full max-w-3xl">
-            <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: HIST }}>Pourquoi c'est une révolution ?</h2>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <RevealCard q="Doit-il encore se déplacer ?" a="non, il reste au même endroit" accent={HIST} />
-              <RevealCard q="Que peut-il faire de sa récolte ?" a="la stocker pour plus tard" accent={HIST} />
-              <RevealCard q="Les familles se regroupent et forment…" a="les premiers villages" accent={HIST} />
-              <RevealCard q="Pierre taillée (avant) ou pierre polie ?" a="pierre polie au Néolithique" accent={HIST} />
+          <div className="w-full max-w-4xl">
+            <h2 className="mb-3 text-center text-4xl font-extrabold" style={{ color: HIST }}>Il invente l'agriculture</h2>
+            <p className="mb-3 text-center text-lg text-stone-600">Il remarque que les graines tombées donnent de nouvelles plantes : alors il <b>sème</b> des céréales, les cultive et les <b>récolte</b>.</p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <ImgCard title="Blé" alt="le blé" legende="il sème et récolte le blé" />
+              <ImgCard title="Faucille" alt="une faucille" legende="la faucille pour couper les épis" />
+              <ImgCard title="Meule à grains" alt="une meule à grains" legende="la meule pour écraser le grain en farine" />
             </div>
-            <p className="mt-4 text-center text-lg text-stone-600">Sa vie <b>change complètement</b> : on appelle ça la <b>révolution néolithique</b>.</p>
           </div>
         )}
         {i === 3 && (
+          <div className="w-full max-w-4xl">
+            <h2 className="mb-3 text-center text-4xl font-extrabold" style={{ color: HIST }}>Il invente l'élevage</h2>
+            <p className="mb-3 text-center text-lg text-stone-600">Au lieu de seulement chasser, il <b>capture</b> des animaux, les garde et les nourrit : il les <b>domestique</b>. Ils donnent lait, viande, laine et peau.</p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <ImgCard title="Mouton" alt="un mouton" legende="le mouton (laine, viande, lait)" />
+              <ImgCard title="Chèvre" alt="une chèvre" legende="la chèvre (lait, viande)" />
+              <ImgCard title="Aurochs" alt="un aurochs" legende="l'aurochs, l'ancêtre de la vache" />
+            </div>
+          </div>
+        )}
+        {i === 4 && (
+          <div className="w-full max-w-3xl text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: HIST }}>Il construit des villages</h2>
+            <p className="mx-auto mt-2 max-w-2xl text-lg text-stone-600">Comme il reste au même endroit, il bâtit des <b>maisons</b> en bois, en terre et en pierre, les unes à côté des autres.</p>
+            <div className="mx-auto mt-3 max-w-lg"><WikiImage title="Çatal Höyük" alt="reconstitution d'un village néolithique" accent={HIST} height="clamp(140px,26vh,230px)" /></div>
+            <p className="mt-2 text-lg font-semibold text-stone-700">Il fait aussi des <b>réserves</b> de nourriture (les greniers) pour l'hiver.</p>
+          </div>
+        )}
+        {i === 5 && (
+          <div className="w-full max-w-4xl">
+            <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: HIST }}>De nouveaux objets</h2>
+            <div className="grid gap-3 sm:grid-cols-4">
+              <ImgReveal title="Hache polie" alt="une hache polie" mot="La pierre devient…" rep="polie, bien lisse" accent={HIST} />
+              <ImgReveal title="Poterie" alt="une poterie" mot="Pour conserver ?" rep="la poterie (terre cuite)" accent={HIST} />
+              <ImgReveal title="Tissage" alt="du tissage" mot="Pour s'habiller ?" rep="il tisse des vêtements" accent={HIST} />
+              <ImgReveal title="Meule à grains" alt="une meule" mot="Pour la farine ?" rep="il moud le grain" accent={HIST} />
+            </div>
+            <p className="mt-4 text-center text-lg text-stone-600">Ce sont des <b>traces</b> (des archives !) : on les retrouve en creusant la terre. C'est le travail des <b>archéologues</b>.</p>
+          </div>
+        )}
+        {i === 6 && (
+          <div className="w-full max-w-4xl">
+            <h2 className="mb-3 text-center text-4xl font-extrabold" style={{ color: HIST }}>Les grandes pierres (mégalithes)</h2>
+            <p className="mb-3 text-center text-lg text-stone-600">Les hommes du Néolithique dressent d'énormes pierres : les <b>menhirs</b> (debout) et les <b>dolmens</b> (une grande table de pierre).</p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <ImgCard title="Menhir" alt="un menhir" legende="le menhir : une pierre dressée" />
+              <ImgCard title="Dolmen" alt="un dolmen" legende="le dolmen : une table de pierre" />
+              <ImgCard title="Carnac" alt="les alignements de Carnac" legende="à Carnac (Bretagne), des milliers de menhirs alignés" />
+            </div>
+          </div>
+        )}
+        {i === 7 && (
+          <div className="w-full max-w-3xl">
+            <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: HIST }}>Les dates clés</h2>
+            <div className="flex flex-col gap-2">
+              {NEO_DATES.map((d, k) => (
+                <div key={k} className="flex items-center gap-3 rounded-2xl border-2 bg-white p-2" style={{ borderColor: HIST }}>
+                  <span className="shrink-0 rounded-full px-3 py-1 text-sm font-extrabold text-white" style={{ background: HIST }}>{d.quand}</span>
+                  <span className="text-lg font-semibold text-stone-700">{d.quoi}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-3 text-center text-lg text-stone-600">Sur la frise, tout ça se place <b>à la fin</b> de la Préhistoire, juste avant l'écriture.</p>
+          </div>
+        )}
+        {i === 8 && (
           <div className="text-center">
-            <div className="mb-3 text-6xl">🌾🐑🏺</div>
+            <div className="mb-3 text-6xl">🌾🐑🏺🪨</div>
             <h1 className="text-4xl font-extrabold sm:text-5xl" style={{ color: HIST }}>Je retiens</h1>
             <p className="mt-4 text-2xl font-semibold text-stone-600">Au <b>Néolithique</b>, l'homme devient <b>agriculteur</b> et <b>éleveur</b>.</p>
-            <p className="text-2xl font-semibold text-stone-600">Il se <b>sédentarise</b> et construit les <b>premiers villages</b>.</p>
+            <p className="text-2xl font-semibold text-stone-600">Il se <b>sédentarise</b>, construit les <b>premiers villages</b> et dresse les <b>mégalithes</b>.</p>
+            <p className="mt-2 text-xl text-stone-500">La Préhistoire se termine quand on invente l'<b>écriture</b>.</p>
           </div>
         )}
       </div>
@@ -247,39 +315,48 @@ export function NeolithiqueDiapo() {
 
 export function NeolithiqueLecon() {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
-        <h1 style={{ fontSize: "40px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive" }}>Le Néolithique</h1>
-        <p style={{ textAlign: "center", fontSize: "18px", margin: "0 auto 5mm", maxWidth: "158mm", lineHeight: 1.4 }}>
-          À la fin de la Préhistoire, il y a environ <b>10 000 ans</b>, l'homme change de vie : il devient <b>agriculteur</b> et <b>éleveur</b>.
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "8mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "6mm 7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <h1 style={{ fontSize: "38px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive" }}>Le Néolithique</h1>
+        <p style={{ textAlign: "center", fontSize: "16px", margin: "0 auto 3mm", maxWidth: "160mm", lineHeight: 1.35 }}>
+          À la fin de la Préhistoire, il y a environ <b>10 000 ans</b>, l'homme change de vie : il devient <b>agriculteur</b> et <b>éleveur</b>. (« Néo » = nouveau, « lithos » = pierre : l'âge de la pierre <b>polie</b>.)
         </p>
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-around", gap: "5mm" }}>
-          <div style={{ border: `3px solid ${HIST}`, borderRadius: "5mm", padding: "4mm 5mm" }}>
-            <div style={{ fontSize: "26px", fontWeight: 800, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center" }}>Le grand changement</div>
-            <div style={{ display: "flex", gap: "4mm", alignItems: "center", justifyContent: "space-around", flexWrap: "wrap", marginTop: "1mm" }}>
-              <div style={{ textAlign: "center" }}><Bulle mot="avant : nomade" color="#a8a29e" /><div style={{ fontSize: "14px", color: "#555" }}>il chassait et se déplaçait</div></div>
-              <div style={{ fontSize: "28px", fontWeight: 800, color: HIST }}>➜</div>
-              <div style={{ textAlign: "center" }}><Bulle mot="après : sédentaire" color={HIST} /><div style={{ fontSize: "14px", color: "#555" }}>il s'installe au même endroit</div></div>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "3.5mm" }}>
+          <div style={{ border: `3px solid ${HIST}`, borderRadius: "5mm", padding: "3mm 5mm" }}>
+            <div style={{ fontSize: "24px", fontWeight: 800, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center" }}>Le grand changement</div>
+            <div style={{ display: "flex", gap: "4mm", alignItems: "center", justifyContent: "space-around", flexWrap: "wrap" }}>
+              <div style={{ textAlign: "center" }}><Bulle mot="avant : nomade" color="#a8a29e" /><div style={{ fontSize: "13px", color: "#555" }}>il chassait et se déplaçait</div></div>
+              <div style={{ fontSize: "26px", fontWeight: 800, color: HIST }}>➜</div>
+              <div style={{ textAlign: "center" }}><Bulle mot="après : sédentaire" color={HIST} /><div style={{ fontSize: "13px", color: "#555" }}>il s'installe au même endroit</div></div>
             </div>
           </div>
-          <div style={{ border: `3px solid ${HIST}`, borderRadius: "5mm", padding: "4mm 5mm" }}>
-            <div style={{ fontSize: "26px", fontWeight: 800, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center", marginBottom: "2mm" }}>Les nouveautés</div>
+          <div style={{ border: `3px solid ${HIST}`, borderRadius: "5mm", padding: "3mm 5mm" }}>
+            <div style={{ fontSize: "24px", fontWeight: 800, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center", marginBottom: "1mm" }}>Les nouveautés</div>
             <div style={{ display: "flex", gap: "3mm", alignItems: "flex-start", justifyContent: "space-around", flexWrap: "wrap" }}>
-              {[{ t: "Blé", a: "l'agriculture", l: "il cultive la terre" }, { t: "Mouton", a: "l'élevage", l: "il élève des animaux" }, { t: "Poterie", a: "la poterie", l: "il range sa récolte" }, { t: "Dolmen", a: "le village", l: "il vit avec d'autres" }].map((c) => (
-                <div key={c.t} style={{ textAlign: "center", width: "40mm" }}>
-                  <div style={{ width: "40mm", margin: "0 auto" }}><WikiImage title={c.t} alt={c.a} accent={HIST} height="24mm" /></div>
-                  <div style={{ fontSize: "16px", fontWeight: 800, color: HIST }}>{c.a}</div>
-                  <div style={{ fontSize: "13px", color: "#333" }}>{c.l}</div>
+              {[{ t: "Blé", a: "l'agriculture", l: "il cultive la terre" }, { t: "Mouton", a: "l'élevage", l: "il élève des animaux" }, { t: "Çatal Höyük", a: "le village", l: "il s'installe ensemble" }, { t: "Poterie", a: "la poterie", l: "il range sa récolte" }, { t: "Carnac", a: "les mégalithes", l: "il dresse de grandes pierres" }].map((c) => (
+                <div key={c.t} style={{ textAlign: "center", width: "31mm" }}>
+                  <div style={{ width: "31mm", margin: "0 auto" }}><WikiImage title={c.t} alt={c.a} accent={HIST} height="20mm" /></div>
+                  <div style={{ fontSize: "14px", fontWeight: 800, color: HIST }}>{c.a}</div>
+                  <div style={{ fontSize: "11px", color: "#333" }}>{c.l}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div style={{ border: "2px dashed #94a3b8", borderRadius: "5mm", padding: "3mm 5mm" }}>
-            <div style={{ fontSize: "15px", fontWeight: 800, color: "#475569" }}>Des mots à retenir</div>
-            <div style={{ fontSize: "15px", color: "#333" }}><b>Agriculture</b> = cultiver la terre · <b>Élevage</b> = élever des animaux · <b>Sédentaire</b> = qui reste au même endroit (le contraire de nomade).</div>
+          <div style={{ border: `3px solid ${HIST}`, borderRadius: "5mm", padding: "3mm 5mm" }}>
+            <div style={{ fontSize: "24px", fontWeight: 800, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center", marginBottom: "1mm" }}>Les dates clés</div>
+            {NEO_DATES.map((d, k) => (
+              <div key={k} style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "1mm" }}>
+                <span style={{ flexShrink: 0, minWidth: "46mm", fontSize: "12px", fontWeight: 800, color: "#fff", background: HIST, borderRadius: "999px", padding: "0.5mm 3mm", textAlign: "center" }}>{d.quand}</span>
+                <span style={{ fontSize: "13px", fontWeight: 600, color: "#333" }}>{d.quoi}</span>
+              </div>
+            ))}
           </div>
-          <p style={{ textAlign: "center", fontSize: "18px", fontFamily: "'Caveat','Comic Neue',cursive" }}>
-            Mon astuce&nbsp;: au Néolithique, la pierre est <b>polie</b> (lisse) et l'homme ne chasse plus seulement : il <b>produit</b> sa nourriture.
+          <div style={{ border: "2px dashed #94a3b8", borderRadius: "5mm", padding: "2.5mm 5mm" }}>
+            <div style={{ fontSize: "14px", fontWeight: 800, color: "#475569" }}>Des mots à retenir</div>
+            <div style={{ fontSize: "13px", color: "#333" }}><b>Agriculture</b> = cultiver la terre · <b>Élevage</b> = élever des animaux · <b>Sédentaire</b> = qui reste au même endroit (≠ nomade) · <b>Mégalithe</b> = très grande pierre (menhir, dolmen).</div>
+          </div>
+          <p style={{ textAlign: "center", fontSize: "16px", fontFamily: "'Caveat','Comic Neue',cursive", margin: 0 }}>
+            Mon astuce&nbsp;: au Néolithique, l'homme ne se contente plus de chercher sa nourriture, il la <b>produit</b> !
           </p>
         </div>
       </div>
@@ -388,7 +465,28 @@ export function MasseLecon() {
 }
 
 /* --- Séance 2 : LE VOLUME ET LA TEMPÉRATURE --- */
-const VT_ETAPES = ["Le volume", "La température", "Quel instrument ?", "Je retiens"];
+const VT_ETAPES = ["Le volume", "La température", "Le tableau de conversion", "Quel instrument ?", "Je retiens"];
+/** Petit tableau de conversion des contenances (projeté et sur la leçon). */
+function TableauConversion({ big }: { big?: boolean }) {
+  const fs = big ? "clamp(18px,3.2vh,30px)" : "15px";
+  const th: React.CSSProperties = { border: `2px solid ${MES}`, padding: big ? "2mm 4mm" : "1mm 2mm", textAlign: "center", fontWeight: 800, color: "#fff", background: MES };
+  const td: React.CSSProperties = { border: `2px solid ${MES}`, padding: big ? "2mm 4mm" : "1mm 2mm", textAlign: "center", fontWeight: 700, color: "#0f172a" };
+  const sub: React.CSSProperties = { fontSize: big ? "0.5em" : "10px", fontWeight: 600, color: "#64748b", display: "block" };
+  return (
+    <table style={{ borderCollapse: "collapse", margin: "0 auto", fontSize: fs, fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <thead><tr>
+        <th style={th}>L<span style={sub}>litre</span></th>
+        <th style={th}>dL<span style={sub}>décilitre</span></th>
+        <th style={th}>cL<span style={sub}>centilitre</span></th>
+        <th style={th}>mL<span style={sub}>millilitre</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td style={td}>1</td><td style={td}>0</td><td style={td}>0</td><td style={td}>0</td></tr>
+        <tr><td style={td}>1</td><td style={td}>5</td><td style={td}>0</td><td style={td}>0</td></tr>
+      </tbody>
+    </table>
+  );
+}
 export function VolTempDiapo() {
   const [i, setI] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -418,6 +516,15 @@ export function VolTempDiapo() {
           </div>
         )}
         {i === 2 && (
+          <div className="w-full max-w-3xl text-center">
+            <h2 className="mb-2 text-4xl font-extrabold" style={{ color: MES }}>Le tableau de conversion</h2>
+            <p className="mb-4 text-xl font-semibold text-stone-600">Pour passer d'une unité à l'autre, je range les chiffres dans les bonnes colonnes.</p>
+            <TableauConversion big />
+            <div className="mx-auto mt-4 max-w-xl rounded-2xl p-3 text-xl font-bold text-white" style={{ background: MES }}>1 L = 10 dL = 100 cL = 1000 mL</div>
+            <p className="mt-3 text-lg text-stone-600">Exemple (2ᵉ ligne) : <b>1 L 500 mL</b> = 1 500 mL (une grande bouteille de soda).</p>
+          </div>
+        )}
+        {i === 3 && (
           <div className="w-full max-w-3xl">
             <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: MES }}>Quel instrument ?</h2>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -429,7 +536,7 @@ export function VolTempDiapo() {
             <p className="mt-4 text-center text-lg text-stone-600">Chaque grandeur a son <b>instrument</b> et son <b>unité</b>.</p>
           </div>
         )}
-        {i === 3 && (
+        {i === 4 && (
           <div className="text-center">
             <div className="mb-3 text-6xl">🥛🌡️</div>
             <h1 className="text-4xl font-extrabold sm:text-5xl" style={{ color: MES }}>Je retiens</h1>
@@ -465,16 +572,91 @@ export function VolTempLecon() {
         <p style={{ textAlign: "center", fontSize: "18px", margin: "0 auto 5mm", maxWidth: "158mm", lineHeight: 1.4 }}>
           Pour mesurer, j'utilise le bon <b>instrument</b> et la bonne <b>unité</b>.
         </p>
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-around", gap: "5mm" }}>
-          <Ligne title="Éprouvette graduée" alt="un verre doseur" grandeur="Le volume (les liquides)" instrument="un verre doseur / une éprouvette graduée" unite="litre (L), millilitre (mL) — 1 L = 1000 mL" />
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "4mm" }}>
+          <Ligne title="Éprouvette graduée" alt="un verre doseur" grandeur="Le volume (les liquides)" instrument="un verre doseur / une éprouvette graduée" unite="litre (L), millilitre (mL)" />
           <Ligne title="Thermomètre" alt="un thermomètre" grandeur="La température" instrument="un thermomètre" unite="degré Celsius (°C)" />
-          <div style={{ border: "2px dashed #94a3b8", borderRadius: "5mm", padding: "3mm 5mm" }}>
-            <div style={{ fontSize: "15px", fontWeight: 800, color: "#475569" }}>Des repères</div>
-            <div style={{ fontSize: "15px", color: "#333" }}>Une petite bouteille = 50 cL = 500 mL · l'eau gèle à 0 °C · notre corps est à 37 °C.</div>
+          <div style={{ border: `3px solid ${MES}`, borderRadius: "5mm", padding: "3mm 5mm" }}>
+            <div style={{ fontSize: "22px", fontWeight: 800, color: MES, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center", marginBottom: "2mm" }}>Le tableau de conversion des contenances</div>
+            <TableauConversion />
+            <div style={{ textAlign: "center", marginTop: "2mm", fontSize: "16px", fontWeight: 800, color: MES }}>1 L = 10 dL = 100 cL = 1000 mL</div>
+            <div style={{ textAlign: "center", fontSize: "13px", color: "#555" }}>(2ᵉ ligne : 1 L 500 mL = 1 500 mL)</div>
           </div>
-          <p style={{ textAlign: "center", fontSize: "18px", fontFamily: "'Caveat','Comic Neue',cursive" }}>
+          <div style={{ border: "2px dashed #94a3b8", borderRadius: "5mm", padding: "2.5mm 5mm" }}>
+            <div style={{ fontSize: "14px", fontWeight: 800, color: "#475569" }}>Des repères</div>
+            <div style={{ fontSize: "14px", color: "#333" }}>Une petite bouteille = 50 cL = 500 mL · une brique de lait = 1 L · l'eau gèle à 0 °C · notre corps est à 37 °C.</div>
+          </div>
+          <p style={{ textAlign: "center", fontSize: "16px", fontFamily: "'Caveat','Comic Neue',cursive", margin: 0 }}>
             Mon astuce&nbsp;: à chaque grandeur son instrument et son unité !
           </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* --- Fiche « expérience à la maison » : 1 L, combien de verres ? --- */
+export function ExperienceBouteilleMaison() {
+  const Dots = ({ w = "22mm" }: { w?: string }) => (
+    <span style={{ display: "inline-block", width: w, borderBottom: "2px dotted #94a3b8", height: "1em", verticalAlign: "bottom" }} />
+  );
+  const Step = ({ n, children }: { n: number; children: React.ReactNode }) => (
+    <div style={{ display: "flex", gap: "3mm", alignItems: "flex-start", marginBottom: "2mm" }}>
+      <span style={{ flexShrink: 0, width: "7mm", height: "7mm", borderRadius: "50%", background: MES, color: "#fff", fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px" }}>{n}</span>
+      <span style={{ fontSize: "15px", color: "#1f2937", lineHeight: 1.4 }}>{children}</span>
+    </div>
+  );
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: "2px solid #111", paddingBottom: "2mm" }}>
+          <div>
+            <h1 style={{ fontSize: "34px", margin: 0, fontWeight: 700, color: MES, fontFamily: "'Caveat','Comic Neue',cursive" }}>Mon expérience à la maison</h1>
+            <div style={{ fontSize: "20px", fontWeight: 800, color: "#0f172a" }}>1 litre, combien de verres&nbsp;?</div>
+          </div>
+          <div style={{ fontSize: "14px" }}>Prénom&nbsp;: <Dots w="34mm" /></div>
+        </div>
+
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", gap: "4mm", marginTop: "4mm" }}>
+          <div style={{ display: "flex", gap: "5mm", alignItems: "center" }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: "20px", fontWeight: 800, color: MES, fontFamily: "'Caveat','Comic Neue',cursive" }}>Ce qu'il me faut</div>
+              <div style={{ fontSize: "15px", color: "#333" }}>une <b>bouteille d'eau pleine de 1 litre (1 L)</b>, un <b>verre</b>, et un évier (pour ne pas tout renverser&nbsp;!).</div>
+            </div>
+            <div style={{ width: "30mm", flexShrink: 0 }}><WikiImage title="Bouteille d'eau" alt="une bouteille d'eau" accent={MES} height="30mm" /></div>
+          </div>
+
+          <div style={{ border: `3px solid ${MES}`, borderRadius: "5mm", padding: "4mm 5mm" }}>
+            <div style={{ fontSize: "20px", fontWeight: 800, color: MES, fontFamily: "'Caveat','Comic Neue',cursive", marginBottom: "2mm" }}>Ce que je fais</div>
+            <Step n={1}>Je remplis mon verre <b>à ras bord</b> en versant l'eau de la bouteille.</Step>
+            <Step n={2}>Je recommence jusqu'à <b>vider toute la bouteille</b> (1 litre), et je <b>compte</b> les verres.</Step>
+            <Step n={3}>J'écris mon résultat&nbsp;: avec 1 litre, j'ai rempli <Dots /> verres.</Step>
+          </div>
+
+          <div style={{ border: `3px solid ${MES}`, borderRadius: "5mm", padding: "4mm 5mm" }}>
+            <div style={{ fontSize: "20px", fontWeight: 800, color: MES, fontFamily: "'Caveat','Comic Neue',cursive", marginBottom: "2mm" }}>Je réfléchis</div>
+            <div style={{ fontSize: "15px", color: "#1f2937", lineHeight: 1.6 }}>
+              1 litre = <b>1000 mL</b>. Si j'ai rempli <Dots w="14mm" /> verres, alors <b>un verre</b> contient à peu près&nbsp;:<br />
+              1000 mL ÷ <Dots w="14mm" /> = <Dots w="20mm" /> mL environ.
+            </div>
+          </div>
+
+          <div style={{ border: "2px dashed #94a3b8", borderRadius: "5mm", padding: "3mm 5mm" }}>
+            <div style={{ fontSize: "15px", fontWeight: 800, color: "#475569", marginBottom: "1mm" }}>Pour aller plus loin (si je veux)</div>
+            <div style={{ fontSize: "14px", color: "#333" }}>Je refais avec une <b>petite bouteille de 50 cL (500 mL)</b>&nbsp;: combien de verres&nbsp;? <Dots w="16mm" /> verres.</div>
+            <table style={{ borderCollapse: "collapse", margin: "2mm auto 0", fontSize: "13px", width: "100%" }}>
+              <thead><tr>
+                <th style={{ border: "2px solid #94a3b8", padding: "1.5mm", background: "#f1f5f9" }}>Ma bouteille</th>
+                <th style={{ border: "2px solid #94a3b8", padding: "1.5mm", background: "#f1f5f9" }}>Sa contenance</th>
+                <th style={{ border: "2px solid #94a3b8", padding: "1.5mm", background: "#f1f5f9" }}>Nombre de verres</th>
+              </tr></thead>
+              <tbody>
+                <tr><td style={{ border: "2px solid #94a3b8", padding: "3mm" }}>la grande</td><td style={{ border: "2px solid #94a3b8", padding: "3mm", textAlign: "center" }}>1 L = 1000 mL</td><td style={{ border: "2px solid #94a3b8", padding: "3mm" }} /></tr>
+                <tr><td style={{ border: "2px solid #94a3b8", padding: "3mm" }}>la petite</td><td style={{ border: "2px solid #94a3b8", padding: "3mm", textAlign: "center" }}>50 cL = 500 mL</td><td style={{ border: "2px solid #94a3b8", padding: "3mm" }} /></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style={{ textAlign: "center", fontSize: "16px", fontWeight: 700, color: MES, margin: 0 }}>Je rapporte ma fiche en classe pour comparer nos résultats&nbsp;! 🥤</p>
         </div>
       </div>
     </div>
