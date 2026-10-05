@@ -63,7 +63,11 @@ export function ActivityEditor({
       const hasBreak = !!el.querySelector?.(".fiche-pagebreak");
       const opts = isPaysage
         ? { orientation: "landscape" as const, singlePage: true }
-        : (isFiche && !hasBreak ? { singlePage: true } : {});
+        : isFiche
+          ? (hasBreak ? {} : { singlePage: true })
+          // Document non-fiche (ex. un diaporama à projeter) : instantané sur
+          // UNE page en paysage, plutôt qu'une pagination bancale/vide.
+          : { orientation: "landscape" as const, singlePage: true };
       await downloadElementPdf(el, `${safeFileName(name)}.pdf`, opts);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
