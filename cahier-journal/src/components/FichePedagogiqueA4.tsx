@@ -42,6 +42,9 @@ export interface FicheData {
 // Chrome des fiches en ENCRE NOIRE (plus d'orange « IA »). Les couleurs vives
 // restent réservées aux illustrations et au matériel pédagogique (base 10…).
 const ORANGE = "#1f2937";
+// Police des CONSIGNES : équivalent Aptos (Word) pour la lisibilité. Aptos est
+// utilisé s'il est installé (Office), sinon repli propre.
+export const CONSIGNE_FONT = "'Aptos','Aptos Display','Inter','Segoe UI',system-ui,sans-serif";
 const H: React.CSSProperties = { color: ORANGE, fontWeight: 800 };
 const line: React.CSSProperties = { borderBottom: "1.5px solid #9aa4ad", height: "9mm" };
 
@@ -306,7 +309,7 @@ export function FichePedagogiqueA4({ data }: { data: FicheData }) {
               <div key={i} className="print-avoid-break" style={{ display: "flex", gap: "3mm" }}>
                 {b.picto && <div style={{ flexShrink: 0 }}><Picto name={b.picto} size={40} /></div>}
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: "15px", fontWeight: 700 }}>
+                  <div style={{ fontSize: "15px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>
                     <span style={{ fontWeight: 800 }}>{exNo}.</span>{" "}
                     <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{b.consigne}</span>
                     {b.aide && <span style={{ marginLeft: "2mm", fontSize: "11px", fontWeight: 700, color: "#444", background: "#f1f3f5", border: "1px solid #ced4da", borderRadius: "999px", padding: "0.3mm 2mm" }}>aide : {b.aide}</span>}

@@ -98,6 +98,11 @@ programmations** ou tout autre contenu qui sera affiché dans l'appli :
   visuels), enfant-friendly. Toujours privilégier le concret et le ludique.
 - Le composant `FichePedagogiqueA4` applique ce modèle ; s'appuyer dessus (et sur
   de vraies fiches de CE1-CE2 comme référence) pour toute nouvelle fiche.
+- **Police des CONSIGNES** : les consignes d'exercices s'écrivent dans une police
+  **équivalente à Aptos (Body)** de Word, pour la lisibilité (constante `CONSIGNE_FONT`
+  dans `FichePedagogiqueA4` : `'Aptos','Inter','Segoe UI',system-ui`). Aptos est utilisé
+  s'il est installé (Office). **Seules les consignes** changent ; le reste (écriture des
+  élèves, exemples) garde la cursive (Caveat/Borel).
 - **Format PAYSAGE disponible** (nouveau modèle validé, ex. `FicheGenreNombrePaysage`) :
   feuille **A4 paysage** (`.fiche-a4 .fiche-a4-landscape`) avec **exercices variés et
   illustrés** (vraies photos Wikimedia, étiquettes à colorier, listes, réécriture…), un

@@ -5,6 +5,7 @@
  * Deux niveaux : ConstruireCE1 (100) et ConstruireCE2 (1 000).
  */
 import type { ReactNode } from "react";
+import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
 
 const MATHS = "#0d9488"; // teal (pastilles, filets)
 
@@ -46,7 +47,7 @@ function Ex({ n, titre, exemple, children }: { n: number; titre: ReactNode; exem
     <div className="print-avoid-break" style={{ border: `1.5px solid ${MATHS}33`, borderRadius: "3mm", padding: "2.5mm 3mm", background: "#fff", marginBottom: "3mm", boxShadow: "0 1px 0 #e2e8f0" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "2mm", marginBottom: "1mm" }}>
         <span style={{ flexShrink: 0, width: "6mm", height: "6mm", borderRadius: "50%", background: MATHS, color: "#fff", fontWeight: 800, fontSize: "13px", display: "grid", placeItems: "center" }}>{n}</span>
-        <span style={{ fontSize: "12.5px", fontWeight: 700 }}>{titre}</span>
+        <span style={{ fontSize: "12.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>{titre}</span>
       </div>
       {exemple && (
         <div style={{ margin: "0 0 1.5mm", display: "inline-flex", alignItems: "center", gap: "2mm", background: "#f0fdfa", border: "1px solid #ccfbf1", borderRadius: "5px", padding: "0.3mm 2.5mm" }}>
