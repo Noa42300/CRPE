@@ -108,3 +108,39 @@ export const POESIE_HARENG_SAUR: PoesieData = {
 export function PoesieHarengSaur() {
   return <PoesieFiche data={POESIE_HARENG_SAUR} />;
 }
+
+/* « Le temps a laissé son manteau » — Charles d'Orléans (1394-1465), domaine    */
+/* public. Rondeau court (3 strophes), lumineux : idéal, rapide à mémoriser.     */
+export const POESIE_TEMPS_MANTEAU: PoesieData = {
+  titre: "Le temps a laissé son manteau",
+  auteur: "Charles d'Orléans",
+  info: "domaine public",
+  wiki: "Soleil",
+  wikiAlt: "le soleil",
+  note: "Poésie à apprendre par cœur pour lundi prochain (cahier blanc). On la récitera devant la classe.",
+  strophes: [
+    [
+      "Le temps a laissé son manteau",
+      "De vent, de froidure et de pluie,",
+      "Et s'est vêtu de broderie,",
+      "De soleil luisant, clair et beau.",
+    ],
+    [
+      "Il n'y a bête, ni oiseau",
+      "Qu'en son jargon ne chante ou crie :",
+      "« Le temps a laissé son manteau",
+      "De vent, de froidure et de pluie ! »",
+    ],
+    [
+      "Rivière, fontaine et ruisseau",
+      "Portent, en livrée jolie,",
+      "Gouttes d'argent d'orfèvrerie ;",
+      "Chacun s'habille de nouveau :",
+      "Le temps a laissé son manteau.",
+    ],
+  ],
+};
+
+export function PoesieTempsManteau() {
+  return <PoesieFiche data={POESIE_TEMPS_MANTEAU} />;
+}
