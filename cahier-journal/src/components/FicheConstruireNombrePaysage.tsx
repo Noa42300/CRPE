@@ -12,25 +12,33 @@ const MATHS = "#0d9488"; // teal (pastilles, filets)
 function MiniBase10({ centaines = 0, dizaines = 0, unites = 0 }: { centaines?: number; dizaines?: number; unites?: number }) {
   const u = "2.6mm";
   const cb = (bg: string, bd = "0.3mm solid #fff"): React.CSSProperties => ({ width: u, height: u, background: bg, border: bd, boxSizing: "border-box" });
+  // FLEX (pas de CSS grid) : html2canvas rend mal `grid repeat(…)` à l'export PDF.
   return (
     <div style={{ display: "flex", alignItems: "flex-end", gap: "2.5mm", flexWrap: "wrap", margin: "1mm 0" }}>
       {Array.from({ length: centaines }).map((_, i) => (
-        <div key={`c${i}`} style={{ display: "grid", gridTemplateColumns: `repeat(10, ${u})`, gridAutoRows: u, border: "0.4mm solid #2563eb" }}>
-          {Array.from({ length: 100 }).map((_, k) => <div key={k} style={cb("#93c5fd")} />)}
+        <div key={`c${i}`} style={{ display: "flex", flexDirection: "column", border: "0.4mm solid #2563eb", width: "fit-content" }}>
+          {Array.from({ length: 10 }).map((_, r) => (
+            <div key={r} style={{ display: "flex" }}>{Array.from({ length: 10 }).map((_, c) => <div key={c} style={cb("#93c5fd")} />)}</div>
+          ))}
         </div>
       ))}
       {Array.from({ length: dizaines }).map((_, i) => (
-        <div key={`d${i}`} style={{ display: "grid", gridTemplateColumns: u, gridAutoRows: u, border: "0.4mm solid #c9481f" }}>
+        <div key={`d${i}`} style={{ display: "flex", flexDirection: "column", border: "0.4mm solid #c9481f", width: "fit-content" }}>
           {Array.from({ length: 10 }).map((_, k) => <div key={k} style={cb("#f6b58f")} />)}
         </div>
       ))}
       {unites > 0 && (
-        <div style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(unites, 5)}, ${u})`, gridAutoRows: u, gap: "0.6mm" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", width: mmUnites(unites), gap: "0.6mm" }}>
           {Array.from({ length: unites }).map((_, k) => <div key={k} style={cb("#4ade80", "0.3mm solid #16a34a")} />)}
         </div>
       )}
     </div>
   );
+}
+function mmUnites(n: number): string {
+  // largeur pour ~5 unités par rangée (2.6mm + petit gap)
+  const perRow = Math.min(n, 5);
+  return `${perRow * 3.2 + 1}mm`;
 }
 
 function Ex({ n, titre, exemple, children }: { n: number; titre: ReactNode; exemple?: ReactNode; children?: ReactNode }) {
