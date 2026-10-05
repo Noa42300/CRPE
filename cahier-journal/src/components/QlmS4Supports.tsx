@@ -169,6 +169,124 @@ export function PrehistoireLecon() {
     </div>
   );
 }
+/* ===================== HISTOIRE — Le Néolithique (séance 5) ===================== */
+/* Suite de « La Préhistoire » : on zoome sur LE grand changement du Néolithique
+   (l'homme devient agriculteur et éleveur, se sédentarise). Vraies photos libres. */
+const NEO_ETAPES = ["Le grand changement", "Les nouveautés", "Une vraie révolution !", "Je retiens"];
+export function NeolithiqueDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const last = NEO_ETAPES.length - 1;
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[980px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: HIST }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Histoire · Le Néolithique</span>
+        <div className="ml-2 flex gap-1.5">{NEO_ETAPES.map((t, k) => <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full" style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />)}</div>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
+        {i === 0 && (
+          <div className="w-full max-w-4xl">
+            <h1 className="text-center text-4xl font-extrabold sm:text-5xl" style={{ color: HIST }}>L'homme devient agriculteur</h1>
+            <p className="mx-auto mt-2 max-w-3xl text-center text-xl font-semibold text-stone-600">Il y a environ <b>10 000 ans</b>, à la fin de la Préhistoire, tout change : c'est le <b>Néolithique</b>.</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border-4 p-2 text-center" style={{ borderColor: "#a8a29e" }}>
+                <div className="text-sm font-extrabold uppercase text-stone-500">Avant</div>
+                <WikiImage title="Chasse" alt="la chasse" accent={HIST} height="clamp(110px,20vh,180px)" />
+                <div className="mt-1 text-lg font-bold text-stone-700">Il chasse et cueille, il se <b>déplace</b> tout le temps (<b>nomade</b>).</div>
+              </div>
+              <div className="rounded-2xl border-4 p-2 text-center" style={{ borderColor: HIST }}>
+                <div className="text-sm font-extrabold uppercase" style={{ color: HIST }}>Après</div>
+                <WikiImage title="Blé" alt="un champ de blé" accent={HIST} height="clamp(110px,20vh,180px)" />
+                <div className="mt-1 text-lg font-bold text-stone-700">Il <b>cultive</b> la terre et <b>élève</b> des animaux, il s'<b>installe</b> (<b>sédentaire</b>).</div>
+              </div>
+            </div>
+          </div>
+        )}
+        {i === 1 && (
+          <div className="w-full max-w-4xl">
+            <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: HIST }}>Les nouveautés du Néolithique</h2>
+            <div className="grid gap-3 sm:grid-cols-4">
+              <ImgReveal title="Blé" alt="champ de blé" mot="Pour manger ?" rep="il cultive (agriculture)" accent={HIST} />
+              <ImgReveal title="Mouton" alt="un mouton" mot="Les animaux ?" rep="il les élève (élevage)" accent={HIST} />
+              <ImgReveal title="Poterie" alt="une poterie" mot="Pour ranger ?" rep="il fabrique des poteries" accent={HIST} />
+              <ImgReveal title="Dolmen" alt="un dolmen" mot="Où vit-il ?" rep="dans des villages" accent={HIST} />
+            </div>
+            <p className="mt-4 text-center text-lg text-stone-600">Il invente aussi de <b>nouveaux outils</b> en pierre <b>polie</b> (bien lisse) et se met à <b>tisser</b> des vêtements.</p>
+          </div>
+        )}
+        {i === 2 && (
+          <div className="w-full max-w-3xl">
+            <h2 className="mb-4 text-center text-4xl font-extrabold" style={{ color: HIST }}>Pourquoi c'est une révolution ?</h2>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <RevealCard q="Doit-il encore se déplacer ?" a="non, il reste au même endroit" accent={HIST} />
+              <RevealCard q="Que peut-il faire de sa récolte ?" a="la stocker pour plus tard" accent={HIST} />
+              <RevealCard q="Les familles se regroupent et forment…" a="les premiers villages" accent={HIST} />
+              <RevealCard q="Pierre taillée (avant) ou pierre polie ?" a="pierre polie au Néolithique" accent={HIST} />
+            </div>
+            <p className="mt-4 text-center text-lg text-stone-600">Sa vie <b>change complètement</b> : on appelle ça la <b>révolution néolithique</b>.</p>
+          </div>
+        )}
+        {i === 3 && (
+          <div className="text-center">
+            <div className="mb-3 text-6xl">🌾🐑🏺</div>
+            <h1 className="text-4xl font-extrabold sm:text-5xl" style={{ color: HIST }}>Je retiens</h1>
+            <p className="mt-4 text-2xl font-semibold text-stone-600">Au <b>Néolithique</b>, l'homme devient <b>agriculteur</b> et <b>éleveur</b>.</p>
+            <p className="text-2xl font-semibold text-stone-600">Il se <b>sédentarise</b> et construit les <b>premiers villages</b>.</p>
+          </div>
+        )}
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: HIST, color: HIST }}>◀</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{NEO_ETAPES.length} · {NEO_ETAPES[i]}</span>
+        <button onClick={() => setI((n) => Math.min(last, n + 1))} disabled={i === last} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: HIST }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
+export function NeolithiqueLecon() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <h1 style={{ fontSize: "40px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive" }}>Le Néolithique</h1>
+        <p style={{ textAlign: "center", fontSize: "18px", margin: "0 auto 5mm", maxWidth: "158mm", lineHeight: 1.4 }}>
+          À la fin de la Préhistoire, il y a environ <b>10 000 ans</b>, l'homme change de vie : il devient <b>agriculteur</b> et <b>éleveur</b>.
+        </p>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-around", gap: "5mm" }}>
+          <div style={{ border: `3px solid ${HIST}`, borderRadius: "5mm", padding: "4mm 5mm" }}>
+            <div style={{ fontSize: "26px", fontWeight: 800, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center" }}>Le grand changement</div>
+            <div style={{ display: "flex", gap: "4mm", alignItems: "center", justifyContent: "space-around", flexWrap: "wrap", marginTop: "1mm" }}>
+              <div style={{ textAlign: "center" }}><Bulle mot="avant : nomade" color="#a8a29e" /><div style={{ fontSize: "14px", color: "#555" }}>il chassait et se déplaçait</div></div>
+              <div style={{ fontSize: "28px", fontWeight: 800, color: HIST }}>➜</div>
+              <div style={{ textAlign: "center" }}><Bulle mot="après : sédentaire" color={HIST} /><div style={{ fontSize: "14px", color: "#555" }}>il s'installe au même endroit</div></div>
+            </div>
+          </div>
+          <div style={{ border: `3px solid ${HIST}`, borderRadius: "5mm", padding: "4mm 5mm" }}>
+            <div style={{ fontSize: "26px", fontWeight: 800, color: HIST, fontFamily: "'Caveat','Comic Neue',cursive", textAlign: "center", marginBottom: "2mm" }}>Les nouveautés</div>
+            <div style={{ display: "flex", gap: "3mm", alignItems: "flex-start", justifyContent: "space-around", flexWrap: "wrap" }}>
+              {[{ t: "Blé", a: "l'agriculture", l: "il cultive la terre" }, { t: "Mouton", a: "l'élevage", l: "il élève des animaux" }, { t: "Poterie", a: "la poterie", l: "il range sa récolte" }, { t: "Dolmen", a: "le village", l: "il vit avec d'autres" }].map((c) => (
+                <div key={c.t} style={{ textAlign: "center", width: "40mm" }}>
+                  <div style={{ width: "40mm", margin: "0 auto" }}><WikiImage title={c.t} alt={c.a} accent={HIST} height="24mm" /></div>
+                  <div style={{ fontSize: "16px", fontWeight: 800, color: HIST }}>{c.a}</div>
+                  <div style={{ fontSize: "13px", color: "#333" }}>{c.l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ border: "2px dashed #94a3b8", borderRadius: "5mm", padding: "3mm 5mm" }}>
+            <div style={{ fontSize: "15px", fontWeight: 800, color: "#475569" }}>Des mots à retenir</div>
+            <div style={{ fontSize: "15px", color: "#333" }}><b>Agriculture</b> = cultiver la terre · <b>Élevage</b> = élever des animaux · <b>Sédentaire</b> = qui reste au même endroit (le contraire de nomade).</div>
+          </div>
+          <p style={{ textAlign: "center", fontSize: "18px", fontFamily: "'Caveat','Comic Neue',cursive" }}>
+            Mon astuce&nbsp;: au Néolithique, la pierre est <b>polie</b> (lisse) et l'homme ne chasse plus seulement : il <b>produit</b> sa nourriture.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ===================== SCIENCES — Mesurer (2 séances) ===================== */
 const MES = "#0e7490"; // sciences (teal)
 
