@@ -20,6 +20,7 @@ import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
 import { Base10Plaques, Base10BarresUnites } from "./Base10Manip";
 import { ConstruireCE1, ConstruireCE2 } from "./FicheConstruireNombrePaysage";
+import { PoesieHarengSaur } from "./PoesieFiche";
 import { MotsAApprendre, dicteeById, ProgDicteesAnnee } from "./DicteeMaison";
 
 export interface SupportFourni {
@@ -1298,6 +1299,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "ang-verbs-diapo", label: "Action verbs — Diaporama à projeter (vraies photos, jeu du mime)", node: <AnglaisActionVerbsDiapo /> },
         { key: "ang-verbs-lecon", label: "Action verbs — Leçon illustrée à coller (cursive + photos)", node: <AnglaisVerbsLecon /> },
         { key: "ang-verbs-cartes", label: "Action verbs — Cartes à découper (image + « I run »)", node: <AnglaisVerbsCartes /> },
+      ];
+    case "poesieL5":
+      return [
+        { key: "poesie-hareng", label: "Poésie à apprendre — « Le hareng saur » (Charles Cros, domaine public)", node: <PoesieHarengSaur /> },
       ];
     case "angVerbs2":
       return [
