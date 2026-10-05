@@ -6,6 +6,7 @@
  * Deux niveaux : GNPaysageCE1 et GNPaysageCE2.
  */
 import { WikiImage } from "./WikiImage";
+import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
 
 const FEM = "#2563eb";  // féminin → BLEU (consigne enseignant)
 const MASC = "#dc2626"; // masculin → ROUGE
@@ -14,7 +15,7 @@ const PLUR = "#7c3aed"; // pluriel → VIOLET
 
 function Consigne({ n, children, aide }: { n: number; children: React.ReactNode; aide?: string }) {
   return (
-    <div style={{ fontSize: "12.5px", fontWeight: 700, marginBottom: "1.5mm" }}>
+    <div style={{ fontSize: "12.5px", fontWeight: 700, marginBottom: "1.5mm", fontFamily: CONSIGNE_FONT }}>
       <span style={{ fontWeight: 800 }}>{n}.</span>{" "}
       <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{children}</span>
       {aide && <span style={{ marginLeft: "2mm", fontSize: "10px", fontWeight: 700, color: "#444", background: "#f1f3f5", border: "1px solid #ced4da", borderRadius: "999px", padding: "0.2mm 2mm" }}>{aide}</span>}
