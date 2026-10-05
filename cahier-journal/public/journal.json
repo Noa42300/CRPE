@@ -6741,7 +6741,7 @@
       "note": "Maths : Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2). Reste de la journée à préparer."
      }
     ],
-    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 3) pour le lundi 12 octobre.",
+    "devoirs": "DICTÉE : apprendre la liste de mots (semaine 3) pour le lundi 12 octobre. POÉSIE : continuer à apprendre « Le temps a laissé son manteau » (récitation à venir). Terminer les fiches commencées si besoin.",
     "rappels": [
      {
       "id": "rap-20261006-inspe-photos-reglesdevie",
@@ -7029,36 +7029,8 @@
      "id": "d2026-10-06s8",
      "start": "13:45",
      "end": "15:10",
-     "disciplineId": "francais",
+     "disciplineId": "qlm",
      "activities": [
-      {
-       "id": "20261006fr2",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      },
       {
        "id": "mots3",
        "niveaux": [
@@ -7095,6 +7067,55 @@
        "bilan": "",
        "aReprendre": "",
        "devoirs": "Apprendre la liste de mots pour la dictée de lundi.",
+       "notesProchaine": ""
+      },
+      {
+       "id": "sciS5",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Sciences — Le volume et la température : clôture (2/2)",
+       "objectif": "Mesurer le volume d'un liquide (verre doseur, L/mL) et la température (thermomètre, °C) ; clôturer la séquence.",
+       "competence": "Mesurer un volume et une température ; connaître les instruments et les unités (L, mL, °C).",
+       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020 : grandeurs et mesures (contenances, températures).",
+       "progPeriode": "P1",
+       "progDomaine": "Questionner le monde — Sciences (grandeurs & mesures)",
+       "progSequence": "Mesurer des grandeurs",
+       "progSeance": "2/2 — volume & température",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "s1",
+         "label": "Le volume (15 min)",
+         "note": "- « La semaine dernière, on a mesuré la masse. Aujourd'hui : le volume et la température. »\n- « Le volume, c'est combien de liquide il y a : je le mesure avec un verre doseur. »\n- « Les unités sont le litre (L) et le millilitre (mL) ; 1 L = 1000 mL. »\n- « Je verse de l'eau et on lit ensemble la graduation. »\n- « À vous : combien de mL dans ce verre ? »\n(Manipulation d'un verre doseur / éprouvette si disponible.)"
+        },
+        {
+         "id": "s2",
+         "label": "La température (15 min)",
+         "note": "- « La température dit s'il fait chaud ou froid : je la mesure avec un thermomètre. »\n- « L'unité, c'est le degré Celsius (°C). »\n- « Repères : l'eau gèle à 0 °C, notre corps est à 37 °C. »\n- « On lit la température de la classe sur le thermomètre. »\n- « À votre avis, fait-il plus chaud dans la classe ou dehors ? »\n(Lecture d'un thermomètre ; observation.)"
+        },
+        {
+         "id": "s3",
+         "label": "On récapitule & leçon (15 min)",
+         "note": "- « On récapitule les trois grandeurs de la séquence : masse, volume, température. »\n- « Quel instrument pour chacune ? Quelle unité ? »\n- « On colle la leçon et on lit les deux parties (volume, température). »\n- « On souligne : 1 L = 1000 mL, et le °C pour la température. »\n- « On range le cahier : la séquence « mesurer » est terminée. »\n(Leçon imagée à coller ; bilan de séquence.)"
+        }
+       ],
+       "materiel": "Un verre doseur / une éprouvette graduée + de l'eau ; un thermomètre. Diaporama + leçon imagée — voir Documents à imprimer. Vidéo complémentaire « Le thermomètre » : https://www.youtube.com/watch?v=VNHRmdELNu4",
+       "video": "https://www.youtube.com/watch?v=jquO9Ryf5ks",
+       "differenciation": "CE1 : associer instrument ↔ grandeur, lire une graduation simple.\nCE2 : utiliser les unités (L/mL, °C), convertir 1 L = 1000 mL, lire une température.",
+       "depassement": "",
+       "correction": "Volume → verre doseur → L, mL (1 L = 1000 mL). Température → thermomètre → °C (eau gèle à 0 °C, corps à 37 °C).",
+       "obstacles": "Erreurs fréquentes : confondre masse et volume ; mal lire une graduation.\nRemédiation rapide : revenir à l'instrument (« avec quoi je mesure ? »), lire la graduation au niveau du liquide, manipuler.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
        "notesProchaine": ""
       }
      ]
@@ -7139,31 +7160,57 @@
      "id": "d2026-10-06s10",
      "start": "15:40",
      "end": "16:25",
-     "disciplineId": "autre",
+     "disciplineId": "qlm",
      "activities": [
       {
-       "id": "20261006ap",
+       "id": "histS5",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer (EPS / autre)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Histoire — Le Néolithique : l'homme devient agriculteur",
+       "objectif": "Comprendre le grand changement du Néolithique : l'homme passe de chasseur-cueilleur nomade à agriculteur-éleveur sédentaire, et fonde les premiers villages.",
+       "competence": "Se repérer dans le temps ; caractériser un moment clé de la Préhistoire (le Néolithique) et le situer sur la frise.",
+       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « se situer dans le temps » : repères de la Préhistoire (du Paléolithique au Néolithique).",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Questionner le monde — Histoire (le temps)",
+       "progSequence": "Le temps — de la frise à la Préhistoire",
+       "progSeance": "5",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "n1",
+         "label": "Rappel de la Préhistoire & entrée (8 min)",
+         "note": "- « La dernière fois, on a découvert la Préhistoire : les premiers hommes chassaient, faisaient du feu et peignaient dans les grottes. »\n- « À cette époque, ils étaient nomades : ils se déplaçaient tout le temps pour trouver à manger. »\n- « Aujourd'hui, on avance dans le temps, vers la fin de la Préhistoire : c'est le Néolithique. »\n- « On va voir qu'à ce moment-là, la vie des hommes change complètement. »\n- « Regardez la frise : on se place ici, il y a environ 10 000 ans. »\n(Je projette le diaporama et je montre le repère sur la frise de la S4.)"
+        },
+        {
+         "id": "n2",
+         "label": "Avant / après : le grand changement (12 min)",
+         "note": "- « Avant, pour manger, l'homme chassait les animaux et cueillait des fruits. »\n- « Maintenant, il apprend à cultiver la terre : il sème des graines et récolte du blé. On appelle ça l'agriculture. »\n- « Il apprend aussi à garder des animaux près de lui pour le lait, la viande et la laine : c'est l'élevage. »\n- « Comme il doit s'occuper de ses champs et de ses bêtes, il ne se déplace plus : il devient sédentaire. »\n- « Qui peut me dire le contraire de nomade ? » (sédentaire)\n(Je fais verbaliser le passage nomade → sédentaire avec les images « avant / après » du diaporama.)"
+        },
+        {
+         "id": "n3",
+         "label": "Les nouveautés & les premiers villages (15 min)",
+         "note": "- « Puisqu'il reste au même endroit, l'homme construit des maisons les unes à côté des autres : voilà les premiers villages. »\n- « Il invente de nouveaux outils en pierre polie, bien lisse, plus solides qu'avant. »\n- « Il fabrique des poteries en terre cuite pour garder sa récolte et transporter l'eau. »\n- « Il se met aussi à tisser pour fabriquer des vêtements. »\n- « À votre avis, pourquoi est-ce plus pratique de vivre au village ? » (on peut stocker la nourriture, se protéger, vivre ensemble)\n(Je révèle les images une à une ; je note au tableau : agriculture, élevage, village, poterie.)"
+        },
+        {
+         "id": "n4",
+         "label": "Leçon, trace écrite & frise (12 min)",
+         "note": "- « On colle la leçon dans le cahier de Questionner le monde et on la lit ensemble. »\n- « On souligne les deux mots importants : agriculture et élevage. »\n- « On retient : au Néolithique, l'homme devient agriculteur et éleveur, et il se sédentarise. »\n- « On replace ce moment sur la frise, tout à la fin de la Préhistoire. »\n- « Et après la Préhistoire, savez-vous ce qui commence ? » (l'invention de l'écriture, qui ouvre l'Antiquité)\n(Leçon imagée à coller ; je relie à la frise des dates clés vue en S4.)"
+        }
+       ],
+       "materiel": "Diaporama à projeter (vraies photos libres de droits) + leçon imagée à coller dans le cahier de Questionner le monde — voir Documents à imprimer. On réutilise la frise des dates clés de la S4 pour repérer « il y a ~10 000 ans ».",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : retenir le changement principal (nomade → sédentaire) et les deux mots « agriculture / élevage ».\nCE2 : ajouter « sédentaire », « premiers villages », la pierre polie, et expliquer pourquoi c'est une « révolution » (l'homme produit et stocke sa nourriture).",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "Agriculture = cultiver la terre (semer, récolter le blé). Élevage = garder et nourrir des animaux (mouton, chèvre, vache). Sédentaire = qui reste au même endroit (≠ nomade). Nouveautés du Néolithique : premiers villages, outils en pierre polie, poteries, tissage. La Préhistoire se termine avec l'invention de l'écriture (début de l'Antiquité).",
+       "obstacles": "Erreurs fréquentes : confondre Paléolithique et Néolithique ; croire que l'homme du Néolithique ne chasse plus du tout ; confondre nomade et sédentaire.\nRemédiation rapide : revenir à l'image « avant / après » ; faire reformuler « nomade = se déplace / sédentaire = reste au même endroit » ; préciser qu'il chasse encore un peu, mais que surtout il produit désormais sa nourriture.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -7206,65 +7253,10 @@
        "notesProchaine": ""
       }
      ]
-    },
-    {
-     "start": "13:45",
-     "end": "14:45",
-     "activities": [
-      {
-       "id": "sciS5",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "Sciences — Le volume et la température : clôture (2/2)",
-       "objectif": "Mesurer le volume d'un liquide (verre doseur, L/mL) et la température (thermomètre, °C) ; clôturer la séquence.",
-       "competence": "Mesurer un volume et une température ; connaître les instruments et les unités (L, mL, °C).",
-       "competenceRef": "Programmes cycle 2 (2020) — Questionner le monde : grandeurs et mesures (contenances, températures). À vérifier sur eduscol.",
-       "progPeriode": "P1",
-       "progDomaine": "Questionner le monde — Sciences (grandeurs & mesures)",
-       "progSequence": "Mesurer des grandeurs",
-       "progSeance": "2/2 — volume & température",
-       "progRef": "",
-       "organisation": [
-        "collectif",
-        "individuel"
-       ],
-       "roleEnseignant": [
-        "guidage"
-       ],
-       "deroulement": [
-        {
-         "id": "s1",
-         "label": "Le volume (15 min)",
-         "note": "- « La semaine dernière, on a mesuré la masse. Aujourd'hui : le volume et la température. »\n- « Le volume, c'est combien de liquide il y a : je le mesure avec un verre doseur. »\n- « Les unités sont le litre (L) et le millilitre (mL) ; 1 L = 1000 mL. »\n- « Je verse de l'eau et on lit ensemble la graduation. »\n- « À vous : combien de mL dans ce verre ? »\n(Manipulation d'un verre doseur / éprouvette si disponible.)"
-        },
-        {
-         "id": "s2",
-         "label": "La température (15 min)",
-         "note": "- « La température dit s'il fait chaud ou froid : je la mesure avec un thermomètre. »\n- « L'unité, c'est le degré Celsius (°C). »\n- « Repères : l'eau gèle à 0 °C, notre corps est à 37 °C. »\n- « On lit la température de la classe sur le thermomètre. »\n- « À votre avis, fait-il plus chaud dans la classe ou dehors ? »\n(Lecture d'un thermomètre ; observation.)"
-        },
-        {
-         "id": "s3",
-         "label": "On récapitule & leçon (15 min)",
-         "note": "- « On récapitule les trois grandeurs de la séquence : masse, volume, température. »\n- « Quel instrument pour chacune ? Quelle unité ? »\n- « On colle la leçon et on lit les deux parties (volume, température). »\n- « On souligne : 1 L = 1000 mL, et le °C pour la température. »\n- « On range le cahier : la séquence « mesurer » est terminée. »\n(Leçon imagée à coller ; bilan de séquence.)"
-        }
-       ],
-       "materiel": "Un verre doseur / une éprouvette graduée + de l'eau ; un thermomètre. Diaporama + leçon imagée — voir Documents à imprimer. Vidéo complémentaire « Le thermomètre » : https://www.youtube.com/watch?v=VNHRmdELNu4",
-       "video": "https://www.youtube.com/watch?v=jquO9Ryf5ks",
-       "differenciation": "CE1 : associer instrument ↔ grandeur, lire une graduation simple.\nCE2 : utiliser les unités (L/mL, °C), convertir 1 L = 1000 mL, lire une température.",
-       "depassement": "",
-       "correction": "Volume → verre doseur → L, mL (1 L = 1000 mL). Température → thermomètre → °C (eau gèle à 0 °C, corps à 37 °C).",
-       "obstacles": "Erreurs fréquentes : confondre masse et volume ; mal lire une graduation.\nRemédiation rapide : revenir à l'instrument (« avec quoi je mesure ? »), lire la graduation au niveau du liquide, manipuler.",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": ""
-      }
-     ]
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790500003005
+   "updatedAt": 1790501003005
   },
   {
    "date": "2026-10-07",

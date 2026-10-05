@@ -14,7 +14,7 @@ import { ColoriageMagique } from "./ColoriageMagique";
 import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./MesurerTempsDiapo";
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME, EPS_COURIR_EVAL } from "./EpsSeanceFiche";
-import { PrehistoireDiapo, PrehistoireLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon } from "./QlmS4Supports";
+import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon } from "./QlmS4Supports";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
@@ -1326,6 +1326,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "hist-prehist-diapo", label: "La Préhistoire — Diaporama à projeter (vraies photos)", node: <PrehistoireDiapo /> },
         { key: "hist-prehist-lecon", label: "La Préhistoire — Leçon imagée à coller (photos libres de droits)", node: <PrehistoireLecon /> },
+      ];
+    case "histS5":
+      return [
+        { key: "hist-neo-diapo", label: "Le Néolithique — Diaporama à projeter (vraies photos)", node: <NeolithiqueDiapo /> },
+        { key: "hist-neo-lecon", label: "Le Néolithique — Leçon imagée à coller (photos libres de droits)", node: <NeolithiqueLecon /> },
       ];
     case "sciS4":
       return [
