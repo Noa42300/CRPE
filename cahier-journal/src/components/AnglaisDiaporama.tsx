@@ -151,31 +151,33 @@ const AV_ETAPES = ["Action verbs", "Watch & repeat (1)", "Watch & repeat (2)", "
 const ecoleCursive = "'Borel','Comic Neue',cursive";
 
 /** Les 10 verbes d'action : image (Wikimedia) + anglais + français + phrase. */
-const ACTION_VERBS: { wiki: string; en: string; fr: string; phrase: string }[] = [
-  { wiki: "Course à pied", en: "run", fr: "courir", phrase: "I run" },
-  { wiki: "Saut", en: "jump", fr: "sauter", phrase: "I jump" },
-  { wiki: "Natation", en: "swim", fr: "nager", phrase: "I swim" },
-  { wiki: "Danse", en: "dance", fr: "danser", phrase: "I dance" },
-  { wiki: "Chant", en: "sing", fr: "chanter", phrase: "I sing" },
-  { wiki: "Applaudissement", en: "clap", fr: "taper des mains", phrase: "I clap" },
-  { wiki: "Repas", en: "eat", fr: "manger", phrase: "I eat" },
-  { wiki: "Boisson", en: "drink", fr: "boire", phrase: "I drink" },
-  { wiki: "Sommeil", en: "sleep", fr: "dormir", phrase: "I sleep" },
-  { wiki: "Marche à pied", en: "walk", fr: "marcher", phrase: "I walk" },
+// `fr` = infinitif (pour la leçon : read = lire) ; `je` = 1re personne
+// (pour les cartes : I read / je lis). On ne mélange jamais les deux.
+const ACTION_VERBS: { wiki: string; en: string; fr: string; je: string; phrase: string }[] = [
+  { wiki: "Course à pied", en: "run", fr: "courir", je: "je cours", phrase: "I run" },
+  { wiki: "Saut", en: "jump", fr: "sauter", je: "je saute", phrase: "I jump" },
+  { wiki: "Natation", en: "swim", fr: "nager", je: "je nage", phrase: "I swim" },
+  { wiki: "Danse", en: "dance", fr: "danser", je: "je danse", phrase: "I dance" },
+  { wiki: "Chant", en: "sing", fr: "chanter", je: "je chante", phrase: "I sing" },
+  { wiki: "Applaudissement", en: "clap", fr: "taper des mains", je: "je tape des mains", phrase: "I clap" },
+  { wiki: "Repas", en: "eat", fr: "manger", je: "je mange", phrase: "I eat" },
+  { wiki: "Boisson", en: "drink", fr: "boire", je: "je bois", phrase: "I drink" },
+  { wiki: "Sommeil", en: "sleep", fr: "dormir", je: "je dors", phrase: "I sleep" },
+  { wiki: "Marche à pied", en: "walk", fr: "marcher", je: "je marche", phrase: "I walk" },
 ];
 
 /** Série 2 — nouveaux verbes d'action (pour le jeu des mimes). */
-export const ACTION_VERBS2: { wiki: string; en: string; fr: string; phrase: string }[] = [
-  { wiki: "Escalade", en: "climb", fr: "grimper", phrase: "I climb" },
-  { wiki: "Cyclisme", en: "ride a bike", fr: "faire du vélo", phrase: "I ride a bike" },
-  { wiki: "Lancer du poids", en: "throw", fr: "lancer", phrase: "I throw" },
-  { wiki: "Baseball", en: "catch", fr: "attraper", phrase: "I catch" },
-  { wiki: "Football", en: "kick", fr: "donner un coup de pied", phrase: "I kick" },
-  { wiki: "Lecture", en: "read", fr: "lire", phrase: "I read" },
-  { wiki: "Écriture", en: "write", fr: "écrire", phrase: "I write" },
-  { wiki: "Dessin", en: "draw", fr: "dessiner", phrase: "I draw" },
-  { wiki: "Cuisine", en: "cook", fr: "cuisiner", phrase: "I cook" },
-  { wiki: "Oiseau", en: "fly", fr: "voler", phrase: "I fly" },
+export const ACTION_VERBS2: { wiki: string; en: string; fr: string; je: string; phrase: string }[] = [
+  { wiki: "Escalade", en: "climb", fr: "grimper", je: "je grimpe", phrase: "I climb" },
+  { wiki: "Cyclisme", en: "ride a bike", fr: "faire du vélo", je: "je fais du vélo", phrase: "I ride a bike" },
+  { wiki: "Lancer du poids", en: "throw", fr: "lancer", je: "je lance", phrase: "I throw" },
+  { wiki: "Baseball", en: "catch", fr: "attraper", je: "j'attrape", phrase: "I catch" },
+  { wiki: "Football", en: "kick", fr: "donner un coup de pied", je: "je shoote", phrase: "I kick" },
+  { wiki: "Lecture", en: "read", fr: "lire", je: "je lis", phrase: "I read" },
+  { wiki: "Écriture", en: "write", fr: "écrire", je: "j'écris", phrase: "I write" },
+  { wiki: "Dessin", en: "draw", fr: "dessiner", je: "je dessine", phrase: "I draw" },
+  { wiki: "Cuisine", en: "cook", fr: "cuisiner", je: "je cuisine", phrase: "I cook" },
+  { wiki: "Oiseau", en: "fly", fr: "voler", je: "je vole", phrase: "I fly" },
 ];
 
 function VerbCard({ wiki, en, fr }: { wiki: string; en: string; fr: string; phrase: string }) {
@@ -306,7 +308,7 @@ export function AnglaisVerbsCartes({ verbs = ACTION_VERBS }: { verbs?: typeof AC
           <div key={v.en} style={{ border: `2px dashed ${VERT}`, borderRadius: "10px", padding: "3mm", display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5mm", height: "48mm", boxSizing: "border-box" }}>
             <div style={{ width: "100%", flex: 1, minHeight: 0 }}><WikiImage title={v.wiki} alt={v.en} accent={VERT} height="26mm" /></div>
             <div style={{ fontSize: "30px", color: VERT, fontFamily: ecoleCursive, lineHeight: 1 }}>{v.phrase}</div>
-            <div style={{ fontSize: "12px", color: "#64748b" }}>({v.fr})</div>
+            <div style={{ fontSize: "12px", color: "#64748b" }}>({v.je})</div>
           </div>
         ))}
       </div>
