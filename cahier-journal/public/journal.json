@@ -6102,7 +6102,7 @@
       "note": "Maths : Nombres S3 — La suite des nombres. Reste de la journée à préparer."
      }
     ],
-    "devoirs": "Pour mardi : finir les exercices. Réviser les nombres et le nom.",
+    "devoirs": "Pour lundi prochain : apprendre la poésie ; réviser la leçon « genre et nombre du nom » et « construire 100/1000 » ; apprendre les 10 nouveaux verbes d'action en anglais (série 2) avec les mimes ; mots de Graphémo.",
     "rappels": [
      {
       "id": "rap-20261005-inspe-photos-reglesdevie",
@@ -6422,29 +6422,40 @@
     {
      "id": "d2026-10-05s8",
      "start": "13:45",
-     "end": "15:10",
+     "end": "14:30",
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20261005fr2",
+       "id": "graphemoL5",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — Graphémo : jour 1 & jour 2 (copie, mots, dictée)",
+       "objectif": "Travailler l'orthographe de la semaine (Graphémo) : découverte du graphème, copie des mots, dictée.",
+       "competence": "Orthographier les mots étudiés ; copier sans erreur.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur rentrée 2025), domaine « grammaire et orthographe ».",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Orthographe (Graphémo)",
+       "progSequence": "Graphémo",
+       "progSeance": "jours 1 & 2",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "g1",
+         "label": "Graphémo jour 1 & 2 (support enseignant)",
+         "note": "- « On ouvre le cahier vert : on découvre le son/la lettre de la semaine. »\n- « On lit et on épelle les mots de la semaine. »\n- « Je copie les mots en soignant mes lettres (lire-cacher-écrire-vérifier). »\n- « Petite dictée de mots, puis on corrige ensemble. »\n- « On range le cahier vert. »\n(Déroulé et supports Graphémo apportés par l'enseignant — rien à imprimer ici.)"
+        }
+       ],
+       "materiel": "Méthode Graphémo (support enseignant, déjà en classe) ; cahier vert (dictées).",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : mots de base. CE2 : mots + phrase.",
        "depassement": "",
        "correction": "",
        "obstacles": "",
@@ -6452,20 +6463,26 @@
        "aReprendre": "",
        "devoirs": "",
        "notesProchaine": ""
-      },
+      }
+     ]
+    },
+    {
+     "start": "14:30",
+     "end": "15:10",
+     "activities": [
       {
-       "id": "dictee2",
+       "id": "poesieL5",
        "niveaux": [
         "classe"
        ],
-       "title": "Dictée maison n°2 (mots appris)",
-       "objectif": "Écrire sous la dictée les mots appris et de courtes phrases.",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Poésie — récitation",
+       "objectif": "Réciter sa poésie devant la classe (mémorisation, diction).",
+       "competence": "Dire de mémoire un texte court (poésie) en soignant la diction.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (langage oral).",
        "progPeriode": "P1",
-       "progDomaine": "Français — Orthographe (dictée maison)",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Oral (poésie)",
+       "progSequence": "Poésie",
+       "progSeance": "récitation",
        "progRef": "",
        "organisation": [
         "collectif"
@@ -6475,16 +6492,16 @@
        ],
        "deroulement": [
         {
-         "id": "x1",
-         "label": "Dictée (15 min)",
-         "note": "- « On sort le cahier de dictée (vert). »\n- « J'écris les mots un par un, je fais attention aux majuscules et aux accords. »\n- « Puis je dicte deux petites phrases, lentement, deux fois. »\n- « On relit : tous les mots ? les majuscules ? les points ? »"
+         "id": "p1",
+         "label": "Récitation (30 min)",
+         "note": "- « Aujourd'hui, c'est la récitation de la poésie. »\n- « On écoute celui qui récite dans le silence et le respect. »\n- « Je me place bien, je parle fort et lentement, je regarde la classe. »\n- « On encourage et on applaudit chaque camarade. »\n- « On colle/complète la poésie dans le cahier blanc si besoin. »\n(Cahier blanc = poésies ; j'évalue la mémorisation et la diction.)"
         }
        ],
-       "materiel": "Cahier de dictée (vert).",
+       "materiel": "Cahier blanc (poésies).",
        "video": "",
-       "differenciation": "CE1 : mots de base.\nCE2 : mots de base + mots en plus.",
+       "differenciation": "",
        "depassement": "",
-       "correction": "Phrases dictées — CE1 : « Le bateau est beau. » / « L'eau est chaude. ». CE2 : « Le beau bateau glisse sur l'eau chaude. » / « J'ai aussi un cadeau pour l'animal. ».",
+       "correction": "",
        "obstacles": "",
        "bilan": "",
        "aReprendre": "",
@@ -6532,27 +6549,83 @@
     {
      "id": "d2026-10-05s10",
      "start": "15:40",
-     "end": "16:25",
+     "end": "16:15",
      "disciplineId": "autre",
      "activities": [
       {
-       "id": "20261005ap",
+       "id": "epsBinome",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer (EPS / autre)",
-       "objectif": "",
+       "title": "EPS — Courir longtemps (reprise)",
+       "objectif": "Courir longtemps sans s'arrêter, en gérant son allure.",
+       "competence": "Courir longtemps en gérant son effort (activités athlétiques).",
+       "competenceRef": "Programmes cycle 2 (2018/2020) — EPS, produire une performance (courir longtemps).",
+       "progPeriode": "P1",
+       "progDomaine": "EPS — Athlétisme",
+       "progSequence": "Courir longtemps (P1)",
+       "progSeance": "reprise",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "binome"
+       ],
+       "roleEnseignant": [
+        "guidage",
+        "observation"
+       ],
+       "deroulement": [
+        {
+         "id": "e1",
+         "label": "Courir longtemps (35 min)",
+         "note": "- « On reprend la course longue : on part doucement et on garde la même allure. »\n- « On peut refaire le jeu des cartons/carrés : on compte les tours courus sans s'arrêter. »\n- « Allure « parler » : si je peux parler en courant, c'est bon. »\n- « On s'encourage entre binômes. »\n- « Retour au calme, on boit, on range. »\n(Voir la fiche de séance « coureur & observateur » dans Documents.)"
+        }
+       ],
+       "materiel": "Boucle balisée (plots), cartons/carrés. Fiche de séance dans Documents à imprimer.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      }
+     ]
+    },
+    {
+     "start": "16:15",
+     "end": "16:25",
+     "activities": [
+      {
+       "id": "paysL5",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — le pays de la semaine : le Royaume-Uni (escale 3)",
+       "objectif": "Découvrir le pays de la semaine (situation, carte d'identité, culture).",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "",
+       "progDomaine": "Questionner le monde — Géographie (projet Autour du monde)",
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "q1",
+         "label": "Le pays de la semaine (10-15 min)",
+         "note": "- « Notre nouvelle escale : le Royaume-Uni ! »\n- « On le situe sur la carte : une île au nord-ouest de l'Europe, de l'autre côté de la Manche. »\n- « Sa capitale, c'est Londres ; on y voit Big Ben et les bus rouges. »\n- « On y parle anglais — comme dans notre séance de langue ! »\n- « On complète la carte d'identité du pays. »\n(Diaporama et carte d'identité dans Projets → Autour du monde.)"
+        }
+       ],
+       "materiel": "Projets → Autour du monde : diaporama du Royaume-Uni + carte d'identité à compléter. Pochette du projet voyage.",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -6572,12 +6645,50 @@
      "disciplineId": "autre",
      "activities": [
       {
+       "id": "angVerbs2",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais — Action verbs (série 2) : nouveaux verbes & jeu des mimes",
+       "objectif": "Découvrir 10 nouveaux verbes d'action en anglais et jouer au jeu des mimes (si le temps).",
+       "competence": "Comprendre et dire des verbes d'action en anglais ; réagir à une consigne orale.",
+       "competenceRef": "Programmes cycle 2 (2018/2020) — Langue vivante (anglais), comprendre à l'oral, réagir et dialoguer.",
+       "progPeriode": "P1",
+       "progDomaine": "Anglais",
+       "progSequence": "Action verbs (série 2)",
+       "progSeance": "découverte",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "a1",
+         "label": "Watch, repeat & mime (si le temps)",
+         "note": "- « New action verbs! Today: climb, ride a bike, throw, catch, kick… »\n- « Je dis le verbe et je le mime, vous répétez et vous mimez. »\n- « On clique pour la traduction, on vérifie ensemble. »\n- « Jeu des mimes : un élève mime, la classe devine en anglais. »\n- « On apprend ces verbes pour la semaine prochaine. »\n(Diaporama + leçon + cartes série 2 dans Documents à imprimer. Cahier violet.)"
+        }
+       ],
+       "materiel": "Diaporama Action verbs (série 2) + leçon illustrée + cartes à mimer — voir Documents à imprimer. Cahier violet (anglais).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": ""
+      },
+      {
        "id": "20261005sor",
        "niveaux": [
         "classe"
        ],
        "title": "Rangement, devoirs et sortie",
-       "objectif": "",
+       "objectif": "Ranger, noter les devoirs, sortir dans le calme.",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
@@ -6585,10 +6696,20 @@
        "progSequence": "",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "s1",
+         "label": "Rangement & devoirs (5 min)",
+         "note": "- « On range, on prépare son cartable. »\n- « On note les devoirs pour la semaine prochaine. »\n- « On se met en rang dans le calme. »\n- « Bonne soirée ! »"
+        }
+       ],
+       "materiel": "Cahier de liaison (jaune) si besoin.",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -6603,7 +6724,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790937760517
+   "updatedAt": 1791179211374
   },
   {
    "date": "2026-10-06",
