@@ -6,7 +6,7 @@
 import type { ReactNode } from "react";
 import { FleurDuNombreSupport } from "./FleurDuNombreSupport";
 import { ficheNode, type FicheData } from "./FichePedagogiqueA4";
-import { AnglaisDiaporama, AnglaisActionVerbsDiapo, AnglaisVerbsLecon, AnglaisVerbsCartes } from "./AnglaisDiaporama";
+import { AnglaisDiaporama, AnglaisActionVerbsDiapo, AnglaisVerbsLecon, AnglaisVerbsCartes, ACTION_VERBS2 } from "./AnglaisDiaporama";
 import { LireFriseDiapo, SolidesProprietesDiapo, LireFriseLecon, SolidesLecon } from "./QlmDiapos";
 import { SeRepererDiapo, SymetrieDiapo } from "./GeoDiapos";
 import { EpsTerrainSupport, type EpsFiche } from "./EpsTerrainSupport";
@@ -1298,6 +1298,12 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "ang-verbs-diapo", label: "Action verbs — Diaporama à projeter (vraies photos, jeu du mime)", node: <AnglaisActionVerbsDiapo /> },
         { key: "ang-verbs-lecon", label: "Action verbs — Leçon illustrée à coller (cursive + photos)", node: <AnglaisVerbsLecon /> },
         { key: "ang-verbs-cartes", label: "Action verbs — Cartes à découper (image + « I run »)", node: <AnglaisVerbsCartes /> },
+      ];
+    case "angVerbs2":
+      return [
+        { key: "ang-verbs2-diapo", label: "Action verbs (série 2) — Diaporama à projeter (nouveaux verbes, jeu du mime)", node: <AnglaisActionVerbsDiapo verbs={ACTION_VERBS2} /> },
+        { key: "ang-verbs2-lecon", label: "Action verbs (série 2) — Leçon illustrée à coller", node: <AnglaisVerbsLecon verbs={ACTION_VERBS2} /> },
+        { key: "ang-verbs2-cartes", label: "Action verbs (série 2) — Cartes à découper (image + « I climb »)", node: <AnglaisVerbsCartes verbs={ACTION_VERBS2} /> },
       ];
     case "histS3":
       return [

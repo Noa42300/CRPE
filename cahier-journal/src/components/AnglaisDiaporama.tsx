@@ -164,6 +164,20 @@ const ACTION_VERBS: { wiki: string; en: string; fr: string; phrase: string }[] =
   { wiki: "Marche à pied", en: "walk", fr: "marcher", phrase: "I walk" },
 ];
 
+/** Série 2 — nouveaux verbes d'action (pour le jeu des mimes). */
+export const ACTION_VERBS2: { wiki: string; en: string; fr: string; phrase: string }[] = [
+  { wiki: "Escalade", en: "climb", fr: "grimper", phrase: "I climb" },
+  { wiki: "Cyclisme", en: "ride a bike", fr: "faire du vélo", phrase: "I ride a bike" },
+  { wiki: "Lancer du poids", en: "throw", fr: "lancer", phrase: "I throw" },
+  { wiki: "Baseball", en: "catch", fr: "attraper", phrase: "I catch" },
+  { wiki: "Football", en: "kick", fr: "donner un coup de pied", phrase: "I kick" },
+  { wiki: "Lecture", en: "read", fr: "lire", phrase: "I read" },
+  { wiki: "Écriture", en: "write", fr: "écrire", phrase: "I write" },
+  { wiki: "Dessin", en: "draw", fr: "dessiner", phrase: "I draw" },
+  { wiki: "Cuisine", en: "cook", fr: "cuisiner", phrase: "I cook" },
+  { wiki: "Oiseau", en: "fly", fr: "voler", phrase: "I fly" },
+];
+
 function VerbCard({ wiki, en, fr }: { wiki: string; en: string; fr: string; phrase: string }) {
   const [on, setOn] = useState(false);
   return (
@@ -182,7 +196,7 @@ function VerbCard({ wiki, en, fr }: { wiki: string; en: string; fr: string; phra
   );
 }
 
-export function AnglaisActionVerbsDiapo() {
+export function AnglaisActionVerbsDiapo({ verbs = ACTION_VERBS }: { verbs?: typeof ACTION_VERBS } = {}) {
   const [i, setI] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const last = AV_ETAPES.length - 1;
@@ -217,7 +231,7 @@ export function AnglaisActionVerbsDiapo() {
             <h2 className="text-4xl font-extrabold" style={{ color: VERT }}>Watch and repeat!</h2>
             <p className="mt-1 text-xl text-stone-500">Je dis et je mime, tu répètes. Clique pour la traduction.</p>
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-5">
-              {(i === 1 ? ACTION_VERBS.slice(0, 5) : ACTION_VERBS.slice(5)).map((w) => (
+              {(i === 1 ? verbs.slice(0, 5) : verbs.slice(5)).map((w) => (
                 <VerbCard key={w.en} {...w} />
               ))}
             </div>
@@ -256,14 +270,14 @@ export function AnglaisActionVerbsDiapo() {
 }
 
 /* Leçon illustrée « Action verbs » (A4) — cursive + vraies photos (Wikimedia). */
-export function AnglaisVerbsLecon() {
+export function AnglaisVerbsLecon({ verbs = ACTION_VERBS }: { verbs?: typeof ACTION_VERBS } = {}) {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
       <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
         <h1 style={{ fontSize: "34px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: VERT, fontFamily: "'Caveat','Comic Neue',cursive" }}>Action verbs — les verbes d'action</h1>
         <p style={{ textAlign: "center", fontSize: "16px", margin: "0 0 4mm", color: "#555" }}>Un verbe d'action dit ce qu'on FAIT. Je les apprends pour la semaine prochaine.</p>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4mm", flex: 1, alignContent: "start" }}>
-          {ACTION_VERBS.map((v) => (
+          {verbs.map((v) => (
             <div key={v.en} style={{ display: "flex", alignItems: "center", gap: "3mm", border: `2px solid ${VERT}`, borderRadius: "10px", padding: "2mm 3mm" }}>
               <div style={{ width: "22mm", flexShrink: 0 }}><WikiImage title={v.wiki} alt={v.en} accent={VERT} height="16mm" /></div>
               <div>
@@ -283,12 +297,12 @@ export function AnglaisVerbsLecon() {
 }
 
 /* Cartes « Action verbs » à découper (A4) : image + phrase « I run ». */
-export function AnglaisVerbsCartes() {
+export function AnglaisVerbsCartes({ verbs = ACTION_VERBS }: { verbs?: typeof ACTION_VERBS } = {}) {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "8mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
       <h1 style={{ fontSize: "22px", margin: "0 0 3mm", textAlign: "center", fontWeight: 800, color: VERT }}>Action verbs — cartes à découper ✂️</h1>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4mm" }}>
-        {ACTION_VERBS.map((v) => (
+        {verbs.map((v) => (
           <div key={v.en} style={{ border: `2px dashed ${VERT}`, borderRadius: "10px", padding: "3mm", display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5mm", height: "48mm", boxSizing: "border-box" }}>
             <div style={{ width: "100%", flex: 1, minHeight: 0 }}><WikiImage title={v.wiki} alt={v.en} accent={VERT} height="26mm" /></div>
             <div style={{ fontSize: "30px", color: VERT, fontFamily: ecoleCursive, lineHeight: 1 }}>{v.phrase}</div>
