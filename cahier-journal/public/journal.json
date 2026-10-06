@@ -6794,28 +6794,49 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20261006fr1",
+       "id": "nomRevExo",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — Le nom : grande fiche d'exercices (révision)",
+       "objectif": "Consolider toutes les notions sur le nom (nom commun / nom propre, genre, nombre) grâce à une grande fiche d'exercices variés, avec beaucoup de copie. En complément du travail sur les manuels.",
+       "competence": "Identifier le nom ; distinguer nom commun et nom propre ; reconnaître et transformer le genre et le nombre du nom.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur rentrée 2025), domaine « grammaire et orthographe » (le nom).",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
+       "progDomaine": "Français — Grammaire (le nom)",
+       "progSequence": "Le nom",
        "progSeance": "",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "r1",
+         "label": "Je présente la fiche (5 min)",
+         "note": "- « En plus du travail sur le manuel, voici une grande fiche pour tout revoir sur le nom. »\n- « On rappelle ensemble : un nom commun (un chien, une ville) et un nom propre, qui prend une majuscule (Médor, Paris). »\n- « On se souvient du genre (un / une) et du nombre (un seul / plusieurs). »\n- « Il y a 14 exercices sur 2 pages : vous écrivez beaucoup, alors on soigne l'écriture. »\n- « Avant chaque exercice, il y a un exemple déjà fait : lisez-le d'abord, vous pourrez commencer tout seuls. »\n(Je distribue la fiche paysage, je montre où écrire son prénom.)"
+        },
+        {
+         "id": "r2",
+         "label": "Je travaille sur la fiche (en autonomie / en tandem)",
+         "note": "- « Vous faites les exercices dans l'ordre, en recopiant bien. »\n- « Quand vous recopiez un nom propre, n'oubliez jamais la majuscule. »\n- « Pour le pluriel, je me demande : un seul ou plusieurs ? et souvent j'ajoute un s. »\n- « CE1, vous faites les exercices 1 à 10 ; CE2, vous faites tout, y compris les exercices avec une étoile ⭐. »\n- « Si je bloque, je relis l'exemple avant d'appeler. »\n(Je circule, j'aide à verbaliser « commun ou propre ? », « un ou une ? », « singulier ou pluriel ? ».)"
+        },
+        {
+         "id": "r3",
+         "label": "On corrige ensemble (10 min)",
+         "note": "- « On corrige quelques exercices au tableau. »\n- « On vérifie les majuscules des noms propres. »\n- « On relit les pluriels : un cheval → des chevaux. »\n- « Chacun corrige ses erreurs au stylo vert. »\n- « On range la fiche dans le classeur (exercices de français). »\n(Je ramasse quelques fiches pour les observations individuelles.)"
+        }
+       ],
+       "materiel": "Grande fiche d'exercices « Le nom » en A4 PAYSAGE, 2 pages (14 exercices variés, beaucoup de copie, un exemple en tête de chaque exercice) — voir Documents à imprimer. À ranger dans le classeur (exercices de français).",
        "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "differenciation": "CE1 : exercices 1 à 10 (reconnaître, recopier, un/une, pluriel simple). Les exercices ⭐ (11, 12, 14) sont pour les CE2.\nCE2 : toute la fiche, dont les ⭐ : féminins particuliers (boulanger→boulangère), remplacer un nom commun par un nom propre, produire des phrases.",
+       "depassement": "Exercice 14 (⭐) : inventer deux phrases contenant chacune un nom propre et un nom commun ; en écrire une troisième si le temps le permet.",
+       "correction": "1-2 : noms communs = un oiseau, une école, le bonheur, des fleurs, un cheval, un chien, une rivière, un garçon ; noms propres = la Loire, Médor, Lyon, la France (majuscule). 4 (pluriel) : des fleurs, les livres, des amis, des étoiles. 5 (féminin) : une marchande, une ourse, une voisine. 6 (noms propres) : la Loire, Léa, Noël. 7 : un avion, une école, un journal, une règle. 9 (pluriel) : Des fleurs poussent… ; Les chevaux galopent… 10 (singulier) : L'élève range son cahier. 11 : une lionne, une cuisinière, une chanteuse, une princesse.",
+       "obstacles": "Erreurs fréquentes : oublier la majuscule aux noms propres ; confondre le genre (un/une) et le nombre (singulier/pluriel) ; pluriels particuliers (cheval→chevaux, journal→journaux).\nRemédiation rapide : relire l'exemple en tête de l'exercice ; faire dire « un seul / plusieurs » pour le nombre et « un / une » pour le genre ; rappeler la règle : un nom propre commence toujours par une majuscule.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -7256,7 +7277,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790502003005
+   "updatedAt": 1790503003005
   },
   {
    "date": "2026-10-07",

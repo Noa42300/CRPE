@@ -62,7 +62,10 @@ export function ActivityEditor({
       const isPaysage = (el as HTMLElement).classList?.contains("fiche-a4-landscape");
       const hasBreak = !!el.querySelector?.(".fiche-pagebreak");
       const opts = isPaysage
-        ? { orientation: "landscape" as const, singlePage: true }
+        // Paysage : une seule feuille par défaut (mise à l'échelle), MAIS si la
+        // fiche a un saut de page explicite (.fiche-pagebreak), on pagine en
+        // plusieurs feuilles paysage (ex. grosse fiche « le nom » en 2 pages).
+        ? (hasBreak ? { orientation: "landscape" as const } : { orientation: "landscape" as const, singlePage: true })
         : isFiche
           ? (hasBreak ? {} : { singlePage: true })
           // Document non-fiche (ex. un diaporama à projeter) : instantané sur
