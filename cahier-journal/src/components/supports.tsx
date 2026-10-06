@@ -18,6 +18,7 @@ import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon,
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
+import { NomRevisionPaysage } from "./FicheNomRevisionPaysage";
 import { Base10Plaques, Base10BarresUnites } from "./Base10Manip";
 import { ConstruireCE1, ConstruireCE2 } from "./FicheConstruireNombrePaysage";
 import { PoesieHarengSaur, PoesieTempsManteau } from "./PoesieFiche";
@@ -1219,6 +1220,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "nom-s2-lecon", label: "Séance 2 — Leçon : le nom (rappel)", node: <LeNomLecon /> },
         { key: "nom-s2-ce1", label: "Séance 2 — Exercices CE1 (nom propre, majuscule)", node: ficheNode(NOM_S2_CE1) },
         { key: "nom-s2-ce2", label: "Séance 2 — Exercices CE2 (commun/propre, majuscules)", node: ficheNode(NOM_S2_CE2) },
+      ];
+    case "nomRevExo":
+      return [
+        { key: "nomrev-paysage", label: "Le nom — GROSSE fiche d'exercices (A4 paysage, 2 pages, 14 exercices, beaucoup de copie)", node: <NomRevisionPaysage /> },
       ];
     case "nomGN5":
       return [
