@@ -7133,8 +7133,8 @@
          "note": "- « On récapitule les trois grandeurs de la séquence : masse, volume, température. »\n- « Quel instrument pour chacune ? Quelle unité ? »\n- « On colle la leçon et on lit les deux parties (volume, température). »\n- « On souligne : 1 L = 1000 mL, et le °C pour la température. »\n- « On range le cahier : la séquence « mesurer » est terminée. »\n(Leçon imagée à coller ; bilan de séquence.)"
         }
        ],
-       "materiel": "Un verre doseur / une éprouvette graduée + de l'eau ; un thermomètre. Diaporama (avec le tableau de conversion L/dL/cL/mL) + leçon imagée à coller (tableau de conversion inclus) + fiche « Expérience à la maison : 1 L, combien de verres ? » — voir Documents à imprimer. Vidéo complémentaire « Le thermomètre » : https://www.youtube.com/watch?v=VNHRmdELNu4",
-       "video": "https://www.youtube.com/watch?v=jquO9Ryf5ks",
+       "materiel": "Un verre doseur / une éprouvette graduée + de l'eau ; un thermomètre. Diaporama (avec le tableau de conversion L/dL/cL/mL) + leçon imagée à coller (tableau de conversion inclus) + fiche « Expérience à la maison : 1 L, combien de verres ? » — voir Documents à imprimer. Vidéo très enfantine (CE1-CE2) : « Le litre » de Maître Lucas (contenances, bouteilles, verres).",
+       "video": "https://www.youtube.com/watch?v=aiar_jlavIw",
        "differenciation": "CE1 : associer instrument ↔ grandeur, lire une graduation simple.\nCE2 : utiliser les unités (L/mL, °C), convertir 1 L = 1000 mL, lire une température.",
        "depassement": "",
        "correction": "Volume → verre doseur → L, mL (1 L = 1000 mL). Température → thermomètre → °C (eau gèle à 0 °C, corps à 37 °C).",
@@ -7282,7 +7282,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790504003005
+   "updatedAt": 1790505003005
   },
   {
    "date": "2026-10-07",
