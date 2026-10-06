@@ -7823,6 +7823,11 @@
       "id": "rap-20261013-cm-ebep-c1",
       "texte": "CM EBEP C1",
       "type": "reunion"
+     },
+     {
+      "id": "rap-20261013-cahier-ecriture-vacances",
+      "type": "autre",
+      "texte": "DEVOIR POUR LES VACANCES : donner la réécriture du cahier d'écriture. Les élèves emportent leur cahier d'écriture et réécrivent (avec les parents) les pages mal faites."
      }
     ]
    },
@@ -8247,7 +8252,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790700001004
+   "updatedAt": 1790701001004
   },
   {
    "date": "2026-11-03",
