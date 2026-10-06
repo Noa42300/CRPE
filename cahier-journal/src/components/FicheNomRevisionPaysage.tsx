@@ -86,41 +86,19 @@ function Col({ children }: { children: React.ReactNode }) {
 }
 
 function Trait() {
-  return (
-    <div style={{ position: "relative", width: "0", borderLeft: "2px dashed #94a3b8", margin: "0 1mm" }}>
-      <span style={{ position: "absolute", top: "50%", left: "-3mm", transform: "translateY(-50%)", fontSize: "13px" }}>✂</span>
-    </div>
-  );
+  return <div style={{ width: "0", borderLeft: "2px dashed #94a3b8", margin: "0 3mm" }} />;
 }
 
-function Feuille({ titre, sousTitre, prenom, children }: { titre: string; sousTitre: string; prenom?: boolean; children: React.ReactNode }) {
+function Feuille({ titre, sousTitre, children }: { titre: string; sousTitre: string; children: React.ReactNode }) {
   return (
     <div style={{ height: "210mm", boxSizing: "border-box", padding: "7mm 8mm" }}>
       <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "4mm 5mm", height: "196mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
         <div style={{ borderBottom: "1.5px solid #111", paddingBottom: "1.5mm", marginBottom: "2.5mm", display: "flex", alignItems: "baseline", gap: "3mm" }}>
           <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>{titre}</h1>
           <span style={{ fontSize: "13px", fontWeight: 700, color: "#444", fontFamily: CURSIVE }}>· {sousTitre}</span>
-          {prenom && <div style={{ marginLeft: "auto", fontSize: "13px" }}>Prénom : <span style={{ display: "inline-block", width: "55mm", borderBottom: "1px solid #333" }} /></div>}
         </div>
         <div style={{ flex: 1, display: "flex" }}>{children}</div>
       </div>
-    </div>
-  );
-}
-
-/** Rappel compact : nom commun / propre, genre, nombre. */
-function Rappel() {
-  const bloc = (titre: string, contenu: React.ReactNode) => (
-    <div style={{ flex: 1, border: "2px solid #334155", borderRadius: "4mm", padding: "1.5mm 3mm", background: "#f8fafc" }}>
-      <div style={{ fontSize: "11px", fontWeight: 800, color: "#334155" }}>{titre}</div>
-      <div style={{ fontSize: "12px", color: "#222" }}>{contenu}</div>
-    </div>
-  );
-  return (
-    <div style={{ display: "flex", gap: "2.5mm", marginBottom: "2.5mm" }}>
-      {bloc("JE ME RAPPELLE ☁️ — le nom", <>Le <b>nom commun</b> désigne tout le monde (<i>un chien, une ville</i>). Le <b>nom propre</b> désigne UNE personne/UN lieu précis et prend une <b>majuscule</b> (<i>Médor, Paris</i>).</>)}
-      {bloc("Le genre", <><b>masculin</b> = un, le · <b>féminin</b> = une, la</>)}
-      {bloc("Le nombre", <><b>singulier</b> = un seul · <b>pluriel</b> = plusieurs (souvent + <b>s</b>)</>)}
     </div>
   );
 }
@@ -129,22 +107,19 @@ export function NomRevisionPaysage() {
   return (
     <div className="fiche-a4 fiche-a4-landscape" style={{ width: "297mm", background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
       {/* ---------------- PAGE 1 ---------------- */}
-      <Feuille titre="Le nom — je m'entraîne" sousTitre="CE1 · CE2 — page 1 / 2" prenom>
-        <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-          <Rappel />
-          <div style={{ flex: 1, display: "flex" }}>
+      <Feuille titre="Le nom — je m'entraîne" sousTitre="CE1 · CE2 — page 1 / 2">
             <Col>
               <div>
                 <Consigne n={1}>Recopie ces noms et souligne-les.</Consigne>
                 <Exemple>la maison → <u>la maison</u></Exemple>
                 <Mots mots={["un oiseau", "une école", "le bonheur", "des fleurs", "la Loire", "un cheval"]} />
-                <Lines n={2} />
+                <Lines n={3} />
               </div>
               <div>
                 <Consigne n={2} aide="majuscule aux noms propres">Classe ces noms en les recopiant dans la bonne colonne.</Consigne>
                 <Exemple>Paris → nom propre · une ville → nom commun</Exemple>
                 <Mots mots={["un chien", "Médor", "Lyon", "une rivière", "la France", "un garçon"]} />
-                <DeuxColonnes gauche="noms communs" droite="noms propres" n={3} />
+                <DeuxColonnes gauche="noms communs" droite="noms propres" n={4} />
               </div>
               <div>
                 <Consigne n={3}>Écris le nom de chaque image avec « un » ou « une ».</Consigne>
@@ -163,29 +138,27 @@ export function NomRevisionPaysage() {
                 <Consigne n={4} aide="le nombre">Recopie chaque nom en le mettant au pluriel.</Consigne>
                 <Exemple>un chat → des chats</Exemple>
                 <Mots mots={["une fleur →", "le livre →", "un ami →", "une étoile →"]} />
-                <Lines n={2} />
+                <Lines n={3} />
               </div>
               <div>
                 <Consigne n={5} aide="le genre">Recopie chaque nom en le mettant au féminin.</Consigne>
                 <Exemple>un ami → une amie</Exemple>
                 <Mots mots={["un marchand →", "un ours →", "un voisin →"]} />
-                <Lines n={2} />
+                <Lines n={3} />
               </div>
               <div>
                 <Consigne n={6}>Recopie seulement les noms propres, avec leur majuscule.</Consigne>
                 <Exemple>une ville, paris → Paris</Exemple>
                 <Mots mots={["un fleuve", "la loire", "léa", "un jour", "noël"]} />
-                <Lines n={2} />
+                <Lines n={3} />
               </div>
               <div>
                 <Consigne n={7}>Complète avec « un » ou « une », puis recopie le groupe.</Consigne>
                 <Exemple>…… table → une table</Exemple>
                 <Mots mots={["…… avion", "…… école", "…… journal", "…… règle"]} />
-                <Lines n={2} />
+                <Lines n={3} />
               </div>
             </Col>
-          </div>
-        </div>
       </Feuille>
 
       <div className="fiche-pagebreak" style={{ height: 0 }} />
