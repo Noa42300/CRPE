@@ -6747,6 +6747,11 @@
       "id": "rap-20261006-inspe-photos-reglesdevie",
       "texte": "À ENVOYER avant le 09/10 (INSPÉ — M. Fargère) : par mail à magalie.fargere@univ-lyon1.fr, des photos de vie de classe. Objet du mail : « règlesdevie-nométudiant-nomécole » (remplace par ton nom et le nom de ton école).",
       "type": "autre"
+     },
+     {
+      "id": "rap-20261006-autonomie-ce1",
+      "type": "autre",
+      "texte": "À préparer cette semaine pour le lundi 12 : des fichiers autonomie pour les CE1 en avance (élèves rapides). [noms à garder en local]"
      }
     ]
    },
@@ -7277,7 +7282,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790503003005
+   "updatedAt": 1790504003005
   },
   {
    "date": "2026-10-07",
@@ -7328,6 +7333,11 @@
       "texte": "PPMS intrusion — exercice (alerte intrusion)",
       "type": "securite",
       "heure": "10:00"
+     },
+     {
+      "id": "rap-20261012-autonomie-ce1",
+      "type": "autre",
+      "texte": "Fichiers autonomie CE1 (élèves en avance) : les avoir prêts à distribuer aujourd'hui."
      }
     ]
    },
@@ -7790,7 +7800,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790600001002
+   "updatedAt": 1790601001002
   },
   {
    "date": "2026-10-13",
