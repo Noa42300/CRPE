@@ -339,3 +339,14 @@ export const emptyRow = (n, h = 14) => Array.from({ length: n }, () => ({ v: `<d
 /** Étiquette suivie d'une ligne qui occupe toute la largeur disponible. */
 export const fillLine = (label = "") =>
   `<div style="display:flex;gap:2mm;align-items:flex-end"><span style="white-space:nowrap">${label}</span><span style="flex:1;border-bottom:0.35mm solid #6b7280;height:1.15em"></span></div>`;
+
+/** Fraction écrite verticalement. */
+export const frac = (a, b, size = "") =>
+  `<span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.05;font-family:Lexend;${size ? `font-size:${size};` : "font-size:0.95em;"}margin:0 0.6mm"><span style="padding:0 0.8mm">${a}</span><span style="border-top:0.35mm solid currentColor;padding:0 0.8mm">${b}</span></span>`;
+
+/** Bande partagée en n parts égales, k coloriées (w = largeur en mm). */
+export function fracBar(n, k, w = 40, h = 8) {
+  let s = "";
+  for (let i = 0; i < n; i++) s += `<rect x="${(i * w) / n}" y="0" width="${w / n}" height="${h}" fill="${i < k ? "var(--soft)" : "#fff"}" stroke="#222" stroke-width="0.35"/>`;
+  return `<svg width="${w + 1}mm" height="${h + 1}mm" viewBox="-0.5 -0.5 ${w + 1} ${h + 1}">${s}</svg>`;
+}
