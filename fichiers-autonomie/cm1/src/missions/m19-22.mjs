@@ -47,7 +47,7 @@ ${ex("Coche la forme correcte.", `<div class="col2">${qcm([["a. je", ["mangeais"
 ${lvl(2)}
 ${ex("Complète le tableau.", table(["Verbe à l'imparfait", "Infinitif", "« nous » au présent"], [["nous prenions", "", ""], ["ils voyaient", "", ""], ["je finissais", "", ""]], { cls: "tall", widths: ["36%", "30%", "34%"] }))}
 ${ex("Réécris les verbes de ce texte à l'imparfait.", `<div class="text"><p style="text-indent:0">Le matin, mon grand-père se <b>lève</b> tôt. Il <b>prend</b> son café et il <b>écoute</b> la radio. Ensuite, nous <b>allons</b> au marché.</p></div>
-<div>se lève → ${blank(26)} &nbsp; prend → ${blank(26)} &nbsp; écoute → ${blank(26)} &nbsp; allons → ${blank(26)}</div>`)}
+<div class="col2"><div>se lève → ${blank(40)}</div><div>prend → ${blank(40)}</div><div>écoute → ${blank(40)}</div><div>allons → ${blank(40)}</div></div>`)}
 ${lvl(3)}
 ${ex("« Quand j'étais petit(e)… » Écris 3 phrases à l'imparfait sur tes souvenirs.", lines(3))}
 `,
@@ -151,9 +151,9 @@ ${ex("Réécris la phrase en déplaçant le complément de phrase en gras.", `
   <div class="mt">b. <b>Chaque été</b>, ma famille campe au bord d'un lac.</div>${fillLine("→")}`)}
 ${ex("Supprime tous les compléments de phrase. Écris la phrase qui reste.", `<div>Hier soir, sous la pluie, le chien a aboyé longtemps.</div>${fillLine("→")}`)}
 ${lvl(2)}
-${ex("Le groupe en gras est-il un complément de <b>phrase</b> (P) ou un complément du <b>verbe</b> (V) ? Écris P ou V.", `<div class="col2">
-  <div>a. Lina prépare <b>un gâteau</b>. ${blank(8)}</div><div>b. Lina prépare un gâteau <b>dans la cuisine</b>. ${blank(8)}</div>
-  <div>c. <b>À midi</b>, nous mangeons. ${blank(8)}</div><div>d. Le facteur apporte <b>une lettre</b>. ${blank(8)}</div></div>`)}
+${ex("Le groupe en gras est-il un complément de <b>phrase</b> (P) ou un complément du <b>verbe</b> (V) ? Écris P ou V.", `<div style="display:grid;grid-template-columns:1.25fr 1fr;column-gap:6mm;row-gap:1.3mm">
+  <div>a. Lina prépare <b>un gâteau</b>. ${blank(8)}</div><div>c. <b>À midi</b>, nous mangeons. ${blank(8)}</div>
+  <div>b. Lina prépare un gâteau <b>dans la cuisine</b>. ${blank(8)}</div><div>d. Le facteur apporte <b>une lettre</b>. ${blank(8)}</div></div>`)}
 ${ex("Lis le texte, puis réponds.", `<div class="text"><p>Ce lundi matin, Nina arrive dans sa nouvelle école. Dans la cour, des enfants jouent au ballon. Timidement, elle s'approche d'un banc. Soudain, une fille lui sourit et l'invite à jouer.</p></div>
 <div>a. Recopie le complément de phrase qui dit <b>où</b> : ${blank(55)}</div>
 <div class="mt">b. Comment se sent Nina au début ? Quel mot le montre ? ${blank(50)}</div>

@@ -59,16 +59,16 @@ ${ex("Entoure le nom principal (le chef) de chaque groupe nominal.", `<div class
   <div>a. une jolie maison blanche</div><div>b. les vieux livres de mon père</div>
   <div>c. ce petit chien noir</div><div>d. des fleurs du jardin</div></div>`)}
 ${ex("Écris ces groupes nominaux au pluriel.", `<div class="col2">
-  <div>a. un cheval blanc → ${blank(42)}</div><div>b. un bateau rapide → ${blank(40)}</div>
-  <div>c. le caillou gris → ${blank(44)}</div><div>d. une souris curieuse → ${blank(36)}</div></div>`, { eg: "un jeu amusant → des jeu<b>x</b> amusant<b>s</b>" })}
-${ex("Accorde l'adjectif entre parenthèses.", `<div class="col3">
-  <div>a. une ${blank(20)} maison <span class="mut">(grand)</span></div><div>b. des bottes ${blank(20)} <span class="mut">(neuf)</span></div><div>c. une fin ${blank(20)} <span class="mut">(heureux)</span></div>
-  <div>d. des filles ${blank(20)} <span class="mut">(sportif)</span></div><div>e. une ${blank(18)} idée <span class="mut">(bon)</span></div><div>f. une plume ${blank(18)} <span class="mut">(léger)</span></div></div>`)}
+  <div>a. un cheval blanc → ${blank(38)}</div><div>b. un bateau rapide → ${blank(34)}</div>
+  <div>c. le caillou gris → ${blank(40)}</div><div>d. une souris curieuse → ${blank(30)}</div></div>`, { eg: "un jeu amusant → des jeu<b>x</b> amusant<b>s</b>" })}
+${ex("Accorde l'adjectif entre parenthèses.", `<div class="col3" style="grid-template-columns:1fr 1fr 1fr;column-gap:3mm">
+  <div><span class="mut">(grand)</span> une ${blank(18)} maison</div><div><span class="mut">(neuf)</span> des bottes ${blank(18)}</div><div><span class="mut">(heureux)</span> une fin ${blank(18)}</div>
+  <div><span class="mut">(sportif)</span> des filles ${blank(16)}</div><div><span class="mut">(bon)</span> une ${blank(18)} idée</div><div><span class="mut">(léger)</span> une plume ${blank(16)}</div></div>`)}
 ${lvl(2)}
 ${ex("Corrige les groupes nominaux mal écrits. Si c'est juste, écris <b>correct</b>.", `<div class="col2">
-  <div>a. des chevals noirs → ${blank(38)}</div><div>b. une robe bleu → ${blank(42)}</div>
-  <div>c. les petit oiseaux → ${blank(38)}</div><div>d. des bijous précieux → ${blank(34)}</div>
-  <div>e. des jeux amusants → ${blank(38)}</div></div>`)}
+  <div>a. des chevals noirs → ${blank(34)}</div><div>b. une robe bleu → ${blank(38)}</div>
+  <div>c. les petit oiseaux → ${blank(34)}</div><div>d. des bijous précieux → ${blank(30)}</div>
+  <div>e. des jeux amusants → ${blank(32)}</div></div>`)}
 ${ex("Classe ces groupes nominaux dans le tableau.", `<div class="chips mb"><span>des pommes rouges</span><span>un vélo neuf</span><span>les grands arbres</span><span>cette belle étoile</span><span>des chats gris</span><span>une mer calme</span></div>
 ${table(["masculin singulier", "féminin singulier", "masculin pluriel", "féminin pluriel"], [emptyRow(4, 13)])}`)}
 ${lvl(3)}
@@ -167,8 +167,8 @@ ${ex("Complète avec la terminaison du futur.", `<div class="col3" style="font-s
 ${ex("Relie chaque verbe au radical qu'il a au futur.", `<div class="row"><div>${relier(["aller", "faire", "voir"], ["verr-", "ir-", "fer-"], 22)}</div><div>${relier(["venir", "être", "avoir"], ["aur-", "viendr-", "ser-"], 22)}</div></div>`)}
 ${lvl(2)}
 ${ex("Corrige le verbe s'il est mal écrit. Sinon, écris <b>correct</b>.", `<div class="col2">
-  <div>a. Demain, je jourai au foot. → ${blank(26)}</div><div>b. Nous allerons à la plage. → ${blank(26)}</div>
-  <div>c. Vous fairez un gâteau. → ${blank(28)}</div><div>d. Ils pourront venir. → ${blank(30)}</div></div>`)}
+  <div>a. Demain, je jourai au foot. → ${blank(20)}</div><div>b. Nous allerons à la plage. → ${blank(20)}</div>
+  <div>c. Vous fairez un gâteau. → ${blank(24)}</div><div>d. Ils pourront venir. → ${blank(26)}</div></div>`)}
 ${ex("Réécris chaque phrase en commençant par « Demain ».", `
   <div>a. Aujourd'hui, nous allons au musée.</div>${fillLine("→ Demain,")}
   <div class="mt">b. Aujourd'hui, tu as un contrôle.</div>${fillLine("→ Demain,")}
