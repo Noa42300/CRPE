@@ -38,7 +38,7 @@ body {
 .hd { display: flex; align-items: center; gap: 3mm; padding-bottom: 2mm; margin-bottom: 3mm; border-bottom: 0.6mm solid var(--c); }
 .hd .tag { display: flex; align-items: center; gap: 2mm; background: var(--c); color: #fff; font-family: "Lexend"; font-weight: 600; font-size: 10.5pt; letter-spacing: 0.06em; padding: 1.2mm 3mm 1.2mm 1.6mm; border-radius: 2mm; }
 .hd .ico { display: inline-flex; align-items: center; justify-content: center; width: 6.4mm; height: 6.4mm; background: #fff; color: var(--c); border-radius: 1.4mm; font-size: 8.5pt; font-weight: 700; letter-spacing: 0; }
-.hd .dom { font-family: "Lexend"; font-size: 10.5pt; color: var(--muted); flex: 1; }
+.hd .dom { font-family: "Lexend"; font-size: 10.5pt; color: var(--muted); flex: 1; white-space: nowrap; }
 .hd .dom b { color: var(--ink); font-weight: 600; }
 .hd .kind { font-family: "Lexend"; font-size: 9pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); border: 0.35mm solid var(--c); border-radius: 1.5mm; padding: 0.8mm 2.4mm; }
 .hd .prog { display: flex; gap: 0.5mm; align-items: center; }
@@ -97,7 +97,7 @@ table.t td.g { background: #f1f3f5; }
 .conj table { border-collapse: collapse; width: 100%; font-size: 12pt; }
 .conj caption { font-family: "Lexend"; font-weight: 600; font-size: 11pt; text-align: left; padding: 0 0 1.2mm 0.5mm; color: var(--c); }
 .conj td { padding: 0.8mm 1.6mm; border-bottom: 0.25mm solid var(--rule); }
-.conj td.p { color: var(--muted); width: 26%; text-align: right; padding-right: 2.4mm; }
+.conj td.p { color: var(--muted); width: 38%; text-align: right; padding-right: 2.4mm; white-space: nowrap; }
 .conj td .tm { background: var(--soft); font-weight: 700; border-radius: 0.8mm; padding: 0 0.6mm; }
 .conj td .mt2 { text-decoration: underline; text-decoration-thickness: 0.45mm; text-underline-offset: 0.7mm; font-weight: 700; }
 
@@ -296,7 +296,7 @@ export function work(h = 16, rep = true) {
  * Opération posée. rows : nombres (chaînes, sans espace) ; sign : "+", "−", "×".
  * result : chaîne (affichée) ou null (cases vides) ; carry : chaîne de retenues alignée à droite (" 1 1" etc.).
  */
-export function posed(rows, { sign = "+", result = null, carry = "", cols, size = 15, hl = "" } = {}) {
+export function posed(rows, { sign = "+", result = null, carry = "", cols, size = 15, hl = "", partials = 0, partialVals = null } = {}) {
   const w = cols ?? Math.max(...rows.map((r) => r.length), result ? result.length : 0) + 1;
   const cell = (ch, extra = "") => `<td style="width:7mm;height:${size === 15 ? 8 : 7}mm;text-align:center;${extra}">${ch === " " ? "" : ch === "□" ? `<span style="display:inline-block;width:5mm;height:6.2mm;border:0.4mm solid var(--c);border-radius:1mm;vertical-align:middle"></span>` : ch}</td>`;
   const padL = (s) => " ".repeat(w - s.length) + s;
@@ -308,6 +308,10 @@ export function posed(rows, { sign = "+", result = null, carry = "", cols, size 
     if (last) chars[0] = sign;
     html += `<tr>${chars.map((c) => cell(c, last ? "border-bottom:0.45mm solid #222" : "")).join("")}</tr>`;
   });
+  for (let k = 0; k < partials; k++) {
+    const pv = partialVals ? [...padL(partialVals[k])] : Array(w).fill(" ");
+    html += `<tr>${pv.map((c, j) => cell(k === partials - 1 && j === 0 ? "+" : c, k === partials - 1 ? "border-bottom:0.45mm solid #222" : "")).join("")}</tr>`;
+  }
   const res = result != null ? [...padL(result)] : Array(w).fill(" ");
   html += `<tr>${res.map((c) => cell(c)).join("")}</tr>`;
   return `<table style="border-collapse:collapse;font-family:Lexend;font-size:${size}pt;${hl}">${html}</table>`;
