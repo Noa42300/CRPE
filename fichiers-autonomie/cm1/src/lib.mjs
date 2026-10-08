@@ -36,13 +36,13 @@ body {
 
 /* En-tête */
 .hd { display: flex; align-items: center; gap: 3mm; padding-bottom: 2mm; margin-bottom: 3mm; border-bottom: 0.6mm solid var(--c); }
-.hd .tag { display: flex; align-items: center; gap: 2mm; background: var(--c); color: #fff; font-family: "Lexend"; font-weight: 600; font-size: 10.5pt; letter-spacing: 0.06em; padding: 1.2mm 3mm 1.2mm 1.6mm; border-radius: 2mm; }
+.hd .tag { flex-shrink: 0; white-space: nowrap; display: flex; align-items: center; gap: 2mm; background: var(--c); color: #fff; font-family: "Lexend"; font-weight: 600; font-size: 10.5pt; letter-spacing: 0.06em; padding: 1.2mm 3mm 1.2mm 1.6mm; border-radius: 2mm; }
 .hd .ico { display: inline-flex; align-items: center; justify-content: center; width: 6.4mm; height: 6.4mm; background: #fff; color: var(--c); border-radius: 1.4mm; font-size: 8.5pt; font-weight: 700; letter-spacing: 0; }
 .hd .dom { font-family: "Lexend"; font-size: 10.5pt; color: var(--muted); flex: 1; white-space: nowrap; }
 .hd .dom b { color: var(--ink); font-weight: 600; }
-.hd .kind { font-family: "Lexend"; font-size: 9pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); border: 0.35mm solid var(--c); border-radius: 1.5mm; padding: 0.8mm 2.4mm; }
-.hd .prog { display: flex; gap: 0.5mm; align-items: center; }
-.hd .prog i { display: block; width: 1.2mm; height: 3.2mm; border-radius: 0.4mm; background: #dfe3e8; }
+.hd .kind { flex-shrink: 0; font-family: "Lexend"; font-size: 9pt; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c); border: 0.35mm solid var(--c); border-radius: 1.5mm; padding: 0.8mm 2.4mm; }
+.hd .prog { display: flex; gap: 0.45mm; align-items: center; flex-shrink: 0; }
+.hd .prog i { display: block; width: 1mm; height: 3.2mm; border-radius: 0.4mm; background: #dfe3e8; }
 .hd .prog i.on { background: var(--c); }
 
 /* Pied de page */
@@ -76,7 +76,7 @@ h2.st::before { content: ""; width: 2.2mm; height: 4.8mm; background: var(--c); 
 .c { text-align: center; }
 .r { text-align: right; }
 .row { display: flex; gap: 5mm; }
-.row > * { flex: 1; }
+.row > * { flex: 1; min-width: 0; }
 .col2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 7mm; row-gap: 1.6mm; }
 .col3 { display: grid; grid-template-columns: 1fr 1fr 1fr; column-gap: 5mm; row-gap: 1.6mm; }
 .col4 { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 4mm; row-gap: 1.6mm; }
@@ -289,7 +289,7 @@ export function exercisePage(m, pageNo) {
 
 /** Zone de recherche pour un problème + ligne de réponse. */
 export function work(h = 16, rep = true) {
-  return `<div style="border:0.3mm dashed #b8c0ca;border-radius:2mm;height:${h}mm;position:relative;margin-bottom:1.2mm"><span style="position:absolute;top:0.6mm;left:2mm;font-size:8.5pt;color:#8a929d;font-family:Lexend">Je cherche (schéma, calculs)</span></div>${rep ? `<div>Réponse : <span class="blank" style="width:150mm"></span></div>` : ""}`;
+  return `<div style="border:0.3mm dashed #b8c0ca;border-radius:2mm;height:${h}mm;position:relative;margin-bottom:1.2mm"><span style="position:absolute;top:0.6mm;left:2mm;font-size:8.5pt;color:#8a929d;font-family:Lexend">Je cherche (schéma, calculs)</span></div>${rep ? fillLine("Réponse :") : ""}`;
 }
 
 /**
@@ -335,3 +335,7 @@ export function bars({ top, parts }) {
 
 /** Ligne de cellules vides de hauteur h (mm) pour un tableau à remplir. */
 export const emptyRow = (n, h = 14) => Array.from({ length: n }, () => ({ v: `<div style="height:${h}mm"></div>` }));
+
+/** Étiquette suivie d'une ligne qui occupe toute la largeur disponible. */
+export const fillLine = (label = "") =>
+  `<div style="display:flex;gap:2mm;align-items:flex-end"><span style="white-space:nowrap">${label}</span><span style="flex:1;border-bottom:0.35mm solid #6b7280;height:1.15em"></span></div>`;
