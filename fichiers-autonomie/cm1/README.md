@@ -11,7 +11,7 @@
 
 ## Modifier puis régénérer
 
-Le contenu se trouve dans `src/missions/*.mjs` : une leçon, des exercices et un corrigé par mission. La mise en page est définie dans `src/lib.mjs`.
+Les leçons se trouvent dans `src/lecons.mjs` ; les exercices et les corrigés, dans `src/missions/*.mjs`. La mise en page est définie dans `src/lib.mjs`.
 
 ```bash
 cd fichiers-autonomie/cm1

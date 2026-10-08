@@ -23,24 +23,6 @@ export default [
   // ---------------------------------------------------------------- 27
   {
     n: 27, disc: "fr", domaine: "Vocabulaire", titre: "Familles de mots, préfixes, suffixes, synonymes, antonymes", titreCourt: "Familles, préfixes, suffixes, synonymes",
-    lecon: `
-<h1 class="lt">Construire et choisir ses mots<small>familles · préfixes · suffixes · synonymes · antonymes</small></h1>
-${box("À retenir", `<p>Les mots d'une même <b>famille</b> sont construits à partir du même <b>radical</b> et ont un lien de sens : <i><b>terr</b>e, <b>terr</b>ain, en<b>terr</b>er, sou<b>terr</b>ain</i>.</p>
-<p>On peut ajouter un <b>préfixe</b> avant le radical et un <b>suffixe</b> après : ils changent le sens du mot.</p>`)}
-<div class="fig" style="margin:1mm 0 2mm"><svg width="150mm" height="20mm" viewBox="0 0 150 20">
-  <rect x="20" y="3" width="22" height="10" rx="1.5" fill="#fff" stroke="#222" stroke-width=".35"/><text x="31" y="10" font-size="5" text-anchor="middle" font-family="Andika">dé</text>
-  <rect x="42" y="3" width="30" height="10" rx="1.5" fill="var(--soft)" stroke="#222" stroke-width=".35"/><text x="57" y="10" font-size="5" text-anchor="middle" font-family="Andika" font-weight="700">color</text>
-  <rect x="72" y="3" width="26" height="10" rx="1.5" fill="#fff" stroke="#222" stroke-width=".35"/><text x="85" y="10" font-size="5" text-anchor="middle" font-family="Andika">ation</text>
-  <g font-size="3.5" font-family="Lexend" text-anchor="middle" fill="var(--c)"><text x="31" y="18">préfixe</text><text x="57" y="18">radical</text><text x="85" y="18">suffixe</text></g>
-  <text x="104" y="10" font-size="4.5" font-family="Andika">→ décoloration</text></svg></div>
-<div class="row">
-<div>${table(["Préfixe", "Sens", "Exemple"], [["re-", "à nouveau", "refaire"], ["dé-, dés-", "le contraire", "défaire"], ["in-, im-, il-, ir-", "le contraire", "impossible"], ["pré-", "avant", "préhistoire"]])}</div>
-<div>${table(["Suffixe", "Sens", "Exemple"], [["-ette", "petit", "fillette"], ["-able", "qu'on peut…", "lavable"], ["-eur, -euse", "celui qui…", "nageur"], ["-age", "l'action de…", "lavage"]])}</div>
-</div>
-${st("Synonymes et antonymes")}
-${exs(["Les <b>synonymes</b> ont un sens <b>proche</b> : <i>content, joyeux, ravi</i>. Ils permettent d'éviter les répétitions. Attention aux nuances : <i>ravi</i> est plus fort que <i>content</i>.", "Les <b>antonymes</b> ont un sens <b>contraire</b> : <i>grand / petit</i>, <i>possible / impossible</i>."])}
-${box("Attention !", `<p>Deux mots qui se ressemblent ne sont pas toujours de la même famille : <i>chant</i> et <i>chantier</i> n'ont aucun lien de sens.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Entoure l'intrus dans chaque famille de mots.", `<div class="col2"><div>a. jardin – jardinier – jardinage – jarre</div><div>b. mer – marin – mercredi – amerrir</div><div>c. chant – chanteur – chantier – chanson</div></div>`)}
@@ -68,22 +50,6 @@ ${ex("Trouve le plus possible de mots de la famille de <b>terre</b> (au moins 5)
   // ---------------------------------------------------------------- 28
   {
     n: 28, disc: "ma", domaine: "Grandeurs et mesures", titre: "Les durées", titreCourt: "Les durées",
-    lecon: `
-<h1 class="lt">Les durées<small>convertir · calculer une durée · trouver une heure</small></h1>
-${box("À retenir", `<p><b>1 h = 60 min</b> &nbsp;·&nbsp; <b>1 min = 60 s</b> &nbsp;·&nbsp; 1 jour = 24 h &nbsp;·&nbsp; 1 semaine = 7 jours</p>
-<p>1 an = 12 mois = 365 jours (366 les années bissextiles) &nbsp;·&nbsp; 1 siècle = 100 ans</p>
-<p>Une demi-heure = <b>30 min</b> &nbsp;·&nbsp; un quart d'heure = <b>15 min</b></p>`)}
-${st("Convertir")}
-${exs(["1 h 30 min = 60 min + 30 min = <b>90 min</b>", "150 min = 120 min + 30 min = <b>2 h 30 min</b> &nbsp;<span class='sm mut'>(120 min = 2 h)</span>"])}
-${st("Calculer une durée avec une frise")}
-<p style="margin:0 0 1mm">Un cours commence à <b>9 h 45</b> et finit à <b>11 h 20</b>. Combien de temps dure-t-il ?</p>
-<div class="fig">${frise(["9 h 45", "10 h", "11 h", "11 h 20"], ["15 min", "1 h", "20 min"])}</div>
-<p style="margin:0 0 1mm">Je fais des sauts jusqu'aux <b>heures pile</b> : 15 min + 1 h + 20 min = <b>1 h 35 min</b>.</p>
-${st("Trouver l'heure de fin")}
-<p style="margin:0 0 1mm">Un film commence à <b>14 h 50</b> et dure <b>1 h 25 min</b>.</p>
-${exs(["14 h 50 + 1 h = 15 h 50", "15 h 50 + 10 min = 16 h, puis 16 h + 15 min = <b>16 h 15</b>"])}
-${box("Attention !", `<p>On ne calcule pas les heures comme les nombres habituels : <b>1 h = 60 min</b>, pas 100 min ! &nbsp; 1 h 30 min n'est pas « 130 min ».</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Convertis.", `<div class="col3" style="grid-template-columns:1fr 1.15fr 1fr">
@@ -117,21 +83,6 @@ ${lvl(3)}
   // ---------------------------------------------------------------- 29
   {
     n: 29, disc: "fr", domaine: "Conjugaison", titre: "Le passé composé", titreCourt: "Le passé composé",
-    lecon: `
-<h1 class="lt">Le passé composé</h1>
-${box("À retenir", `<p>Le <b>passé composé</b> raconte une action <b>terminée</b> dans le passé : <i>Hier, j'<b>ai mangé</b> une pomme.</i></p>
-<p>Il est formé de <b>deux mots</b> : l'<span class="hl">auxiliaire <b>avoir</b> ou <b>être</b></span> conjugué au <b>présent</b> + le <span class="u"><b>participe passé</b></span> du verbe.</p>`)}
-<div class="conj" style="grid-template-columns:1fr 1fr;gap:3mm 8mm">
-${conjFull("chanter (avec avoir)", [["j'", aux("ai", "chanté")], ["tu", aux("as", "chanté")], ["il, elle, on", aux("a", "chanté")], ["nous", aux("avons", "chanté")], ["vous", aux("avez", "chanté")], ["ils, elles", aux("ont", "chanté")]])}
-${conjFull("aller (avec être)", [["je", aux("suis", "allé(e)")], ["tu", aux("es", "allé(e)")], ["il / elle", aux("est", "allé / allée")], ["nous", aux("sommes", "allés / allées")], ["vous", aux("êtes", "allé(e)s")], ["ils / elles", aux("sont", "allés / allées")]])}
-</div>
-${st("Le participe passé")}
-${table(["1<sup>er</sup> groupe", "2<sup>e</sup> groupe", "3<sup>e</sup> groupe et autres"], [["-é : chant<b>é</b>, jou<b>é</b>", "-i : fin<b>i</b>, grand<b>i</b>", "pris, dit, fait, vu, pu, voulu, venu, allé, été, eu"]])}
-${box("Avec être, on accorde", `<p>Avec <b>être</b>, le participe passé s'accorde avec le sujet, comme un adjectif : <i>Elle est part<b>ie</b>. Ils sont ven<b>us</b>. Elles sont arriv<b>ées</b>.</i></p>
-<p>Les verbes avec être : <b>aller, venir, partir, arriver, entrer, sortir, rester, tomber, monter, descendre, naître, mourir</b>…</p>`, { tint: false })}
-${box("Attention !", `<p>À la forme négative, <b>ne… pas</b> encadre l'<b>auxiliaire</b> : <i>Je <b>n'</b>ai <b>pas</b> mangé. Il <b>n'</b>est <b>pas</b> venu.</i></p>
-<p>Pour trouver l'infinitif, je pense à « il faut… » : <i>j'ai pris</i> → il faut <b>prendre</b>.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Souligne l'auxiliaire et entoure le participe passé.", `<div class="col2">
@@ -165,22 +116,6 @@ ${ex("Raconte en 3 phrases ce que tu as fait dimanche dernier. Utilise le passé
   // ---------------------------------------------------------------- 30
   {
     n: 30, disc: "ma", domaine: "Géométrie", titre: "La symétrie axiale", titreCourt: "La symétrie axiale + défi final",
-    lecon: `
-<h1 class="lt">La symétrie axiale</h1>
-${box("À retenir", `<p>Une droite est un <b>axe de symétrie</b> d'une figure si, quand on <b>plie</b> la figure le long de cette droite, les deux parties se <b>superposent exactement</b>.</p>
-<p>Le <b>symétrique</b> d'une figure, c'est comme son <b>reflet dans un miroir</b> posé sur l'axe.</p>`)}
-<div style="display:flex;justify-content:space-around;align-items:center;margin:1mm 0 2mm">
-<div class="c"><svg width="40mm" height="30mm" viewBox="0 0 40 30">${shape("20,3 33,12 28,27 12,27 7,12")}${dash(20, 0, 20, 30)}</svg><div class="sm">1 axe ✓</div></div>
-<div class="c"><svg width="40mm" height="30mm" viewBox="0 0 40 30">${shape("6,6 34,6 34,24 6,24")}${dash(20, 1, 20, 29)}${dash(2, 15, 38, 15)}</svg><div class="sm">rectangle : 2 axes</div></div>
-<div class="c"><svg width="40mm" height="30mm" viewBox="0 0 40 30">${shape("6,24 22,24 34,6 18,6")}${dash(20, 1, 20, 29)}</svg><div class="sm">pas un axe ✗</div></div>
-</div>
-${st("Compléter une figure sur un quadrillage")}
-<div class="row" style="align-items:center">
-<div style="flex:0 0 auto">${grid(12, 7, `${gaxis(6, 0, 6, 7)}${gpoly("2,2 5,2 5,6 3,6")}${gpoly("10,2 7,2 7,6 9,6", "#fff")}<circle cx="2" cy="2" r="0.18" fill="#222"/><text x="1.1" y="2.8" font-size="0.7" font-family="Andika">A</text><circle cx="10" cy="2" r="0.18" fill="#222"/><text x="10.3" y="2.8" font-size="0.7" font-family="Andika">A'</text><path d="M2 1.2 H5.9 M6.1 1.2 H10" stroke="var(--c)" stroke-width="0.08"/><text x="4" y="0.85" font-size="0.62" text-anchor="middle" font-family="Andika" fill="var(--c)">4 carreaux</text><text x="8" y="0.85" font-size="0.62" text-anchor="middle" font-family="Andika" fill="var(--c)">4 carreaux</text>`, 5)}</div>
-<div class="sm">${exs(["Pour chaque <b>sommet</b>, je compte les carreaux jusqu'à l'axe.", "Je reporte <b>la même distance</b> de l'autre côté de l'axe.", "Je relie les points dans le même ordre.", "Je vérifie en pliant (ou en imaginant le pliage)."])}</div>
-</div>
-${box("Attention !", `<p>Le symétrique a la <b>même forme</b> et la <b>même taille</b>, mais il est <b>retourné</b> (comme dans un miroir).</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("La droite en pointillés est-elle un axe de symétrie de la figure ? Coche.", `<div style="display:flex;justify-content:space-between">

@@ -3,39 +3,6 @@ import { ex, lvl, blank, lines, qcm, relier, table, box, st, exs, cb, vf } from 
 export default [
   {
     n: 1, disc: "fr", domaine: "Grammaire", titre: "Les types et les formes de phrases", titreCourt: "Types et formes de phrases",
-    lecon: `
-<h1 class="lt">Les types et les formes de phrases</h1>
-${box("À retenir", `<p>Une phrase commence par une <b>majuscule</b> et se termine par un <b>point</b> (. ? ou !).</p>
-<p>Il existe <b>quatre types</b> de phrases. Chaque phrase peut aussi être à la <b>forme affirmative</b> ou à la <b>forme négative</b>.</p>`)}
-${st("Les quatre types de phrases")}
-${table(["Type", "Elle sert à…", "Elle finit par", "Exemple"], [
-  [{ v: "<b>déclarative</b>", cls: "l" }, { v: "donner une information, raconter", cls: "l" }, "<b>.</b>", { v: "Le train part à midi.", cls: "l" }],
-  [{ v: "<b>interrogative</b>", cls: "l" }, { v: "poser une question", cls: "l" }, "<b>?</b>", { v: "Le train part-il à midi ?", cls: "l" }],
-  [{ v: "<b>exclamative</b>", cls: "l" }, { v: "montrer une émotion (joie, surprise, colère…)", cls: "l" }, "<b>!</b>", { v: "Quel train rapide !", cls: "l" }],
-  [{ v: "<b>impérative</b>", cls: "l" }, { v: "donner un ordre ou un conseil", cls: "l" }, "<b>.</b> ou <b>!</b>", { v: "Monte vite dans le train !", cls: "l" }],
-], { widths: ["24%", "34%", "14%", "28%"] })}
-<p class="sm mut" style="margin:1.5mm 0 0">Dans une phrase impérative, on ne voit pas le sujet : <i>Monte</i>, <i>Mangeons</i>, <i>Écoutez</i>.</p>
-${st("Poser une question : trois façons")}
-${exs(["<b>Tu viens</b> au parc ? <span class='mut sm'>(à l'oral surtout)</span>", "<b>Est-ce que</b> tu viens au parc ?", "<b>Viens-tu</b> au parc ? <span class='mut sm'>(le sujet passe après le verbe, avec un trait d'union)</span>"])}
-${st("La forme négative")}
-<p style="margin:0 0 2mm">Pour mettre une phrase à la forme négative, on <b>encadre le verbe</b> avec deux petits mots.</p>
-<div class="fig" style="margin:1mm 0 3mm">
-  <svg width="125mm" height="20mm" viewBox="0 0 150 24">
-    <text x="10" y="15" font-family="Andika" font-size="6.5">Léa</text>
-    <rect x="25" y="5.5" width="13" height="13" rx="2" fill="var(--tint)" stroke="var(--c)" stroke-width=".5"/><text x="31.5" y="14.5" font-family="Andika" font-weight="700" font-size="6" text-anchor="middle" fill="var(--c)">ne</text>
-    <text x="41" y="15" font-family="Andika" font-size="6.5" font-weight="700">mange</text>
-    <rect x="63" y="5.5" width="14" height="13" rx="2" fill="var(--tint)" stroke="var(--c)" stroke-width=".5"/><text x="70" y="14.5" font-family="Andika" font-weight="700" font-size="6" text-anchor="middle" fill="var(--c)">pas</text>
-    <text x="80" y="15" font-family="Andika" font-size="6.5">de soupe.</text>
-    <path d="M31.5 19.5 Q 50 26 70 19.5" fill="none" stroke="var(--c)" stroke-width=".5" stroke-dasharray="1 1"/>
-  </svg>
-</div>
-<div class="row">
-  <div>${exs(["ne… <b>pas</b> : <i>Il ne dort pas.</i>", "ne… <b>plus</b> : <i>Il ne pleut plus.</i>", "ne… <b>jamais</b> : <i>Je ne mens jamais.</i>"])}</div>
-  <div>${exs(["ne… <b>rien</b> : <i>Elle ne voit rien.</i>", "ne… <b>personne</b> : <i>Je ne vois personne.</i>"])}</div>
-</div>
-${box("Attention !", `<p>Devant une voyelle ou un h muet, <b>ne</b> devient <b>n'</b> : <i>Il aime le lait.</i> → <i>Il <b>n'</b>aime <b>pas</b> le lait.</i></p>
-<p>À l'écrit, on n'oublie jamais le <b>ne</b>.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Relie chaque phrase à son type.", relier(
@@ -74,31 +41,6 @@ ${ex("Écris trois phrases sur ton animal préféré : une <b>interrogative</b>,
   },
   {
     n: 2, disc: "ma", domaine: "Nombres", titre: "Les nombres jusqu'à 99 999", titreCourt: "Les nombres jusqu'à 99 999",
-    lecon: `
-<h1 class="lt">Les nombres jusqu'à 99 999</h1>
-${box("À retenir", `<p>Pour lire un grand nombre, on sépare les chiffres <b>par groupes de trois</b>, en partant de la droite. On laisse un petit espace entre les groupes.</p>
-<p><b>10 unités</b> = 1 dizaine &nbsp;·&nbsp; <b>10 centaines</b> = 1 millier &nbsp;·&nbsp; <b>10 milliers</b> = 1 dizaine de mille = 10 000</p>`)}
-${st("Le tableau de numération")}
-<table class="t" style="font-size:13pt">
-  <tr><th colspan="2" style="background:var(--soft)">classe des mille</th><th colspan="3">classe des unités simples</th></tr>
-  <tr><th>dizaines<br>de mille</th><th>unités<br>de mille</th><th>centaines</th><th>dizaines</th><th>unités</th></tr>
-  <tr style="font-family:Lexend;font-size:16pt;font-weight:600"><td>4</td><td>7</td><td>3</td><td>5</td><td>2</td></tr>
-</table>
-<p style="margin:2mm 0 0">On écrit : <b style="font-family:Lexend">47 352</b> &nbsp;→ on lit : <i>quarante-sept-mille-trois-cent-cinquante-deux</i>.</p>
-${st("Chiffre ou nombre ?")}
-<div class="row">
-  ${box("le chiffre des centaines", `<p style="font-family:Lexend;font-size:15pt;text-align:center;margin:0">47 <span class="hl">3</span>52</p><p class="sm c">C'est <b>un seul chiffre</b> : 3.</p>`, { tint: false })}
-  ${box("le nombre de centaines", `<p style="font-family:Lexend;font-size:15pt;text-align:center;margin:0"><span class="hl">47 3</span>52</p><p class="sm c">On prend <b>tout ce qui est à gauche</b>, jusqu'aux centaines : 473.</p>`, { tint: false })}
-</div>
-${st("Décomposer un nombre")}
-${exs([
-  "47 352 = 40 000 + 7 000 + 300 + 50 + 2",
-  "47 352 = (4 × 10 000) + (7 × 1 000) + (3 × 100) + (5 × 10) + 2",
-  "Attention aux zéros : 30 405 = 30 000 + 400 + 5 &nbsp;<span class='mut sm'>(0 millier, 0 dizaine)</span>",
-])}
-${box("Écrire les nombres en lettres", `<p>On relie <b>tous</b> les mots par des <b>traits d'union</b> : <i>vingt-trois-mille-quatre-cent-dix</i>.</p>
-<p><b>mille</b> ne prend jamais de « s » : <i>trois-mille</i>. <b>cent</b> et <b>vingt</b> prennent un « s » s'ils sont multipliés et à la fin : <i>deux-cents</i>, <i>quatre-vingts</i> (mais <i>deux-cent-dix</i>).</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Écris chaque nombre dans le tableau.", `<div class="row" style="align-items:center">

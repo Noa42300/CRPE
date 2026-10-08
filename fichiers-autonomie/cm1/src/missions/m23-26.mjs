@@ -31,28 +31,6 @@ export default [
   // ---------------------------------------------------------------- 23
   {
     n: 23, disc: "fr", domaine: "Orthographe", titre: "Le groupe nominal et ses accords", titreCourt: "Le groupe nominal et ses accords",
-    lecon: `
-<h1 class="lt">Le groupe nominal et ses accords</h1>
-${box("À retenir", `<p>Un <b>groupe nominal</b> (GN) contient au moins un <b>déterminant</b> et un <b>nom</b>. On peut l'enrichir avec des <b>adjectifs</b> ou un <b>complément du nom</b> : <i>un gâteau <b>au chocolat</b></i>.</p>
-<p>Le <b>nom</b> est le chef du groupe : le déterminant et les adjectifs <b>s'accordent avec lui</b> en <b>genre</b> (masculin / féminin) et en <b>nombre</b> (singulier / pluriel).</p>`)}
-<div style="display:flex;justify-content:center;gap:3mm;font-size:14pt;margin:1mm 0 3mm">
-${[["les", "dét."], ["petites", "adj."], ["souris", "NOM"], ["grises", "adj."]].map(([w, t], i) => `<div style="display:flex;flex-direction:column;align-items:center"><span style="${i === 2 ? "border:.45mm solid var(--c);border-radius:1.5mm;padding:0 1.5mm;font-weight:700" : ""}">${w}</span><span style="font-family:Lexend;font-size:9pt;color:var(--c)">${t}</span></div>`).join("")}
-<div class="sm" style="align-self:center;margin-left:4mm">← féminin pluriel partout</div></div>
-<div class="row">
-<div>${box("Le pluriel", `<p>En général : <b>+ s</b> : un ami → des ami<b>s</b></p>
-<p>-s, -x, -z : <b>rien ne change</b> : une souris → des souris</p>
-<p>-eau, -au, -eu : <b>+ x</b> : des bateau<b>x</b>, des cheveu<b>x</b> <span class="mut sm">(sauf pneus, bleus)</span></p>
-<p>-al → <b>-aux</b> : un cheval → des chev<b>aux</b> <span class="mut sm">(sauf bals, festivals)</span></p>
-<p>-ou → <b>+ s</b>, sauf 7 noms en <b>-oux</b> : bijou, caillou, chou, genou, hibou, joujou, pou.</p>`, { tint: false })}</div>
-<div>${box("Le féminin des adjectifs", `<p>En général : <b>+ e</b> : grand → grand<b>e</b></p>
-<p>Déjà un -e : <b>rien ne change</b> : rouge → rouge</p>
-<p>-er → <b>-ère</b> : léger → lég<b>ère</b></p>
-<p>-eux → <b>-euse</b> : heureux → heur<b>euse</b></p>
-<p>-if → <b>-ive</b> : sportif → spor<b>tive</b></p>
-<p>Consonne doublée : bon → bo<b>nne</b>, gentil → genti<b>lle</b></p>`, { tint: false })}</div>
-</div>
-${box("Attention !", `<p>Pour bien accorder, je cherche d'abord <b>le nom</b> du groupe, puis je me demande : <b>masculin ou féminin ? singulier ou pluriel ?</b></p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Entoure le nom principal (le chef) de chaque groupe nominal.", `<div class="col2">
@@ -85,26 +63,6 @@ ${ex("Enrichis chaque groupe nominal avec <b>un adjectif</b> et <b>un complémen
   // ---------------------------------------------------------------- 24
   {
     n: 24, disc: "ma", domaine: "Grandeurs et mesures", titre: "Les masses et les contenances", titreCourt: "Masses et contenances",
-    lecon: `
-<h1 class="lt">Les masses et les contenances</h1>
-${box("À retenir", `<p>La <b>masse</b> dit si un objet est lourd ou léger. Unité : le <b>gramme (g)</b>.<br><b>1 kg = 1 000 g</b> &nbsp;·&nbsp; <b>1 t (tonne) = 1 000 kg</b> &nbsp;·&nbsp; 1 g = 1 000 mg</p>
-<p>La <b>contenance</b> dit combien de liquide un récipient peut contenir. Unité : le <b>litre (L)</b>.<br><b>1 L = 10 dL = 100 cL = 1 000 mL</b></p>`)}
-${st("Les tableaux de conversion")}
-<table class="t" style="font-family:Lexend;font-size:11.5pt;margin-bottom:2mm">
-<tr><th style="background:var(--soft)">kg</th><th>hg</th><th>dag</th><th style="background:var(--soft)">g</th><th>dg</th><th>cg</th><th>mg</th></tr>
-<tr><td>2</td><td>3</td><td>0</td><td>0</td><td></td><td></td><td></td></tr></table>
-<p class="sm" style="margin:0 0 2mm">2 kg 300 g = <b>2 300 g</b></p>
-<div class="row" style="align-items:center">
-<div style="flex:0 0 92mm"><table class="t" style="font-family:Lexend;font-size:11.5pt"><tr><th style="background:var(--soft)">L</th><th>dL</th><th>cL</th><th>mL</th></tr><tr><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td></td><td></td><td>5</td><td>0</td></tr></table></div>
-<div class="sm">1 L = 1 000 mL<br>50 cL = 500 mL = la moitié d'un litre</div></div>
-${st("Des repères")}
-${table(null, [["une feuille de papier", "une pomme", "1 L d'eau", "une petite voiture"], ["≈ 5 g", "≈ 150 g", "≈ 1 kg", "≈ 1 t"], ["une cuillère à café", "une canette", "une grande bouteille", "une baignoire"], ["≈ 5 mL", "33 cL", "≈ 1 L", "≈ 150 L"]])}
-${st("Lire une graduation")}
-<div class="row" style="align-items:center">
-<div style="flex:0 0 46mm">${doseur(300)}</div>
-<div>${exs(["Je regarde ce que vaut <b>chaque petit trait</b> : ici, entre 0 et 100, il y a 2 intervalles → chaque trait vaut <b>50 mL</b>.", "Je lis le niveau au <b>bas de la surface</b> de l'eau : ici, <b>300 mL</b>."])}</div>
-</div>
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Coche l'unité qui convient.", qcm([
@@ -139,25 +97,6 @@ ${lvl(3)}
   // ---------------------------------------------------------------- 25
   {
     n: 25, disc: "fr", domaine: "Conjugaison", titre: "Le futur de l'indicatif", titreCourt: "Le futur",
-    lecon: `
-<h1 class="lt">Le futur de l'indicatif</h1>
-${box("À retenir", `<p>Le <b>futur</b> dit ce qui <b>se passera plus tard</b> : <i>Demain, je <b>partirai</b> en vacances.</i></p>
-<p>Les terminaisons sont <b>les mêmes pour tous les verbes</b> : <b style="white-space:nowrap">-ai, -as, -a, -ons, -ez, -ont</b>. Juste avant, on entend toujours un <b>r</b> : c'est la <b>marque du futur</b>.</p>`)}
-${st("1er et 2e groupes : infinitif + terminaison")}
-<div class="conj" style="grid-template-columns:1fr 1fr;gap:3mm 8mm">
-${conjFull("chanter", PR.map((p, i) => [p, fut("chanter")[i]]))}
-${conjFull("finir", PR.map((p, i) => [p, fut("finir")[i]]))}
-${conjFull("être", PR.map((p, i) => [p, fut("ser")[i]]))}
-${conjFull("avoir", PR.map((p, i) => [p, fut("aur")[i]]))}
-</div>
-${st("3e groupe : le radical change")}
-${table(null, [
-  ["aller → j'<b>ir</b>ai", "faire → je <b>fer</b>ai", "dire → je <b>dir</b>ai", "prendre → je <b>prendr</b>ai"],
-  ["venir → je <b>viendr</b>ai", "pouvoir → je <b>pourr</b>ai", "voir → je <b>verr</b>ai", "vouloir → je <b>voudr</b>ai"],
-])}
-${box("Attention !", `<p>Pour <b>-ier, -uer, -ouer</b>, on garde le <b>e</b> de l'infinitif même si on ne l'entend pas : je jou<b>e</b>rai, tu cri<b>e</b>ras, il continu<b>e</b>ra.</p>
-<p>Pour <b>-re</b>, on enlève le e : prendr<s>e</s> → je prendrai. &nbsp; <b>pourrai</b> et <b>verrai</b> ont <b>deux r</b>.</p>`, { warn: true, tint: false, style: "margin-top:4.5mm" })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Entoure seulement les verbes conjugués au futur.", `<div class="chips" style="font-size:12.5pt"><span>il chantera</span><span>nous chantons</span><span>vous finirez</span><span>ils finissaient</span><span>tu seras</span><span>j'avais</span><span>elles auront</span><span>je prends</span></div>`)}
@@ -186,26 +125,6 @@ ${ex("Dans vingt ans… Imagine ta vie en 3 phrases au futur. Utilise au moins u
   // ---------------------------------------------------------------- 26
   {
     n: 26, disc: "ma", domaine: "Nombres décimaux", titre: "Fractions décimales et nombres décimaux", titreCourt: "Fractions décimales et décimaux",
-    lecon: `
-<h1 class="lt">Fractions décimales et nombres décimaux</h1>
-${box("À retenir", `<p>Si je partage l'unité en <b>10</b> parts égales, chaque part est un <b>dixième</b> : ${frac(1, 10)}. En <b>100</b> parts égales, chaque part est un <b>centième</b> : ${frac(1, 100)}.</p>
-<p><b>10 dixièmes = 1 unité</b> &nbsp;·&nbsp; <b>10 centièmes = 1 dixième</b> &nbsp;·&nbsp; <b>100 centièmes = 1 unité</b></p>`)}
-<div style="display:flex;justify-content:space-around;align-items:center;margin-bottom:2mm">
-  <div class="c">${fracBar(10, 3, 60, 9)}<div>${frac(3, 10)} = <b>0,3</b> <span class="sm">(zéro virgule trois)</span></div></div>
-  <div class="c" style="display:flex;gap:3mm;align-items:center">${grid100(25, 28)}<div>${frac(25, 100)} = <b>0,25</b></div></div>
-</div>
-${st("La virgule sépare la partie entière et la partie décimale")}
-<table class="t" style="font-family:Lexend;font-size:12.5pt;width:auto;margin:0 auto 2mm">
-<tr><th>unités</th><th style="width:8mm">,</th><th>dixièmes</th><th>centièmes</th><th style="background:#fff;border:none"></th></tr>
-<tr><td>3</td><td><b>,</b></td><td>4</td><td></td><td class="l" style="border:none;font-family:Andika;font-size:11.5pt">3 + ${frac(4, 10)} = ${frac(34, 10)} = <b>3,4</b></td></tr>
-<tr><td>1</td><td><b>,</b></td><td>2</td><td>5</td><td class="l" style="border:none;font-family:Andika;font-size:11.5pt">1 + ${frac(25, 100)} = ${frac(125, 100)} = <b>1,25</b></td></tr>
-</table>
-${st("Sur une droite graduée en dixièmes")}
-<div class="fig">${numberLine({ a: 0, b: 2, step: 0.1, width: 170, labels: { 0: "0", 1: "1", 2: "2" }, marks: { 0.3: "0,3", 1.4: "1,4" }, height: 18 })}</div>
-${st("Avec la monnaie")}
-<p style="margin:0 0 1mm"><b>1 € = 100 centimes</b>. Donc 1 centime = ${frac(1, 100)} d'euro. &nbsp; <b>2,35 €</b> = 2 euros et 35 centimes.</p>
-${box("Attention !", `<p>${frac(5, 10)} = ${frac(50, 100)} : <b>0,5 = 0,50</b>. Un zéro à la fin de la partie décimale ne change rien.</p><p>Mais <b>0,05</b> (5 centièmes) est bien plus petit que <b>0,5</b> (5 dixièmes) !</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Écris la fraction décimale, puis le nombre décimal.", `<div style="display:flex;justify-content:space-between;align-items:flex-end">

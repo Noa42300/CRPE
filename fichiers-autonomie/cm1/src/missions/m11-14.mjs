@@ -12,24 +12,6 @@ export default [
   // ---------------------------------------------------------------- 11
   {
     n: 11, disc: "fr", domaine: "Conjugaison", titre: "Le présent de être, avoir, aller, faire, dire, prendre", titreCourt: "Présent : être, avoir, aller, faire, dire, prendre",
-    lecon: `
-<h1 class="lt">Le présent des verbes très fréquents<small>être · avoir · aller · faire · dire · prendre</small></h1>
-${box("À retenir", `<p>Ces verbes sont utilisés tout le temps. Ils sont <b>irréguliers</b> : leur radical change beaucoup. Il faut les <b>apprendre par cœur</b>.</p>
-<p>Les formes surlignées sont les plus <b>pièges</b>.</p>`)}
-<div class="conj" style="grid-template-columns:1fr 1fr 1fr;gap:4mm 6mm">
-${conjFull("être", [["je", "suis"], ["tu", "es"], ["il, elle, on", "est"], ["nous", irr("sommes")], ["vous", irr("êtes")], ["ils, elles", irr("sont")]])}
-${conjFull("avoir", [["j'", "ai"], ["tu", "as"], ["il, elle, on", "a"], ["nous", "avons"], ["vous", "avez"], ["ils, elles", irr("ont")]])}
-${conjFull("aller", [["je", irr("vais")], ["tu", "vas"], ["il, elle, on", "va"], ["nous", "allons"], ["vous", "allez"], ["ils, elles", irr("vont")]])}
-${conjFull("faire", [["je", "fais"], ["tu", "fais"], ["il, elle, on", "fait"], ["nous", "faisons"], ["vous", irr("faites")], ["ils, elles", irr("font")]])}
-${conjFull("dire", [["je", "dis"], ["tu", "dis"], ["il, elle, on", "dit"], ["nous", "disons"], ["vous", irr("dites")], ["ils, elles", "disent"]])}
-${conjFull("prendre", [["je", "prend<b>s</b>"], ["tu", "prend<b>s</b>"], ["il, elle, on", irr("prend")], ["nous", "prenons"], ["vous", "prenez"], ["ils, elles", irr("prennent")]])}
-</div>
-${box("Attention !", `<p>On dit <b>vous faites</b> et <b>vous dites</b> (jamais « faisez », « disez »).</p>
-<p><b>ils sont</b> (être) et <b>ils ont</b> (avoir) : ne les confonds pas ! <i>Ils <b>sont</b> grands. Ils <b>ont</b> un chien.</i></p>
-<p><b>prendre</b> : il pren<b>d</b> (avec un d) ; ils pre<b>nn</b>ent (deux n).</p>`, { warn: true, tint: false, style: "margin-top:5mm" })}
-${st("Une astuce pour retenir")}
-<p style="margin:0">Pour <b>je</b> et <b>tu</b>, la terminaison est très souvent <b>-s</b> : je fai<b>s</b>, tu fai<b>s</b>, je di<b>s</b>, tu va<b>s</b>, tu e<b>s</b>, tu a<b>s</b>. Seules exceptions ici : <i>j'ai</i> et <i>je vais</i>… qui finit aussi par -s !</p>
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Complète le tableau.", table(["", "avoir", "aller", "faire"], [
@@ -59,30 +41,6 @@ ${ex("Raconte ton mercredi en 3 phrases au présent. Utilise au moins <b>trois</
   // ---------------------------------------------------------------- 12
   {
     n: 12, disc: "ma", domaine: "Calcul", titre: "La multiplication", titreCourt: "La multiplication",
-    lecon: `
-<h1 class="lt">La multiplication<small>tables · × 10, × 100 · calcul réfléchi · calcul posé</small></h1>
-${box("À retenir", `<p>4 × 6 = 6 + 6 + 6 + 6 = 24. Le résultat d'une multiplication s'appelle le <b>produit</b>.</p>
-<p>On peut changer l'ordre : 4 × 6 = 6 × 4. Les <b>tables</b> doivent être connues par cœur.</p>`)}
-${st("Multiplier par 10, 100, 1 000")}
-${exs(["× 10 : chaque chiffre devient 10 fois plus grand → on écrit <b>un 0</b> à droite : 37 × 10 = 370", "× 100 → deux 0 : 37 × 100 = 3 700 &nbsp;&nbsp; × 1 000 → trois 0 : 37 × 1 000 = 37 000", "30 × 4, c'est 3 × 4 = 12, puis × 10 → <b>120</b>"])}
-${st("Calcul réfléchi : je décompose")}
-<div class="row" style="align-items:center">
-<div style="flex:0 0 72mm"><svg width="72mm" height="26mm" viewBox="0 0 72 26">
-  <rect x="2" y="2" width="50" height="18" fill="var(--tint)" stroke="#222" stroke-width=".35"/><rect x="52" y="2" width="12" height="18" fill="var(--soft)" stroke="#222" stroke-width=".35"/>
-  <g font-family="Andika" font-size="3.8" text-anchor="middle"><text x="27" y="12.5">20 × 4 = 80</text><text x="58" y="10.5">3 × 4</text><text x="58" y="15">= 12</text>
-  <text x="27" y="24.5">20</text><text x="58" y="24.5">3</text></g><text x="68" y="12.5" font-family="Andika" font-size="3.8">4</text>
-</svg></div>
-<div><p style="margin:0 0 1mm"><b>23 × 4</b> = (20 × 4) + (3 × 4)</p><p style="margin:0">= 80 + 12 = <b>92</b></p></div>
-</div>
-${st("Poser une multiplication")}
-<div class="row" style="align-items:flex-start;gap:4mm">
-  <div style="flex:0 0 auto">${posed(["347", "6"], { sign: "×", result: "2082", carry: "24 ", size: 14 })}</div>
-  <div class="sm" style="flex:1">${exs(["Je commence par les unités : 7 × 6 = 42. J'écris 2, je retiens 4.", "4 × 6 = 24, plus 4 de retenue = 28. J'écris 8, je retiens 2.", "3 × 6 = 18, plus 2 = 20. J'écris 20."])}</div>
-  <div style="flex:0 0 auto">${posed(["243", "36"], { sign: "×", partials: 2, partialVals: ["1458", "7290"], result: "8748", size: 14 })}</div>
-  <div class="sm" style="flex:1">${exs(["243 × <b>6</b> = 1 458", "243 × <b>30</b> : j'écris d'abord <b>un 0</b> aux unités, puis 243 × 3.", "J'additionne : 8 748."])}</div>
-</div>
-${box("Je vérifie", `<p>Ordre de grandeur : 243 × 36, c'est environ 250 × 40 = 10 000. 8 748 est plausible.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Calcule le plus vite possible.", `<div class="col4">
@@ -119,27 +77,6 @@ ${lvl(3)}
   // ---------------------------------------------------------------- 13
   {
     n: 13, disc: "fr", domaine: "Vocabulaire", titre: "Le dictionnaire et le sens des mots", titreCourt: "Le dictionnaire et le sens des mots",
-    lecon: `
-<h1 class="lt">Le dictionnaire et le sens des mots</h1>
-${box("À retenir", `<p>Dans le dictionnaire, les mots sont rangés dans l'<b>ordre alphabétique</b>.</p>
-<p>Un mot peut avoir <b>plusieurs sens</b>. C'est la <b>phrase</b> (le contexte) qui m'aide à choisir le bon.</p>`)}
-${st("L'ordre alphabétique")}
-<p style="margin:0 0 1mm">Si deux mots commencent par la même lettre, je regarde la 2<sup>e</sup> lettre, puis la 3<sup>e</sup>… :</p>
-<p style="margin:0 0 1mm;font-size:13.5pt;text-align:center">la<b class="hl">m</b>pe → la<b class="hl">p</b>in → la<b class="hl">r</b>ge &nbsp;&nbsp; <span class="sm mut">(m, p, r)</span></p>
-${st("Les mots-repères")}
-<div class="row" style="align-items:center">
-<div style="flex:0 0 76mm"><svg width="76mm" height="22mm" viewBox="0 0 76 22"><rect x="1" y="1" width="74" height="20" rx="1.5" fill="#fff" stroke="#8f97a3" stroke-width=".35"/>
-<text x="4" y="6.5" font-family="Lexend" font-weight="600" font-size="3.6" fill="var(--c)">bateau</text><text x="72" y="6.5" font-family="Lexend" font-weight="600" font-size="3.6" text-anchor="end" fill="var(--c)">bavard</text>
-<line x1="4" y1="8.5" x2="72" y2="8.5" stroke="#c9ced6" stroke-width=".3"/><g fill="#d6dbe1"><rect x="4" y="11" width="30" height="1.6"/><rect x="4" y="14.5" width="26" height="1.6"/><rect x="40" y="11" width="30" height="1.6"/><rect x="40" y="14.5" width="22" height="1.6"/></g></svg></div>
-<div class="sm">En haut de chaque page, les <b>mots-repères</b> donnent le premier et le dernier mot de la page. <i>batterie</i> est sur cette page : il est entre <i>bateau</i> et <i>bavard</i>.</div>
-</div>
-${st("Lire un article de dictionnaire")}
-<div style="border:.35mm solid #8f97a3;border-radius:2mm;padding:2.5mm 4mm;font-size:12pt">
-<b style="font-family:Lexend">renard</b> <i class="k">n. m.</i> <b>1.</b> Mammifère sauvage au pelage roux et à la queue touffue. <i>Le renard chasse la nuit.</i> <b>2.</b> Personne rusée. <i>Ce marchand est un vieux renard.</i></div>
-<p class="sm" style="margin:1.2mm 0 0"><b>n. m.</b> = nom masculin · <b>n. f.</b> = nom féminin · <b>v.</b> = verbe · <b>adj.</b> = adjectif. Les numéros séparent les sens ; l'exemple est en italique.</p>
-${st("Sens propre, sens figuré")}
-${exs(["<b>Sens propre</b> : le sens premier, concret. <i>Le lion <b>dévore</b> sa proie.</i>", "<b>Sens figuré</b> : une image. <i>Lina <b>dévore</b> les livres.</i> (elle lit beaucoup et vite)"])}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Range ces mots dans l'ordre alphabétique.", `
@@ -169,27 +106,6 @@ ${ex("Sans dictionnaire, explique le mot en gras. Puis recopie les mots du texte
   // ---------------------------------------------------------------- 14
   {
     n: 14, disc: "ma", domaine: "Grandeurs et mesures", titre: "Les longueurs et le périmètre", titreCourt: "Longueurs et périmètre",
-    lecon: `
-<h1 class="lt">Les longueurs et le périmètre</h1>
-${box("À retenir", `<p>L'unité principale de longueur est le <b>mètre (m)</b>.</p>
-<p><b>1 km = 1 000 m</b> &nbsp;·&nbsp; <b>1 m = 100 cm = 1 000 mm</b> &nbsp;·&nbsp; <b>1 cm = 10 mm</b></p>`)}
-${st("Le tableau des longueurs")}
-<table class="t" style="font-family:Lexend;font-size:12pt">
-<tr><th>km</th><th>hm</th><th>dam</th><th style="background:var(--soft)">m</th><th>dm</th><th>cm</th><th>mm</th></tr>
-<tr><td>2</td><td>0</td><td>0</td><td style="background:var(--tint)">0</td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td style="background:var(--tint)">3</td><td>4</td><td>5</td><td></td></tr>
-</table>
-<p class="sm" style="margin:1.2mm 0 0">Chaque colonne vaut 10 fois plus que celle de droite. J'écris le dernier chiffre dans la colonne de l'unité, puis je lis :<br><b>2 km = 2 000 m</b> &nbsp;·&nbsp; <b>3 m 45 cm = 345 cm</b></p>
-${st("Choisir la bonne unité")}
-${table(null, [["une fourmi", "une gomme", "une classe", "un trajet en voiture"], ["≈ 5 <b>mm</b>", "≈ 4 <b>cm</b>", "≈ 8 <b>m</b>", "≈ 30 <b>km</b>"]])}
-${st("Le périmètre")}
-<p style="margin:0 0 1.5mm">Le <b>périmètre</b> d'une figure est la <b>longueur de son tour</b>. Pour un polygone, j'additionne les longueurs de tous ses côtés (dans la même unité !).</p>
-<div class="row" style="align-items:center">
-<div style="flex:0 0 52mm"><svg width="52mm" height="30mm" viewBox="0 0 52 30"><rect x="6" y="4" width="36" height="20" fill="var(--tint)" stroke="#222" stroke-width=".45"/><g font-family="Andika" font-size="3.6" text-anchor="middle"><text x="24" y="3">6 cm</text><text x="24" y="28.5">6 cm</text><text x="46" y="15">4 cm</text></g></svg></div>
-<div>${exs(["<b>Rectangle</b> : 6 + 4 + 6 + 4 = 20 cm, ou (6 + 4) × 2 = 20 cm.", "<b>Carré</b> de côté 5 cm : 5 × 4 = 20 cm."])}</div>
-</div>
-${box("Attention !", `<p>Avant d'additionner, je <b>convertis</b> toutes les longueurs dans la <b>même unité</b> : 1 m + 20 cm = 100 cm + 20 cm = 120 cm.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Coche l'unité qui convient.", qcm([

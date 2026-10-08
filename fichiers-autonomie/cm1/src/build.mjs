@@ -5,6 +5,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { CSS, lessonPage, exercisePage, resetEx, nbspNumbers } from "./lib.mjs";
 import { cover, modeEmploi, parcours } from "./front.mjs";
+import LECONS from "./lecons.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "build");
@@ -16,6 +17,7 @@ for (const f of readdirSync(join(root, "src/missions")).filter((f) => f.endsWith
   missions.push(...mod.default);
 }
 missions.sort((a, b) => a.n - b.n);
+for (const m of missions) m.lecon = LECONS[m.n];
 for (const m of missions) {
   resetEx();
   m.exosHtml = typeof m.exos === "function" ? m.exos() : m.exos;

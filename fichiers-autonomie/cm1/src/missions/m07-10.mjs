@@ -7,25 +7,6 @@ export default [
   // ---------------------------------------------------------------- 07
   {
     n: 7, disc: "fr", domaine: "Conjugaison", titre: "Le présent des verbes du 1er et du 2e groupe", titreCourt: "Présent : 1er et 2e groupes",
-    lecon: `
-<h1 class="lt">Le présent de l'indicatif<small>verbes du 1<sup>er</sup> groupe (-er) et du 2<sup>e</sup> groupe (-ir, -issons)</small></h1>
-${box("À retenir", `<p>On utilise le <b>présent</b> pour dire ce qui se passe <b>maintenant</b> (<i>Je lis.</i>), une <b>habitude</b> (<i>Le mercredi, je nage.</i>) ou une <b>vérité</b> (<i>La Terre tourne.</i>).</p>
-<p>Pour conjuguer : je trouve l'<b>infinitif</b>, j'enlève <b>-er</b> ou <b>-ir</b> pour garder le <b>radical</b>, puis j'ajoute la <b>terminaison</b>.</p>`)}
-<div class="conj" style="grid-template-columns:1fr 1fr">
-${conj("chanter — 1<sup>er</sup> groupe", [["je", "chant", "e"], ["tu", "chant", "es"], ["il / elle / on", "chant", "e"], ["nous", "chant", "ons"], ["vous", "chant", "ez"], ["ils / elles", "chant", "ent"]])}
-${conj("finir — 2<sup>e</sup> groupe", [["je", "fin", "is"], ["tu", "fin", "is"], ["il / elle / on", "fin", "it"], ["nous", "fin", "issons"], ["vous", "fin", "issez"], ["ils / elles", "fin", "issent"]])}
-</div>
-<div class="row" style="margin-top:3mm">
-${box("Les terminaisons", `<table class="t" style="font-family:Lexend;font-size:11pt;white-space:nowrap"><tr><th></th><th>1<sup>er</sup> gr.</th><th>2<sup>e</sup> gr.</th></tr>
-<tr><td>je</td><td>-e</td><td>-is</td></tr><tr><td>tu</td><td>-es</td><td>-is</td></tr><tr><td>il, elle, on</td><td>-e</td><td>-it</td></tr>
-<tr><td>nous</td><td>-ons</td><td>-issons</td></tr><tr><td>vous</td><td>-ez</td><td>-issez</td></tr><tr><td>ils, elles</td><td>-ent</td><td>-issent</td></tr></table>`, { tint: false, style: "flex:0 0 74mm" })}
-<div>
-${box("Attention !", `<p><b>-cer</b> : nous commen<b>ç</b>ons (le ç garde le son [s]).</p>
-<p><b>-ger</b> : nous man<b>ge</b>ons (le e garde le son [ʒ]).</p>
-<p>Avec <b>-e, -es, -e, -ent</b>, on n'entend rien : <i>je crie, tu joues, ils jouent</i>. Il faut penser à les écrire !</p>`, { warn: true, tint: false })}
-<p class="sm" style="margin:1mm 0 0">Au 2<sup>e</sup> groupe, au pluriel, on ajoute <b>-iss-</b> : nous fin<b>iss</b>ons, ils grand<b>iss</b>ent.</p>
-</div></div>
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Relie chaque pronom à la bonne forme du verbe <b>regarder</b>.", relier(["nous", "ils", "tu", "vous", "je"], ["regardez", "regarde", "regardons", "regardes", "regardent"], 30))}
@@ -57,36 +38,6 @@ Chaque samedi, Mila et son frère <span class="mut">(aider)</span> ${blank(24)} 
   // ---------------------------------------------------------------- 08
   {
     n: 8, disc: "ma", domaine: "Géométrie", titre: "Droites, segments et droites perpendiculaires", titreCourt: "Droites et perpendiculaires",
-    lecon: `
-<h1 class="lt">Droites, segments, perpendiculaires</h1>
-${box("À retenir", `<p>Une <b>droite</b> ne s'arrête jamais : on n'en dessine qu'un morceau. On la nomme avec deux de ses points : (AB), ou avec une lettre : (d).</p>
-<p>Un <b>segment</b> est un morceau de droite limité par deux <b>extrémités</b>. On le nomme avec crochets : [CD].</p>`)}
-<div class="fig">
-<svg width="170mm" height="32mm" viewBox="0 0 170 32">
-  <line x1="4" y1="26" x2="76" y2="7.2" stroke="#222" stroke-width=".45"/>
-  ${pt(22, 21.3, "A", -1, 5)}${pt(54, 12.9, "B", -1, 5)}
-  <text x="40" y="31" font-size="3.5" font-family="Andika" text-anchor="middle">la droite (AB) : on peut la prolonger</text>
-  <line x1="100" y1="22" x2="150" y2="9" stroke="#222" stroke-width=".45"/>
-  <line x1="99.4" y1="19.7" x2="100.6" y2="24.3" stroke="#222" stroke-width=".45"/><line x1="149.4" y1="6.7" x2="150.6" y2="11.3" stroke="#222" stroke-width=".45"/>
-  <text x="95" y="24" font-size="3.6" font-family="Andika">C</text><text x="152" y="9" font-size="3.6" font-family="Andika">D</text>
-  <text x="125" y="31" font-size="3.5" font-family="Andika" text-anchor="middle">le segment [CD] : il a 2 extrémités</text>
-</svg></div>
-${st("Des points alignés")}
-<p style="margin:0 0 1mm">Des points sont <b>alignés</b> s'ils sont sur une <b>même droite</b>. Pour le vérifier, je pose ma <b>règle</b> sur les points.</p>
-${st("Des droites perpendiculaires")}
-<div class="row" style="align-items:center">
-<div style="flex:0 0 70mm"><svg width="70mm" height="38mm" viewBox="0 0 70 38">
-  <line x1="6" y1="31.4" x2="66" y2="9.4" stroke="#222" stroke-width=".45"/>
-  <line x1="33.5" y1="4" x2="44.5" y2="34" stroke="#222" stroke-width=".45"/>
-  <polygon points="39,19.6 41.82,18.57 42.85,21.39 40.03,22.42" fill="var(--soft)" stroke="var(--c)" stroke-width=".35"/>
-  <text x="62" y="16" font-size="3.6" font-family="Andika">(d)</text><text x="45" y="34" font-size="3.6" font-family="Andika">(e)</text>
-</svg></div>
-<div>${exs(["Deux droites <b>perpendiculaires</b> se coupent en formant un <b>angle droit</b>.", "On marque l'angle droit avec un <b>petit carré</b>.", "On écrit : (d) ⊥ (e)."])}</div>
-</div>
-${box("Avec mon équerre", `<p><b>Vérifier un angle droit :</b> je pose le coin de l'angle droit de l'équerre sur le sommet ; les deux côtés doivent coller aux deux traits.</p>
-<p><b>Tracer la perpendiculaire à (d) passant par A :</b></p>
-<p style="margin-left:4mm">1. Je pose un côté de l'angle droit de l'équerre <b>sur la droite (d)</b>.<br>2. Je fais <b>glisser</b> l'équerre le long de (d) jusqu'à ce que l'autre côté touche <b>le point A</b>.<br>3. Je trace le long de ce côté, puis je marque l'angle droit.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Écris sous chaque dessin : <i>droite</i>, <i>segment</i>, <i>points alignés</i> ou <i>points non alignés</i>.", `<div style="display:flex;justify-content:space-between">
@@ -126,25 +77,6 @@ ${grid(9, 6, `<circle cx="1" cy="5" r="0.18" fill="var(--c)"/>`)}
   // ---------------------------------------------------------------- 09
   {
     n: 9, disc: "fr", domaine: "Grammaire et orthographe", titre: "Le sujet et l'accord du verbe", titreCourt: "Le sujet et l'accord du verbe",
-    lecon: `
-<h1 class="lt">Le sujet et l'accord du verbe</h1>
-${box("À retenir", `<p>Le <b>sujet</b> indique <b>qui fait l'action</b> ou <b>de qui on parle</b>.</p>
-<p>Le verbe <b>s'accorde avec son sujet</b> : si le sujet est au pluriel, le verbe est au pluriel.</p>`)}
-${st("Comment trouver le sujet ?")}
-<p style="margin:0 0 1mm">J'encadre avec <b>« C'est… qui »</b> ou <b>« Ce sont… qui »</b> :</p>
-${exs(["<i>Les enfants jouent.</i> → <b>Ce sont</b> les enfants <b>qui</b> jouent. → le sujet est <span class='u'>les enfants</span>."])}
-${st("Le sujet peut être…")}
-${table(null, [
-  [{ v: "un <b>pronom</b>", cls: "l" }, { v: "<span class='u'>Elle</span> chante.", cls: "l" }],
-  [{ v: "un <b>nom propre</b>", cls: "l" }, { v: "<span class='u'>Paul</span> chante.", cls: "l" }],
-  [{ v: "un <b>groupe nominal</b>", cls: "l" }, { v: "<span class='u'>Le petit chat de Lou</span> dort.", cls: "l" }],
-  [{ v: "<b>plusieurs</b> noms", cls: "l" }, { v: "<span class='u'>Tom et Léa</span> partent. (= ils partent)", cls: "l" }],
-], { widths: ["40%", "60%"] })}
-${box("Les pièges", `<p><b>1. Le sujet est loin du verbe.</b><br><i><span class="u">Les enfants</span> de la classe de Mme Lune <b>chantent</b>.</i> → C'est « les enfants » qui chantent, pas « Mme Lune ».</p>
-<p><b>2. Le sujet est après le verbe.</b><br><i>Dans la forêt <b>vivent</b> <span class="u">des loups</span>.</i> → Ce sont des loups qui vivent.</p>
-<p><b>3. « les » ou « leur » devant le verbe ne sont pas le sujet.</b><br><i><span class="u">Le maître</span> les <b>regarde</b>.</i> → C'est le maître qui regarde : le verbe est au singulier.</p>`, { warn: true, tint: false })}
-<p class="sm mut" style="margin:1mm 0 0">Rappel : il, elle, on → <b>singulier</b> &nbsp;·&nbsp; ils, elles → <b>pluriel</b> (souvent <b>-ent</b> à la fin du verbe).</p>
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Souligne le sujet et entoure le verbe.", `<div class="col2">
@@ -176,23 +108,6 @@ ${ex("Attention, le sujet est placé <b>après</b> le verbe. Souligne-le. Puis c
   // ---------------------------------------------------------------- 10
   {
     n: 10, disc: "ma", domaine: "Nombres", titre: "Comparer, ranger, encadrer jusqu'à 999 999", titreCourt: "Comparer, ranger, encadrer",
-    lecon: `
-<h1 class="lt">Les nombres jusqu'à 999 999<small>comparer · ranger · encadrer · droite graduée</small></h1>
-${box("À retenir", `<p>La classe des mille a maintenant <b>trois colonnes</b> : centaines de mille, dizaines de mille, unités de mille.</p>`)}
-<table class="t" style="font-size:12pt">
-  <tr><th colspan="3" style="background:var(--soft)">classe des mille</th><th colspan="3">classe des unités simples</th></tr>
-  <tr><th>c. de mille</th><th>d. de mille</th><th>u. de mille</th><th>centaines</th><th>dizaines</th><th>unités</th></tr>
-  <tr style="font-family:Lexend;font-size:15pt;font-weight:600"><td>5</td><td>0</td><td>7</td><td>3</td><td>8</td><td>1</td></tr>
-</table>
-<p style="margin:1.5mm 0 0">507 381 se lit : <i>cinq-cent-sept-mille-trois-cent-quatre-vingt-un</i>.</p>
-${st("Comparer deux nombres")}
-${exs(["Le nombre qui a <b>le plus de chiffres</b> est le plus grand : 99 999 &lt; 100 000.", "S'ils ont autant de chiffres, je compare <b>chiffre par chiffre, depuis la gauche</b> :<br>45 <b>3</b>82 &lt; 45 <b>8</b>32 car 3 centaines &lt; 8 centaines.", "&lt; veut dire « est plus petit que » ; &gt; veut dire « est plus grand que ». La pointe montre le plus petit."])}
-${st("Encadrer un nombre")}
-${exs(["au <b>millier</b> près : 45 000 &lt; 45 382 &lt; 46 000", "à la <b>dizaine de mille</b> près : 40 000 &lt; 45 382 &lt; 50 000"])}
-${st("La droite graduée")}
-<div class="fig">${numberLine({ a: 40000, b: 50000, step: 1000, width: 172, every: 1, labels: {}, marks: { 45382: "45 382" }, height: 20 })}</div>
-<p class="sm" style="margin:0">Chaque petit trait vaut ici <b>1 000</b>. On voit que 45 382 est <b>plus proche de 45 000</b> que de 46 000.</p>
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Écris le signe <b>&lt;</b>, <b>&gt;</b> ou <b>=</b>.", `<div class="col3">

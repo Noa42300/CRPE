@@ -8,26 +8,6 @@ export default [
   // ---------------------------------------------------------------- 15
   {
     n: 15, disc: "fr", domaine: "Conjugaison", titre: "Le présent de venir, pouvoir, voir, vouloir + bilan", titreCourt: "Présent : venir, pouvoir, voir, vouloir",
-    lecon: `
-<h1 class="lt">Le présent : venir, pouvoir, voir, vouloir<small>et le bilan des terminaisons du présent</small></h1>
-${box("À retenir", `<p>Ces quatre verbes du 3<sup>e</sup> groupe sont très utilisés. Leur <b>radical change</b> selon la personne : <i>je <b>vien</b>s, nous <b>ven</b>ons, ils <b>vienn</b>ent</i>.</p>`)}
-<div class="conj" style="grid-template-columns:1fr 1fr;gap:3mm 8mm">
-${conjFull("venir", [["je", "vien" + t("s")], ["tu", "vien" + t("s")], ["il, elle, on", "vien" + t("t")], ["nous", "ven" + t("ons")], ["vous", "ven" + t("ez")], ["ils, elles", "vienn" + t("ent")]])}
-${conjFull("pouvoir", [["je", "peu" + t("x")], ["tu", "peu" + t("x")], ["il, elle, on", "peu" + t("t")], ["nous", "pouv" + t("ons")], ["vous", "pouv" + t("ez")], ["ils, elles", "peuv" + t("ent")]])}
-${conjFull("voir", [["je", "voi" + t("s")], ["tu", "voi" + t("s")], ["il, elle, on", "voi" + t("t")], ["nous", "voy" + t("ons")], ["vous", "voy" + t("ez")], ["ils, elles", "voi" + t("ent")]])}
-${conjFull("vouloir", [["je", "veu" + t("x")], ["tu", "veu" + t("x")], ["il, elle, on", "veu" + t("t")], ["nous", "voul" + t("ons")], ["vous", "voul" + t("ez")], ["ils, elles", "veul" + t("ent")]])}
-</div>
-${box("Attention !", `<p><b>je peux, tu peux, je veux, tu veux</b> : avec un <b>x</b>. &nbsp; <b>nous voyons</b> (y) mais <b>ils voient</b> (i).</p>`, { warn: true, tint: false, style: "margin-top:4.5mm" })}
-${st("Bilan : les marques de personne au présent")}
-${table(["", "le plus souvent", "parfois"], [
-  [{ v: "<b>je</b>", cls: "l" }, { v: "-e (je chante) · -s (je finis, je viens)", cls: "l" }, { v: "-x (je peux, je veux) · j'ai", cls: "l" }],
-  [{ v: "<b>tu</b>", cls: "l" }, { v: "<b>-s</b> (tu chantes, tu viens)", cls: "l" }, { v: "-x (tu peux, tu veux)", cls: "l" }],
-  [{ v: "<b>il, elle, on</b>", cls: "l" }, { v: "-e (il chante) · -t (il finit, il voit)", cls: "l" }, { v: "-d (il prend) · il a, il va", cls: "l" }],
-  [{ v: "<b>nous</b>", cls: "l" }, { v: "<b>-ons</b>", cls: "l" }, { v: "nous sommes", cls: "l" }],
-  [{ v: "<b>vous</b>", cls: "l" }, { v: "<b>-ez</b>", cls: "l" }, { v: "vous êtes, faites, dites", cls: "l" }],
-  [{ v: "<b>ils, elles</b>", cls: "l" }, { v: "<b>-ent</b>", cls: "l" }, { v: "-ont (ils ont, sont, vont, font)", cls: "l" }],
-], { widths: ["20%", "45%", "35%"] })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Complète le tableau.", table(["", "venir", "pouvoir", "voir", "vouloir"], [
@@ -57,26 +37,6 @@ ${ex("Conjugue les verbes au présent dans ce dialogue.", `<div class="text" sty
   // ---------------------------------------------------------------- 16
   {
     n: 16, disc: "ma", domaine: "Fractions", titre: "Les fractions simples", titreCourt: "Les fractions simples",
-    lecon: `
-<h1 class="lt">Les fractions simples</h1>
-${box("À retenir", `<p>Une <b>fraction</b> sert à parler d'une partie d'une unité partagée en <b>parts égales</b>.</p>
-<div style="display:flex;align-items:center;gap:6mm;margin-top:1mm"><div style="flex:0 0 auto">${fracBar(4, 3, 56, 10)}</div>
-<div style="flex:0 0 auto">${frac(3, 4, "18pt")}</div>
-<div class="sm"><div><b>3</b> = le <b>numérateur</b> : le nombre de parts prises.</div><div><b>4</b> = le <b>dénominateur</b> : le nombre de parts égales de l'unité.</div></div></div>`)}
-${st("Lire une fraction")}
-${table(null, [[frac(1, 2), frac(1, 3), frac(1, 4), frac(3, 5), frac(7, 10), frac(5, 8)], ["un demi", "un tiers", "un quart", "trois cinquièmes", "sept dixièmes", "cinq huitièmes"]])}
-${st("Comparer une fraction à 1")}
-<div style="display:grid;grid-template-columns:auto 1fr;gap:1.6mm 4mm;align-items:center">
-  ${fracBar(4, 4, 44)}<div>${frac(4, 4)} = 1 : toutes les parts sont prises.</div>
-  ${fracBar(4, 3, 44)}<div>${frac(3, 4)} &lt; 1 : il manque une part pour faire 1.</div>
-  <div style="display:flex;gap:2mm">${fracBar(4, 4, 44)}${fracBar(4, 1, 44)}</div><div>${frac(5, 4)} &gt; 1 : c'est 1 + ${frac(1, 4)}.</div>
-</div>
-${st("Sur une droite graduée")}
-<div class="fig">${numberLine({ a: 0, b: 2, step: 0.25, width: 150, labels: { 0: "0", 1: "1", 2: "2", 0.25: "¼", 0.5: "½", 0.75: "¾", 1.25: "5/4", 1.5: "6/4", 1.75: "7/4" }, height: 18 })}</div>
-<p class="sm" style="margin:0">L'unité (de 0 à 1) est partagée en <b>4</b> : chaque graduation vaut un quart.</p>
-${box("Une fraction d'une quantité", `<p><b>${frac(1, 4)} de 20</b> : je partage 20 en 4 parts égales → 5. &nbsp;&nbsp; <b>${frac(3, 4)} de 20</b> : 3 parts de 5 → 15.</p>
-<p>Deux fractions peuvent être égales : ${frac(1, 2)} = ${frac(2, 4)} (même longueur de bande).</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Écris la fraction coloriée.", `<div style="display:flex;justify-content:space-between;align-items:center">
@@ -105,24 +65,6 @@ ${lvl(3)}
   // ---------------------------------------------------------------- 17
   {
     n: 17, disc: "fr", domaine: "Orthographe", titre: "Les homophones a/à, et/est, on/ont, son/sont", titreCourt: "Homophones a/à, et/est, on/ont, son/sont",
-    lecon: `
-<h1 class="lt">Les homophones grammaticaux<small>a / à · et / est · on / ont · son / sont</small></h1>
-${box("À retenir", `<p>Des <b>homophones</b> sont des mots qui se prononcent pareil mais qui s'écrivent différemment et n'ont pas le même sens.</p>
-<p>Pour choisir, j'essaie de <b>remplacer</b> le mot par un autre : si ça marche, j'ai trouvé !</p>`)}
-${table(["J'hésite entre…", "Je remplace par…", "Exemple"], [
-  [{ v: "<b>a</b> (verbe avoir)", cls: "l" }, { v: "<b>avait</b> ✓", cls: "l" }, { v: "Il <b>a</b> un chien. → Il <i>avait</i> un chien.", cls: "l" }],
-  [{ v: "<b>à</b> (petit mot invariable)", cls: "l" }, { v: "avait ✗ (ça ne marche pas)", cls: "l" }, { v: "Il va <b>à</b> Paris.", cls: "l" }],
-  [{ v: "<b>est</b> (verbe être)", cls: "l" }, { v: "<b>était</b> ✓", cls: "l" }, { v: "Le ciel <b>est</b> bleu. → Le ciel <i>était</i> bleu.", cls: "l" }],
-  [{ v: "<b>et</b> (mot de liaison)", cls: "l" }, { v: "<b>et puis</b> ✓", cls: "l" }, { v: "Tom <b>et</b> Léa → Tom <i>et puis</i> Léa", cls: "l" }],
-  [{ v: "<b>ont</b> (verbe avoir)", cls: "l" }, { v: "<b>avaient</b> ✓", cls: "l" }, { v: "Ils <b>ont</b> faim. → Ils <i>avaient</i> faim.", cls: "l" }],
-  [{ v: "<b>on</b> (pronom)", cls: "l" }, { v: "<b>il</b> ✓", cls: "l" }, { v: "<b>On</b> joue. → <i>Il</i> joue.", cls: "l" }],
-  [{ v: "<b>sont</b> (verbe être)", cls: "l" }, { v: "<b>étaient</b> ✓", cls: "l" }, { v: "Ils <b>sont</b> là. → Ils <i>étaient</i> là.", cls: "l" }],
-  [{ v: "<b>son</b> (déterminant)", cls: "l" }, { v: "<b>mon</b> ✓", cls: "l" }, { v: "<b>son</b> vélo → <i>mon</i> vélo", cls: "l" }],
-], { widths: ["30%", "26%", "44%"] })}
-${box("Attention !", `<p><b>à</b> prend toujours un <b>accent grave</b>.</p>
-<p><b>on</b> est singulier, comme <i>il</i> : <i>On jou<b>e</b></i> (et non « on jouent »).</p>
-<p>Devant un nom, c'est souvent <b>son</b> (son chat) ; après un sujet pluriel, c'est souvent <b>sont</b> (ils sont).</p>`, { warn: true, tint: false, style: "margin-top:5mm" })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Complète avec <b>a</b> ou <b>à</b>.", `<div class="col2">
@@ -155,26 +97,6 @@ ${ex("Écris une phrase (ou deux) qui contient <b>a</b>, <b>à</b>, <b>et</b> et
   // ---------------------------------------------------------------- 18
   {
     n: 18, disc: "ma", domaine: "Problèmes", titre: "Résoudre des problèmes (2) : multiplication et étapes", titreCourt: "Problèmes (2) : × et étapes",
-    lecon: `
-<h1 class="lt">Résoudre des problèmes (2)<small>multiplication · problèmes à étapes · tableaux · données manquantes</small></h1>
-${box("À retenir", `<p>Quand une <b>même quantité se répète</b> plusieurs fois, je peux utiliser une <b>multiplication</b>.</p>`)}
-<div class="row" style="align-items:center">
-<div style="flex:0 0 auto">${bars({ top: "4 × 25 = 100", parts: [{ label: "25", w: 20 }, { label: "25", w: 20 }, { label: "25", w: 20 }, { label: "25", w: 20 }] })}</div>
-<div class="sm">4 paquets de 25 cartes : 25 + 25 + 25 + 25 = 4 × 25 = <b>100</b> cartes.</div>
-</div>
-${st("Les problèmes à étapes")}
-${box("Exemple", `<p>Une école achète <b>6</b> boîtes de <b>25</b> crayons. Elle en distribue <b>120</b>. Combien de crayons reste-t-il ?</p>
-<p><b>Étape 1</b> — Je cherche d'abord le nombre de crayons achetés : 6 × 25 = 150.</p>
-<p><b>Étape 2</b> — Je cherche ce qui reste : 150 − 120 = 30. &nbsp; <i>Il reste 30 crayons.</i></p>`, { tint: false })}
-<p class="sm" style="margin:0">Je me demande : <b>« Qu'est-ce que je dois savoir avant de répondre à la question ? »</b></p>
-${st("Lire un tableau")}
-<div class="row" style="align-items:center">
-<div style="flex:0 0 70mm">${table(["Piscine", "Prix"], [["Enfant", "3 €"], ["Adulte", "5 €"]])}</div>
-<div class="sm">2 adultes et 3 enfants : (2 × 5) + (3 × 3) = 10 + 9 = <b>19 €</b>.<br>Je cherche la <b>bonne ligne</b> et la <b>bonne colonne</b>.</div>
-</div>
-${box("Attention !", `<p>Parfois, il <b>manque une information</b> et on ne peut pas répondre. <i>Paul achète des stylos à 2 €. Combien paie-t-il ?</i> → On ne sait pas <b>combien</b> de stylos il achète.</p>
-<p>Parfois, il y a des informations <b>inutiles</b> : je ne les utilise pas.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Un carton contient 36 bouteilles. Combien de bouteilles y a-t-il dans 7 cartons ?", work(11))}

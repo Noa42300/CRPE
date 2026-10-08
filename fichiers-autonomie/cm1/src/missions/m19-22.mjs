@@ -19,24 +19,6 @@ export default [
   // ---------------------------------------------------------------- 19
   {
     n: 19, disc: "fr", domaine: "Conjugaison", titre: "L'imparfait de l'indicatif", titreCourt: "L'imparfait",
-    lecon: `
-<h1 class="lt">L'imparfait de l'indicatif</h1>
-${box("À retenir", `<p>L'<b>imparfait</b> est un temps du <b>passé</b>. On l'utilise pour <b>décrire</b> (le décor, les personnages) et pour des actions <b>habituelles</b> ou <b>qui durent</b> : <i>Autrefois, les enfants <b>allaient</b> à l'école à pied.</i></p>
-<p>Les terminaisons sont <b>les mêmes pour tous les verbes</b> : <b style="white-space:nowrap">-ais, -ais, -ait, -ions, -iez, -aient</b>.</p>`)}
-${st("Comment le former ?")}
-<p style="margin:0 0 1.5mm">Je prends le radical du verbe conjugué avec <b>nous au présent</b>, puis j'ajoute les terminaisons :</p>
-<p style="margin:0 0 2mm;text-align:center">nous <b>chant</b>ons → je <b>chant</b>ais &nbsp;·&nbsp; nous <b>finiss</b>ons → je <b>finiss</b>ais &nbsp;·&nbsp; nous <b>fais</b>ons → je <b>fais</b>ais</p>
-<div class="conj" style="grid-template-columns:1fr 1fr;gap:3mm 8mm">
-${imp("chanter", P, ["chant"], TM, MP)}
-${imp("finir", P, ["finiss"], TM, MP)}
-${imp("être (radical : ét-)", ["j'", "tu", "il, elle, on", "nous", "vous", "ils, elles"], ["ét"], TM, MP)}
-${imp("avoir", ["j'", "tu", "il, elle, on", "nous", "vous", "ils, elles"], ["av"], TM, MP)}
-</div>
-<p class="sm" style="margin:2mm 0 1mm">La terminaison a deux parties : la <span class="hl">marque du temps</span> (<b>-ai-</b> ou <b>-i-</b>) puis la <span class="u"><b>marque de la personne</b></span> (s, s, t, ons, ez, ent).</p>
-<p class="sm" style="margin:0 0 1mm"><b>Autres verbes :</b> j'allais, je faisais, je disais, je prenais, je venais, je voyais, je pouvais, je voulais.</p>
-${box("Attention !", `<p><b>-cer</b> : je commen<b>ç</b>ais, mais nous commen<b>c</b>ions. &nbsp; <b>-ger</b> : je man<b>ge</b>ais, mais nous man<b>g</b>ions.</p>
-<p><b>être</b> est le seul verbe dont le radical ne vient pas de « nous » : j'<b>ét</b>ais.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Sépare le radical, la marque du temps et la marque de la personne par des traits.", `<div class="col3" style="font-size:13pt"><div>il chantait</div><div>nous finissions</div><div>ils regardaient</div><div>vous aviez</div><div>j'étais</div><div>elle mangeait</div></div>`, { eg: "je jou|ai|s" })}
@@ -61,32 +43,6 @@ ${ex("« Quand j'étais petit(e)… » Écris 3 phrases à l'imparfait sur tes s
   // ---------------------------------------------------------------- 20
   {
     n: 20, disc: "ma", domaine: "Géométrie", titre: "Droites parallèles et quadrilatères", titreCourt: "Parallèles et quadrilatères",
-    lecon: `
-<h1 class="lt">Droites parallèles et quadrilatères</h1>
-${box("À retenir", `<p>Deux droites <b>parallèles</b> ne se coupent jamais, même si on les prolonge : l'<b>écart</b> entre elles reste toujours le même. On écrit : (d) // (e).</p>
-<p>Pour le vérifier : je trace une perpendiculaire à (d) avec l'équerre ; si elle est aussi perpendiculaire à (e), les droites sont parallèles.</p>`)}
-<div class="fig"><svg width="150mm" height="30mm" viewBox="0 0 150 30">
-  ${L(4, 8, 146, 2)}${L(4, 26, 146, 20)}${lab(5, 5, "(d)")}${lab(5, 23.2, "(e)")}
-  ${L(60.3, 2, 61.8, 29, 'stroke-dasharray="1.2 1"')}
-  <path d="M40 9 v14" stroke="var(--c)" stroke-width=".4" marker-start="none"/><path d="M110 6 v14" stroke="var(--c)" stroke-width=".4"/>
-  <text x="42" y="17" font-size="3.2" font-family="Andika" fill="var(--c)">même écart</text><text x="112" y="14" font-size="3.2" font-family="Andika" fill="var(--c)">même écart</text>
-</svg></div>
-${st("Trois quadrilatères à connaître")}
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm;text-align:center">
-<div><svg width="30mm" height="30mm" viewBox="0 0 30 30"><rect x="4" y="4" width="22" height="22" fill="var(--tint)" stroke="#222" stroke-width=".45"/>
-<g stroke="var(--c)" stroke-width=".4" fill="none"><path d="M4 7 h3 v-3"/><path d="M23 4 v3 h3"/><path d="M26 23 h-3 v3"/><path d="M7 26 v-3 h-3"/></g>
-<g stroke="var(--c)" stroke-width=".45"><path d="M15 2.8 v2.4"/><path d="M15 24.8 v2.4"/><path d="M2.8 15 h2.4"/><path d="M24.8 15 h2.4"/></g></svg>
-<b>le carré</b><div class="sm">4 côtés de même longueur<br>4 angles droits</div></div>
-<div><svg width="44mm" height="30mm" viewBox="0 0 44 30"><rect x="4" y="7" width="36" height="18" fill="var(--tint)" stroke="#222" stroke-width=".45"/>
-<g stroke="var(--c)" stroke-width=".4" fill="none"><path d="M4 10 h3 v-3"/><path d="M37 7 v3 h3"/><path d="M40 22 h-3 v3"/><path d="M7 25 v-3 h-3"/></g></svg>
-<b>le rectangle</b><div class="sm">4 angles droits<br>côtés opposés de même longueur</div></div>
-<div><svg width="30mm" height="30mm" viewBox="0 0 30 30"><polygon points="15,2 24,15 15,28 6,15" fill="var(--tint)" stroke="#222" stroke-width=".45"/>
-<g stroke="var(--c)" stroke-width=".45"><path d="M18.6 7.6 l1.6 -1.1"/><path d="M18.6 22.4 l1.6 1.1"/><path d="M11.4 7.6 l-1.6 -1.1"/><path d="M11.4 22.4 l-1.6 1.1"/></g></svg>
-<b>le losange</b><div class="sm">4 côtés de même longueur<br>(angles pas forcément droits)</div></div>
-</div>
-<p class="sm" style="margin:2mm 0 0">Dans ces trois figures, les <b>côtés opposés sont parallèles</b>. Les petits traits montrent les côtés de même longueur ; le petit carré montre l'angle droit. Un carré est un rectangle particulier, et aussi un losange particulier.</p>
-${box("Un programme de construction", `<p>C'est une liste d'étapes pour tracer une figure. Je lis <b>toute</b> la consigne, puis je trace <b>étape par étape</b>, dans l'ordre, et je nomme les points au fur et à mesure.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Observe ces droites. Utilise ta règle et ton équerre.", `<div style="display:flex;gap:6mm;align-items:center">
@@ -121,26 +77,6 @@ ${lvl(3)}
   // ---------------------------------------------------------------- 21
   {
     n: 21, disc: "fr", domaine: "Grammaire", titre: "Compléments de phrase et compléments du verbe", titreCourt: "Compléments de phrase et du verbe",
-    lecon: `
-<h1 class="lt">Les compléments<small>complément de phrase · complément du verbe</small></h1>
-${box("À retenir", `<p>Dans une phrase, on trouve le <b>sujet</b> et le <b>verbe</b>. On peut ajouter des <b>compléments</b>.</p>
-<p>Le <b>complément de phrase</b> dit souvent <b>où</b>, <b>quand</b> ou <b>comment</b>. On peut le <b>déplacer</b> et le <b>supprimer</b>.</p>
-<p>Le <b>complément du verbe</b> est placé <b>après le verbe</b>. On ne peut <b>pas le déplacer</b>, et souvent pas le supprimer.</p>`)}
-${st("Un exemple")}
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2mm;font-size:13.5pt;margin:2mm 0">
-  <span style="border:.4mm dashed var(--c);border-radius:1.5mm;padding:.5mm 2mm">Ce matin,</span>
-  <span class="u">Tom</span><span><b>prend</b></span>
-  <span style="border:.4mm solid #222;border-radius:1.5mm;padding:.5mm 2mm">son vélo</span>
-  <span style="border:.4mm dashed var(--c);border-radius:1.5mm;padding:.5mm 2mm">dans le garage.</span>
-</div>
-<p class="sm c" style="margin:0 0 2mm"><span style="border:.35mm dashed var(--c);padding:0 1.5mm;border-radius:1mm">pointillés</span> = compléments de phrase (quand ? où ?) &nbsp;·&nbsp; <span style="border:.35mm solid #222;padding:0 1.5mm;border-radius:1mm">trait plein</span> = complément du verbe (prend quoi ?)</p>
-${st("Mes deux tests")}
-${table(["Test", "Complément de phrase", "Complément du verbe"], [
-  [{ v: "Je le <b>supprime</b>", cls: "l" }, { v: "Tom prend son vélo. ✓<br><span class='sm mut'>(la phrase a encore du sens)</span>", cls: "l" }, { v: "Ce matin, Tom prend dans le garage. ✗", cls: "l" }],
-  [{ v: "Je le <b>déplace</b>", cls: "l" }, { v: "Dans le garage, ce matin, Tom prend son vélo. ✓", cls: "l" }, { v: "Son vélo Tom prend… ✗", cls: "l" }],
-], { widths: ["22%", "42%", "36%"] })}
-${box("Attention !", `<p>Un complément de phrase peut être un groupe de mots (<i>pendant les vacances</i>), un seul mot (<i>hier</i>, <i>doucement</i>) ou commencer la phrase. En tête de phrase, on le fait souvent suivre d'une <b>virgule</b>.</p>`, { warn: true, tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("Souligne les compléments de phrase. Ils répondent à : où ? quand ? comment ?", `<div class="col2">
@@ -171,33 +107,6 @@ ${ex("Enrichis cette phrase avec un complément qui dit <b>quand</b> et un autre
   // ---------------------------------------------------------------- 22
   {
     n: 22, disc: "ma", domaine: "Calcul", titre: "La division", titreCourt: "La division",
-    lecon: `
-<h1 class="lt">La division<small>partager · quotient et reste · division posée</small></h1>
-${box("À retenir", `<p>On divise pour <b>partager en parts égales</b> ou pour chercher <b>combien de fois</b> un nombre est contenu dans un autre.</p>
-<p>17 : 5 → <b>quotient 3</b>, <b>reste 2</b> car 5 × 3 = 15 et 17 − 15 = 2. On écrit : <b>17 = (5 × 3) + 2</b>.</p>
-<p>Le <b>reste</b> est toujours <b>plus petit que le diviseur</b>.</p>`)}
-${st("Avec les tables de multiplication")}
-<p style="margin:0 0 1mm"><b>45 : 7</b> → je cherche dans la table de 7 : 7 × 6 = 42 ✓ ; 7 × 7 = 49 ✗ (trop grand).</p>
-<p style="margin:0 0 1mm">Donc le quotient est <b>6</b> et le reste est 45 − 42 = <b>3</b>. &nbsp; 45 = (7 × 6) + 3</p>
-${st("Poser une division")}
-<div class="row" style="align-items:flex-start;gap:6mm">
-<div style="flex:0 0 auto">
-<table style="border-collapse:collapse;font-family:Lexend;font-size:14pt">
-  ${[
-    ["", "8", "5", "7", "4"],
-    ["−", "8", "", "", "214"],
-    ["", "0", "5", "", ""],
-    ["−", "", "4", "", ""],
-    ["", "", "1", "7", ""],
-    ["−", "", "1", "6", ""],
-    ["", "", "", "1", ""],
-  ].map((r, i) => `<tr>${r.map((c, j) => `<td style="width:${j === 4 ? 22 : 7}mm;height:7mm;text-align:${j === 4 ? "left" : "center"};${j === 4 ? "border-left:.45mm solid #222;padding-left:3mm;" : ""}${j === 4 && i === 0 ? "border-bottom:.45mm solid #222;" : ""}${[1, 3, 5].includes(i) && j > 0 && j < 4 && c ? "border-bottom:.35mm solid #222;" : ""}${i === 1 && j === 4 ? "color:var(--c);font-weight:700;" : ""}">${c}</td>`).join("")}</tr>`).join("")}
-</table></div>
-<div class="sm">${exs(["Dans 8 centaines, combien de fois 4 ? <b>2</b> fois (8). Il reste 0.", "J'abaisse le 5 : dans 5, combien de fois 4 ? <b>1</b> fois (4). Il reste 1.", "J'abaisse le 7 : dans 17, combien de fois 4 ? <b>4</b> fois (16). Il reste <b>1</b>.", "857 : 4 → quotient <b>214</b>, reste <b>1</b>."])}
-${box("Je vérifie", `<p>(4 × 214) + 1 = 856 + 1 = 857 ✓</p>`, { warn: true, tint: false })}</div>
-</div>
-${box("Attention aux problèmes !", `<p>40 personnes partent en excursion dans des minibus de 9 places. 40 : 9 → 4, reste 4. Il faut <b>5</b> minibus, sinon 4 personnes restent à pied ! Je réfléchis toujours au <b>sens du reste</b>.</p>`, { tint: false })}
-`,
     exos: () => `
 ${lvl(1)}
 ${ex("On partage ces 23 billes entre 4 enfants. Entoure les parts, puis complète.", `<div style="display:flex;gap:6mm;align-items:center"><svg width="78mm" height="16mm" viewBox="0 0 78 16">${Array.from({ length: 23 }, (_, i) => `<circle cx="${4 + (i % 12) * 6.3}" cy="${i < 12 ? 4 : 11.5}" r="2.2" fill="var(--soft)" stroke="#222" stroke-width=".3"/>`).join("")}</svg>

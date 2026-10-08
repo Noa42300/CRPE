@@ -101,6 +101,14 @@ table.t td.g { background: #f1f3f5; }
 .conj td .tm { background: var(--soft); font-weight: 700; border-radius: 0.8mm; padding: 0 0.6mm; }
 .conj td .mt2 { text-decoration: underline; text-decoration-thickness: 0.45mm; text-underline-offset: 0.7mm; font-weight: 700; }
 
+/* Leçons courtes */
+.lec-retenir p { font-size: 13.5pt; line-height: 1.4; }
+.vis-wrap { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-evenly; align-items: stretch; gap: 3mm; min-height: 0; }
+.vis { display: flex; flex-direction: column; align-items: center; }
+.vl { font-family: "Lexend"; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); margin-bottom: 1.8mm; }
+.card { border: 0.35mm solid #c9ced6; border-radius: 2.5mm; padding: 2mm 3mm; text-align: center; }
+.big { font-size: 15pt; }
+
 /* Exercices */
 .lvl { display: flex; align-items: center; gap: 2mm; font-family: "Lexend"; font-weight: 600; font-size: 10.5pt; margin: 0 0 0.6mm; letter-spacing: 0.02em; }
 .lvl .d { display: inline-block; width: 3.2mm; height: 3.2mm; border-radius: 50%; }
