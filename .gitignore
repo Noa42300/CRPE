@@ -141,3 +141,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Fichier autonomie : HTML intermédiaires
+fichiers-autonomie/*/build/
