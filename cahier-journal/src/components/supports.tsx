@@ -16,7 +16,7 @@ import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME, EPS_COURIR_EVAL } from "./EpsSeanceFiche";
 import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon, ExperienceBouteilleMaison } from "./QlmS4Supports";
 import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
-import { NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
+import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesLecon, QcmTypesPhrases } from "./TypesDePhrases";
 import { HalloweenDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
 import { RaconterPrehistoireFiche, EauEtatDiapo, EauEtatLecon, EauEtatExp } from "./QlmS6Supports";
@@ -1355,6 +1355,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [{ key: "prob-m", label: "Problème du jour (× remédiation) — 4 par A4 à découper et coller", node: <ProblemeRituelMardi /> }];
     case "nbEcritL":
       return [
+        { key: "nbl-diapo", label: "Les nombres en lettres — Diaporama à projeter", node: <NombresLettresDiapo /> },
         { key: "nbl-lecon", label: "Les nombres en lettres — Leçon à coller (règles + briques)", node: <NombresLettresLecon /> },
         { key: "nbl-ref", label: "Référence — Tous les nombres de 0 à 100 en lettres", node: <NombresRef0a100 /> },
         { key: "nbl-exos", label: "Les nombres en lettres — Exercices (A4 paysage, 2 pages, CE1/CE2)", node: <NombresLettresExosL /> },
