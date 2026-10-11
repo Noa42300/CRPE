@@ -7326,7 +7326,7 @@
       "note": "Maths : Nombres S4 — Évaluation (libre) ou entraînement. Reste de la journée à préparer."
      }
     ],
-    "devoirs": "Réviser pour les évaluations libres (nombres, déterminants, nom) — pour ceux qui veulent les faire.",
+    "devoirs": "POÉSIE : finir d'apprendre « Le temps a laissé son manteau » par cœur (récitation après les vacances). ÉCRITURE : réécrire proprement, à la maison, les pages du cahier d'écriture mal faites (voir le cahier). Réviser les notions vues (le nom, les déterminants) pour ceux qui n'ont pas encore passé l'évaluation.",
     "rappels": [
      {
       "id": "rap-ppms-1210",
@@ -7337,7 +7337,7 @@
      {
       "id": "rap-20261012-autonomie-ce1",
       "type": "autre",
-      "texte": "Fichiers autonomie CE1 (élèves en avance) : les avoir prêts à distribuer aujourd'hui."
+      "texte": "IMPRIMER les fichiers autonomie pour les CE1 en avance (pour qu'ils ne s'ennuient pas)."
      }
     ]
    },
@@ -7375,6 +7375,56 @@
        "aReprendre": "",
        "devoirs": "",
        "notesProchaine": ""
+      },
+      {
+       "id": "probLundi",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituel — Problème du jour : addition ou multiplication ?",
+       "objectif": "Comprendre qu'un problème de groupes égaux se résout par une multiplication (ou une addition réitérée) et apprendre à schématiser l'énoncé.",
+       "competence": "Résoudre un problème multiplicatif simple (groupes égaux) ; modéliser et schématiser.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « résolution de problèmes » (sens de la multiplication).",
+       "progPeriode": "P1",
+       "progDomaine": "Mathématiques — Résolution de problèmes",
+       "progSequence": "Rituels de problèmes",
+       "progSeance": "rituel",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "p1",
+         "label": "Je découvre le problème (5 min)",
+         "note": "- « Vous avez un petit problème sur votre table : vous le collez dans le cahier d'exercices. »\n- « On lit l'énoncé deux fois, tranquillement. »\n- « J'entoure les nombres importants et les mots qui comptent : 6 tables, 4 élèves, en tout. »\n- « Attention : “en tout” ne veut pas forcément dire “on additionne” ! »\n- « Qu'est-ce qu'on cherche ? Le nombre total d'élèves. »\n(Je distribue, je relis avec eux, je ne donne pas encore la solution.)"
+        },
+        {
+         "id": "p2",
+         "label": "Je schématise — plusieurs techniques (8 min)",
+         "note": "- « Technique 1 — je dessine : 6 tables, et 4 ronds (élèves) à chaque table. »\n- « Technique 2 — je groupe : je vois 6 groupes de 4, j'écris 4 + 4 + 4 + 4 + 4 + 4 (addition réitérée). »\n- « Technique 3 — la multiplication : 6 groupes de 4, ça s'écrit 6 × 4, c'est plus rapide ! »\n- « Je repère les mots clés : “chaque”, “par”, “groupes de” → souvent une multiplication. »\n- « Pourquoi 6 + 4 est faux ? Parce que 6 et 4 ne désignent pas la même chose : 6 tables et 4 élèves. »\n(Je montre les 3 techniques au tableau, je fais verbaliser « … groupes de … ».)"
+        },
+        {
+         "id": "p3",
+         "label": "Je calcule et je réponds (7 min)",
+         "note": "- « J'écris mon calcul : 6 × 4 = 24 (ou 4+4+4+4+4+4 = 24). »\n- « J'écris une phrase réponse complète : “Il y a 24 élèves en tout.” »\n- « On corrige ensemble au tableau avec le schéma. »\n- « Ceux qui avaient fait 6 + 4 : on comprend pourquoi c'était faux et on recommence. »\n- « On garde la méthode : dessiner les groupes → écrire le calcul → phrase réponse. »\n(Correction collective, j'insiste sur le schéma.)"
+        }
+       ],
+       "materiel": "Petit problème à coller (4 par A4, à découper) — voir Documents à imprimer. Cahier d'exercices. Tableau/ardoise pour montrer les 3 techniques.",
+       "video": "",
+       "differenciation": "CE1 : dessiner les groupes et compter, ou addition réitérée (4+4+…). CE2 : écrire la multiplication 6 × 4 et vérifier par l'addition réitérée.",
+       "depassement": "",
+       "correction": "6 × 4 = 24 (ou 4+4+4+4+4+4 = 24). Phrase réponse : « Il y a 24 élèves en tout. »",
+       "obstacles": "Erreur fréquente (visée par ce rituel) : additionner les deux nombres de l'énoncé (6 + 4) au lieu de multiplier.\nRemédiation : revenir au DESSIN des groupes, faire dire « 6 groupes de 4 », passer par l'addition réitérée puis la multiplication ; faire remarquer que 6 et 4 ne désignent pas la même chose.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths"
       }
      ]
     },
@@ -7385,32 +7435,205 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20261012fr1",
+       "id": "revEval12",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — On reverbalise avant l'évaluation (le nom, les déterminants)",
+       "objectif": "Réactiver collectivement, à l'oral, les notions (le nom : commun/propre, genre, nombre ; le déterminant) juste avant l'évaluation libre.",
+       "competence": "Mobiliser à l'oral les connaissances sur le nom et le déterminant.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « grammaire et orthographe ».",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Grammaire",
+       "progSequence": "Le nom / Les déterminants",
+       "progSeance": "reverbalisation",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "r1",
+         "label": "On se remémore ensemble (12 min)",
+         "note": "- « Avant l'évaluation, on se rappelle tout ensemble, à l'oral. »\n- « Qu'est-ce qu'un nom ? Donnez-moi un nom commun, un nom propre. »\n- « Comment je reconnais le genre ? masculin (un/le) ou féminin (une/la). »\n- « Et le nombre ? singulier (un seul) ou pluriel (plusieurs, souvent + s). »\n- « Le déterminant, c'est le petit mot devant le nom : le, la, un, des, mon, ce… »\n- « Pas de panique : l'évaluation est libre, vous la faites quand vous êtes prêts. »\n(Je note les mots clés au tableau et je laisse l'affichage.)"
+        }
+       ],
+       "materiel": "Affichages « le nom » et « les déterminants » ; tableau.",
+       "video": "",
+       "differenciation": "CE1 : nom commun/propre, genre, nombre. CE2 : + déterminants variés (possessifs, démonstratifs).",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Stress de l'évaluation → rappeler qu'elle est LIBRE et qu'on prend son temps ; une feuille d'entraînement est disponible si on ne se sent pas prêt.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      },
+      {
+       "id": "nomEval12",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Évaluation LIBRE : le nom",
+       "objectif": "Évaluer la reconnaissance du nom (commun/propre), du genre et du nombre — évaluation libre, à la demande.",
+       "competence": "Identifier un nom, son genre et son nombre ; distinguer nom commun et nom propre.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « grammaire et orthographe ».",
+       "progPeriode": "P1",
+       "progDomaine": "Français — Grammaire (le nom)",
+       "progSequence": "Le nom",
+       "progSeance": "4 (évaluation libre)",
+       "progRef": "",
+       "organisation": [
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "e1",
+         "label": "Je fais l'évaluation quand je suis prêt (temps libre)",
+         "note": "- « Quand vous vous sentez prêts, vous venez chercher l'évaluation du nom. »\n- « Vous la faites au calme, au fond de la classe, à votre rythme. »\n- « Vous lisez bien chaque consigne et l'exemple avant de commencer. »\n- « Si vous ne vous sentez pas prêts, vous prenez la feuille d'entraînement. »\n- « Ceux qui veulent peuvent aussi faire l'évaluation des déterminants. »\n(Je laisse le temps nécessaire ; je ramasse au fur et à mesure dans le cahier violet.)"
+        }
+       ],
+       "materiel": "Évaluation « le nom » (+ feuille d'entraînement en repli) — voir Documents à imprimer. Cahier violet (évaluations de français).",
+       "video": "",
+       "differenciation": "L'évaluation couvre CE1 et CE2 ; feuille d'entraînement pour ceux qui ne se sentent pas prêts.",
+       "depassement": "",
+       "correction": "Voir le corrigé de la fiche d'évaluation.",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      },
+      {
+       "id": "detEval12",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Évaluation LIBRE : les déterminants (pour ceux qui veulent)",
+       "objectif": "Proposer, en libre, l'évaluation des déterminants à ceux qui se sentent prêts.",
+       "competence": "Identifier et classer les déterminants (articles, possessifs, démonstratifs).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « grammaire et orthographe ».",
+       "progPeriode": "P1",
+       "progDomaine": "Français — Grammaire (les déterminants)",
+       "progSequence": "Les déterminants",
+       "progSeance": "évaluation libre",
+       "progRef": "",
+       "organisation": [
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "dd1",
+         "label": "Je la fais si je me sens prêt",
+         "note": "- « Ceux qui maîtrisent bien les déterminants peuvent prendre cette évaluation en plus. »\n- « Comme pour le nom, c'est libre et à votre rythme. »\n- « Je relis l'exemple de chaque exercice avant de commencer. »\n- « Sinon, je prends la feuille d'entraînement des déterminants. »\n(Je ramasse dans le cahier violet.)"
+        }
+       ],
+       "materiel": "Évaluation « les déterminants » (+ entraînement) — voir Documents à imprimer. Cahier violet.",
        "video": "",
        "differenciation": "",
+       "depassement": "",
+       "correction": "Voir le corrigé de la fiche d'évaluation.",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      },
+      {
+       "id": "qcmTypesPhr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Grand QCM : les types de phrases (après l'évaluation)",
+       "objectif": "Découvrir le format QCM et préparer la notion des types de phrases (déclarative, interrogative, exclamative) avec des phrases très courtes.",
+       "competence": "Identifier le type d'une phrase courte (déclarative, interrogative, exclamative) dans un QCM.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « grammaire et orthographe » (la phrase).",
+       "progPeriode": "P1",
+       "progDomaine": "Français — Grammaire (la phrase)",
+       "progSequence": "Les types de phrases",
+       "progSeance": "découverte (QCM)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "q1",
+         "label": "Je découvre le QCM (collectif, 5 min)",
+         "note": "- « Quand vous avez fini l'évaluation, vous prenez le QCM. »\n- « Un QCM, c'est cocher la bonne case : pas besoin de tout écrire. »\n- « On regarde le 1er exemple : “Le soleil brille.” → ça raconte, on coche “déclarative”. »\n- « Une phrase qui pose une question finit par ? → interrogative. »\n- « Une phrase qui montre une émotion finit par ! → exclamative. »\n(Je montre le 1er item au tableau, puis ils continuent seuls.)"
+        },
+        {
+         "id": "q2",
+         "label": "Je coche tout seul",
+         "note": "- « Pour chaque phrase, je lis, j'écoute le message, je coche UNE case. »\n- « Je m'aide du point à la fin si la phrase en a un. »\n- « Je prends mon temps, il n'y a pas de piège. »\n- « On corrigera ensemble ; ça nous servira demain pour la leçon des types de phrases. »\n(Travail individuel, correction rapide collective.)"
+        }
+       ],
+       "materiel": "QCM « les types de phrases » (A4 paysage, phrases courtes) — voir Documents à imprimer. Classeur français (intercalaire rouge).",
+       "video": "",
+       "differenciation": "CE1 : 3 types (., ?, !). CE2 : idem, et on annonce la phrase impérative pour demain.",
+       "depassement": "",
+       "correction": "Déclaratives : Le soleil brille. / Je lis un livre. / Nous jouons dehors. / Le train arrive.  —  Interrogatives : As-tu froid ? / Où vas-tu ? / Tu aimes les pommes ?  —  Exclamatives : Quelle belle journée ! / Attention, ça glisse ! / Bravo, tu as gagné !",
+       "obstacles": "Confondre interrogative et exclamative → se demander : est-ce une question (?) ou une émotion (!) ? S'appuyer sur le point final.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      },
+      {
+       "id": "poesieRecit12",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Poésie — Récitation : ceux qui sont prêts passent",
+       "objectif": "Permettre aux élèves prêts de réciter « Le temps a laissé son manteau » ; les autres auront les vacances pour l'apprendre par cœur.",
+       "competence": "Dire un texte poétique mémorisé en articulant et en mettant le ton.",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "Français — Langage oral (poésie)",
+       "progSequence": "Poésie",
+       "progSeance": "récitation (passages volontaires)",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "po1",
+         "label": "Les volontaires passent",
+         "note": "- « Ceux qui ont bien appris la poésie et qui veulent passer lèvent la main. »\n- « On écoute celui qui récite dans le silence et le respect. »\n- « On fait attention à bien articuler et à mettre le ton. »\n- « Ceux qui ne passent pas aujourd'hui auront les deux semaines de vacances pour l'apprendre. »\n- « On applaudit chaque camarade qui a osé passer. »\n(Je note discrètement les passages ; valorisation, pas de pression.)"
+        }
+       ],
+       "materiel": "Poésie « Le temps a laissé son manteau » (cahier blanc, ou pochette noire pour ceux sans cahier).",
+       "video": "",
+       "differenciation": "Passage volontaire ; on peut réciter une partie seulement.",
        "depassement": "",
        "correction": "",
        "obstacles": "",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "francais"
       }
      ]
     },
@@ -7457,22 +7680,21 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "nbS3",
+       "id": "nbEcritL",
        "niveaux": [
         "classe"
        ],
-       "title": "Nombres S3 — La suite des nombres",
-       "objectif": "Dire, lire, écrire la suite des nombres (jusqu'à 200 pour les CE1, 2000 pour les CE2) ; avant / après.",
-       "competence": "Connaître la suite des nombres.",
-       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
+       "title": "Maths — Écrire les nombres en lettres (leçon + exercices)",
+       "objectif": "Découvrir les règles pour écrire les nombres en lettres (CE1 : 0 à 100 ; CE2 : jusqu'à 1 000) et commencer à s'entraîner.",
+       "competence": "Écrire les nombres en lettres ; connaître les règles (trait d'union, « et », « s » de vingt/cent pour les CE2).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « nombres et calculs » (désigner et écrire les nombres).",
        "progPeriode": "P1",
-       "progDomaine": "Mathématiques — Nombres",
-       "progSequence": "Nombres — Période 1 (suite)",
-       "progSeance": "3",
+       "progDomaine": "Mathématiques — Nombres et calculs",
+       "progSequence": "Les nombres (P1)",
+       "progSeance": "écriture en lettres (1)",
        "progRef": "",
        "organisation": [
         "collectif",
-        "groupe",
         "individuel"
        ],
        "roleEnseignant": [
@@ -7480,31 +7702,27 @@
        ],
        "deroulement": [
         {
-         "id": "x1",
-         "label": "Découverte / rappel (15 min)",
-         "note": "- « On compte ensemble : 98, 99, 100, 101… attention au passage à la centaine ! »\n- « CE2 : 999, 1000, 1001… et 1999, 2000, 2001. »\n- « Chaque nombre a un précédent et un suivant. »\n- « On colle la leçon. »"
+         "id": "n1",
+         "label": "Je découvre les règles — leçon (15 min)",
+         "note": "- « Aujourd'hui, on apprend à écrire les nombres en lettres, sans erreur. »\n- « On lit la leçon ensemble : les mots à connaître (les briques : zéro à seize, les dizaines, cent, mille). »\n- « Règle du trait d'union : on accroche les mots → trente-deux, quarante-cinq. »\n- « Règle du “et” : seulement à 21, 31, 41, 51, 61 et 71 → vingt et un, soixante et onze. »\n- « Pour les CE2 : le “s” de quatre-vingts et deux cents, et “mille” qui ne change jamais. »\n- « On colle la leçon et la référence dans le cahier rouge (leçons de maths). »\n(Je projette, je fais souligner les règles, je colle la liste 0-100.)"
         },
         {
-         "id": "x2",
-         "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : compléter les suites jusqu'à 200. »\n- « CE2 : jusqu'à 2000, et compter de 100 en 100. »\n- « On commence par l'exemple. »"
-        },
-        {
-         "id": "x3",
-         "label": "Mise en commun (10 min)",
-         "note": "- « On corrige les passages difficiles (99→100, 1999→2000). »\n- « On range. »"
+         "id": "n2",
+         "label": "Je m'entraîne — feuille paysage (25 min)",
+         "note": "- « Vous prenez la feuille d'exercices : écrire en lettres, en chiffres, compléter… »\n- « Avant chaque exercice, je lis l'exemple : il est déjà fait. »\n- « Je m'applique et j'utilise la leçon et la référence si besoin. »\n- « CE1 : jusqu'à 100 ; CE2 : vous faites aussi les exercices étoilés (grands nombres). »\n- « On corrige ensemble ; demain on s'entraîne encore. »\n(Fiche dans le classeur ; je circule et j'aide à décomposer centaines/dizaines/unités.)"
         }
        ],
-       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "materiel": "Leçon « J'écris les nombres en lettres » + référence « Tous les nombres de 0 à 100 en lettres » (à coller, cahier rouge) + fiche d'exercices PAYSAGE (2 pages, CE1/CE2) — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : suite jusqu'à 200, de 1 en 1 et de 10 en 10.\nCE2 : suite jusqu'à 2000, de 1 en 1 et de 100 en 100.",
+       "differenciation": "CE1 : écrire en lettres jusqu'à 100 ; trait d'union et « et ». CE2 : jusqu'à 1 000 ; le « s » (quatre-vingts, deux cents) et « mille » invariable.",
        "depassement": "",
-       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
-       "obstacles": "",
+       "correction": "7 → sept · 20 → vingt · 31 → trente et un · 48 → quarante-huit · 71 → soixante et onze · 80 → quatre-vingts · 145 → cent quarante-cinq.",
+       "obstacles": "Erreurs fréquentes : oublier le trait d'union ; écrire « vingt-et-un » avec des traits (c'est « vingt et un ») ; orthographe (« cinkante ») ; pour les CE2, oublier/ajouter le « s » à tort.\nRemédiation : relire la leçon, décomposer (centaines/dizaines/unités), s'appuyer sur la liste 0-100.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "maths"
       }
      ]
     },
@@ -7623,23 +7841,33 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20261012fr2",
+       "id": "graphemo12",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "",
+       "title": "Français — GraphéMo (orthographe, selon la méthode)",
+       "objectif": "Séance d'orthographe GraphéMo (rien à préparer : suivre le déroulé de la méthode).",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Orthographe (Graphémo)",
+       "progSequence": "Graphémo — Thème 1",
+       "progSeance": "selon la méthode",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "g1",
+         "label": "Je suis la méthode GraphéMo",
+         "note": "- « On ouvre GraphéMo et on suit les étapes du jour. »\n- « On observe, on manipule les graphèmes, on écrit. »\n- « Rien de spécial à imprimer : tout est dans la méthode. »"
+        }
+       ],
+       "materiel": "Méthode GraphéMo (rien à préparer).",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -7648,7 +7876,8 @@
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "francais"
       },
       {
        "id": "dictee3",
@@ -7730,26 +7959,85 @@
      "id": "d2026-10-12s10",
      "start": "15:40",
      "end": "16:25",
-     "disciplineId": "autre",
+     "disciplineId": "anglais",
      "activities": [
       {
-       "id": "20261012ap",
+       "id": "halloS1",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer (EPS / autre)",
-       "objectif": "",
+       "title": "Anglais — Happy Halloween (nouvelle séquence, séance 1)",
+       "objectif": "Entrer dans une nouvelle séquence d'anglais autour d'Halloween : découvrir le lexique (pumpkin, ghost, witch…) et les formules « Trick or treat! / Happy Halloween! », avec un projet final (carte d'Halloween).",
+       "competence": "Comprendre et répéter un lexique simple à l'oral ; s'engager dans un projet culturel (carte d'Halloween).",
+       "competenceRef": "Programmes 2018/2020 — Langue vivante (anglais), cycle 2.",
+       "progPeriode": "P1",
+       "progDomaine": "Anglais",
+       "progSequence": "Happy Halloween",
+       "progSeance": "1 (lexique + présentation du projet)",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "h1",
+         "label": "Discover Halloween (10 min)",
+         "note": "- « Today we start something new: Happy Halloween! »\n- « Halloween, c'est le 31 octobre, surtout au Royaume-Uni et aux USA. »\n- « Les enfants se déguisent et disent “Trick or treat!” pour avoir des bonbons. »\n- « On regarde des images : a pumpkin, a ghost, a witch… »\n- « Repeat after me: pumpkin, ghost, witch, vampire. »\n(Diaporama, répétition chorale.)"
+        },
+        {
+         "id": "h2",
+         "label": "The words (15 min)",
+         "note": "- « On découvre les mots avec les images : a pumpkin, a ghost, a witch, a spider… »\n- « Listen and repeat: a bat, a black cat, a monster. »\n- « Je montre une image, vous dites le mot en anglais. »\n- « Jeu : le mime ou “What is it?” avec les flashcards. »\n- « On dit ensemble : “Happy Halloween!” »\n(Flashcards, jeux oraux.)"
+        },
+        {
+         "id": "h3",
+         "label": "Our project (10 min)",
+         "note": "- « À la fin de la séquence, chacun fera sa carte d'Halloween en anglais. »\n- « On colle la leçon illustrée (ou on la met dans la pochette jaune pour ceux sans cahier). »\n- « On regarde la fiche projet et la grille d'évaluation. »\n- « Vous pouvez déjà réfléchir au personnage de votre carte. »\n- « Say goodbye: “Happy Halloween, see you!” »\n(Présentation du projet.)"
+        }
+       ],
+       "materiel": "Diaporama Happy Halloween + leçon illustrée + flashcards à découper + fiche projet « My Halloween card » (avec grille d'évaluation) — voir Documents à imprimer. Cahier d'anglais (ou pochette jaune pour ceux sans cahier).",
+       "video": "",
+       "differenciation": "CE1 : reconnaître et répéter les mots. CE2 : mémoriser l'orthographe et produire « It's a … ».",
+       "depassement": "",
+       "correction": "pumpkin = citrouille · ghost = fantôme · witch = sorcière · vampire · monster = monstre · spider = araignée · bat = chauve-souris · black cat = chat noir.",
+       "obstacles": "Prononciation (le « gh » de ghost, le « w » de witch) → modèle de l'enseignant et répétition chorale ; on travaille l'oral d'abord, pas l'écrit parfait.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "anglais"
+      },
+      {
+       "id": "paysJour12",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituel — Le pays du jour : l'Irlande",
+       "objectif": "Découvrir rapidement le pays du jour : l'Irlande (le berceau d'Halloween).",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Rituel — Le pays du jour",
+       "progSequence": "Pays du jour",
+       "progSeance": "Irlande",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "pj1",
+         "label": "Le pays du jour (5-10 min)",
+         "note": "- « Le pays du jour, c'est l'Irlande ! »\n- « On le localise sur le planisphère (une île à côté du Royaume-Uni). »\n- « Son drapeau : vert, blanc, orange. »\n- « C'est en Irlande qu'est née la fête d'Halloween, il y a très longtemps. »\n- « En Irlande, on parle anglais (et aussi l'irlandais). »\n(Carte/planisphère ; on situe et on retient un fait.)"
+        }
+       ],
+       "materiel": "Planisphère / carte ; rituel géo.",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -7758,7 +8046,47 @@
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      },
+      {
+       "id": "epsAthle12",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "EPS — Athlétisme (suite, rien à préparer)",
+       "objectif": "Poursuivre la séquence d'athlétisme (rien de nouveau à préparer : on continue le travail engagé).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P1",
+       "progDomaine": "EPS — Athlétisme",
+       "progSequence": "Athlétisme (P1)",
+       "progSeance": "suite",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "ep1",
+         "label": "On continue l'athlétisme",
+         "note": "- « On reprend là où on s'était arrêtés en athlétisme. »\n- « Échauffement, puis ateliers. »\n- « On pense à la sécurité et à l'effort régulier. »"
+        }
+       ],
+       "materiel": "Matériel habituel d'athlétisme (plots). Voir fiche terrain EPS.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
       }
      ]
     },
@@ -7800,7 +8128,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790601001002
+   "updatedAt": 1790602001002
   },
   {
    "date": "2026-10-13",
@@ -7817,7 +8145,7 @@
       "note": "Maths : Géométrie S4 — Évaluation (libre) ou entraînement. Reste de la journée à préparer."
      }
     ],
-    "devoirs": "Vacances de la Toussaint : repos ! (Revoir les poésies si besoin.)",
+    "devoirs": "Vacances de la Toussaint (2 semaines) : du repos ! À faire : apprendre la poésie « Le temps a laissé son manteau » par cœur (récitation au retour) ; réécrire proprement, avec un parent, les pages du cahier d'écriture mal faites. Revoir si besoin : écrire les nombres en lettres, le nom et les déterminants.",
     "rappels": [
      {
       "id": "rap-20261013-cm-ebep-c1",
@@ -7865,6 +8193,51 @@
        "aReprendre": "",
        "devoirs": "",
        "notesProchaine": ""
+      },
+      {
+       "id": "probMardi",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituel — Problème du jour : addition ou multiplication ?",
+       "objectif": "Renforcer la remédiation « addition vs multiplication » : reconnaître un problème de groupes égaux et le résoudre par une multiplication.",
+       "competence": "Résoudre un problème multiplicatif simple (groupes égaux) ; modéliser et schématiser.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « résolution de problèmes ».",
+       "progPeriode": "P1",
+       "progDomaine": "Mathématiques — Résolution de problèmes",
+       "progSequence": "Rituels de problèmes",
+       "progSeance": "rituel",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "m1",
+         "label": "Je lis et je schématise (8 min)",
+         "note": "- « Nouveau problème sur la table : on le colle dans le cahier d'exercices. »\n- « Je lis, j'entoure les nombres et les mots importants : 5 paquets, 4 gâteaux, en tout. »\n- « Je dessine : 5 paquets, et 4 gâteaux dans chaque paquet. »\n- « Je vois 5 groupes de 4 : 4 + 4 + 4 + 4 + 4, ou plus vite 5 × 4. »\n- « Je me méfie du piège : 5 + 4 est faux ! »\n(Je relis avec eux, ils schématisent seuls.)"
+        },
+        {
+         "id": "m2",
+         "label": "Je calcule et je réponds (7 min)",
+         "note": "- « J'écris mon calcul : 5 × 4 = 20 (ou 4+4+4+4+4 = 20). »\n- « Phrase réponse : “J'ai 20 gâteaux en tout.” »\n- « On corrige avec le schéma au tableau. »\n- « On compare avec le problème d'hier : même méthode (groupes de…). »\n- « Je garde le réflexe : dessiner → calculer → phrase réponse. »\n(Correction collective.)"
+        }
+       ],
+       "materiel": "Petit problème à coller (4 par A4, à découper) — voir Documents à imprimer. Cahier d'exercices.",
+       "video": "",
+       "differenciation": "CE1 : dessiner les groupes / addition réitérée. CE2 : multiplication 5 × 4 et vérification.",
+       "depassement": "",
+       "correction": "5 × 4 = 20 (ou 4+4+4+4+4 = 20). Phrase réponse : « J'ai 20 gâteaux en tout. »",
+       "obstacles": "Même erreur à corriger : additionner les deux nombres (5 + 4).\nRemédiation : dessiner les groupes, verbaliser « 5 groupes de 4 », addition réitérée puis multiplication.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths"
       }
      ]
     },
@@ -7875,32 +8248,54 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20261013fr1",
+       "id": "typPhr",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (matin)",
-       "objectif": "",
-       "competence": "",
-       "competenceRef": "",
+       "title": "Français — Les types de phrases (découverte)",
+       "objectif": "Découvrir et distinguer les types de phrases : déclarative (.), interrogative (?), exclamative (!) ; (CE2) impérative.",
+       "competence": "Identifier le type d'une phrase et la ponctuation finale correspondante.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « grammaire et orthographe » (la phrase, la ponctuation).",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Grammaire (la phrase)",
+       "progSequence": "Les types de phrases",
+       "progSeance": "1 (découverte)",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "t1",
+         "label": "On repart du QCM d'hier (8 min)",
+         "note": "- « Hier, vous avez fait un QCM sur les phrases : on le corrige ensemble. »\n- « Certaines phrases racontent, d'autres posent une question, d'autres crient une émotion. »\n- « On va mettre un nom sur chaque type de phrase. »\n- « Regardez le point à la fin : il nous aide beaucoup. »\n(Je corrige le QCM, transition vers la leçon.)"
+        },
+        {
+         "id": "t2",
+         "label": "Je découvre les types — diaporama (12 min)",
+         "note": "- « Phrase déclarative : elle raconte, elle dit quelque chose → point . »\n- « Phrase interrogative : elle pose une question → point d'interrogation ? »\n- « Phrase exclamative : elle montre une émotion → point d'exclamation ! »\n- « (CE2) Phrase impérative : elle donne un ordre ou un conseil → . ou ! »\n- « Pour chaque exemple, je lis “dans ma tête” et j'écoute le message. »\n(Je projette le diaporama, cartes à révéler.)"
+        },
+        {
+         "id": "t3",
+         "label": "Leçon + étude de la langue (15 min)",
+         "note": "- « On colle la leçon des types de phrases dans le cahier bleu. »\n- « On souligne les trois points : . ? ! »\n- « On fait les exercices du fichier « 1, 2, 3… Étude de la langue ». »\n- « Je transforme : je passe d'une phrase déclarative à une phrase interrogative. »\n- « On vérifie en lisant à voix haute avec le bon ton. »\n(Leçon à coller, exercices en appoint.)"
+        }
+       ],
+       "materiel": "Diaporama « les types de phrases » + leçon à coller (cahier bleu) — voir Documents à imprimer. Fichier « 1, 2, 3… Étude de la langue » (exercices) en appoint.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "CE1 : 3 types (déclarative, interrogative, exclamative) + la ponctuation. CE2 : + la phrase impérative (ordre/conseil) et la transformation d'une phrase.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "",
+       "correction": "déclarative → . · interrogative → ? · exclamative → ! · (CE2) impérative (ordre/conseil) → . ou !",
+       "obstacles": "Confondre interrogative et exclamative → se demander : question (?) ou émotion (!) ? S'appuyer sur le point final et l'intonation.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "francais"
       }
      ]
     },
@@ -7947,22 +8342,21 @@
      "disciplineId": "maths",
      "activities": [
       {
-       "id": "geoS3",
+       "id": "nbEcritM",
        "niveaux": [
         "classe"
        ],
-       "title": "Géométrie S3 — Se déplacer sur un plan (CE1) / Symétrie 2 (CE2)",
-       "objectif": "CE1 : se déplacer sur un quadrillage-plan (cases, directions). CE2 : compléter par symétrie (axe horizontal, oblique).",
-       "competence": "Se déplacer sur un plan (CE1) ; symétrie (CE2).",
-       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur à la rentrée 2025).",
+       "title": "Maths — Écrire les nombres en lettres : entraînement",
+       "objectif": "S'entraîner jusqu'à maîtriser l'écriture des nombres en lettres et toutes les règles.",
+       "competence": "Écrire les nombres en lettres sans erreur (trait d'union, « et », « s » pour les CE2).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « nombres et calculs ».",
        "progPeriode": "P1",
-       "progDomaine": "Mathématiques — Espace & Géométrie",
-       "progSequence": "Espace & Géométrie — Période 1",
-       "progSeance": "3",
+       "progDomaine": "Mathématiques — Nombres et calculs",
+       "progSequence": "Les nombres (P1)",
+       "progSeance": "écriture en lettres (2 — entraînement)",
        "progRef": "",
        "organisation": [
         "collectif",
-        "groupe",
         "individuel"
        ],
        "roleEnseignant": [
@@ -7970,31 +8364,27 @@
        ],
        "deroulement": [
         {
-         "id": "x1",
-         "label": "Découverte / rappel (15 min)",
-         "note": "- « CE1 : sur le plan quadrillé, on avance case par case : droite, gauche, haut, bas. »\n- « CE2 : aujourd'hui l'axe peut être horizontal, ou penché ! »\n- « On rappelle la méthode : compter les carreaux. »"
+         "id": "u1",
+         "label": "Je rappelle les règles (5 min)",
+         "note": "- « On se rappelle les règles : les briques, le trait d'union, le “et” (21, 31… 71). »\n- « CE2 : le “s” de quatre-vingts et deux cents, et “mille” invariable. »\n- « Aujourd'hui, on s'entraîne beaucoup pour ne plus faire d'erreurs. »\n- « Je garde la leçon et la liste 0-100 sous les yeux. »\n(Rappel rapide, affichage.)"
         },
         {
-         "id": "x2",
-         "label": "Entraînement en tandems (30 min)",
-         "note": "- « CE1 : feuille “se déplacer sur un plan”, écrire un chemin. »\n- « CE2 : feuille “compléter par symétrie (2)”. »\n- « On commence par l'exemple. »"
-        },
-        {
-         "id": "x3",
-         "label": "Mise en commun (10 min)",
-         "note": "- « On met en commun quelques réponses. »\n- « On range. »"
+         "id": "u2",
+         "label": "Je m'entraîne — feuille paysage (35 min)",
+         "note": "- « Vous prenez la nouvelle feuille d'entraînement. »\n- « Dictée de nombres : j'écris en chiffres ce que je dis. »\n- « Je fais aussi le petit problème (4 rangées de 10 œufs) : réponse en chiffres ET en lettres. »\n- « Copie soignée : je recopie les nombres en m'appliquant. »\n- « CE2 : exercices étoilés jusqu'à 1 000. »\n(Je dicte quelques nombres, je circule, on corrige.)"
         }
        ],
-       "materiel": "Leçon à coller + feuilles d'exercices — voir Documents à imprimer.",
+       "materiel": "Fiche d'entraînement « les nombres en lettres » (A4 paysage, 2 pages, CE1/CE2) + référence 0-100 — voir Documents à imprimer.",
        "video": "",
-       "differenciation": "CE1 : suivre et écrire un déplacement sur un plan quadrillé.\nCE2 : compléter des figures symétriques (axe horizontal puis oblique).",
+       "differenciation": "CE1 : jusqu'à 100 ; CE2 : jusqu'à 1 000 (exercices étoilés).",
        "depassement": "",
-       "correction": "Voir les corrigés (exemple en tête de chaque exercice).",
-       "obstacles": "",
+       "correction": "9 → neuf · 71 → soixante et onze · 80 → quatre-vingts · 90 → quatre-vingt-dix · 352 → trois cent cinquante-deux · problème : 4 × 10 = 40 → quarante œufs.",
+       "obstacles": "Mêmes erreurs : trait d'union, « vingt et un », orthographe, « s » de vingt/cent.\nRemédiation : relire la leçon, décomposer, s'appuyer sur la liste 0-100.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "maths"
       }
      ]
     },
@@ -8113,23 +8503,33 @@
      "disciplineId": "francais",
      "activities": [
       {
-       "id": "20261013fr2",
+       "id": "graphemo13",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer — Français (après-midi)",
-       "objectif": "",
+       "title": "Français — GraphéMo (orthographe, selon la méthode)",
+       "objectif": "Séance d'orthographe GraphéMo (rien à préparer : suivre le déroulé de la méthode).",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "Français — Orthographe (Graphémo)",
+       "progSequence": "Graphémo — Thème 1",
+       "progSeance": "selon la méthode",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "g1",
+         "label": "Je suis la méthode GraphéMo",
+         "note": "- « On ouvre GraphéMo et on suit les étapes du jour. »\n- « On observe, on manipule, on écrit. »\n- « Rien de spécial à imprimer. »"
+        }
+       ],
+       "materiel": "Méthode GraphéMo (rien à préparer).",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -8138,7 +8538,8 @@
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "francais"
       }
      ]
     },
@@ -8182,26 +8583,136 @@
      "id": "d2026-10-13s10",
      "start": "15:40",
      "end": "16:25",
-     "disciplineId": "autre",
+     "disciplineId": "qlm",
      "activities": [
       {
-       "id": "20261013ap",
+       "id": "histS6",
        "niveaux": [
         "classe"
        ],
-       "title": "À préparer (EPS / autre)",
-       "objectif": "",
+       "title": "Histoire — Raconter la Préhistoire (synthèse)",
+       "objectif": "Faire la synthèse de la séquence Préhistoire : remettre les grandes étapes dans l'ordre (Paléolithique → Néolithique), les situer sur la frise et raconter.",
+       "competence": "Se repérer dans le temps ; ordonner et raconter les grandes étapes de la Préhistoire.",
+       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « se situer dans le temps ».",
+       "progPeriode": "P1",
+       "progDomaine": "Questionner le monde — Histoire (le temps)",
+       "progSequence": "La Préhistoire",
+       "progSeance": "4 (synthèse — raconter)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "hh1",
+         "label": "On se rappelle tout (10 min)",
+         "note": "- « On a étudié la Préhistoire : qui se souvient des grandes étapes ? »\n- « Les premiers hommes, le feu, les peintures des grottes… »\n- « Puis le Néolithique : l'agriculture, l'élevage, les premiers villages. »\n- « Et à la fin, l'invention de l'écriture : c'est la fin de la Préhistoire. »\n- « On regarde à nouveau la frise des dates clés. »\n(Je reprojette un diaporama Préhistoire/Néolithique.)"
+        },
+        {
+         "id": "hh2",
+         "label": "Je remets dans l'ordre et je complète la frise (12 min)",
+         "note": "- « Sur la fiche, vous numérotez les étapes de 1 (le plus ancien) à 5. »\n- « Vous complétez la frise avec Paléolithique et Néolithique. »\n- « On vérifie ensemble : du plus ancien vers nous. »\n- « Vrai ou faux : la Préhistoire est la période la plus récente ? (faux) »\n- « On corrige et on explique. »\n(Fiche de synthèse, correction collective.)"
+        },
+        {
+         "id": "hh3",
+         "label": "Je raconte la Préhistoire (12 min)",
+         "note": "- « Maintenant, vous racontez la Préhistoire en 3 ou 4 phrases. »\n- « Utilisez les mots : nomade, sédentaire, agriculture, grottes, écriture. »\n- « Quelques élèves lisent leur texte à voix haute. »\n- « On range la fiche dans le classeur (histoire, intercalaire jaune). »\n- « Après les vacances, on découvrira une nouvelle période : l'Antiquité. »\n(Production écrite courte, lecture, rangement.)"
+        }
+       ],
+       "materiel": "Fiche de synthèse « Je raconte la Préhistoire » (A4 paysage) — voir Documents à imprimer. On réutilise les diaporamas Préhistoire/Néolithique et la frise des dates clés. Classeur histoire (intercalaire jaune).",
+       "video": "",
+       "differenciation": "CE1 : remettre les étapes dans l'ordre, raconter à l'oral / en 2 phrases. CE2 : compléter la frise (Paléo/Néo) et rédiger 3-4 phrases avec le vocabulaire.",
+       "depassement": "",
+       "correction": "Ordre : 1 premiers hommes · 2 maîtrise du feu · 3 peintures des grottes · 4 agriculture et villages (Néolithique) · 5 invention de l'écriture. Frise : à gauche Paléolithique (chasseurs-cueilleurs), à droite Néolithique (agriculture / villages).",
+       "obstacles": "Confondre l'ordre des étapes → s'appuyer sur la frise (gauche = ancien). Confondre Paléolithique (chasseurs-cueilleurs) et Néolithique (agriculteurs) → « Néo = nouveau = agriculture ».",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      },
+      {
+       "id": "sciS6",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Sciences — L'eau change d'état : faire fondre et faire geler",
+       "objectif": "Découvrir les trois états de l'eau et les changements d'état : fondre (solide→liquide) et geler (liquide→solide).",
+       "competence": "Identifier les états de l'eau ; décrire un changement d'état (fusion, solidification) et le relier au chaud/froid et à 0 °C.",
+       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « qu'est-ce que la matière ? » (états et changements d'état de l'eau).",
+       "progPeriode": "P1",
+       "progDomaine": "Questionner le monde — Sciences",
+       "progSequence": "L'eau change d'état",
+       "progSeance": "1 — faire fondre et faire geler",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "ss1",
+         "label": "Les 3 états de l'eau (12 min)",
+         "note": "- « La semaine dernière, on a mesuré (masse, volume, température). Aujourd'hui : l'eau et ses états. »\n- « L'eau peut être solide (la glace), liquide (l'eau qui coule) ou gazeuse (la vapeur). »\n- « C'est toujours de l'eau, mais elle change de forme. »\n- « La glace est dure ; l'eau coule et prend la forme du récipient. »\n- « À votre avis, comment passe-t-on de la glace à l'eau ? »\n(Je projette le diaporama, vraies photos.)"
+        },
+        {
+         "id": "ss2",
+         "label": "Faire fondre / faire geler + expérience (15 min)",
+         "note": "- « Quand on réchauffe la glace, elle fond : solide → liquide. C'est la fusion. »\n- « Quand on refroidit l'eau (congélateur), elle gèle : liquide → solide. C'est la solidification. »\n- « La glace fond et l'eau gèle à 0 °C. »\n- « On observe un glaçon posé dans la classe : que va-t-il se passer ? »\n- « On remplit la fiche : je dessine au début, après 10 minutes, à la fin. »\n(Un glaçon par groupe, fiche d'observation.)"
+        },
+        {
+         "id": "ss3",
+         "label": "Je retiens et je colle la leçon (12 min)",
+         "note": "- « On récapitule : chaud → ça fond ; froid → ça gèle. »\n- « On colle la leçon imagée (classeur sciences, intercalaire vert). »\n- « On souligne : fondre = solide → liquide ; geler = liquide → solide ; à 0 °C. »\n- « On conclut l'expérience : le glaçon est devenu de l'eau liquide, il a fondu. »\n- « Après les vacances : où trouve-t-on l'eau dans la nature ? »\n(Leçon à coller, bilan de l'expérience.)"
+        }
+       ],
+       "materiel": "Diaporama « L'eau change d'état » + leçon imagée à coller (classeur sciences, intercalaire vert) + fiche d'expérience « je fais fondre un glaçon » — voir Documents à imprimer. Un glaçon par groupe ; un thermomètre si possible.",
+       "video": "",
+       "differenciation": "CE1 : reconnaître solide/liquide, dire « ça fond / ça gèle ». CE2 : employer fusion/solidification, relier à 0 °C et schématiser le changement d'état.",
+       "depassement": "",
+       "correction": "Solide = glace, liquide = eau, gazeux = vapeur. Réchauffer → fondre (fusion) ; refroidir → geler (solidification). L'eau gèle / la glace fond à 0 °C. Le glaçon fond et devient de l'eau liquide.",
+       "obstacles": "Erreurs fréquentes : croire que la glace et l'eau sont deux choses différentes (c'est la même eau) ; confondre fondre et geler.\nRemédiation : revenir au chaud/froid, à la flèche solide ↔ liquide, et à l'observation du glaçon.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      },
+      {
+       "id": "epsAthle13",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "EPS — Athlétisme (fin de séquence, rien à préparer)",
+       "objectif": "Terminer la séquence d'athlétisme avant les vacances (rien de nouveau à préparer).",
        "competence": "",
        "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
+       "progDomaine": "EPS — Athlétisme",
+       "progSequence": "Athlétisme (P1)",
+       "progSeance": "fin de séquence",
        "progRef": "",
-       "organisation": [],
-       "roleEnseignant": [],
-       "deroulement": [],
-       "materiel": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "ee1",
+         "label": "On finit l'athlétisme",
+         "note": "- « On termine la séquence d'athlétisme. »\n- « Échauffement, ateliers, petit bilan. »\n- « On pense à la sécurité et à l'effort. »"
+        }
+       ],
+       "materiel": "Matériel habituel d'athlétisme. Voir fiche terrain EPS.",
        "video": "",
        "differenciation": "",
        "depassement": "",
@@ -8210,7 +8721,8 @@
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
-       "notesProchaine": ""
+       "notesProchaine": "",
+       "disciplineId": "autre"
       }
      ]
     },
@@ -8252,7 +8764,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790701001004
+   "updatedAt": 1790702001004
   },
   {
    "date": "2026-11-03",

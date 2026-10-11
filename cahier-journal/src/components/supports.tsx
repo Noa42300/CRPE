@@ -15,6 +15,11 @@ import { MesurerTempsDiapo, FriseUnitesTemps, MesurerTempsLecon } from "./Mesure
 import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME, EPS_COURIR_EVAL } from "./EpsSeanceFiche";
 import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon, ExperienceBouteilleMaison } from "./QlmS4Supports";
+import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
+import { NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
+import { TypesPhrasesDiapo, TypesPhrasesLecon, QcmTypesPhrases } from "./TypesDePhrases";
+import { HalloweenDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
+import { RaconterPrehistoireFiche, EauEtatDiapo, EauEtatLecon, EauEtatExp } from "./QlmS6Supports";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
@@ -1117,6 +1122,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "det-s3-ce1", label: "Séance 3 — Exercices CE1", node: ficheNode(DET_DEMOPOS_CE1) },
         { key: "det-s3-ce2", label: "Séance 3 — Exercices CE2", node: ficheNode(DET_DEMOPOS_CE2) },
       ];
+    case "detEval12":
     case "detS4":
       return [
         { key: "det-s4-eval", label: "Séance 4 — Évaluation : les déterminants", node: ficheNode(DET_EVAL) },
@@ -1244,6 +1250,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "nom-s3-exos", label: "Séance 3 — Exercices : genre & nombre du nom", node: ficheNode(NOM_S3) },
       ];
+    case "nomEval12":
     case "nomS4":
       return [
         { key: "nom-s4-eval", label: "Séance 4 — Évaluation : le nom", node: ficheNode(NOM_EVAL) },
@@ -1341,6 +1348,43 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "sci-masse-diapo", label: "La masse (1/2) — Diaporama à projeter (peser avec la balance)", node: <MasseDiapo /> },
         { key: "sci-masse-lecon", label: "La masse (1/2) — Leçon imagée à coller (balance, g/kg)", node: <MasseLecon /> },
+      ];
+    case "probLundi":
+      return [{ key: "prob-l", label: "Problème du jour (× remédiation) — 4 par A4 à découper et coller", node: <ProblemeRituelLundi /> }];
+    case "probMardi":
+      return [{ key: "prob-m", label: "Problème du jour (× remédiation) — 4 par A4 à découper et coller", node: <ProblemeRituelMardi /> }];
+    case "nbEcritL":
+      return [
+        { key: "nbl-lecon", label: "Les nombres en lettres — Leçon à coller (règles + briques)", node: <NombresLettresLecon /> },
+        { key: "nbl-ref", label: "Référence — Tous les nombres de 0 à 100 en lettres", node: <NombresRef0a100 /> },
+        { key: "nbl-exos", label: "Les nombres en lettres — Exercices (A4 paysage, 2 pages, CE1/CE2)", node: <NombresLettresExosL /> },
+      ];
+    case "nbEcritM":
+      return [
+        { key: "nbm-exos", label: "Les nombres en lettres — Entraînement (A4 paysage, 2 pages, CE1/CE2)", node: <NombresLettresExosM /> },
+        { key: "nbm-ref", label: "Référence — Tous les nombres de 0 à 100 en lettres", node: <NombresRef0a100 /> },
+      ];
+    case "qcmTypesPhr":
+      return [{ key: "qcm-tp", label: "QCM — Les types de phrases (A4 paysage, phrases courtes)", node: <QcmTypesPhrases /> }];
+    case "typPhr":
+      return [
+        { key: "tp-diapo", label: "Les types de phrases — Diaporama à projeter", node: <TypesPhrasesDiapo /> },
+        { key: "tp-lecon", label: "Les types de phrases — Leçon à coller (cahier bleu)", node: <TypesPhrasesLecon /> },
+      ];
+    case "halloS1":
+      return [
+        { key: "hw-diapo", label: "Happy Halloween — Diaporama à projeter (vraies photos)", node: <HalloweenDiapo /> },
+        { key: "hw-lecon", label: "Happy Halloween — Leçon illustrée à coller", node: <HalloweenLecon /> },
+        { key: "hw-cards", label: "Happy Halloween — Flashcards à découper (image + mot)", node: <HalloweenFlashcards /> },
+        { key: "hw-projet", label: "Happy Halloween — Fiche projet « My Halloween card » + grille d'éval", node: <HalloweenProjetCarte /> },
+      ];
+    case "histS6":
+      return [{ key: "hist-raconter", label: "Raconter la Préhistoire — Fiche de synthèse (A4 paysage)", node: <RaconterPrehistoireFiche /> }];
+    case "sciS6":
+      return [
+        { key: "eau-diapo", label: "L'eau change d'état — Diaporama à projeter (vraies photos)", node: <EauEtatDiapo /> },
+        { key: "eau-lecon", label: "L'eau change d'état — Leçon imagée à coller", node: <EauEtatLecon /> },
+        { key: "eau-exp", label: "L'eau change d'état — Fiche d'expérience (faire fondre un glaçon)", node: <EauEtatExp /> },
       ];
     case "sciS5":
       return [
