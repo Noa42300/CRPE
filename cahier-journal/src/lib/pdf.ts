@@ -134,21 +134,26 @@ function finalizePdf(pdf: { output: (t: "blob") => Blob }, filename: string): vo
   const ua = navigator.userAgent || "";
   const touch = (navigator as { maxTouchPoints?: number }).maxTouchPoints ?? 0;
   const isIOS = /iP(hone|ad|od)/.test(ua) || (navigator.platform === "MacIntel" && touch > 1);
-  const standalone =
-    (navigator as { standalone?: boolean }).standalone === true ||
-    (typeof matchMedia !== "undefined" && matchMedia("(display-mode: standalone)").matches);
 
-  if (isIOS || standalone) {
-    const w = window.open(url, "_blank");
-    if (!w) {
-      const a = document.createElement("a");
-      a.href = url; a.download = filename; a.rel = "noopener";
-      document.body.appendChild(a); a.click(); a.remove();
-    }
-  } else {
+  // Téléchargement direct par ancre : fiable partout — navigateur classique ET
+  // appli installée (PWA) sur ordinateur ou Android. (On n'envoie PLUS les PWA
+  // de bureau vers window.open : après l'étape asynchrone de génération, le
+  // « geste utilisateur » est perdu et window.open est bloqué → rien ne se
+  // téléchargeait.)
+  const anchor = () => {
     const a = document.createElement("a");
     a.href = url; a.download = filename; a.rel = "noopener";
     document.body.appendChild(a); a.click(); a.remove();
+  };
+
+  if (isIOS) {
+    // iOS / iPadOS : Safari ignore l'attribut `download`. On ouvre le PDF dans
+    // un onglet pour l'enregistrer via la feuille de partage ; si la fenêtre est
+    // bloquée (PWA installée), on tente quand même le téléchargement direct.
+    const w = window.open(url, "_blank");
+    if (!w) anchor();
+  } else {
+    anchor();
   }
   setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
