@@ -8641,59 +8641,33 @@
        "disciplineId": "qlm"
       },
       {
-       "id": "sciS6",
+       "id": "20261013rangcl",
        "niveaux": [
         "classe"
        ],
-       "title": "Sciences — Les dents : en prendre soin (après le film « C'est pas sorcier »)",
-       "objectif": "Après un extrait de C'est pas sorcier (« Dent pour dent »), comprendre le rôle des dents (dents de lait / définitives, carie) et écrire pour expliquer comment en prendre soin.",
-       "competence": "Connaître son corps et adopter des règles d'hygiène (brossage, alimentation) ; prélever des informations dans un documentaire et écrire pour expliquer.",
-       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « reconnaître des comportements favorables à sa santé » ; Français — BO n° 41 du 31 octobre 2024, domaine « écriture ».",
+       "title": "Ranger le classeur (avant les vacances)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
        "progPeriode": "P1",
-       "progDomaine": "Questionner le monde — Sciences",
-       "progSequence": "La santé et le corps",
-       "progSeance": "Les dents — film + production d'écrit",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
        "progRef": "",
-       "organisation": [
-        "collectif",
-        "individuel"
-       ],
-       "roleEnseignant": [
-        "guidage"
-       ],
-       "deroulement": [
-        {
-         "id": "ss1",
-         "label": "Je regarde le film (15 min)",
-         "note": "- « Aujourd'hui, on regarde un extrait de C'est pas sorcier sur les dents. »\n- « Pendant le film, cherchez : à quoi servent les dents ? c'est quoi une carie ? »\n- « Je noterai les mots importants au tableau. »\n- « On regarde en silence, puis on en parlera ensemble. »\n- « C'est parti ! »\n(Je projette l'extrait ; je note au tableau : dent de lait, carie, sucre, brossage, dentiste.)"
-        },
-        {
-         "id": "ss2",
-         "label": "On en parle (10 min)",
-         "note": "- « Combien de fois par jour faut-il se brosser les dents ? »\n- « Qu'est-ce qui abîme les dents ? (le sucre, les bonbons) »\n- « C'est quoi une dent de lait ? Et une dent définitive ? »\n- « Que fait le dentiste ? »\n- « On relit les mots du tableau : on va s'en servir pour écrire. »\n(Reformulation orale ; je montre le geste du brossage avec une brosse à dents.)"
-        },
-        {
-         "id": "ss3",
-         "label": "J'écris mes conseils (20 min)",
-         "note": "- « Sur la fiche, vous expliquez comment prendre soin de ses dents. »\n- « Les CE1 écrivent 3 conseils ; les CE2 un petit texte pour un plus petit. »\n- « On commence par l'amorce : Pour avoir de belles dents, je dois d'abord… »\n- « Utilisez la banque de mots, les majuscules et les points. »\n- « Je passe vous aider. »\n(Production individuelle ; aide à l'orthographe et à la structure.)"
-        },
-        {
-         "id": "ss4",
-         "label": "On partage et on retient (5 min)",
-         "note": "- « Deux ou trois élèves lisent leurs conseils. »\n- « On retient : brossage matin et soir, moins de sucre, visite chez le dentiste. »\n- « On range la fiche dans le classeur (sciences, intercalaire vert). »\n- « Cette semaine, essayez de vraiment vous brosser les dents matin et soir ! »\n- « Bravo, vous savez protéger votre sourire ! »\n(Lecture de quelques conseils ; rangement ; mini-défi maison.)"
-        }
-       ],
-       "materiel": "Extrait de « C'est pas sorcier — Dent pour dent » (lien dans Vidéo) + fiche de production d'écrit « Je prends soin de mes dents » (voir Documents à imprimer). Classeur sciences (intercalaire vert). Si possible, apporter une brosse à dents pour montrer le geste.",
-       "video": "https://www.youtube.com/watch?v=fMTrXPWQhT0",
-       "differenciation": "CE1 : 3 conseils courts avec l'amorce et la banque de mots ; dictée à l'adulte si besoin. CE2 : un texte explicatif adressé à un plus jeune, avec des connecteurs (d'abord, ensuite, aussi) et le « pourquoi ».",
-       "depassement": "Dessiner et légender une brosse à dents, un aliment ami et un aliment ennemi des dents ; commencer une affiche « les dents » pour la classe.",
-       "correction": "Productions variées. On valorise : des conseils justes (se brosser matin et soir, limiter le sucre, aller chez le dentiste), des phrases avec majuscule et point, au moins 3 mots de la banque. Exemple attendu CE1 : « Pour avoir de belles dents, je dois d'abord me brosser les dents le matin et le soir. Je mange peu de sucre. Je vais chez le dentiste. »",
-       "obstacles": "Erreurs fréquentes : l'élève liste des mots sans faire de phrase ; il confond dent de lait et dent cassée ; il oublie d'expliquer le « pourquoi ». Remédiation rapide : faire oraliser le conseil avant de l'écrire, rappeler l'amorce, relancer par « pourquoi ? » pour développer, dictée à l'adulte pour débloquer.",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "Classeurs des élèves (français, maths, histoire, sciences), intercalaires et pochettes.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
        "notesProchaine": "",
-       "disciplineId": "qlm"
+       "disciplineId": null
       },
       {
        "id": "epsAthle13",
@@ -8774,7 +8748,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790703001004
+   "updatedAt": 1790704001004
   },
   {
    "date": "2026-11-03",
