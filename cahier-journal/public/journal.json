@@ -8590,14 +8590,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Histoire — Raconter la Préhistoire (synthèse)",
-       "objectif": "Faire la synthèse de la séquence Préhistoire : remettre les grandes étapes dans l'ordre (Paléolithique → Néolithique), les situer sur la frise et raconter.",
-       "competence": "Se repérer dans le temps ; ordonner et raconter les grandes étapes de la Préhistoire.",
-       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « se situer dans le temps ».",
+       "title": "Histoire — La Préhistoire : raconter (après le film « C'est pas sorcier »)",
+       "objectif": "Après un extrait de C'est pas sorcier, réinvestir ce qu'on a appris sur les hommes préhistoriques dans une courte production d'écrit : raconter une journée.",
+       "competence": "Prélever des informations dans un documentaire vidéo ; écrire un court texte pour raconter, en réinvestissant le lexique de la Préhistoire.",
+       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « se situer dans le temps » ; Français — BO n° 41 du 31 octobre 2024, domaine « écriture » (écrire un texte court).",
        "progPeriode": "P1",
        "progDomaine": "Questionner le monde — Histoire (le temps)",
        "progSequence": "La Préhistoire",
-       "progSeance": "4 (synthèse — raconter)",
+       "progSeance": "4 (film + production d'écrit)",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -8609,26 +8609,31 @@
        "deroulement": [
         {
          "id": "hh1",
-         "label": "On se rappelle tout (10 min)",
-         "note": "- « On a étudié la Préhistoire : qui se souvient des grandes étapes ? »\n- « Les premiers hommes, le feu, les peintures des grottes… »\n- « Puis le Néolithique : l'agriculture, l'élevage, les premiers villages. »\n- « Et à la fin, l'invention de l'écriture : c'est la fin de la Préhistoire. »\n- « On regarde à nouveau la frise des dates clés. »\n(Je reprojette un diaporama Préhistoire/Néolithique.)"
+         "label": "Je regarde le film (15 min)",
+         "note": "- « Aujourd'hui, on regarde un extrait de C'est pas sorcier sur les hommes préhistoriques. »\n- « Pendant le film, cherchez : où vivaient-ils ? que mangeaient-ils ? »\n- « Ouvrez grand les oreilles : je noterai les mots importants au tableau. »\n- « On regarde tranquillement, sans parler, puis on en discutera. »\n- « Prêts ? C'est parti. »\n(Je projette l'extrait choisi ; je note au tableau : grotte, feu, chasse, silex, peinture.)"
         },
         {
          "id": "hh2",
-         "label": "Je remets dans l'ordre et je complète la frise (12 min)",
-         "note": "- « Sur la fiche, vous numérotez les étapes de 1 (le plus ancien) à 5. »\n- « Vous complétez la frise avec Paléolithique et Néolithique. »\n- « On vérifie ensemble : du plus ancien vers nous. »\n- « Vrai ou faux : la Préhistoire est la période la plus récente ? (faux) »\n- « On corrige et on explique. »\n(Fiche de synthèse, correction collective.)"
+         "label": "On raconte ce qu'on a retenu (10 min)",
+         "note": "- « Qui peut me dire où vivaient les hommes préhistoriques ? »\n- « Que mangeaient-ils ? Comment chassaient-ils ? »\n- « À quoi servait le feu ? »\n- « Qu'ont-ils laissé sur les murs des grottes ? »\n- « On relit ensemble les mots du tableau : on va s'en servir pour écrire. »\n(Reformulation orale collective ; j'enrichis la banque de mots au tableau.)"
         },
         {
          "id": "hh3",
-         "label": "Je raconte la Préhistoire (12 min)",
-         "note": "- « Maintenant, vous racontez la Préhistoire en 3 ou 4 phrases. »\n- « Utilisez les mots : nomade, sédentaire, agriculture, grottes, écriture. »\n- « Quelques élèves lisent leur texte à voix haute. »\n- « On range la fiche dans le classeur (histoire, intercalaire jaune). »\n- « Après les vacances, on découvrira une nouvelle période : l'Antiquité. »\n(Production écrite courte, lecture, rangement.)"
+         "label": "J'écris ma journée à la Préhistoire (20 min)",
+         "note": "- « Sur la fiche, vous racontez une journée d'un enfant à la Préhistoire. »\n- « Les CE1 écrivent 3 phrases ; les CE2 un petit paragraphe. »\n- « On commence par l'amorce : Il y a très longtemps, je vivais dans une grotte… »\n- « Servez-vous de la banque de mots et pensez aux majuscules et aux points. »\n- « Je passe dans les rangs pour vous aider. »\n(Production individuelle ; j'aide à l'orthographe et à la structure (dictée à l'adulte si besoin).)"
+        },
+        {
+         "id": "hh4",
+         "label": "On partage (5 min)",
+         "note": "- « Deux ou trois élèves lisent leur texte à voix haute. »\n- « On écoute et on dit ce qu'on a aimé. »\n- « On range la fiche dans le classeur (histoire, intercalaire jaune). »\n- « Après les vacances, on découvrira une nouvelle période : l'Antiquité. »\n- « Bravo, vous êtes devenus des conteurs de la Préhistoire ! »\n(Lecture de quelques productions ; rangement.)"
         }
        ],
-       "materiel": "Fiche de synthèse « Je raconte la Préhistoire » (A4 paysage) — voir Documents à imprimer. On réutilise les diaporamas Préhistoire/Néolithique et la frise des dates clés. Classeur histoire (intercalaire jaune).",
-       "video": "",
-       "differenciation": "CE1 : remettre les étapes dans l'ordre, raconter à l'oral / en 2 phrases. CE2 : compléter la frise (Paléo/Néo) et rédiger 3-4 phrases avec le vocabulaire.",
-       "depassement": "",
-       "correction": "Ordre : 1 premiers hommes · 2 maîtrise du feu · 3 peintures des grottes · 4 agriculture et villages (Néolithique) · 5 invention de l'écriture. Frise : à gauche Paléolithique (chasseurs-cueilleurs), à droite Néolithique (agriculture / villages).",
-       "obstacles": "Confondre l'ordre des étapes → s'appuyer sur la frise (gauche = ancien). Confondre Paléolithique (chasseurs-cueilleurs) et Néolithique (agriculteurs) → « Néo = nouveau = agriculture ».",
+       "materiel": "Extrait de « C'est pas sorcier — Les hommes préhistoriques » (lien dans Vidéo) + fiche de production d'écrit « La vie d'un homme préhistorique » (voir Documents à imprimer). Classeur histoire (intercalaire jaune).",
+       "video": "https://www.youtube.com/watch?v=S0-6syqOxdU",
+       "differenciation": "CE1 : 3 phrases avec l'amorce et la banque de mots ; dictée à l'adulte possible pour un élève en difficulté d'écriture. CE2 : un paragraphe structuré (matin / chasse / repas / soir) avec des connecteurs (d'abord, ensuite, enfin).",
+       "depassement": "Ajouter un dessin légendé de la scène ; inventer le nom de l'enfant et de sa tribu ; donner un titre au texte.",
+       "correction": "Pas de correction unique (productions variées). On valorise : une journée cohérente (du matin au soir), l'emploi d'au moins 3 mots de la banque, des phrases avec majuscule et point. Exemple attendu CE1 : « Il y a très longtemps, je vivais dans une grotte. Le matin, je vais à la chasse avec mon père. Le soir, on se réchauffe près du feu. »",
+       "obstacles": "Erreurs fréquentes : l'élève recopie les mots de la banque sans faire de phrase ; il mélange le présent et le passé ; il oublie la majuscule et le point. Remédiation rapide : rappeler l'amorce au tableau, faire oraliser la phrase AVANT de l'écrire, pointer du doigt la majuscule et le point, proposer la dictée à l'adulte pour débloquer.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -8640,14 +8645,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Sciences — L'eau change d'état : faire fondre et faire geler",
-       "objectif": "Découvrir les trois états de l'eau et les changements d'état : fondre (solide→liquide) et geler (liquide→solide).",
-       "competence": "Identifier les états de l'eau ; décrire un changement d'état (fusion, solidification) et le relier au chaud/froid et à 0 °C.",
-       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « qu'est-ce que la matière ? » (états et changements d'état de l'eau).",
+       "title": "Sciences — Les dents : en prendre soin (après le film « C'est pas sorcier »)",
+       "objectif": "Après un extrait de C'est pas sorcier (« Dent pour dent »), comprendre le rôle des dents (dents de lait / définitives, carie) et écrire pour expliquer comment en prendre soin.",
+       "competence": "Connaître son corps et adopter des règles d'hygiène (brossage, alimentation) ; prélever des informations dans un documentaire et écrire pour expliquer.",
+       "competenceRef": "Questionner le monde, cycle 2 — programmes 2018/2020, « reconnaître des comportements favorables à sa santé » ; Français — BO n° 41 du 31 octobre 2024, domaine « écriture ».",
        "progPeriode": "P1",
        "progDomaine": "Questionner le monde — Sciences",
-       "progSequence": "L'eau change d'état",
-       "progSeance": "1 — faire fondre et faire geler",
+       "progSequence": "La santé et le corps",
+       "progSeance": "Les dents — film + production d'écrit",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -8659,26 +8664,31 @@
        "deroulement": [
         {
          "id": "ss1",
-         "label": "Les 3 états de l'eau (12 min)",
-         "note": "- « La semaine dernière, on a mesuré (masse, volume, température). Aujourd'hui : l'eau et ses états. »\n- « L'eau peut être solide (la glace), liquide (l'eau qui coule) ou gazeuse (la vapeur). »\n- « C'est toujours de l'eau, mais elle change de forme. »\n- « La glace est dure ; l'eau coule et prend la forme du récipient. »\n- « À votre avis, comment passe-t-on de la glace à l'eau ? »\n(Je projette le diaporama, vraies photos.)"
+         "label": "Je regarde le film (15 min)",
+         "note": "- « Aujourd'hui, on regarde un extrait de C'est pas sorcier sur les dents. »\n- « Pendant le film, cherchez : à quoi servent les dents ? c'est quoi une carie ? »\n- « Je noterai les mots importants au tableau. »\n- « On regarde en silence, puis on en parlera ensemble. »\n- « C'est parti ! »\n(Je projette l'extrait ; je note au tableau : dent de lait, carie, sucre, brossage, dentiste.)"
         },
         {
          "id": "ss2",
-         "label": "Faire fondre / faire geler + expérience (15 min)",
-         "note": "- « Quand on réchauffe la glace, elle fond : solide → liquide. C'est la fusion. »\n- « Quand on refroidit l'eau (congélateur), elle gèle : liquide → solide. C'est la solidification. »\n- « La glace fond et l'eau gèle à 0 °C. »\n- « On observe un glaçon posé dans la classe : que va-t-il se passer ? »\n- « On remplit la fiche : je dessine au début, après 10 minutes, à la fin. »\n(Un glaçon par groupe, fiche d'observation.)"
+         "label": "On en parle (10 min)",
+         "note": "- « Combien de fois par jour faut-il se brosser les dents ? »\n- « Qu'est-ce qui abîme les dents ? (le sucre, les bonbons) »\n- « C'est quoi une dent de lait ? Et une dent définitive ? »\n- « Que fait le dentiste ? »\n- « On relit les mots du tableau : on va s'en servir pour écrire. »\n(Reformulation orale ; je montre le geste du brossage avec une brosse à dents.)"
         },
         {
          "id": "ss3",
-         "label": "Je retiens et je colle la leçon (12 min)",
-         "note": "- « On récapitule : chaud → ça fond ; froid → ça gèle. »\n- « On colle la leçon imagée (classeur sciences, intercalaire vert). »\n- « On souligne : fondre = solide → liquide ; geler = liquide → solide ; à 0 °C. »\n- « On conclut l'expérience : le glaçon est devenu de l'eau liquide, il a fondu. »\n- « Après les vacances : où trouve-t-on l'eau dans la nature ? »\n(Leçon à coller, bilan de l'expérience.)"
+         "label": "J'écris mes conseils (20 min)",
+         "note": "- « Sur la fiche, vous expliquez comment prendre soin de ses dents. »\n- « Les CE1 écrivent 3 conseils ; les CE2 un petit texte pour un plus petit. »\n- « On commence par l'amorce : Pour avoir de belles dents, je dois d'abord… »\n- « Utilisez la banque de mots, les majuscules et les points. »\n- « Je passe vous aider. »\n(Production individuelle ; aide à l'orthographe et à la structure.)"
+        },
+        {
+         "id": "ss4",
+         "label": "On partage et on retient (5 min)",
+         "note": "- « Deux ou trois élèves lisent leurs conseils. »\n- « On retient : brossage matin et soir, moins de sucre, visite chez le dentiste. »\n- « On range la fiche dans le classeur (sciences, intercalaire vert). »\n- « Cette semaine, essayez de vraiment vous brosser les dents matin et soir ! »\n- « Bravo, vous savez protéger votre sourire ! »\n(Lecture de quelques conseils ; rangement ; mini-défi maison.)"
         }
        ],
-       "materiel": "Diaporama « L'eau change d'état » + leçon imagée à coller (classeur sciences, intercalaire vert) + fiche d'expérience « je fais fondre un glaçon » — voir Documents à imprimer. Un glaçon par groupe ; un thermomètre si possible.",
-       "video": "",
-       "differenciation": "CE1 : reconnaître solide/liquide, dire « ça fond / ça gèle ». CE2 : employer fusion/solidification, relier à 0 °C et schématiser le changement d'état.",
-       "depassement": "",
-       "correction": "Solide = glace, liquide = eau, gazeux = vapeur. Réchauffer → fondre (fusion) ; refroidir → geler (solidification). L'eau gèle / la glace fond à 0 °C. Le glaçon fond et devient de l'eau liquide.",
-       "obstacles": "Erreurs fréquentes : croire que la glace et l'eau sont deux choses différentes (c'est la même eau) ; confondre fondre et geler.\nRemédiation : revenir au chaud/froid, à la flèche solide ↔ liquide, et à l'observation du glaçon.",
+       "materiel": "Extrait de « C'est pas sorcier — Dent pour dent » (lien dans Vidéo) + fiche de production d'écrit « Je prends soin de mes dents » (voir Documents à imprimer). Classeur sciences (intercalaire vert). Si possible, apporter une brosse à dents pour montrer le geste.",
+       "video": "https://www.youtube.com/watch?v=fMTrXPWQhT0",
+       "differenciation": "CE1 : 3 conseils courts avec l'amorce et la banque de mots ; dictée à l'adulte si besoin. CE2 : un texte explicatif adressé à un plus jeune, avec des connecteurs (d'abord, ensuite, aussi) et le « pourquoi ».",
+       "depassement": "Dessiner et légender une brosse à dents, un aliment ami et un aliment ennemi des dents ; commencer une affiche « les dents » pour la classe.",
+       "correction": "Productions variées. On valorise : des conseils justes (se brosser matin et soir, limiter le sucre, aller chez le dentiste), des phrases avec majuscule et point, au moins 3 mots de la banque. Exemple attendu CE1 : « Pour avoir de belles dents, je dois d'abord me brosser les dents le matin et le soir. Je mange peu de sucre. Je vais chez le dentiste. »",
+       "obstacles": "Erreurs fréquentes : l'élève liste des mots sans faire de phrase ; il confond dent de lait et dent cassée ; il oublie d'expliquer le « pourquoi ». Remédiation rapide : faire oraliser le conseil avant de l'écrire, rappeler l'amorce, relancer par « pourquoi ? » pour développer, dictée à l'adulte pour débloquer.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -8764,7 +8774,7 @@
     }
    ],
    "createdAt": "2026-09-19T10:00:00Z",
-   "updatedAt": 1790702001004
+   "updatedAt": 1790703001004
   },
   {
    "date": "2026-11-03",
