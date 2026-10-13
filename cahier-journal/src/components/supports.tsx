@@ -19,7 +19,7 @@ import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesLecon, QcmTypesPhrases } from "./TypesDePhrases";
 import { HalloweenDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
-import { RaconterPrehistoireFiche, EauEtatDiapo, EauEtatLecon, EauEtatExp } from "./QlmS6Supports";
+import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
 import { GNPaysageCE1, GNPaysageCE2 } from "./FicheGenreNombrePaysage";
@@ -1380,13 +1380,9 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "hw-projet", label: "Happy Halloween — Fiche projet « My Halloween card » + grille d'éval", node: <HalloweenProjetCarte /> },
       ];
     case "histS6":
-      return [{ key: "hist-raconter", label: "Raconter la Préhistoire — Fiche de synthèse (A4 paysage)", node: <RaconterPrehistoireFiche /> }];
+      return [{ key: "hist-ecrit", label: "La vie d'un homme préhistorique — Production d'écrit (après le film)", node: <EcritPrehistoire /> }];
     case "sciS6":
-      return [
-        { key: "eau-diapo", label: "L'eau change d'état — Diaporama à projeter (vraies photos)", node: <EauEtatDiapo /> },
-        { key: "eau-lecon", label: "L'eau change d'état — Leçon imagée à coller", node: <EauEtatLecon /> },
-        { key: "eau-exp", label: "L'eau change d'état — Fiche d'expérience (faire fondre un glaçon)", node: <EauEtatExp /> },
-      ];
+      return [{ key: "dents-ecrit", label: "Je prends soin de mes dents — Production d'écrit (après le film)", node: <EcritLesDents /> }];
     case "sciS5":
       return [
         { key: "sci-voltemp-diapo", label: "Le volume et la température (2/2) — Diaporama à projeter (avec tableau de conversion)", node: <VolTempDiapo /> },
