@@ -157,7 +157,6 @@
       </div>
       <button id="rec" aria-label="Enregistrer"><span></span></button>
       <div class="side right">
-        <button class="ic" id="btn-format" aria-label="Format">9:16</button>
         <button class="ic" id="btn-flip" aria-label="Changer de caméra">
           <svg viewBox="0 0 24 24"><path d="M4 9a8 8 0 0 1 14-3l2 2M20 15a8 8 0 0 1-14 3l-2-2"/><path d="M20 4v4h-4M4 20v-4h4"/></svg>
         </button>
@@ -192,7 +191,7 @@
         <button class="btn primary" data-close>OK</button>
       </div>
       <div class="field">
-        <label for="cpl">Caractères par ligne</label><output id="cpl-out"></output>
+        <label for="cpl" id="cpl-label">Caractères par ligne</label><output id="cpl-out"></output>
         <input type="range" id="cpl" min="20" max="100" step="1">
         <small>La taille du texte s'adapte pour tenir ce nombre de caractères (100 maximum).</small>
       </div>
@@ -218,7 +217,7 @@
           <button data-q="2160" aria-pressed="false">4K (si dispo)</button>
         </div>
       </div>
-      <p class="note">Ce que tu vois est exactement le cadre enregistré. Avec la caméra avant, l'aperçu est en miroir mais la vidéo est enregistrée à l'endroit. Une télécommande Bluetooth fonctionne : espace pour pause/lecture, flèches haut/bas pour la vitesse.</p>
+      <p class="note">Le format suit le téléphone : tiens-le à la verticale pour du 9:16, à l'horizontale pour du 16:9, et choisis avant d'appuyer sur le bouton rouge (le verrouillage de rotation de l'iPhone doit être désactivé). Ce que tu vois est exactement le cadre enregistré. Avec la caméra avant, l'aperçu est en miroir mais la vidéo est enregistrée à l'endroit. Une télécommande Bluetooth fonctionne : espace pour pause/lecture, flèches haut/bas pour la vitesse.</p>
     </div>
   </div>
 
@@ -249,36 +248,38 @@
   // ---------- Réglages (gardés dans le navigateur) ----------
   const DEFAULT_TEXT = "Salut à tous et bienvenue sur la chaîne !\n\nColle ton propre texte avec le bouton en bas à gauche. Le texte défile tout seul pendant que tu filmes. Touche la bande pour mettre en pause, glisse pour revenir en arrière, et règle la vitesse avec les boutons moins et plus.\n\nQuand tu as fini, appuie sur le bouton rouge : tu peux revoir la prise puis l'enregistrer directement dans ta galerie.";
   const S = Object.assign({
-    text: DEFAULT_TEXT, cpl: 42, lines: 4, wpm: 180, opacity: 60,
-    countdown: true, mirror: false, facing: 'user', format: 'portrait', quality: '1080'
+    text: DEFAULT_TEXT, cpl: 42, cplL: 70, lines: 4, wpm: 180, opacity: 60,
+    countdown: true, mirror: false, facing: 'user', quality: '1080'
   }, load());
   function load() { try { return JSON.parse(localStorage.getItem('tp-settings') || '{}'); } catch { return {}; } }
   function save() { try { localStorage.setItem('tp-settings', JSON.stringify(S)); } catch {} }
 
   // ---------- Caméra ----------
-  let stream = null, starting = null, restartPending = false;
-  async function startCamera() {
-    // Un changement demandé pendant l'ouverture est rejoué juste après.
-    if (starting) { restartPending = true; return starting; }
+  // L'orientation suit le téléphone : on ne rouvre jamais la caméra pour ça (chaque ouverture peut redemander l'autorisation sur iPhone).
+  let stream = null, starting = null, restartPending = null;
+  const isLandscape = () => innerWidth > innerHeight;
+  function dims() {
+    const big = S.quality === '2160';
+    const long = big ? 3840 : 1920, short = big ? 2160 : 1080, land = isLandscape();
+    return { width: { ideal: land ? long : short }, height: { ideal: land ? short : long }, frameRate: { ideal: 30 } };
+  }
+  // videoOnly : on garde le micro déjà ouvert (changement de caméra avant/arrière).
+  async function startCamera(videoOnly) {
+    if (starting) { restartPending = { videoOnly: !!videoOnly }; return starting; }
     starting = (async () => {
-      stopCamera();
-      const big = S.quality === '2160';
-      const long = big ? 3840 : 1920, short = big ? 2160 : 1080;
-      const portrait = S.format === 'portrait';
-      const video = {
-        facingMode: { ideal: S.facing },
-        width: { ideal: portrait ? short : long },
-        height: { ideal: portrait ? long : short },
-        frameRate: { ideal: 30 }
-      };
+      const keepAudio = videoOnly && stream ? stream.getAudioTracks().filter(t => t.readyState === 'live') : [];
+      if (keepAudio.length) stream.getVideoTracks().forEach(t => t.stop()); else stopCamera();
+      const video = Object.assign({ facingMode: { ideal: S.facing } }, dims());
       // Voix naturelle : pas de traitement « appel visio ».
-      const audio = { echoCancellation: false, noiseSuppression: false, autoGainControl: false, channelCount: { ideal: 2 }, sampleRate: { ideal: 48000 } };
+      const audio = keepAudio.length ? false : { echoCancellation: false, noiseSuppression: false, autoGainControl: false, channelCount: { ideal: 2 }, sampleRate: { ideal: 48000 } };
       try {
-        try { stream = await navigator.mediaDevices.getUserMedia({ video, audio }); }
+        let got;
+        try { got = await navigator.mediaDevices.getUserMedia({ video, audio }); }
         catch (e) {
-          if (e.name === 'OverconstrainedError') stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: S.facing }, audio: true });
+          if (e.name === 'OverconstrainedError') got = await navigator.mediaDevices.getUserMedia({ video: { facingMode: S.facing }, audio: !keepAudio.length });
           else throw e;
         }
+        stream = keepAudio.length ? new MediaStream([...got.getVideoTracks(), ...keepAudio]) : got;
         cam.srcObject = stream;
         cam.classList.toggle('mirror', S.facing === 'user');
         await cam.play().catch(() => {});
@@ -286,27 +287,32 @@
         hideHint();
         updateRes();
       } catch (e) {
-        stream = null;
+        stopCamera();
         const msg = e.name === 'NotAllowedError'
-          ? "Accès à la caméra refusé. Autorise la caméra et le micro pour ce site (Réglages › Safari › Caméra / Micro sur iPhone), puis touche l'écran."
+          ? "Accès à la caméra refusé. Sur iPhone : Réglages › Apps › Safari › Caméra et Micro › Autoriser. Puis touche l'écran."
           : !navigator.mediaDevices ? "Ce navigateur ne donne pas accès à la caméra. Ouvre la page en https dans Safari ou Chrome."
           : "Impossible d'ouvrir la caméra (" + e.name + "). Touche l'écran pour réessayer.";
         showHint(msg, true);
       } finally {
         starting = null;
-        if (restartPending) { restartPending = false; startCamera(); }
+        if (restartPending) { const r = restartPending; restartPending = null; startCamera(r.videoOnly); }
       }
     })();
     return starting;
   }
   function stopCamera() { if (stream) stream.getTracks().forEach(t => t.stop()); stream = null; }
+  // Rotation ou changement de qualité : on ajuste la piste vidéo existante, sans nouvelle demande d'accès.
+  function adaptCamera() {
+    const t = stream && stream.getVideoTracks()[0];
+    if (!t || recorder || !t.applyConstraints) return;
+    t.applyConstraints(dims()).catch(() => {}).then(updateRes);
+  }
   function updateRes() {
     const t = stream && stream.getVideoTracks()[0];
     if (!t) { $('res').textContent = ''; return; }
     const st = t.getSettings();
     const w = cam.videoWidth || st.width, h = cam.videoHeight || st.height;
-    $('res').textContent = (w && h ? w + '×' + h : '') + (st.frameRate ? ' · ' + Math.round(st.frameRate) + ' i/s' : '');
-    checkOrientation();
+    $('res').textContent = (w && h ? w + '×' + h + (w > h ? ' · paysage' : ' · vertical') : '') + (st.frameRate ? ' · ' + Math.round(st.frameRate) + ' i/s' : '');
   }
   cam.addEventListener('loadedmetadata', updateRes);
   cam.addEventListener('resize', updateRes);
@@ -314,13 +320,6 @@
   let hintSticky = false;
   function showHint(msg, sticky) { $('hint').textContent = msg; $('hint').hidden = false; hintSticky = !!sticky; }
   function hideHint() { $('hint').hidden = true; hintSticky = false; }
-  function checkOrientation() {
-    if (hintSticky || recorder) return;
-    const landscapeScreen = innerWidth > innerHeight;
-    const want = S.format === 'landscape';
-    if (want !== landscapeScreen) showHint(want ? 'Format paysage : tourne ton téléphone à l\'horizontale.' : 'Format vertical : tiens ton téléphone à la verticale.');
-    else hideHint();
-  }
   $('hint').addEventListener('click', () => { if (hintSticky) startCamera(); else hideHint(); });
 
   // ---------- Prompteur ----------
@@ -337,14 +336,18 @@
     measureCtx.font = '600 100px ' + getComputedStyle(ptext).fontFamily;
     const sample = (S.text && S.text.replace(/\s+/g, ' ').length > 200) ? S.text.replace(/\s+/g, ' ').slice(0, 3000) : 'Bonjour à tous, aujourd\'hui je vous explique comment préparer une vidéo efficace.';
     const avg = measureCtx.measureText(sample).width / sample.length;
-    fontPx = Math.max(10, (W * 100) / (avg * S.cpl));
+    fontPx = Math.max(10, (W * 100) / (avg * S[cplKey()]));
     lineH = fontPx * 1.32;
+    // La bande ne dépasse jamais 40 % de la hauteur d'écran (sinon elle cache ton visage en paysage).
+    const maxBand = innerHeight * 0.4;
+    let shown = Math.min(S.lines, Math.floor((maxBand - 16) / lineH));
+    if (shown < 2) { shown = 2; lineH = (maxBand - 16) / 2; fontPx = lineH / 1.32; }
     ptext.style.fontSize = fontPx + 'px';
-    const bandH = Math.round(lineH * S.lines + 16);
+    const bandH = Math.round(lineH * shown + 16);
     prompter.style.height = bandH + 'px';
     // La ligne de lecture est sur la 1re ligne visible : le texte commence dessous et finit au-dessus.
     // Ligne lue = 2e ligne de la bande (1re si la bande est petite) : on voit un peu ce qui précède.
-    const pt = 8 + (S.lines > 3 ? lineH : 0);
+    const pt = 8 + (shown > 3 ? lineH : 0);
     readline.style.top = (pt + lineH / 2) + 'px';
     track.style.paddingTop = pt + 'px';
     const r = prompter.getBoundingClientRect();
@@ -460,7 +463,7 @@
   function setRecUi(on) {
     $('rec').classList.toggle('on', on);
     $('rec').setAttribute('aria-label', on ? 'Arrêter' : 'Enregistrer');
-    ['btn-text', 'btn-settings', 'btn-format', 'btn-flip'].forEach(id => $(id).disabled = on);
+    ['btn-text', 'btn-settings', 'btn-flip'].forEach(id => $(id).disabled = on);
   }
 
   function finishRec() {
@@ -544,7 +547,14 @@
       S[key] = +el.value; $(out).textContent = S[key] + suffix; save(); layout();
     });
   }
-  bindRange('cpl', 'cpl', 'cpl-out', '');
+  // Un réglage de caractères par ligne pour le vertical, un autre pour le paysage.
+  function cplKey() { return isLandscape() ? 'cplL' : 'cpl'; }
+  function syncCpl() {
+    $('cpl').value = S[cplKey()]; $('cpl-out').textContent = S[cplKey()];
+    $('cpl-label').textContent = 'Caractères par ligne (' + (isLandscape() ? 'paysage' : 'vertical') + ')';
+  }
+  $('cpl').addEventListener('input', () => { S[cplKey()] = +$('cpl').value; $('cpl-out').textContent = S[cplKey()]; save(); layout(); });
+  syncCpl();
   bindRange('lines', 'lines', 'lines-out', '');
   bindRange('wpm', 'wpm', 'wpm-out2', ' mots/min');
   bindRange('opacity', 'opacity', 'opacity-out', ' %');
@@ -557,13 +567,11 @@
     b.onclick = () => {
       S.quality = b.dataset.q; save();
       document.querySelectorAll('#quality button').forEach(x => x.setAttribute('aria-pressed', x === b));
-      startCamera();
+      adaptCamera();
     };
   });
 
-  function syncFormatBtn() { $('btn-format').textContent = S.format === 'portrait' ? '9:16' : '16:9'; }
-  $('btn-format').onclick = () => { S.format = S.format === 'portrait' ? 'landscape' : 'portrait'; save(); syncFormatBtn(); startCamera(); };
-  $('btn-flip').onclick = () => { S.facing = S.facing === 'user' ? 'environment' : 'user'; save(); startCamera(); };
+  $('btn-flip').onclick = () => { S.facing = S.facing === 'user' ? 'environment' : 'user'; save(); startCamera(true); };
 
   // ---------- Écran allumé, rotation, retour au premier plan ----------
   let wake = null;
@@ -575,11 +583,11 @@
     if (!t || t.readyState === 'ended') startCamera();
   });
   let rz = 0;
-  addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { layout(); updateRes(); }, 150); });
+  addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { syncCpl(); layout(); adaptCamera(); updateRes(); }, 150); });
 
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 
-  syncFormatBtn(); setWpm(S.wpm); layout(); render(); keepAwake(); startCamera();
+  setWpm(S.wpm); layout(); render(); keepAwake(); startCamera();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();
 </script>
