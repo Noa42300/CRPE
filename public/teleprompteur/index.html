@@ -37,10 +37,12 @@
     button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
     #stage { position: fixed; inset: 0; background: #000; }
+    /* App lancée depuis l'écran d'accueil : iOS laisse sinon une bande noire en bas. */
+    @media (display-mode: standalone), (display-mode: fullscreen) { #stage { bottom: auto; height: 100vh; height: 100lvh; } }
     #cam { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
     #cam.mirror { transform: scaleX(-1); }
     /* Vertical : l'aperçu remplit l'écran (la vidéo enregistrée garde un peu plus sur les côtés). */
-    @media (orientation: portrait) { #cam { object-fit: cover; } }
+    #cam.fill { object-fit: cover; }
 
     /* ---------- Bande du prompteur ---------- */
     #prompter {
@@ -50,6 +52,7 @@
       touch-action: none; user-select: none; -webkit-user-select: none;
     }
     #prompter .track { will-change: transform; padding: 0 14px; }
+    #prompter .text.empty { color: var(--muted); font-weight: 500; }
     #prompter .text { white-space: pre-wrap; overflow-wrap: break-word; line-height: 1.32; font-weight: 600; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.6); }
     #readline { position: absolute; left: 1px; width: 0; height: 0; margin-top: -7px; border: 7px solid transparent; border-left: 10px solid var(--accent); pointer-events: none; }
     #prompter.editing { outline: 2px dashed var(--accent); outline-offset: 2px; cursor: move; }
@@ -305,7 +308,8 @@
         await cam.play().catch(() => {});
         stream.getVideoTracks()[0].addEventListener('ended', () => { if (!recorder) showHint('Caméra coupée. Touche l\'écran pour la relancer.', true); });
         hideHint();
-        updateRes();
+        await nextFrameSize();
+        adaptCamera();
       } catch (e) {
         stopCamera();
         const msg = e.name === 'NotAllowedError'
@@ -322,17 +326,59 @@
   }
   function stopCamera() { if (stream) stream.getTracks().forEach(t => t.stop()); stream = null; }
   // Rotation ou changement de qualité : on ajuste la piste vidéo existante, sans nouvelle demande d'accès.
-  function adaptCamera() {
-    const t = stream && stream.getVideoTracks()[0];
-    if (!t || recorder || !t.applyConstraints) return;
-    t.applyConstraints(dims()).catch(() => {}).then(updateRes);
+  // iOS n'interprète pas toujours largeur/hauteur dans le même sens : on essaie plusieurs formulations
+  // jusqu'à obtenir une image dans l'orientation de l'écran, au format 16:9.
+  let fitting = null;
+  function videoMatches() {
+    const w = cam.videoWidth, h = cam.videoHeight;
+    if (!w || !h) return false;
+    const land = isLandscape(), r = land ? w / h : h / w;
+    return (w > h) === land && Math.abs(r - 16 / 9) < 0.12;
   }
+  function nextFrameSize() {
+    return new Promise((res) => {
+      let done = false;
+      const end = () => { if (done) return; done = true; cam.removeEventListener('resize', end); res(); };
+      cam.addEventListener('resize', end); setTimeout(end, 700);
+    });
+  }
+  async function adaptCamera() {
+    const t = stream && stream.getVideoTracks()[0];
+    if (!t || recorder || !t.applyConstraints) { updateFill(); return; }
+    if (fitting) return fitting;
+    fitting = (async () => {
+      const big = S.quality === '2160';
+      const long = big ? 3840 : 1920, short = big ? 2160 : 1080, land = isLandscape();
+      const w = land ? long : short, h = land ? short : long;
+      const tries = [
+        { width: { ideal: w }, height: { ideal: h } },
+        { width: { ideal: h }, height: { ideal: w } },
+        { width: { exact: w }, height: { exact: h } },
+        { width: { exact: h }, height: { exact: w } },
+        { aspectRatio: { exact: w / h } },
+        { aspectRatio: { exact: h / w } }
+      ];
+      if (!videoMatches()) {
+        for (const c of tries) {
+          try { await t.applyConstraints(Object.assign({ frameRate: { ideal: 30 } }, c)); } catch { continue; }
+          await nextFrameSize();
+          if (videoMatches()) break;
+        }
+      }
+      updateRes(); updateFill();
+    })();
+    try { await fitting; } finally { fitting = null; }
+  }
+  // Plein écran (recadrage léger) seulement si l'image est déjà dans le bon sens ; sinon on montre tout, sans zoom.
+  function updateFill() { cam.classList.toggle('fill', !isLandscape() && videoMatches()); }
   function updateRes() {
     const t = stream && stream.getVideoTracks()[0];
     if (!t) { $('res').textContent = ''; return; }
     const st = t.getSettings();
     const w = cam.videoWidth || st.width, h = cam.videoHeight || st.height;
     $('res').textContent = (w && h ? w + '×' + h + (w > h ? ' · paysage' : ' · vertical') : '') + (st.frameRate ? ' · ' + Math.round(st.frameRate) + ' i/s' : '');
+    if (w && h && !videoMatches()) $('res').textContent += ' · ⚠ pas en ' + (isLandscape() ? '16:9' : '9:16');
+    updateFill();
   }
   cam.addEventListener('loadedmetadata', updateRes);
   cam.addEventListener('resize', updateRes);
@@ -376,7 +422,9 @@
   }
 
   function layout() {
-    ptext.textContent = S.text || ' ';
+    const empty = !(S.text || '').trim();
+    ptext.textContent = empty ? 'Aucun texte. Touche le bouton ☰ en bas à gauche pour coller ton texte.' : S.text;
+    ptext.classList.toggle('empty', empty);
     const fr = curFrame(), bd = bounds();
     let fw = Math.max(140, Math.min(fr.w * innerWidth, bd.right - bd.left));
     let fl = Math.min(Math.max(bd.left, fr.cx * innerWidth - fw / 2), bd.right - fw);
@@ -682,7 +730,7 @@
     if (!t || t.readyState === 'ended') startCamera();
   });
   let rz = 0;
-  addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { syncCpl(); layout(); adaptCamera(); updateRes(); }, 150); });
+  addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { syncCpl(); layout(); adaptCamera(); }, 150); });
 
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 
