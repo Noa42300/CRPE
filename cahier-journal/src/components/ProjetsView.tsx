@@ -14,13 +14,31 @@ import { cap, formatLong, weeksOfPeriod } from "../lib/dates";
 import { AUTOUR_DU_MONDE, THEMES, paysForIndex, type Pays } from "../lib/projets";
 import { Diaporama } from "./Diaporama";
 import { CarteIdentiteOverlay } from "./CarteIdentiteA4";
+import { GalerieContinent } from "./GalerieContinent";
+import { PreviewModal } from "./PreviewModal";
+import { PrintPortal } from "./PrintPortal";
+import { downloadElementPdf, safeFileName } from "../lib/pdf";
+import { printArea } from "../lib/print";
 
 type Modal =
   | { kind: "diapo"; pays: Pays }
   | { kind: "carte"; pays: Pays }
   | { kind: "dictee"; pays: Pays }
   | { kind: "video"; pays: Pays }
+  | { kind: "galerie" }
   | null;
+
+const GALERIE_CID = "print-galerie-continent";
+
+async function downloadGaleriePdf(name: string) {
+  const el = document.getElementById(GALERIE_CID) as HTMLElement | null;
+  if (!el) return;
+  try {
+    await downloadElementPdf(el, `${safeFileName(name)}.pdf`, { orientation: "landscape" });
+  } catch {
+    printArea(GALERIE_CID);
+  }
+}
 
 export function ProjetsView() {
   const { settings } = useStore();
@@ -84,6 +102,13 @@ export function ProjetsView() {
         <div className="font-ludique text-lg font-extrabold" style={{ color: theme.accent }}>
           {cont.emoji} Période {cont.periodNumber} · {cont.continent}
         </div>
+        <button
+          onClick={() => setModal({ kind: "galerie" })}
+          className="ml-auto rounded-full px-4 py-1.5 text-xs font-bold text-white"
+          style={{ background: theme.accent }}
+        >
+          🖼️ Galerie à imprimer (monuments &amp; plats)
+        </button>
         <p className="text-sm text-stone-600 dark:text-stone-700">{cont.intro}</p>
       </div>
 
@@ -133,6 +158,23 @@ export function ProjetsView() {
       )}
       {modal?.kind === "video" && (
         <VideoModal pays={modal.pays} accent={theme.accent} onClose={() => setModal(null)} />
+      )}
+      {modal?.kind === "galerie" && (
+        <>
+          <PreviewModal
+            title={`Galerie ${cont.continent} — monuments & plats`}
+            onClose={() => setModal(null)}
+            onDownload={() => void downloadGaleriePdf(`Galerie ${cont.continent} - monuments et plats`)}
+            onPrint={() => printArea(GALERIE_CID)}
+          >
+            <div className="rounded-lg bg-white p-1 shadow-2xl">
+              <GalerieContinent periodNumber={cont.periodNumber} />
+            </div>
+          </PreviewModal>
+          <PrintPortal id={GALERIE_CID}>
+            <GalerieContinent periodNumber={cont.periodNumber} />
+          </PrintPortal>
+        </>
       )}
     </div>
   );
