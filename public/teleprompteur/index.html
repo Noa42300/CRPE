@@ -279,7 +279,7 @@
         <button class="btn" id="save-file">Télécharger le fichier</button>
         <button class="btn danger" id="discard">Supprimer</button>
       </div>
-      <p class="note" id="save-note">Sur iPhone : « Enregistrer dans Photos » ouvre le menu de partage → choisis <b>Enregistrer la vidéo</b>. Le fichier n'est pas recompressé.</p>
+      <p class="note" id="save-note">Sur iPhone : « Enregistrer dans Photos » ouvre le menu de partage → choisis <b>Enregistrer la vidéo</b>. Si ça échoue, choisis <b>Enregistrer dans Fichiers</b> dans le même menu. Le fichier n'est pas recompressé et la vidéo reste dans « Mes vidéos » quoi qu'il arrive.</p>
       <p class="note" id="r-status"></p>
     </div>
   </div>
@@ -727,6 +727,9 @@
     const canShare = !!(navigator.canShare && navigator.canShare({ files: [current.file] }));
     $('save-photos').hidden = !canShare;
     $('save-note').hidden = !canShare;
+    // Sur iPhone (app de l'écran d'accueil), un lien de téléchargement recharge la page au lieu de télécharger :
+    // on passe uniquement par le menu de partage, qui propose aussi « Enregistrer dans Fichiers ».
+    $('save-file').hidden = canShare;
     resetDelete();
     openSheet('sheet-review');
   }
@@ -742,7 +745,7 @@
       await navigator.share({ files: [current.file] });
       $('r-status').textContent = 'Envoyée. Vérifie qu\'elle apparaît dans Photos. Elle reste aussi dans « Mes vidéos ».';
     } catch (e) {
-      if (e.name !== 'AbortError') $('r-status').textContent = 'Partage impossible (' + e.name + '). Utilise « Télécharger le fichier », puis dans l\'app Fichiers : Partager › Enregistrer la vidéo.';
+      if (e.name !== 'AbortError') $('r-status').textContent = 'Partage impossible (' + e.name + '). La vidéo est toujours dans « Mes vidéos ». Ferme l\'app, relance-la et réessaie.';
     }
   };
   $('save-file').onclick = () => {
