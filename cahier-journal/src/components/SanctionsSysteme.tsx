@@ -33,7 +33,7 @@ type Band = { c: string; t: string; label: string[]; callout: string[] };
 
 const NOSE = { c: "#22c55e", bord: "#15803d", callout: ["Tout va bien !", "Je décolle 🚀"] };
 const BANDS: Band[] = [
-  { c: "#bbf7d0", t: "#166534", label: ["1 rappel"], callout: ["La maîtresse", "te prévient"] },
+  { c: "#bbf7d0", t: "#166534", label: ["1 rappel"], callout: ["Le maître", "te prévient"] },
   { c: "#fde047", t: "#854d0e", label: ["2 rappels"], callout: ["Dernier avertissement"] },
   { c: "#fdba74", t: "#7c2d12", label: ["Prénom", "au tableau"], callout: ["− 2 min de récré"] },
   { c: "#fca5a5", t: "#7f1d1d", label: ["Prénom ✗"], callout: ["− 5 min de récré"] },
