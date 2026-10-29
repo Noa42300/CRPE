@@ -92,6 +92,10 @@
     #timer { display: inline-flex; align-items: center; gap: 6px; color: #fff; font-size: 15px; font-weight: 600; background: rgba(0,0,0,.55); padding: 4px 10px; border-radius: 99px; width: max-content; }
     #timer::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--rec); animation: blink 1s steps(2) infinite; }
     @keyframes blink { 50% { opacity: .2; } }
+    #vu { display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,.45); padding: 3px 8px; border-radius: 99px; width: max-content; }
+    #vu b { display: block; width: 90px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.18); overflow: hidden; }
+    #vu i { display: block; height: 100%; width: 0; background: #4cd964; border-radius: 3px; }
+    #vu.low i { background: var(--rec); }
     #res { background: rgba(0,0,0,.45); padding: 3px 8px; border-radius: 99px; width: max-content; }
 
     #hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,.75); padding: 14px 18px; border-radius: 14px; text-align: center; max-width: 80%; font-size: 15px; line-height: 1.4; }
@@ -162,6 +166,7 @@
 
     <div id="hud">
       <div id="timer" hidden>00:00</div>
+      <div id="vu" hidden><span>Micro</span><b><i id="vu-bar"></i></b></div>
       <div id="res"></div>
     </div>
 
@@ -248,6 +253,14 @@
           <button data-q="2160" aria-pressed="false">4K (si dispo)</button>
         </div>
       </div>
+      <div>
+        <div class="stats" style="margin-bottom:6px">Son</div>
+        <div class="seg" id="voice">
+          <button data-v="1" aria-pressed="true">Voix (recommandé)</button>
+          <button data-v="0" aria-pressed="false">Brut</button>
+        </div>
+        <div class="stats" style="margin-top:6px">« Voix » règle le volume automatiquement et réduit le bruit de fond. « Brut » garde le son tel quel, souvent beaucoup plus faible sur iPhone.</div>
+      </div>
       <p class="note">En vertical, l'aperçu remplit l'écran : la vidéo enregistrée montre un peu plus sur les côtés que ce que tu vois. Le format suit le téléphone : tiens-le à la verticale pour du 9:16, à l'horizontale pour du 16:9, et choisis avant d'appuyer sur le bouton rouge (le verrouillage de rotation de l'iPhone doit être désactivé). Ce que tu vois est exactement le cadre enregistré. Avec la caméra avant, l'aperçu est en miroir mais la vidéo est enregistrée à l'endroit. Une télécommande Bluetooth fonctionne : espace pour pause/lecture, flèches haut/bas pour la vitesse.</p>
     </div>
   </div>
@@ -294,7 +307,7 @@
   const DEFAULT_TEXT = "Salut à tous et bienvenue sur la chaîne !\n\nColle ton propre texte avec le bouton en bas à gauche. Le texte défile tout seul pendant que tu filmes. Touche la bande pour mettre en pause, glisse pour revenir en arrière, et règle la vitesse avec les boutons moins et plus.\n\nQuand tu as fini, appuie sur le bouton rouge : tu peux revoir la prise puis l'enregistrer directement dans ta galerie.";
   const S = Object.assign({
     text: DEFAULT_TEXT, cpl: 42, cplL: 70, lines: 4, frames: { p: null, l: null }, wpm: 180, opacity: 60,
-    countdown: true, mirror: false, facing: 'user', quality: '1080'
+    countdown: true, mirror: false, facing: 'user', quality: '1080', voice: true
   }, load());
   function load() { try { return JSON.parse(localStorage.getItem('tp-settings') || '{}'); } catch { return {}; } }
   function save() { try { localStorage.setItem('tp-settings', JSON.stringify(S)); } catch {} }
@@ -316,7 +329,9 @@
       if (keepAudio.length) stream.getVideoTracks().forEach(t => t.stop()); else stopCamera();
       const video = Object.assign({ facingMode: { ideal: S.facing } }, dims());
       // Voix naturelle : pas de traitement « appel visio ».
-      const audio = keepAudio.length ? false : { echoCancellation: false, noiseSuppression: false, autoGainControl: false, channelCount: { ideal: 2 }, sampleRate: { ideal: 48000 } };
+      // « Voix » : réglage automatique du volume + réduction du bruit (sinon le son est très faible sur iPhone).
+      const v = S.voice !== false;
+      const audio = keepAudio.length ? false : { echoCancellation: v, noiseSuppression: v, autoGainControl: v };
       try {
         let got;
         try { got = await navigator.mediaDevices.getUserMedia({ video, audio }); }
@@ -324,7 +339,9 @@
           if (e.name === 'OverconstrainedError') got = await navigator.mediaDevices.getUserMedia({ video: { facingMode: S.facing }, audio: !keepAudio.length });
           else throw e;
         }
+        if (camPaused) { got.getTracks().forEach(t => t.stop()); return; }
         stream = keepAudio.length ? new MediaStream([...got.getVideoTracks(), ...keepAudio]) : got;
+        connectMeter();
         cam.srcObject = stream;
         cam.classList.toggle('mirror', S.facing === 'user');
         await cam.play().catch(() => {});
@@ -409,6 +426,46 @@
   function showHint(msg, sticky) { $('hint').textContent = msg; $('hint').hidden = false; hintSticky = !!sticky; }
   function hideHint() { $('hint').hidden = true; hintSticky = false; }
   $('hint').addEventListener('click', () => { if (hintSticky) startCamera(); else hideHint(); });
+
+  // ---------- Micro : contrôle et niveau ----------
+  function micOk() {
+    const a = stream && stream.getAudioTracks()[0];
+    return !!(a && a.readyState === 'live' && a.enabled && !a.muted);
+  }
+  // Vumètre : AudioContext créé au premier toucher (exigé par iOS).
+  let actx = null, analyser = null, srcNode = null, vuBuf = null, quietSince = 0;
+  function connectMeter() {
+    if (!actx || !stream) return;
+    const a = stream.getAudioTracks()[0];
+    if (!a) return;
+    try { if (srcNode) srcNode.disconnect(); srcNode = actx.createMediaStreamSource(new MediaStream([a])); srcNode.connect(analyser); } catch {}
+  }
+  function startMeter() {
+    if (actx) { if (actx.state === 'suspended') actx.resume().catch(() => {}); return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    try { actx = new AC(); } catch { return; }
+    analyser = actx.createAnalyser(); analyser.fftSize = 1024; vuBuf = new Float32Array(analyser.fftSize);
+    connectMeter();
+    $('vu').hidden = false;
+    const loop = () => {
+      analyser.getFloatTimeDomainData(vuBuf);
+      let peak = 0; for (let i = 0; i < vuBuf.length; i++) peak = Math.max(peak, Math.abs(vuBuf[i]));
+      const db = 20 * Math.log10(peak || 1e-6); // 0 dB = saturation
+      $('vu-bar').style.width = Math.max(0, Math.min(100, (db + 60) / 60 * 100)) + '%';
+      const now = performance.now();
+      if (db > -45 || !quietSince) quietSince = now;
+      $('vu').classList.toggle('low', !micOk() || now - quietSince > 3000);
+      requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  addEventListener('pointerdown', startMeter, { capture: true });
+
+  // Pendant la relecture, on coupe caméra et micro : sinon iOS joue le son dans l'écouteur (très faible).
+  let camPaused = false;
+  function pauseCamera() { camPaused = true; stopCamera(); }
+  function resumeCamera() { if (!camPaused) return; camPaused = false; startCamera(); }
 
   // ---------- Prompteur ----------
   let fontPx = 30, lineH = 40, offset = 0, playing = false, lastT = 0, pxPerWord = 10;
@@ -629,6 +686,7 @@
     if (cdTimer) { clearInterval(cdTimer); cdTimer = 0; $('countdown').hidden = true; setRecUi(false); return; }
     if (!stream) return startCamera();
     if (!window.MediaRecorder) return showHint("Ce navigateur ne sait pas enregistrer la vidéo. Mets à jour iOS (14.5 minimum) ou utilise Chrome.", true);
+    if (!micOk()) { startCamera(); return showHint('Le micro était coupé (appel, autre app, mise en veille…). Il vient d’être relancé : appuie à nouveau sur le bouton rouge.'); }
     // Demande à iOS de ne pas effacer les vidéos stockées.
     if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
     setPlaying(false); offset = 0; render();
@@ -812,13 +870,18 @@
   }
 
   // ---------- Panneaux ----------
-  function openSheet(id) { closeSheets(); $(id).hidden = false; }
-  function closeSheets() {
+  function openSheet(id) {
+    closeSheets(true);
+    $(id).hidden = false;
+    if ((id === 'sheet-review' || id === 'sheet-library') && !recorder) pauseCamera();
+  }
+  function closeSheets(switching) {
     document.querySelectorAll('.sheet-wrap').forEach(s => s.hidden = true);
     $('playback').pause();
     layout();
+    if (switching !== true) resumeCamera();
   }
-  document.querySelectorAll('[data-close]').forEach(b => b.onclick = closeSheets);
+  document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => closeSheets());
   document.querySelectorAll('.sheet-wrap').forEach(w => w.addEventListener('click', (e) => { if (e.target === w) { if (w.id === 'sheet-review') releaseCurrent(); closeSheets(); } }));
 
   $('btn-text').onclick = () => { $('script').value = S.text; updateStats(); openSheet('sheet-text'); };
@@ -868,6 +931,14 @@
     };
   });
 
+  document.querySelectorAll('#voice button').forEach(b => {
+    b.setAttribute('aria-pressed', (b.dataset.v === '1') === (S.voice !== false));
+    b.onclick = () => {
+      S.voice = b.dataset.v === '1'; save();
+      document.querySelectorAll('#voice button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      startCamera();
+    };
+  });
   $('btn-flip').onclick = () => { S.facing = S.facing === 'user' ? 'environment' : 'user'; save(); startCamera(true); };
 
   // ---------- Écran allumé, rotation, retour au premier plan ----------
@@ -877,7 +948,7 @@
     if (document.visibilityState !== 'visible') return;
     keepAwake();
     const t = stream && stream.getVideoTracks()[0];
-    if (!t || t.readyState === 'ended') startCamera();
+    if (!camPaused && !recorder && (!t || t.readyState === 'ended' || !micOk())) startCamera();
   });
   let rz = 0;
   addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { syncCpl(); layout(); adaptCamera(); }, 150); });
