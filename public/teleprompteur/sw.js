@@ -1,5 +1,5 @@
 /* Service worker — réseau d'abord (mises à jour immédiates), cache en secours (hors-ligne). */
-const CACHE = 'teleprompteur-v5';
+const CACHE = 'teleprompteur-v6';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png'];
 
 self.addEventListener('install', (e) => {
