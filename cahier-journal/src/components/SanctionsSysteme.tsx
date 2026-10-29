@@ -23,110 +23,114 @@ import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
 const LUDIQUE = "'Baloo 2','Fredoka','Lexend',system-ui,sans-serif";
 
 /* ============================ 1. AFFICHE FUSÉE ============================ */
-/* Une vraie fusée DESSINÉE (comme celle du tuteur), lisible pour des CE1-CE2 :
- * le nez = « tout se passe bien », puis les étages de plus en plus « chauds »
- * (jaune → orange → rouge), les flammes = faits graves. À côté, la clé simple
- * en mots d'enfants. Tracé noir épais façon affiche de classe (pas « IA »). */
+/* GROSSE fusée dessinée qui remplit la page, pour des CE1-CE2 : nez = « tout va
+ * bien », étages vert→rouge avec, écrit GROS à côté, ce qui se passe (minutes de
+ * récré en moins). Tracé noir épais façon affiche de classe (pas « IA »). */
 
 const MANU = "'Caveat','Comic Neue',cursive"; // écriture manuscrite d'affiche
 
-const ETAGES = [
-  { c: "#bbf7d0", t: "#14532d", label: "1 rappel" },
-  { c: "#fde047", t: "#713f12", label: "2 rappels" },
-  { c: "#fdba74", t: "#7c2d12", label: "Prénom au tableau" },
-  { c: "#fca5a5", t: "#7f1d1d", label: "Prénom ✗" },
-  { c: "#f87171", t: "#450a0a", label: "Prénom ✗✗" },
+type Band = { c: string; t: string; label: string[]; callout: string[] };
+
+const NOSE = { c: "#22c55e", bord: "#15803d", callout: ["Tout va bien !", "Je décolle 🚀"] };
+const BANDS: Band[] = [
+  { c: "#bbf7d0", t: "#166534", label: ["1 rappel"], callout: ["La maîtresse", "te prévient"] },
+  { c: "#fde047", t: "#854d0e", label: ["2 rappels"], callout: ["Dernier avertissement"] },
+  { c: "#fdba74", t: "#7c2d12", label: ["Prénom", "au tableau"], callout: ["− 2 min de récré"] },
+  { c: "#fca5a5", t: "#7f1d1d", label: ["Prénom ✗"], callout: ["− 5 min de récré"] },
+  { c: "#f87171", t: "#450a0a", label: ["Prénom ✗✗"], callout: ["− 10 min de récré", "+ un mot aux parents"] },
 ];
 
-const CLE = [
-  { chip: "#22c55e", t: "Tout se passe bien", c: "Je travaille, j'écoute, je respecte. Je décolle ! 🚀" },
-  { chip: "#86efac", t: "1 rappel", c: "La maîtresse me prévient (un mot, un regard). Je me reprends." },
-  { chip: "#fde047", t: "2 rappels", c: "C'est le dernier avertissement." },
-  { chip: "#fb923c", t: "Prénom au tableau", c: "Je perds 5 min de récré + je fais ma fiche de réflexion." },
-  { chip: "#ef4444", t: "Prénom + une croix ✗", c: "Je perds 10 min de récré + un mot aux parents." },
-  { chip: "#b91c1c", t: "Prénom + deux croix ✗✗", c: "Je perds toute la récré + un mot à faire signer." },
-];
+/** Grande fusée + bulles d'explication alignées, tout en SVG (alignement parfait). */
+function RocketBig() {
+  const bandH = 112;
+  const y0 = 206;
+  const cx = 240;
+  const bodyX = 150, bodyW = 180, bodyR = bodyX + bodyW; // 150..330
+  const coX = 408, coW = 372; // bulles de droite
+  const centerOf = (i: number) => y0 + i * bandH + bandH / 2;
 
-function RocketSVG() {
-  const bandH = 86;
-  const y0 = 170;
+  function Bulle({ cy, lines, fill }: { cy: number; lines: string[]; fill: string }) {
+    const h = 92;
+    return (
+      <g>
+        <line x1={bodyR} y1={cy} x2={coX} y2={cy} stroke="#111" strokeWidth="2.5" strokeDasharray="5 5" />
+        <rect x={coX} y={cy - h / 2} width={coW} height={h} rx="14" fill={fill} stroke="#111" strokeWidth="3" />
+        {lines.length === 1 ? (
+          <text x={coX + coW / 2} y={cy + 12} textAnchor="middle" fontFamily={MANU} fontSize="34" fontWeight="700" fill="#111">{lines[0]}</text>
+        ) : (
+          <text x={coX + coW / 2} textAnchor="middle" fontFamily={MANU} fontWeight="700" fill="#111">
+            <tspan x={coX + coW / 2} y={cy - 4} fontSize="33">{lines[0]}</tspan>
+            <tspan x={coX + coW / 2} y={cy + 32} fontSize="33">{lines[1]}</tspan>
+          </text>
+        )}
+      </g>
+    );
+  }
+
   return (
-    <svg viewBox="0 0 300 820" style={{ width: "100%", height: "auto", display: "block" }}>
+    <svg viewBox="0 0 800 820" style={{ width: "100%", height: "auto", display: "block" }}>
       {/* flammes */}
-      <path d="M95,610 L205,610 L188,660 Q150,700 150,760 Q150,700 112,660 Z" fill="#f97316" stroke="#111" strokeWidth="3" strokeLinejoin="round" />
-      <path d="M120,615 L180,615 L168,655 Q150,685 150,720 Q150,685 132,655 Z" fill="#fde047" />
+      <path d="M168,766 L312,766 L292,826 Q240,900 188,826 Z" fill="#f97316" stroke="#111" strokeWidth="3.5" strokeLinejoin="round" />
+      <path d="M200,768 L280,768 L266,816 Q240,858 214,816 Z" fill="#fde047" />
       {/* ailerons */}
-      <path d="M82,500 L36,628 L82,600 Z" fill="#60a5fa" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
-      <path d="M218,500 L264,628 L218,600 Z" fill="#60a5fa" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M150,612 L84,778 L150,742 Z" fill="#60a5fa" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
+      <path d="M330,612 L396,778 L330,742 Z" fill="#60a5fa" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
       {/* corps (étages) */}
-      {ETAGES.map((e, i) => (
-        <g key={i}>
-          <rect x="82" y={y0 + i * bandH} width="136" height={bandH} fill={e.c} />
-          {e.label.includes(" au ") ? (
-            <text x="150" y={y0 + i * bandH + bandH / 2} textAnchor="middle" fontFamily={MANU} fontWeight="700" fill={e.t}>
-              <tspan x="150" dy="-4" fontSize="24">Prénom</tspan>
-              <tspan x="150" dy="26" fontSize="24">au tableau</tspan>
-            </text>
-          ) : (
-            <text x="150" y={y0 + i * bandH + bandH / 2 + 8} textAnchor="middle" fontFamily={MANU} fontSize="24" fontWeight="700" fill={e.t}>{e.label}</text>
-          )}
-          {i > 0 && <line x1="82" y1={y0 + i * bandH} x2="218" y2={y0 + i * bandH} stroke="#111" strokeWidth="2" strokeDasharray="4 4" />}
-        </g>
-      ))}
+      {BANDS.map((e, i) => {
+        const cy = centerOf(i);
+        return (
+          <g key={i}>
+            <rect x={bodyX} y={y0 + i * bandH} width={bodyW} height={bandH} fill={e.c} />
+            {e.label.length === 1 ? (
+              <text x={cx} y={cy + 12} textAnchor="middle" fontFamily={MANU} fontSize="34" fontWeight="700" fill={e.t}>{e.label[0]}</text>
+            ) : (
+              <text x={cx} textAnchor="middle" fontFamily={MANU} fontWeight="700" fill={e.t}>
+                <tspan x={cx} y={cy - 6} fontSize="34">{e.label[0]}</tspan>
+                <tspan x={cx} y={cy + 32} fontSize="34">{e.label[1]}</tspan>
+              </text>
+            )}
+            {i > 0 && <line x1={bodyX} y1={y0 + i * bandH} x2={bodyR} y2={y0 + i * bandH} stroke="#111" strokeWidth="2" strokeDasharray="5 5" />}
+            <Bulle cy={cy} lines={e.callout} fill={e.c} />
+          </g>
+        );
+      })}
       {/* contour du corps */}
-      <rect x="82" y={y0} width="136" height={bandH * 5} fill="none" stroke="#111" strokeWidth="4" />
-      {/* nez vert = tout se passe bien */}
-      <path d={`M82,${y0} Q82,40 150,24 Q218,40 218,${y0} Z`} fill="#22c55e" stroke="#111" strokeWidth="4" strokeLinejoin="round" />
+      <rect x={bodyX} y={y0} width={bodyW} height={bandH * 5} fill="none" stroke="#111" strokeWidth="4.5" />
+      {/* nez vert = tout va bien */}
+      <path d={`M${bodyX},${y0} Q${bodyX},44 ${cx},26 Q${bodyR},44 ${bodyR},${y0} Z`} fill={NOSE.c} stroke="#111" strokeWidth="4.5" strokeLinejoin="round" />
       {/* hublot + sourire */}
-      <circle cx="150" cy="108" r="36" fill="#eff6ff" stroke="#111" strokeWidth="4" />
-      <circle cx="137" cy="100" r="5" fill="#111" />
-      <circle cx="163" cy="100" r="5" fill="#111" />
-      <path d="M133,116 Q150,132 167,116" fill="none" stroke="#111" strokeWidth="4" strokeLinecap="round" />
-      <text x="150" y="162" textAnchor="middle" fontFamily={MANU} fontSize="20" fontWeight="700" fill="#14532d">Tout se passe bien !</text>
+      <circle cx={cx} cy="118" r="46" fill="#eff6ff" stroke="#111" strokeWidth="4.5" />
+      <circle cx={cx - 16} cy="108" r="6.5" fill="#111" />
+      <circle cx={cx + 16} cy="108" r="6.5" fill="#111" />
+      <path d={`M${cx - 20},128 Q${cx},150 ${cx + 20},128`} fill="none" stroke="#111" strokeWidth="5" strokeLinecap="round" />
+      {/* bulle du nez */}
+      <Bulle cy={120} lines={NOSE.callout} fill="#dcfce7" />
     </svg>
   );
 }
 
 export function FuseeComportement() {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: MANU }}>
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: MANU, display: "flex", flexDirection: "column" }}>
       {/* Titre */}
-      <div style={{ textAlign: "center", marginBottom: "2mm" }}>
-        <div style={{ fontSize: "40px", fontWeight: 700, color: "#1d4ed8", lineHeight: 1, fontFamily: MANU }}>La fusée du comportement 🚀</div>
-        <div style={{ fontSize: "14px", fontWeight: 700, color: "#475569", fontFamily: CONSIGNE_FONT, marginTop: "0.5mm" }}>
+      <div style={{ textAlign: "center", marginBottom: "1mm" }}>
+        <div style={{ fontSize: "54px", fontWeight: 700, color: "#dc2626", lineHeight: 1, fontFamily: MANU }}>La fusée du comportement 🚀</div>
+        <div style={{ fontSize: "20px", fontWeight: 700, color: "#334155", fontFamily: MANU, marginTop: "0.5mm" }}>
           Je reste tout en haut, près du nez de la fusée&nbsp;!
         </div>
       </div>
 
-      {/* Fusée + clé */}
-      <div style={{ display: "flex", gap: "5mm", alignItems: "flex-start" }}>
-        <div style={{ flex: "0 0 42%" }}><RocketSVG /></div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          {CLE.map((k, i) => (
-            <div key={i} style={{ display: "flex", gap: "2.5mm", alignItems: "flex-start", marginBottom: "2.2mm" }}>
-              <div style={{ width: "7mm", height: "7mm", flexShrink: 0, borderRadius: "50%", background: k.chip, border: "2px solid #111", marginTop: "0.5mm" }} />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: "19px", fontWeight: 700, color: "#111", fontFamily: MANU, lineHeight: 1.05 }}>{k.t}</div>
-                <div style={{ fontSize: "12px", fontWeight: 600, color: "#334155", fontFamily: CONSIGNE_FONT, lineHeight: 1.2 }}>{k.c}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Grande fusée */}
+      <div style={{ flex: 1, minHeight: 0, display: "flex", alignItems: "center" }}><RocketBig /></div>
 
-      {/* Faits graves */}
-      <div style={{ background: "#111827", color: "#fff", border: "3px solid #000", borderRadius: "3mm", padding: "2.5mm 4mm", margin: "2mm 0 2mm" }}>
-        <div style={{ fontSize: "20px", fontWeight: 700, fontFamily: MANU }}>⛔ Faits graves = on saute les étapes</div>
-        <div style={{ fontSize: "12.5px", fontWeight: 600, fontFamily: CONSIGNE_FONT, marginTop: "0.5mm", lineHeight: 1.3 }}>
-          Violence, vol, harcèlement&nbsp;: sanction tout de suite (isolement, mot ou appel aux parents, protocole <b>pHARe</b>).
-        </div>
-      </div>
-
-      {/* Ça marche pour tout */}
-      <div style={{ border: "2.5px dashed #1d4ed8", borderRadius: "3mm", padding: "2mm 3mm", textAlign: "center" }}>
-        <div style={{ fontSize: "19px", fontWeight: 700, color: "#1d4ed8", fontFamily: MANU, marginBottom: "0.5mm" }}>⭐ Ça marche pour tout :</div>
-        <div style={{ fontSize: "12.5px", fontWeight: 700, color: "#334155", fontFamily: CONSIGNE_FONT, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.5mm 5mm" }}>
-          <span>🗣️ Bavardage</span><span>✍️ Travail non soigné</span><span>🧰 Matériel abîmé</span><span>🏃 Déplacements</span><span>🤝 Respect des autres</span>
+      {/* Ça compte quand */}
+      <div style={{ border: "4px solid #dc2626", borderRadius: "4mm", padding: "3mm 4mm", marginTop: "2mm" }}>
+        <div style={{ fontSize: "30px", fontWeight: 700, color: "#dc2626", fontFamily: MANU, textAlign: "center", marginBottom: "1mm" }}>⭐ Ça compte aussi quand…</div>
+        <div style={{ fontSize: "24px", fontWeight: 700, color: "#111", fontFamily: MANU, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1mm 8mm", lineHeight: 1.2 }}>
+          <span>📝 je fais mal mon travail</span>
+          <span>✍️ mon travail n'est pas propre</span>
+          <span>🧰 j'abîme le matériel</span>
+          <span>🗣️ je gêne les autres</span>
         </div>
       </div>
     </div>
