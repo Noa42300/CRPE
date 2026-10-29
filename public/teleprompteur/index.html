@@ -130,6 +130,11 @@
     .seg button { padding: 9px; border-radius: 9px; font-size: 14px; font-weight: 600; color: var(--muted); }
     .seg button[aria-pressed=true] { background: var(--panel-2); color: var(--fg); }
 
+    .lib-list { display: flex; flex-direction: column; gap: 8px; }
+    .lib-item { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 12px; background: var(--panel-2); }
+    .lib-date { display: block; font-weight: 600; font-size: 15px; }
+    .lib-date::first-letter { text-transform: uppercase; }
+    .lib-meta { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
     #review video { width: 100%; max-height: 52vh; background: #000; border-radius: 12px; }
     .note { font-size: 13px; color: var(--muted); line-height: 1.45; margin: 0; }
     .error { color: #ff8a80; }
@@ -180,6 +185,9 @@
       </div>
       <button id="rec" aria-label="Enregistrer"><span></span></button>
       <div class="side right">
+        <button class="ic" id="btn-library" aria-label="Mes vidéos">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg>
+        </button>
         <button class="ic" id="btn-flip" aria-label="Changer de caméra">
           <svg viewBox="0 0 24 24"><path d="M4 9a8 8 0 0 1 14-3l2 2M20 15a8 8 0 0 1-14 3l-2-2"/><path d="M20 4v4h-4M4 20v-4h4"/></svg>
         </button>
@@ -244,18 +252,32 @@
     </div>
   </div>
 
+  <!-- Mes vidéos -->
+  <div class="sheet-wrap" id="sheet-library" hidden>
+    <div class="sheet" role="dialog" aria-labelledby="l-title">
+      <div class="sheet-head">
+        <h2 id="l-title">Mes vidéos</h2>
+        <button class="btn primary" data-close>OK</button>
+      </div>
+      <div id="lib-list" class="lib-list"></div>
+      <p class="note" id="lib-usage"></p>
+      <p class="note">Les vidéos restent sur ce téléphone, dans l'app, jusqu'à ce que tu les supprimes. Supprimer l'app de l'écran d'accueil ou effacer les données de Safari les efface aussi : enregistre dans Photos celles que tu gardes.</p>
+    </div>
+  </div>
+
   <!-- Revue de la prise -->
   <div class="sheet-wrap" id="sheet-review" hidden>
     <div class="sheet" id="review" role="dialog" aria-labelledby="r-title">
       <div class="sheet-head">
         <h2 id="r-title">Prise enregistrée</h2>
-        <span class="stats" id="r-info"></span>
+        <button class="btn primary" id="review-close">Fermer</button>
       </div>
+      <div class="stats" id="r-info"></div>
       <video id="playback" controls playsinline></video>
       <div class="row">
         <button class="btn primary" id="save-photos">Enregistrer dans Photos</button>
         <button class="btn" id="save-file">Télécharger le fichier</button>
-        <button class="btn danger" id="discard">Supprimer et refaire</button>
+        <button class="btn danger" id="discard">Supprimer</button>
       </div>
       <p class="note" id="save-note">Sur iPhone : « Enregistrer dans Photos » ouvre le menu de partage → choisis <b>Enregistrer la vidéo</b>. Le fichier n'est pas recompressé.</p>
       <p class="note" id="r-status"></p>
@@ -558,8 +580,40 @@
     else if (e.key === 'ArrowRight') { offset += lineH * 2; clampOffset(); render(); }
   });
 
+  // ---------- Stockage des prises sur le téléphone (IndexedDB) ----------
+  // Chaque seconde enregistrée est écrite tout de suite : si l'app plante ou est fermée, la prise est récupérable.
+  const DB = (() => {
+    let opening = null;
+    const done = (t) => new Promise((res, rej) => { t.oncomplete = () => res(); t.onerror = t.onabort = () => rej(t.error || new Error('IndexedDB')); });
+    const ask = (r) => new Promise((res, rej) => { r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
+    function open() {
+      if (!opening) opening = new Promise((res, rej) => {
+        if (!window.indexedDB) return rej(new Error('IndexedDB indisponible'));
+        const r = indexedDB.open('teleprompteur', 1);
+        r.onupgradeneeded = () => { r.result.createObjectStore('videos', { keyPath: 'id' }); r.result.createObjectStore('chunks'); };
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+      });
+      return opening;
+    }
+    const range = (id) => IDBKeyRange.bound([id, 0], [id, Infinity]);
+    return {
+      async putMeta(m) { const t = (await open()).transaction('videos', 'readwrite'); t.objectStore('videos').put(m); return done(t); },
+      async putChunk(id, i, blob) { const t = (await open()).transaction('chunks', 'readwrite'); t.objectStore('chunks').put(blob, [id, i]); return done(t); },
+      async list() { return ask((await open()).transaction('videos').objectStore('videos').getAll()); },
+      async meta(id) { return ask((await open()).transaction('videos').objectStore('videos').get(id)); },
+      async chunks(id) { return ask((await open()).transaction('chunks').objectStore('chunks').getAll(range(id))); },
+      async del(id) {
+        const t = (await open()).transaction(['videos', 'chunks'], 'readwrite');
+        t.objectStore('videos').delete(id); t.objectStore('chunks').delete(range(id));
+        return done(t);
+      }
+    };
+  })();
+
   // ---------- Enregistrement ----------
-  let recorder = null, chunks = [], recStart = 0, timerId = 0, lastBlob = null, lastUrl = null, lastFile = null, saved = true, cdTimer = 0;
+  let recorder = null, recMeta = null, chunkIdx = 0, writeQ = Promise.resolve(), useDb = true, memChunks = [], storageWarned = false;
+  let recStart = 0, timerId = 0, cdTimer = 0;
   const MIME = ['video/mp4;codecs=avc1.640028,mp4a.40.2', 'video/mp4;codecs=avc1,mp4a.40.2', 'video/mp4', 'video/webm;codecs=vp9,opus', 'video/webm;codecs=vp8,opus', 'video/webm']
     .find(m => window.MediaRecorder && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(m)) || '';
 
@@ -575,7 +629,8 @@
     if (cdTimer) { clearInterval(cdTimer); cdTimer = 0; $('countdown').hidden = true; setRecUi(false); return; }
     if (!stream) return startCamera();
     if (!window.MediaRecorder) return showHint("Ce navigateur ne sait pas enregistrer la vidéo. Mets à jour iOS (14.5 minimum) ou utilise Chrome.", true);
-    if (!saved && lastBlob) return openSheet('sheet-review');
+    // Demande à iOS de ne pas effacer les vidéos stockées.
+    if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
     setPlaying(false); offset = 0; render();
     setRecUi(true);
     if (!S.countdown) return beginRec();
@@ -587,17 +642,42 @@
     }, 1000);
   };
 
+  function stamp(d) { const p = (n) => String(n).padStart(2, '0'); return d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + '-' + p(d.getHours()) + p(d.getMinutes()) + p(d.getSeconds()); }
+
   function beginRec() {
-    chunks = [];
+    memChunks = []; chunkIdx = 0; useDb = true; storageWarned = false;
     try {
       recorder = new MediaRecorder(stream, Object.assign({ videoBitsPerSecond: bitrate(), audioBitsPerSecond: 192000 }, MIME ? { mimeType: MIME } : {}));
     } catch (e) {
       try { recorder = new MediaRecorder(stream); } catch (e2) { setRecUi(false); return showHint('Enregistrement impossible : ' + e2.message, true); }
     }
-    recorder.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
+    const st = stream.getVideoTracks()[0].getSettings();
+    const now = Date.now();
+    recMeta = { id: 'v' + now, created: now, updated: now, duration: 0, size: 0, chunks: 0, status: 'recording',
+      type: (recorder.mimeType || MIME || 'video/mp4').split(';')[0],
+      width: cam.videoWidth || st.width || 0, height: cam.videoHeight || st.height || 0 };
+    const meta = recMeta;
+    writeQ = DB.putMeta(meta).catch(() => { useDb = false; });
+    recorder.ondataavailable = (e) => {
+      if (!e.data || !e.data.size) return;
+      const blob = e.data, i = chunkIdx++;
+      writeQ = writeQ.then(() => {
+        if (!useDb) { memChunks.push(blob); return; }
+        return DB.putChunk(meta.id, i, blob).then(() => {
+          meta.size += blob.size; meta.chunks = i + 1; meta.updated = Date.now();
+          meta.duration = (meta.updated - meta.created) / 1000;
+          return DB.putMeta(meta);
+        });
+      }).catch(() => {
+        // Stockage plein ou refusé : on continue en mémoire pour ne rien perdre de la prise en cours.
+        useDb = false; memChunks.push(blob);
+        if (!storageWarned) { storageWarned = true; showHint('Stockage du téléphone plein : cette prise n\'est plus sauvegardée en continu. Enregistre-la dès la fin.'); }
+      });
+    };
     recorder.onstop = finishRec;
     recorder.onerror = (e) => showHint('Erreur pendant l\'enregistrement : ' + (e.error && e.error.message || 'inconnue'), true);
     recorder.start(1000);
+    if (!recMeta.type) recMeta.type = (recorder.mimeType || 'video/mp4').split(';')[0];
     recStart = performance.now();
     $('timer').hidden = false; tick(); timerId = setInterval(tick, 500);
     hideHint();
@@ -610,55 +690,123 @@
   function setRecUi(on) {
     $('rec').classList.toggle('on', on);
     $('rec').setAttribute('aria-label', on ? 'Arrêter' : 'Enregistrer');
-    ['btn-text', 'btn-frame', 'btn-settings', 'btn-flip'].forEach(id => $(id).disabled = on);
+    ['btn-text', 'btn-frame', 'btn-settings', 'btn-flip', 'btn-library'].forEach(id => $(id).disabled = on);
   }
 
-  function finishRec() {
-    const dur = (performance.now() - recStart) / 1000;
+  async function finishRec() {
+    const meta = recMeta, dur = (performance.now() - recStart) / 1000;
     clearInterval(timerId); $('timer').hidden = true;
-    const type = (recorder.mimeType || MIME || 'video/mp4').split(';')[0];
     recorder = null; setRecUi(false);
-    if (!chunks.length) return showHint('Aucune image enregistrée. Réessaie.', true);
-    lastBlob = new Blob(chunks, { type }); chunks = [];
-    const ext = type.includes('mp4') ? 'mp4' : 'webm';
-    const d = new Date(), p = (n) => String(n).padStart(2, '0');
-    const name = 'video-' + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + '-' + p(d.getHours()) + p(d.getMinutes()) + p(d.getSeconds()) + '.' + ext;
-    lastFile = new File([lastBlob], name, { type });
-    if (lastUrl) URL.revokeObjectURL(lastUrl);
-    lastUrl = URL.createObjectURL(lastBlob);
-    $('playback').src = lastUrl;
-    const st = stream ? stream.getVideoTracks()[0].getSettings() : {};
-    $('r-info').textContent = fmt(dur) + ' · ' + (st.width ? st.width + '×' + st.height + ' · ' : '') + (lastBlob.size / 1048576).toFixed(1) + ' Mo · ' + ext.toUpperCase();
-    $('r-status').textContent = '';
-    saved = false;
-    const canShare = navigator.canShare && navigator.canShare({ files: [lastFile] });
+    await writeQ;
+    meta.duration = dur; meta.status = 'done'; meta.updated = Date.now();
+    if (!meta.chunks && !memChunks.length) { DB.del(meta.id).catch(() => {}); return showHint('Aucune image enregistrée. Réessaie.', true); }
+    let extra = null;
+    if (memChunks.length) { extra = memChunks; meta.size += memChunks.reduce((a, b) => a + b.size, 0); memChunks = []; }
+    if (useDb || meta.chunks) await DB.putMeta(meta).catch(() => {});
+    openVideo(meta, extra);
+  }
+
+  // ---------- Revue d'une prise ----------
+  let current = null; // { meta, blob, file, url }
+  function fileName(meta) { return 'video-' + stamp(new Date(meta.created)) + (meta.type.includes('mp4') ? '.mp4' : '.webm'); }
+  function sizeTxt(b) { return b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' Go' : (b / 1048576).toFixed(1) + ' Mo'; }
+  function dateTxt(t) { return new Date(t).toLocaleString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); }
+
+  async function openVideo(meta, extraChunks) {
+    releaseCurrent();
+    let parts = [];
+    if (meta.chunks) { try { parts = await DB.chunks(meta.id); } catch { parts = []; } }
+    if (extraChunks) parts = parts.concat(extraChunks);
+    if (!parts.length) return showHint('Impossible de relire cette vidéo.', true);
+    const blob = new Blob(parts, { type: meta.type });
+    current = { meta, blob, file: new File([blob], fileName(meta), { type: meta.type }), url: URL.createObjectURL(blob) };
+    $('playback').src = current.url;
+    $('r-title').textContent = meta.recovered ? 'Prise récupérée' : 'Prise enregistrée';
+    $('r-info').textContent = dateTxt(meta.created) + ' · ' + fmt(meta.duration) + ' · ' + (meta.width ? meta.width + '×' + meta.height + ' · ' : '') + sizeTxt(blob.size);
+    $('r-status').textContent = extraChunks && !meta.chunks ? 'Attention : cette prise n\'a pas pu être stockée sur le téléphone. Enregistre-la maintenant.' : 'Sauvegardée dans « Mes vidéos » : tu peux fermer et la retrouver plus tard.';
+    const canShare = !!(navigator.canShare && navigator.canShare({ files: [current.file] }));
     $('save-photos').hidden = !canShare;
     $('save-note').hidden = !canShare;
+    resetDelete();
     openSheet('sheet-review');
+  }
+  function releaseCurrent() {
+    $('playback').pause(); $('playback').removeAttribute('src'); $('playback').load();
+    if (current) URL.revokeObjectURL(current.url);
+    current = null;
   }
 
   $('save-photos').onclick = async () => {
+    if (!current) return;
     try {
-      await navigator.share({ files: [lastFile] });
-      saved = true; $('r-status').textContent = 'Envoyée. Vérifie qu\'elle apparaît dans Photos.';
+      await navigator.share({ files: [current.file] });
+      $('r-status').textContent = 'Envoyée. Vérifie qu\'elle apparaît dans Photos. Elle reste aussi dans « Mes vidéos ».';
     } catch (e) {
-      if (e.name !== 'AbortError') $('r-status').textContent = 'Partage impossible (' + e.name + '). Utilise « Télécharger le fichier ».';
+      if (e.name !== 'AbortError') $('r-status').textContent = 'Partage impossible (' + e.name + '). Utilise « Télécharger le fichier », puis dans l\'app Fichiers : Partager › Enregistrer la vidéo.';
     }
   };
   $('save-file').onclick = () => {
+    if (!current) return;
     const a = document.createElement('a');
-    a.href = lastUrl; a.download = lastFile.name; document.body.appendChild(a); a.click(); a.remove();
-    saved = true;
-    $('r-status').textContent = 'Fichier téléchargé (dossier Téléchargements / app Fichiers).';
+    a.href = current.url; a.download = current.file.name; document.body.appendChild(a); a.click(); a.remove();
+    $('r-status').textContent = 'Fichier téléchargé (app Fichiers › Téléchargements).';
   };
-  $('discard').onclick = () => {
-    $('playback').pause(); $('playback').removeAttribute('src'); $('playback').load();
-    if (lastUrl) URL.revokeObjectURL(lastUrl);
-    lastUrl = lastBlob = lastFile = null; saved = true;
+  let delTimer = 0;
+  function resetDelete() { clearTimeout(delTimer); $('discard').textContent = 'Supprimer'; $('discard').dataset.armed = ''; }
+  $('discard').onclick = async () => {
+    if (!current) return;
+    if (!$('discard').dataset.armed) {
+      $('discard').dataset.armed = '1'; $('discard').textContent = 'Toucher encore pour supprimer définitivement';
+      delTimer = setTimeout(resetDelete, 4000); return;
+    }
+    const id = current.meta.id;
+    releaseCurrent(); resetDelete();
+    await DB.del(id).catch(() => {});
     offset = 0; render();
-    closeSheets();
+    openLibrary();
   };
-  addEventListener('beforeunload', (e) => { if (!saved || recorder) { e.preventDefault(); e.returnValue = ''; } });
+  $('review-close').onclick = () => { releaseCurrent(); closeSheets(); };
+  addEventListener('beforeunload', (e) => { if (recorder) { e.preventDefault(); e.returnValue = ''; } });
+
+  // ---------- Mes vidéos ----------
+  async function openLibrary() {
+    openSheet('sheet-library');
+    const list = $('lib-list');
+    list.textContent = 'Chargement…';
+    let items = [];
+    try { items = (await DB.list()).filter(m => m.status === 'done').sort((a, b) => b.created - a.created); }
+    catch { list.textContent = 'Le stockage n\'est pas disponible dans ce navigateur (navigation privée ?).'; return; }
+    list.textContent = '';
+    if (!items.length) { list.innerHTML = '<p class="note">Aucune vidéo pour l\'instant. Chaque prise est gardée ici automatiquement, même si l\'app se ferme pendant l\'enregistrement.</p>'; }
+    for (const m of items) {
+      const row = document.createElement('button');
+      row.className = 'lib-item';
+      const t = document.createElement('span'); t.className = 'lib-date'; t.textContent = dateTxt(m.created) + (m.recovered ? ' · récupérée' : '');
+      const d = document.createElement('span'); d.className = 'lib-meta'; d.textContent = fmt(m.duration) + ' · ' + sizeTxt(m.size) + (m.width ? ' · ' + (m.width > m.height ? 'paysage' : 'vertical') : '');
+      row.append(t, d);
+      row.onclick = () => openVideo(m);
+      list.appendChild(row);
+    }
+    if (navigator.storage && navigator.storage.estimate) {
+      navigator.storage.estimate().then(e => { $('lib-usage').textContent = 'Espace utilisé : ' + sizeTxt(e.usage || 0) + (e.quota ? ' sur ' + sizeTxt(e.quota) + ' disponibles pour l\'app' : ''); }).catch(() => {});
+    }
+  }
+  $('btn-library').onclick = openLibrary;
+
+  // Au lancement : une prise interrompue (plantage, app fermée) est finalisée et proposée.
+  async function recoverInterrupted() {
+    let items;
+    try { items = await DB.list(); } catch { return; }
+    const broken = items.filter(m => m.status === 'recording');
+    let last = null;
+    for (const m of broken) {
+      if (!m.chunks) { await DB.del(m.id).catch(() => {}); continue; }
+      m.status = 'done'; m.recovered = true; m.duration = Math.max(m.duration, (m.updated - m.created) / 1000);
+      await DB.putMeta(m).catch(() => {});
+      if (!last || m.created > last.created) last = m;
+    }
+    if (last) openVideo(last);
+  }
 
   // ---------- Panneaux ----------
   function openSheet(id) { closeSheets(); $(id).hidden = false; }
@@ -668,8 +816,7 @@
     layout();
   }
   document.querySelectorAll('[data-close]').forEach(b => b.onclick = closeSheets);
-  document.querySelectorAll('.sheet-wrap').forEach(w => w.addEventListener('click', (e) => { if (e.target === w && w.id !== 'sheet-review') closeSheets(); }));
-  $('sheet-review').addEventListener('click', (e) => { if (e.target === $('sheet-review') && saved) closeSheets(); });
+  document.querySelectorAll('.sheet-wrap').forEach(w => w.addEventListener('click', (e) => { if (e.target === w) { if (w.id === 'sheet-review') releaseCurrent(); closeSheets(); } }));
 
   $('btn-text').onclick = () => { $('script').value = S.text; updateStats(); openSheet('sheet-text'); };
   $('btn-settings').onclick = () => openSheet('sheet-settings');
@@ -735,6 +882,7 @@
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 
   setWpm(S.wpm); layout(); render(); keepAwake(); startCamera();
+  recoverInterrupted();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 })();
 </script>
