@@ -14,14 +14,12 @@ import { cap, formatLong, weeksOfPeriod } from "../lib/dates";
 import { AUTOUR_DU_MONDE, THEMES, paysForIndex, type Pays } from "../lib/projets";
 import { Diaporama } from "./Diaporama";
 import { CarteIdentiteOverlay } from "./CarteIdentiteA4";
-import { AffichesPaysOverlay, hasAffiches } from "./AffichesPays";
 
 type Modal =
   | { kind: "diapo"; pays: Pays }
   | { kind: "carte"; pays: Pays }
   | { kind: "dictee"; pays: Pays }
   | { kind: "video"; pays: Pays }
-  | { kind: "affiches"; pays: Pays }
   | null;
 
 export function ProjetsView() {
@@ -116,9 +114,6 @@ export function ProjetsView() {
                   <button onClick={() => setModal({ kind: "carte", pays })} className="rounded-full border-2 px-4 py-1.5 text-xs font-bold" style={{ borderColor: theme.soft, color: theme.accent }}>🪪 Carte d'identité</button>
                   <button onClick={() => setModal({ kind: "dictee", pays })} className="rounded-full border-2 px-4 py-1.5 text-xs font-bold" style={{ borderColor: theme.soft, color: theme.accent }}>✍️ Dictée</button>
                   <button onClick={() => setModal({ kind: "video", pays })} className="rounded-full border-2 px-4 py-1.5 text-xs font-bold" style={{ borderColor: theme.soft, color: theme.accent }}>🎬 Vidéo</button>
-                  {hasAffiches(pays.id) && (
-                    <button onClick={() => setModal({ kind: "affiches", pays })} className="rounded-full px-4 py-1.5 text-xs font-bold text-white" style={{ background: theme.accent }}>🖼️ Affiches</button>
-                  )}
                 </div>
               </div>
             </div>
@@ -138,9 +133,6 @@ export function ProjetsView() {
       )}
       {modal?.kind === "video" && (
         <VideoModal pays={modal.pays} accent={theme.accent} onClose={() => setModal(null)} />
-      )}
-      {modal?.kind === "affiches" && (
-        <AffichesPaysOverlay pays={modal.pays} periodNumber={cont.periodNumber} onClose={() => setModal(null)} />
       )}
     </div>
   );
