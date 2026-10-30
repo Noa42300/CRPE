@@ -138,6 +138,8 @@
     a.btn { text-decoration: none; color: inherit; display: inline-block; }
     a.btn.primary { color: #111; }
     #pc-code { flex: 1; min-width: 0; font: 600 20px/1 var(--font); letter-spacing: .2em; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: #0d0e11; color: var(--fg); font-variant-numeric: tabular-nums; }
+    .pc-log { margin: 0; padding-left: 18px; font-size: 12px; font-variant-numeric: tabular-nums; }
+    .pc-log:empty { display: none; }
     .pbar { height: 8px; border-radius: 4px; background: var(--panel-2); overflow: hidden; }
     .pbar i { display: block; height: 100%; width: 0; background: var(--accent); }
     .seg.seg4 { grid-template-columns: repeat(4, 1fr); }
@@ -310,7 +312,8 @@
           </div>
           <div class="pbar" id="pc-bar-wrap" hidden><i id="pc-bar"></i></div>
           <div class="stats" id="pc-status"></div>
-          <div class="stats">Version de l'app : 14</div>
+          <ol class="stats pc-log" id="pc-log"></ol>
+          <div class="stats">Version de l'app : 15</div>
         </div>
         <button class="btn" id="cloud-up">Fichier complet : créer un lien de téléchargement</button>
         <div class="stats" id="cloud-info" hidden></div>
@@ -933,38 +936,59 @@
     $('pc-url').textContent = location.host + '/teleprompteur/pc.html';
     if (!$('pc-panel').hidden) $('pc-code').focus();
   };
+  let pcCancel = null;
+  // Journal des étapes : montre où ça bloque (à envoyer en capture si besoin).
+  function pcLog(t) {
+    const li = document.createElement('li');
+    li.textContent = new Date().toLocaleTimeString('fr-FR') + ' · ' + t;
+    $('pc-log').appendChild(li);
+  }
   $('pc-go').onclick = async () => {
-    if (!current || pcBusy) return;
-    const code = $('pc-code').value.replace(/\D/g, '');
     // Le statut s'affiche au-dessus du clavier, sinon on croit que le bouton ne fait rien.
     const st = (t) => { $('pc-status').textContent = t; $('pc-status').scrollIntoView({ block: 'center', behavior: 'smooth' }); };
+    if (pcBusy) { if (pcCancel) pcCancel(); return; }
+    $('pc-log').textContent = '';
+    pcLog('Bouton Connecter touché');
+    if (!current) return st('Aucune vidéo ouverte : ferme ce panneau et rouvre ta prise depuis « Mes vidéos ».');
+    const code = $('pc-code').value.replace(/\D/g, '');
     $('pc-code').blur();
     if (code.length !== 6) return st('Tape les 6 chiffres affichés sur le PC.');
     if (!window.TPTransfer) return st('Module de transfert non chargé : ferme complètement l\'app et relance-la.');
     // Sans WebRTC (cas de l'app de l'écran d'accueil sur iPhone) : relais de flux.
     const mode = window.RTCPeerConnection ? 'rtc' : 'pipe';
-    pcBusy = true; $('pc-go').disabled = true; keepAwake();
+    pcBusy = true; $('pc-go').textContent = 'Annuler'; keepAwake();
+    pcLog('Mode : ' + (mode === 'rtc' ? 'connexion directe' : 'relais de flux'));
     const file = current.file;
-    let sig = null, peer = null, helloTimer = 0, started = false;
+    let sig = null, peer = null, helloTimer = 0, started = false, noReply = 0, hellos = 0, ready = false;
+    pcCancel = () => end('Annulé. La vidéo est toujours ici.');
     const end = (msg) => {
-      clearInterval(helloTimer); pcBusy = false; $('pc-go').disabled = false; st(msg);
+      clearInterval(helloTimer); clearTimeout(noReply); pcBusy = false; pcCancel = null; $('pc-go').textContent = 'Connecter'; st(msg); pcLog(msg);
       try { peer && peer.pc.close(); } catch {}
       try { sig && sig.close(); } catch {}
     };
     try {
       st('Connexion au relais…');
+      pcLog('Connexion au relais…');
       sig = await TPTransfer.signal(code, async (m) => {
-        if (m.t === 'ready' && !started) { clearInterval(helloTimer); st('PC trouvé. Sur le PC, clique « Enregistrer sur ce PC… » et choisis le dossier.'); }
+        if (!pcBusy) return;
+        pcLog('Reçu du PC : ' + m.t);
+        if (m.t === 'ready' && !started) { ready = true; clearInterval(helloTimer); clearTimeout(noReply); st('PC trouvé. Sur le PC, clique « Enregistrer sur ce PC… » et choisis le dossier.'); }
         else if (m.t === 'accept' && !started) { started = true; if (m.pipe) startPipe(m.pipe); else start(); }
         else if (m.t === 'done' && started) end('✓ Reçue sur le PC (' + sizeTxt(m.n) + '). Vérifie qu\'elle se lit sur le PC avant de la supprimer ici.');
         else if (m.t === 'error' && started) end('Le PC signale une erreur : ' + m.message + '. La vidéo est toujours ici.');
         else if (m.t === 'answer' && peer) await peer.remote(m.sdp).catch((e) => end('Connexion refusée : ' + e.message));
         else if (m.t === 'ice' && peer) peer.ice(m.c);
       });
-      const hello = () => sig.send({ t: 'hello', name: file.name, size: file.size, type: file.type, mode });
+      pcLog('Relais connecté (' + (sig.kind || '?') + ')');
+      const hello = () => {
+        hellos++;
+        Promise.resolve(sig.send({ t: 'hello', name: file.name, size: file.size, type: file.type, mode }))
+          .then((r) => { if (hellos <= 2) pcLog('Message envoyé au PC (' + hellos + ')' + (r && r.status ? ' · réponse relais ' + r.status : '')); })
+          .catch((e) => pcLog('Échec d\'envoi au relais : ' + e.message));
+      };
       hello(); helloTimer = setInterval(hello, 4000);
       st('Recherche du PC (code ' + code + ')…');
-      setTimeout(() => { if (!started && pcBusy) st('Le PC ne répond pas. Vérifie le code et que la page est bien ouverte sur le PC.'); }, 15000);
+      noReply = setTimeout(() => { if (!ready && pcBusy) end('Le PC n\'a pas répondu en 25 s. Vérifie le code affiché sur le PC (il change à chaque rechargement de la page) et réessaie.'); }, 25000);
     } catch (e) { return end('Relais indisponible : ' + e.message); }
 
     async function startPipe(pipe) {

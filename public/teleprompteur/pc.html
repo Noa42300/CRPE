@@ -52,7 +52,8 @@
         <li>Tape ce code, puis reviens ici.</li>
       </ol>
       <div id="status">Connexion au relais…</div>
-      <div class="note">Version de la page : 14</div>
+      <div class="note" id="rx">Messages reçus du téléphone : 0</div>
+      <div class="note">Version de la page : 15</div>
     </section>
 
     <section class="card" id="incoming" hidden>
@@ -85,7 +86,10 @@
 
     let sig = null, info = null, peer = null, writable = null, memParts = null, accepted = false;
 
+    let received = 0;
     function onMsg(m) {
+      received++;
+      $('rx').textContent = 'Messages reçus du téléphone : ' + received + ' (dernier : ' + m.t + ')';
       if (m.t === 'hello') {
         if (!accepted) {
           info = m;
@@ -213,7 +217,7 @@
     }
 
     TPTransfer.signal(code, onMsg)
-      .then((s) => { sig = s; status('En attente du téléphone…'); })
+      .then((s) => { sig = s; status('En attente du téléphone… (relais : ' + (s.kind || '?') + ')'); })
       .catch((e) => status('Relais indisponible : ' + e.message + '. Recharge la page.', 'err'));
   })();
   </script>
