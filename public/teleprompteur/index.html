@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <!-- Adresses relatives toujours résolues dans /teleprompteur/, même si l'app est ouverte sur « /teleprompteur » sans barre finale. -->
+  <base href="/teleprompteur/">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="description" content="Téléprompteur avec caméra : texte qui défile, enregistrement vertical ou paysage, export de la vidéo vers la galerie.">
   <meta name="theme-color" content="#000000">
@@ -313,7 +315,7 @@
           <div class="pbar" id="pc-bar-wrap" hidden><i id="pc-bar"></i></div>
           <div class="stats" id="pc-status"></div>
           <ol class="stats pc-log" id="pc-log"></ol>
-          <div class="stats">Version de l'app : 15</div>
+          <div class="stats">Version de l'app : 16</div>
         </div>
         <button class="btn" id="cloud-up">Fichier complet : créer un lien de téléchargement</button>
         <div class="stats" id="cloud-info" hidden></div>
