@@ -1,0 +1,95 @@
+/* Transfert direct téléphone → PC en Wi-Fi (WebRTC).
+ * Supabase Realtime sert seulement de relais pour que les deux appareils se trouvent
+ * (code à 6 chiffres) ; la vidéo passe ensuite en direct par le réseau local.
+ * Utilisé par index.html (envoi) et pc.html (réception). */
+(function () {
+  'use strict';
+  const ICE = [{ urls: ['stun:stun.l.google.com:19302', 'stun:stun1.l.google.com:19302'] }];
+  const MB = 1048576;
+  let client = null;
+
+  function loadScript(src) {
+    return new Promise((res, rej) => {
+      const s = document.createElement('script');
+      s.src = src; s.onload = res;
+      s.onerror = () => rej(new Error('chargement impossible (' + src + ')'));
+      document.head.appendChild(s);
+    });
+  }
+
+  // Canal de mise en relation. ?signal=local : BroadcastChannel entre deux onglets (tests).
+  async function signal(code, onMsg) {
+    if (new URLSearchParams(location.search).get('signal') === 'local') {
+      const bc = new BroadcastChannel('tp-' + code), me = Math.random();
+      bc.onmessage = (e) => { if (e.data.from !== me) onMsg(e.data.msg); };
+      return { send: (m) => bc.postMessage({ from: me, msg: m }), close: () => bc.close() };
+    }
+    const cfg = await fetch('/api/teleprompteur/config', { cache: 'no-store' }).then((r) => r.json()).catch(() => ({}));
+    if (!cfg.url || !cfg.key) throw new Error('le relais Supabase n\'est pas configuré sur le site');
+    if (!window.supabase) await loadScript(new URL('vendor/supabase.js', document.currentScript ? document.currentScript.src : location.href).href);
+    client = client || window.supabase.createClient(cfg.url, cfg.key, { auth: { persistSession: false, autoRefreshToken: false } });
+    const ch = client.channel('tp-transfer-' + code, { config: { broadcast: { self: false } } });
+    ch.on('broadcast', { event: 'sig' }, ({ payload }) => onMsg(payload));
+    await new Promise((res, rej) => {
+      const t = setTimeout(() => rej(new Error('le relais ne répond pas')), 15000);
+      ch.subscribe((st) => {
+        if (st === 'SUBSCRIBED') { clearTimeout(t); res(); }
+        else if (st === 'CHANNEL_ERROR' || st === 'TIMED_OUT') { clearTimeout(t); rej(new Error('relais indisponible (' + st + ')')); }
+      });
+    });
+    return { send: (m) => ch.send({ type: 'broadcast', event: 'sig', payload: m }), close: () => client.removeChannel(ch) };
+  }
+
+  // Connexion pair à pair ; les candidats ICE reçus trop tôt sont mis en attente.
+  function peer(sig) {
+    const pc = new RTCPeerConnection({ iceServers: ICE });
+    const pending = [];
+    pc.onicecandidate = (e) => { if (e.candidate) sig.send({ t: 'ice', c: e.candidate.toJSON() }); };
+    return {
+      pc,
+      async remote(desc) {
+        await pc.setRemoteDescription(desc);
+        for (const c of pending.splice(0)) await pc.addIceCandidate(c).catch(() => {});
+      },
+      ice(c) { if (pc.remoteDescription) pc.addIceCandidate(c).catch(() => {}); else pending.push(c); }
+    };
+  }
+
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  // Envoi d'un fichier (Blob) sur un canal de données ouvert.
+  // Le PC confirme ce qu'il a écrit sur disque (ack) : on ne prend jamais plus de 64 Mo d'avance.
+  async function sendFile(dc, pc, file, onProgress) {
+    let acked = 0, done = false, failed = null;
+    const result = new Promise((res, rej) => {
+      dc.addEventListener('message', (e) => {
+        const m = JSON.parse(e.data);
+        if (m.t === 'ack') acked = m.n;
+        if (m.t === 'done') { done = true; res(m.n); }
+        if (m.t === 'error') { failed = new Error(m.message); rej(failed); }
+      });
+      dc.addEventListener('close', () => { if (!done) rej(failed || new Error('connexion coupée')); });
+    });
+    result.catch(() => {});
+    const size = file.size;
+    const msg = Math.min(64 * 1024, (pc.sctp && pc.sctp.maxMessageSize) || 64 * 1024);
+    dc.bufferedAmountLowThreshold = 2 * MB;
+    dc.send(JSON.stringify({ t: 'start', name: file.name, size, type: file.type }));
+    const t0 = performance.now();
+    let sent = 0;
+    while (sent < size) {
+      const buf = await file.slice(sent, Math.min(size, sent + 8 * MB)).arrayBuffer();
+      for (let p = 0; p < buf.byteLength; p += msg) {
+        while (dc.readyState === 'open' && (dc.bufferedAmount > 8 * MB || sent + p - acked > 64 * MB)) await sleep(15);
+        if (dc.readyState !== 'open') throw failed || new Error('connexion coupée');
+        dc.send(buf.slice(p, p + msg));
+      }
+      sent += buf.byteLength;
+      onProgress(sent, size, sent / ((performance.now() - t0) / 1000));
+    }
+    dc.send(JSON.stringify({ t: 'end', n: size }));
+    return result;
+  }
+
+  window.TPTransfer = { signal, peer, sendFile, MB };
+})();

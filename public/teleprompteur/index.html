@@ -137,6 +137,9 @@
     .parts { display: flex; flex-direction: column; gap: 8px; }
     a.btn { text-decoration: none; color: inherit; display: inline-block; }
     a.btn.primary { color: #111; }
+    #pc-code { flex: 1; min-width: 0; font: 600 20px/1 var(--font); letter-spacing: .2em; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: #0d0e11; color: var(--fg); font-variant-numeric: tabular-nums; }
+    .pbar { height: 8px; border-radius: 4px; background: var(--panel-2); overflow: hidden; }
+    .pbar i { display: block; height: 100%; width: 0; background: var(--accent); }
     .seg.seg4 { grid-template-columns: repeat(4, 1fr); }
     #parts-list .btn.done { opacity: .55; }
     .lib-list { display: flex; flex-direction: column; gap: 8px; }
@@ -298,6 +301,16 @@
         <button class="btn danger" id="discard">Supprimer</button>
       </div>
       <div class="parts">
+        <button class="btn primary" id="pc-open">Envoyer vers le PC (Wi-Fi, fichier complet)</button>
+        <div id="pc-panel" class="parts" hidden>
+          <div class="stats">Sur le PC, ouvre dans Chrome ou Edge : <b id="pc-url"></b> puis tape le code affiché.</div>
+          <div class="row">
+            <input id="pc-code" inputmode="numeric" autocomplete="off" maxlength="6" placeholder="Code à 6 chiffres" aria-label="Code affiché sur le PC">
+            <button class="btn" id="pc-go">Connecter</button>
+          </div>
+          <div class="pbar" id="pc-bar-wrap" hidden><i id="pc-bar"></i></div>
+          <div class="stats" id="pc-status"></div>
+        </div>
         <button class="btn" id="cloud-up">Fichier complet : créer un lien de téléchargement</button>
         <div class="stats" id="cloud-info" hidden></div>
         <div class="row" id="cloud-actions" hidden>
@@ -325,6 +338,7 @@
     </div>
   </div>
 
+<script src="transfer.js"></script>
 <script>
 (() => {
   'use strict';
@@ -819,6 +833,7 @@
     resetDelete();
     $('parts-list').textContent = ''; $('parts-info').hidden = true; $('parts-actions').hidden = true; partFiles = []; partDone = [];
     showCloud(meta);
+    if (!pcBusy) { $('pc-panel').hidden = true; $('pc-status').textContent = ''; $('pc-bar-wrap').hidden = true; }
     $('save-parts').hidden = $('part-len').hidden = $('part-len-label').hidden = !canShare || !meta.type.includes('mp4');
     openSheet('sheet-review');
   }
@@ -908,6 +923,66 @@
       showCloud(meta);
       $('r-status').textContent = 'Fichier retiré du stockage en ligne. La vidéo reste dans « Mes vidéos » sur ce téléphone.';
     } catch (e) { $('r-status').textContent = 'Suppression en ligne impossible : ' + e.message; }
+  };
+
+  // ---------- Envoi direct vers le PC (Wi-Fi) ----------
+  let pcBusy = false;
+  $('pc-open').onclick = () => {
+    $('pc-panel').hidden = !$('pc-panel').hidden;
+    $('pc-url').textContent = location.host + '/teleprompteur/pc.html';
+    if (!$('pc-panel').hidden) $('pc-code').focus();
+  };
+  $('pc-go').onclick = async () => {
+    if (!current || pcBusy) return;
+    const code = $('pc-code').value.replace(/\D/g, '');
+    const st = (t) => { $('pc-status').textContent = t; };
+    if (code.length !== 6) return st('Tape les 6 chiffres affichés sur le PC.');
+    if (!window.TPTransfer || !window.RTCPeerConnection) return st('Ce navigateur ne permet pas le transfert direct.');
+    pcBusy = true; $('pc-go').disabled = true; keepAwake();
+    const file = current.file;
+    let sig = null, peer = null, helloTimer = 0, started = false;
+    const end = (msg) => {
+      clearInterval(helloTimer); pcBusy = false; $('pc-go').disabled = false; st(msg);
+      try { peer && peer.pc.close(); } catch {}
+      try { sig && sig.close(); } catch {}
+    };
+    try {
+      st('Connexion au relais…');
+      sig = await TPTransfer.signal(code, async (m) => {
+        if (m.t === 'ready' && !started) { clearInterval(helloTimer); st('PC trouvé. Sur le PC, clique « Enregistrer sur ce PC… » et choisis le dossier.'); }
+        else if (m.t === 'accept' && !started) { started = true; start(); }
+        else if (m.t === 'answer' && peer) await peer.remote(m.sdp).catch((e) => end('Connexion refusée : ' + e.message));
+        else if (m.t === 'ice' && peer) peer.ice(m.c);
+      });
+      const hello = () => sig.send({ t: 'hello', name: file.name, size: file.size, type: file.type });
+      hello(); helloTimer = setInterval(hello, 2000);
+      st('Recherche du PC (code ' + code + ')…');
+      setTimeout(() => { if (!started && pcBusy) st('Le PC ne répond pas. Vérifie le code et que la page est bien ouverte sur le PC.'); }, 15000);
+    } catch (e) { return end('Relais indisponible : ' + e.message); }
+
+    async function start() {
+      peer = TPTransfer.peer(sig);
+      const pc = peer.pc;
+      const dc = pc.createDataChannel('file', { ordered: true });
+      dc.binaryType = 'arraybuffer';
+      pc.onconnectionstatechange = () => {
+        if (pc.connectionState === 'failed') end('Connexion directe impossible : téléphone et PC doivent être sur le même Wi-Fi (pas en 4G). La vidéo est toujours ici.');
+      };
+      dc.onopen = async () => {
+        $('pc-bar-wrap').hidden = false;
+        st('Transfert en cours… garde l\'app ouverte et l\'écran allumé.');
+        try {
+          const n = await TPTransfer.sendFile(dc, pc, file, (sent, size, speed) => {
+            $('pc-bar').style.width = (sent / size * 100).toFixed(1) + '%';
+            st('Envoi : ' + Math.floor(sent / size * 100) + ' % · ' + sizeTxt(sent) + ' / ' + sizeTxt(size) + ' · ' + (speed / 1048576).toFixed(1) + ' Mo/s. Garde l\'app ouverte.');
+          });
+          end('✓ Reçue sur le PC (' + sizeTxt(n) + '). Vérifie qu\'elle se lit sur le PC avant de la supprimer ici.');
+        } catch (e) { end('Transfert interrompu : ' + e.message + '. La vidéo est toujours ici : recharge la page sur le PC et relance.'); }
+      };
+      const offer = await pc.createOffer();
+      await pc.setLocalDescription(offer);
+      sig.send({ t: 'offer', sdp: pc.localDescription.toJSON() });
+    }
   };
 
   // ---------- Export en plusieurs parties ----------

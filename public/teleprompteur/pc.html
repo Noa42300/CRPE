@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Recevoir sur le PC · Téléprompteur</title>
+  <link rel="icon" href="icons/icon-192.png">
+  <style>
+    /* Page de réception sur ordinateur : un code à taper sur le téléphone, puis la barre de progression. */
+    :root {
+      --bg: #0e0f12; --panel: #16181d; --panel-2: #22252c; --line: #33373f;
+      --fg: #f2efe6; --muted: #9a9ea8; --accent: #f2b23a; --ok: #4cd964; --err: #ff8a80;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", monospace;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--fg); font: 16px/1.5 var(--font); display: grid; place-items: center; padding: 32px 16px; }
+    main { width: min(560px, 100%); display: flex; flex-direction: column; gap: 22px; }
+    h1 { margin: 0; font-size: 22px; }
+    .card { background: var(--panel); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+    .label { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+    #code { font: 700 64px/1 var(--mono); letter-spacing: .14em; color: var(--accent); font-variant-numeric: tabular-nums; }
+    ol { margin: 0; padding-left: 20px; color: var(--muted); }
+    ol b { color: var(--fg); }
+    #status { color: var(--muted); }
+    #status.ok { color: var(--ok); }
+    #status.err { color: var(--err); }
+    .file { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+    .file b { overflow-wrap: anywhere; }
+    button, a.btn { font: inherit; font-weight: 600; border: 0; border-radius: 12px; padding: 13px 18px; cursor: pointer; background: var(--fg); color: #111; text-decoration: none; text-align: center; }
+    button:disabled { opacity: .5; cursor: default; }
+    button:focus-visible, a.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .bar { height: 10px; border-radius: 5px; background: var(--panel-2); overflow: hidden; }
+    .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+    .stats { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .note { font-size: 13px; color: var(--muted); margin: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Recevoir une vidéo du téléphone</h1>
+
+    <section class="card">
+      <div class="label">Code à taper sur le téléphone</div>
+      <div id="code">······</div>
+      <ol>
+        <li>Téléphone et PC sur le <b>même Wi-Fi</b> (pas en 4G).</li>
+        <li>Dans l'app : <b>Mes vidéos</b> → ta prise → <b>Envoyer vers le PC (Wi-Fi)</b>.</li>
+        <li>Tape ce code, puis reviens ici.</li>
+      </ol>
+      <div id="status">Connexion au relais…</div>
+    </section>
+
+    <section class="card" id="incoming" hidden>
+      <div class="label">Vidéo proposée</div>
+      <div class="file"><b id="f-name"></b><span id="f-size"></span></div>
+      <button id="accept">Enregistrer sur ce PC…</button>
+      <p class="note" id="accept-note">Tu choisis le dossier ; la vidéo est écrite directement sur le disque, sans recompression.</p>
+    </section>
+
+    <section class="card" id="progress" hidden>
+      <div class="label">Transfert</div>
+      <div class="bar"><i id="bar"></i></div>
+      <div class="stats" id="p-stats"></div>
+      <a class="btn" id="mem-link" hidden>Enregistrer le fichier</a>
+      <p class="note">Garde l'app ouverte sur le téléphone, écran allumé, jusqu'à la fin.</p>
+    </section>
+  </main>
+
+  <script src="transfer.js"></script>
+  <script>
+  (() => {
+    'use strict';
+    const $ = (id) => document.getElementById(id);
+    const MB = TPTransfer.MB;
+    const sizeTxt = (b) => b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' Go' : (b / MB).toFixed(1) + ' Mo';
+    const status = (t, cls) => { $('status').textContent = t; $('status').className = cls || ''; };
+
+    const code = String(Math.floor(100000 + Math.random() * 900000));
+    $('code').textContent = code;
+
+    let sig = null, info = null, peer = null, writable = null, memParts = null, accepted = false;
+
+    function onMsg(m) {
+      if (m.t === 'hello') {
+        if (!accepted) {
+          info = m;
+          $('f-name').textContent = m.name; $('f-size').textContent = sizeTxt(m.size);
+          $('incoming').hidden = false;
+          status('Téléphone connecté. Clique « Enregistrer sur ce PC… ».', 'ok');
+        }
+        sig.send({ t: 'ready' });
+      } else if (m.t === 'offer' && accepted && !peer) {
+        answer(m.sdp);
+      } else if (m.t === 'ice' && peer) {
+        peer.ice(m.c);
+      }
+    }
+
+    $('accept').onclick = async () => {
+      if (!info) return;
+      try {
+        if (window.showSaveFilePicker) {
+          const ext = /\.\w+$/.exec(info.name);
+          const handle = await window.showSaveFilePicker({
+            suggestedName: info.name,
+            types: [{ description: 'Vidéo', accept: { [info.type || 'video/mp4']: [ext ? ext[0] : '.mp4'] } }]
+          });
+          writable = await handle.createWritable();
+        } else {
+          // Navigateur sans écriture directe sur disque : tout passe par la mémoire (Chrome ou Edge recommandés).
+          memParts = [];
+          $('accept-note').textContent = 'Ce navigateur ne peut pas écrire directement sur le disque : utilise Chrome ou Edge pour les grosses vidéos.';
+        }
+      } catch (e) {
+        if (e.name !== 'AbortError') status('Impossible de créer le fichier : ' + e.message, 'err');
+        return;
+      }
+      accepted = true;
+      $('accept').disabled = true;
+      status('Connexion directe au téléphone…');
+      sig.send({ t: 'accept' });
+    };
+
+    async function answer(sdp) {
+      peer = TPTransfer.peer(sig);
+      const pc = peer.pc;
+      pc.onconnectionstatechange = () => {
+        if (pc.connectionState === 'failed') status('Connexion directe impossible. Vérifie que le téléphone et le PC sont sur le même Wi-Fi, puis recharge cette page.', 'err');
+      };
+      pc.ondatachannel = (e) => receive(e.channel);
+      await peer.remote(sdp);
+      const ans = await pc.createAnswer();
+      await pc.setLocalDescription(ans);
+      sig.send({ t: 'answer', sdp: pc.localDescription.toJSON() });
+    }
+
+    function receive(dc) {
+      dc.binaryType = 'arraybuffer';
+      let received = 0, written = 0, lastAck = 0, chain = Promise.resolve(), t0 = 0, size = info.size, finished = false;
+      $('progress').hidden = false;
+      const show = () => {
+        const s = (performance.now() - t0) / 1000;
+        const speed = s > 0 ? written / s : 0;
+        $('bar').style.width = (written / size * 100).toFixed(1) + '%';
+        $('p-stats').textContent = sizeTxt(written) + ' / ' + sizeTxt(size) + ' · ' + (speed / MB).toFixed(1) + ' Mo/s' +
+          (speed > 0 && written < size ? ' · reste ~' + Math.ceil((size - written) / speed / 60) + ' min' : '');
+      };
+      const fail = (msg) => {
+        if (finished) return;
+        finished = true;
+        status(msg, 'err');
+        try { dc.send(JSON.stringify({ t: 'error', message: msg })); } catch {}
+        if (writable) writable.abort().catch(() => {});
+      };
+      dc.onmessage = (e) => {
+        if (typeof e.data === 'string') {
+          const m = JSON.parse(e.data);
+          if (m.t === 'start') { size = m.size; t0 = performance.now(); status('Transfert en cours…'); }
+          if (m.t === 'end') chain = chain.then(async () => {
+            if (written !== m.n) return fail('Fichier incomplet (' + sizeTxt(written) + ' sur ' + sizeTxt(m.n) + '). Relance l\'envoi.');
+            if (writable) await writable.close();
+            finished = true;
+            dc.send(JSON.stringify({ t: 'done', n: written }));
+            show();
+            if (memParts) {
+              const url = URL.createObjectURL(new Blob(memParts, { type: info.type }));
+              $('mem-link').href = url; $('mem-link').download = info.name; $('mem-link').hidden = false;
+              status('Vidéo reçue. Clique « Enregistrer le fichier ».', 'ok');
+            } else status('Vidéo enregistrée sur le PC : ' + info.name + ' (' + sizeTxt(written) + ').', 'ok');
+          });
+          return;
+        }
+        const data = e.data;
+        received += data.byteLength;
+        chain = chain.then(async () => {
+          if (finished) return;
+          if (writable) await writable.write(data); else memParts.push(data);
+          written += data.byteLength;
+          if (written - lastAck >= 4 * MB) { lastAck = written; dc.send(JSON.stringify({ t: 'ack', n: written })); show(); }
+        }).catch((err) => fail('Écriture sur le disque impossible : ' + err.message));
+      };
+      dc.onclose = () => { if (!finished) fail('Transfert interrompu à ' + Math.floor(written / size * 100) + ' %. La vidéo est toujours sur le téléphone : recharge cette page et relance l\'envoi.'); };
+    }
+
+    TPTransfer.signal(code, onMsg)
+      .then((s) => { sig = s; status('En attente du téléphone…'); })
+      .catch((e) => status('Relais indisponible : ' + e.message + '. Recharge la page.', 'err'));
+  })();
+  </script>
+</body>
+</html>
