@@ -137,6 +137,7 @@
     .parts { display: flex; flex-direction: column; gap: 8px; }
     a.btn { text-decoration: none; color: inherit; display: inline-block; }
     a.btn.primary { color: #111; }
+    .seg.seg4 { grid-template-columns: repeat(4, 1fr); }
     #parts-list .btn.done { opacity: .55; }
     .lib-list { display: flex; flex-direction: column; gap: 8px; }
     .lib-item { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 12px; background: var(--panel-2); }
@@ -304,8 +305,19 @@
           <button class="btn" id="cloud-copy">Copier le lien</button>
           <button class="btn danger" id="cloud-del">Retirer du stockage en ligne</button>
         </div>
-        <button class="btn" id="save-parts">Longue vidéo : enregistrer en plusieurs parties</button>
+        <div class="stats" id="part-len-label">Longue vidéo : enregistrer en plusieurs parties de</div>
+        <div class="seg seg4" id="part-len">
+          <button data-s="30">30 s</button>
+          <button data-s="60">1 min</button>
+          <button data-s="120">2 min</button>
+          <button data-s="300">5 min</button>
+        </div>
+        <button class="btn" id="save-parts">Découper la vidéo</button>
         <div class="stats" id="parts-info" hidden></div>
+        <div class="row" id="parts-actions" hidden>
+          <button class="btn primary" id="parts-next"></button>
+          <button class="btn" id="parts-all">Tout d'un coup</button>
+        </div>
         <div class="row" id="parts-list"></div>
       </div>
       <p class="note" id="save-note">Sur iPhone : « Enregistrer dans Photos » ouvre le menu de partage → choisis <b>Enregistrer la vidéo</b>. Si ça échoue, choisis <b>Enregistrer dans Fichiers</b> dans le même menu. Le fichier n'est pas recompressé et la vidéo reste dans « Mes vidéos » quoi qu'il arrive.</p>
@@ -323,7 +335,7 @@
   const DEFAULT_TEXT = "Salut à tous et bienvenue sur la chaîne !\n\nColle ton propre texte avec le bouton en bas à gauche. Le texte défile tout seul pendant que tu filmes. Touche la bande pour mettre en pause, glisse pour revenir en arrière, et règle la vitesse avec les boutons moins et plus.\n\nQuand tu as fini, appuie sur le bouton rouge : tu peux revoir la prise puis l'enregistrer directement dans ta galerie.";
   const S = Object.assign({
     text: DEFAULT_TEXT, cpl: 42, cplL: 70, lines: 4, frames: { p: null, l: null }, wpm: 180, opacity: 60,
-    countdown: true, mirror: false, facing: 'user', quality: '1080', voice: true
+    countdown: true, mirror: false, facing: 'user', quality: '1080', voice: true, partSec: 120
   }, load());
   function load() { try { return JSON.parse(localStorage.getItem('tp-settings') || '{}'); } catch { return {}; } }
   function save() { try { localStorage.setItem('tp-settings', JSON.stringify(S)); } catch {} }
@@ -805,9 +817,9 @@
     // on passe uniquement par le menu de partage, qui propose aussi « Enregistrer dans Fichiers ».
     $('save-file').hidden = canShare;
     resetDelete();
-    $('parts-list').textContent = ''; $('parts-info').hidden = true;
+    $('parts-list').textContent = ''; $('parts-info').hidden = true; $('parts-actions').hidden = true; partFiles = []; partDone = [];
     showCloud(meta);
-    $('save-parts').hidden = !canShare || !meta.type.includes('mp4');
+    $('save-parts').hidden = $('part-len').hidden = $('part-len-label').hidden = !canShare || !meta.type.includes('mp4');
     openSheet('sheet-review');
   }
   function releaseCurrent() {
@@ -844,14 +856,24 @@
       $('cloud-info').textContent = 'Fichier complet en ligne (' + sizeTxt(meta.size) + '). Le lien s\'ouvre dans Safari → « Télécharger » → app Fichiers › Téléchargements → Partager › Enregistrer la vidéo. Une fois récupéré, retire-le du stockage en ligne pour libérer la place.';
     } else $('cloud-info').hidden = true;
   }
+  // Script classique (pas de module ES) : plus fiable dans l'app de l'écran d'accueil d'iOS.
+  function loadUploader() {
+    if (window.VercelBlobUpload) return Promise.resolve(window.VercelBlobUpload);
+    return new Promise((res, rej) => {
+      const sc = document.createElement('script');
+      sc.src = 'vendor/blob-client.js?v=2';
+      sc.onload = () => window.VercelBlobUpload ? res(window.VercelBlobUpload) : rej(new Error('module d\'envoi invalide'));
+      sc.onerror = () => rej(new Error('module d\'envoi introuvable (vérifie la connexion)'));
+      document.head.appendChild(sc);
+    });
+  }
   $('cloud-up').onclick = async () => {
     if (!current) return;
     const meta = current.meta, btn = $('cloud-up'), info = $('cloud-info');
     btn.disabled = true; info.hidden = false; info.textContent = 'Préparation de l\'envoi…';
     keepAwake();
     try {
-      window.process = window.process || { env: {} };
-      const { upload } = await import('./vendor/blob-client.js');
+      const upload = await loadUploader();
       const res = await upload('teleprompteur/' + current.file.name, current.file, {
         access: 'public', handleUploadUrl: '/api/teleprompteur/upload', multipart: true, contentType: meta.type,
         onUploadProgress: (e) => { info.textContent = 'Envoi : ' + Math.floor(e.percentage) + ' % (' + sizeTxt(e.loaded) + ' / ' + sizeTxt(e.total) + '). Garde l\'app ouverte et l\'écran allumé.'; }
@@ -892,7 +914,6 @@
   // Une longue prise (plusieurs centaines de Mo) peut faire échouer le menu de partage d'iOS.
   // Le MP4 de l'enregistreur est « fragmenté » : en-tête (ftyp + moov) puis fragments (moof + mdat).
   // Chaque partie = en-tête + une suite de fragments, avec les horodatages remis à zéro : un MP4 lisible seul.
-  const PART_BYTES = 120 * 1048576;
   async function readBoxes(blob) {
     const boxes = [];
     let off = 0;
@@ -939,7 +960,7 @@
     walk(8, buf.byteLength);
     return buf;
   }
-  async function splitVideo(blob, type, baseName) {
+  async function splitVideo(blob, type, baseName, maxBytes) {
     const boxes = await readBoxes(blob);
     const firstMoof = boxes.findIndex(b => b.type === 'moof');
     if (firstMoof < 0) return null; // MP4 non fragmenté : découpage impossible sans réencodage
@@ -954,7 +975,7 @@
     let cur = [], bytes = 0;
     for (const f of frags) {
       const sz = f.end - f.moof.off;
-      if (cur.length && bytes + sz > PART_BYTES) { groups.push(cur); cur = []; bytes = 0; }
+      if (cur.length && bytes + sz > maxBytes) { groups.push(cur); cur = []; bytes = 0; }
       cur.push(f); bytes += sz;
     }
     if (cur.length) groups.push(cur);
@@ -971,26 +992,55 @@
     }
     return parts;
   }
+  function syncPartLen() { document.querySelectorAll('#part-len button').forEach(b => b.setAttribute('aria-pressed', +b.dataset.s === S.partSec)); }
+  document.querySelectorAll('#part-len button').forEach(b => b.onclick = () => {
+    S.partSec = +b.dataset.s; save(); syncPartLen();
+    $('parts-list').textContent = ''; $('parts-actions').hidden = true; $('parts-info').hidden = true;
+  });
+  syncPartLen();
+
+  let partFiles = [], partDone = [];
+  function partLabel(i) { return 'Partie ' + (i + 1) + ' · ~' + fmt(current.meta.duration * partFiles[i].size / current.blob.size) + ' · ' + sizeTxt(partFiles[i].size); }
+  function refreshParts() {
+    const next = partDone.indexOf(false);
+    $('parts-next').hidden = next < 0;
+    if (next >= 0) $('parts-next').textContent = 'Enregistrer la partie ' + (next + 1) + ' sur ' + partFiles.length;
+    $('parts-list').querySelectorAll('button').forEach((b, i) => { b.classList.toggle('done', partDone[i]); b.textContent = (partDone[i] ? '✓ ' : '') + partLabel(i); });
+    if (next < 0) $('parts-info').textContent = 'Toutes les parties ont été envoyées. Vérifie dans Photos avant de supprimer quoi que ce soit.';
+  }
+  async function sharePart(i) {
+    try { await navigator.share({ files: [partFiles[i]] }); partDone[i] = true; refreshParts(); }
+    catch (e) { if (e.name !== 'AbortError') $('r-status').textContent = 'Partie ' + (i + 1) + ' : partage impossible (' + e.name + (e.message ? ' : ' + e.message : '') + '). Choisis des parties plus courtes.'; }
+  }
+  $('parts-next').onclick = () => { const i = partDone.indexOf(false); if (i >= 0) sharePart(i); };
+  $('parts-all').onclick = async () => {
+    try {
+      if (navigator.canShare && !navigator.canShare({ files: partFiles })) throw new Error('trop de fichiers pour le menu de partage');
+      await navigator.share({ files: partFiles });
+      partDone = partFiles.map(() => true); refreshParts();
+    } catch (e) {
+      if (e.name !== 'AbortError') $('r-status').textContent = 'Tout d\'un coup : impossible (' + (e.message || e.name) + '). Les ' + sizeTxt(current.blob.size) + ' sont trop lourds pour iOS en une fois : utilise « Enregistrer la partie suivante ».';
+    }
+  };
   $('save-parts').onclick = async () => {
     if (!current) return;
     const btn = $('save-parts'), info = $('parts-info'), list = $('parts-list');
-    btn.disabled = true; info.hidden = false; info.textContent = 'Découpage en cours…'; list.textContent = '';
+    btn.disabled = true; info.hidden = false; info.textContent = 'Découpage en cours…'; list.textContent = ''; $('parts-actions').hidden = true;
+    const maxBytes = Math.max(1048576, S.partSec * current.blob.size / Math.max(1, current.meta.duration));
     let parts = null;
-    try { parts = await splitVideo(current.blob, current.meta.type, current.file.name); } catch (e) { parts = null; }
+    try { parts = await splitVideo(current.blob, current.meta.type, current.file.name, maxBytes); } catch (e) { parts = null; }
     btn.disabled = false;
     if (!parts) { info.textContent = 'Cette vidéo ne peut pas être découpée (format non fragmenté).'; return; }
-    const total = current.blob.size;
-    info.textContent = parts.length + ' parties. Touche chaque partie à son tour, puis « Enregistrer la vidéo ». Elles se suivent sans coupure : remets-les bout à bout dans ton logiciel de montage.';
+    partFiles = parts; partDone = parts.map(() => false);
+    info.textContent = parts.length + ' parties. Touche « Enregistrer la partie suivante » puis « Enregistrer la vidéo », et recommence. Elles se suivent sans coupure.';
     parts.forEach((f, i) => {
       const b = document.createElement('button');
       b.className = 'btn';
-      b.textContent = 'Partie ' + (i + 1) + ' · ~' + fmt(current.meta.duration * f.size / total) + ' · ' + sizeTxt(f.size);
-      b.onclick = async () => {
-        try { await navigator.share({ files: [f] }); b.classList.add('done'); b.textContent = '✓ ' + b.textContent.replace(/^✓ /, ''); }
-        catch (e) { if (e.name !== 'AbortError') $('r-status').textContent = 'Partie ' + (i + 1) + ' : partage impossible (' + e.name + (e.message ? ' : ' + e.message : '') + ').'; }
-      };
+      b.onclick = () => sharePart(i);
       list.appendChild(b);
     });
+    $('parts-actions').hidden = false;
+    refreshParts();
   };
 
   let delTimer = 0;
