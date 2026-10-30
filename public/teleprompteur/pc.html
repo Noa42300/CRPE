@@ -52,7 +52,7 @@
         <li>Tape ce code, puis reviens ici.</li>
       </ol>
       <div id="status">Connexion au relais…</div>
-      <div class="note">Version de la page : 13</div>
+      <div class="note">Version de la page : 14</div>
     </section>
 
     <section class="card" id="incoming" hidden>
@@ -123,8 +123,35 @@
       accepted = true;
       $('accept').disabled = true;
       status('Connexion directe au téléphone…');
+      if (info.mode === 'pipe') { sig.send({ t: 'accept', pipe: receivePipe() }); return; }
       sig.send({ t: 'accept' });
     };
+
+    // Téléphone sans WebRTC : la vidéo arrive par le relais de flux, morceau par morceau.
+    function receivePipe() {
+      const pipe = TPTransfer.newPipe();
+      $('progress').hidden = false;
+      status('Transfert en cours (par Internet, selon le débit de ta box)…');
+      const write = async (blob) => { if (writable) await writable.write(blob); else memParts.push(blob); };
+      TPTransfer.pipeReceive(pipe, info.size, write, (n, size, speed) => {
+        $('bar').style.width = (n / size * 100).toFixed(1) + '%';
+        $('p-stats').textContent = sizeTxt(n) + ' / ' + sizeTxt(size) + ' · ' + (speed / MB).toFixed(1) + ' Mo/s' +
+          (speed > 0 && n < size ? ' · reste ~' + Math.ceil((size - n) / speed / 60) + ' min' : '');
+      }).then(async (n) => {
+        if (writable) await writable.close();
+        sig.send({ t: 'done', n });
+        if (memParts) {
+          const url = URL.createObjectURL(new Blob(memParts, { type: info.type }));
+          $('mem-link').href = url; $('mem-link').download = info.name; $('mem-link').hidden = false;
+          status('Vidéo reçue. Clique « Enregistrer le fichier ».', 'ok');
+        } else status('Vidéo enregistrée sur le PC : ' + info.name + ' (' + sizeTxt(n) + ').', 'ok');
+      }).catch((e) => {
+        if (writable) writable.abort().catch(() => {});
+        sig.send({ t: 'error', message: e.message });
+        status('Transfert interrompu : ' + e.message + '. La vidéo est toujours sur le téléphone : recharge cette page et relance l\'envoi.', 'err');
+      });
+      return pipe;
+    }
 
     async function answer(sdp) {
       peer = TPTransfer.peer();
