@@ -135,6 +135,8 @@
     .seg button[aria-pressed=true] { background: var(--panel-2); color: var(--fg); }
 
     .parts { display: flex; flex-direction: column; gap: 8px; }
+    a.btn { text-decoration: none; color: inherit; display: inline-block; }
+    a.btn.primary { color: #111; }
     #parts-list .btn.done { opacity: .55; }
     .lib-list { display: flex; flex-direction: column; gap: 8px; }
     .lib-item { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 12px; background: var(--panel-2); }
@@ -295,6 +297,13 @@
         <button class="btn danger" id="discard">Supprimer</button>
       </div>
       <div class="parts">
+        <button class="btn" id="cloud-up">Fichier complet : créer un lien de téléchargement</button>
+        <div class="stats" id="cloud-info" hidden></div>
+        <div class="row" id="cloud-actions" hidden>
+          <a class="btn primary" id="cloud-link" href="#" target="_blank" rel="noopener">Télécharger le fichier complet</a>
+          <button class="btn" id="cloud-copy">Copier le lien</button>
+          <button class="btn danger" id="cloud-del">Retirer du stockage en ligne</button>
+        </div>
         <button class="btn" id="save-parts">Longue vidéo : enregistrer en plusieurs parties</button>
         <div class="stats" id="parts-info" hidden></div>
         <div class="row" id="parts-list"></div>
@@ -797,6 +806,7 @@
     $('save-file').hidden = canShare;
     resetDelete();
     $('parts-list').textContent = ''; $('parts-info').hidden = true;
+    showCloud(meta);
     $('save-parts').hidden = !canShare || !meta.type.includes('mp4');
     openSheet('sheet-review');
   }
@@ -821,6 +831,63 @@
     a.href = current.url; a.download = current.file.name; document.body.appendChild(a); a.click(); a.remove();
     $('r-status').textContent = 'Fichier téléchargé (app Fichiers › Téléchargements).';
   };
+  // ---------- Fichier complet via un lien (Vercel Blob) ----------
+  // Une app de l'écran d'accueil ne peut pas télécharger de fichier sur iPhone : on envoie la prise entière
+  // vers le stockage en ligne du site, puis on l'ouvre dans Safari (ou sur un ordinateur) avec un vrai lien.
+  function showCloud(meta) {
+    const c = meta.cloud;
+    $('cloud-actions').hidden = !c;
+    $('cloud-up').hidden = !!c;
+    if (c) {
+      $('cloud-link').href = c.downloadUrl || c.url;
+      $('cloud-info').hidden = false;
+      $('cloud-info').textContent = 'Fichier complet en ligne (' + sizeTxt(meta.size) + '). Le lien s\'ouvre dans Safari → « Télécharger » → app Fichiers › Téléchargements → Partager › Enregistrer la vidéo. Une fois récupéré, retire-le du stockage en ligne pour libérer la place.';
+    } else $('cloud-info').hidden = true;
+  }
+  $('cloud-up').onclick = async () => {
+    if (!current) return;
+    const meta = current.meta, btn = $('cloud-up'), info = $('cloud-info');
+    btn.disabled = true; info.hidden = false; info.textContent = 'Préparation de l\'envoi…';
+    keepAwake();
+    try {
+      window.process = window.process || { env: {} };
+      const { upload } = await import('./vendor/blob-client.js');
+      const res = await upload('teleprompteur/' + current.file.name, current.file, {
+        access: 'public', handleUploadUrl: '/api/teleprompteur/upload', multipart: true, contentType: meta.type,
+        onUploadProgress: (e) => { info.textContent = 'Envoi : ' + Math.floor(e.percentage) + ' % (' + sizeTxt(e.loaded) + ' / ' + sizeTxt(e.total) + '). Garde l\'app ouverte et l\'écran allumé.'; }
+      });
+      meta.cloud = { url: res.url, downloadUrl: res.downloadUrl, at: Date.now() };
+      await DB.putMeta(meta).catch(() => {});
+      showCloud(meta);
+    } catch (e) {
+      const m = String(e && e.message || e);
+      info.textContent = /token|BLOB_READ_WRITE|store/i.test(m)
+        ? 'Le stockage en ligne n\'est pas encore activé sur le site (Vercel › Storage › Blob). Détail : ' + m
+        : 'Envoi interrompu : ' + m + '. La vidéo est toujours dans « Mes vidéos ». Vérifie le Wi-Fi et réessaie.';
+    } finally { btn.disabled = false; }
+  };
+  $('cloud-copy').onclick = async () => {
+    const c = current && current.meta.cloud;
+    if (!c) return;
+    try { await navigator.clipboard.writeText(c.downloadUrl || c.url); $('cloud-copy').textContent = 'Lien copié'; }
+    catch { $('cloud-info').textContent = c.downloadUrl || c.url; }
+    setTimeout(() => { $('cloud-copy').textContent = 'Copier le lien'; }, 2000);
+  };
+  $('cloud-del').onclick = async () => {
+    const meta = current && current.meta;
+    if (!meta || !meta.cloud) return;
+    const btn = $('cloud-del');
+    if (!btn.dataset.armed) { btn.dataset.armed = '1'; btn.textContent = 'Toucher encore : retirer le fichier en ligne'; setTimeout(() => { btn.dataset.armed = ''; btn.textContent = 'Retirer du stockage en ligne'; }, 4000); return; }
+    btn.dataset.armed = ''; btn.textContent = 'Retirer du stockage en ligne';
+    try {
+      const r = await fetch('/api/teleprompteur/delete', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url: meta.cloud.url }) });
+      if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || r.status);
+      delete meta.cloud; await DB.putMeta(meta).catch(() => {});
+      showCloud(meta);
+      $('r-status').textContent = 'Fichier retiré du stockage en ligne. La vidéo reste dans « Mes vidéos » sur ce téléphone.';
+    } catch (e) { $('r-status').textContent = 'Suppression en ligne impossible : ' + e.message; }
+  };
+
   // ---------- Export en plusieurs parties ----------
   // Une longue prise (plusieurs centaines de Mo) peut faire échouer le menu de partage d'iOS.
   // Le MP4 de l'enregistreur est « fragmenté » : en-tête (ftyp + moov) puis fragments (moof + mdat).
