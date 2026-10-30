@@ -133,5 +133,64 @@
     return result;
   }
 
-  window.TPTransfer = { signal, peer, sendFile, MB };
+  // ---------- Mode « relais de flux » (sans WebRTC) ----------
+  // L'app de l'écran d'accueil d'iPhone peut ne pas avoir WebRTC. On passe alors par un piping server
+  // (ppng.io) : le téléphone envoie chaque morceau en POST, le PC le lit au même moment en GET ;
+  // le serveur fait seulement passer les octets, il ne stocke rien.
+  const PIPE_PART = 32 * MB;
+  function pipeBase() { return new URLSearchParams(location.search).get('pipe') || 'https://ppng.io'; }
+
+  async function retry(times, fn) {
+    for (let k = 0; ; k++) {
+      try { return await fn(); } catch (e) { if (k + 1 >= times) throw e; await sleep(1500 * (k + 1)); }
+    }
+  }
+
+  async function pipeSend(pipe, file, onProgress) {
+    const parts = Math.ceil(file.size / pipe.part);
+    const t0 = performance.now();
+    for (let i = 0; i < parts; i++) {
+      const a = i * pipe.part, b = Math.min(file.size, a + pipe.part);
+      await retry(4, async () => {
+        const r = await fetch(pipe.base + '/' + pipe.id + '-' + i, { method: 'POST', body: file.slice(a, b) });
+        if (!r.ok) throw new Error('relais ' + r.status);
+      });
+      onProgress(b, file.size, b / ((performance.now() - t0) / 1000));
+    }
+  }
+
+  // Chaque morceau est gardé en mémoire (32 Mo) avant écriture : un morceau raté peut être relu sans corrompre le fichier.
+  async function pipeReceive(pipe, size, write, onProgress) {
+    const parts = Math.ceil(size / pipe.part);
+    const t0 = performance.now();
+    let done = 0;
+    for (let i = 0; i < parts; i++) {
+      const expected = Math.min(pipe.part, size - i * pipe.part);
+      const buf = await retry(4, async () => {
+        const r = await fetch(pipe.base + '/' + pipe.id + '-' + i, { cache: 'no-store' });
+        if (!r.ok) throw new Error('relais ' + r.status);
+        const reader = r.body.getReader(), chunks = [];
+        let got = 0;
+        for (;;) {
+          const { value, done: end } = await reader.read();
+          if (end) break;
+          chunks.push(value); got += value.byteLength;
+          onProgress(done + got, size, (done + got) / ((performance.now() - t0) / 1000));
+        }
+        if (got !== expected) throw new Error('morceau ' + (i + 1) + ' incomplet');
+        return new Blob(chunks);
+      });
+      await write(buf);
+      done += expected;
+      onProgress(done, size, done / ((performance.now() - t0) / 1000));
+    }
+    return done;
+  }
+
+  function newPipe() {
+    const id = 'crpe-tp-' + Array.from(crypto.getRandomValues(new Uint8Array(12)), (x) => x.toString(16).padStart(2, '0')).join('');
+    return { base: pipeBase(), id, part: PIPE_PART };
+  }
+
+  window.TPTransfer = { signal, peer, sendFile, pipeSend, pipeReceive, newPipe, MB };
 })();
