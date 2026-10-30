@@ -55,7 +55,7 @@
       </ol>
       <div id="status">Connexion au relais…</div>
       <div class="note" id="rx">Messages reçus du téléphone : 0</div>
-      <div class="note">Version de la page : 16</div>
+      <div class="note">Version de la page : 17</div>
     </section>
 
     <section class="card" id="incoming" hidden>
@@ -86,9 +86,14 @@
     const code = String(Math.floor(100000 + Math.random() * 900000));
     $('code').textContent = code;
 
-    let sig = null, info = null, peer = null, writable = null, memParts = null, accepted = false;
+    let sig = null, info = null, peer = null, writable = null, memParts = null, accepted = false, transferDone = false;
 
     let received = 0;
+    // Le navigateur ne donne pas le chemin du dossier choisi : on indique comment retrouver le fichier.
+    function savedMsg(n) {
+      return '✓ Vidéo enregistrée sur le PC (' + sizeTxt(n) + '), dans le dossier choisi à l\'étape « Enregistrer sur ce PC… ». ' +
+        'Elle n\'apparaît pas dans les téléchargements du navigateur : pour la retrouver, Windows + E → Ce PC → recherche « ' + info.name.replace(/\.\w+$/, '') + ' ».';
+    }
     function onMsg(m) {
       received++;
       $('rx').textContent = 'Messages reçus du téléphone : ' + received + ' (dernier : ' + m.t + ')';
@@ -150,7 +155,7 @@
           const url = URL.createObjectURL(new Blob(memParts, { type: info.type }));
           $('mem-link').href = url; $('mem-link').download = info.name; $('mem-link').hidden = false;
           status('Vidéo reçue. Clique « Enregistrer le fichier ».', 'ok');
-        } else status('Vidéo enregistrée sur le PC : ' + info.name + ' (' + sizeTxt(n) + ').', 'ok');
+        } else status(savedMsg(n), 'ok');
       }).catch((e) => {
         if (writable) writable.abort().catch(() => {});
         sig.send({ t: 'error', message: e.message });
@@ -163,7 +168,7 @@
       peer = TPTransfer.peer();
       const pc = peer.pc;
       pc.onconnectionstatechange = () => {
-        if (pc.connectionState === 'failed') status('Connexion directe impossible. Vérifie que le téléphone et le PC sont sur le même Wi-Fi, puis recharge cette page.', 'err');
+        if (pc.connectionState === 'failed' && !transferDone) status('Connexion directe impossible. Vérifie que le téléphone et le PC sont sur le même Wi-Fi, puis recharge cette page.', 'err');
       };
       pc.ondatachannel = (e) => receive(e.channel);
       await peer.remote(sdp);
@@ -195,14 +200,14 @@
           if (m.t === 'end') chain = chain.then(async () => {
             if (written !== m.n) return fail('Fichier incomplet (' + sizeTxt(written) + ' sur ' + sizeTxt(m.n) + '). Relance l\'envoi.');
             if (writable) await writable.close();
-            finished = true;
+            finished = true; transferDone = true;
             dc.send(JSON.stringify({ t: 'done', n: written }));
             show();
             if (memParts) {
               const url = URL.createObjectURL(new Blob(memParts, { type: info.type }));
               $('mem-link').href = url; $('mem-link').download = info.name; $('mem-link').hidden = false;
               status('Vidéo reçue. Clique « Enregistrer le fichier ».', 'ok');
-            } else status('Vidéo enregistrée sur le PC : ' + info.name + ' (' + sizeTxt(written) + ').', 'ok');
+            } else status(savedMsg(written), 'ok');
           });
           return;
         }
