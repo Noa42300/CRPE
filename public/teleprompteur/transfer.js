@@ -23,7 +23,7 @@
     if (new URLSearchParams(location.search).get('signal') === 'local') {
       const bc = new BroadcastChannel('tp-' + code), me = Math.random();
       bc.onmessage = (e) => { if (e.data.from !== me) onMsg(e.data.msg); };
-      return { send: (m) => bc.postMessage({ from: me, msg: m }), close: () => bc.close() };
+      return { send: (m) => bc.postMessage({ from: me, msg: m }), close: () => bc.close(), kind: 'local' };
     }
     const relay = new URLSearchParams(location.search).get('relay');
     const cfg = relay ? {} : await fetch('/api/teleprompteur/config', { cache: 'no-store' }).then((r) => r.json()).catch(() => ({}));
@@ -39,7 +39,7 @@
         else if (st === 'CHANNEL_ERROR' || st === 'TIMED_OUT') { clearTimeout(t); rej(new Error('relais indisponible (' + st + ')')); }
       });
     });
-    return { send: (m) => ch.send({ type: 'broadcast', event: 'sig', payload: m }), close: () => client.removeChannel(ch) };
+    return { send: (m) => ch.send({ type: 'broadcast', event: 'sig', payload: m }), close: () => client.removeChannel(ch), kind: 'Supabase' };
   }
 
   // Relais ntfy.sh : messages publiés en HTTP, reçus en flux (SSE).
@@ -68,11 +68,14 @@
         const str = JSON.stringify(msg), id = Math.random().toString(36).slice(2), n = Math.ceil(str.length / 3000) || 1;
         for (let i = 0; i < n; i++) {
           const body = JSON.stringify({ from: me, id, i, n, d: str.slice(i * 3000, (i + 1) * 3000) });
-          queue = queue.then(() => fetch(url, { method: 'POST', body }).catch(() => {}));
+          queue = queue.then(() => fetch(url, { method: 'POST', body }));
         }
-        return queue;
+        const out = queue;
+        queue = queue.catch(() => {});
+        return out;
       },
-      close() { es.close(); }
+      close() { es.close(); },
+      kind: 'ntfy.sh'
     };
   }
 
