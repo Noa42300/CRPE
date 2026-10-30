@@ -310,6 +310,7 @@
           </div>
           <div class="pbar" id="pc-bar-wrap" hidden><i id="pc-bar"></i></div>
           <div class="stats" id="pc-status"></div>
+          <div class="stats">Version de l'app : 13</div>
         </div>
         <button class="btn" id="cloud-up">Fichier complet : créer un lien de téléchargement</button>
         <div class="stats" id="cloud-info" hidden></div>
@@ -935,7 +936,9 @@
   $('pc-go').onclick = async () => {
     if (!current || pcBusy) return;
     const code = $('pc-code').value.replace(/\D/g, '');
-    const st = (t) => { $('pc-status').textContent = t; };
+    // Le statut s'affiche au-dessus du clavier, sinon on croit que le bouton ne fait rien.
+    const st = (t) => { $('pc-status').textContent = t; $('pc-status').scrollIntoView({ block: 'center', behavior: 'smooth' }); };
+    $('pc-code').blur();
     if (code.length !== 6) return st('Tape les 6 chiffres affichés sur le PC.');
     if (!window.TPTransfer || !window.RTCPeerConnection) return st('Ce navigateur ne permet pas le transfert direct.');
     pcBusy = true; $('pc-go').disabled = true; keepAwake();
