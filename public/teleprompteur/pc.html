@@ -126,16 +126,14 @@
     };
 
     async function answer(sdp) {
-      peer = TPTransfer.peer(sig);
+      peer = TPTransfer.peer();
       const pc = peer.pc;
       pc.onconnectionstatechange = () => {
         if (pc.connectionState === 'failed') status('Connexion directe impossible. Vérifie que le téléphone et le PC sont sur le même Wi-Fi, puis recharge cette page.', 'err');
       };
       pc.ondatachannel = (e) => receive(e.channel);
       await peer.remote(sdp);
-      const ans = await pc.createAnswer();
-      await pc.setLocalDescription(ans);
-      sig.send({ t: 'answer', sdp: pc.localDescription.toJSON() });
+      sig.send({ t: 'answer', sdp: await peer.local(await pc.createAnswer()) });
     }
 
     function receive(dc) {

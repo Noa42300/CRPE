@@ -955,13 +955,13 @@
         else if (m.t === 'ice' && peer) peer.ice(m.c);
       });
       const hello = () => sig.send({ t: 'hello', name: file.name, size: file.size, type: file.type });
-      hello(); helloTimer = setInterval(hello, 2000);
+      hello(); helloTimer = setInterval(hello, 4000);
       st('Recherche du PC (code ' + code + ')…');
       setTimeout(() => { if (!started && pcBusy) st('Le PC ne répond pas. Vérifie le code et que la page est bien ouverte sur le PC.'); }, 15000);
     } catch (e) { return end('Relais indisponible : ' + e.message); }
 
     async function start() {
-      peer = TPTransfer.peer(sig);
+      peer = TPTransfer.peer();
       const pc = peer.pc;
       const dc = pc.createDataChannel('file', { ordered: true });
       dc.binaryType = 'arraybuffer';
@@ -979,9 +979,8 @@
           end('✓ Reçue sur le PC (' + sizeTxt(n) + '). Vérifie qu\'elle se lit sur le PC avant de la supprimer ici.');
         } catch (e) { end('Transfert interrompu : ' + e.message + '. La vidéo est toujours ici : recharge la page sur le PC et relance.'); }
       };
-      const offer = await pc.createOffer();
-      await pc.setLocalDescription(offer);
-      sig.send({ t: 'offer', sdp: pc.localDescription.toJSON() });
+      st('Préparation de la connexion directe…');
+      sig.send({ t: 'offer', sdp: await peer.local(await pc.createOffer()) });
     }
   };
 

@@ -1,6 +1,7 @@
 /* Transfert direct téléphone → PC en Wi-Fi (WebRTC).
- * Supabase Realtime sert seulement de relais pour que les deux appareils se trouvent
- * (code à 6 chiffres) ; la vidéo passe ensuite en direct par le réseau local.
+ * Un relais sert seulement à ce que les deux appareils se trouvent (code à 6 chiffres) :
+ * Supabase Realtime si le site l'a configuré, sinon ntfy.sh (service public, sans compte).
+ * La vidéo passe ensuite en direct par le réseau local, jamais par le relais.
  * Utilisé par index.html (envoi) et pc.html (réception). */
 (function () {
   'use strict';
@@ -24,8 +25,9 @@
       bc.onmessage = (e) => { if (e.data.from !== me) onMsg(e.data.msg); };
       return { send: (m) => bc.postMessage({ from: me, msg: m }), close: () => bc.close() };
     }
-    const cfg = await fetch('/api/teleprompteur/config', { cache: 'no-store' }).then((r) => r.json()).catch(() => ({}));
-    if (!cfg.url || !cfg.key) throw new Error('le relais Supabase n\'est pas configuré sur le site');
+    const relay = new URLSearchParams(location.search).get('relay');
+    const cfg = relay ? {} : await fetch('/api/teleprompteur/config', { cache: 'no-store' }).then((r) => r.json()).catch(() => ({}));
+    if (!cfg.url || !cfg.key) return ntfySignal(code, onMsg, relay || 'https://ntfy.sh');
     if (!window.supabase) await loadScript(new URL('vendor/supabase.js', document.currentScript ? document.currentScript.src : location.href).href);
     client = client || window.supabase.createClient(cfg.url, cfg.key, { auth: { persistSession: false, autoRefreshToken: false } });
     const ch = client.channel('tp-transfer-' + code, { config: { broadcast: { self: false } } });
@@ -40,18 +42,58 @@
     return { send: (m) => ch.send({ type: 'broadcast', event: 'sig', payload: m }), close: () => client.removeChannel(ch) };
   }
 
-  // Connexion pair à pair ; les candidats ICE reçus trop tôt sont mis en attente.
-  function peer(sig) {
+  // Relais ntfy.sh : messages publiés en HTTP, reçus en flux (SSE).
+  // ntfy limite un message à 4 Ko : les messages plus longs sont envoyés en morceaux.
+  async function ntfySignal(code, onMsg, base) {
+    const url = base.replace(/\/$/, '') + '/crpe-teleprompteur-' + code;
+    const me = Math.random().toString(36).slice(2), pieces = {};
+    const es = new EventSource(url + '/sse');
+    await new Promise((res, rej) => {
+      const t = setTimeout(() => { es.close(); rej(new Error('le relais ne répond pas')); }, 12000);
+      es.onopen = () => { clearTimeout(t); res(); };
+    });
+    es.onmessage = (e) => {
+      let d, m;
+      try { d = JSON.parse(e.data); if (d.event !== 'message') return; m = JSON.parse(d.message); } catch { return; }
+      if (m.from === me) return;
+      const box = pieces[m.id] = pieces[m.id] || [];
+      box[m.i] = m.d;
+      if (box.filter((x) => x !== undefined).length < m.n) return;
+      delete pieces[m.id];
+      try { onMsg(JSON.parse(box.join(''))); } catch {}
+    };
+    let queue = Promise.resolve();
+    return {
+      send(msg) {
+        const str = JSON.stringify(msg), id = Math.random().toString(36).slice(2), n = Math.ceil(str.length / 3000) || 1;
+        for (let i = 0; i < n; i++) {
+          const body = JSON.stringify({ from: me, id, i, n, d: str.slice(i * 3000, (i + 1) * 3000) });
+          queue = queue.then(() => fetch(url, { method: 'POST', body }).catch(() => {}));
+        }
+        return queue;
+      },
+      close() { es.close(); }
+    };
+  }
+
+  // Connexion pair à pair. Les adresses réseau sont rassemblées avant l'envoi de l'offre/réponse :
+  // un seul message par côté, moins de dépendance au relais.
+  function peer() {
     const pc = new RTCPeerConnection({ iceServers: ICE });
-    const pending = [];
-    pc.onicecandidate = (e) => { if (e.candidate) sig.send({ t: 'ice', c: e.candidate.toJSON() }); };
     return {
       pc,
-      async remote(desc) {
-        await pc.setRemoteDescription(desc);
-        for (const c of pending.splice(0)) await pc.addIceCandidate(c).catch(() => {});
+      remote: (desc) => pc.setRemoteDescription(desc),
+      async local(desc) {
+        await pc.setLocalDescription(desc);
+        if (pc.iceGatheringState !== 'complete') {
+          await new Promise((res) => {
+            const t = setTimeout(res, 4000);
+            pc.addEventListener('icegatheringstatechange', () => { if (pc.iceGatheringState === 'complete') { clearTimeout(t); res(); } });
+          });
+        }
+        return pc.localDescription.toJSON();
       },
-      ice(c) { if (pc.remoteDescription) pc.addIceCandidate(c).catch(() => {}); else pending.push(c); }
+      ice() {}
     };
   }
 
