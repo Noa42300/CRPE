@@ -134,6 +134,8 @@
     .seg button { padding: 9px; border-radius: 9px; font-size: 14px; font-weight: 600; color: var(--muted); }
     .seg button[aria-pressed=true] { background: var(--panel-2); color: var(--fg); }
 
+    .parts { display: flex; flex-direction: column; gap: 8px; }
+    #parts-list .btn.done { opacity: .55; }
     .lib-list { display: flex; flex-direction: column; gap: 8px; }
     .lib-item { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 12px; background: var(--panel-2); }
     .lib-date { display: block; font-weight: 600; font-size: 15px; }
@@ -291,6 +293,11 @@
         <button class="btn primary" id="save-photos">Enregistrer dans Photos</button>
         <button class="btn" id="save-file">Télécharger le fichier</button>
         <button class="btn danger" id="discard">Supprimer</button>
+      </div>
+      <div class="parts">
+        <button class="btn" id="save-parts">Longue vidéo : enregistrer en plusieurs parties</button>
+        <div class="stats" id="parts-info" hidden></div>
+        <div class="row" id="parts-list"></div>
       </div>
       <p class="note" id="save-note">Sur iPhone : « Enregistrer dans Photos » ouvre le menu de partage → choisis <b>Enregistrer la vidéo</b>. Si ça échoue, choisis <b>Enregistrer dans Fichiers</b> dans le même menu. Le fichier n'est pas recompressé et la vidéo reste dans « Mes vidéos » quoi qu'il arrive.</p>
       <p class="note" id="r-status"></p>
@@ -789,6 +796,8 @@
     // on passe uniquement par le menu de partage, qui propose aussi « Enregistrer dans Fichiers ».
     $('save-file').hidden = canShare;
     resetDelete();
+    $('parts-list').textContent = ''; $('parts-info').hidden = true;
+    $('save-parts').hidden = !canShare || !meta.type.includes('mp4');
     openSheet('sheet-review');
   }
   function releaseCurrent() {
@@ -803,7 +812,7 @@
       await navigator.share({ files: [current.file] });
       $('r-status').textContent = 'Envoyée. Vérifie qu\'elle apparaît dans Photos. Elle reste aussi dans « Mes vidéos ».';
     } catch (e) {
-      if (e.name !== 'AbortError') $('r-status').textContent = 'Partage impossible (' + e.name + '). La vidéo est toujours dans « Mes vidéos ». Ferme l\'app, relance-la et réessaie.';
+      if (e.name !== 'AbortError') $('r-status').textContent = 'Partage impossible (' + e.name + (e.message ? ' : ' + e.message : '') + '). La vidéo est toujours dans « Mes vidéos ». Pour une longue vidéo, utilise « enregistrer en plusieurs parties ».';
     }
   };
   $('save-file').onclick = () => {
@@ -812,6 +821,111 @@
     a.href = current.url; a.download = current.file.name; document.body.appendChild(a); a.click(); a.remove();
     $('r-status').textContent = 'Fichier téléchargé (app Fichiers › Téléchargements).';
   };
+  // ---------- Export en plusieurs parties ----------
+  // Une longue prise (plusieurs centaines de Mo) peut faire échouer le menu de partage d'iOS.
+  // Le MP4 de l'enregistreur est « fragmenté » : en-tête (ftyp + moov) puis fragments (moof + mdat).
+  // Chaque partie = en-tête + une suite de fragments, avec les horodatages remis à zéro : un MP4 lisible seul.
+  const PART_BYTES = 120 * 1048576;
+  async function readBoxes(blob) {
+    const boxes = [];
+    let off = 0;
+    while (off + 8 <= blob.size) {
+      const h = new DataView(await blob.slice(off, off + 16).arrayBuffer());
+      let size = h.getUint32(0);
+      const type = String.fromCharCode(h.getUint8(4), h.getUint8(5), h.getUint8(6), h.getUint8(7));
+      if (size === 1) size = Number(h.getBigUint64(8));
+      else if (size === 0) size = blob.size - off;
+      if (size < 8) break;
+      boxes.push({ type, off, size });
+      off += size;
+    }
+    return boxes;
+  }
+  // Recopie un moof en ramenant baseMediaDecodeTime (tfdt) au début de la partie, piste par piste.
+  function rebaseMoof(buf, base, first) {
+    const v = new DataView(buf);
+    const walk = (start, end) => {
+      let o = start;
+      while (o + 8 <= end) {
+        const size = v.getUint32(o), type = String.fromCharCode(v.getUint8(o + 4), v.getUint8(o + 5), v.getUint8(o + 6), v.getUint8(o + 7));
+        if (size < 8) return;
+        if (type === 'traf') {
+          let track = 0, tfdtAt = -1, ver = 0, p = o + 8;
+          while (p + 8 <= o + size) {
+            const cs = v.getUint32(p), ct = String.fromCharCode(v.getUint8(p + 4), v.getUint8(p + 5), v.getUint8(p + 6), v.getUint8(p + 7));
+            if (cs < 8) break;
+            if (ct === 'tfhd') track = v.getUint32(p + 12);
+            if (ct === 'tfdt') { tfdtAt = p; ver = v.getUint8(p + 8); }
+            p += cs;
+          }
+          if (tfdtAt >= 0) {
+            const t = ver === 1 ? v.getBigUint64(tfdtAt + 12) : BigInt(v.getUint32(tfdtAt + 12));
+            if (first) base.set(track, t);
+            const b = base.has(track) ? base.get(track) : t;
+            const nt = t > b ? t - b : 0n;
+            if (ver === 1) v.setBigUint64(tfdtAt + 12, nt); else v.setUint32(tfdtAt + 12, Number(nt));
+          }
+        }
+        o += size;
+      }
+    };
+    walk(8, buf.byteLength);
+    return buf;
+  }
+  async function splitVideo(blob, type, baseName) {
+    const boxes = await readBoxes(blob);
+    const firstMoof = boxes.findIndex(b => b.type === 'moof');
+    if (firstMoof < 0) return null; // MP4 non fragmenté : découpage impossible sans réencodage
+    const init = blob.slice(0, boxes[firstMoof].off);
+    // Fragments : un moof et tout ce qui le suit jusqu'au moof suivant.
+    const frags = [];
+    for (let i = firstMoof; i < boxes.length; i++) {
+      if (boxes[i].type === 'moof') frags.push({ moof: boxes[i], end: boxes[i].off + boxes[i].size });
+      else if (frags.length) frags[frags.length - 1].end = boxes[i].off + boxes[i].size;
+    }
+    const groups = [];
+    let cur = [], bytes = 0;
+    for (const f of frags) {
+      const sz = f.end - f.moof.off;
+      if (cur.length && bytes + sz > PART_BYTES) { groups.push(cur); cur = []; bytes = 0; }
+      cur.push(f); bytes += sz;
+    }
+    if (cur.length) groups.push(cur);
+    const parts = [];
+    for (let g = 0; g < groups.length; g++) {
+      const base = new Map(), pieces = [init];
+      for (let k = 0; k < groups[g].length; k++) {
+        const f = groups[g][k];
+        const moof = rebaseMoof(await blob.slice(f.moof.off, f.moof.off + f.moof.size).arrayBuffer(), base, k === 0);
+        pieces.push(moof, blob.slice(f.moof.off + f.moof.size, f.end));
+      }
+      const b = new Blob(pieces, { type });
+      parts.push(new File([b], baseName.replace(/(\.\w+)$/, '-partie' + (g + 1) + '$1'), { type }));
+    }
+    return parts;
+  }
+  $('save-parts').onclick = async () => {
+    if (!current) return;
+    const btn = $('save-parts'), info = $('parts-info'), list = $('parts-list');
+    btn.disabled = true; info.hidden = false; info.textContent = 'Découpage en cours…'; list.textContent = '';
+    let parts = null;
+    try { parts = await splitVideo(current.blob, current.meta.type, current.file.name); } catch (e) { parts = null; }
+    btn.disabled = false;
+    if (!parts) { info.textContent = 'Cette vidéo ne peut pas être découpée (format non fragmenté).'; return; }
+    const total = current.blob.size;
+    info.textContent = parts.length + ' parties. Touche chaque partie à son tour, puis « Enregistrer la vidéo ». Elles se suivent sans coupure : remets-les bout à bout dans ton logiciel de montage.';
+    parts.forEach((f, i) => {
+      const b = document.createElement('button');
+      b.className = 'btn';
+      b.textContent = 'Partie ' + (i + 1) + ' · ~' + fmt(current.meta.duration * f.size / total) + ' · ' + sizeTxt(f.size);
+      b.onclick = async () => {
+        try { await navigator.share({ files: [f] }); b.classList.add('done'); b.textContent = '✓ ' + b.textContent.replace(/^✓ /, ''); }
+        catch (e) { if (e.name !== 'AbortError') $('r-status').textContent = 'Partie ' + (i + 1) + ' : partage impossible (' + e.name + (e.message ? ' : ' + e.message : '') + ').'; }
+      };
+      list.appendChild(b);
+    });
+  };
+
   let delTimer = 0;
   function resetDelete() { clearTimeout(delTimer); $('discard').textContent = 'Supprimer'; $('discard').dataset.armed = ''; }
   $('discard').onclick = async () => {
