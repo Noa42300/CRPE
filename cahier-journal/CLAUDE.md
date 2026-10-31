@@ -413,3 +413,35 @@ jours. On peut réduire le reste, jamais ces deux-là.
 - Confidentialité : `sanitizeForPublic()` retire toute donnée élève ;
   verrou par code PIN à l'ouverture.
 - Écriture « PE » : `.font-ecole` (cursive) + `.seyes` (lignage Seyès).
+
+## Conventions ajoutées (à respecter) — IMPORTANT
+
+- **Enseignant = UN MAÎTRE (M. Da Costa).** Dans tout contenu qui s'adresse aux
+  élèves, écrire **« le maître »**, jamais « la maîtresse » (sauf si « la
+  maîtresse » est un mot de vocabulaire / un exemple grammatical, pas une
+  référence à l'enseignant).
+- **Système de comportement « La fusée »** (`SanctionsSysteme.tsx`,
+  `FuseeComportement`) : nez « tout va bien » → **1 rappel → 2 rappels → prénom
+  au tableau = −2 min de récré → prénom + ✗ = −5 min → prénom + ✗✗ = −10 min +
+  mot aux parents**. **On n'enlève jamais toute la récré** ; **pas de protocole
+  pHARe sur l'affiche élève**. Ça s'applique à **tout** (travail mal fait / pas
+  soigné, matériel abîmé, gêner les autres). On garde aussi la **fiche de
+  réflexion** et le **mot à la famille**.
+- **Police des affiches / documents cursifs** : la cursive (**Caveat**, Borel)
+  vient de Google Fonts → elle se charge **en ligne**. Pour un PDF rendu côté
+  préparation, **embarquer la police** (woff2 en data-URI) sinon le rendu tombe
+  en serif (« trop ordinateur »).
+- **Histoire ET Géographie → toujours une petite PRODUCTION D'ÉCRIT en tâche
+  finale** (ils adorent, ça leur fait ressortir la leçon à l'écrit).
+- **Rotation QLM** : P1 = Histoire (lundi) + Sciences (mardi). **P2 =
+  Géographie** (le mardi, avec production d'écrit) ; **Sciences revient en P3** ;
+  Histoire (Antiquité) plus tard. L'**« Autour du monde » du lundi** = fil
+  géographique transversal toute l'année.
+- **Maths — tables de multiplication** : on apprend **une table par semaine, la
+  même pour les deux classes** (CE1 et CE2), à partir de la **table de 2**.
+  Référence « Toutes mes tables » à coller (`MultiplicationSens.tsx`). Le travail
+  sur le **sens de la multiplication (groupes égaux)** sert la résolution de
+  problèmes (remédiation du « 6 + 4 au lieu de 6 × 4 » de la P1).
+- **Blessure du maître (fracture scaphoïde + double entorse)** : **EPS en
+  suspens** (remplacée par le rangement du classeur) ; **corrections allégées /
+  autocorrection supervisée** (il ne peut pas écrire). Pas d'arrêt pris.
