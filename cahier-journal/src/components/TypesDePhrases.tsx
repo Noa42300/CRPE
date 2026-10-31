@@ -5,7 +5,7 @@
  */
 import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
-import { LandscapeDoc, Feuille, CURSIVE } from "./ficheLandscape";
+import { LandscapeDoc, PageBreak, Feuille, Col, Trait, Consigne, Exemple, Lines, Defi, CURSIVE } from "./ficheLandscape";
 import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
 
 const FR = "#1d4ed8";
@@ -91,6 +91,80 @@ export function TypesPhrasesDiapo() {
   );
 }
 
+/* ===================== QUIZ À PROJETER (au tableau) ===================== */
+type QKey = "decl" | "inter" | "excl" | "imper";
+const QOPTS: { key: QKey; label: string; col: string; pt: string }[] = [
+  { key: "decl", label: "déclarative", col: "#2563eb", pt: "." },
+  { key: "inter", label: "interrogative", col: "#0d9488", pt: "?" },
+  { key: "excl", label: "exclamative", col: "#d97706", pt: "!" },
+  { key: "imper", label: "impérative", col: "#7c3aed", pt: ". / !" },
+];
+const QUIZ: { ph: string; rep: QKey }[] = [
+  { ph: "Le chien dort dans sa niche", rep: "decl" },
+  { ph: "Où as-tu rangé mon cahier", rep: "inter" },
+  { ph: "Comme ce gâteau est bon", rep: "excl" },
+  { ph: "Range tes affaires", rep: "imper" },
+  { ph: "Les oiseaux chantent le matin", rep: "decl" },
+  { ph: "Est-ce que tu viens jouer", rep: "inter" },
+  { ph: "Quelle belle surprise", rep: "excl" },
+  { ph: "Ferme la porte, s'il te plaît", rep: "imper" },
+  { ph: "Nous partons à la piscine", rep: "decl" },
+  { ph: "As-tu fini ton travail", rep: "inter" },
+];
+
+export function TypesPhrasesQuiz() {
+  const [i, setI] = useState(0);
+  const [picked, setPicked] = useState<QKey | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const q = QUIZ[i];
+  const next = () => { setPicked(null); setI((n) => Math.min(QUIZ.length - 1, n + 1)); };
+  const prev = () => { setPicked(null); setI((n) => Math.max(0, n - 1)); };
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[980px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: FR }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Quiz · Les types de phrases</span>
+        <span className="ml-2 rounded-full bg-white/20 px-3 py-0.5 text-xs font-bold text-white">Question {i + 1}/{QUIZ.length}</span>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 p-6 sm:p-10">
+        <div className="text-sm font-bold uppercase tracking-wide text-stone-400">Quel est le type de cette phrase&nbsp;?</div>
+        <div className="rounded-3xl border-4 bg-slate-50 px-8 py-6 text-center" style={{ borderColor: FR }}>
+          <span className="text-4xl font-extrabold text-stone-800 sm:text-5xl">{q.ph}</span>
+          <span className="text-4xl font-extrabold text-stone-300 sm:text-5xl"> …</span>
+        </div>
+        <div className="grid w-full max-w-3xl grid-cols-2 gap-3">
+          {QOPTS.map((o) => {
+            const isRep = o.key === q.rep;
+            const show = picked !== null;
+            const state = !show ? "idle" : isRep ? "good" : o.key === picked ? "bad" : "dim";
+            return (
+              <button key={o.key} onClick={() => setPicked(o.key)}
+                className="rounded-2xl border-4 px-4 py-3 text-2xl font-extrabold transition"
+                style={{
+                  borderColor: o.col,
+                  background: state === "good" ? o.col : state === "bad" ? "#fee2e2" : "#fff",
+                  color: state === "good" ? "#fff" : state === "dim" ? "#cbd5e1" : o.col,
+                  opacity: state === "dim" ? 0.5 : 1,
+                }}>
+                {o.label} <span className="font-black">{o.pt}</span>
+                {state === "good" && <span> ✓</span>}
+              </button>
+            );
+          })}
+        </div>
+        <div className="h-6 text-xl font-bold" style={{ color: FR }}>
+          {picked !== null && (picked === q.rep ? "Bravo ! 🎉" : `Non : c'est ${QOPTS.find((o) => o.key === q.rep)!.label} (${QOPTS.find((o) => o.key === q.rep)!.pt})`)}
+        </div>
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={prev} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: FR, color: FR }}>◀</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">Clique une réponse, la bonne s'allume</span>
+        <button onClick={next} disabled={i === QUIZ.length - 1} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: FR }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
 export function TypesPhrasesLecon() {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
@@ -159,6 +233,115 @@ export function QcmTypesPhrases() {
             <b>Astuce :</b> la phrase déclarative raconte (.) · l'interrogative pose une question (?) · l'exclamative montre une émotion (!).
           </div>
         </div>
+      </Feuille>
+    </LandscapeDoc>
+  );
+}
+
+/* ===================== FEUILLE D'EXERCICES (paysage, ~10 exos) ===================== */
+function Aphrase({ children }: { children: React.ReactNode }) {
+  return <div style={{ fontFamily: CURSIVE, fontSize: "18px", margin: "0.5mm 0", color: "#111" }}>{children}</div>;
+}
+function MiniCoche({ lignes }: { lignes: string[] }) {
+  const cols = ["déclar. (.)", "interro. (?)", "exclam. (!)"];
+  return (
+    <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: CURSIVE, marginTop: "0.5mm" }}>
+      <thead><tr>
+        <th style={{ border: "1.2px solid #111", padding: "0.5mm 2mm", background: FR, color: "#fff", fontSize: "11px", fontFamily: CONSIGNE_FONT, textAlign: "left" }}>Phrase</th>
+        {cols.map((c) => <th key={c} style={{ border: "1.2px solid #111", padding: "0.5mm", background: FR, color: "#fff", fontSize: "10px", fontFamily: CONSIGNE_FONT }}>{c}</th>)}
+      </tr></thead>
+      <tbody>{lignes.map((p, i) => (
+        <tr key={i}>
+          <td style={{ border: "1.2px solid #111", padding: "0.3mm 2mm", fontSize: "15px" }}>{p}</td>
+          {cols.map((c) => <td key={c} style={{ border: "1.2px solid #111", textAlign: "center", fontSize: "15px" }}>☐</td>)}
+        </tr>
+      ))}</tbody>
+    </table>
+  );
+}
+
+export function FicheTypesPhrasesExos() {
+  return (
+    <LandscapeDoc>
+      <Feuille titre="Les types de phrases" sousTitre="Exercices — CE1 / CE2 (page 1)">
+        <Col>
+          <div>
+            <Consigne n={1} aide=". ? !">Mets le bon point à la fin de chaque phrase.</Consigne>
+            <Exemple>Tu viens jouer <b>?</b></Exemple>
+            <Aphrase>a) Le chat dort sur le lit ___</Aphrase>
+            <Aphrase>b) Où est mon cartable ___</Aphrase>
+            <Aphrase>c) Quelle belle journée ___</Aphrase>
+            <Aphrase>d) Range tes crayons ___</Aphrase>
+          </div>
+          <div>
+            <Consigne n={2}>Coche (✗) le bon type pour chaque phrase.</Consigne>
+            <MiniCoche lignes={["Le soleil brille.", "As-tu froid ?", "Comme il est tard !", "Je lis un conte."]} />
+          </div>
+        </Col>
+        <Trait />
+        <Col>
+          <div>
+            <Consigne n={3}>Relie chaque phrase à son type (tire un trait).</Consigne>
+            <div style={{ display: "flex", justifyContent: "space-between", fontFamily: CURSIVE, fontSize: "16px", marginTop: "1mm" }}>
+              <div>
+                <div>• Tu as perdu ta dent ?</div>
+                <div>• Les fleurs poussent.</div>
+                <div>• Quel beau dessin !</div>
+              </div>
+              <div style={{ textAlign: "right", color: "#444" }}>
+                <div>déclarative •</div>
+                <div>interrogative •</div>
+                <div>exclamative •</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <Consigne n={4}>Transforme la phrase en question.</Consigne>
+            <Exemple>Tu as faim. → As-tu faim ?</Exemple>
+            <Aphrase>a) Tu aimes les pommes.</Aphrase>
+            <Lines n={1} />
+            <Aphrase>b) Le train arrive.</Aphrase>
+            <Lines n={1} />
+          </div>
+        </Col>
+      </Feuille>
+      <PageBreak />
+      <Feuille titre="Les types de phrases" sousTitre="Exercices — CE1 / CE2 (page 2)">
+        <Col>
+          <div>
+            <Consigne n={5}>Transforme en phrase exclamative.</Consigne>
+            <Exemple>C'est beau. → Comme c'est beau !</Exemple>
+            <Aphrase>a) Ce gâteau est bon.</Aphrase>
+            <Lines n={1} />
+            <Aphrase>b) Il fait chaud.</Aphrase>
+            <Lines n={1} />
+          </div>
+          <div>
+            <Consigne n={6} aide="D · I · E">Écris D, I ou E devant chaque phrase.</Consigne>
+            <Exemple>___ Tu viens ? → <b>I</b></Exemple>
+            <Aphrase>___ Nous jouons dehors.</Aphrase>
+            <Aphrase>___ Bravo, tu as gagné !</Aphrase>
+            <Aphrase>___ Quelle heure est-il ?</Aphrase>
+          </div>
+        </Col>
+        <Trait />
+        <Col>
+          <div>
+            <Consigne n={7}>Écris une phrase de chaque type.</Consigne>
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700 }}>Une déclarative (.) :</div>
+            <Lines n={1} />
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700 }}>Une interrogative (?) :</div>
+            <Lines n={1} />
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700 }}>Une exclamative (!) :</div>
+            <Lines n={1} />
+            <div style={{ marginTop: "0.5mm" }}><Defi>CE2 : écris une phrase impérative (un ordre).</Defi></div>
+            <Lines n={1} />
+          </div>
+          <div>
+            <Consigne n={8}>Entoure la phrase interrogative, souligne l'exclamative.</Consigne>
+            <Aphrase>Le vélo roule vite. — Est-ce que tu dors ? — Quel vacarme !</Aphrase>
+          </div>
+        </Col>
       </Feuille>
     </LandscapeDoc>
   );

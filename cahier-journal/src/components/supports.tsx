@@ -17,8 +17,10 @@ import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_C
 import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon, ExperienceBouteilleMaison } from "./QlmS4Supports";
 import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
-import { TypesPhrasesDiapo, TypesPhrasesLecon, QcmTypesPhrases } from "./TypesDePhrases";
-import { HalloweenDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
+import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
+import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
+import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesReference } from "./MultiplicationSens";
+import { RituelsMatinSerie } from "./RituelsSerie";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
@@ -1378,6 +1380,29 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "hw-lecon", label: "Happy Halloween — Leçon illustrée à coller", node: <HalloweenLecon /> },
         { key: "hw-cards", label: "Happy Halloween — Flashcards à découper (image + mot)", node: <HalloweenFlashcards /> },
         { key: "hw-projet", label: "Happy Halloween — Fiche projet « My Halloween card » + grille d'éval", node: <HalloweenProjetCarte /> },
+      ];
+    case "rit02":
+      return [
+        { key: "rit-serie", label: "Rituels du matin (nov → janvier) — types de phrases + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
+      ];
+    case "l02tp":
+      return [
+        { key: "tp-quiz", label: "Les types de phrases — QUIZ à projeter (réponse au tableau)", node: <TypesPhrasesQuiz /> },
+        { key: "tp-lecon", label: "Les types de phrases — Leçon à coller (cahier bleu)", node: <TypesPhrasesLecon /> },
+        { key: "tp-exos", label: "Les types de phrases — Feuille d'exercices (A4 paysage, 2 pages, CE1/CE2)", node: <FicheTypesPhrasesExos /> },
+      ];
+    case "l02mu":
+      return [
+        { key: "mu-diapo", label: "La multiplication (sens) — Diaporama à projeter (groupes égaux)", node: <MultiplicationDiapo /> },
+        { key: "mu-lecon", label: "La multiplication — Leçon à coller (cahier rouge)", node: <MultiplicationLecon /> },
+        { key: "mu-exos", label: "La multiplication — Feuille d'exercices (A4 paysage, CE1/CE2)", node: <MultiplicationExos /> },
+        { key: "mu-tables", label: "Toutes mes tables de multiplication — Référence à coller (1 table/semaine)", node: <TablesReference /> },
+      ];
+    case "l02hw":
+      return [
+        { key: "hw-affiche", label: "My scary Halloween poster — Diaporama qui lance le projet", node: <HalloweenAfficheDiapo /> },
+        { key: "hw-lecon2", label: "Happy Halloween — Leçon illustrée (rappel du vocabulaire)", node: <HalloweenLecon /> },
+        { key: "hw-cards2", label: "Happy Halloween — Flashcards (image + mot) pour aider", node: <HalloweenFlashcards /> },
       ];
     case "histS6":
       return [{ key: "hist-ecrit", label: "La vie d'un homme préhistorique — Production d'écrit (après le film)", node: <EcritPrehistoire /> }];

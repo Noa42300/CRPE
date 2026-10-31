@@ -101,6 +101,73 @@ export function HalloweenDiapo() {
   );
 }
 
+/* ===== Diaporama qui LANCE le projet « affiche d'Halloween » ===== */
+const PETAPES = ["Our project 🎃", "Draw + write", "Use the words", "Make it scary!", "Let's go!"];
+export function HalloweenAfficheDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const last = PETAPES.length - 1;
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[980px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: PUR }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">English · My scary Halloween poster</span>
+        <div className="ml-2 flex flex-wrap gap-1.5">{PETAPES.map((t, k) => <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full" style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />)}</div>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
+        {i === 0 && (
+          <div className="text-center">
+            <div className="text-7xl">🎃👻🕷️</div>
+            <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl" style={{ color: ORA }}>Our project: a scary Halloween poster!</h1>
+            <p className="mt-3 text-2xl font-semibold text-stone-600">Je fabrique une <b>affiche d'Halloween</b> qui fait <b>peur</b>… en anglais&nbsp;!</p>
+          </div>
+        )}
+        {i === 1 && (
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: PUR }}>Je dessine + j'écris le mot</h2>
+            <div className="mt-5 inline-flex items-center gap-4 rounded-3xl border-4 bg-orange-50 px-6 py-4" style={{ borderColor: ORA }}>
+              <span className="text-6xl">🎃</span>
+              <span className="text-4xl font-extrabold" style={{ color: ORA }}>→ a pumpkin</span>
+            </div>
+            <p className="mt-4 text-2xl text-stone-600">Je dessine une citrouille, puis j'écris <b>pumpkin</b> à côté.</p>
+          </div>
+        )}
+        {i === 2 && (
+          <div className="w-full max-w-3xl text-center">
+            <h2 className="mb-4 text-4xl font-extrabold" style={{ color: PUR }}>Use these words</h2>
+            <div className="grid grid-cols-2 gap-2 text-2xl font-bold sm:grid-cols-4" style={{ color: "#111" }}>
+              {HALLO_VOCAB.map((w) => <div key={w.en} className="rounded-xl border-2 bg-white px-2 py-2" style={{ borderColor: ORA }}>{w.en.replace("a ", "")}</div>)}
+            </div>
+          </div>
+        )}
+        {i === 3 && (
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: "#dc2626" }}>Make it SCARY! 👻</h2>
+            <div className="mx-auto mt-5 max-w-xl space-y-2 text-left text-2xl font-semibold text-stone-700">
+              <div>✅ au moins <b>5 mots anglais</b> bien écrits</div>
+              <div>✅ un <b>dessin</b> pour chaque mot</div>
+              <div>✅ des <b>couleurs</b> et… ça fait <b>peur</b>&nbsp;!</div>
+              <div>✅ un titre : <b>Happy Halloween!</b></div>
+            </div>
+          </div>
+        )}
+        {i === 4 && (
+          <div className="text-center">
+            <div className="text-6xl">🖍️🎃🦇</div>
+            <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl" style={{ color: ORA }}>Let's go!</h1>
+            <p className="mt-3 text-2xl font-semibold text-stone-600">Au travail&nbsp;! (le maître met une petite musique d'Halloween 🎵)</p>
+          </div>
+        )}
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: PUR, color: PUR }}>◀</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{PETAPES.length} · {PETAPES[i]}</span>
+        <button onClick={() => setI((n) => Math.min(last, n + 1))} disabled={i === last} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: PUR }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
 export function HalloweenLecon() {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>

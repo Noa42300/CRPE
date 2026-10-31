@@ -8751,6 +8751,640 @@
    "updatedAt": 1790704001004
   },
   {
+   "date": "2026-11-02",
+   "slots": [
+    {
+     "start": "08:30",
+     "end": "08:45",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin : type de phrase + problème (addition ou multiplication ?)",
+       "objectif": "Réactiver chaque matin les deux notions travaillées en ce moment : reconnaître le type d'une phrase et résoudre un petit problème de groupes égaux.",
+       "competence": "Identifier le type d'une phrase (point) ; distinguer addition et multiplication dans un problème.",
+       "competenceRef": "Français — BO n° 41 du 31 octobre 2024 (grammaire) ; Maths — programmes 2025, résolution de problèmes (sens des opérations).",
+       "progPeriode": "P2",
+       "progDomaine": "Rituels",
+       "progSequence": "Rituels P2",
+       "progSeance": "quotidien",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "ri1",
+         "label": "La phrase du jour (5 min)",
+         "note": "- « Je lis la phrase du jour au tableau, vous me dites son type. »\n- « Est-ce qu'elle raconte, pose une question, ou montre une émotion ? »\n- « Quel point met-on à la fin : point, point d'interrogation ou point d'exclamation ? »\n- « Un élève vient entourer le bon point. »\n- « On recopie la phrase avec le bon point sur l'ardoise. »\n(Je projette / j'écris la phrase ; correction immédiate.)"
+        },
+        {
+         "id": "ri2",
+         "label": "Le problème du jour (7 min)",
+         "note": "- « Voici le problème du jour : écoutez bien, est-ce une addition ou une multiplication ? »\n- « Y a-t-il des groupes égaux ? Si oui, on multiplie. »\n- « Dessinez les groupes sur l'ardoise pour vérifier. »\n- « Écrivez votre calcul, puis la phrase réponse. »\n- « On corrige ensemble : combien de groupes, combien dans chaque groupe ? »\n(Carte collée dans le cahier ; je circule et j'aide à schématiser.)"
+        }
+       ],
+       "materiel": "Cartes « rituel du matin » (voir Documents à imprimer, 4 par A4 à découper et coller). Ardoises.",
+       "video": "",
+       "differenciation": "CE1 : problèmes avec de petits nombres, dessin des groupes autorisé. CE2 : encourager l'écriture directe de la multiplication, puis vérifier par le dessin.",
+       "depassement": "",
+       "correction": "Phrase du jour : le type et le point attendus. Problème : la multiplication (groupes égaux) et la phrase réponse.",
+       "obstacles": "Erreurs fréquentes : l'élève additionne les deux nombres de l'énoncé (6 + 4) au lieu de multiplier (6 × 4). Remédiation rapide : faire dessiner les groupes, compter, et montrer que « 6 tables de 4 » = 6 groupes de 4.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths",
+       "id": "rit02"
+      }
+     ]
+    },
+    {
+     "start": "08:45",
+     "end": "10:10",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Les types de phrases (consolidation : quiz + exercices)",
+       "objectif": "Consolider la reconnaissance des types de phrases (déclarative, interrogative, exclamative ; CE2 : impérative) et le choix du point, après la séance de découverte.",
+       "competence": "Identifier et produire les différents types de phrases ; utiliser la ponctuation de fin adaptée.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, domaine « grammaire et orthographe » (la phrase, la ponctuation).",
+       "progPeriode": "P2",
+       "progDomaine": "Français — grammaire",
+       "progSequence": "Les types de phrases",
+       "progSeance": "2 (consolidation)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "t1",
+         "label": "On se rappelle (8 min)",
+         "note": "- « La semaine avant les vacances, on a découvert les types de phrases. Qui se souvient ? »\n- « Une phrase qui raconte, c'est… déclarative, avec un point. »\n- « Une phrase qui pose une question, c'est… interrogative, avec un point d'interrogation. »\n- « Une phrase qui montre une émotion, c'est… exclamative, avec un point d'exclamation. »\n- « Les CE2 se souviennent d'un quatrième type : la phrase impérative, qui donne un ordre. »\n(Je réactive à l'oral, sans support.)"
+        },
+        {
+         "id": "t2",
+         "label": "Le quiz au tableau (20 min)",
+         "note": "- « On joue au quiz ! Je projette une phrase, vous cherchez son type dans votre tête. »\n- « À trois, vous montrez avec les doigts : 1 déclarative, 2 interrogative, 3 exclamative. »\n- « Un élève vient cliquer la réponse, la bonne s'allume en vert. »\n- « On explique : pourquoi ce type ? quel point met-on ? »\n- « On garde le rythme, tout le monde participe. »\n(Diaporama quiz projeté (10 questions à révéler).)"
+        },
+        {
+         "id": "t3",
+         "label": "La leçon (7 min)",
+         "note": "- « On colle la leçon dans le cahier bleu. »\n- « On souligne le point de chaque type : . ? ! »\n- « On lit ensemble l'astuce : je lis la phrase dans ma tête et j'écoute le message. »\n- « Les CE2 ajoutent la phrase impérative. »\n- « On range le cahier bleu. »\n(Leçon à coller.)"
+        },
+        {
+         "id": "t4",
+         "label": "Les exercices (35 min)",
+         "note": "- « Vous prenez la feuille d'exercices. On lit la première consigne ensemble. »\n- « Regardez bien l'exemple avant de commencer chaque exercice. »\n- « Les CE1 font les exercices 1 à 6 ; les CE2 font tout, jusqu'au défi. »\n- « Pensez à la majuscule au début et au bon point à la fin. »\n- « Je passe dans les rangs pour vous aider. »\n- « On corrige quelques exercices ensemble à la fin. »\n(Feuille d'exercices paysage ; correction collective partielle.)"
+        }
+       ],
+       "materiel": "Diaporama QUIZ « Les types de phrases » (à projeter) + leçon à coller (cahier bleu) + feuille d'exercices (A4 paysage, 2 pages) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+       "differenciation": "CE1 : exercices 1 à 6, étayage pour « transformer en question ». CE2 : toute la feuille + défi (phrase impérative). Dictée à l'adulte possible pour la production écrite.",
+       "depassement": "Inventer une courte histoire contenant les 3 (ou 4) types de phrases.",
+       "correction": "1) Le chat dort sur le lit. / Où est mon cartable ? / Quelle belle journée ! / Range tes crayons. (ou !) — 2) déclarative / interrogative / exclamative / déclarative. — 4) As-tu des pommes ? / Le train arrive-t-il ? — 6) D / E / I.",
+       "obstacles": "Erreurs fréquentes : confondre interrogative et exclamative ; oublier le point ; mettre une majuscule au milieu. Remédiation rapide : faire dire la phrase à voix haute (l'intonation aide à choisir le point), rappeler qu'une phrase = majuscule au début + point à la fin.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais",
+       "id": "l02tp"
+      }
+     ]
+    },
+    {
+     "start": "10:10",
+     "end": "10:40",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "l02re1"
+      }
+     ]
+    },
+    {
+     "start": "10:40",
+     "end": "11:25",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths — Le sens de la multiplication (groupes égaux) + les tables",
+       "objectif": "Comprendre que des groupes égaux se calculent par une multiplication (addition réitérée), pour ne plus confondre + et × dans les problèmes. Lancer l'apprentissage des tables (une par semaine).",
+       "competence": "Donner du sens à la multiplication (addition réitérée, groupes égaux) ; commencer à mémoriser les tables.",
+       "competenceRef": "Mathématiques, cycle 2 — programmes 2025 : calcul et résolution de problèmes (sens de la multiplication).",
+       "progPeriode": "P2",
+       "progDomaine": "Maths — Nombres & calcul (sens des opérations)",
+       "progSequence": "La multiplication",
+       "progSeance": "1 (le sens)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "m1",
+         "label": "Des groupes égaux (12 min)",
+         "note": "- « Regardez : 3 paquets de 4 bonbons. Combien de bonbons en tout ? »\n- « On peut additionner : 4 + 4 + 4 = 12. »\n- « Mais on peut écrire plus vite : 3 × 4 = 12, ça veut dire 3 fois 4. »\n- « Le signe × se lit « fois ». »\n- « Attention au piège : 6 tables de 4 élèves, c'est 6 × 4 = 24, pas 6 + 4 ! »\n(Je projette le diaporama (dessins de groupes).)"
+        },
+        {
+         "id": "m2",
+         "label": "La leçon (8 min)",
+         "note": "- « On colle la leçon dans le cahier rouge. »\n- « On souligne : des groupes égaux → je multiplie. »\n- « On recopie l'exemple : 4 + 4 + 4 = 3 × 4 = 12. »\n- « On entoure le signe × et on dit « fois ». »\n- « On range le cahier rouge. »\n(Leçon à coller.)"
+        },
+        {
+         "id": "m3",
+         "label": "Les exercices (15 min)",
+         "note": "- « Vous prenez la feuille. Regardez l'exemple de chaque exercice. »\n- « Dessinez les groupes quand vous n'êtes pas sûrs. »\n- « Pour le problème, écrivez la multiplication PUIS la phrase réponse. »\n- « Les CE2 font aussi le défi. »\n- « Je passe vous aider. »\n(Feuille d'exercices paysage ; les CE2 en autonomie pendant que j'aide les CE1.)"
+        },
+        {
+         "id": "m4",
+         "label": "Les tables : on démarre (10 min)",
+         "note": "- « Je vous donne la feuille de toutes les tables, à coller dans le cahier rouge. »\n- « Chaque semaine, on apprend UNE table par cœur ; cette semaine, c'est la table de 2. »\n- « On lit la table de 2 ensemble, deux fois. »\n- « Astuce : 3 × 4, c'est pareil que 4 × 3. »\n- « Vous l'apprendrez à la maison pour la semaine prochaine. »\n(Référence « toutes les tables » collée ; lancement du rituel « une table/semaine ».)"
+        }
+       ],
+       "materiel": "Diaporama « Le sens de la multiplication » + leçon à coller (cahier rouge) + feuille d'exercices (A4 paysage) + référence « Toutes mes tables » à coller — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
+       "differenciation": "CE1 : rester sur de petits nombres (×2, ×5, ×10), dessin des groupes systématique ; table de 2 à apprendre. CE2 : passer plus vite à l'écriture de la multiplication, aborder la commutativité (3×4 = 4×3) ; table de 2 aussi (même table pour les deux classes).",
+       "depassement": "Chercher d'autres situations de groupes égaux dans la classe et écrire la multiplication.",
+       "correction": "Ex. 2 : a) 3 × 5  b) 4 × 2  c) 2 + 2 + 2 + 2 + 2 + 2. Ex. 3 : 5 × 3 = 15, « Il y a 15 pommes. ». Ex. 4 : 8, 12, 10 ; défi : 15, 20, 18.",
+       "obstacles": "Erreurs fréquentes : additionner les deux nombres de l'énoncé au lieu de multiplier ; confondre « 3 × 4 » et « 3 + 4 ». Remédiation rapide : revenir au dessin des groupes et compter ; verbaliser « combien de groupes ? combien dans chaque groupe ? ».",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths",
+       "id": "l02mu"
+      }
+     ]
+    },
+    {
+     "start": "11:25",
+     "end": "11:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement avant la cantine",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "l02rg"
+      }
+     ]
+    },
+    {
+     "start": "11:30",
+     "end": "13:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Pause méridienne",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "l02ca"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "13:45",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Silence, on lit",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "l02sol"
+      }
+     ]
+    },
+    {
+     "start": "13:45",
+     "end": "14:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — GraphéMo (orthographe, selon la méthode)",
+       "objectif": "Travailler l'orthographe selon la programmation GraphéMo de la semaine.",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; écrire des graphèmes étudiés.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "Français — orthographe (GraphéMo)",
+       "progSequence": "GraphéMo",
+       "progSeance": "selon la méthode",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "g1",
+         "label": "Séance GraphéMo (45 min)",
+         "note": "- « On ouvre le cahier et on suit la séance GraphéMo du jour. »\n- « On observe le graphème, on l'entoure dans les mots. »\n- « On épelle, on écrit sur l'ardoise. »\n- « On recopie les mots repères. »\n- « On range : on les reverra dans la dictée. »\n(Je suis la fiche GraphéMo de la semaine.)"
+        }
+       ],
+       "materiel": "Supports GraphéMo de la semaine.",
+       "video": "",
+       "differenciation": "CE1 / CE2 selon les groupes GraphéMo habituels.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : confusion de graphèmes proches. Remédiation rapide : revenir au son, au geste et au mot repère.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais",
+       "id": "graphemo02"
+      }
+     ]
+    },
+    {
+     "start": "14:30",
+     "end": "14:55",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Poésie — Récitation « Le temps a laissé son manteau »",
+       "objectif": "Réciter la poésie apprise pendant les vacances, devant la classe.",
+       "competence": "Dire de mémoire un texte à voix haute, avec expression.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « oral » (dire un texte mémorisé).",
+       "progPeriode": "P2",
+       "progDomaine": "Français — oral / poésie",
+       "progSequence": "Poésie",
+       "progSeance": "récitation",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "p1",
+         "label": "Récitation (25 min)",
+         "note": "- « Ceux qui sont prêts viennent réciter « Le temps a laissé son manteau ». »\n- « On écoute en silence et avec respect celui qui récite. »\n- « Pense à articuler et à mettre le ton. »\n- « Si tu as un trou, je te souffle le début du vers. »\n- « Ceux qui ne passent pas aujourd'hui passeront la prochaine fois. »\n(Je note discrètement qui est passé (suivi local, pas dans le journal).)"
+        }
+       ],
+       "materiel": "Cahier blanc (poésies).",
+       "video": "",
+       "differenciation": "Possibilité de réciter la moitié du poème pour les élèves les plus fragiles, le reste la semaine suivante.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Blocage / trac. Remédiation rapide : réciter à deux, ou souffler le premier mot de chaque vers.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais",
+       "id": "l02poe"
+      }
+     ]
+    },
+    {
+     "start": "14:55",
+     "end": "15:10",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Ranger le classeur (à la place de l'EPS)",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [
+        {
+         "id": "rc1",
+         "label": "Rangement guidé (15 min)",
+         "note": "- « On sort le classeur et on remet chaque feuille derrière le bon intercalaire. »\n- « Français d'un côté, maths de l'autre ; on jette les brouillons. »\n- « On vérifie que les feuilles sont bien perforées et à l'endroit. »\n- « Ceux qui ont fini aident un camarade. »\n(EPS en suspens (bras du maître) ; on range le classeur à la place.)"
+        }
+       ],
+       "materiel": "Classeurs des élèves, intercalaires, pochettes.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "l02rang"
+      }
+     ]
+    },
+    {
+     "start": "15:10",
+     "end": "15:40",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "l02re2"
+      }
+     ]
+    },
+    {
+     "start": "15:40",
+     "end": "16:10",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais — My scary Halloween poster (projet d'affiche)",
+       "objectif": "Après avoir revu le vocabulaire d'Halloween, réaliser une affiche « effrayante » en réutilisant les mots anglais (dessin + mot).",
+       "competence": "Comprendre et réutiliser un lexique thématique (Halloween) ; associer un mot anglais à une image.",
+       "competenceRef": "Langue vivante (anglais), cycle 2 — programmes 2018/2020 : comprendre et reproduire un lexique simple.",
+       "progPeriode": "P2",
+       "progDomaine": "Anglais — Happy Halloween",
+       "progSequence": "Halloween",
+       "progSeance": "2 (projet affiche)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "h1",
+         "label": "On revoit les mots (8 min)",
+         "note": "- « Let's remember! Je montre une image, vous dites le mot anglais. »\n- « A pumpkin, a ghost, a witch, a vampire… »\n- « Repeat after me: a spider, a bat, a black cat. »\n- « Qui se souvient de « Trick or treat! » ? »\n- « Très bien, vous connaissez vos mots ! »\n(Flashcards / diapo de rappel.)"
+        },
+        {
+         "id": "h2",
+         "label": "Je présente le projet (7 min)",
+         "note": "- « Aujourd'hui, vous fabriquez une affiche d'Halloween qui fait peur ! »\n- « La règle : vous dessinez, et à côté vous écrivez le mot EN ANGLAIS. »\n- « Par exemple : je dessine une citrouille et j'écris « pumpkin ». »\n- « Il faut au moins 5 mots anglais, des couleurs, et un titre : Happy Halloween! »\n- « Ça doit être beau… et effrayant ! »\n(Diaporama du projet projeté (critères affichés).)"
+        },
+        {
+         "id": "h3",
+         "label": "On fabrique l'affiche (20 min)",
+         "note": "- « Au travail ! Je mets une petite musique d'Halloween. »\n- « Servez-vous des flashcards pour bien écrire les mots. »\n- « Soignez l'écriture des mots anglais. »\n- « Je passe voir vos affiches et je vous aide. »\n- « Dans quelques minutes, on affichera les plus effrayantes ! »\n(Production individuelle ou par deux ; musique à thème en fond.)"
+        }
+       ],
+       "materiel": "Diaporama « My scary Halloween poster » + leçon / flashcards (rappel du vocabulaire) — voir Documents à imprimer. Grandes feuilles, feutres. Prévoir une petite musique d'Halloween (au choix du maître).",
+       "video": "",
+       "differenciation": "CE1 : 5 mots, modèle des mots sous les yeux (flashcards). CE2 : davantage de mots + une petite phrase (This is a ghost.).",
+       "depassement": "Écrire une phrase par image : « This is a pumpkin. »",
+       "correction": "Affiche réussie : au moins 5 mots anglais correctement orthographiés, un dessin par mot, le titre « Happy Halloween! », soin et couleurs.",
+       "obstacles": "Erreurs fréquentes : recopier le mot avec des fautes, oublier d'écrire le mot. Remédiation rapide : mettre la flashcard à côté, pointer lettre à lettre ; rappeler que chaque dessin a son mot.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "anglais",
+       "id": "l02hw"
+      }
+     ]
+    },
+    {
+     "start": "16:10",
+     "end": "16:25",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — L'Égypte (si le temps)",
+       "objectif": "Lancer la période 2 du projet « Autour du monde » : l'Afrique, première escale l'Égypte.",
+       "competence": "Se repérer dans l'espace (continents, pays) ; découvrir un pays, son patrimoine et ses spécialités.",
+       "competenceRef": "Questionner le monde — l'espace, cycle 2 (programmes 2018/2020).",
+       "progPeriode": "P2",
+       "progDomaine": "Questionner le monde — Géographie (Autour du monde)",
+       "progSequence": "Afrique",
+       "progSeance": "1 — l'Égypte",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "a1",
+         "label": "L'escale du jour (15 min)",
+         "note": "- « Nouvelle période, nouveau continent : on quitte l'Europe pour l'Afrique ! »\n- « Aujourd'hui, première escale : l'Égypte. »\n- « On regarde le diaporama : le Nil, les pyramides, les hiéroglyphes. »\n- « On complète la carte d'identité du pays. »\n- « La dictée de la semaine portera sur l'Égypte. »\n(J'utilise l'onglet Projets (diapo + carte d'identité de l'Égypte).)"
+        }
+       ],
+       "materiel": "Projet « Autour du monde » dans l'appli (onglet Projets → période Afrique → l'Égypte) : diaporama, carte d'identité, dictée, vidéo.",
+       "video": "",
+       "differenciation": "CE1 : carte d'identité simplifiée (drapeau, capitale, monument). CE2 : ajouter une phrase sur le patrimoine.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Confusion continent / pays. Remédiation rapide : montrer sur le planisphère où est l'Afrique, puis l'Égypte.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre",
+       "id": "l02adm"
+      }
+     ]
+    },
+    {
+     "start": "16:25",
+     "end": "16:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "l02sor"
+      }
+     ]
+    }
+   ],
+   "info": {
+    "devoirs": "MATHS : apprendre la TABLE DE 2 par cœur (pour la semaine prochaine). FRANÇAIS : finir la feuille d'exercices sur les types de phrases si elle n'est pas terminée. ANGLAIS : revoir le vocabulaire d'Halloween. (Poésie : récitée aujourd'hui.)",
+    "rappels": [
+     {
+      "heure": "",
+      "texte": "Rentrée : relever les devoirs de vacances (poésie récitée, cahier d'écriture réécrit). EPS en suspens (bras cassé) → rangement du classeur.",
+      "type": "autre"
+     }
+    ]
+   },
+   "updatedAt": 1793456309471
+  },
+  {
    "date": "2026-11-03",
    "info": {
     "effectifPrevu": 23,
