@@ -109,31 +109,45 @@ export function MultiplicationDiapo() {
   );
 }
 
+function GrosGroupe({ n, color }: { n: number; color: string }) {
+  return (
+    <span style={{ display: "inline-flex", gap: "5px", border: `3px solid ${color}`, borderRadius: "12px", padding: "7px 9px" }}>
+      {Array.from({ length: n }).map((_, i) => <span key={i} style={{ width: 20, height: 20, borderRadius: "50%", background: color, display: "inline-block" }} />)}
+    </span>
+  );
+}
+
 export function MultiplicationLecon() {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", padding: "9mm", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ border: "3px solid #111", borderRadius: "4mm", padding: "7mm", minHeight: "283mm", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "5mm" }}>
-        <h1 style={{ fontSize: "38px", margin: 0, textAlign: "center", fontWeight: 700, color: ACC, fontFamily: CURSIVE }}>La multiplication</h1>
-        <p style={{ textAlign: "center", fontSize: "18px", margin: 0 }}>Quand il y a des <b>groupes égaux</b>, je peux <b>multiplier</b>.</p>
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", display: "flex", flexDirection: "column", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      {/* Gros titre */}
+      <h1 style={{ fontSize: "48px", margin: "0 0 2mm", textAlign: "center", fontWeight: 700, color: ACC, fontFamily: CURSIVE }}>La multiplication ✖️</h1>
 
-        <div style={{ border: `3px solid ${ACC}`, borderRadius: "5mm", padding: "4mm 5mm", textAlign: "center" }}>
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: "3mm" }}>{[0, 1, 2].map((k) => <Groupe key={k} n={4} color={ACC} />)}</div>
-          <div style={{ fontSize: "26px", fontWeight: 800, fontFamily: CURSIVE }}>4 + 4 + 4 = 3 × 4 = 12</div>
-          <div style={{ fontSize: "16px", marginTop: "1mm", color: "#444" }}>3 groupes de 4 = « 3 fois 4 »</div>
-        </div>
-
-        <div style={{ display: "flex", gap: "4mm" }}>
-          <div style={{ flex: 1, border: "3px solid #16a34a", borderRadius: "5mm", padding: "3mm 4mm" }}>
-            <div style={{ fontSize: "18px", fontWeight: 800, color: "#16a34a", fontFamily: CURSIVE }}>✓ Groupes égaux → je multiplie</div>
-            <div style={{ fontSize: "18px", fontFamily: CURSIVE }}>6 tables de 4 élèves → 6 × 4 = 24</div>
+      {/* Le grand schéma : groupes → addition → multiplication */}
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: "8mm" }}>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ display: "flex", justifyContent: "center", gap: "8mm", marginBottom: "4mm" }}>
+            <GrosGroupe n={4} color={ACC} /><GrosGroupe n={4} color={ACC} /><GrosGroupe n={4} color={ACC} />
           </div>
-          <div style={{ flex: 1, border: "3px solid #dc2626", borderRadius: "5mm", padding: "3mm 4mm" }}>
-            <div style={{ fontSize: "18px", fontWeight: 800, color: "#dc2626", fontFamily: CURSIVE }}>✗ Le piège</div>
-            <div style={{ fontSize: "18px", fontFamily: CURSIVE }}>6 + 4 = 10 → c'est faux ici !</div>
+          <div style={{ fontSize: "34px", fontWeight: 700, fontFamily: CURSIVE, color: "#111" }}>3 groupes de 4</div>
+          <div style={{ fontSize: "40px", fontWeight: 800, fontFamily: CURSIVE, marginTop: "2mm" }}>
+            4 + 4 + 4 &nbsp;=&nbsp; <span style={{ color: ACC }}>3 × 4</span> &nbsp;=&nbsp; 12
           </div>
         </div>
 
-        <p style={{ textAlign: "center", fontSize: "18px", fontFamily: CURSIVE, marginTop: "auto" }}>Le signe <b style={{ color: ACC }}>×</b> veut dire « fois ». &nbsp; Astuce : je dessine les groupes pour vérifier.</p>
+        {/* La règle en grosse pastille */}
+        <div style={{ margin: "0 auto", background: "#eef2ff", border: `4px solid ${ACC}`, borderRadius: "10mm", padding: "5mm 10mm", textAlign: "center", maxWidth: "150mm" }}>
+          <div style={{ fontSize: "30px", fontWeight: 700, color: ACC, fontFamily: CURSIVE, lineHeight: 1.15 }}>
+            Des groupes égaux → je multiplie&nbsp;!
+          </div>
+          <div style={{ fontSize: "22px", fontFamily: CURSIVE, marginTop: "2mm", color: "#111" }}>Le signe <b style={{ color: ACC, fontSize: "28px" }}>×</b> se lit « fois ».</div>
+        </div>
+
+        {/* Astuce / piège, discret */}
+        <div style={{ margin: "0 auto", textAlign: "center", fontSize: "22px", fontFamily: CURSIVE, color: "#111" }}>
+          Astuce : je dessine les groupes.<br />
+          6 tables de 4 → <b style={{ color: "#16a34a" }}>6 × 4 = 24</b> &nbsp;(pas <span style={{ color: "#dc2626" }}>6 + 4</span>&nbsp;!)
+        </div>
       </div>
     </div>
   );
@@ -182,17 +196,19 @@ export function MultiplicationExos() {
   );
 }
 
-/* --- Référence : toutes les tables (à coller, 1 table / semaine) --- */
-function UneTable({ k, accent }: { k: number; accent: string }) {
+/* --- Référence : TOUTES les tables (liste simple « façon Word », à apprendre
+ * par cœur de 1 à 10). Police lisible type Arial/Aptos, encre noire, pas de
+ * déco : on lit et on apprend. --- */
+const TABLE_FONT = "'Aptos','Arial','Liberation Sans','Helvetica',sans-serif";
+
+function UneTableListe({ k }: { k: number }) {
   return (
-    <div style={{ border: `2px solid ${accent}`, borderRadius: "3mm", overflow: "hidden" }}>
-      <div style={{ background: accent, color: "#fff", textAlign: "center", fontWeight: 800, fontSize: "14px", padding: "0.8mm", fontFamily: CONSIGNE_FONT }}>Table de {k}</div>
-      <div style={{ padding: "1mm 2mm" }}>
-        {Array.from({ length: 10 }).map((_, j) => {
-          const n = j + 1;
-          return <div key={n} style={{ fontFamily: CURSIVE, fontSize: "14px", display: "flex", justifyContent: "space-between" }}><span>{k} × {n}</span><span>= {k * n}</span></div>;
-        })}
-      </div>
+    <div style={{ breakInside: "avoid", marginBottom: "4mm" }}>
+      <div style={{ fontSize: "15px", fontWeight: 700, color: "#111", borderBottom: "1.5px solid #111", paddingBottom: "0.5mm", marginBottom: "1mm" }}>Table de {k}</div>
+      {Array.from({ length: 10 }).map((_, j) => {
+        const n = j + 1;
+        return <div key={n} style={{ fontSize: "13.5px", lineHeight: 1.4, color: "#111" }}>{k} × {n} = {k * n}</div>;
+      })}
     </div>
   );
 }
@@ -200,16 +216,13 @@ function UneTable({ k, accent }: { k: number; accent: string }) {
 export function TablesReference() {
   const tables = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: TABLE_FONT }}>
       <div style={{ textAlign: "center", marginBottom: "3mm" }}>
-        <div style={{ fontSize: "30px", fontWeight: 700, color: ACC, fontFamily: CURSIVE }}>Toutes mes tables de multiplication</div>
-        <div style={{ fontSize: "13px", fontWeight: 700, color: "#475569", fontFamily: CONSIGNE_FONT }}>J'en apprends <b>une par semaine</b> par cœur. (On commence par la table de 2.)</div>
+        <div style={{ fontSize: "24px", fontWeight: 700, color: "#111" }}>Les tables de multiplication</div>
+        <div style={{ fontSize: "13px", color: "#111", marginTop: "0.5mm" }}>À apprendre par cœur, de la table de 1 à la table de 10 (une table par semaine).</div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "3mm" }}>
-        {tables.map((k) => <UneTable key={k} k={k} accent={ACC} />)}
-      </div>
-      <div style={{ marginTop: "4mm", border: `2px dashed ${ACC}`, borderRadius: "3mm", padding: "2.5mm 4mm", textAlign: "center", fontFamily: CURSIVE, fontSize: "16px" }}>
-        Astuce : 3 × 4, c'est pareil que 4 × 3. Si je connais une table, j'en connais deux&nbsp;!
+      <div style={{ columnCount: 4, columnGap: "7mm" }}>
+        {tables.map((k) => <UneTableListe key={k} k={k} />)}
       </div>
     </div>
   );
