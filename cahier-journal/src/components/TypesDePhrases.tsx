@@ -5,7 +5,7 @@
  */
 import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
-import { LandscapeDoc, PageBreak, Feuille, Col, Trait, Consigne, Exemple, Lines, Defi, CURSIVE } from "./ficheLandscape";
+import { LandscapeDoc, PageBreak, Feuille, Trait, Consigne, Exemple, Lines, CURSIVE } from "./ficheLandscape";
 import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
 
 const FR = "#1d4ed8";
@@ -238,110 +238,148 @@ export function QcmTypesPhrases() {
   );
 }
 
-/* ===================== FEUILLE D'EXERCICES (paysage, ~10 exos) ===================== */
-function Aphrase({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontFamily: CURSIVE, fontSize: "18px", margin: "0.5mm 0", color: "#111" }}>{children}</div>;
+/* ===================== FEUILLE D'EXERCICES (paysage, recto-verso, 4 types) ===================== */
+const NOCUT = { overflowWrap: "normal" as const, wordBreak: "keep-all" as const, hyphens: "none" as const };
+
+/** Colonne qui ÉTALE ses exercices pour remplir toute la hauteur de la page. */
+function ColFill({ children }: { children: React.ReactNode }) {
+  return <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "0 3mm" }}>{children}</div>;
 }
-function MiniCoche({ lignes }: { lignes: string[] }) {
-  const cols = ["déclar. (.)", "interro. (?)", "exclam. (!)"];
+
+function Aphrase({ emoji, children }: { emoji?: string; children: React.ReactNode }) {
   return (
-    <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: CURSIVE, marginTop: "0.5mm" }}>
+    <div style={{ fontFamily: CURSIVE, fontSize: "20px", margin: "1.5mm 0", color: "#111", display: "flex", alignItems: "center", gap: "2mm", ...NOCUT }}>
+      {emoji && <span style={{ fontSize: "22px" }}>{emoji}</span>}<span>{children}</span>
+    </div>
+  );
+}
+
+const T4 = [". (déclar.)", "? (interro.)", "! (exclam.)", "ordre"];
+function Coche4({ lignes }: { lignes: { e: string; p: string }[] }) {
+  return (
+    <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: CURSIVE, marginTop: "1mm", ...NOCUT }}>
       <thead><tr>
-        <th style={{ border: "1.2px solid #111", padding: "0.5mm 2mm", background: FR, color: "#fff", fontSize: "11px", fontFamily: CONSIGNE_FONT, textAlign: "left" }}>Phrase</th>
-        {cols.map((c) => <th key={c} style={{ border: "1.2px solid #111", padding: "0.5mm", background: FR, color: "#fff", fontSize: "10px", fontFamily: CONSIGNE_FONT }}>{c}</th>)}
+        <th style={{ border: "1.3px solid #111", padding: "1mm 2mm", background: FR, color: "#fff", fontSize: "12px", fontFamily: CONSIGNE_FONT, textAlign: "left" }}>Phrase</th>
+        {T4.map((c) => <th key={c} style={{ border: "1.3px solid #111", padding: "1mm 0.5mm", background: FR, color: "#fff", fontSize: "10.5px", fontFamily: CONSIGNE_FONT }}>{c}</th>)}
       </tr></thead>
-      <tbody>{lignes.map((p, i) => (
+      <tbody>{lignes.map((l, i) => (
         <tr key={i}>
-          <td style={{ border: "1.2px solid #111", padding: "0.3mm 2mm", fontSize: "15px" }}>{p}</td>
-          {cols.map((c) => <td key={c} style={{ border: "1.2px solid #111", textAlign: "center", fontSize: "15px" }}>☐</td>)}
+          <td style={{ border: "1.3px solid #111", padding: "1mm 2mm", fontSize: "17px" }}><span style={{ fontSize: "18px" }}>{l.e}</span> {l.p}</td>
+          {T4.map((c) => <td key={c} style={{ border: "1.3px solid #111", textAlign: "center", fontSize: "19px", width: "15mm" }}>☐</td>)}
         </tr>
       ))}</tbody>
     </table>
   );
 }
 
+function Rappel4() {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "1mm 4mm", fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700, marginBottom: "1mm", ...NOCUT }}>
+      <span>📢 déclarative = je raconte <b>.</b></span>
+      <span>❓ interrogative = je questionne <b>?</b></span>
+      <span>❗ exclamative = une émotion <b>!</b></span>
+      <span>✋ impérative = un ordre <b>. / !</b></span>
+    </div>
+  );
+}
+
 export function FicheTypesPhrasesExos() {
   return (
     <LandscapeDoc>
-      <Feuille titre="Les types de phrases" sousTitre="Exercices — CE1 / CE2 (page 1)">
-        <Col>
+      <Feuille titre="Les types de phrases" sousTitre="Exercices — CE1 / CE2 · recto">
+        <ColFill>
+          <Rappel4 />
           <div>
             <Consigne n={1} aide=". ? !">Mets le bon point à la fin de chaque phrase.</Consigne>
             <Exemple>Tu viens jouer <b>?</b></Exemple>
-            <Aphrase>a) Le chat dort sur le lit ___</Aphrase>
-            <Aphrase>b) Où est mon cartable ___</Aphrase>
-            <Aphrase>c) Quelle belle journée ___</Aphrase>
-            <Aphrase>d) Range tes crayons ___</Aphrase>
+            <Aphrase emoji="🐱">a) Le chat dort sur le lit ___</Aphrase>
+            <Aphrase emoji="🎒">b) Où est mon cartable ___</Aphrase>
+            <Aphrase emoji="🌞">c) Quelle belle journée ___</Aphrase>
+            <Aphrase emoji="🚪">d) Ferme la porte ___</Aphrase>
+            <Aphrase emoji="🍎">e) Je mange une pomme ___</Aphrase>
           </div>
           <div>
             <Consigne n={2}>Coche (✗) le bon type pour chaque phrase.</Consigne>
-            <MiniCoche lignes={["Le soleil brille.", "As-tu froid ?", "Comme il est tard !", "Je lis un conte."]} />
+            <Coche4 lignes={[
+              { e: "☀️", p: "Le soleil brille." },
+              { e: "🥶", p: "As-tu froid ?" },
+              { e: "⏰", p: "Comme il est tard !" },
+              { e: "🤫", p: "Écoute bien." },
+              { e: "📖", p: "Je lis un conte." },
+            ]} />
           </div>
-        </Col>
+        </ColFill>
         <Trait />
-        <Col>
+        <ColFill>
           <div>
             <Consigne n={3}>Relie chaque phrase à son type (tire un trait).</Consigne>
-            <div style={{ display: "flex", justifyContent: "space-between", fontFamily: CURSIVE, fontSize: "16px", marginTop: "1mm" }}>
-              <div>
-                <div>• Tu as perdu ta dent ?</div>
-                <div>• Les fleurs poussent.</div>
-                <div>• Quel beau dessin !</div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontFamily: CURSIVE, fontSize: "19px", marginTop: "2mm", ...NOCUT }}>
+              <div style={{ lineHeight: 2.1 }}>
+                <div>🦷 Tu as perdu ta dent ? •</div>
+                <div>🌸 Les fleurs poussent. •</div>
+                <div>🎨 Quel beau dessin ! •</div>
+                <div>🧹 Range ta chambre. •</div>
               </div>
-              <div style={{ textAlign: "right", color: "#444" }}>
-                <div>déclarative •</div>
-                <div>interrogative •</div>
-                <div>exclamative •</div>
+              <div style={{ textAlign: "right", lineHeight: 2.1, color: "#333" }}>
+                <div>• déclarative</div>
+                <div>• interrogative</div>
+                <div>• exclamative</div>
+                <div>• impérative</div>
               </div>
             </div>
           </div>
           <div>
-            <Consigne n={4}>Transforme la phrase en question.</Consigne>
+            <Consigne n={4}>Transforme la phrase déclarative en question.</Consigne>
             <Exemple>Tu as faim. → As-tu faim ?</Exemple>
-            <Aphrase>a) Tu aimes les pommes.</Aphrase>
-            <Lines n={1} />
-            <Aphrase>b) Le train arrive.</Aphrase>
-            <Lines n={1} />
+            <Aphrase emoji="🍏">a) Tu aimes les pommes.</Aphrase>
+            <Lines n={2} />
+            <Aphrase emoji="🚂">b) Le train arrive.</Aphrase>
+            <Lines n={2} />
           </div>
-        </Col>
+        </ColFill>
       </Feuille>
       <PageBreak />
-      <Feuille titre="Les types de phrases" sousTitre="Exercices — CE1 / CE2 (page 2)">
-        <Col>
+      <Feuille titre="Les types de phrases" sousTitre="Exercices — CE1 / CE2 · verso">
+        <ColFill>
           <div>
             <Consigne n={5}>Transforme en phrase exclamative.</Consigne>
             <Exemple>C'est beau. → Comme c'est beau !</Exemple>
-            <Aphrase>a) Ce gâteau est bon.</Aphrase>
-            <Lines n={1} />
-            <Aphrase>b) Il fait chaud.</Aphrase>
-            <Lines n={1} />
+            <Aphrase emoji="🍰">a) Ce gâteau est bon.</Aphrase>
+            <Lines n={2} />
+            <Aphrase emoji="🔥">b) Il fait chaud.</Aphrase>
+            <Lines n={2} />
           </div>
           <div>
-            <Consigne n={6} aide="D · I · E">Écris D, I ou E devant chaque phrase.</Consigne>
-            <Exemple>___ Tu viens ? → <b>I</b></Exemple>
-            <Aphrase>___ Nous jouons dehors.</Aphrase>
-            <Aphrase>___ Bravo, tu as gagné !</Aphrase>
-            <Aphrase>___ Quelle heure est-il ?</Aphrase>
+            <Consigne n={6}>Transforme en phrase impérative (donne un ordre).</Consigne>
+            <Exemple>Tu ranges tes affaires. → Range tes affaires !</Exemple>
+            <Aphrase emoji="🖐️">a) Tu laves tes mains.</Aphrase>
+            <Lines n={2} />
+            <Aphrase emoji="🤐">b) Tu fais le silence.</Aphrase>
+            <Lines n={2} />
           </div>
-        </Col>
+        </ColFill>
         <Trait />
-        <Col>
+        <ColFill>
           <div>
-            <Consigne n={7}>Écris une phrase de chaque type.</Consigne>
-            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700 }}>Une déclarative (.) :</div>
-            <Lines n={1} />
-            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700 }}>Une interrogative (?) :</div>
-            <Lines n={1} />
-            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700 }}>Une exclamative (!) :</div>
-            <Lines n={1} />
-            <div style={{ marginTop: "0.5mm" }}><Defi>CE2 : écris une phrase impérative (un ordre).</Defi></div>
-            <Lines n={1} />
+            <Consigne n={7} aide="D · I · E · O">Écris D, I, E ou O devant chaque phrase.</Consigne>
+            <Exemple>Tu viens ? → <b>I</b> &nbsp; Range ! → <b>O</b></Exemple>
+            <Aphrase emoji="🏃">___ Nous jouons dehors.</Aphrase>
+            <Aphrase emoji="🏆">___ Bravo, tu as gagné !</Aphrase>
+            <Aphrase emoji="🕒">___ Quelle heure est-il ?</Aphrase>
+            <Aphrase emoji="✏️">___ Prends ton crayon.</Aphrase>
           </div>
           <div>
-            <Consigne n={8}>Entoure la phrase interrogative, souligne l'exclamative.</Consigne>
-            <Aphrase>Le vélo roule vite. — Est-ce que tu dors ? — Quel vacarme !</Aphrase>
+            <Consigne n={8}>Écris une phrase de chaque type.</Consigne>
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "13px", fontWeight: 700, marginTop: "1mm" }}>📢 Une déclarative (.) :</div>
+            <Lines n={2} />
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "13px", fontWeight: 700 }}>❓ Une interrogative (?) :</div>
+            <Lines n={2} />
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "13px", fontWeight: 700 }}>❗ Une exclamative (!) :</div>
+            <Lines n={2} />
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "13px", fontWeight: 700 }}>✋ Une impérative (un ordre) :</div>
+            <Lines n={2} />
           </div>
-        </Col>
+        </ColFill>
       </Feuille>
     </LandscapeDoc>
   );
