@@ -9378,17 +9378,28 @@
      {
       "heure": "",
       "texte": "Rentrée : relever les devoirs de vacances (poésie récitée, cahier d'écriture réécrit). EPS en suspens (bras cassé) → rangement du classeur.",
-      "type": "autre"
+      "type": "autre",
+      "id": "20261102r0"
      }
-    ]
+    ],
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": []
    },
-   "updatedAt": 1793456309471
+   "updatedAt": 1793457309471
   },
   {
    "date": "2026-11-03",
    "info": {
     "devoirs": "MATHS : continuer d'apprendre la TABLE DE 2 par cœur ; finir la feuille « problèmes et multiplications » si besoin. FRANÇAIS : revoir les types de phrases (le point de chacun) ; mots de GraphéMo. GÉO : savoir dire où j'habite (ville, département, région, pays).",
-    "rappels": []
+    "rappels": [],
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": []
    },
    "slots": [
     {
@@ -9959,7 +9970,7 @@
     }
    ],
    "createdAt": 1790700000000,
-   "updatedAt": 1790701000005
+   "updatedAt": 1790702000005
   },
   {
    "date": "2026-11-17",
