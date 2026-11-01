@@ -9387,22 +9387,579 @@
   {
    "date": "2026-11-03",
    "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261103-conseil-d-ecole-n1",
-      "texte": "Conseil d'école n°1",
-      "type": "reunion"
-     }
-    ],
-    "events": []
+    "devoirs": "MATHS : continuer d'apprendre la TABLE DE 2 par cœur ; finir la feuille « problèmes et multiplications » si besoin. FRANÇAIS : revoir les types de phrases (le point de chacun) ; mots de GraphéMo. GÉO : savoir dire où j'habite (ville, département, région, pays).",
+    "rappels": []
    },
-   "slots": [],
+   "slots": [
+    {
+     "start": "08:30",
+     "end": "08:45",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin : type de phrase + problème (addition ou multiplication ?)",
+       "objectif": "Réactiver chaque matin les deux notions travaillées : reconnaître le type d'une phrase et résoudre un petit problème de groupes égaux.",
+       "competence": "Identifier le type d'une phrase ; distinguer addition et multiplication dans un problème.",
+       "competenceRef": "Français — BO n° 41 du 31 octobre 2024 (grammaire) ; Maths — programmes 2025, résolution de problèmes.",
+       "progPeriode": "P2",
+       "progDomaine": "Rituels",
+       "progSequence": "Rituels P2",
+       "progSeance": "quotidien",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "r1",
+         "label": "La phrase du jour (5 min)",
+         "note": "- « Je lis la phrase du jour, vous me dites son type. »\n- « Elle raconte, elle questionne, ou elle montre une émotion ? »\n- « Quel point met-on à la fin ? »\n- « Un élève vient entourer le bon point. »\n- « On recopie la phrase sur l'ardoise. »\n(Correction immédiate au tableau.)"
+        },
+        {
+         "id": "r2",
+         "label": "Le problème du jour (7 min)",
+         "note": "- « Écoutez : est-ce une addition ou une multiplication ? »\n- « Y a-t-il des groupes égaux ? Si oui, on multiplie. »\n- « Dessinez les groupes sur l'ardoise. »\n- « Écrivez le calcul, puis la phrase réponse. »\n- « On corrige : combien de groupes, combien dans chaque groupe ? »\n(Carte collée dans le cahier.)"
+        }
+       ],
+       "materiel": "Cartes « rituel du matin » (voir Documents à imprimer, 4 par A4). Ardoises.",
+       "video": "",
+       "differenciation": "CE1 : petits nombres, dessin autorisé. CE2 : écrire directement la multiplication puis vérifier.",
+       "depassement": "",
+       "correction": "Phrase : type + point attendus. Problème : la multiplication et la phrase réponse.",
+       "obstacles": "Erreurs fréquentes : additionner (6 + 4) au lieu de multiplier (6 × 4). Remédiation rapide : dessiner les groupes et compter.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths",
+       "id": "rit03"
+      }
+     ]
+    },
+    {
+     "start": "08:45",
+     "end": "10:10",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Les types de phrases (consolidation : QCM + rappel)",
+       "objectif": "Consolider la reconnaissance des 4 types de phrases et le choix du point, en s'entraînant au QCM.",
+       "competence": "Identifier les types de phrases ; utiliser la ponctuation de fin adaptée.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe » (la phrase).",
+       "progPeriode": "P2",
+       "progDomaine": "Français — grammaire",
+       "progSequence": "Les types de phrases",
+       "progSeance": "3 (consolidation / QCM)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "t1",
+         "label": "On se rappelle (8 min)",
+         "note": "- « Qui me rappelle les types de phrases et leur point ? »\n- « La déclarative raconte : point. »\n- « L'interrogative questionne : point d'interrogation. »\n- « L'exclamative montre une émotion : point d'exclamation. »\n- « Et la phrase impérative donne un ordre. »\n(Je réactive à l'oral.)"
+        },
+        {
+         "id": "t2",
+         "label": "Le QCM (30 min)",
+         "note": "- « Vous prenez la feuille du QCM : une croix par phrase. »\n- « Lisez la phrase dans votre tête, écoutez le message. »\n- « Regardez bien le point s'il est écrit. »\n- « Les CE1 font la première partie ; les CE2 font tout. »\n- « Je passe vous aider. »\n(Feuille QCM paysage.)"
+        },
+        {
+         "id": "t3",
+         "label": "Correction (10 min)",
+         "note": "- « On corrige ensemble, phrase par phrase. »\n- « Pourquoi ce type ? Quel point ? »\n- « On vérifie sa feuille et on se corrige au stylo vert. »\n- « On range dans le classeur de français. »\n- « Bravo, vous progressez sur les types de phrases ! »\n(Correction collective (auto-correction supervisée).)"
+        }
+       ],
+       "materiel": "Grand QCM « Les types de phrases » (A4 paysage) + leçon (rappel) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=20lToFx4lPU",
+       "differenciation": "CE1 : QCM sur les 3 premiers types. CE2 : tout le QCM + repérer les impératives.",
+       "depassement": "",
+       "correction": "QCM : déclarative (.) / interrogative (?) / exclamative (!) selon le message de chaque phrase.",
+       "obstacles": "Erreurs fréquentes : confondre interrogative et exclamative. Remédiation rapide : dire la phrase à voix haute, l'intonation aide.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais",
+       "id": "m03tp"
+      }
+     ]
+    },
+    {
+     "start": "10:10",
+     "end": "10:40",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "m03re1"
+      }
+     ]
+    },
+    {
+     "start": "10:40",
+     "end": "11:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths — Problèmes et multiplications (entraînement différencié)",
+       "objectif": "S'entraîner à résoudre des problèmes de groupes égaux (on multiplie) et à calculer des multiplications ; apprendre la table de 2.",
+       "competence": "Donner du sens à la multiplication ; résoudre des problèmes ; mémoriser des tables.",
+       "competenceRef": "Mathématiques, cycle 2 — programmes 2025 : calcul et résolution de problèmes.",
+       "progPeriode": "P2",
+       "progDomaine": "Maths — Nombres & calcul",
+       "progSequence": "La multiplication",
+       "progSeance": "2 (problèmes + calculs)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "m1",
+         "label": "On se rappelle (8 min)",
+         "note": "- « Que fait-on quand il y a des groupes égaux ? On multiplie. »\n- « 3 paquets de 4 : 4 + 4 + 4 = 3 × 4 = 12. »\n- « Le piège : 6 tables de 4, c'est 6 × 4, pas 6 + 4 ! »\n- « On sort sa feuille de tables si besoin. »\n- « On y va, chacun à son niveau. »\n(Rappel au tableau.)"
+        },
+        {
+         "id": "m2",
+         "label": "Les exercices (30 min)",
+         "note": "- « Les CE1 prennent la colonne CE1, les CE2 la colonne CE2. »\n- « Pour les problèmes : dessinez les groupes, écrivez la multiplication, puis la réponse. »\n- « Pour les calculs : servez-vous de la table de 2, 5, 10. »\n- « Regardez l'exemple avant de commencer. »\n- « Je passe d'abord aider les CE1, les CE2 sont en autonomie. »\n(Feuille différenciée ; tandems CE1 guidé / CE2 autonome.)"
+        },
+        {
+         "id": "m3",
+         "label": "Table de 2 + correction (7 min)",
+         "note": "- « On récite la table de 2 ensemble. »\n- « On corrige quelques calculs au tableau. »\n- « Vous vous corrigez au stylo vert. »\n- « Continuez d'apprendre la table de 2 à la maison. »\n- « Range la feuille dans le classeur. »\n(Auto-correction supervisée (le maître ne peut pas écrire).)"
+        }
+       ],
+       "materiel": "Feuille « Problèmes et multiplications » (différenciée CE1 / CE2, A4 paysage) + référence « Toutes mes tables » — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
+       "differenciation": "CE1 : tables de 2, 5, 10 et petits problèmes (×2). CE2 : nombres plus grands, plus de calculs, problèmes à deux étapes de lecture.",
+       "depassement": "Inventer un problème de groupes égaux et le faire résoudre à son voisin.",
+       "correction": "CE1 : 4×2=8 élèves ; 5×2=10 gâteaux ; calculs 8,10,10,20,12,15. CE2 : 5×6=30 chaises ; 7×4=28 fleurs ; calculs 15,20,18,14,25,24,16,21.",
+       "obstacles": "Erreurs fréquentes : additionner au lieu de multiplier ; se tromper dans la table. Remédiation rapide : dessiner les groupes ; s'appuyer sur la feuille de tables.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths",
+       "id": "m03mu"
+      }
+     ]
+    },
+    {
+     "start": "11:30",
+     "end": "11:35",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement avant la cantine",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "m03rg"
+      }
+     ]
+    },
+    {
+     "start": "11:35",
+     "end": "13:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Pause méridienne",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "m03ca"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "13:45",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Silence, on lit",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "m03sol"
+      }
+     ]
+    },
+    {
+     "start": "13:45",
+     "end": "14:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — GraphéMo (orthographe, selon la méthode)",
+       "objectif": "Travailler l'orthographe selon la programmation GraphéMo de la semaine.",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; écrire des graphèmes étudiés.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "Français — orthographe (GraphéMo)",
+       "progSequence": "GraphéMo",
+       "progSeance": "selon la méthode",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "g1",
+         "label": "Séance GraphéMo (45 min)",
+         "note": "- « On suit la séance GraphéMo du jour. »\n- « On observe le graphème, on l'entoure dans les mots. »\n- « On épelle, on écrit sur l'ardoise. »\n- « On recopie les mots repères. »\n- « On les reverra dans la dictée. »\n(Je suis la fiche GraphéMo.)"
+        }
+       ],
+       "materiel": "Supports GraphéMo de la semaine.",
+       "video": "",
+       "differenciation": "CE1 / CE2 selon les groupes GraphéMo.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : confusion de graphèmes proches. Remédiation rapide : revenir au son, au geste et au mot repère.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais",
+       "id": "graphemo03"
+      }
+     ]
+    },
+    {
+     "start": "14:30",
+     "end": "15:10",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géographie — Où sommes-nous ? (se repérer dans l'espace proche)",
+       "objectif": "Apprendre à se situer par emboîtement (commune → département → région → pays) et à s'orienter avec les points cardinaux (nord, sud, est, ouest).",
+       "competence": "Se repérer dans l'espace proche et le situer dans un espace plus large ; connaître et utiliser les points cardinaux.",
+       "competenceRef": "Questionner le monde — questionner l'espace, cycle 2 (programme en vigueur 2026-2027) : « se repérer dans l'espace et le représenter ».",
+       "progPeriode": "P2",
+       "progDomaine": "Questionner le monde — Géographie (l'espace)",
+       "progSequence": "Se repérer dans l'espace proche",
+       "progSeance": "1 — Où sommes-nous ?",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "ge1",
+         "label": "On se situe (15 min)",
+         "note": "- « Savez-vous dans quelle ville est notre école ? Saint-Priest-en-Jarez ! »\n- « Notre ville est à côté de Saint-Étienne, dans un département : la Loire. »\n- « La Loire est dans une région : l'Auvergne-Rhône-Alpes. »\n- « Et tout cela est dans notre pays : la France, qui est en Europe. »\n- « On emboîte tout comme des poupées russes : ville, département, région, pays. »\n(Je projette le diaporama (emboîtement).)"
+        },
+        {
+         "id": "ge2",
+         "label": "La rose des vents (10 min)",
+         "note": "- « Pour s'orienter, on utilise 4 points : le nord, le sud, l'est, l'ouest. »\n- « Le nord est en haut de la carte, le sud en bas. »\n- « L'est est à droite, l'ouest à gauche. »\n- « On regarde la rose des vents au tableau. »\n- « Montrez-moi le nord avec votre bras. »\n(Rose des vents projetée.)"
+        },
+        {
+         "id": "ge3",
+         "label": "Leçon + fiche (15 min)",
+         "note": "- « On colle la leçon : l'emboîtement et la rose des vents. »\n- « Puis vous remplissez la fiche : vous complétez où vous habitez. »\n- « Vous écrivez N, S, E, O sur la rose des vents. »\n- « Les CE1 complètent l'emboîtement ; les CE2 ajoutent l'Europe. »\n- « On range dans le cahier / classeur. »\n(Leçon à coller + fiche de repérage ; aide individuelle.)"
+        }
+       ],
+       "materiel": "Diaporama « Où sommes-nous ? » + leçon (emboîtement + rose des vents) + fiche de repérage — voir Documents à imprimer. Un planisphère / une carte de France si disponible.",
+       "video": "",
+       "differenciation": "CE1 : se situer commune → département → pays, points cardinaux. CE2 : ajouter la région et le continent (Europe), situer sur une carte.",
+       "depassement": "Chercher une autre ville de la Loire ; placer le nord sur une carte.",
+       "correction": "Commune : Saint-Priest-en-Jarez · Département : la Loire · Région : Auvergne-Rhône-Alpes · Pays : la France. Rose des vents : N (haut), S (bas), E (droite), O (gauche). Du plus petit au plus grand : commune, département, région, pays.",
+       "obstacles": "Erreurs fréquentes : confondre ville, département, région, pays ; inverser est et ouest. Remédiation rapide : image des poupées russes (du plus petit au plus grand) ; « le soleil se lève à l'est ».",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre",
+       "id": "g03"
+      }
+     ]
+    },
+    {
+     "start": "15:10",
+     "end": "15:40",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Récréation",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "m03re2"
+      }
+     ]
+    },
+    {
+     "start": "15:40",
+     "end": "16:15",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "EMC — Pourquoi des règles ? (le droit et la règle)",
+       "objectif": "Comprendre que les règles permettent de bien apprendre, de vivre ensemble et de se respecter ; les relier aux règles de la classe.",
+       "competence": "Comprendre les raisons de l'obéissance aux règles ; respecter les autres.",
+       "competenceRef": "Enseignement moral et civique, cycle 2 (programmes 2018/2020) : « le droit et la règle ».",
+       "progPeriode": "P2",
+       "progDomaine": "EMC — le droit et la règle",
+       "progSequence": "Les règles de vie",
+       "progSeance": "1 — Pourquoi des règles ?",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "guidage"
+       ],
+       "deroulement": [
+        {
+         "id": "e1",
+         "label": "On en discute (10 min)",
+         "note": "- « À votre avis, pourquoi y a-t-il des règles ? »\n- « Pensez à un jeu : que se passe-t-il sans règles ? C'est la pagaille ! »\n- « En classe aussi, on a besoin de règles pour bien apprendre. »\n- « Les règles sont les mêmes pour tout le monde. »\n- « Qui peut me donner une règle de notre classe ? »\n(Diaporama projeté ; je recueille les idées.)"
+        },
+        {
+         "id": "e2",
+         "label": "Nos règles (15 min)",
+         "note": "- « On relit ensemble nos règles : lever le doigt, écouter, respecter les autres… »\n- « Pourquoi cette règle est-elle importante ? »\n- « Les règles ne sont pas des punitions : elles protègent chacun. »\n- « On fait le lien avec notre fusée du comportement. »\n- « On colle la leçon des règles. »\n(Leçon à coller ; lien avec l'affiche fusée.)"
+        },
+        {
+         "id": "e3",
+         "label": "Je m'engage (10 min)",
+         "note": "- « Chacun choisit une règle qu'il va bien respecter cette semaine. »\n- « On la dit à voix haute à la classe. »\n- « On se promet de s'entraider pour les respecter. »\n- « Respecter les règles, c'est se respecter les uns les autres. »\n- « Bravo, vous êtes des citoyens de la classe ! »\n(Engagement oral ; valorisation.)"
+        }
+       ],
+       "materiel": "Diaporama « Pourquoi des règles ? » + leçon à coller — voir Documents à imprimer. En lien avec l'affiche « la fusée du comportement ».",
+       "video": "",
+       "differenciation": "CE1 : repérer et nommer une règle et son utilité. CE2 : expliquer pourquoi la règle protège (conséquence pour les autres).",
+       "depassement": "",
+       "correction": "Les règles servent à apprendre, à vivre ensemble et à se respecter ; elles protègent tout le monde.",
+       "obstacles": "Erreurs fréquentes : voir la règle comme une punition. Remédiation rapide : partir du jeu (sans règle, pas de jeu possible) ; montrer que la règle protège.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre",
+       "id": "emc03"
+      }
+     ]
+    },
+    {
+     "start": "16:15",
+     "end": "16:25",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Bilan de la semaine & devoirs",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "m03bil"
+      }
+     ]
+    },
+    {
+     "start": "16:25",
+     "end": "16:30",
+     "activities": [
+      {
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [],
+       "roleEnseignant": [],
+       "deroulement": [],
+       "materiel": "",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": null,
+       "id": "m03sor"
+      }
+     ]
+    }
+   ],
    "createdAt": 1790700000000,
-   "updatedAt": 1790700000005
+   "updatedAt": 1790701000005
   },
   {
    "date": "2026-11-17",
