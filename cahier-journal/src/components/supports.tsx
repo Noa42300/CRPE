@@ -17,11 +17,10 @@ import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_C
 import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon, ExperienceBouteilleMaison } from "./QlmS4Supports";
 import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
-import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
+import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos, FicheTypesPhrasesExos2 } from "./TypesDePhrases";
 import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
-import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesReference } from "./MultiplicationSens";
+import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, MultiplicationExos2, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
-import { ProblemesMultiplicationsExos } from "./ProblemesMultiplications";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos } from "./GeoOuSommesNous";
 import { EmcReglesDiapo, EmcReglesLecon } from "./EmcRegles";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
@@ -1391,12 +1390,12 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m03tp":
       return [
-        { key: "tp-qcm", label: "Les types de phrases — Grand QCM (A4 paysage, à cocher)", node: <QcmTypesPhrases /> },
+        { key: "tp-exos2", label: "Les types de phrases — Feuille d'exercices n° 2 (A4 paysage, 2 pages, CE1/CE2)", node: <FicheTypesPhrasesExos2 /> },
         { key: "tp-lecon2", label: "Les types de phrases — Leçon (rappel à coller)", node: <TypesPhrasesLecon /> },
       ];
     case "m03mu":
       return [
-        { key: "pb-mult", label: "Problèmes + multiplications — Exercices différenciés CE1 / CE2 (A4 paysage)", node: <ProblemesMultiplicationsExos /> },
+        { key: "mu-exos2", label: "La multiplication — Feuille d'exercices n° 2 (paquets, problème, 3 × 4… · CE1/CE2)", node: <MultiplicationExos2 /> },
         { key: "mu-tables2", label: "Toutes mes tables de multiplication (référence)", node: <TablesReference /> },
       ];
     case "g03":
