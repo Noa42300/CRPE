@@ -431,8 +431,22 @@ jours. On peut réduire le reste, jamais ces deux-là.
   vient de Google Fonts → elle se charge **en ligne**. Pour un PDF rendu côté
   préparation, **embarquer la police** (woff2 en data-URI) sinon le rendu tombe
   en serif (« trop ordinateur »).
-- **Histoire ET Géographie → toujours une petite PRODUCTION D'ÉCRIT en tâche
-  finale** (ils adorent, ça leur fait ressortir la leçon à l'écrit).
+- **Histoire ET Géographie → une petite PRODUCTION D'ÉCRIT en tâche finale, EN
+  FIN DE SÉQUENCE** (pas à chaque séance ; ils adorent, ça fait ressortir la
+  leçon à l'écrit). Les séances intermédiaires suivent le trio diapo + leçon +
+  exercice.
+- **Programme HG cycle 2** : un NOUVEAU programme est paru (BO n° 22 du 28 mai
+  2026) mais ne s'applique aux **CE1-CE2 qu'à la rentrée 2027**. En **2026-2027,
+  on reste sur l'ANCIEN programme** « Questionner le monde — questionner l'espace
+  et le temps ».
+- **Géographie — par où commencer (BO)** : sous-domaine « se repérer dans
+  l'espace et le représenter », du **proche au lointain** : espace proche
+  (commune) → représenter (plan) → élargir (France, Europe, monde) + points
+  cardinaux. S1 « Où sommes-nous ? » : la classe est à **Saint-Priest-en-Jarez**,
+  dans la **Loire (42)**, en **Auvergne-Rhône-Alpes**, en **France** (Europe).
+- **EMC** : on peut caler de **petites séances EMC** (diapo + leçon), ex.
+  « Pourquoi des règles ? » (le droit et la règle), en lien avec la fusée du
+  comportement.
 - **Rotation QLM** : P1 = Histoire (lundi) + Sciences (mardi). **P2 =
   Géographie** (le mardi, avec production d'écrit) ; **Sciences revient en P3** ;
   Histoire (Antiquité) plus tard. L'**« Autour du monde » du lundi** = fil

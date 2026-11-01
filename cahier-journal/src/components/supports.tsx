@@ -21,6 +21,9 @@ import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases
 import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
 import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
+import { ProblemesMultiplicationsExos } from "./ProblemesMultiplications";
+import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos } from "./GeoOuSommesNous";
+import { EmcReglesDiapo, EmcReglesLecon } from "./EmcRegles";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
@@ -1382,8 +1385,30 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "hw-projet", label: "Happy Halloween — Fiche projet « My Halloween card » + grille d'éval", node: <HalloweenProjetCarte /> },
       ];
     case "rit02":
+    case "rit03":
       return [
         { key: "rit-serie", label: "Rituels du matin (nov → janvier) — types de phrases + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
+      ];
+    case "m03tp":
+      return [
+        { key: "tp-qcm", label: "Les types de phrases — Grand QCM (A4 paysage, à cocher)", node: <QcmTypesPhrases /> },
+        { key: "tp-lecon2", label: "Les types de phrases — Leçon (rappel à coller)", node: <TypesPhrasesLecon /> },
+      ];
+    case "m03mu":
+      return [
+        { key: "pb-mult", label: "Problèmes + multiplications — Exercices différenciés CE1 / CE2 (A4 paysage)", node: <ProblemesMultiplicationsExos /> },
+        { key: "mu-tables2", label: "Toutes mes tables de multiplication (référence)", node: <TablesReference /> },
+      ];
+    case "g03":
+      return [
+        { key: "geo-diapo", label: "Où sommes-nous ? — Diaporama à projeter", node: <GeoOuSommesNousDiapo /> },
+        { key: "geo-lecon", label: "Où sommes-nous ? — Leçon à coller (emboîtement + rose des vents)", node: <GeoOuSommesNousLecon /> },
+        { key: "geo-exos", label: "Où sommes-nous ? — Fiche de repérage (A4)", node: <GeoOuSommesNousExos /> },
+      ];
+    case "emc03":
+      return [
+        { key: "emc-diapo", label: "Pourquoi des règles ? — Diaporama à projeter (EMC)", node: <EmcReglesDiapo /> },
+        { key: "emc-lecon", label: "Pourquoi des règles ? — Leçon à coller (EMC)", node: <EmcReglesLecon /> },
       ];
     case "l02tp":
       return [
