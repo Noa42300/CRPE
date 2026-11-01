@@ -64,9 +64,9 @@ export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
             ? ` · ${day.info.presents ?? "?"} présents · ${day.info.absents ?? "?"} absents`
             : ""}
         </div>
-        {day.info.events.length > 0 && (
+        {(day.info.events?.length ?? 0) > 0 && (
           <div className="mt-1 text-[11px]">
-            {day.info.events
+            {(day.info.events ?? [])
               .map((e) => `${EVENT_LABELS[e.type]}${e.note ? " : " + e.note : ""}`)
               .join(" — ")}
           </div>
@@ -88,7 +88,7 @@ export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
             {slot.activities.map((a) => (
               <div key={a.id} className="mt-1.5 pl-2">
                 <div className="font-semibold">
-                  [{a.niveaux.map((n) => niveauLabel(settings, n)).join(" / ")}]{" "}
+                  [{(a.niveaux ?? []).map((n) => niveauLabel(settings, n)).join(" / ")}]{" "}
                   {a.title}
                 </div>
                 {a.objectif && (
@@ -101,21 +101,21 @@ export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
                     <b>Compétence :</b> {a.competence}
                   </div>
                 )}
-                {(a.organisation.length > 0 || a.roleEnseignant.length > 0) && (
+                {((a.organisation?.length ?? 0) > 0 || (a.roleEnseignant?.length ?? 0) > 0) && (
                   <div>
-                    {a.organisation.length > 0 && (
+                    {(a.organisation?.length ?? 0) > 0 && (
                       <span>
                         <b>Organisation :</b> {a.organisation.join(", ")}.{" "}
                       </span>
                     )}
-                    {a.roleEnseignant.length > 0 && (
+                    {(a.roleEnseignant?.length ?? 0) > 0 && (
                       <span>
                         <b>Rôle :</b> {a.roleEnseignant.join(", ")}.
                       </span>
                     )}
                   </div>
                 )}
-                {a.deroulement.length > 0 && (
+                {(a.deroulement?.length ?? 0) > 0 && (
                   <div>
                     <b>Déroulement :</b>
                     <ol className="ml-5 list-decimal">
