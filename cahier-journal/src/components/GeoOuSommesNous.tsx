@@ -1,13 +1,14 @@
 /**
  * Géographie — Séquence 1 « Se repérer dans l'espace proche », séance 1.
- * « Où sommes-nous ? » : se situer par emboîtement (ville → département →
- * région → pays → continent) + les points cardinaux (nord, sud, est, ouest).
- *  • Diaporama à projeter · Leçon à coller · Fiche de repérage.
+ * « Où sommes-nous ? » : se situer sur une VRAIE CARTE de France (du pays à notre
+ * commune) + les points cardinaux (nord, sud, est, ouest).
+ *  • Diaporama à projeter · Leçon à coller · Fiche d'exercices · Carte à compléter.
  * Classe de Saint-Priest-en-Jarez (Loire, Auvergne-Rhône-Alpes, France).
  */
 import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
 import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
+import { CarteFrance, RoseDesVents } from "./CarteFrance";
 
 const GEO = "#0e7490";
 const CURSIVE = "'Caveat','Comic Neue',cursive";
@@ -21,7 +22,6 @@ const NIVEAUX = [
 ];
 
 function Emboitement({ reveal = true }: { reveal?: boolean }) {
-  // Rectangles emboîtés : pays (grand) → région → département → commune (petit).
   return (
     <div style={{ padding: "3mm", border: `4px solid ${NIVEAUX[3].c}`, borderRadius: "4mm" }}>
       <div style={{ fontWeight: 800, color: NIVEAUX[3].c, fontFamily: CONSIGNE_FONT, fontSize: "13px" }}>Pays : {reveal ? NIVEAUX[3].v : "……………"}</div>
@@ -39,25 +39,11 @@ function Emboitement({ reveal = true }: { reveal?: boolean }) {
   );
 }
 
-function RoseDesVents({ labels = true, size = 180 }: { labels?: boolean; size?: number }) {
-  const c = size / 2;
-  const L = (x: number, y: number, t: string) => (
-    <text x={x} y={y} textAnchor="middle" fontFamily={CONSIGNE_FONT} fontWeight="800" fontSize={size * 0.13} fill={GEO}>{labels ? t : "…"}</text>
-  );
-  return (
-    <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
-      <circle cx={c} cy={c} r={c * 0.62} fill="none" stroke="#cbd5e1" strokeWidth="2" />
-      {/* étoile 4 branches */}
-      <polygon points={`${c},${c * 0.1} ${c * 1.12},${c * 0.88} ${c * 1.9},${c} ${c * 1.12},${c * 1.12} ${c},${c * 1.9} ${c * 0.88},${c * 1.12} ${c * 0.1},${c} ${c * 0.88},${c * 0.88}`} fill={GEO} opacity="0.85" stroke="#083344" strokeWidth="1.5" />
-      {L(c, size * 0.1, "N")}
-      {L(c, size * 0.97, "S")}
-      {L(size * 0.92, c + size * 0.045, "E")}
-      {L(size * 0.08, c + size * 0.045, "O")}
-    </svg>
-  );
-}
+const Credit = () => (
+  <div style={{ fontSize: "8px", color: "#94a3b8", textAlign: "right", marginTop: "0.5mm" }}>Fond de carte © amCharts (licence libre)</div>
+);
 
-const ET = ["Où sommes-nous ?", "Ma commune", "Mon département", "Ma région & mon pays", "Les poupées russes", "Nord, sud, est, ouest", "Je retiens"];
+const ET = ["Où sommes-nous ?", "Notre pays : la France", "Notre région", "Notre département & notre commune", "Comme des poupées russes", "Nord, sud, est, ouest", "Je retiens"];
 export function GeoOuSommesNousDiapo() {
   const [i, setI] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -72,51 +58,54 @@ export function GeoOuSommesNousDiapo() {
       <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
         {i === 0 && (
           <div className="text-center">
-            <div className="text-6xl">🌍📍</div>
-            <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl" style={{ color: GEO }}>Où sommes-nous ?</h1>
-            <p className="mt-3 text-2xl font-semibold text-stone-600">On va apprendre à <b>se situer</b> : de notre école jusqu'à la France&nbsp;!</p>
+            <div className="flex justify-center"><div style={{ width: "min(46vh,340px)" }}><CarteFrance ara ecole loire /></div></div>
+            <h1 className="mt-2 text-4xl font-extrabold sm:text-5xl" style={{ color: GEO }}>Où sommes-nous ?</h1>
+            <p className="mt-2 text-2xl font-semibold text-stone-600">On va se repérer sur la carte : de la <b>France</b> jusqu'à notre <b>école</b>&nbsp;!</p>
           </div>
         )}
         {i === 1 && (
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold" style={{ color: NIVEAUX[0].c }}>Ma commune</h2>
-            <p className="mt-4 text-3xl font-bold text-stone-800">🏫 Saint-Priest-en-Jarez</p>
-            <p className="mt-3 text-2xl text-stone-600">C'est notre <b>ville</b>, juste à côté de <b>Saint-Étienne</b>.</p>
+            <h2 className="text-4xl font-extrabold" style={{ color: NIVEAUX[3].c }}>Notre pays : la France 🇫🇷</h2>
+            <div className="mt-3 flex justify-center"><div style={{ width: "min(52vh,400px)" }}><CarteFrance /></div></div>
+            <p className="mt-2 text-2xl text-stone-600">Voici la carte de la <b>France</b>. On l'appelle « l'Hexagone » (6 côtés).</p>
           </div>
         )}
         {i === 2 && (
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold" style={{ color: NIVEAUX[1].c }}>Mon département</h2>
-            <p className="mt-4 text-3xl font-bold text-stone-800">la Loire (42)</p>
-            <p className="mt-3 text-2xl text-stone-600">Plusieurs villes ensemble forment un <b>département</b>.</p>
+            <h2 className="text-4xl font-extrabold" style={{ color: NIVEAUX[2].c }}>Notre région</h2>
+            <div className="mt-3 flex justify-center"><div style={{ width: "min(52vh,400px)" }}><CarteFrance ara nomARA /></div></div>
+            <p className="mt-2 text-2xl text-stone-600">La France est partagée en <b>régions</b>. La nôtre : <b style={{ color: GEO }}>Auvergne-Rhône-Alpes</b>.</p>
           </div>
         )}
         {i === 3 && (
           <div className="text-center">
-            <h2 className="text-4xl font-extrabold" style={{ color: NIVEAUX[2].c }}>Ma région & mon pays</h2>
-            <p className="mt-4 text-2xl text-stone-700">Région : <b>Auvergne-Rhône-Alpes</b></p>
-            <p className="text-2xl text-stone-700">Pays : <b style={{ color: NIVEAUX[3].c }}>la France</b> 🇫🇷</p>
-            <p className="mt-3 text-xl text-stone-500">La France est en <b>Europe</b>.</p>
+            <h2 className="text-4xl font-extrabold" style={{ color: NIVEAUX[1].c }}>Notre département & notre commune</h2>
+            <div className="mt-3 flex justify-center"><div style={{ width: "min(52vh,400px)" }}><CarteFrance ara loire ecole /></div></div>
+            <p className="mt-2 text-2xl text-stone-600">Département : <b style={{ color: NIVEAUX[1].c }}>la Loire (42)</b> · Commune : <b style={{ color: NIVEAUX[0].c }}>Saint-Priest-en-Jarez</b> (près de Saint-Étienne).</p>
           </div>
         )}
         {i === 4 && (
           <div className="w-full max-w-md text-center">
             <h2 className="mb-3 text-4xl font-extrabold" style={{ color: GEO }}>Comme des poupées russes</h2>
             <Emboitement />
+            <p className="mt-3 text-xl text-stone-500">Ma commune est dans mon département, dans ma région, dans mon pays.</p>
           </div>
         )}
         {i === 5 && (
           <div className="text-center">
             <h2 className="text-4xl font-extrabold" style={{ color: GEO }}>Nord, sud, est, ouest</h2>
-            <div className="mt-3 flex justify-center"><RoseDesVents size={220} /></div>
-            <p className="mt-2 text-2xl text-stone-600">La <b>rose des vents</b> m'aide à m'orienter.</p>
+            <div className="mt-3 flex items-center justify-center gap-6">
+              <RoseDesVents size={220} />
+              <div style={{ width: "min(40vh,300px)" }}><CarteFrance ara ecole rose /></div>
+            </div>
+            <p className="mt-2 text-2xl text-stone-600">La <b>rose des vents</b> m'aide à m'orienter sur la carte.</p>
           </div>
         )}
         {i === 6 && (
           <div className="text-center">
-            <div className="mb-2 text-5xl">🧭</div>
-            <h1 className="text-4xl font-extrabold" style={{ color: GEO }}>Je retiens</h1>
-            <p className="mt-3 text-2xl font-semibold text-stone-600">J'habite à <b>Saint-Priest-en-Jarez</b>, dans la <b>Loire</b>, en <b>Auvergne-Rhône-Alpes</b>, en <b>France</b>.</p>
+            <div className="flex justify-center"><div style={{ width: "min(40vh,300px)" }}><CarteFrance ara loire ecole rose /></div></div>
+            <h1 className="mt-1 text-4xl font-extrabold" style={{ color: GEO }}>Je retiens</h1>
+            <p className="mt-2 text-2xl font-semibold text-stone-600">J'habite à <b>Saint-Priest-en-Jarez</b>, dans la <b>Loire</b>, en <b>Auvergne-Rhône-Alpes</b>, en <b>France</b>.</p>
             <p className="text-2xl font-semibold text-stone-600">Je m'oriente avec le <b>nord, le sud, l'est, l'ouest</b>.</p>
           </div>
         )}
@@ -133,20 +122,50 @@ export function GeoOuSommesNousDiapo() {
 export function GeoOuSommesNousLecon() {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "40px", margin: "0 0 3mm", textAlign: "center", fontWeight: 700, color: GEO, fontFamily: CURSIVE }}>Où sommes-nous ?</h1>
-      <div style={{ display: "flex", gap: "6mm", alignItems: "flex-start" }}>
-        <div style={{ flex: 1.3 }}>
-          <div style={{ fontSize: "14px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1.5mm" }}>Je me situe (de ma ville jusqu'à mon pays) :</div>
-          <Emboitement />
+      <h1 style={{ fontSize: "38px", margin: "0 0 2mm", textAlign: "center", fontWeight: 700, color: GEO, fontFamily: CURSIVE }}>Où sommes-nous ?</h1>
+      <div style={{ display: "flex", gap: "5mm", alignItems: "flex-start" }}>
+        <div style={{ flex: 1.15 }}>
+          <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm" }}>Sur la carte de France :</div>
+          <CarteFrance ara loire ecole nomARA rose width="100%" />
+          <Credit />
         </div>
-        <div style={{ flex: 1, textAlign: "center" }}>
-          <div style={{ fontSize: "14px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1.5mm" }}>Je m'oriente :</div>
-          <div style={{ display: "flex", justifyContent: "center" }}><RoseDesVents size={150} /></div>
-          <div style={{ fontFamily: CURSIVE, fontSize: "18px", marginTop: "2mm" }}>la rose des vents :<br />nord, sud, est, ouest</div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm" }}>Je me situe (poupées russes) :</div>
+          <Emboitement />
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "2mm" }}><RoseDesVents size={120} /></div>
+          <div style={{ fontFamily: CURSIVE, fontSize: "15px", textAlign: "center" }}>la rose des vents : nord, sud, est, ouest</div>
         </div>
       </div>
-      <div style={{ marginTop: "4mm", border: `2px dashed ${GEO}`, borderRadius: "3mm", padding: "3mm 5mm", fontFamily: CURSIVE, fontSize: "19px", textAlign: "center" }}>
+      <div style={{ marginTop: "3mm", border: `2px dashed ${GEO}`, borderRadius: "3mm", padding: "2.5mm 5mm", fontFamily: CURSIVE, fontSize: "18px", textAlign: "center" }}>
         J'habite à <b>Saint-Priest-en-Jarez</b>, dans la <b>Loire</b>, en <b>Auvergne-Rhône-Alpes</b>, en <b>France</b> (en Europe).
+      </div>
+    </div>
+  );
+}
+
+/* ====== CARTE À COMPLÉTER (à imprimer) — l'élève pose le point de l'école ====== */
+export function CarteFranceAImprimer() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "5mm 6mm", minHeight: "265mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "2px solid #111", paddingBottom: "1.5mm", marginBottom: "2mm" }}>
+          <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>Ma carte de France</h1>
+          <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : ..................</span>
+        </div>
+        <div style={{ fontSize: "13px", fontFamily: CONSIGNE_FONT, lineHeight: 1.5 }}>
+          <div><b>1.</b> Colorie en bleu notre région : <b>Auvergne-Rhône-Alpes</b>.</div>
+          <div><b>2.</b> Pose un <b style={{ color: "#dc2626" }}>point rouge •</b> sur notre commune : <b>Saint-Priest-en-Jarez</b> (près de Saint-Étienne).</div>
+          <div><b>3.</b> Écris <b>N</b>, <b>S</b>, <b>E</b>, <b>O</b> sur la rose des vents.</div>
+        </div>
+        {/* grande carte vierge, avec N/S/E/O autour à compléter */}
+        <div style={{ position: "relative", flex: 1, display: "flex", alignItems: "center", justifyContent: "center", marginTop: "2mm" }}>
+          <div style={{ position: "absolute", top: "1mm", left: "50%", transform: "translateX(-50%)", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "22px", color: "#111" }}>______</div>
+          <div style={{ position: "absolute", bottom: "1mm", left: "50%", transform: "translateX(-50%)", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "22px", color: "#111" }}>______</div>
+          <div style={{ position: "absolute", top: "50%", right: "2mm", transform: "translateY(-50%)", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "22px", color: "#111" }}>__</div>
+          <div style={{ position: "absolute", top: "50%", left: "2mm", transform: "translateY(-50%)", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "22px", color: "#111" }}>__</div>
+          <div style={{ width: "155mm" }}><CarteFrance blank loire rose roseLabels={false} /></div>
+        </div>
+        <Credit />
       </div>
     </div>
   );
