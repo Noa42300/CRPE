@@ -22,7 +22,8 @@ import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashca
 import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, MultiplicationExos2, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
-import { EmcReglesDiapo, EmcReglesLecon } from "./EmcRegles";
+import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
+import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos } from "./EgypteNil";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
@@ -1407,8 +1408,14 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "emc03":
       return [
-        { key: "emc-diapo", label: "Pourquoi des règles ? — Diaporama à projeter (EMC)", node: <EmcReglesDiapo /> },
-        { key: "emc-lecon", label: "Pourquoi des règles ? — Leçon à coller (EMC)", node: <EmcReglesLecon /> },
+        { key: "emc-diapo", label: "Le maire et la mairie — Diaporama à projeter (EMC)", node: <EmcMaireDiapo /> },
+        { key: "emc-lecon", label: "Le maire et la mairie — Leçon à coller (EMC)", node: <EmcMaireLecon /> },
+      ];
+    case "qlm-hist-eg-1":
+      return [
+        { key: "eg-diapo", label: "Au bord du Nil — Diaporama à projeter (vraies photos)", node: <EgypteNilDiapo /> },
+        { key: "eg-lecon", label: "Au bord du Nil — Leçon à coller (cahier d'histoire)", node: <EgypteNilLecon /> },
+        { key: "eg-exos", label: "Au bord du Nil — Fiche d'exercices (A4)", node: <EgypteNilExos /> },
       ];
     case "l02tp":
       return [

@@ -9850,14 +9850,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "EMC — Pourquoi des règles ? (le droit et la règle)",
-       "objectif": "Comprendre que les règles permettent de bien apprendre, de vivre ensemble et de se respecter ; les relier aux règles de la classe.",
-       "competence": "Comprendre les raisons de l'obéissance aux règles ; respecter les autres.",
-       "competenceRef": "Enseignement moral et civique, cycle 2 (programmes 2018/2020) : « le droit et la règle ».",
+       "title": "EMC — Le maire et la mairie (découvrir la commune)",
+       "objectif": "Découvrir le rôle du maire et de la mairie dans la commune ; comprendre qu'on choisit le maire en votant.",
+       "competence": "Reconnaître la mairie et le rôle du maire ; comprendre le sens du vote (choisir, donner son avis).",
+       "competenceRef": "Enseignement moral et civique, cycle 2 (programmes 2018) : « le droit et la règle » et la découverte des institutions proches (la commune) et de la vie démocratique.",
        "progPeriode": "P2",
        "progDomaine": "EMC — le droit et la règle",
-       "progSequence": "Les règles de vie",
-       "progSeance": "1 — Pourquoi des règles ?",
+       "progSequence": "Vivre dans ma commune",
+       "progSeance": "1 — Le maire et la mairie",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -9868,27 +9868,32 @@
        ],
        "deroulement": [
         {
-         "id": "e1",
-         "label": "On en discute (10 min)",
-         "note": "- « À votre avis, pourquoi y a-t-il des règles ? »\n- « Pensez à un jeu : que se passe-t-il sans règles ? C'est la pagaille ! »\n- « En classe aussi, on a besoin de règles pour bien apprendre. »\n- « Les règles sont les mêmes pour tout le monde. »\n- « Qui peut me donner une règle de notre classe ? »\n(Diaporama projeté ; je recueille les idées.)"
+         "id": "emc-maire-1",
+         "label": "Découverte : la mairie (10 min)",
+         "note": "« Aujourd'hui, en instruction civique, on va découvrir qui dirige notre ville et à quoi sert la mairie. »\n« Est-ce que vous êtes déjà allés à la mairie ? Pour faire quoi ? » (je laisse quelques élèves raconter.)\n« Je vous montre une photo : regardez, c'est un hôtel de ville, une mairie. Qu'est-ce qu'on voit dessus ? »\n« Oui, il y a le drapeau bleu-blanc-rouge, et souvent la phrase Liberté, Égalité, Fraternité. »\n« La mairie, c'est la maison de la commune : on y va pour la carte d'identité, se marier, inscrire les enfants à l'école. »\n« Notre commune à nous, c'est Saint-Priest-en-Jarez : elle a donc sa mairie. »"
         },
         {
-         "id": "e2",
-         "label": "Nos règles (15 min)",
-         "note": "- « On relit ensemble nos règles : lever le doigt, écouter, respecter les autres… »\n- « Pourquoi cette règle est-elle importante ? »\n- « Les règles ne sont pas des punitions : elles protègent chacun. »\n- « On fait le lien avec notre fusée du comportement. »\n- « On colle la leçon des règles. »\n(Leçon à coller ; lien avec l'affiche fusée.)"
+         "id": "emc-maire-2",
+         "label": "Le maire et son rôle (10 min)",
+         "note": "« Dans la mairie travaille une personne très importante : le maire. Qui sait ce que fait le maire ? »\n« Le maire, c'est la personne qui dirige la commune, qui s'occupe de la ville. »\n« Les jours de fête, il porte une écharpe bleu-blanc-rouge : regardez le dessin. »\n« À votre avis, de quoi s'occupe le maire dans la ville ? » (je note leurs idées au tableau.)\n« Il s'occupe de l'école, des routes, de la sécurité, des fêtes, des parcs, de la propreté. »\n« C'est lui qui décide, par exemple, de réparer une route ou d'organiser la fête de l'école. »"
         },
         {
-         "id": "e3",
-         "label": "Je m'engage (10 min)",
-         "note": "- « Chacun choisit une règle qu'il va bien respecter cette semaine. »\n- « On la dit à voix haute à la classe. »\n- « On se promet de s'entraider pour les respecter. »\n- « Respecter les règles, c'est se respecter les uns les autres. »\n- « Bravo, vous êtes des citoyens de la classe ! »\n(Engagement oral ; valorisation.)"
+         "id": "emc-maire-3",
+         "label": "On choisit le maire en votant (8 min)",
+         "note": "« Mais comment devient-on maire ? Est-ce qu'on le choisit au hasard ? » (je laisse réagir.)\n« Non : ce sont les habitants qui choisissent, en votant, pendant les élections. »\n« Voter, ça veut dire choisir : chacun met un papier, le bulletin, dans une boîte, l'urne. »\n« On vote pour le maire tous les 6 ans. Celui que les habitants préfèrent devient maire. »\n« Vous aussi, bientôt, on votera en classe pour choisir des choses ensemble. »\n« Voter, c'est donner son avis et respecter le choix de tous. »"
+        },
+        {
+         "id": "emc-maire-4",
+         "label": "Trace écrite : la leçon (7 min)",
+         "note": "« Maintenant, on garde une trace de ce qu'on a appris : je distribue la leçon à coller. »\n« On lit ensemble : la mairie est la maison de la commune, le maire la dirige. »\n« Qui peut me redire à quoi sert le maire ? » (je fais reformuler deux ou trois élèves.)\n« On colorie l'écharpe du maire en bleu, blanc, rouge. »\n« On range la leçon dans le bon cahier et on la relira à la maison. »\n(je vérifie que chacun a bien collé et compris l'essentiel.)"
         }
        ],
-       "materiel": "Diaporama « Pourquoi des règles ? » + leçon à coller — voir Documents à imprimer. En lien avec l'affiche « la fusée du comportement ».",
-       "video": "",
-       "differenciation": "CE1 : repérer et nommer une règle et son utilité. CE2 : expliquer pourquoi la règle protège (conséquence pour les autres).",
+       "materiel": "Diaporama « Le maire et la mairie » + leçon à coller — voir Documents à imprimer. Si possible, une photo de la mairie de Saint-Priest-en-Jarez. Cahier de leçons.",
+       "video": "https://www.lumni.fr/video/c-est-quoi-le-role-d-un-maire",
+       "differenciation": "Pour les CE1 : rester sur le concret (la mairie, le drapeau, l'écharpe, « le maire s'occupe de… »). Pour les CE2 : ajouter le vocabulaire du vote (élections, bulletin, urne, tous les 6 ans). Pour un élève à besoins attentionnels : support visuel sous les yeux, consignes fractionnées, une question ciblée facile pour l'impliquer.",
        "depassement": "",
-       "correction": "Les règles servent à apprendre, à vivre ensemble et à se respecter ; elles protègent tout le monde.",
-       "obstacles": "Erreurs fréquentes : voir la règle comme une punition. Remédiation rapide : partir du jeu (sans règle, pas de jeu possible) ; montrer que la règle protège.",
+       "correction": "La mairie = la maison de la commune (drapeau, devise). Le maire = la personne élue qui dirige la commune, porte l'écharpe tricolore, s'occupe de l'école, des routes, de la sécurité, des fêtes, des parcs, de la propreté. On choisit le maire en votant aux élections (tous les 6 ans).",
+       "obstacles": "Erreurs fréquentes : confondre le maire et le président de la République ; penser que le maire « commande tout » ; croire que les enfants votent. Remédiation rapide : bien distinguer « la commune = le maire » et « le pays = le président » ; rappeler que le maire s'occupe seulement de la commune ; préciser que ce sont les adultes habitants qui votent.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -9970,7 +9975,7 @@
     }
    ],
    "createdAt": 1790700000000,
-   "updatedAt": 1790702000005
+   "updatedAt": 1790703000005
   },
   {
    "date": "2026-11-17",
@@ -14331,6 +14336,268 @@
     }
    ],
    "updatedAt": 1790900000000
+  },
+  {
+   "id": "seq-qlm-hist-egypte",
+   "title": "Histoire · L'Égypte des pharaons (Antiquité)",
+   "disciplineId": "qlm",
+   "niveaux": [
+    "classe"
+   ],
+   "objectif": "Découvrir l'Égypte des pharaons (Antiquité) : le Nil et la vie, le pharaon, les pyramides et les momies, les hiéroglyphes, puis une production d'écrit en fin de séquence.",
+   "updatedAt": 1793568310741,
+   "seances": [
+    {
+     "id": "qlm-hist-eg-1",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Au bord du Nil",
+     "objectif": "Situer l'Égypte ancienne dans le temps (l'Antiquité) et dans l'espace (en Afrique, au bord du Nil) ; comprendre que le Nil permettait la vie.",
+     "competence": "Se repérer dans le temps (grandes périodes) et dans l'espace ; comprendre le rôle d'un fleuve pour les hommes.",
+     "competenceRef": "Questionner le monde — questionner le temps (programme cycle 2, 2018/2020) : l'Antiquité, une grande période de l'Histoire ; se repérer dans le temps et le situer.",
+     "progPeriode": "P3",
+     "progDomaine": "Histoire",
+     "progSequence": "Histoire · L'Égypte des pharaons (Antiquité)",
+     "progSeance": "1",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "étayage"
+     ],
+     "deroulement": [
+      {
+       "id": "eg1-1",
+       "label": "Découverte : une photo mystère (8 min)",
+       "note": "« Aujourd'hui, on part très loin dans le temps et dans l'espace : je vous montre une photo. »\n« Que voyez-vous ? De l'eau, du sable, des bateaux… » (je laisse décrire librement.)\n« C'est un très grand fleuve qui s'appelle le Nil, en Égypte. »\n« On va découvrir comment les gens vivaient là, il y a très, très longtemps. »\n« À votre avis, c'était il y a 10 ans, 100 ans, ou beaucoup plus ? » (je recueille les idées.)"
+      },
+      {
+       "id": "eg1-2",
+       "label": "Se situer dans le temps et l'espace (12 min)",
+       "note": "« On replace l'Égypte sur la frise des grandes périodes : c'était l'Antiquité, il y a plus de 5000 ans. »\n« C'est après la Préhistoire, bien avant les châteaux forts du Moyen Âge. »\n« Où est l'Égypte ? Sur la carte, c'est en Afrique. »\n« Les Égyptiens vivaient tout le long d'un fleuve : le Nil. »\n« Pourquoi vivre au bord du fleuve, à votre avis ? » (je note leurs hypothèses au tableau.)"
+      },
+      {
+       "id": "eg1-3",
+       "label": "Le Nil donne la vie + la crue (12 min)",
+       "note": "« Regardons ce que le Nil apporte : de l'eau pour boire, pour les cultures, des poissons, et des bateaux pour se déplacer. »\n« Tout autour, c'est le désert : sans le Nil, on ne pourrait pas vivre là. »\n« Chaque année, le fleuve monte et déborde un peu : c'est la crue. »\n« La crue dépose une terre noire très riche : les paysans ont alors de belles récoltes. »\n« Qui peut me redire pourquoi le Nil est si important ? » (je fais reformuler.)"
+      },
+      {
+       "id": "eg1-4",
+       "label": "Trace écrite + exercices (13 min)",
+       "note": "« On garde une trace : je distribue la leçon, on la lit et on la colle dans le cahier d'histoire. »\n« Puis vous ferez la fiche : compléter avec les mots, relier, vrai ou faux, et dessiner le Nil. »\n« Les CE2 peuvent écrire une phrase en plus pour expliquer la crue. »\n« Je passe dans les rangs pour aider ceux qui en ont besoin. »\n(je vérifie la compréhension du mot « crue » et du mot « Antiquité ».)"
+      }
+     ],
+     "materiel": "Diaporama « Au bord du Nil » (vraies photos) + leçon à coller + fiche d'exercices — voir Documents à imprimer. Frise des grandes périodes. (Vidéo précise à choisir : Lumni ou C'est pas sorcier « Égypte ».) Cahier d'histoire.",
+     "video": "",
+     "differenciation": "CE1 : rester sur le concret (eau, cultures, bateaux, désert). CE2 : ajouter la crue et le limon (la terre riche), et une phrase écrite. Élève à besoins attentionnels : frise et carte sous les yeux, consignes fractionnées, une question ciblée facile.",
+     "depassement": "",
+     "correction": "Antiquité ; en Afrique ; au bord du Nil ; autour = le désert. Le Nil apporte l'eau, les cultures, les poissons, les bateaux. La crue dépose une terre riche → belles récoltes.",
+     "obstacles": "Erreurs fréquentes : situer l'Égypte en Europe ; confondre fleuve et mer ; penser que la crue est une catastrophe. Remédiation rapide : montrer l'Afrique sur la carte ; rappeler qu'un fleuve coule vers la mer ; expliquer que la crue, ici, est attendue et utile (terre riche).",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "qlm-hist-eg-2",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Le pharaon, roi-dieu",
+     "objectif": "Découvrir le pharaon : le roi tout-puissant de l'Égypte, considéré comme un dieu ; reconnaître ses symboles.",
+     "competence": "Identifier une figure de pouvoir dans une société ancienne et ses symboles.",
+     "competenceRef": "Questionner le monde — questionner le temps (programme cycle 2, 2018/2020) : l'Antiquité, une grande période de l'Histoire ; se repérer dans le temps et le situer.",
+     "progPeriode": "P3",
+     "progDomaine": "Histoire",
+     "progSequence": "Histoire · L'Égypte des pharaons (Antiquité)",
+     "progSeance": "2",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "étayage"
+     ],
+     "deroulement": [
+      {
+       "id": "eg2-1",
+       "label": "Rappel + découverte (10 min)",
+       "note": "« Qui se souvient d'où vivaient les Égyptiens ? Oui, au bord du Nil, pendant l'Antiquité. »\n« Aujourd'hui, on découvre celui qui commandait tout le pays : le pharaon. »\n« Je vous montre le masque doré de Toutânkhamon : que remarquez-vous ? » (je laisse décrire.)\n« Le pharaon, c'était le roi de l'Égypte, et pour les Égyptiens, c'était même un dieu vivant. »\n« Il décidait de tout : les lois, les travaux, la guerre. »"
+      },
+      {
+       "id": "eg2-2",
+       "label": "Ses symboles (12 min)",
+       "note": "« Un pharaon se reconnaît à ses symboles : regardons-les ensemble. »\n« La double couronne montre qu'il règne sur toute l'Égypte. »\n« Il tient un sceptre : c'est le signe de son pouvoir. »\n« On voit souvent un serpent sur son front pour le protéger. »\n« À votre avis, pourquoi le montrer si grand sur les images ? » (j'amène l'idée de l'importance.)"
+      },
+      {
+       "id": "eg2-3",
+       "label": "Trace écrite (10 min)",
+       "note": "« On résume : le pharaon est le roi-dieu de l'Égypte, il commande tout le pays. »\n« On colle la leçon et on colorie la couronne. »\n« Qui peut me citer deux symboles du pharaon ? » (je fais reformuler.)\n« Les CE2 écrivent une phrase : pourquoi le pharaon est-il si puissant ? »\n(je vérifie que « roi » et « dieu » sont bien compris.)"
+      }
+     ],
+     "materiel": "Diaporama + leçon à coller (à préparer). Images de pharaons (Toutânkhamon, Ramsès), de la couronne et du sceptre. Cahier d'histoire.",
+     "video": "",
+     "differenciation": "CE1 : reconnaître le pharaon et deux symboles. CE2 : expliquer avec une phrase qu'il est roi ET considéré comme un dieu. Élève à besoins attentionnels : images repères, étiquettes-mots à placer.",
+     "depassement": "",
+     "correction": "Le pharaon = le roi de l'Égypte, considéré comme un dieu. Symboles : double couronne, sceptre, serpent sur le front. Il commandait tout le pays.",
+     "obstacles": "Erreurs fréquentes : confondre pharaon et président ; croire qu'il y avait un seul pharaon. Remédiation rapide : rappeler que le pharaon vivait dans l'Antiquité et qu'il y en a eu beaucoup, les uns après les autres.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "qlm-hist-eg-3",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Pyramides, tombeaux et momies",
+     "objectif": "Comprendre que les Égyptiens construisaient de grands tombeaux (pyramides) pour les pharaons et croyaient à une vie après la mort (momies).",
+     "competence": "Relier des traces matérielles (monuments) aux croyances d'une société ancienne.",
+     "competenceRef": "Questionner le monde — questionner le temps (programme cycle 2, 2018/2020) : l'Antiquité, une grande période de l'Histoire ; se repérer dans le temps et le situer.",
+     "progPeriode": "P3",
+     "progDomaine": "Histoire",
+     "progSequence": "Histoire · L'Égypte des pharaons (Antiquité)",
+     "progSeance": "3",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "étayage"
+     ],
+     "deroulement": [
+      {
+       "id": "eg3-1",
+       "label": "Découverte des pyramides (12 min)",
+       "note": "« Regardez ces immenses monuments de pierre : ce sont les pyramides. »\n« Elles sont très, très grandes : on les voit encore aujourd'hui en Égypte. »\n« À votre avis, à quoi servaient-elles ? » (je recueille les idées.)\n« C'étaient des tombeaux : on y déposait le corps du pharaon mort. »\n« Les construire demandait des milliers d'ouvriers et beaucoup d'années. »"
+      },
+      {
+       "id": "eg3-2",
+       "label": "Momies et croyances (12 min)",
+       "note": "« Les Égyptiens pensaient qu'après la mort, on continuait à vivre dans un autre monde. »\n« Pour garder le corps, ils fabriquaient une momie, enveloppée de bandelettes. »\n« On plaçait la momie dans un sarcophage, avec des objets pour « l'autre vie ». »\n« Le Sphinx, lui, gardait ces lieux sacrés. »\n« Qui peut m'expliquer pourquoi ils faisaient des momies ? » (je fais reformuler.)"
+      },
+      {
+       "id": "eg3-3",
+       "label": "Trace écrite (8 min)",
+       "note": "« On résume : les pyramides sont les tombeaux des pharaons. »\n« Les Égyptiens croyaient à une vie après la mort : ils faisaient des momies. »\n« On colle la leçon et on légende le dessin (pyramide, momie, sarcophage). »\n« Les CE2 écrivent pourquoi on mettait des objets dans le tombeau. »\n(je vérifie le vocabulaire : tombeau, momie, sarcophage.)"
+      }
+     ],
+     "materiel": "Diaporama + leçon (à préparer). Photos des pyramides de Gizeh, du Sphinx, d'une momie, d'un sarcophage. Cahier d'histoire.",
+     "video": "",
+     "differenciation": "CE1 : pyramide = tombeau du pharaon ; momie = corps conservé. CE2 : relier aux croyances (vie après la mort, objets dans le tombeau). Élève à besoins attentionnels : images légendées à relier.",
+     "depassement": "",
+     "correction": "Les pyramides = les tombeaux des pharaons. Les Égyptiens croyaient à une vie après la mort → momies et sarcophages, avec des objets. Le Sphinx gardait ces lieux.",
+     "obstacles": "Erreurs fréquentes : croire que les pyramides sont des maisons ; penser que tout le monde avait une pyramide. Remédiation rapide : rappeler que c'étaient des tombeaux, surtout pour les pharaons.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "qlm-hist-eg-4",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Les hiéroglyphes",
+     "objectif": "Découvrir l'écriture des Égyptiens (les hiéroglyphes, des dessins) ; s'initier en écrivant son prénom.",
+     "competence": "Comprendre qu'une société invente une écriture ; comparer avec notre alphabet.",
+     "competenceRef": "Questionner le monde — questionner le temps (programme cycle 2, 2018/2020) : l'Antiquité, une grande période de l'Histoire ; se repérer dans le temps et le situer.",
+     "progPeriode": "P3",
+     "progDomaine": "Histoire",
+     "progSequence": "Histoire · L'Égypte des pharaons (Antiquité)",
+     "progSeance": "4",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "étayage"
+     ],
+     "deroulement": [
+      {
+       "id": "eg4-1",
+       "label": "Découverte (10 min)",
+       "note": "« Regardez ce mur égyptien : il est couvert de petits dessins. »\n« Ce ne sont pas que des dessins : c'est leur écriture, les hiéroglyphes. »\n« Chaque petit dessin peut représenter un son, comme nos lettres. »\n« Qui écrivait ? Surtout les scribes, des gens qui avaient appris longtemps. »\n« À votre avis, est-ce facile ou difficile à lire ? » (je laisse réagir.)"
+      },
+      {
+       "id": "eg4-2",
+       "label": "J'écris mon prénom (15 min)",
+       "note": "« On va s'amuser à écrire notre prénom en hiéroglyphes. »\n« Voici le tableau : pour chaque lettre, un petit dessin correspond. »\n« Je montre un exemple au tableau avec un prénom de la classe. »\n« À vous : vous cherchez les dessins de votre prénom et vous les recopiez. »\n« Les CE2 peuvent aussi écrire un petit mot (papa, maman, chat). »\n(je passe aider à repérer les bons symboles.)"
+      },
+      {
+       "id": "eg4-3",
+       "label": "Trace écrite (8 min)",
+       "note": "« On colle la leçon : les Égyptiens écrivaient avec des hiéroglyphes, des dessins. »\n« On garde notre prénom en hiéroglyphes dans le cahier. »\n« Qui peut me dire qui écrivait en Égypte ? Oui, les scribes. »\n« On compare : eux, des dessins ; nous, des lettres. »\n(je valorise les productions et je vérifie le mot « hiéroglyphe ».)"
+      }
+     ],
+     "materiel": "Diaporama + leçon (à préparer). Tableau de hiéroglyphes-alphabet (une image = un son). Photo de la pierre de Rosette, d'un mur de temple. Cahier d'histoire.",
+     "video": "",
+     "differenciation": "CE1 : écrire son prénom en hiéroglyphes avec le tableau. CE2 : écrire son prénom + un petit mot, et dire qui écrivait (scribe). Élève à besoins attentionnels : tableau agrandi, prénom préparé en pointillés à repasser.",
+     "depassement": "",
+     "correction": "Les Égyptiens écrivaient avec des hiéroglyphes (des dessins). Les scribes savaient écrire. Activité : son prénom en hiéroglyphes.",
+     "obstacles": "Erreurs fréquentes : croire que chaque hiéroglyphe = une lettre exacte comme chez nous ; se décourager. Remédiation rapide : expliquer que c'est une correspondance simplifiée pour jouer, aider à repérer les symboles un par un.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    },
+    {
+     "id": "qlm-hist-eg-5",
+     "niveaux": [
+      "classe"
+     ],
+     "title": "Production d'écrit : une journée au bord du Nil",
+     "objectif": "En fin de séquence, réinvestir à l'écrit ce qu'on a appris sur l'Égypte en racontant une courte journée d'un enfant égyptien.",
+     "competence": "Écrire un court texte en réinvestissant un vocabulaire et des connaissances (production d'écrit).",
+     "competenceRef": "Questionner le monde — questionner le temps (programme cycle 2, 2018/2020) : l'Antiquité, une grande période de l'Histoire ; se repérer dans le temps et le situer.",
+     "progPeriode": "P3",
+     "progDomaine": "Histoire",
+     "progSequence": "Histoire · L'Égypte des pharaons (Antiquité)",
+     "progSeance": "5",
+     "progRef": "",
+     "organisation": [
+      "collectif",
+      "individuel"
+     ],
+     "roleEnseignant": [
+      "étayage"
+     ],
+     "deroulement": [
+      {
+       "id": "eg5-1",
+       "label": "On se rappelle la séquence (10 min)",
+       "note": "« On termine notre voyage en Égypte : qu'a-t-on appris ? » (je fais rappeler les 4 séances.)\n« On relit vite les leçons : le Nil, le pharaon, les pyramides, les hiéroglyphes. »\n« Aujourd'hui, vous allez écrire : une petite journée d'un enfant au bord du Nil. »\n« On construit ensemble une banque de mots au tableau. »\n« Je montre une amorce : « Je m'appelle… Je vis au bord du Nil. Ce matin… ». »"
+      },
+      {
+       "id": "eg5-2",
+       "label": "J'écris (18 min)",
+       "note": "« À vous d'écrire : 2 ou 3 phrases pour les CE1, un petit paragraphe pour les CE2. »\n« Utilisez les mots de la banque et ce que vous avez appris. »\n« Pensez à la ponctuation : une majuscule au début, un point à la fin. »\n« Je passe lire et aider ceux qui bloquent sur un mot. »\n(j'encourage, je ne corrige pas tout, j'aide à démarrer.)"
+      },
+      {
+       "id": "eg5-3",
+       "label": "On partage (7 min)",
+       "note": "« Qui veut lire sa journée au bord du Nil à la classe ? »\n« On écoute et on dit ce qu'on a aimé dans le texte du camarade. »\n« On range la production dans le classeur : c'est la fin de notre séquence sur l'Égypte. »\n« Bravo, vous êtes devenus de vrais petits égyptologues ! »\n(je repère les réussites à valoriser pour le suivi.)"
+      }
+     ],
+     "materiel": "Feuille de production d'écrit (amorce + banque de mots : Nil, bateau, blé, pyramide, pharaon, scribe) + les leçons de la séquence. Cahier d'histoire / classeur.",
+     "video": "",
+     "differenciation": "CE1 : 2-3 phrases avec l'amorce et la banque de mots. CE2 : un court paragraphe, avec au moins trois mots de la séquence. Élève à besoins attentionnels : amorce + étiquettes-mots, dictée à l'adulte possible.",
+     "depassement": "",
+     "correction": "Texte court et personnel réinvestissant : le Nil, un bateau, les cultures, la pyramide, le pharaon… Ponctuation de base respectée.",
+     "obstacles": "Erreurs fréquentes : raconter sans utiliser le vocabulaire de la séquence ; oublier la ponctuation. Remédiation rapide : pointer la banque de mots ; relire à voix haute pour entendre les points.",
+     "bilan": "",
+     "aReprendre": "",
+     "devoirs": "",
+     "notesProchaine": ""
+    }
+   ]
   }
  ]
 }
