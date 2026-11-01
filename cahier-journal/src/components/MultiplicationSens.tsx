@@ -196,6 +196,51 @@ export function MultiplicationExos() {
   );
 }
 
+/* === Feuille d'exercices n° 2 (mardi) — même modèle, nombres différents :
+ * faire des paquets, écrire la multiplication, un problème, et des calculs
+ * directs « combien font 3 × 4 ». === */
+export function MultiplicationExos2() {
+  return (
+    <LandscapeDoc>
+      <Feuille titre="La multiplication" sousTitre="Exercices (2) — CE1 / CE2">
+        <Col>
+          <div>
+            <Consigne n={1}>Écris l'addition PUIS la multiplication.</Consigne>
+            <Exemple>4 groupes de 2 → 2 + 2 + 2 + 2 = 4 × 2 = 8</Exemple>
+            <div style={{ display: "flex", gap: "3mm", margin: "1mm 0" }}>{[0, 1, 2].map((k) => <Groupe key={k} n={4} color={ACC} />)}</div>
+            <Lines n={1} />
+            <div style={{ display: "flex", gap: "3mm", margin: "1mm 0" }}>{[0, 1, 2, 3].map((k) => <Groupe key={k} n={2} color={ACC} />)}</div>
+            <Lines n={1} />
+          </div>
+          <div>
+            <Consigne n={2}>Complète.</Consigne>
+            <Exemple>3 + 3 + 3 = 3 × 3</Exemple>
+            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>a) 4 + 4 + 4 = …… × ……</div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>b) 5 + 5 = …… × ……</div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>c) 2 × 5 = …… + ……</div>
+          </div>
+        </Col>
+        <Trait />
+        <Col>
+          <div>
+            <Consigne n={3}>Problème. Dessine les groupes, puis écris ta multiplication et la réponse.</Consigne>
+            <Exemple>Pose 3 × 4 si c'est 3 paquets de 4.</Exemple>
+            <div style={{ fontFamily: CURSIVE, fontSize: "17px" }}>Il y a 4 boîtes. Dans chaque boîte, 5 crayons. Combien de crayons en tout ?</div>
+            <div style={{ border: "1.5px dashed #94a3b8", borderRadius: "3mm", height: "24mm", margin: "1mm 0" }} />
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11px", fontWeight: 700 }}>Mon calcul : ............................  Réponse : ............................</div>
+          </div>
+          <div>
+            <Consigne n={4}>Combien font… ? (sers-toi de ta table).</Consigne>
+            <Exemple>3 × 4 = 12</Exemple>
+            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>2 × 5 = …… &nbsp;&nbsp; 2 × 7 = …… &nbsp;&nbsp; 10 × 2 = ……</div>
+            <div style={{ marginTop: "0.5mm" }}><Defi>CE2 : 4 × 4 = …… &nbsp; 5 × 5 = …… &nbsp; 6 × 4 = ……</Defi></div>
+          </div>
+        </Col>
+      </Feuille>
+    </LandscapeDoc>
+  );
+}
+
 /* --- Référence : TOUTES les tables (liste simple « façon Word », à apprendre
  * par cœur de 1 à 10). Police lisible type Arial/Aptos, encre noire, pas de
  * déco : on lit et on apprend. --- */
