@@ -196,44 +196,73 @@ export function MultiplicationExos() {
   );
 }
 
-/* === Feuille d'exercices n° 2 (mardi) — même modèle, nombres différents :
- * faire des paquets, écrire la multiplication, un problème, et des calculs
- * directs « combien font 3 × 4 ». === */
+/* Paquets illustrés : m boîtes contenant chacune n objets (emoji), puis le
+ * calcul à compléter « …… × …… = …… ». Très visuel : l'élève COMPTE les
+ * paquets et ce qu'il y a dedans, puis écrit la multiplication. */
+function Paquets({ m, n, emoji }: { m: number; n: number; emoji: string }) {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2mm", margin: "1.5mm 0" }}>
+      {Array.from({ length: m }).map((_, i) => (
+        <span key={i} style={{ display: "inline-flex", gap: "1px", border: `2px solid ${ACC}`, borderRadius: "7px", padding: "2px 4px", fontSize: "19px", lineHeight: 1 }}>
+          {Array.from({ length: n }).map((_, j) => <span key={j}>{emoji}</span>)}
+        </span>
+      ))}
+      <span style={{ fontFamily: CURSIVE, fontSize: "21px", marginLeft: "2mm" }}>…… × …… = ……</span>
+    </div>
+  );
+}
+
+/* Gros calcul à trou, bien espacé. */
+function Calcul({ a, b }: { a: number; b: number }) {
+  return <span style={{ fontFamily: CURSIVE, fontSize: "23px", display: "inline-block", marginRight: "8mm", marginBottom: "1mm" }}>{a} × {b} = ……</span>;
+}
+
+/* === Feuille d'exercices n° 2 (mardi) — SIMPLE et ILLUSTRÉE.
+ * Un seul geste par exercice : « je compte les paquets → j'écris la
+ * multiplication », puis « je calcule ». Pas de va-et-vient addition ⇄
+ * multiplication (source de confusion). CE1 plus facile · CE2 un peu plus. === */
 export function MultiplicationExos2() {
   return (
     <LandscapeDoc>
-      <Feuille titre="La multiplication" sousTitre="Exercices (2) — CE1 / CE2">
+      <Feuille titre="Je multiplie" sousTitre="Je compte les paquets · CE1 / CE2">
+        {/* ---- CE1 ---- */}
         <Col>
           <div>
-            <Consigne n={1}>Écris l'addition PUIS la multiplication.</Consigne>
-            <Exemple>4 groupes de 2 → 2 + 2 + 2 + 2 = 4 × 2 = 8</Exemple>
-            <div style={{ display: "flex", gap: "3mm", margin: "1mm 0" }}>{[0, 1, 2].map((k) => <Groupe key={k} n={4} color={ACC} />)}</div>
-            <Lines n={1} />
-            <div style={{ display: "flex", gap: "3mm", margin: "1mm 0" }}>{[0, 1, 2, 3].map((k) => <Groupe key={k} n={2} color={ACC} />)}</div>
-            <Lines n={1} />
+            <Consigne n={1}>Compte les paquets. Écris la multiplication.</Consigne>
+            <Exemple>🍎🍎 &nbsp; 🍎🍎 &nbsp; 🍎🍎 → 3 × 2 = 6</Exemple>
+            <Paquets m={4} n={2} emoji="🍎" />
+            <Paquets m={3} n={5} emoji="🍬" />
+            <Paquets m={2} n={5} emoji="🐟" />
           </div>
           <div>
-            <Consigne n={2}>Complète.</Consigne>
-            <Exemple>3 + 3 + 3 = 3 × 3</Exemple>
-            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>a) 4 + 4 + 4 = …… × ……</div>
-            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>b) 5 + 5 = …… × ……</div>
-            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>c) 2 × 5 = …… + ……</div>
+            <Consigne n={2}>Calcule.</Consigne>
+            <Exemple>2 × 3 = 6</Exemple>
+            <div style={{ marginTop: "1mm" }}>
+              <Calcul a={2} b={4} /><Calcul a={2} b={5} /><Calcul a={5} b={2} /><Calcul a={10} b={2} />
+            </div>
           </div>
         </Col>
         <Trait />
+        {/* ---- CE2 ---- */}
         <Col>
           <div>
-            <Consigne n={3}>Problème. Dessine les groupes, puis écris ta multiplication et la réponse.</Consigne>
-            <Exemple>Pose 3 × 4 si c'est 3 paquets de 4.</Exemple>
-            <div style={{ fontFamily: CURSIVE, fontSize: "17px" }}>Il y a 4 boîtes. Dans chaque boîte, 5 crayons. Combien de crayons en tout ?</div>
-            <div style={{ border: "1.5px dashed #94a3b8", borderRadius: "3mm", height: "24mm", margin: "1mm 0" }} />
-            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11px", fontWeight: 700 }}>Mon calcul : ............................  Réponse : ............................</div>
+            <Consigne n={1}>Compte les paquets. Écris la multiplication.</Consigne>
+            <Exemple>⚽⚽⚽⚽ &nbsp; ⚽⚽⚽⚽ → 2 × 4 = 8</Exemple>
+            <Paquets m={3} n={4} emoji="⚽" />
+            <Paquets m={5} n={3} emoji="🌸" />
           </div>
           <div>
-            <Consigne n={4}>Combien font… ? (sers-toi de ta table).</Consigne>
+            <Consigne n={2}>Calcule.</Consigne>
             <Exemple>3 × 4 = 12</Exemple>
-            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>2 × 5 = …… &nbsp;&nbsp; 2 × 7 = …… &nbsp;&nbsp; 10 × 2 = ……</div>
-            <div style={{ marginTop: "0.5mm" }}><Defi>CE2 : 4 × 4 = …… &nbsp; 5 × 5 = …… &nbsp; 6 × 4 = ……</Defi></div>
+            <div style={{ marginTop: "1mm" }}>
+              <Calcul a={3} b={5} /><Calcul a={4} b={5} /><Calcul a={6} b={3} /><Calcul a={5} b={5} />
+            </div>
+          </div>
+          <div>
+            <Consigne n={3}>Un petit problème. Écris la multiplication et la réponse.</Consigne>
+            <Exemple>4 boîtes de 5 → 4 × 5 = 20 crayons</Exemple>
+            <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>Il y a 3 paniers. Dans chaque panier, 6 pommes 🍎.</div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "19px", marginTop: "1mm" }}>…… × …… = …… pommes</div>
           </div>
         </Col>
       </Feuille>
