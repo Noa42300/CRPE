@@ -21,7 +21,7 @@ import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases
 import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
 import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, MultiplicationExos2, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
-import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos } from "./GeoOuSommesNous";
+import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcReglesDiapo, EmcReglesLecon } from "./EmcRegles";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
@@ -1402,6 +1402,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "geo-diapo", label: "Où sommes-nous ? — Diaporama à projeter", node: <GeoOuSommesNousDiapo /> },
         { key: "geo-lecon", label: "Où sommes-nous ? — Leçon à coller (emboîtement + rose des vents)", node: <GeoOuSommesNousLecon /> },
+        { key: "geo-carte", label: "Ma carte de France à compléter (colorie la région, pose le point, N/S/E/O)", node: <CarteFranceAImprimer /> },
         { key: "geo-exos", label: "Où sommes-nous ? — Fiche de repérage (A4)", node: <GeoOuSommesNousExos /> },
       ];
     case "emc03":
