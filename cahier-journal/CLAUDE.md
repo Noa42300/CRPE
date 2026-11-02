@@ -459,3 +459,20 @@ jours. On peut réduire le reste, jamais ces deux-là.
 - **Blessure du maître (fracture scaphoïde + double entorse)** : **EPS en
   suspens** (remplacée par le rangement du classeur) ; **corrections allégées /
   autocorrection supervisée** (il ne peut pas écrire). Pas d'arrêt pris.
+- **FICHES D'EXERCICES — FORMAT « FICHIER DU COMMERCE » (IMPORTANT, validé).**
+  Les feuilles d'exercices élèves doivent ressembler aux fichiers que la classe
+  utilise (type « Je m'entraîne » MDI / manuel), pour que les élèves gardent
+  leurs repères. Modèle : composants de `src/components/ficheModele.tsx`
+  (`FicheModele`, `SectionBar`, `Exo`, `Tableau`, `Choix`, `Etiquettes`,
+  `ListeIntrus`, `CaseImage`, `Defi`). Recette : **police ronde (Nunito)** ;
+  **en-tête** avec onglet « JE M'ENTRAÎNE » + matière, grand titre en capitales
+  coloré, Prénom/Date, pastilles de progression ; **bandeaux de section**
+  (fond coloré, titre blanc en capitales) ; **numéros d'exercice entourés** ;
+  **consignes avec le VERBE en gras** (« **Écris**… », « **Barre**… »,
+  « **Colorie**… », « **Complète**… ») ; types d'exercices variés et fidèles au
+  fichier : tableau à trier, barre l'intrus, compléter, colorie le bon mot/point
+  (choix encadrés séparés par /), images → mots/phrases, grille, **DÉFI
+  ÉCRITURE**. Fiches construites : `FicheModeleFrancais.tsx` (types de phrases),
+  `FicheModeleMaths.tsx` (multiplication, diverses situations). **Pour toute
+  nouvelle feuille d'exercices, partir de ce modèle** (et diversifier). La
+  cursive (Caveat/Borel) reste pour les **leçons à coller**, pas pour ces fiches.
