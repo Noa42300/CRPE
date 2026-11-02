@@ -254,6 +254,11 @@ function Calcul({ a, b }: { a: number; b: number }) {
  * Un seul geste par exercice : « je compte les paquets → j'écris la
  * multiplication », puis « je calcule ». Pas de va-et-vient addition ⇄
  * multiplication (source de confusion). CE1 plus facile · CE2 un peu plus. === */
+/* Ligne « nombre qui manque » (facteur manquant) — plus difficile. */
+function Trou({ children }: { children: React.ReactNode }) {
+  return <span style={{ fontFamily: CURSIVE, fontSize: "21px", display: "inline-block", marginRight: "8mm", marginBottom: "1mm" }}>{children}</span>;
+}
+
 export function MultiplicationExos2() {
   return (
     <LandscapeDoc>
@@ -271,8 +276,23 @@ export function MultiplicationExos2() {
             <Consigne n={2}>Calcule.</Consigne>
             <Exemple>2 × 3 = 6</Exemple>
             <div style={{ marginTop: "1mm" }}>
-              <Calcul a={2} b={4} /><Calcul a={2} b={5} /><Calcul a={5} b={2} /><Calcul a={10} b={2} />
+              <Calcul a={2} b={4} /><Calcul a={2} b={6} /><Calcul a={5} b={2} /><Calcul a={5} b={4} />
+              <Calcul a={10} b={2} /><Calcul a={10} b={5} /><Calcul a={2} b={7} /><Calcul a={2} b={8} />
             </div>
+          </div>
+          <div>
+            <Consigne n={3}>Trouve le nombre qui manque.</Consigne>
+            <Exemple>2 × □ = 6 → 3</Exemple>
+            <div style={{ marginTop: "1mm" }}>
+              <Trou>2 × …… = 8</Trou><Trou>…… × 2 = 10</Trou><Trou>5 × …… = 15</Trou>
+            </div>
+          </div>
+          <div>
+            <Consigne n={4}>Problème. Dessine, puis écris la multiplication et la réponse.</Consigne>
+            <Exemple>5 sachets de 2 billes → 5 × 2 = 10 billes</Exemple>
+            <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>J'ai 4 boîtes. Dans chaque boîte, 5 crayons.</div>
+            <div style={{ border: "1.5px dashed #94a3b8", borderRadius: "3mm", height: "18mm", margin: "1mm 0" }} />
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11px", fontWeight: 700 }}>…… × …… = …… crayons</div>
           </div>
         </Col>
         <Trait />
@@ -289,13 +309,29 @@ export function MultiplicationExos2() {
             <Exemple>3 × 4 = 12</Exemple>
             <div style={{ marginTop: "1mm" }}>
               <Calcul a={3} b={5} /><Calcul a={4} b={5} /><Calcul a={6} b={3} /><Calcul a={5} b={5} />
+              <Calcul a={4} b={6} /><Calcul a={7} b={3} />
             </div>
           </div>
           <div>
-            <Consigne n={3}>Un petit problème. Écris la multiplication et la réponse.</Consigne>
+            <Consigne n={3}>Trouve le nombre qui manque.</Consigne>
+            <Exemple>□ × 4 = 12 → 3</Exemple>
+            <div style={{ marginTop: "1mm" }}>
+              <Trou>…… × 4 = 12</Trou><Trou>5 × …… = 20</Trou><Trou>6 × …… = 18</Trou><Trou>3 × …… = 21</Trou>
+            </div>
+          </div>
+          <div>
+            <Consigne n={4}>Vrai ou faux ? (entoure)</Consigne>
+            <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.7 }}>
+              a) 3 × 4 = 4 × 3 &nbsp; <b>V / F</b><br />
+              b) 2 × 5 = 2 + 5 &nbsp; <b>V / F</b><br />
+              c) 4 × 3 = 3 + 3 + 3 + 3 &nbsp; <b>V / F</b>
+            </div>
+          </div>
+          <div>
+            <Consigne n={5}>Deux petits problèmes. Écris la multiplication et la réponse.</Consigne>
             <Exemple>4 boîtes de 5 → 4 × 5 = 20 crayons</Exemple>
-            <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>Il y a 3 paniers. Dans chaque panier, 6 pommes.</div>
-            <div style={{ fontFamily: CURSIVE, fontSize: "19px", marginTop: "1mm" }}>…… × …… = …… pommes</div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>a) Il y a 3 paniers de 6 pommes. …… × …… = …… pommes</div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "18px", marginTop: "1mm" }}>b) 4 rangées de 5 tables. …… × …… = …… tables</div>
           </div>
         </Col>
       </Feuille>
