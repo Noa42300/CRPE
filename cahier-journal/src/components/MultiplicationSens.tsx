@@ -196,19 +196,52 @@ export function MultiplicationExos() {
   );
 }
 
-/* Paquets illustrés : m boîtes contenant chacune n objets (emoji), puis le
- * calcul à compléter « …… × …… = …… ». Très visuel : l'élève COMPTE les
- * paquets et ce qu'il y a dedans, puis écrit la multiplication. */
-function Paquets({ m, n, emoji }: { m: number; n: number; emoji: string }) {
+/* Petites icônes DESSINÉES (SVG) — restent toujours bien dans leur case, à
+ * l'écran comme à l'impression PDF (contrairement aux emojis qui débordent). */
+type IconKind = "pomme" | "bonbon" | "poisson" | "ballon" | "fleur";
+function MiniIcon({ kind, s = 18 }: { kind: IconKind; s?: number }) {
+  const common = { width: s, height: s, viewBox: "0 0 20 20", style: { display: "block" as const } };
+  switch (kind) {
+    case "pomme":
+      return <svg {...common}><rect x="9.2" y="2.5" width="1.6" height="4" rx="0.8" fill="#7c4a1e" /><path d="M11 4 q 3 -2 4 0 q -2 1 -4 0 Z" fill="#22c55e" /><circle cx="10" cy="12" r="6.6" fill="#e11d48" /><ellipse cx="7.7" cy="9.8" rx="1.6" ry="1" fill="#fff" opacity="0.5" /></svg>;
+    case "bonbon":
+      return <svg {...common}><rect x="6" y="7.5" width="8" height="5" rx="2" fill="#f472b6" stroke="#be185d" strokeWidth="0.8" /><polygon points="6,10 2.5,7 3,13" fill="#f472b6" stroke="#be185d" strokeWidth="0.8" /><polygon points="14,10 17.5,7 17,13" fill="#f472b6" stroke="#be185d" strokeWidth="0.8" /></svg>;
+    case "poisson":
+      return <svg {...common}><ellipse cx="9" cy="10" rx="6.5" ry="4" fill="#38bdf8" /><polygon points="15,10 19,7 19,13" fill="#0ea5e9" /><circle cx="6" cy="9" r="1" fill="#0c4a6e" /></svg>;
+    case "ballon":
+      return <svg {...common}><circle cx="10" cy="10" r="7.2" fill="#fff" stroke="#111" strokeWidth="1" /><polygon points="10,6 12.8,8 11.7,11.5 8.3,11.5 7.2,8" fill="#111" /></svg>;
+    case "fleur":
+      return <svg {...common}>{[0, 72, 144, 216, 288].map((a) => { const r = a * Math.PI / 180; return <circle key={a} cx={10 + 5 * Math.sin(r)} cy={10 - 5 * Math.cos(r)} r="3.1" fill="#f9a8d4" />; })}<circle cx="10" cy="10" r="2.6" fill="#f59e0b" /></svg>;
+  }
+}
+
+/* Paquets illustrés : m boîtes contenant chacune n objets (icônes SVG), puis le
+ * calcul à compléter « …… × …… = …… ». L'élève COMPTE les paquets, puis écrit
+ * la multiplication. Les icônes sont centrées dans chaque case (flex). */
+function Paquets({ m, n, kind }: { m: number; n: number; kind: IconKind }) {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2mm", margin: "1.5mm 0" }}>
       {Array.from({ length: m }).map((_, i) => (
-        <span key={i} style={{ display: "inline-flex", gap: "1px", border: `2px solid ${ACC}`, borderRadius: "7px", padding: "2px 4px", fontSize: "19px", lineHeight: 1 }}>
-          {Array.from({ length: n }).map((_, j) => <span key={j}>{emoji}</span>)}
+        <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "2px", border: `2px solid ${ACC}`, borderRadius: "7px", padding: "3px 5px" }}>
+          {Array.from({ length: n }).map((_, j) => <MiniIcon key={j} kind={kind} />)}
         </span>
       ))}
       <span style={{ fontFamily: CURSIVE, fontSize: "21px", marginLeft: "2mm" }}>…… × …… = ……</span>
     </div>
+  );
+}
+
+/* Rangée d'icônes pour l'exemple (sans case), avec le calcul résolu. */
+function ExIcones({ groups, kind, res }: { groups: number[]; kind: IconKind; res: string }) {
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: "3px" }}>
+      {groups.map((n, gi) => (
+        <span key={gi} style={{ display: "inline-flex", alignItems: "center", gap: "2px", border: `1.5px solid ${ACC}`, borderRadius: "5px", padding: "2px 3px", marginRight: gi < groups.length - 1 ? "3px" : "6px" }}>
+          {Array.from({ length: n }).map((_, j) => <MiniIcon key={j} kind={kind} s={15} />)}
+        </span>
+      ))}
+      <span style={{ fontFamily: CURSIVE, fontSize: "18px" }}>→ {res}</span>
+    </span>
   );
 }
 
@@ -229,10 +262,10 @@ export function MultiplicationExos2() {
         <Col>
           <div>
             <Consigne n={1}>Compte les paquets. Écris la multiplication.</Consigne>
-            <Exemple>🍎🍎 &nbsp; 🍎🍎 &nbsp; 🍎🍎 → 3 × 2 = 6</Exemple>
-            <Paquets m={4} n={2} emoji="🍎" />
-            <Paquets m={3} n={5} emoji="🍬" />
-            <Paquets m={2} n={5} emoji="🐟" />
+            <Exemple><ExIcones groups={[2, 2, 2]} kind="pomme" res="3 × 2 = 6" /></Exemple>
+            <Paquets m={4} n={2} kind="pomme" />
+            <Paquets m={3} n={5} kind="bonbon" />
+            <Paquets m={2} n={5} kind="poisson" />
           </div>
           <div>
             <Consigne n={2}>Calcule.</Consigne>
@@ -247,9 +280,9 @@ export function MultiplicationExos2() {
         <Col>
           <div>
             <Consigne n={1}>Compte les paquets. Écris la multiplication.</Consigne>
-            <Exemple>⚽⚽⚽⚽ &nbsp; ⚽⚽⚽⚽ → 2 × 4 = 8</Exemple>
-            <Paquets m={3} n={4} emoji="⚽" />
-            <Paquets m={5} n={3} emoji="🌸" />
+            <Exemple><ExIcones groups={[4, 4]} kind="ballon" res="2 × 4 = 8" /></Exemple>
+            <Paquets m={3} n={4} kind="ballon" />
+            <Paquets m={5} n={3} kind="fleur" />
           </div>
           <div>
             <Consigne n={2}>Calcule.</Consigne>
@@ -261,7 +294,7 @@ export function MultiplicationExos2() {
           <div>
             <Consigne n={3}>Un petit problème. Écris la multiplication et la réponse.</Consigne>
             <Exemple>4 boîtes de 5 → 4 × 5 = 20 crayons</Exemple>
-            <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>Il y a 3 paniers. Dans chaque panier, 6 pommes 🍎.</div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>Il y a 3 paniers. Dans chaque panier, 6 pommes.</div>
             <div style={{ fontFamily: CURSIVE, fontSize: "19px", marginTop: "1mm" }}>…… × …… = …… pommes</div>
           </div>
         </Col>
