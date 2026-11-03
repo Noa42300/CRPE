@@ -14,7 +14,7 @@ import { uid } from "../lib/dates";
 import { AutoTextarea, ChevronDown, ChevronUp, Plus, Trash } from "./ui";
 import { BoardOverlay } from "./BoardOverlay";
 import { RituelsMatin } from "./RituelsMatin";
-import { RituelsMatinP2 } from "./RituelsMatinP2";
+import { JOURS_P2_FULL } from "../lib/ritualsP2data";
 
 export function RitualsView() {
   const { settings, rituals, saveRitual, removeRitual } = useStore();
@@ -88,12 +88,12 @@ export function RitualsView() {
             Programme du matin · CE1-CE2
           </h2>
           <p className="mb-4 text-sm text-stone-500 dark:text-stone-400">
-            La phrase du jour (type de phrase) et le problème du jour (surtout
-            multiplication, avec additions et comparaisons). La vue s’ouvre
-            directement sur le rituel <strong>d’aujourd’hui</strong> ; « ⛶ Projeter »
-            l’affiche en grand.
+            Même disposition que la Période 1 (nombre du jour, calcul mental,
+            phrase du jour, problème) + un <strong>mini-quiz « Quelle opération ? »</strong>.
+            La vue s’ouvre directement sur le rituel <strong>d’aujourd’hui</strong> ;
+            « ⛶ Projeter » l’affiche en grand.
           </p>
-          <RituelsMatinP2 />
+          <RituelsMatin jours={JOURS_P2_FULL} startToday showOverview={false} />
         </section>
       ) : (
         <section className="mb-8">
