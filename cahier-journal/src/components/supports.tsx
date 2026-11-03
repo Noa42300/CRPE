@@ -23,6 +23,7 @@ import { FicheModeleMaths } from "./FicheModeleMaths";
 import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
 import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
+import { QuizOperations } from "./QuizOperations";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos } from "./EgypteNil";
@@ -1386,8 +1387,12 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "hw-cards", label: "Happy Halloween — Flashcards à découper (image + mot)", node: <HalloweenFlashcards /> },
         { key: "hw-projet", label: "Happy Halloween — Fiche projet « My Halloween card » + grille d'éval", node: <HalloweenProjetCarte /> },
       ];
-    case "rit02":
     case "rit03":
+      return [
+        { key: "rit-serie", label: "Rituels du matin — Période 2 (14 jours) : type de phrase + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
+        { key: "rit-quiz", label: "Mini-quiz « Quelle opération ? » (+ , − ou × · vocabulaire des problèmes)", node: <QuizOperations /> },
+      ];
+    case "rit02":
       return [
         { key: "rit-serie", label: "Rituels du matin — Période 2 (14 jours) : type de phrase + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
       ];
