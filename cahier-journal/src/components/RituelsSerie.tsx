@@ -11,60 +11,13 @@
  * (≠ RituelsMatin.tsx, qui est la VUE projetable des rituels de P1.)
  */
 import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
+import { JOURS_P2, type ProblemeP2 } from "../lib/ritualsP2";
 
 const FR = "#1d4ed8";
 const ROUGE = "#dc2626";
 const CURSIVE = "'Caveat','Comic Neue',cursive";
 
-/* 14 jours de la Période 2 (lundi / mardi). */
-const JOURS = [
-  "Lundi 2 nov.", "Mardi 3 nov.",
-  "Lundi 9 nov.", "Mardi 10 nov.",
-  "Lundi 16 nov.", "Mardi 17 nov.",
-  "Lundi 23 nov.", "Mardi 24 nov.",
-  "Lundi 30 nov.", "Mardi 1er déc.",
-  "Lundi 7 déc.", "Mardi 8 déc.",
-  "Lundi 14 déc.", "Mardi 15 déc.",
-];
-
-const PHRASES = [
-  "Le chien court dans le jardin",
-  "Où est passé mon stylo",
-  "Comme il fait froid ce matin",
-  "Range ton cartable",
-  "Les élèves lisent en silence",
-  "As-tu pris ton goûter",
-  "Quelle belle récréation",
-  "Ferme la fenêtre, s'il te plaît",
-  "Nous partons à la cantine",
-  "Est-ce que tu as compris",
-  "Quel beau dessin tu as fait",
-  "Écoute bien la consigne",
-  "Le facteur apporte le courrier",
-  "Veux-tu jouer avec moi",
-];
-
-/* Problèmes : surtout multiplication (×), quelques additions (+) et des
- * comparaisons (de plus / de moins / il reste). On recopie l'ÉNONCÉ, pas la
- * question. */
-const PROBLEMES: { enonce: string; question: string }[] = [
-  { enonce: "Dans la classe, il y a 5 tables de 4 élèves.", question: "Combien d'élèves en tout ?" },
-  { enonce: "J'ai 3 paquets de 6 gâteaux.", question: "Combien de gâteaux ?" },
-  { enonce: "Léo a 24 billes. Il en gagne 13.", question: "Combien de billes a-t-il maintenant ?" },
-  { enonce: "Il y a 4 boîtes de 5 crayons.", question: "Combien de crayons ?" },
-  { enonce: "Tom a 12 images. Léa a 8 images.", question: "Combien Tom a-t-il d'images de plus que Léa ?" },
-  { enonce: "Le jardinier plante 4 rangées de 5 fleurs.", question: "Combien de fleurs ?" },
-  { enonce: "6 enfants ont chacun 2 billes.", question: "Combien de billes en tout ?" },
-  { enonce: "Dans le car, il y a 18 enfants. 7 enfants montent encore.", question: "Combien d'enfants dans le car ?" },
-  { enonce: "Dans 3 cages, il y a 4 oiseaux dans chacune.", question: "Combien d'oiseaux ?" },
-  { enonce: "Il y a 13 CE1 et 10 CE2 dans la classe.", question: "Combien y a-t-il de CE1 de plus que de CE2 ?" },
-  { enonce: "7 sachets contiennent chacun 2 bonbons.", question: "Combien de bonbons ?" },
-  { enonce: "2 étagères portent 8 livres chacune.", question: "Combien de livres ?" },
-  { enonce: "J'ai lu 15 pages hier et 12 pages aujourd'hui.", question: "Combien de pages en tout ?" },
-  { enonce: "Paul a 25 cartes. Il en donne 9.", question: "Combien de cartes lui reste-t-il ?" },
-];
-
-function Carte({ label, phrase, probleme }: { label: string; phrase: string; probleme: { enonce: string; question: string } }) {
+function Carte({ label, phrase, probleme }: { label: string; phrase: string; probleme: ProblemeP2 }) {
   return (
     <div style={{ flex: 1, border: "2px solid #111", borderRadius: "2mm", margin: "0 0 3mm", padding: "2mm 4mm", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "1.5mm" }}>
       <div style={{ fontSize: "9.5px", fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em", fontFamily: CONSIGNE_FONT }}>Rituel du matin — {label}</div>
@@ -89,7 +42,7 @@ function Carte({ label, phrase, probleme }: { label: string; phrase: string; pro
   );
 }
 
-function PageJour({ label, phrase, probleme }: { label: string; phrase: string; probleme: { enonce: string; question: string } }) {
+function PageJour({ label, phrase, probleme }: { label: string; phrase: string; probleme: ProblemeP2 }) {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", padding: "7mm 9mm", height: "297mm", display: "flex", flexDirection: "column", fontFamily: "'Lexend','Nunito',sans-serif" }}>
       {Array.from({ length: 4 }).map((_, i) => <Carte key={i} label={label} phrase={phrase} probleme={probleme} />)}
@@ -100,10 +53,10 @@ function PageJour({ label, phrase, probleme }: { label: string; phrase: string; 
 export function RituelsMatinSerie() {
   return (
     <div>
-      {JOURS.map((label, d) => (
-        <div key={d}>
+      {JOURS_P2.map((j, d) => (
+        <div key={j.date}>
           {d > 0 && <div className="fiche-pagebreak" style={{ height: 0 }} />}
-          <PageJour label={label} phrase={PHRASES[d % PHRASES.length]} probleme={PROBLEMES[d % PROBLEMES.length]} />
+          <PageJour label={j.label} phrase={j.phrase} probleme={j.probleme} />
         </div>
       ))}
     </div>

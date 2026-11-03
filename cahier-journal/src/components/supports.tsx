@@ -24,6 +24,7 @@ import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashca
 import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
 import { QuizOperations } from "./QuizOperations";
+import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos } from "./EgypteNil";
@@ -1386,6 +1387,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "hw-lecon", label: "Happy Halloween — Leçon illustrée à coller", node: <HalloweenLecon /> },
         { key: "hw-cards", label: "Happy Halloween — Flashcards à découper (image + mot)", node: <HalloweenFlashcards /> },
         { key: "hw-projet", label: "Happy Halloween — Fiche projet « My Halloween card » + grille d'éval", node: <HalloweenProjetCarte /> },
+      ];
+    case "l02rang":
+      return [
+        { key: "dossier-ce1-auto", label: "Dossier autonomie CE1 (élève en avance) — 28 fiches CE1 / CE2", node: <DossierAutonomieCE1 /> },
       ];
     case "rit03":
       return [

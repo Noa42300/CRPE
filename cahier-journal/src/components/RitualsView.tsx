@@ -14,6 +14,7 @@ import { uid } from "../lib/dates";
 import { AutoTextarea, ChevronDown, ChevronUp, Plus, Trash } from "./ui";
 import { BoardOverlay } from "./BoardOverlay";
 import { RituelsMatin } from "./RituelsMatin";
+import { RituelsMatinP2 } from "./RituelsMatinP2";
 
 export function RitualsView() {
   const { settings, rituals, saveRitual, removeRitual } = useStore();
@@ -81,11 +82,24 @@ export function RitualsView() {
           </p>
           <RituelsMatin />
         </section>
+      ) : periodNum === 2 ? (
+        <section className="mb-8">
+          <h2 className="mb-1 text-sm font-bold uppercase tracking-wide text-ink-700 dark:text-ink-300">
+            Programme du matin · CE1-CE2
+          </h2>
+          <p className="mb-4 text-sm text-stone-500 dark:text-stone-400">
+            La phrase du jour (type de phrase) et le problème du jour (surtout
+            multiplication, avec additions et comparaisons). La vue s’ouvre
+            directement sur le rituel <strong>d’aujourd’hui</strong> ; « ⛶ Projeter »
+            l’affiche en grand.
+          </p>
+          <RituelsMatinP2 />
+        </section>
       ) : (
         <section className="mb-8">
           <div className="card px-6 py-8 text-center text-sm text-stone-500 dark:text-stone-400">
-            Le programme du matin clé en main n’existe pour l’instant que pour la
-            Période 1. Envoie-moi les rituels de cette période et je les intègre
+            Le programme du matin clé en main existe pour les Périodes 1 et 2.
+            Pour les périodes suivantes, envoie-moi tes rituels et je les intègre
             de la même façon. En attendant, tu peux créer tes rituels libres
             ci-dessous.
           </div>
