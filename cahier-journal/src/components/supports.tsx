@@ -1389,7 +1389,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "rit02":
     case "rit03":
       return [
-        { key: "rit-serie", label: "Rituels du matin (nov → janvier) — types de phrases + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
+        { key: "rit-serie", label: "Rituels du matin — Période 2 (14 jours) : type de phrase + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
       ];
     case "m03tp":
       return [
