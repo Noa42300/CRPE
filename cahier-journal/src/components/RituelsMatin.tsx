@@ -14,7 +14,7 @@ const CE1 = "#e0920a"; // jaune / ambre
 const CE2 = "#2C6FB5"; // bleu
 
 type PoliceId = "cursive" | "manuscrite" | "ecole";
-type ModuleId = "vue" | "nb" | "cm" | "ph" | "pb" | "bo";
+type ModuleId = "vue" | "nb" | "cm" | "ph" | "pb" | "bo" | "qz";
 
 /* ------------------------------------------------------------ nombres */
 const U = [
@@ -59,7 +59,18 @@ const ICONS: Record<ModuleId, string> = {
   ph: "M4 19l1-4L16 4l3 3L8 18l-4 1z",
   pb: "M12 3a9 9 0 100 18 9 9 0 000-18zM12 8v8M8 12h8",
   bo: "M12 3.6l2.5 5.3 5.6.8-4 4 .9 5.7-5-2.7-5 2.7.9-5.7-4-4 5.6-.8z",
+  qz: "M9 9a3 3 0 115 2c-1 1-2 1.5-2 3M12 17h.01",
 };
+
+function idxForToday(jours: RitualDay[]): number {
+  const d = new Date();
+  const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const exact = jours.findIndex((j) => j.date === iso);
+  if (exact >= 0) return exact;
+  let last = -1;
+  for (let i = 0; i < jours.length; i++) if (jours[i].date && jours[i].date! <= iso) last = i;
+  return last >= 0 ? last : 0;
+}
 
 /* ---- pailles (unités / dizaines / centaines) ---- */
 function Paille({ x, fill, stroke }: { x: number; fill: string; stroke: string }) {
@@ -193,8 +204,8 @@ function Carte({ icon, titre, duree, children }: { icon: ModuleId; titre: string
 }
 
 /* ------------------------------------------------------------ vue jour */
-export function RituelsMatin() {
-  const [iJour, setIJour] = useState(0);
+export function RituelsMatin({ jours = JOURS, startToday = false, showOverview = true }: { jours?: RitualDay[]; startToday?: boolean; showOverview?: boolean } = {}) {
+  const [iJour, setIJour] = useState(() => (startToday ? idxForToday(jours) : 0));
   const [module, setModule] = useState<ModuleId>("nb");
   const [prof, setProf] = useState(false);
   const [police, setPolice] = useState<PoliceId>("cursive");
@@ -202,19 +213,17 @@ export function RituelsMatin() {
   const [cmRep, setCmRep] = useState(false);
   const sceneRef = useRef<HTMLDivElement>(null);
 
-  const J = JOURS[iJour];
+  const J = jours[iJour];
 
   const modules = useMemo(() => {
-    const base: [ModuleId, string, string][] = [
-      ["vue", "Vue d’ensemble", ""],
-      ["nb", "Le nombre du jour", "6 min"],
-      ["cm", "Calcul mental", "5 min"],
-      ["ph", "La phrase du jour", "8 min"],
-    ];
+    const base: [ModuleId, string, string][] = [];
+    if (showOverview) base.push(["vue", "Vue d’ensemble", ""]);
+    base.push(["nb", "Le nombre du jour", "6 min"], ["cm", "Calcul mental", "5 min"], ["ph", "La phrase du jour", "8 min"]);
     if (J.pb) base.push(["pb", "Le problème", "7 min"]);
+    if (J.quiz) base.push(["qz", "Mini-quiz · opération", "7 min"]);
     if (J.bo) base.push(["bo", "Découverte", "5 min"]);
     return base;
-  }, [J]);
+  }, [J, showOverview]);
 
   const goDay = (i: number) => {
     setIJour(i);
@@ -234,11 +243,11 @@ export function RituelsMatin() {
             value={iJour}
             onChange={(e) => goDay(+e.target.value)}
           >
-            {JOURS.map((d, i) => (
-              <option key={d.n} value={i}>{d.j} {d.c} · jour n°{d.n}</option>
+            {jours.map((d, i) => (
+              <option key={d.n} value={i}>{d.j} {d.c}</option>
             ))}
           </select>
-          <button className="btn-outline px-2 py-1" disabled={iJour === JOURS.length - 1} onClick={() => goDay(Math.min(JOURS.length - 1, iJour + 1))}>▶</button>
+          <button className="btn-outline px-2 py-1" disabled={iJour === jours.length - 1} onClick={() => goDay(Math.min(jours.length - 1, iJour + 1))}>▶</button>
         </div>
         <button className={`btn-outline py-1 text-xs ${prof ? "!bg-ink-600 !text-white" : ""}`} onClick={() => setProf((p) => !p)}>
           {prof ? "✓ " : ""}Mode prof
@@ -283,6 +292,7 @@ export function RituelsMatin() {
             )}
             {module === "ph" && <VuePhrase J={J} prof={prof} />}
             {module === "pb" && J.pb && <VueProbleme key={J.n} J={J} prof={prof} />}
+            {module === "qz" && J.quiz && <VueQuiz key={J.n} J={J} prof={prof} />}
             {module === "bo" && J.bo && <VueBonus J={J} prof={prof} />}
           </>
         )}
@@ -431,6 +441,41 @@ function VueProbleme({ J, prof }: { J: RitualDay; prof: boolean }) {
       )}
       {prof && <BlocProf titre="Aide et étayage"><p>{pb.aide}</p></BlocProf>}
       {prof && <CeQueJeDis k="pb" />}
+    </Carte>
+  );
+}
+
+const OP_COULEUR: Record<string, string> = { addition: "#15803d", soustraction: "#c2410c", multiplication: "#4338ca" };
+const OP_SIGNE: Record<string, string> = { addition: "+", soustraction: "−", multiplication: "×" };
+function VueQuiz({ J, prof }: { J: RitualDay; prof: boolean }) {
+  const quiz = J.quiz!;
+  const [show, setShow] = useState(false);
+  const reveal = show || prof;
+  return (
+    <Carte icon="qz" titre="Mini-quiz — Quelle opération ?" duree="7 min">
+      <p className="text-center text-base text-stone-600 dark:text-stone-300">
+        Pour chaque problème : quelle opération faut-il faire — <b style={{ color: OP_COULEUR.addition }}>+ addition</b>, <b style={{ color: OP_COULEUR.soustraction }}>− soustraction</b> ou <b style={{ color: OP_COULEUR.multiplication }}>× multiplication</b> ? Quel mot m'aide ?
+      </p>
+      <div className="mt-3 flex justify-center">
+        <button className="btn-primary" onClick={() => setShow((s) => !s)}>{reveal ? "🙈 Cacher les réponses" : "👁️ Révéler les réponses"}</button>
+      </div>
+      <div className="mt-4 space-y-3">
+        {quiz.map((q, i) => (
+          <div key={i} className="rounded-xl border-2 bg-white/70 p-4 dark:bg-stone-900/40">
+            <p className="eleve text-2xl leading-snug sm:text-3xl"><span className="font-bold">{i + 1})</span> {q.enonce}</p>
+            {reveal ? (
+              <div className="reveal-pop mt-2 flex flex-wrap items-center gap-3 text-lg">
+                <span className="rounded-full px-3 py-1 text-base font-bold text-white" style={{ background: OP_COULEUR[q.op] }}>{OP_SIGNE[q.op]} {q.op}</span>
+                <span className="text-stone-600 dark:text-stone-300">mot-indice : <b>{q.indice}</b></span>
+                <span className="font-semibold text-emerald-600 dark:text-emerald-400">→ {q.rep}</span>
+              </div>
+            ) : (
+              <p className="mt-1 text-sm italic text-stone-400 dark:text-stone-500">Opération : + / − / × &nbsp;·&nbsp; Mot qui m'aide : ……………</p>
+            )}
+          </div>
+        ))}
+      </div>
+      {prof && <BlocProf titre="Objectif"><p>Créer des automatismes : reconnaître les mots (en tout, de plus, de moins, fois, trois fois plus, tables de…) pour choisir la bonne opération et arrêter les additions à répétition.</p></BlocProf>}
     </Carte>
   );
 }

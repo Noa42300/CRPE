@@ -22,18 +22,24 @@ export interface PhModule { t: string; f: string; ce1: QA[]; ce2: QA[]; }
 export interface PbModule { t: string; aide: string; rep: string; ce1: QA[]; ce2: QA[]; }
 export interface BoModule { t: string; ico?: string; txt: string; ce1: QA[]; ce2: QA[]; }
 
+/** Mini-quiz « Quelle opération ? » (compréhension + vocabulaire). */
+export interface QuizItem { enonce: string; op: "addition" | "soustraction" | "multiplication"; indice: string; rep: string; }
 export interface RitualDay {
   n: number;
   j: string;
   d: string;
   c: string;
   phase: string;
+  /** Date ISO (AAAA-MM-JJ) pour ouvrir le rituel du jour (facultatif). */
+  date?: string;
   dt: DtModule;
   nb: NbModule;
   cm: CmModule;
   ph: PhModule;
   pb: PbModule | null;
   bo: BoModule | null;
+  /** Mini-quiz optionnel (ex. P2 : trouver l'opération + vocabulaire). */
+  quiz?: QuizItem[];
 }
 
 /** Petits scripts « ce que je peux dire » (rédigés à la première personne). */
