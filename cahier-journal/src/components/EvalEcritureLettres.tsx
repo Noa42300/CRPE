@@ -1,0 +1,111 @@
+/**
+ * Évaluation maths — Écrire / lire les nombres en lettres (CE1 & CE2).
+ * Prévue pour ~20 min. Comporte une GRILLE DE COMPÉTENCES façon LSU que
+ * l'enseignant remplit lui-même (4 niveaux de maîtrise).
+ * « au cas où » : à sortir si l'évaluation n'est pas déjà prête.
+ */
+import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
+
+const NOIR = "#111";
+const CURSIVE = "'Caveat','Comic Neue',cursive";
+
+const NIVEAUX_LSU = ["Très bonne\nmaîtrise", "Maîtrise\nsatisfaisante", "Maîtrise\nfragile", "Maîtrise\ninsuffisante"];
+
+function Exo({ n, consigne, children }: { n: number; consigne: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div style={{ marginBottom: "3mm" }}>
+      <div style={{ fontSize: "13.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}><span style={{ fontWeight: 800 }}>{n}.</span> <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{consigne}</span></div>
+      <div style={{ marginTop: "1mm", paddingLeft: "4mm" }}>{children}</div>
+    </div>
+  );
+}
+
+function GrilleLSU({ competences }: { competences: string[] }) {
+  return (
+    <div style={{ marginTop: "5mm" }}>
+      <div style={{ fontSize: "12px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm", textTransform: "uppercase", letterSpacing: "0.03em" }}>Réservé à l'enseignant — compétences (LSU)</div>
+      <table style={{ borderCollapse: "collapse", width: "100%", fontFamily: CONSIGNE_FONT }}>
+        <thead>
+          <tr>
+            <th style={{ border: `1px solid ${NOIR}`, textAlign: "left", padding: "1.5mm", fontSize: "11px", background: "#f1f5f9" }}>Compétence</th>
+            {NIVEAUX_LSU.map((n) => <th key={n} style={{ border: `1px solid ${NOIR}`, padding: "1mm", fontSize: "9px", width: "22mm", whiteSpace: "pre-line", background: "#f1f5f9" }}>{n}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {competences.map((c) => (
+            <tr key={c}>
+              <td style={{ border: `1px solid ${NOIR}`, padding: "1.5mm", fontSize: "11px" }}>{c}</td>
+              {NIVEAUX_LSU.map((n) => <td key={n} style={{ border: `1px solid ${NOIR}`, textAlign: "center" }}><span style={{ display: "inline-block", width: "4mm", height: "4mm", border: `1.4px solid #555`, borderRadius: "50%" }} /></td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function EvalFrame({ titre, niveau, children }: { titre: string; niveau: string; children: React.ReactNode }) {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: NOIR, boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: `2.5px solid ${NOIR}`, borderRadius: "2mm", padding: "5mm 6mm", minHeight: "272mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `2px solid ${NOIR}`, paddingBottom: "1.5mm", marginBottom: "3mm" }}>
+          <div><h1 style={{ fontSize: "22px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>{titre}</h1><span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Évaluation · {niveau} · ~20 min</span></div>
+          <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .................. &nbsp; Date : ............</span>
+        </div>
+        <div style={{ flex: 1 }}>{children}</div>
+      </div>
+    </div>
+  );
+}
+
+export function EvalLettresCE1() {
+  return (
+    <EvalFrame titre="Écrire les nombres en lettres" niveau="CE1">
+      <Exo n={1} consigne="Écris ces nombres en lettres.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.4 }}>
+          24 → ...................................... &nbsp; 47 → ......................................<br />
+          60 → ...................................... &nbsp; 83 → ......................................
+        </div>
+      </Exo>
+      <Exo n={2} consigne="Écris ces nombres en chiffres.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.6 }}>
+          trente-deux → ……&nbsp;&nbsp; cinquante → ……&nbsp;&nbsp; soixante-dix → ……&nbsp;&nbsp; quatre-vingt-un → ……
+        </div>
+      </Exo>
+      <Exo n={3} consigne="Complète (le nombre d'avant, le nombre d'après).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.8 }}>…… · 40 · …… &nbsp;&nbsp;&nbsp; …… · 79 · ……</div>
+      </Exo>
+      <Exo n={4} consigne="Range du plus petit au plus grand.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>58 · 15 · 85 · 51 → ..........................................</div>
+      </Exo>
+      <GrilleLSU competences={["Écrire en lettres les nombres jusqu'à 100", "Écrire en chiffres un nombre donné en lettres", "Connaître les nombres voisins (avant / après)", "Comparer et ranger les nombres jusqu'à 100"]} />
+    </EvalFrame>
+  );
+}
+
+export function EvalLettresCE2() {
+  return (
+    <EvalFrame titre="Écrire les nombres en lettres" niveau="CE2">
+      <Exo n={1} consigne="Écris ces nombres en lettres.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.4 }}>
+          105 → ...................................... &nbsp; 240 → ......................................<br />
+          316 → ...................................... &nbsp; 1 000 → ......................................
+        </div>
+      </Exo>
+      <Exo n={2} consigne="Écris ces nombres en chiffres.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.6 }}>
+          deux cents → ……&nbsp;&nbsp; trois cent quatre-vingts → ……&nbsp;&nbsp; cinq cent douze → ……&nbsp;&nbsp; mille → ……
+        </div>
+      </Exo>
+      <Exo n={3} consigne="Écris en lettres (attention aux pièges !).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.4 }}>
+          78 → ...................................... &nbsp; 91 → ......................................
+        </div>
+      </Exo>
+      <Exo n={4} consigne="Range du plus petit au plus grand.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>512 · 125 · 251 · 521 → ..........................................</div>
+      </Exo>
+      <GrilleLSU competences={["Écrire en lettres les nombres jusqu'à 1 000", "Écrire en chiffres un nombre donné en lettres", "Maîtriser les nombres particuliers (quatre-vingts, cents, mille)", "Comparer et ranger les nombres jusqu'à 1 000"]} />
+    </EvalFrame>
+  );
+}

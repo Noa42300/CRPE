@@ -25,6 +25,13 @@ import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesRef
 import { RituelsMatinSerie } from "./RituelsSerie";
 import { QuizOperations } from "./QuizOperations";
 import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
+import { FormesPhrasesDiapo, FormesPhrasesLecon, FicheFormesCE1, FicheFormesCE2 } from "./FormesDePhrases";
+import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2 } from "./Numeration";
+import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
+import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre } from "./GeoVillesFrance";
+import { PoesieHiverDiapo, PoesieHiverFiche } from "./PoesieHiver";
+import { AnglaisHiverDiapo, AnglaisHiverCorpus } from "./AnglaisHiver";
+import { MotsFlashDiapo, DicteeHiverFiche } from "./DicteeFlash";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos } from "./EgypteNil";
@@ -1410,6 +1417,61 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "mu-fiche", label: "La multiplication (diverses situations) — Fiche d'exercices (format fichier)", node: <FicheModeleMaths /> },
         { key: "mu-tables2", label: "Toutes mes tables de multiplication (référence)", node: <TablesReference /> },
+      ];
+    // ---- Lundi 9 / Mardi 10 novembre ----
+    case "l09fr":
+      return [
+        { key: "fp-diapo", label: "Les formes de phrases — Diaporama de découverte (à projeter)", node: <FormesPhrasesDiapo /> },
+        { key: "fp-lecon", label: "Les formes de phrases — Leçon à coller (cahier bleu)", node: <FormesPhrasesLecon /> },
+      ];
+    case "m10fr":
+      return [
+        { key: "fp-ce1", label: "Les formes de phrases — Exercices CE1 (format « Je m'entraîne »)", node: <FicheFormesCE1 /> },
+        { key: "fp-ce2", label: "Les formes de phrases — Exercices CE2 (format « Je m'entraîne »)", node: <FicheFormesCE2 /> },
+      ];
+    case "l09mu":
+      return [
+        { key: "num-diapo", label: "Dénombrer une collection — Diaporama de découverte (c/d/u, m/c/d/u)", node: <NumerationDiapo /> },
+        { key: "num-lecon", label: "Dénombrer une collection — Leçon à coller (cahier rouge)", node: <NumerationLecon /> },
+      ];
+    case "m10mu":
+      return [
+        { key: "num-ce1", label: "Dénombrer jusqu'à 999 — Exercices CE1 (c/d/u)", node: <FicheNumerationCE1 /> },
+        { key: "num-ce2", label: "Dénombrer jusqu'à 1 000 — Exercices CE2 (m/c/d/u)", node: <FicheNumerationCE2 /> },
+        { key: "num-lecon2", label: "Dénombrer une collection — Leçon (rappel)", node: <NumerationLecon /> },
+      ];
+    case "l09eval":
+      return [
+        { key: "eval-ce1", label: "Évaluation maths (au cas où) — Écrire en lettres · CE1 + grille LSU", node: <EvalLettresCE1 /> },
+        { key: "eval-ce2", label: "Évaluation maths (au cas où) — Écrire en lettres · CE2 + grille LSU", node: <EvalLettresCE2 /> },
+      ];
+    case "l09dic":
+      return [
+        { key: "dic-flash", label: "Mots flash — dictée de l'hiver (à projeter)", node: <MotsFlashDiapo /> },
+        { key: "dic-fiche", label: "Dictée de l'hiver — feuille élève", node: <DicteeHiverFiche /> },
+      ];
+    case "l09poe":
+      return [
+        { key: "poe-diapo", label: "Poésie « L'hiver » — à projeter", node: <PoesieHiverDiapo /> },
+        { key: "poe-fiche", label: "Poésie « L'hiver » — à coller (cahier blanc)", node: <PoesieHiverFiche /> },
+      ];
+    case "l09ang":
+      return [
+        { key: "ang-diapo", label: "English — Winter story « The Mitten » (à projeter, jeux)", node: <AnglaisHiverDiapo /> },
+        { key: "ang-corpus", label: "English — Winter words (corpus à coller, cahier violet)", node: <AnglaisHiverCorpus /> },
+      ];
+    case "m10hist":
+      return [
+        { key: "eg-diapo", label: "Au bord du Nil — Diaporama (vraies photos)", node: <EgypteNilDiapo /> },
+        { key: "eg-lecon", label: "Au bord du Nil — Leçon à coller (cahier d'histoire)", node: <EgypteNilLecon /> },
+        { key: "eg-exos", label: "Au bord du Nil — Fiche d'exercices", node: <EgypteNilExos /> },
+      ];
+    case "m10geo":
+      return [
+        { key: "gv-diapo", label: "Les villes de France — Diaporama (à projeter)", node: <GeoVillesDiapo /> },
+        { key: "gv-lecon", label: "Les villes de France — Leçon à coller", node: <GeoVillesLecon /> },
+        { key: "gv-carte", label: "Carte des grandes villes à apprendre (sur 2 semaines)", node: <CarteVillesAApprendre /> },
+        { key: "gv-exos", label: "Les villes de France — Exercices (format « Je m'entraîne »)", node: <GeoVillesExos /> },
       ];
     case "g03":
       return [

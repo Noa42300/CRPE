@@ -122,7 +122,8 @@ export function EgypteNilLecon() {
       <h1 style={{ fontSize: "36px", margin: "0 0 2mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: CURSIVE }}>L'Égypte — au bord du Nil</h1>
       <div style={{ display: "flex", gap: "5mm", alignItems: "flex-start" }}>
         <div style={{ flex: 1 }}>
-          <div style={{ display: "flex", justifyContent: "center" }}><SchemaNil h={130} /></div>
+          <WikiImage title="Nil" alt="le fleuve Nil" accent={HIST} height="34mm" />
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5mm" }}><SchemaNil h={95} /></div>
           <div style={{ fontSize: "9px", color: "#94a3b8", textAlign: "center" }}>Le Nil traverse le désert.</div>
         </div>
         <div style={{ flex: 1.1 }}>

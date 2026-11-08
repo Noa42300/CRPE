@@ -10513,6 +10513,869 @@
    "slots": [],
    "createdAt": 1790700000000,
    "updatedAt": 1790700000027
+  },
+  {
+   "date": "2026-11-09",
+   "createdAt": 1794155782210,
+   "updatedAt": 1794155782210,
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": [],
+    "rappels": [],
+    "devoirs": "MATHS : apprendre les TABLES DE 3 et de 4 par cœur (récitation). FRANÇAIS : revoir les formes de phrases (affirmative / négative) ; mots de GraphéMo. ANGLAIS : apprendre les mots de l'hiver (snow, cold, a mitten…). POÉSIE : commencer à apprendre « L'hiver »."
+   },
+   "slots": [
+    {
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "l09rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "Réactiver chaque matin : phrase du jour (type), nombre du jour, calcul mental, problème + mini-quiz « quelle opération ».",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9r1",
+         "label": "Rituel (15 min)",
+         "note": "« On commence par notre rituel du matin, comme chaque jour. »\n« La phrase du jour : quel type ? On met le bon point. »\n« Le nombre du jour, le calcul mental sur l'ardoise. »\n« Le problème : je recopie l'énoncé, je cherche. »\n« Et le mini-quiz : quelle opération ? quel mot nous aide ? »"
+        }
+       ],
+       "materiel": "Voir la vue Rituels → Période 2 (s'ouvre sur aujourd'hui, projetable) ; fiche à découper possible.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "start": "08:50",
+     "end": "09:50",
+     "activities": [
+      {
+       "id": "l09fr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Évaluation (types de phrases) puis découverte des formes de phrases",
+       "objectif": "Évaluer les types de phrases ; puis découvrir les formes affirmative et négative.",
+       "competence": "Distinguer une phrase affirmative (dit oui) d'une phrase négative (dit non, ne … pas).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Grammaire — La phrase",
+       "progSeance": "Formes de phrases, séance 1 (découverte)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9f1",
+         "label": "Évaluation types de phrases (20 min)",
+         "note": "« Avant de commencer quelque chose de nouveau, on fait le point sur les types de phrases. »\n« Vous avez votre évaluation dans le cahier : lisez bien chaque consigne. »\n« Vous travaillez seuls, en silence ; je passe si quelqu'un est bloqué sur une consigne. »\n« Prenez votre temps, relisez vos réponses avant de me rendre. »\n(je ramasse, je garderai les résultats pour le LSU.)"
+        },
+        {
+         "id": "l9f2",
+         "label": "Découverte : oui / non (15 min)",
+         "note": "« Maintenant, une nouveauté : une phrase peut dire OUI… ou dire NON ! »\n« J'écris : J'aime les pommes. Est-ce que ça dit oui ou non ? Oui : c'est la forme affirmative. »\n« Et si je dis le contraire ? Je n'aime pas les pommes. Ça dit non : c'est la forme négative. »\n« Qu'est-ce qui a changé ? On a ajouté ne … pas autour du verbe. »\n« On va s'entraîner à transformer des phrases en oui et en non. »"
+        },
+        {
+         "id": "l9f3",
+         "label": "Leçon (10 min)",
+         "note": "« On garde la trace : je distribue la leçon, on la lit et on la colle dans le cahier bleu. »\n« Affirmative = dit oui. Négative = dit non, avec ne … pas autour du verbe. »\n« Qui peut me transformer : Le chat dort → à la forme négative ? »\n« On colorie en vert l'affirmative, en rouge la négative. »\n(je vérifie que ne … pas est bien repéré autour du verbe.)"
+        }
+       ],
+       "materiel": "Évaluation « types de phrases » DANS LE CAHIER (gérée par le maître). Puis diaporama + leçon « Les formes de phrases » — voir Documents à imprimer. Cahier bleu.",
+       "video": "",
+       "differenciation": "CE1 : repérer et transformer avec ne … pas sur des phrases courtes. CE2 : ajouter ne … plus / ne … jamais et transformer dans les deux sens. Élève à besoins attentionnels : étiquettes « ne » et « pas » à placer autour du verbe.",
+       "depassement": "",
+       "correction": "Affirmative = dit oui. Négative = ne (n') … pas (plus, jamais) autour du verbe. Ex. : Le chat dort → Le chat ne dort pas.",
+       "obstacles": "Erreurs fréquentes : oublier un des deux mots (ne OU pas) ; confondre forme et type de phrase. Remédiation rapide : rappeler que la négation est en DEUX morceaux qui encadrent le verbe ; bien distinguer « forme » (oui/non) et « type » (point).",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "09:50",
+     "end": "11:00",
+     "activities": [
+      {
+       "id": "l09mu",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths — Dénombrer et représenter une collection (début P2)",
+       "objectif": "Grouper par dizaines puis par centaines pour dénombrer une collection. CE1 : jusqu'à 999 (c/d/u). CE2 : jusqu'à 1 000 (m/c/d/u).",
+       "competence": "Dénombrer, représenter et écrire les nombres en groupant (centaines, dizaines, unités).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Nombres et calculs ». Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Nombres P2 — Dénombrer une collection",
+       "progSeance": "1 (découverte, manipulation)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9m1",
+         "label": "Découverte : grouper (15 min)",
+         "note": "« J'ai une grande collection d'objets. Comment les compter vite, sans se tromper ? »\n« On fait des paquets de 10 : ce sont les dizaines. »\n« 10 dizaines, ça fait une centaine : regardez la plaque de 100. »\n« Les CE2, on ira jusqu'au millier : 10 centaines = 1 000. »\n« On va représenter des nombres avec les plaques, les barres et les cubes. »"
+        },
+        {
+         "id": "l9m2",
+         "label": "Manipulation + tableau c/d/u (25 min)",
+         "note": "« Je vous montre 2 plaques, 4 barres, 7 cubes. Quel nombre ? »\n« On place dans le tableau : centaines, dizaines, unités → 247. »\n« À vous : représentez le nombre que je dis sur votre ardoise / avec le matériel. »\n« CE1, vous restez sur les centaines, dizaines, unités. »\n« CE2, vous ajoutez la colonne des milliers quand on arrive à 1 000. »"
+        },
+        {
+         "id": "l9m3",
+         "label": "Leçon (10 min)",
+         "note": "« On colle la leçon dans le cahier rouge : cube = 1, barre = 10, plaque = 100. »\n« Le tableau c · d · u (et m pour les CE2) nous aide à écrire le nombre. »\n« Qui peut me redire : combien d'unités dans une dizaine ? dans une centaine ? »\n(je vérifie que chacun sait passer de la collection au nombre écrit.)"
+        }
+       ],
+       "materiel": "Matériel base 10 (plaques/barres/cubes) si disponible. Diaporama + leçon « Dénombrer une collection » — voir Documents à imprimer. Cahier rouge.",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
+       "differenciation": "CE1 : dénombrer et écrire jusqu'à 999 (c/d/u), nombres « ronds » d'abord. CE2 : jusqu'à 1 000, introduire la colonne des milliers. Élève à besoins : manipuler le matériel base 10 avant d'écrire.",
+       "depassement": "",
+       "correction": "247 = 2 c, 4 d, 7 u. 205 = 2 c, 0 d, 5 u. CE2 : 1 000 = 1 m, 0 c, 0 d, 0 u.",
+       "obstacles": "Erreurs fréquentes : oublier le zéro intercalé (205 écrit « 25 ») ; confondre dizaines et centaines. Remédiation rapide : repasser par le tableau c/d/u et le matériel ; insister sur « s'il n'y a pas de dizaine, on écrit 0 ».",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "start": "11:00",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "l09eval",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths — Évaluation « écrire les nombres en lettres » (au cas où)",
+       "objectif": "Évaluer la lecture/écriture des nombres en lettres (révision annoncée). ~20 min. Grille LSU à remplir.",
+       "competence": "Lire et écrire les nombres en lettres ; comparer et ranger.",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9e1",
+         "label": "Évaluation (20 min)",
+         "note": "« On avait dit de réviser l'écriture des nombres en lettres : voici une petite évaluation. »\n« Vous lisez bien : écrire en lettres, écrire en chiffres, ranger. »\n« Vous travaillez seuls, au calme ; relisez avant de rendre. »\n« CE1 et CE2 n'ont pas la même feuille : regardez votre niveau en haut. »\n(je remplirai la grille de compétences LSU en corrigeant.)"
+        }
+       ],
+       "materiel": "À sortir SEULEMENT si l'évaluation n'est pas déjà prête. Deux feuilles (CE1, CE2) avec grille de compétences LSU — voir Documents à imprimer. Cahier orange.",
+       "video": "",
+       "differenciation": "CE1 : nombres jusqu'à 100. CE2 : jusqu'à 1 000, avec les pièges (quatre-vingts, cents, mille).",
+       "depassement": "",
+       "correction": "CE1 : 24 → vingt-quatre, 60 → soixante, 83 → quatre-vingt-trois. CE2 : 240 → deux cent quarante, 380 → trois cent quatre-vingts, 1 000 → mille.",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "14:10",
+     "activities": [
+      {
+       "id": "l09gra",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "GraphéMo — orthographe / phonologie",
+       "objectif": "Séance GraphéMo de la semaine (méthode d'orthographe et de dictées).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9g1",
+         "label": "GraphéMo (30 min)",
+         "note": "« On ouvre notre travail de GraphéMo. »\n« On écoute le son de la semaine, on cherche des mots. »\n« On s'entraîne à l'écrire, on range dans le bon tiroir. »\n(déroulé habituel de la méthode.)"
+        }
+       ],
+       "materiel": "Matériel GraphéMo (géré par le maître).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "14:10",
+     "end": "14:40",
+     "activities": [
+      {
+       "id": "l09dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Dictée de l'hiver (au cas où) — mots flash",
+       "objectif": "Mémoriser puis écrire des mots de l'hiver (dictée « flash »). CE2 = mots CE1 + quelques mots en plus.",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9d1",
+         "label": "Mots flash + dictée (25 min)",
+         "note": "« Je vais vous montrer des mots quelques secondes : lisez-les, mémorisez-les, puis je cache. »\n« On repère les lettres difficiles ensemble. »\n« Maintenant, feuille et crayon : je dicte les mots, puis deux phrases. »\n« CE2, vous aurez quelques mots en plus. »\n(correction immédiate ou différée selon le temps.)"
+        }
+       ],
+       "materiel": "Mots flash à projeter + feuille de dictée — voir Documents à imprimer. Cahier vert.",
+       "video": "",
+       "differenciation": "CE1 : les 8 mots de base. CE2 : + la montagne, glisser, la température.",
+       "depassement": "",
+       "correction": "l'hiver, la neige, le froid, un flocon, un bonnet, une écharpe, des gants, un manteau. Phrases : En hiver, la neige est blanche. Je mets mon bonnet et mon écharpe.",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "14:40",
+     "end": "15:10",
+     "activities": [
+      {
+       "id": "l09poe",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Poésie — « L'hiver » (nouvelle poésie)",
+       "objectif": "Découvrir et commencer à apprendre une nouvelle poésie (thème de l'hiver) pour la dernière semaine avant les vacances.",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9p1",
+         "label": "Poésie (20 min)",
+         "note": "« Avant les vacances, on apprendra une nouvelle poésie : elle parle de l'hiver. »\n« Je la lis une première fois ; écoutez bien la musique des mots. »\n« On la relit ensemble, strophe par strophe. »\n« On la colle dans le cahier blanc ; vous commencez à l'apprendre à la maison. »\n(ceux qui ne sont pas encore passés sur l'ancienne poésie la récitent.)"
+        }
+       ],
+       "materiel": "Poésie à projeter + à coller (cahier blanc) — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "15:40",
+     "end": "16:15",
+     "activities": [
+      {
+       "id": "l09ang",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais — Winter : « The Mitten » (nouvelle séquence)",
+       "objectif": "Comprendre une petite histoire d'hiver en anglais (écoute) ; mémoriser un corpus de mots (hiver, animaux).",
+       "competence": "Comprendre des mots et une histoire courte à l'oral ; répéter du vocabulaire.",
+       "competenceRef": "Programme de langue vivante (anglais), cycle 2 — compréhension de l'oral, lexique.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Anglais — Winter",
+       "progSeance": "1 — The Mitten",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9a1",
+         "label": "Listen: the story (15 min)",
+         "note": "« Today we start English with winter. It is cold! Repeat: it's cold. »\n« I tell you a story: The Mitten. Listen and look at the pictures. »\n« A boy drops his mitten in the snow. A mouse, a rabbit, a fox, a bear… »\n« Each one says: Can I come in? They all go inside! »\n« Qui a compris l'histoire ? Racontez-moi en français ce qui se passe. »"
+        },
+        {
+         "id": "l9a2",
+         "label": "Games + words (20 min)",
+         "note": "« Point and say: I show an animal, you say the English word. »\n« A mouse, a rabbit, a fox, a bear… snow, cold, a mitten. »\n« On joue : je montre, vous dites ; puis vous montrez, je dis. »\n« We stick the words in the purple copybook and we learn them. »\n(valoriser la prise de parole, corriger la prononciation en douceur.)"
+        }
+       ],
+       "materiel": "Diaporama « The Mitten » (histoire + jeux, à projeter) + corpus de mots à coller (cahier violet) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=TcLg6Cncpz8",
+       "differenciation": "Tous : comprendre et répéter le vocabulaire. Les plus à l'aise : redire une phrase de l'histoire (Can I come in?).",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Difficulté : prononciation. Remédiation : répéter en chœur, associer chaque mot à une image/geste.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Apprendre les mots de l'hiver (snow, cold, a mitten, a mouse, a fox, a bear).",
+       "notesProchaine": "",
+       "disciplineId": "anglais"
+      }
+     ]
+    },
+    {
+     "start": "16:15",
+     "end": "16:30",
+     "activities": [
+      {
+       "id": "l09pays",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — Le pays du jour : l'Égypte",
+       "objectif": "Situer l'Égypte (Afrique) et découvrir un pays en énigmes (transition vers l'histoire de mardi).",
+       "competence": "Se repérer sur un planisphère ; découvrir un pays (drapeau, capitale, monument).",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "Géographie",
+       "progSequence": "Autour du monde — Afrique",
+       "progSeance": "L'Égypte",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9pa1",
+         "label": "Pays du jour (15 min)",
+         "note": "« Notre voyage continue en Afrique : devinez le pays d'aujourd'hui. »\n« Indices : un très grand fleuve, le Nil ; de grandes pyramides. »\n« C'est l'Égypte ! Capitale : Le Caire. On la place sur la carte. »\n« Demain, en histoire, on repartira justement au bord du Nil, il y a très longtemps. »"
+        }
+       ],
+       "materiel": "Projeter l'Égypte (Autour du monde). Lien avec l'histoire de mardi (Au bord du Nil).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      },
+      {
+       "id": "l09sor",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l9s1",
+         "label": "Fin de journée (10 min)",
+         "note": "« On note les devoirs dans le cahier de liaison. »\n« On range, on prépare son cartable. »\n« Bonne soirée, à demain ! »"
+        }
+       ],
+       "materiel": "Cahier de liaison (jaune).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2026-11-10",
+   "createdAt": 1794155782211,
+   "updatedAt": 1794155782211,
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": [],
+    "rappels": [],
+    "devoirs": "FRANÇAIS : finir la fiche « formes de phrases » si besoin ; mots de GraphéMo. MATHS : réviser c/d/u (CE1) / m/c/d/u (CE2) ; tables de 3 et de 4. GÉO : commencer à apprendre les grandes villes de France (carte) — pour dans 2 semaines. HISTOIRE : relire la leçon « Au bord du Nil »."
+   },
+   "slots": [
+    {
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "m10rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "Rituels du matin (voir vue Rituels → Période 2, ouverture sur aujourd'hui).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10r1",
+         "label": "Rituel (15 min)",
+         "note": "« On démarre par notre rituel : phrase du jour, nombre, calcul mental, problème, mini-quiz. »\n« Aujourd'hui, le problème est une multiplication : on repère les mots qui aident. »\n(déroulé habituel, projeté.)"
+        }
+       ],
+       "materiel": "Vue Rituels → Période 2 (projetable).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "start": "08:50",
+     "end": "09:50",
+     "activities": [
+      {
+       "id": "m10fr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Les formes de phrases (exercices)",
+       "objectif": "S'entraîner à reconnaître et transformer les formes affirmative et négative.",
+       "competence": "Transformer une phrase à la forme négative / affirmative ; reconnaître la négation.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Grammaire — La phrase",
+       "progSeance": "Formes de phrases, séance 2 (entraînement)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10f1",
+         "label": "Rappel (10 min)",
+         "note": "« Qui se souvient : une phrase peut dire oui ou non. Comment on dit non ? »\n« Oui : ne … pas autour du verbe. On relit la leçon. »\n« Je donne un exemple, vous le transformez à l'oral. »\n(je m'assure que forme ≠ type est bien clair.)"
+        },
+        {
+         "id": "m10f2",
+         "label": "Exercices (35 min)",
+         "note": "« Vous avez votre fiche : CE1 d'un côté, CE2 de l'autre, regardez votre niveau. »\n« On lit la consigne, on regarde l'exemple, puis on fait. »\n« Reconnaître la forme, entourer ne … pas, transformer. »\n« Je passe aider ceux qui bloquent ; les CE2 font aussi ne … plus / ne … jamais. »\n(correction collective des premiers exercices.)"
+        }
+       ],
+       "materiel": "Fiches d'exercices « Les formes de phrases » CE1 et CE2 (format « Je m'entraîne ») — voir Documents à imprimer. Classeur.",
+       "video": "",
+       "differenciation": "CE1 : reconnaître et ajouter ne … pas. CE2 : transformer dans les deux sens, ne … plus / jamais.",
+       "depassement": "",
+       "correction": "Le chat dort → Le chat ne dort pas. Je ne joue pas dehors → Je joue dehors.",
+       "obstacles": "Erreurs fréquentes : oublier « ne » (ou « n' »). Remédiation : rappeler les DEUX mots qui encadrent le verbe.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "09:50",
+     "end": "11:10",
+     "activities": [
+      {
+       "id": "m10mu",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths — Dénombrer et représenter une collection (exercices)",
+       "objectif": "S'entraîner à dénombrer, représenter et écrire les nombres. CE1 : jusqu'à 999. CE2 : jusqu'à 1 000.",
+       "competence": "Dénombrer une collection, décomposer (c/d/u, m/c/d/u), comparer et ranger.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Nombres et calculs ». Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Nombres P2 — Dénombrer une collection",
+       "progSeance": "2 (entraînement)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10m1",
+         "label": "Rappel base 10 (10 min)",
+         "note": "« On se rappelle : cube = 1, barre = 10, plaque = 100. »\n« Je montre une collection, vous écrivez le nombre sur l'ardoise. »\n« CE2 : et si on a 10 centaines ? On a un millier, 1 000. »\n(je corrige au tableau avec le tableau c/d/u.)"
+        },
+        {
+         "id": "m10m2",
+         "label": "Exercices (35 min)",
+         "note": "« Fiche d'exercices : compter la collection, décomposer, écrire dans le tableau, comparer. »\n« CE1 jusqu'à 999, CE2 jusqu'à 1 000 : prenez votre niveau. »\n« Attention au zéro quand il manque une dizaine ou une centaine ! »\n« Je passe aider ; pensez à relire le nombre que vous avez écrit. »\n(correction des comparaisons ensemble.)"
+        }
+       ],
+       "materiel": "Fiches « Dénombrer » CE1 (jusqu'à 999) et CE2 (jusqu'à 1 000) + leçon rappel — voir Documents à imprimer. Classeur.",
+       "video": "",
+       "differenciation": "CE1 : c/d/u jusqu'à 999. CE2 : m/c/d/u jusqu'à 1 000. Élève à besoins : matériel base 10 pour représenter avant d'écrire.",
+       "depassement": "",
+       "correction": "134 = 1 c 3 d 4 u. 205 = 2 c 0 d 5 u. CE2 : 907 = 9 c 0 d 7 u ; 1 000 = 1 m.",
+       "obstacles": "Erreurs fréquentes : zéro oublié, inversion dizaines/centaines. Remédiation : tableau c/d/u + matériel.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "14:10",
+     "activities": [
+      {
+       "id": "m10gra",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "GraphéMo — orthographe / phonologie",
+       "objectif": "Séance GraphéMo (gérée par le maître).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10g1",
+         "label": "GraphéMo (40 min)",
+         "note": "« On reprend notre travail de GraphéMo. »\n(déroulé habituel de la méthode.)"
+        }
+       ],
+       "materiel": "Matériel GraphéMo.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "14:10",
+     "end": "15:10",
+     "activities": [
+      {
+       "id": "m10hist",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Histoire — L'Égypte des pharaons : Au bord du Nil (séance 1)",
+       "objectif": "Entrer dans l'Antiquité : situer l'Égypte ancienne dans le temps et l'espace ; comprendre le rôle du Nil.",
+       "competence": "Se repérer dans le temps (l'Antiquité) ; comprendre le rôle d'un fleuve pour les hommes.",
+       "competenceRef": "Questionner le monde — questionner le temps (cycle 2, 2018/2020) : l'Antiquité.",
+       "progPeriode": "P2",
+       "progDomaine": "Histoire",
+       "progSequence": "Histoire · L'Égypte des pharaons (Antiquité)",
+       "progSeance": "1 — Au bord du Nil",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10h1",
+         "label": "Découverte (12 min)",
+         "note": "« Aujourd'hui on remonte très loin dans le temps : l'Antiquité, il y a plus de 5000 ans. »\n« Je vous montre une photo : de l'eau, du sable, des bateaux… C'est le Nil, en Égypte. »\n« Où est l'Égypte ? En Afrique (comme notre pays du jour d'hier !). »\n« Pourquoi vivre au bord du fleuve, à votre avis ? »\n(je recueille les hypothèses au tableau.)"
+        },
+        {
+         "id": "m10h2",
+         "label": "Le Nil donne la vie + la crue (15 min)",
+         "note": "« Le Nil apporte l'eau, les cultures, les poissons, et des bateaux pour se déplacer. »\n« Tout autour, c'est le désert : sans le Nil, impossible de vivre là. »\n« Chaque année, la crue dépose une terre noire très riche : belles récoltes. »\n« Qui peut me redire pourquoi le Nil est si important ? »"
+        },
+        {
+         "id": "m10h3",
+         "label": "Trace écrite + exercices (13 min)",
+         "note": "« On colle la leçon dans le cahier d'histoire et on la lit. »\n« Puis la fiche : compléter, relier, vrai/faux, dessiner le Nil. »\n« Les CE2 écrivent une phrase sur la crue. »\n(je vérifie les mots : Antiquité, Nil, crue.)"
+        }
+       ],
+       "materiel": "Diaporama (vraies photos) + leçon imagée + fiche d'exercices « Au bord du Nil » — voir Documents à imprimer. Cahier d'histoire.",
+       "video": "",
+       "differenciation": "CE1 : le concret (eau, cultures, bateaux, désert). CE2 : la crue, le limon, une phrase écrite.",
+       "depassement": "",
+       "correction": "Antiquité ; en Afrique, au bord du Nil ; le Nil donne l'eau, les cultures, les poissons, les bateaux ; la crue rend la terre riche.",
+       "obstacles": "Erreurs fréquentes : situer l'Égypte en Europe ; croire que la crue est une catastrophe. Remédiation : carte de l'Afrique ; expliquer que la crue est attendue et utile.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "15:40",
+     "end": "16:20",
+     "activities": [
+      {
+       "id": "m10geo",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géographie — Se situer sur une carte : les villes de France",
+       "objectif": "Découvrir les grandes villes de France et se situer avec le vocabulaire nord / sud / est / ouest.",
+       "competence": "Se repérer sur une carte de France ; situer des villes avec les points cardinaux.",
+       "competenceRef": "Questionner le monde — se repérer dans l'espace (cycle 2, 2018/2020) : du proche au lointain.",
+       "progPeriode": "P2",
+       "progDomaine": "Géographie",
+       "progSequence": "Géographie — Se repérer dans l'espace",
+       "progSeance": "2 — Les villes de France",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10geo1",
+         "label": "Rappel + découverte (12 min)",
+         "note": "« La dernière fois, on a vu notre ville, notre département, notre région, notre pays. »\n« Aujourd'hui on zoome sur la France et ses grandes villes. »\n« Je montre la carte : Paris, Lyon, Marseille, Bordeaux… et Saint-Étienne, tout près de nous. »\n« On se repère avec la rose des vents : nord en haut, sud en bas, est à droite, ouest à gauche. »"
+        },
+        {
+         "id": "m10geo2",
+         "label": "Se situer avec le vocabulaire (15 min)",
+         "note": "« Où est Lille ? Au nord. Marseille ? Au sud. Strasbourg ? À l'est. Bordeaux ? À l'ouest. »\n« Et notre ville, Saint-Étienne ? À l'est, près de Lyon. »\n« On peut préciser : nord-est, sud-ouest… »\n« À vous : je dis une ville, vous me dites où elle se trouve. »"
+        },
+        {
+         "id": "m10geo3",
+         "label": "Leçon + carte à apprendre (13 min)",
+         "note": "« On colle la leçon et la carte des grandes villes. »\n« Vous aurez 2 semaines pour apprendre ces villes et savoir où elles sont. »\n« On fait la fiche : compléter, relier, placer des villes sur la carte muette. »\n(je vérifie l'emploi correct de nord/sud/est/ouest.)"
+        }
+       ],
+       "materiel": "Diaporama + leçon + carte des grandes villes à apprendre (sur 2 semaines) + fiche d'exercices — voir Documents à imprimer. Cahier.",
+       "video": "",
+       "differenciation": "CE1 : situer 4-5 villes avec nord/sud/est/ouest. CE2 : toutes les villes + nord-est, sud-ouest. Pas de degrés (trop tôt).",
+       "depassement": "",
+       "correction": "Nord : Lille, Paris. Sud : Marseille, Nice, Toulouse. Est : Strasbourg, Lyon, Saint-Étienne. Ouest : Nantes, Bordeaux, Rennes.",
+       "obstacles": "Erreurs fréquentes : confondre est et ouest (droite/gauche). Remédiation : rose des vents toujours affichée ; « l'Est est à droite », repère avec le soleil qui se lève à l'est.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "16:20",
+     "end": "16:30",
+     "activities": [
+      {
+       "id": "m10sor",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rangement, devoirs et sortie",
+       "objectif": "",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10s1",
+         "label": "Fin de journée (10 min)",
+         "note": "« On note les devoirs, on range, on prépare le cartable. »\n« Bonne fin de semaine, à lundi ! »"
+        }
+       ],
+       "materiel": "Cahier de liaison (jaune).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    }
+   ]
   }
  ],
  "templates": [],
