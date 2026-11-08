@@ -85,27 +85,42 @@ export function EvalLettresCE1() {
 
 export function EvalLettresCE2() {
   return (
-    <EvalFrame titre="Écrire les nombres en lettres" niveau="CE2">
+    <EvalFrame titre="Les nombres jusqu'à 1 000" niveau="CE2">
       <Exo n={1} consigne="Écris ces nombres en lettres.">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.4 }}>
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.5 }}>
           105 → ...................................... &nbsp; 240 → ......................................<br />
           316 → ...................................... &nbsp; 1 000 → ......................................
         </div>
       </Exo>
       <Exo n={2} consigne="Écris ces nombres en chiffres.">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.6 }}>
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.6 }}>
           deux cents → ……&nbsp;&nbsp; trois cent quatre-vingts → ……&nbsp;&nbsp; cinq cent douze → ……&nbsp;&nbsp; mille → ……
         </div>
       </Exo>
-      <Exo n={3} consigne="Écris en lettres (attention aux pièges !).">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.4 }}>
-          78 → ...................................... &nbsp; 91 → ......................................
+      <Exo n={3} consigne="Écris en lettres (attention aux pièges : 80, cent, mille !).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.5 }}>
+          78 → ...................................... &nbsp; 91 → ......................................<br />
+          480 → ...................................... &nbsp; 600 → ......................................
         </div>
       </Exo>
-      <Exo n={4} consigne="Range du plus petit au plus grand.">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>512 · 125 · 251 · 521 → ..........................................</div>
+      <Exo n={4} consigne="Écris les nombres que je dicte.">
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "4mm 10mm", fontFamily: CURSIVE, fontSize: "20px", marginTop: "1mm" }}>
+          {["a) ……", "b) ……", "c) ……", "d) ……", "e) ……", "f) ……"].map((x) => <span key={x}>{x}</span>)}
+        </div>
       </Exo>
-      <GrilleLSU competences={["Écrire en lettres les nombres jusqu'à 1 000", "Écrire en chiffres un nombre donné en lettres", "Maîtriser les nombres particuliers (quatre-vingts, cents, mille)", "Comparer et ranger les nombres jusqu'à 1 000"]} />
+      <Exo n={5} consigne="Encadre : écris le nombre juste avant et juste après.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "20px", lineHeight: 1.8 }}>…… &lt; 300 &lt; …… &nbsp;&nbsp;&nbsp; …… &lt; 799 &lt; …… &nbsp;&nbsp;&nbsp; …… &lt; 1 000 &lt; ……</div>
+      </Exo>
+      <Exo n={6} consigne="Décompose (centaines, dizaines, unités).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.7 }}>
+          456 = …… c …… d …… u &nbsp;&nbsp;&nbsp; 708 = …… c …… d …… u &nbsp;&nbsp;&nbsp; 630 = …… c …… d …… u
+        </div>
+      </Exo>
+      <Exo n={7} consigne="Compare (< , > ou =), puis range du plus petit au plus grand.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>648 …… 684 &nbsp;&nbsp; 999 …… 1 000 &nbsp;&nbsp; 705 …… 750</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", marginTop: "1mm" }}>512 · 125 · 251 · 521 → ..........................................</div>
+      </Exo>
+      <GrilleLSU competences={["Lire et écrire en lettres les nombres jusqu'à 1 000", "Écrire en chiffres un nombre dicté ou donné en lettres", "Maîtriser les nombres particuliers (quatre-vingts, cents, mille)", "Connaître les nombres voisins (encadrer) et décomposer (c/d/u)", "Comparer et ranger les nombres jusqu'à 1 000"]} />
     </EvalFrame>
   );
 }

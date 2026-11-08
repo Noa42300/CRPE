@@ -6,7 +6,7 @@
  */
 import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
-import { FicheModele, SectionBar, Exo, Choix, MODELE_FONT } from "./ficheModele";
+import { MODELE_FONT } from "./ficheModele";
 
 const MA = "#0e7490";
 const BLEU = "#2563eb", ORANGE = "#ea580c", VERT = "#16a34a";
@@ -118,74 +118,95 @@ export function NumerationLecon() {
   );
 }
 
-function TableCDU({ entetes }: { entetes: string[] }) {
+/* ===== Fiches au FORMAT du fichier « Nombres entiers » (type manuel) :
+ * numéro d'exercice entouré, base 10 + tableau c/d/u à compléter, cartes-nombre,
+ * « écris le nombre représenté », un problème. Encre sobre, façon fichier. ===== */
+function CduTab({ cols }: { cols: string[] }) {
   return (
-    <table style={{ borderCollapse: "collapse", margin: "1mm 0", fontFamily: MODELE_FONT }}>
-      <thead><tr>{entetes.map((e) => <th key={e} style={{ border: "1.5px solid #333", background: MA, color: "#fff", fontSize: "11px", fontWeight: 800, padding: "1mm 7mm" }}>{e}</th>)}</tr></thead>
-      <tbody><tr>{entetes.map((e) => <td key={e} style={{ border: "1.5px solid #333", height: "8mm", width: "16mm" }} />)}</tr></tbody>
+    <table style={{ borderCollapse: "collapse", fontFamily: MODELE_FONT, display: "inline-table", verticalAlign: "middle", margin: "0 2mm" }}>
+      <thead><tr>{cols.map((e) => <th key={e} style={{ border: "1.3px solid #111", background: "#eef2f6", fontSize: "11px", fontWeight: 800, padding: "0.5mm 0", width: "9mm" }}>{e}</th>)}</tr></thead>
+      <tbody><tr>{cols.map((e) => <td key={e} style={{ border: "1.3px solid #111", height: "9mm" }} />)}</tr></tbody>
     </table>
+  );
+}
+function CarteNbr({ v }: { v: number }) {
+  return <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", minWidth: "15mm", height: "11mm", border: "2px solid #334155", borderRadius: "2mm", background: "#f8fafc", fontWeight: 800, fontSize: "19px", margin: "0 1.5mm", fontFamily: MODELE_FONT }}>{v}</span>;
+}
+function NumBadge({ n }: { n: number }) {
+  return <span style={{ flex: "0 0 auto", display: "inline-flex", width: "7mm", height: "7mm", borderRadius: "50%", border: `2px solid ${MA}`, color: MA, fontWeight: 800, fontSize: "13px", alignItems: "center", justifyContent: "center" }}>{n}</span>;
+}
+function ExM({ n, consigne, children }: { n: number; consigne: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div style={{ marginBottom: "3mm" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "2mm", marginBottom: "1mm" }}>
+        <NumBadge n={n} /><span style={{ fontSize: "13px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>{consigne}</span>
+      </div>
+      <div style={{ paddingLeft: "9mm" }}>{children}</div>
+    </div>
+  );
+}
+function FrameManuel({ num, titre, niveau, children }: { num: number; titre: string; niveau: string; children: React.ReactNode }) {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", padding: "9mm 10mm", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "1mm" }}>
+        <span style={{ display: "inline-flex", width: "9mm", height: "9mm", borderRadius: "50%", background: MA, color: "#fff", fontWeight: 800, fontSize: "18px", alignItems: "center", justifyContent: "center" }}>{num}</span>
+        <h1 style={{ fontSize: "17px", margin: 0, fontWeight: 800, color: "#0f172a", fontFamily: CONSIGNE_FONT }}>{titre}</h1>
+        <span style={{ marginLeft: "auto", fontSize: "11px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .............. · {niveau}</span>
+      </div>
+      <div style={{ borderBottom: `2px solid ${MA}`, marginBottom: "4mm" }} />
+      {children}
+      <div style={{ borderTop: "1px solid #cbd5e1", marginTop: "4mm", paddingTop: "1mm", fontSize: "9px", color: "#94a3b8", fontFamily: CONSIGNE_FONT }}>Nombres entiers · dénombrer et représenter une collection</div>
+    </div>
   );
 }
 
 /* ---- Fiche CE1 : jusqu'à 999 (c/d/u) ---- */
 export function FicheNumerationCE1() {
   return (
-    <FicheModele matiere="Nombres" titre="Dénombrer jusqu'à 999" couleur={MA} dotActif={1} page="Dénombrer · CE1">
-      <SectionBar couleur={MA}>Je compte la collection</SectionBar>
-      <Exo n={1} couleur={MA} consigne={<><b>Compte</b> et écris le nombre.</>}>
-        <div style={{ fontSize: "14px", margin: "1mm 0" }}><Base10 c={1} d={3} u={4} /> &nbsp;=&nbsp; ……</div>
-        <div style={{ fontSize: "14px", margin: "1mm 0" }}><Base10 c={2} d={0} u={5} /> &nbsp;=&nbsp; ……</div>
-      </Exo>
-      <Exo n={2} couleur={MA} consigne={<><b>Décompose</b> le nombre.</>}>
-        <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "4px", padding: "0.5mm 3mm", width: "fit-content", marginBottom: "1mm" }}>Exemple : 347 = 3 c, 4 d et 7 u</div>
-        <div style={{ fontSize: "15px", fontFamily: CURSIVE }}>a) 256 = …… c, …… d et …… u</div>
-        <div style={{ fontSize: "15px", fontFamily: CURSIVE }}>b) 408 = …… c, …… d et …… u</div>
-      </Exo>
-      <SectionBar couleur={MA}>J'écris et je range</SectionBar>
-      <Exo n={3} couleur={MA} consigne={<><b>Écris</b> le nombre dans le tableau, puis en chiffres.</>}>
-        <div style={{ fontSize: "13px", fontFamily: CURSIVE, marginBottom: "1mm" }}>3 centaines, 5 dizaines et 2 unités :</div>
-        <TableCDU entetes={["c", "d", "u"]} />
-        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>→ ……………</div>
-      </Exo>
-      <Exo n={4} couleur={MA} consigne={<><b>Compare</b> avec &lt; , &gt; ou =.</>}>
-        <div style={{ fontSize: "16px", fontFamily: CURSIVE }}>a) 234 …… 243 &nbsp;&nbsp; b) 500 …… 500 &nbsp;&nbsp; c) 718 …… 178</div>
-      </Exo>
-      <Exo n={5} couleur={MA} consigne={<><b>Colorie</b> le plus grand nombre.</>}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "1.5mm", fontSize: "13px" }}>
-          <Choix options={["309", "390"]} /><Choix options={["645", "654"]} />
-        </div>
-      </Exo>
-    </FicheModele>
+    <FrameManuel num={1} titre="Dénombrer et représenter une collection jusqu'à 999" niveau="CE1">
+      <ExM n={1} consigne={<><b>Écris</b> le nombre représenté (complète le tableau).</>}>
+        <div style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "2mm" }}><Base10 c={1} d={3} u={4} /><CduTab cols={["c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "17px" }}>= ……</span></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "3mm" }}><Base10 c={2} d={0} u={5} /><CduTab cols={["c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "17px" }}>= ……</span></div>
+      </ExM>
+      <ExM n={2} consigne={<><b>Écris</b> le nombre représenté par les cartes-nombre.</>}>
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}><CarteNbr v={300} /><span style={{ fontWeight: 800 }}>+</span><CarteNbr v={40} /><span style={{ fontWeight: 800 }}>+</span><CarteNbr v={5} /><span style={{ fontFamily: CURSIVE, fontSize: "18px", marginLeft: "3mm" }}>= ……</span></div>
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", marginTop: "2mm" }}><CarteNbr v={600} /><span style={{ fontWeight: 800 }}>+</span><CarteNbr v={20} /><span style={{ fontFamily: CURSIVE, fontSize: "18px", marginLeft: "3mm" }}>= ……</span></div>
+      </ExM>
+      <ExM n={3} consigne={<><b>Complète</b> le tableau, puis écris le nombre.</>}>
+        <div style={{ display: "flex", alignItems: "center", gap: "3mm", fontFamily: CURSIVE, fontSize: "15px" }}>3 centaines, 5 dizaines, 2 unités <CduTab cols={["c", "d", "u"]} /> = ……</div>
+      </ExM>
+      <ExM n={4} consigne={<><b>Compare</b> avec &lt; , &gt; ou =.</>}>
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>234 …… 243 &nbsp;&nbsp;&nbsp; 500 …… 500 &nbsp;&nbsp;&nbsp; 718 …… 178</div>
+      </ExM>
+      <ExM n={5} consigne={<><b>Problème.</b> Réponds sur ton cahier.</>}>
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Dans la bibliothèque, il y a 3 étagères de 100 livres, 4 paquets de 10 livres et 6 livres seuls. Combien de livres en tout ?</div>
+      </ExM>
+    </FrameManuel>
   );
 }
 
 /* ---- Fiche CE2 : jusqu'à 1 000 (m/c/d/u) ---- */
 export function FicheNumerationCE2() {
   return (
-    <FicheModele matiere="Nombres" titre="Dénombrer jusqu'à 1 000" couleur={MA} dotActif={2} page="Dénombrer · CE2">
-      <SectionBar couleur={MA}>Je compte la collection</SectionBar>
-      <Exo n={1} couleur={MA} consigne={<><b>Compte</b> et écris le nombre.</>}>
-        <div style={{ fontSize: "14px", margin: "1mm 0" }}><Base10 c={4} d={6} u={3} /> &nbsp;=&nbsp; ……</div>
-        <div style={{ fontSize: "14px", margin: "1mm 0" }}><Base10 c={7} d={0} u={8} /> &nbsp;=&nbsp; ……</div>
-      </Exo>
-      <Exo n={2} couleur={MA} consigne={<><b>Décompose</b> le nombre.</>}>
-        <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "4px", padding: "0.5mm 3mm", width: "fit-content", marginBottom: "1mm" }}>Exemple : 1 000 = 1 m, 0 c, 0 d et 0 u</div>
-        <div style={{ fontSize: "15px", fontFamily: CURSIVE }}>a) 684 = …… c, …… d et …… u</div>
-        <div style={{ fontSize: "15px", fontFamily: CURSIVE }}>b) 907 = …… c, …… d et …… u</div>
-        <div style={{ fontSize: "15px", fontFamily: CURSIVE }}>c) 1 000 = …… m</div>
-      </Exo>
-      <SectionBar couleur={MA}>J'écris et je range</SectionBar>
-      <Exo n={3} couleur={MA} consigne={<><b>Écris</b> le nombre dans le tableau, puis en chiffres.</>}>
-        <div style={{ fontSize: "13px", fontFamily: CURSIVE, marginBottom: "1mm" }}>6 centaines, 3 dizaines et 9 unités :</div>
-        <TableCDU entetes={["m", "c", "d", "u"]} />
-        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>→ ……………</div>
-      </Exo>
-      <Exo n={4} couleur={MA} consigne={<><b>Compare</b> avec &lt; , &gt; ou =.</>}>
-        <div style={{ fontSize: "16px", fontFamily: CURSIVE }}>a) 648 …… 684 &nbsp;&nbsp; b) 999 …… 1 000 &nbsp;&nbsp; c) 705 …… 750</div>
-      </Exo>
-      <Exo n={5} couleur={MA} consigne={<><b>Range</b> du plus petit au plus grand.</>}>
-        <div style={{ fontSize: "15px", fontFamily: CURSIVE }}>512 · 125 · 251 · 521 → ……………………………</div>
-      </Exo>
-    </FicheModele>
+    <FrameManuel num={1} titre="Dénombrer et représenter une collection jusqu'à 1 000" niveau="CE2">
+      <ExM n={1} consigne={<><b>Écris</b> le nombre représenté (complète le tableau).</>}>
+        <div style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "2mm" }}><Base10 c={4} d={6} u={3} /><CduTab cols={["m", "c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "17px" }}>= ……</span></div>
+        <div style={{ display: "flex", alignItems: "center", gap: "3mm" }}><Base10 c={7} d={0} u={8} /><CduTab cols={["m", "c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "17px" }}>= ……</span></div>
+      </ExM>
+      <ExM n={2} consigne={<><b>Écris</b> le nombre représenté par les cartes-nombre.</>}>
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}><CarteNbr v={500} /><span style={{ fontWeight: 800 }}>+</span><CarteNbr v={80} /><span style={{ fontWeight: 800 }}>+</span><CarteNbr v={7} /><span style={{ fontFamily: CURSIVE, fontSize: "18px", marginLeft: "3mm" }}>= ……</span></div>
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", marginTop: "2mm" }}><CarteNbr v={900} /><span style={{ fontWeight: 800 }}>+</span><CarteNbr v={100} /><span style={{ fontFamily: CURSIVE, fontSize: "18px", marginLeft: "3mm" }}>= …… (attention !)</span></div>
+      </ExM>
+      <ExM n={3} consigne={<><b>Complète</b> le tableau, puis écris le nombre.</>}>
+        <div style={{ display: "flex", alignItems: "center", gap: "3mm", fontFamily: CURSIVE, fontSize: "15px" }}>6 centaines, 3 dizaines, 9 unités <CduTab cols={["m", "c", "d", "u"]} /> = ……</div>
+      </ExM>
+      <ExM n={4} consigne={<><b>Compare</b> (&lt; &gt; =), puis range du plus petit au plus grand.</>}>
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>648 …… 684 &nbsp;&nbsp; 999 …… 1 000 &nbsp;&nbsp; 705 …… 750</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px", marginTop: "1.5mm" }}>512 · 125 · 251 · 521 → ……………………………</div>
+      </ExM>
+      <ExM n={5} consigne={<><b>Problème.</b> Réponds sur ton cahier.</>}>
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Pour la kermesse, on range les ballons : 9 cartons de 100 ballons et 10 cartons de 10 ballons. Combien de ballons en tout ?</div>
+      </ExM>
+    </FrameManuel>
   );
 }
