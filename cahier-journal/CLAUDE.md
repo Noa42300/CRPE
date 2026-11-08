@@ -476,3 +476,30 @@ jours. On peut réduire le reste, jamais ces deux-là.
   `FicheModeleMaths.tsx` (multiplication, diverses situations). **Pour toute
   nouvelle feuille d'exercices, partir de ce modèle** (et diversifier). La
   cursive (Caveat/Borel) reste pour les **leçons à coller**, pas pour ces fiches.
+  Les fiches d'exercices se font **par niveau** : une **CE1** et une **CE2**.
+- **Progression P2 (sem. du 9 nov et suite) — IMPORTANT :**
+  - **Tables de multiplication : 2 par semaine** jusqu'à la fin de la P2
+    (récitation, non négociable). Semaine du 9/11 = tables de **3 et 4**.
+  - **Français** : après les **types** de phrases → les **formes** de phrases
+    (**affirmative / négative**, ne … pas/plus/jamais). `FormesDePhrases.tsx`.
+  - **Maths P2 — dénombrer/représenter une collection** : **CE1 jusqu'à 999
+    (c/d/u)**, **CE2 jusqu'à 1 000 (m/c/d/u)**. Base 10 : cube=1, barre=10,
+    plaque=100. `Numeration.tsx`.
+  - **Évaluations** : modèle `EvalEcritureLettres.tsx` (CE1 + CE2) avec
+    **grille de compétences LSU** (4 niveaux : très bonne / satisfaisante /
+    fragile / insuffisante) que l'enseignant remplit lui-même. ~20 min.
+  - **Géographie** : après « Où sommes-nous ? » → **« Les villes de France »**
+    (`GeoVillesFrance.tsx`) : carte des grandes villes (+ Saint-Étienne) à
+    **apprendre sur 2 semaines**, vocabulaire **nord/sud/est/ouest** (et
+    nord-est…), **sans les degrés**. Même **fond de carte** que « où
+    sommes-nous » (amCharts, villes reprojetées à l'identique).
+  - **Anglais** : le lundi (à la place de l'histoire), **séquence libre**
+    (hors programmation), thème **Winter** autour d'une petite histoire
+    (`AnglaisHiver.tsx` — *The Mitten*) : écoute, jeux, corpus de mots.
+  - **Histoire** : le **mardi**, **Antiquité / Égypte** (séance 1 « Au bord du
+    Nil », `EgypteNil.tsx`). ⚠️ **Leçons d'histoire à rendre plus imagées**
+    (vraies photos WikiImage) — l'enseignant enverra un **format** cible.
+  - **Poésie** : nouvelle, thème **hiver** (`PoesieHiver.tsx`, « L'hiver »,
+    poème **original libre de droits**), à apprendre pour la dernière semaine
+    avant les vacances.
+  - **Dictée (au cas où)** : `DicteeFlash.tsx` (mots flash projetés + feuille).
