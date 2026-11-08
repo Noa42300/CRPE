@@ -25,7 +25,7 @@ import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesRef
 import { RituelsMatinSerie } from "./RituelsSerie";
 import { QuizOperations } from "./QuizOperations";
 import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
-import { FormesPhrasesDiapo, FormesPhrasesLecon, FicheFormesCE1, FicheFormesCE2 } from "./FormesDePhrases";
+import { FormesPhrasesDiapo, FormesPhrasesLecon, FormesPhrasesDecouverte, FicheFormesCE1, FicheFormesCE2 } from "./FormesDePhrases";
 import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2 } from "./Numeration";
 import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
 import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre } from "./GeoVillesFrance";
@@ -1422,6 +1422,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "l09fr":
       return [
         { key: "fp-diapo", label: "Les formes de phrases — Diaporama de découverte (à projeter)", node: <FormesPhrasesDiapo /> },
+        { key: "fp-decouv", label: "Les formes de phrases — DÉCOUVERTE double page (BD + CE1 à gauche / CE2 à droite)", node: <FormesPhrasesDecouverte /> },
         { key: "fp-lecon", label: "Les formes de phrases — Leçon à coller (cahier bleu)", node: <FormesPhrasesLecon /> },
       ];
     case "m10fr":
