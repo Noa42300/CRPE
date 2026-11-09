@@ -77,60 +77,80 @@ function SceneBD() {
   );
 }
 
+/* ---------- Tableau de tri OUI / NON (grand) ---------- */
+function TriTable({ haut = "22mm" }: { haut?: string }) {
+  return (
+    <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "1mm" }}>
+      <thead>
+        <tr>
+          <th style={{ border: `2px solid ${VERT}`, background: "#f0fdf4", color: VERT, fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", padding: "1.2mm", width: "50%" }}>✅ Affirmative (dit OUI)</th>
+          <th style={{ border: `2px solid ${ROUGE}`, background: "#fef2f2", color: ROUGE, fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", padding: "1.2mm", width: "50%" }}>❌ Négative (dit NON)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ border: `2px solid ${VERT}`, height: haut, verticalAlign: "top" }} />
+          <td style={{ border: `2px solid ${ROUGE}`, height: haut, verticalAlign: "top" }} />
+        </tr>
+      </tbody>
+    </table>
+  );
+}
+
 /* ---------- DÉCOUVERTE : double page CE1 (gauche) / CE2 (droite) ---------- */
 export function FormesPhrasesDecouverte() {
-  const Num = ({ n }: { n: number }) => <span style={{ display: "inline-flex", width: "5.5mm", height: "5.5mm", borderRadius: "50%", background: FR, color: "#fff", fontSize: "11px", fontWeight: 800, alignItems: "center", justifyContent: "center", marginRight: "1.5mm" }}>{n}</span>;
-  const C = ({ children }: { children: React.ReactNode }) => <div style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT, marginBottom: "0.8mm" }}>{children}</div>;
+  const Num = ({ n }: { n: number }) => <span style={{ display: "inline-flex", width: "6mm", height: "6mm", borderRadius: "50%", background: FR, color: "#fff", fontSize: "12px", fontWeight: 800, alignItems: "center", justifyContent: "center", marginRight: "1.5mm", flexShrink: 0 }}>{n}</span>;
+  const C = ({ children }: { children: React.ReactNode }) => <div style={{ fontSize: "12.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT, marginBottom: "0.8mm", display: "flex", alignItems: "flex-start", lineHeight: 1.25 }}>{children}</div>;
+  const ph = { fontFamily: CURSIVE, fontSize: "15px", lineHeight: 1.6 } as const;
   return (
     <div className="fiche-a4 fiche-a4-landscape" style={{ width: "297mm", background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
       <div style={{ height: "210mm", boxSizing: "border-box", padding: "6mm 7mm" }}>
         <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "3mm 4mm", height: "198mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
-          {/* en-tête : titre + BD + rappel */}
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: "1.5px solid #111", paddingBottom: "1mm" }}>
-            <h1 style={{ fontSize: "22px", margin: 0, fontWeight: 700, fontFamily: CURSIVE, color: FR }}>Les formes de phrases — je découvre</h1>
-            <span style={{ fontSize: "11px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : ..................</span>
+          {/* en-tête : titre + BD + Prénom */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1.5px solid #111", paddingBottom: "1.5mm", gap: "4mm" }}>
+            <h1 style={{ fontSize: "22px", margin: 0, fontWeight: 700, fontFamily: CURSIVE, color: FR, whiteSpace: "nowrap" }}>Les formes de phrases — je découvre</h1>
+            <div style={{ flex: 1, maxWidth: "150mm" }}><SceneBD /></div>
+            <span style={{ fontSize: "11px", fontWeight: 700, fontFamily: CONSIGNE_FONT, whiteSpace: "nowrap" }}>Prénom : ..................</span>
           </div>
-          <div style={{ display: "flex", gap: "4mm", alignItems: "center", margin: "1.5mm 0" }}>
-            <div style={{ flex: 1.3 }}><SceneBD /></div>
-            <div style={{ flex: 1, border: `2px dashed ${FR}`, borderRadius: "3mm", padding: "2mm 3mm", background: "#eff6ff" }}>
-              <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "11px", color: FR }}>Rappel — les TYPES de phrases</div>
-              <div style={{ fontFamily: CURSIVE, fontSize: "14px" }}>. déclarative · ? interrogative · ! exclamative · impérative (ordre).</div>
-              <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11px", marginTop: "1mm", fontWeight: 700 }}>Aujourd'hui, c'est autre chose : les <b style={{ color: FR }}>FORMES</b>. Une phrase dit <b style={{ color: VERT }}>OUI</b> (affirmative) ou <b style={{ color: ROUGE }}>NON</b> (négative).</div>
+          {/* RAPPEL — bandeau pleine largeur, bien lisible */}
+          <div style={{ border: `2.5px solid ${FR}`, borderRadius: "3mm", background: "#eff6ff", margin: "2mm 0", padding: "2mm 4mm", display: "flex", alignItems: "center", gap: "4mm" }}>
+            <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "13px", color: FR, whiteSpace: "nowrap", borderRight: `1.5px solid ${FR}`, paddingRight: "4mm" }}>Je me<br />rappelle</div>
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12.5px", lineHeight: 1.5 }}>
+              Le <b>TYPE</b> d'une phrase, c'est son point final : <b>.</b> déclarative · <b>?</b> interrogative · <b>!</b> exclamative · impérative (un ordre).<br />
+              La <b style={{ color: FR }}>FORME</b>, c'est autre chose : une phrase dit <b style={{ color: VERT }}>OUI</b> → elle est <b style={{ color: VERT }}>affirmative</b> ✅ ; elle dit <b style={{ color: ROUGE }}>NON</b> → elle est <b style={{ color: ROUGE }}>négative</b> ❌ (avec <b style={{ color: ROUGE }}>ne … pas</b> autour du verbe).
             </div>
           </div>
           {/* corps : CE1 | CE2 */}
-          <div style={{ flex: 1, display: "flex", gap: "3mm" }}>
+          <div style={{ flex: 1, display: "flex", gap: "4mm", minHeight: 0 }}>
             {/* CE1 */}
-            <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "2mm" }}>
-              <div style={{ display: "inline-block", background: "#e0920a", color: "#fff", fontWeight: 800, fontSize: "12px", padding: "0.5mm 4mm", borderRadius: "999px", width: "fit-content", fontFamily: CONSIGNE_FONT }}>CE1</div>
-              <div><C><Num n={1} />Entoure la phrase qui dit NON.</C>
-                <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.7 }}>a) Je joue. &nbsp;/&nbsp; Je ne joue pas.<br />b) Il ne mange pas. &nbsp;/&nbsp; Il mange.</div></div>
-              <div><C><Num n={2} />Dans la phrase qui dit non, colorie en rouge <b style={{ color: ROUGE }}>ne</b> et <b style={{ color: ROUGE }}>pas</b>.</C>
-                <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.7 }}>Le chien ne dort pas. · Tu ne cours pas.</div></div>
-              <div><C><Num n={3} />Complète : pour dire non, j'ajoute …… et …… autour du verbe.</C>
-                <div style={{ fontFamily: CURSIVE, fontSize: "15px", color: "#64748b" }}>(aide : ne … pas)</div></div>
-              <div><C><Num n={4} />Relie.</C>
-                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: CURSIVE, fontSize: "16px", padding: "0 6mm" }}>
-                  <div style={{ lineHeight: 2 }}><div>✅ dit oui •</div><div>❌ dit non •</div></div>
-                  <div style={{ textAlign: "right", lineHeight: 2 }}><div>• négative</div><div>• affirmative</div></div></div></div>
+            <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "1.4mm" }}>
+              <div style={{ display: "inline-block", background: "#e0920a", color: "#fff", fontWeight: 800, fontSize: "12px", padding: "0.5mm 5mm", borderRadius: "999px", width: "fit-content", fontFamily: CONSIGNE_FONT }}>CE1</div>
+              <div><C><Num n={1} /><span>Dans chaque ligne, <b>entoure</b> la phrase qui dit <b style={{ color: ROUGE }}>NON</b>.</span></C>
+                <div style={ph}>a) Je joue. &nbsp;/&nbsp; Je ne joue pas.<br />b) Il mange. &nbsp;/&nbsp; Il ne mange pas.<br />c) Tu ne cours pas. &nbsp;/&nbsp; Tu cours.<br />d) Le chien aboie. &nbsp;/&nbsp; Le chien n'aboie pas.</div></div>
+              <div><C><Num n={2} /><span><b>Colorie</b> en rouge les deux petits mots <b style={{ color: ROUGE }}>ne</b> (ou <b style={{ color: ROUGE }}>n'</b>) et <b style={{ color: ROUGE }}>pas</b>.</span></C>
+                <div style={ph}>Le chat ne dort pas. · Tu n'écoutes pas.<br />Nous ne sortons pas. · Je n'aime pas les choux.</div></div>
+              <div style={{ flex: 1, display: "flex", flexDirection: "column" }}><C><Num n={3} /><span><b>Classe</b> les phrases : écris la lettre dans la bonne colonne.</span></C>
+                <div style={{ ...ph, fontSize: "14px", lineHeight: 1.5 }}>a) Je lis. &nbsp; b) Je ne lis pas. &nbsp; c) Il court.<br />d) Il ne court pas. &nbsp; e) Tu chantes. &nbsp; f) Tu ne chantes pas.</div>
+                <TriTable haut="12mm" /></div>
+              <div><C><Num n={4} /><span><b>Transforme</b> à la forme négative avec <b style={{ color: ROUGE }}>ne … pas</b>.</span></C>
+                <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11.5px", color: "#475569", marginBottom: "0.5mm" }}>Exemple : Je cours. → Je <b style={{ color: ROUGE }}>ne</b> cours <b style={{ color: ROUGE }}>pas</b>.</div>
+                <div style={{ fontFamily: CURSIVE, fontSize: "15px" }}>Le chat dort. →</div><LignesModele n={1} />
+                <div style={{ fontFamily: CURSIVE, fontSize: "15px" }}>Tu manges une pomme. →</div><LignesModele n={1} /></div>
             </div>
             <div style={{ borderLeft: "2px dashed #94a3b8" }} />
             {/* CE2 */}
-            <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "2mm" }}>
-              <div style={{ display: "inline-block", background: "#2C6FB5", color: "#fff", fontWeight: 800, fontSize: "12px", padding: "0.5mm 4mm", borderRadius: "999px", width: "fit-content", fontFamily: CONSIGNE_FONT }}>CE2</div>
-              <div><C><Num n={1} />Observe les deux phrases. Qu'est-ce qui change ?</C>
-                <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Le chat dort. → Le chat ne dort pas.</div>
-                <LignesModele n={1} /></div>
-              <div><C><Num n={2} />Entoure les mots de la négation (ne/n' … pas, plus, jamais).</C>
-                <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.7 }}>Je n'ai plus faim. · Il ne ment jamais. · Nous ne partons pas.</div></div>
-              <div><C><Num n={3} />Transforme à la forme négative.</C>
-                <div style={{ fontFamily: CURSIVE, fontSize: "15px" }}>a) Tu écoutes la maîtresse.</div><LignesModele n={1} />
-                <div style={{ fontFamily: CURSIVE, fontSize: "15px" }}>b) Les oiseaux chantent.</div><LignesModele n={1} /></div>
-              <div><C><Num n={4} />Classe les phrases (écris la lettre).</C>
-                <div style={{ fontFamily: CURSIVE, fontSize: "14px" }}>a) Je lis. b) Je ne lis pas. c) Il ne vient plus.</div>
-                <div style={{ display: "flex", gap: "3mm", marginTop: "1mm" }}>
-                  <div style={{ flex: 1, border: `1.5px solid ${VERT}`, borderRadius: "2mm", padding: "1mm", fontFamily: CONSIGNE_FONT, fontSize: "11px", textAlign: "center", fontWeight: 700, color: VERT }}>Affirmative<div style={{ height: "7mm" }} /></div>
-                  <div style={{ flex: 1, border: `1.5px solid ${ROUGE}`, borderRadius: "2mm", padding: "1mm", fontFamily: CONSIGNE_FONT, fontSize: "11px", textAlign: "center", fontWeight: 700, color: ROUGE }}>Négative<div style={{ height: "7mm" }} /></div></div></div>
+            <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: "1.4mm" }}>
+              <div style={{ display: "inline-block", background: "#2C6FB5", color: "#fff", fontWeight: 800, fontSize: "12px", padding: "0.5mm 5mm", borderRadius: "999px", width: "fit-content", fontFamily: CONSIGNE_FONT }}>CE2</div>
+              <div><C><Num n={1} /><span><b>Observe</b> les deux phrases et écris ce qui change pour dire non.</span></C>
+                <div style={ph}>Le chat dort. → Le chat ne dort pas.</div><LignesModele n={2} /></div>
+              <div><C><Num n={2} /><span><b>Entoure</b> les mots de la négation (<b style={{ color: ROUGE }}>ne / n'</b> … <b style={{ color: ROUGE }}>pas</b>, <b style={{ color: ROUGE }}>plus</b>, <b style={{ color: ROUGE }}>jamais</b>).</span></C>
+                <div style={ph}>Je n'ai plus faim. · Il ne ment jamais.<br />Nous ne partons pas. · Elle ne pleure plus.<br />Tu n'écoutes jamais le maître.</div></div>
+              <div style={{ flex: 1, display: "flex", flexDirection: "column" }}><C><Num n={3} /><span><b>Classe</b> les phrases : écris la lettre dans la bonne colonne.</span></C>
+                <div style={{ ...ph, fontSize: "14px", lineHeight: 1.5 }}>a) Je lis. &nbsp; b) Je ne lis pas. &nbsp; c) Il ne vient plus.<br />d) Tu chantes. &nbsp; e) Elle n'écoute jamais. &nbsp; f) Nous jouons.</div>
+                <TriTable haut="12mm" /></div>
+              <div><C><Num n={4} /><span><b>Transforme</b> : d'abord à la forme négative, puis à la forme affirmative.</span></C>
+                <div style={{ fontFamily: CURSIVE, fontSize: "15px" }}>→ négative : Les oiseaux chantent. →</div><LignesModele n={1} />
+                <div style={{ fontFamily: CURSIVE, fontSize: "15px" }}>→ affirmative : Je ne joue pas dehors. →</div><LignesModele n={1} /></div>
             </div>
           </div>
         </div>

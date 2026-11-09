@@ -1,95 +1,88 @@
 /**
- * Anglais — Séquence « Winter » autour de l'histoire THE MITTEN, présentée en
- * BANDE DESSINÉE (BD). Le maître lit/joue l'histoire en anglais, on révèle le
- * sens (Show French), on joue, on apprend un corpus de mots. Diapo BD à
- * projeter + corpus à coller (mots à apprendre + l'histoire en BD en dessous).
+ * Anglais — Séquence « Winter » autour de l'histoire THE MITTEN.
+ * Présentation demandée : les mots à apprendre (Words to learn) en haut, puis un
+ * MINI-TEXTE en français (écriture type Word) qui résume l'histoire des
+ * mitaines ; chaque mot de vocabulaire est redonné en anglais entre parenthèses.
+ * Diapo à projeter + leçon à coller (cahier violet). Pas de titre souligné.
  */
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { requestFullscreen } from "../lib/board";
 
 const WB = "#0369a1";
-const CONSIGNE_FONT = "'Aptos','Inter','Segoe UI',system-ui,sans-serif";
+const WORD = "'Aptos','Calibri','Segoe UI',Arial,sans-serif"; // écriture « type Word »
 
-type Case = { emoji: string; en: string; fr: string };
-const BD: Case[] = [
-  { emoji: "🧒❄️🧤", en: "Nicki drops his white mitten in the snow.", fr: "Nicki perd sa moufle blanche dans la neige." },
-  { emoji: "🐰➡️🧤", en: "A rabbit hops in. « Can I come in? »", fr: "Un lapin entre : « Je peux entrer ? »" },
-  { emoji: "🦔➡️🧤", en: "A hedgehog squeezes in too.", fr: "Un hérisson se glisse dedans aussi." },
-  { emoji: "🦉➡️🧤", en: "An owl flies in. « Me too! »", fr: "Une chouette entre : « Moi aussi ! »" },
-  { emoji: "🦡🦊🧤", en: "A badger and a fox go in.", fr: "Un blaireau et un renard entrent." },
-  { emoji: "🐻➡️🧤", en: "A big bear climbs in! It stretches!", fr: "Un grand ours entre ! La moufle s'étire !" },
-  { emoji: "🐭👃🐻", en: "A tiny mouse sits on the bear's nose…", fr: "Une petite souris se pose sur le nez de l'ours…" },
-  { emoji: "🤧💨🧤", en: "« Aaah-CHOO! » Everyone flies out! Nicki finds his mitten.", fr: "« Atchoum ! » Tous sortent ! Nicki retrouve sa moufle." },
+const MOTS: { en: string; fr: string; e: string }[] = [
+  { en: "winter", fr: "l'hiver", e: "❄️" },
+  { en: "snow", fr: "la neige", e: "☃️" },
+  { en: "cold", fr: "froid", e: "🥶" },
+  { en: "warm", fr: "chaud", e: "🔥" },
+  { en: "a mitten", fr: "une moufle", e: "🧤" },
+  { en: "a mouse", fr: "une souris", e: "🐭" },
+  { en: "a fox", fr: "un renard", e: "🦊" },
+  { en: "a bear", fr: "un ours", e: "🐻" },
 ];
 
-function ComicPanel({ n, c, showFr, big }: { n: number; c: Case; showFr: boolean; big?: boolean }) {
+/* Mini-texte : résumé en français, mots de vocabulaire en anglais entre () */
+function Resume({ fs = "15px" }: { fs?: string }) {
   return (
-    <div style={{ border: `3px solid ${WB}`, borderRadius: "3mm", background: "#f0f9ff", padding: big ? "3mm" : "2mm", position: "relative", display: "flex", flexDirection: "column", alignItems: "center", gap: big ? "2mm" : "1mm" }}>
-      <span style={{ position: "absolute", top: "1mm", left: "2mm", fontSize: big ? "13px" : "10px", fontWeight: 800, color: WB }}>{n}</span>
-      <div style={{ fontSize: big ? "40px" : "26px", lineHeight: 1 }}>{c.emoji}</div>
-      <div style={{ background: "#fff", border: `1.5px solid ${WB}`, borderRadius: "6px", padding: big ? "1.5mm 3mm" : "1mm 2mm", fontSize: big ? "15px" : "10.5px", fontWeight: 700, textAlign: "center", color: "#0f172a" }}>{c.en}</div>
-      {showFr && <div style={{ fontSize: big ? "12px" : "9px", fontStyle: "italic", color: "#64748b", textAlign: "center" }}>{c.fr}</div>}
+    <p style={{ fontFamily: WORD, fontSize: fs, lineHeight: 1.7, color: "#1a1a1a", textAlign: "justify" }}>
+      En classe, on a vu l'histoire des mitaines <i>(the mitten)</i>. C'est l'<b>hiver</b> <i>(winter)</i> :
+      il fait <b>froid</b> <i>(cold)</i> et il y a de la <b>neige</b> <i>(snow)</i>. Un garçon perd sa
+      <b> moufle</b> <i>(a mitten)</i> dans la neige. Un par un, des animaux viennent se glisser dedans pour
+      avoir <b>chaud</b> <i>(warm)</i> : une <b>souris</b> <i>(a mouse)</i>, un lapin <i>(a rabbit)</i>, un
+      hérisson <i>(a hedgehog)</i>, une chouette <i>(an owl)</i>, un blaireau <i>(a badger)</i>, un
+      <b> renard</b> <i>(a fox)</i>, puis un gros <b>ours</b> <i>(a bear)</i>. À la fin, la petite souris
+      <i> (mouse)</i> fait éternuer l'ours : « Atchoum ! » Tous les animaux sont expulsés et le garçon
+      retrouve sa moufle.
+    </p>
+  );
+}
+
+function WordsGrid({ small }: { small?: boolean }) {
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: small ? "2mm" : "2.5mm" }}>
+      {MOTS.map((m) => (
+        <div key={m.en} style={{ display: "flex", alignItems: "center", gap: "2mm", border: `2px solid ${WB}`, borderRadius: "3mm", padding: "1.2mm 2.5mm" }}>
+          <span style={{ fontSize: small ? "20px" : "24px" }}>{m.e}</span>
+          <span><span style={{ fontWeight: 800, fontSize: small ? "14px" : "16px", color: WB, fontFamily: WORD }}>{m.en}</span> <span style={{ fontSize: "12px", color: "#555", fontFamily: WORD }}>{m.fr}</span></span>
+        </div>
+      ))}
     </div>
   );
 }
 
 export function AnglaisHiverDiapo() {
-  const [fr, setFr] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   return (
-    <div ref={ref} className="w-[92vw] max-w-[1000px] overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+    <div ref={ref} className="w-[92vw] max-w-[920px] overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
       <div className="flex items-center gap-3 px-4 py-2" style={{ background: WB }}>
-        <span className="text-sm font-extrabold uppercase tracking-wide text-white">English · Winter comic — The Mitten 🧤❄️</span>
-        <button onClick={() => setFr((v) => !v)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">{fr ? "Hide French" : "Show French"}</button>
-        <button onClick={() => requestFullscreen(ref.current)} className="rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">English · Winter — The Mitten 🧤❄️</span>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
       </div>
-      <div className="p-4 sm:p-6">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {BD.map((c, i) => <ComicPanel key={i} n={i + 1} c={c} showFr={fr} big />)}
-        </div>
-        <div className="mt-4 rounded-2xl border-2 p-3" style={{ borderColor: WB }}>
-          <div className="text-xs font-extrabold uppercase tracking-wide" style={{ color: WB }}>Words · let's say them!</div>
-          <div className="mt-1 flex flex-wrap justify-center gap-x-5 gap-y-1 text-xl font-bold" style={{ color: "#0f172a" }}>
-            {[["❄️", "snow"], ["🥶", "cold"], ["🔥", "warm"], ["🧤", "a mitten"], ["🐭", "a mouse"], ["🦊", "a fox"], ["🐻", "a bear"]].map(([e, w]) => <span key={w}>{e} {w}</span>)}
-          </div>
+      <div className="p-5 sm:p-7">
+        <div className="text-lg font-extrabold" style={{ color: WB }}>Words to learn</div>
+        <div className="mt-2"><WordsGrid /></div>
+        <div className="mt-5 text-lg font-extrabold" style={{ color: WB }}>The story — l'histoire des mitaines</div>
+        <div className="mt-2 rounded-2xl border-2 p-4" style={{ borderColor: WB, background: "#f0f9ff" }}>
+          <Resume fs="18px" />
         </div>
       </div>
     </div>
   );
 }
 
-const MOTS: { en: string; fr: string; e: string }[] = [
-  { en: "snow", fr: "la neige", e: "❄️" },
-  { en: "cold", fr: "froid", e: "🥶" },
-  { en: "warm", fr: "chaud", e: "🔥" },
-  { en: "a mitten", fr: "une moufle", e: "🧤" },
-  { en: "a mouse", fr: "une souris", e: "🐭" },
-  { en: "a rabbit", fr: "un lapin", e: "🐰" },
-  { en: "a fox", fr: "un renard", e: "🦊" },
-  { en: "a bear", fr: "un ours", e: "🐻" },
-];
-
 export function AnglaisHiverCorpus() {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `2px solid ${WB}`, paddingBottom: "1.5mm", marginBottom: "3mm" }}>
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: WORD }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "4mm" }}>
         <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 800, color: WB }}>Winter — The Mitten ❄️🧤</h1>
-        <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : ..................</span>
+        <span style={{ fontSize: "12px", fontWeight: 700 }}>Prénom : ..................</span>
       </div>
-      {/* Mots à apprendre */}
-      <div style={{ fontSize: "12px", fontWeight: 800, color: WB, fontFamily: CONSIGNE_FONT, marginBottom: "1.5mm" }}>Words to learn — les mots à apprendre</div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2mm", marginBottom: "4mm" }}>
-        {MOTS.map((m) => (
-          <div key={m.en} style={{ display: "flex", alignItems: "center", gap: "2.5mm", border: `2px solid ${WB}`, borderRadius: "3mm", padding: "1.2mm 3mm" }}>
-            <span style={{ fontSize: "24px" }}>{m.e}</span>
-            <span><span style={{ fontWeight: 800, fontSize: "16px", color: WB }}>{m.en}</span> <span style={{ fontSize: "13px", color: "#555" }}>= {m.fr}</span></span>
-          </div>
-        ))}
-      </div>
-      {/* L'histoire en BD */}
-      <div style={{ fontSize: "12px", fontWeight: 800, color: WB, fontFamily: CONSIGNE_FONT, marginBottom: "1.5mm" }}>The story in pictures — l'histoire en BD</div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "2mm" }}>
-        {BD.map((c, i) => <ComicPanel key={i} n={i + 1} c={c} showFr />)}
+      <div style={{ fontSize: "14px", fontWeight: 800, color: WB, marginBottom: "2mm" }}>Words to learn — les mots à apprendre</div>
+      <WordsGrid />
+      <div style={{ fontSize: "14px", fontWeight: 800, color: WB, margin: "5mm 0 2mm" }}>L'histoire des mitaines</div>
+      <div style={{ border: `1.5px solid ${WB}`, borderRadius: "3mm", padding: "3mm 4mm", background: "#f8fcff" }}>
+        <Resume fs="15px" />
       </div>
     </div>
   );
