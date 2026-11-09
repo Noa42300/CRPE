@@ -41,6 +41,63 @@ export function MotsFlashDiapo() {
 
 function Lignes({ n }: { n: number }) { return <>{Array.from({ length: n }).map((_, i) => <div key={i} style={{ borderBottom: "1.8px solid #9aa4b2", height: "8mm" }} />)}</>; }
 
+/* ======================================================================
+ * Dictée n°2 — thème « les vêtements » (les mots d'hiver reviennent).
+ * Objectif orthographe : « c'est » et le verbe METTRE (je mets / il met).
+ * ==================================================================== */
+const VERT = "#16a34a"; // couleur du cahier de dictée (vert)
+const MOTS_VET_CE1 = ["un manteau", "un bonnet", "une écharpe", "des gants", "un pull", "des bottes", "un pantalon", "je mets"];
+const MOTS_VET_CE2 = [...MOTS_VET_CE1, "des chaussettes", "un blouson", "il met"];
+const TEXTE_VET_CE1 = "C'est l'hiver, il fait froid. Je mets mon manteau, mon bonnet et mon écharpe. Il met ses gants et ses bottes. C'est l'heure de sortir !";
+const TEXTE_VET_CE2_EN_PLUS = "Dans la cour, les enfants mettent leur pull et leur blouson. Comme c'est bien d'être au chaud !";
+
+export function MotsFlashVetementsDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const mots = MOTS_VET_CE2;
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[900px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: VERT }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Mots flash · les vêtements</span>
+        <span className="ml-2 text-xs font-bold text-white/80">{i + 1}/{mots.length}</span>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="grid min-h-[48vh] place-items-center p-6">
+        <div className="text-6xl font-extrabold sm:text-7xl" style={{ color: VERT, fontFamily: CURSIVE }}>{mots[i]}</div>
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: VERT, color: VERT }}>◀</button>
+        <span className="text-xs font-bold uppercase tracking-wide text-stone-400">J'écris sur mon ardoise, puis j'efface.</span>
+        <button onClick={() => setI((n) => Math.min(mots.length - 1, n + 1))} disabled={i === mots.length - 1} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: VERT }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
+export function DicteeVetementsFiche() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "5mm 6mm", minHeight: "272mm", boxSizing: "border-box" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: "2px solid #111", paddingBottom: "1.5mm", marginBottom: "3mm" }}>
+          <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>Dictée — les vêtements</h1>
+          <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .................. &nbsp; Date : ............</span>
+        </div>
+        <div style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT, color: VERT, marginBottom: "2mm" }}>Je fais bien attention : <b>c'est</b> · le verbe <b>mettre</b> (je <b>mets</b>, il <b>met</b>).</div>
+        <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT }}>Les mots</div>
+        <Lignes n={4} />
+        <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "4mm" }}>La dictée</div>
+        <Lignes n={10} />
+        <div style={{ marginTop: "5mm", fontSize: "10px", color: "#64748b", fontFamily: CONSIGNE_FONT, lineHeight: 1.6 }}>
+          <b>Réservé à l'enseignant</b> — Mots CE1 : {MOTS_VET_CE1.join(" · ")}. Mots CE2 (en plus) : {MOTS_VET_CE2.slice(MOTS_VET_CE1.length).join(" · ")}.<br />
+          <b>Texte CE1 :</b> {TEXTE_VET_CE1}<br />
+          <b>Texte CE2 :</b> {TEXTE_VET_CE1} <span style={{ fontWeight: 700, color: "#111" }}>{TEXTE_VET_CE2_EN_PLUS}</span>
+          <br /><span style={{ fontStyle: "italic" }}>(Le texte reste côté enseignant ; l'élève écrit sur sa feuille. Cahier de dictée vert.)</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function DicteeHiverFiche() {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>

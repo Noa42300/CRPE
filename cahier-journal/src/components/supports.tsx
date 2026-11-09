@@ -31,7 +31,7 @@ import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
 import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre } from "./GeoVillesFrance";
 import { PoesieHiverDiapo, PoesieHiverFiche } from "./PoesieHiver";
 import { AnglaisHiverDiapo, AnglaisHiverCorpus } from "./AnglaisHiver";
-import { MotsFlashDiapo, DicteeHiverFiche } from "./DicteeFlash";
+import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVetementsFiche } from "./DicteeFlash";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos } from "./EgypteNil";
@@ -1450,6 +1450,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "dic-flash", label: "Mots flash — dictée de l'hiver (à projeter)", node: <MotsFlashDiapo /> },
         { key: "dic-fiche", label: "Dictée de l'hiver — feuille élève", node: <DicteeHiverFiche /> },
+        { key: "dic2-flash", label: "Mots flash n°2 — les vêtements (ardoise, à projeter)", node: <MotsFlashVetementsDiapo /> },
+        { key: "dic2-fiche", label: "Dictée n°2 — les vêtements (remédiation « c'est » · mettre) — feuille élève", node: <DicteeVetementsFiche /> },
       ];
     case "l09poe":
       return [
