@@ -4,7 +4,7 @@
  * Nil) ; comprendre que le Nil permettait la vie (eau, cultures, bateaux).
  *  • Diaporama à projeter (vraies photos) · Leçon à coller · Fiche d'exercices.
  */
-import { useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
 import { WikiImage } from "./WikiImage";
 
@@ -37,7 +37,50 @@ function SchemaNil({ h = 150 }: { h?: number }) {
   );
 }
 
-const ET = ["Au bord du Nil", "Il y a très longtemps", "Où ? En Afrique", "Le Nil donne la vie", "La crue du Nil", "Je retiens"];
+/* Carte simplifiée (type carte de géo) : l'Égypte, le Nil, les mers, le désert. */
+function CarteEgypte({ w = 148 }: { w?: number }) {
+  const BLEU = "#3b82f6", SABLE = "#fde9c8", VERT = "#bbf7d0";
+  const lbl = { fontFamily: CONSIGNE_FONT, fontWeight: 800 } as const;
+  return (
+    <svg viewBox="0 0 220 300" width={w} height={(w * 300) / 220} aria-label="Carte de l'Égypte et du Nil">
+      <rect x="0" y="0" width="220" height="300" fill={SABLE} />
+      {/* mer Méditerranée (au nord) */}
+      <rect x="0" y="0" width="220" height="34" fill={BLEU} />
+      {/* mer Rouge (à l'est) */}
+      <polygon points="200,44 220,56 220,300 184,300" fill={BLEU} />
+      {/* vallée verte + delta */}
+      <polygon points="100,74 56,34 150,34" fill={VERT} />
+      <path d="M100 300 C 92 235 112 150 100 74" fill="none" stroke={VERT} strokeWidth="18" strokeLinecap="round" />
+      {/* le Nil */}
+      <path d="M100 300 C 92 235 112 150 100 74" fill="none" stroke={BLEU} strokeWidth="6" strokeLinecap="round" />
+      <line x1="100" y1="76" x2="64" y2="36" stroke={BLEU} strokeWidth="3" />
+      <line x1="100" y1="76" x2="136" y2="36" stroke={BLEU} strokeWidth="3" />
+      {/* pyramides près du Caire */}
+      <g fill="#a16207" stroke="#78350f" strokeWidth="0.6">
+        <path d="M72 97 l7 -13 l7 13 Z" /><path d="M81 97 l6 -10 l6 10 Z" />
+      </g>
+      {/* Le Caire */}
+      <circle cx="99" cy="82" r="3.4" fill="#b91c1c" stroke="#fff" strokeWidth="1" />
+      {/* étiquettes */}
+      <text x="110" y="21" textAnchor="middle" fontSize="8.5" fill="#1e3a8a" style={lbl}>Mer Méditerranée</text>
+      <text x="213" y="190" textAnchor="middle" fontSize="8" fill="#1e3a8a" style={lbl} transform="rotate(90 213 190)">mer Rouge</text>
+      <text x="120" y="215" fontSize="12" fill="#1d4ed8" stroke={SABLE} strokeWidth="3" paintOrder="stroke" style={lbl}>le Nil</text>
+      <text x="103" y="84" fontSize="9" fill="#b91c1c" stroke="#fff" strokeWidth="2.4" paintOrder="stroke" style={lbl}>Le Caire</text>
+      <text x="40" y="104" fontSize="7.5" fill="#92400e" style={lbl}>pyramides</text>
+      <text x="36" y="205" textAnchor="middle" fontSize="11" fill="#b45309" style={lbl} transform="rotate(-90 36 205)">DÉSERT</text>
+      <text x="162" y="140" textAnchor="middle" fontSize="11" fill="#b45309" style={lbl} transform="rotate(90 162 140)">DÉSERT</text>
+      {/* rose des vents */}
+      <g transform="translate(30,60)">
+        <line x1="0" y1="11" x2="0" y2="-8" stroke="#111" strokeWidth="1.6" />
+        <path d="M0 -13 l 3 7 l -6 0 Z" fill="#111" />
+        <text x="0" y="-15" textAnchor="middle" fontSize="8" fill="#111" style={lbl}>N</text>
+      </g>
+      <rect x="1" y="1" width="218" height="298" fill="none" stroke="#111" strokeWidth="2" rx="4" />
+    </svg>
+  );
+}
+
+const ET = ["Au bord du Nil", "Il y a très longtemps", "Où ? En Afrique", "Le Nil donne la vie", "La crue du Nil", "La vie au bord du Nil", "Une grande civilisation", "Je retiens"];
 export function EgypteNilDiapo() {
   const [i, setI] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -99,6 +142,24 @@ export function EgypteNilDiapo() {
           </div>
         )}
         {i === 5 && (
+          <div className="w-full max-w-2xl text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: HIST }}>La vie au bord du Nil</h2>
+            <div className="mt-3 flex justify-center"><WikiImage title="Felouque" alt="une felouque, barque sur le Nil" accent={HIST} height="clamp(150px, 30vh, 270px)" /></div>
+            <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
+              {[["👩‍🌾", "Les paysans cultivent le blé."], ["⛵", "On navigue en felouque."], ["🧱", "Des maisons en briques de terre."]].map(([e, t]) => (
+                <div key={t} className="rounded-2xl border-2 bg-white px-2 py-2" style={{ borderColor: HIST }}><div className="text-3xl">{e}</div><div className="text-base font-semibold text-stone-700">{t}</div></div>
+              ))}
+            </div>
+          </div>
+        )}
+        {i === 6 && (
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: HIST }}>Grâce au Nil, une grande civilisation</h2>
+            <div className="mt-3 flex justify-center"><WikiImage title="Pyramides de Gizeh" alt="les pyramides de Gizeh" accent={HIST} height="clamp(160px, 32vh, 290px)" /></div>
+            <p className="mt-3 text-2xl text-stone-600">Au bord du Nil, les Égyptiens ont bâti de grandes <b>villes</b> et des <b>pyramides</b>, et inventé une écriture : les <b>hiéroglyphes</b>.</p>
+          </div>
+        )}
+        {i === 7 && (
           <div className="text-center">
             <div className="flex justify-center"><SchemaNil h={120} /></div>
             <h1 className="mt-1 text-4xl font-extrabold" style={{ color: HIST }}>Je retiens</h1>
@@ -117,31 +178,74 @@ export function EgypteNilDiapo() {
 }
 
 export function EgypteNilLecon() {
+  const Pastille = ({ e, t }: { e: string; t: React.ReactNode }) => (
+    <div style={{ display: "flex", alignItems: "center", gap: "2mm", border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "1mm 2.5mm", background: "#fffdf8" }}>
+      <span style={{ fontSize: "19px" }}>{e}</span><span style={{ fontFamily: CURSIVE, fontSize: "15px", lineHeight: 1.2 }}>{t}</span>
+    </div>
+  );
+  const Titre = ({ children }: { children: React.ReactNode }) => (
+    <div style={{ background: HIST, color: "#fff", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12.5px", textTransform: "uppercase", letterSpacing: "0.03em", borderRadius: "2mm", padding: "1mm 4mm", margin: "2.8mm 0 1.5mm" }}>{children}</div>
+  );
+  const STEPS: [string, string][] = [
+    ["🌊", "Chaque été, le fleuve monte et déborde."],
+    ["🌱", "Il dépose une terre noire : le limon."],
+    ["🌾", "Les paysans ont de belles récoltes."],
+  ];
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "36px", margin: "0 0 2mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: CURSIVE }}>L'Égypte — au bord du Nil</h1>
+      <h1 style={{ fontSize: "34px", margin: "0 0 0.5mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: CURSIVE }}>L'Égypte, au bord du Nil</h1>
+      <div style={{ textAlign: "center", fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700, color: "#92400e", marginBottom: "2mm" }}>Histoire · l'Antiquité — il y a plus de 5000 ans</div>
+
       <div style={{ display: "flex", gap: "5mm", alignItems: "flex-start" }}>
-        <div style={{ flex: 1 }}>
-          <WikiImage title="Nil" alt="le fleuve Nil" accent={HIST} height="34mm" />
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "1.5mm" }}><SchemaNil h={95} /></div>
-          <div style={{ fontSize: "9px", color: "#94a3b8", textAlign: "center" }}>Le Nil traverse le désert.</div>
+        <div style={{ flex: 1, textAlign: "center" }}>
+          <CarteEgypte w={148} />
+          <div style={{ fontSize: "9px", color: "#94a3b8", marginTop: "0.5mm" }}>Le Nil traverse l'Égypte, du sud vers la mer.</div>
         </div>
-        <div style={{ flex: 1.1 }}>
-          <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.5 }}>
-            Dans l'<b>Antiquité</b> (il y a plus de 5000 ans), les Égyptiens vivaient en <b>Afrique</b>, au bord d'un grand fleuve : le <b>Nil</b>.
+        <div style={{ flex: 1.12 }}>
+          <div style={{ border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "2mm 3mm", marginBottom: "2mm", background: "#fffbeb" }}>
+            <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: HIST }}>QUAND ?</div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1mm", margin: "1.2mm 0", fontFamily: CONSIGNE_FONT, fontSize: "9.5px", fontWeight: 700 }}>
+              <span style={{ background: "#e7e5e4", borderRadius: "2mm", padding: "0.5mm 1.5mm" }}>Préhistoire</span><span>→</span>
+              <span style={{ background: HIST, color: "#fff", borderRadius: "2mm", padding: "0.5mm 1.5mm" }}>Antiquité</span><span>→</span>
+              <span style={{ background: "#e7e5e4", borderRadius: "2mm", padding: "0.5mm 1.5mm" }}>Moyen Âge</span>
+            </div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "15px", textAlign: "center" }}>L'Égypte ancienne, c'est l'<b>Antiquité</b>.</div>
           </div>
-          <div style={{ marginTop: "2mm", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "13px", color: HIST }}>Le Nil donne la vie :</div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5mm", marginTop: "1mm" }}>
-            {[["💧", "de l'eau"], ["🌾", "des cultures"], ["🐟", "des poissons"], ["⛵", "des bateaux"]].map(([e, t]) => (
-              <div key={t} style={{ display: "flex", alignItems: "center", gap: "2mm", border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "1mm 2.5mm" }}>
-                <span style={{ fontSize: "22px" }}>{e}</span><span style={{ fontFamily: CURSIVE, fontSize: "17px" }}>{t}</span>
-              </div>
-            ))}
+          <div style={{ border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "2mm 3mm", background: "#fffbeb" }}>
+            <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: HIST }}>OÙ ?</div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.4 }}>En <b>Afrique</b>, le long d'un grand fleuve : le <b>Nil</b>. Aujourd'hui, la capitale est <b>Le Caire</b>.</div>
           </div>
         </div>
       </div>
-      <div style={{ marginTop: "3mm", border: `2px dashed ${HIST}`, borderRadius: "3mm", padding: "2.5mm 5mm", fontFamily: CURSIVE, fontSize: "18px", textAlign: "center", background: "#fffbeb" }}>
-        Chaque année, la <b>crue</b> du Nil dépose une <b>terre riche</b> : les récoltes sont belles. 🌱
+
+      <Titre>Le Nil donne la vie</Titre>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "1.5mm" }}>
+        <Pastille e="💧" t="de l'eau" /><Pastille e="🌾" t="le blé" /><Pastille e="🐟" t="des poissons" /><Pastille e="⛵" t="des bateaux" />
+      </div>
+      <div style={{ fontFamily: CURSIVE, fontSize: "15px", textAlign: "center", marginTop: "1.5mm" }}>Tout autour, c'est le <b>désert</b> : sans le Nil, personne ne pourrait vivre ici.</div>
+
+      <Titre>La crue : le secret des belles récoltes</Titre>
+      <div style={{ display: "flex", alignItems: "stretch", gap: "1mm" }}>
+        {STEPS.map((s, k) => (
+          <Fragment key={k}>
+            <div style={{ flex: 1, border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "1.5mm", textAlign: "center", background: "#fffdf8", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <div style={{ fontSize: "22px" }}>{s[0]}</div>
+              <div style={{ fontFamily: CURSIVE, fontSize: "14px", lineHeight: 1.25 }}>{s[1]}</div>
+            </div>
+            {k < 2 && <span style={{ fontSize: "18px", fontWeight: 800, color: HIST, alignSelf: "center" }}>→</span>}
+          </Fragment>
+        ))}
+      </div>
+
+      <Titre>La vie au bord du Nil</Titre>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5mm" }}>
+        <Pastille e="👩‍🌾" t="les paysans cultivent le blé" />
+        <Pastille e="⛵" t="on navigue en felouque" />
+        <Pastille e="🧱" t="maisons en briques de terre" />
+      </div>
+
+      <div style={{ marginTop: "2.8mm", border: `2px dashed ${HIST}`, borderRadius: "3mm", padding: "2mm 4mm", background: "#fffbeb", fontFamily: CONSIGNE_FONT, fontSize: "12px", textAlign: "center" }}>
+        🔑 <b>Mots à retenir :</b> le Nil · le désert · la crue · le limon · les paysans
       </div>
     </div>
   );
