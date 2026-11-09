@@ -13,16 +13,16 @@ const NIVEAUX_LSU = ["Très bonne\nmaîtrise", "Maîtrise\nsatisfaisante", "Maî
 
 function Exo({ n, consigne, children }: { n: number; consigne: React.ReactNode; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: "3mm" }}>
+    <div style={{ marginBottom: "2.2mm" }}>
       <div style={{ fontSize: "13.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}><span style={{ fontWeight: 800 }}>{n}.</span> <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{consigne}</span></div>
-      <div style={{ marginTop: "1mm", paddingLeft: "4mm" }}>{children}</div>
+      <div style={{ marginTop: "0.8mm", paddingLeft: "4mm" }}>{children}</div>
     </div>
   );
 }
 
 function GrilleLSU({ competences }: { competences: string[] }) {
   return (
-    <div style={{ marginTop: "5mm" }}>
+    <div style={{ marginTop: "3mm" }}>
       <div style={{ fontSize: "12px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm", textTransform: "uppercase", letterSpacing: "0.03em" }}>Réservé à l'enseignant — compétences (LSU)</div>
       <table style={{ borderCollapse: "collapse", width: "100%", fontFamily: CONSIGNE_FONT }}>
         <thead>
@@ -62,23 +62,37 @@ export function EvalLettresCE1() {
   return (
     <EvalFrame titre="Écrire les nombres en lettres" niveau="CE1">
       <Exo n={1} consigne="Écris ces nombres en lettres.">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.4 }}>
-          24 → ...................................... &nbsp; 47 → ......................................<br />
-          60 → ...................................... &nbsp; 83 → ......................................
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.7 }}>
+          16 → ...................................... &nbsp; 24 → ......................................<br />
+          47 → ...................................... &nbsp; 60 → ......................................<br />
+          83 → ...................................... &nbsp; 91 → ......................................
         </div>
       </Exo>
       <Exo n={2} consigne="Écris ces nombres en chiffres.">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.6 }}>
-          trente-deux → ……&nbsp;&nbsp; cinquante → ……&nbsp;&nbsp; soixante-dix → ……&nbsp;&nbsp; quatre-vingt-un → ……
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.8 }}>
+          treize → ……&nbsp;&nbsp;&nbsp; trente-deux → ……&nbsp;&nbsp;&nbsp; cinquante → ……<br />
+          soixante-dix → ……&nbsp;&nbsp;&nbsp; quatre-vingts → ……&nbsp;&nbsp;&nbsp; quatre-vingt-un → ……
         </div>
       </Exo>
-      <Exo n={3} consigne="Complète (le nombre d'avant, le nombre d'après).">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.8 }}>…… · 40 · …… &nbsp;&nbsp;&nbsp; …… · 79 · ……</div>
+      <Exo n={3} consigne="Écris en lettres les nombres que je dicte.">
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "5mm 8mm", fontFamily: CURSIVE, fontSize: "18px", marginTop: "1.5mm" }}>
+          {["a) ..........................", "b) ..........................", "c) ..........................", "d) ..........................", "e) ..........................", "f) .........................."].map((x) => <span key={x}>{x}</span>)}
+        </div>
       </Exo>
-      <Exo n={4} consigne="Range du plus petit au plus grand.">
-        <div style={{ fontFamily: CURSIVE, fontSize: "19px" }}>58 · 15 · 85 · 51 → ..........................................</div>
+      <Exo n={4} consigne="Complète : écris le nombre juste avant et juste après.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.7 }}>…… · 40 · …… &nbsp;&nbsp;&nbsp;&nbsp; …… · 79 · …… &nbsp;&nbsp;&nbsp;&nbsp; …… · 99 · ……</div>
       </Exo>
-      <GrilleLSU competences={["Écrire en lettres les nombres jusqu'à 100", "Écrire en chiffres un nombre donné en lettres", "Connaître les nombres voisins (avant / après)", "Comparer et ranger les nombres jusqu'à 100"]} />
+      <Exo n={5} consigne="Décompose en dizaines et unités (exemple : 47 = 4 d 7 u).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.7 }}>
+          36 = …… d …… u &nbsp;&nbsp;&nbsp; 58 = …… d …… u<br />
+          70 = …… d …… u &nbsp;&nbsp;&nbsp; 85 = …… d …… u
+        </div>
+      </Exo>
+      <Exo n={6} consigne="Compare avec < , > ou = , puis range du plus petit au plus grand.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.7 }}>58 …… 85 &nbsp;&nbsp;&nbsp; 71 …… 17 &nbsp;&nbsp;&nbsp; 60 …… 60</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", marginTop: "1.5mm" }}>58 · 15 · 85 · 51 → ..........................................</div>
+      </Exo>
+      <GrilleLSU competences={["Écrire en lettres les nombres jusqu'à 100", "Écrire en chiffres un nombre donné en lettres", "Écrire sous la dictée les nombres jusqu'à 100", "Connaître les nombres voisins (avant / après)", "Décomposer un nombre en dizaines et unités", "Comparer et ranger les nombres jusqu'à 100"]} />
     </EvalFrame>
   );
 }
