@@ -12,7 +12,9 @@ const CONSIGNE_FONT = "'Aptos','Inter','Segoe UI',system-ui,sans-serif";
 
 const MOTS_CE1 = ["l'hiver", "la neige", "le froid", "un flocon", "un bonnet", "une écharpe", "des gants", "un manteau"];
 const MOTS_CE2 = [...MOTS_CE1, "la montagne", "glisser", "la température"];
-const PHRASES = ["En hiver, la neige est blanche.", "Je mets mon bonnet et mon écharpe."];
+// Dictée en texte suivi (3-4 lignes), thème de l'hiver. CE2 = texte CE1 + 2 phrases.
+const TEXTE_CE1 = "C'est l'hiver. La neige tombe sur le jardin. Je mets mon bonnet, mon écharpe et mes gants. Dehors, les flocons dansent dans le ciel froid.";
+const TEXTE_CE2_EN_PLUS = "À la montagne, les enfants glissent sur la neige. La température descend, mais nous aimons jouer dehors.";
 
 export function MotsFlashDiapo() {
   const [i, setI] = useState(0);
@@ -48,14 +50,14 @@ export function DicteeHiverFiche() {
           <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .................. &nbsp; Date : ............</span>
         </div>
         <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT }}>Les mots</div>
-        <Lignes n={5} />
-        <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "4mm" }}>Les phrases</div>
-        <Lignes n={5} />
-        <div style={{ marginTop: "5mm", fontSize: "10px", color: "#64748b", fontFamily: CONSIGNE_FONT }}>
-          Mots CE1 : {MOTS_CE1.join(" · ")}.<br />
-          Mots CE2 (en plus) : {MOTS_CE2.slice(MOTS_CE1.length).join(" · ")}.<br />
-          Phrases : {PHRASES.join(" / ")}
-          <br /><span style={{ fontStyle: "italic" }}>(Les mots et phrases restent côté enseignant ; l'élève écrit sur sa feuille.)</span>
+        <Lignes n={4} />
+        <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "4mm" }}>La dictée</div>
+        <Lignes n={10} />
+        <div style={{ marginTop: "5mm", fontSize: "10px", color: "#64748b", fontFamily: CONSIGNE_FONT, lineHeight: 1.6 }}>
+          <b>Réservé à l'enseignant</b> — Mots CE1 : {MOTS_CE1.join(" · ")}. Mots CE2 (en plus) : {MOTS_CE2.slice(MOTS_CE1.length).join(" · ")}.<br />
+          <b>Texte CE1 :</b> {TEXTE_CE1}<br />
+          <b>Texte CE2 :</b> {TEXTE_CE1} <span style={{ fontWeight: 700, color: "#111" }}>{TEXTE_CE2_EN_PLUS}</span>
+          <br /><span style={{ fontStyle: "italic" }}>(Le texte reste côté enseignant ; l'élève écrit sur sa feuille. Cahier de dictée vert.)</span>
         </div>
       </div>
     </div>
