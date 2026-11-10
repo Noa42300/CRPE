@@ -11156,6 +11156,52 @@
      "end": "11:30",
      "activities": [
       {
+       "id": "m10gra",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "GraphéMo — orthographe / phonologie",
+       "objectif": "Séance GraphéMo (gérée par le maître).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10g1",
+         "label": "GraphéMo (40 min)",
+         "note": "« On reprend notre travail de GraphéMo. »\n(déroulé habituel de la méthode.)"
+        }
+       ],
+       "materiel": "Matériel GraphéMo.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "14:00",
+     "activities": [
+      {
        "id": "m10dic",
        "niveaux": [
         "classe"
@@ -11194,52 +11240,6 @@
        "depassement": "",
        "correction": "C'est l'hiver, il fait froid. Je mets mon manteau, mon bonnet et mon écharpe. Il met ses gants et ses bottes.",
        "obstacles": "Erreurs fréquentes : « cest / sest » au lieu de « c'est » ; « mis » au lieu de « mets ». Remédiation : afficher les formes correctes et les faire épeler.",
-       "bilan": "",
-       "aReprendre": "",
-       "devoirs": "",
-       "notesProchaine": "",
-       "disciplineId": "francais"
-      }
-     ]
-    },
-    {
-     "start": "13:30",
-     "end": "14:10",
-     "activities": [
-      {
-       "id": "m10gra",
-       "niveaux": [
-        "classe"
-       ],
-       "title": "GraphéMo — orthographe / phonologie",
-       "objectif": "Séance GraphéMo (gérée par le maître).",
-       "competence": "",
-       "competenceRef": "",
-       "progPeriode": "P2",
-       "progDomaine": "",
-       "progSequence": "",
-       "progSeance": "",
-       "progRef": "",
-       "organisation": [
-        "collectif",
-        "individuel"
-       ],
-       "roleEnseignant": [
-        "étayage"
-       ],
-       "deroulement": [
-        {
-         "id": "m10g1",
-         "label": "GraphéMo (40 min)",
-         "note": "« On reprend notre travail de GraphéMo. »\n(déroulé habituel de la méthode.)"
-        }
-       ],
-       "materiel": "Matériel GraphéMo.",
-       "video": "",
-       "differenciation": "",
-       "depassement": "",
-       "correction": "",
-       "obstacles": "",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
