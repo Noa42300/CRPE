@@ -31,7 +31,7 @@ import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
 import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre } from "./GeoVillesFrance";
 import { PoesieHiverDiapo, PoesieHiverFiche } from "./PoesieHiver";
 import { AnglaisHiverDiapo, AnglaisHiverCorpus } from "./AnglaisHiver";
-import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVetementsFiche } from "./DicteeFlash";
+import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVetementsFiche, MotsFlashAnimauxDiapo, DicteeAnimauxFiche } from "./DicteeFlash";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos, EgyptePharaonDiapo, EgyptePharaonLecon, EgyptePharaonExos } from "./EgypteNil";
@@ -1512,6 +1512,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "fe-diapo", label: "La France en Europe — Diaporama (à projeter)", node: <GeoFranceEuropeDiapo /> },
         { key: "fe-lecon", label: "La France en Europe — Leçon à coller", node: <GeoFranceEuropeLecon /> },
         { key: "fe-exos", label: "La France en Europe — Exercices (carte muette)", node: <GeoFranceEuropeExos /> },
+      ];
+    case "m17dic":
+      return [
+        { key: "dic3-flash", label: "Mots flash — les animaux en hiver (ardoise, à projeter)", node: <MotsFlashAnimauxDiapo /> },
+        { key: "dic3-fiche", label: "Dictée — les animaux en hiver (feuille élève)", node: <DicteeAnimauxFiche /> },
       ];
     case "g03":
       return [
