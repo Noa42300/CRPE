@@ -20,7 +20,7 @@ function Exo({ n, consigne, children }: { n: number; consigne: React.ReactNode; 
   );
 }
 
-function GrilleLSU({ competences }: { competences: string[] }) {
+export function GrilleLSU({ competences }: { competences: string[] }) {
   return (
     <div style={{ marginTop: "3mm" }}>
       <div style={{ fontSize: "12px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm", textTransform: "uppercase", letterSpacing: "0.03em" }}>Réservé à l'enseignant — compétences (LSU)</div>
@@ -44,12 +44,12 @@ function GrilleLSU({ competences }: { competences: string[] }) {
   );
 }
 
-function EvalFrame({ titre, niveau, children }: { titre: string; niveau: string; children: React.ReactNode }) {
+export function EvalFrame({ titre, niveau, duree = "~20 min", children }: { titre: string; niveau: string; duree?: string; children: React.ReactNode }) {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: NOIR, boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
       <div style={{ border: `2.5px solid ${NOIR}`, borderRadius: "2mm", padding: "5mm 6mm", minHeight: "272mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `2px solid ${NOIR}`, paddingBottom: "1.5mm", marginBottom: "3mm" }}>
-          <div><h1 style={{ fontSize: "22px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>{titre}</h1><span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Évaluation · {niveau} · ~20 min</span></div>
+          <div><h1 style={{ fontSize: "22px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>{titre}</h1><span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Évaluation · {niveau} · {duree}</span></div>
           <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .................. &nbsp; Date : ............</span>
         </div>
         <div style={{ flex: 1 }}>{children}</div>

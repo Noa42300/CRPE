@@ -290,3 +290,140 @@ export function EgypteNilExos() {
     </div>
   );
 }
+
+/* ======================================================================
+ * SÉANCE 2 — Le pharaon et les pyramides.
+ * ==================================================================== */
+const ET_PH = ["Le pharaon et les pyramides", "Le pharaon, roi d'Égypte", "Les pyramides", "Comment les construire ?", "La momie et le trésor", "Je retiens"];
+export function EgyptePharaonDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const last = ET_PH.length - 1;
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[980px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: HIST }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Histoire · L'Égypte — Le pharaon et les pyramides</span>
+        <div className="ml-2 flex flex-wrap gap-1.5">{ET_PH.map((t, k) => <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full" style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />)}</div>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
+        {i === 0 && (
+          <div className="text-center">
+            <div className="flex justify-center"><WikiImage title="Pyramides de Gizeh" alt="les pyramides de Gizeh" accent={HIST} height="clamp(170px, 34vh, 320px)" /></div>
+            <h1 className="mt-2 text-4xl font-extrabold sm:text-5xl" style={{ color: HIST }}>Le pharaon et les pyramides</h1>
+            <p className="mt-2 text-2xl font-semibold text-stone-600">Qui commandait en Égypte ? Et à quoi servaient les pyramides ?</p>
+          </div>
+        )}
+        {i === 1 && (
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: HIST }}>Le pharaon, roi d'Égypte</h2>
+            <div className="mt-3 flex justify-center"><WikiImage title="Toutânkhamon" alt="masque d'or de Toutânkhamon" accent={HIST} height="clamp(160px, 32vh, 300px)" /></div>
+            <p className="mt-3 text-2xl text-stone-600">Le <b>pharaon</b> est le <b>roi</b> de l'Égypte. C'est l'homme le plus <b>puissant</b> : tout le monde lui obéit.</p>
+          </div>
+        )}
+        {i === 2 && (
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: HIST }}>Les pyramides</h2>
+            <div className="mt-3 flex justify-center"><WikiImage title="Pyramide de Khéops" alt="la grande pyramide" accent={HIST} height="clamp(160px, 32vh, 300px)" /></div>
+            <p className="mt-3 text-2xl text-stone-600">Une pyramide est un <b>immense tombeau</b> de pierre. C'est là qu'on enterrait le pharaon quand il mourait.</p>
+          </div>
+        )}
+        {i === 3 && (
+          <div className="w-full max-w-2xl text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: HIST }}>Comment les construire ?</h2>
+            <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
+              {[["👷", "des milliers d'ouvriers"], ["🪨", "d'énormes blocs de pierre"], ["⏳", "il y a plus de 4500 ans"]].map(([e, t]) => (
+                <div key={t} className="rounded-2xl border-2 bg-white px-2 py-3" style={{ borderColor: HIST }}><div className="text-4xl">{e}</div><div className="text-base font-semibold text-stone-700">{t}</div></div>
+              ))}
+            </div>
+            <p className="mt-3 text-2xl text-stone-600">Les ouvriers tiraient les pierres sur de longues rampes. Un travail <b>très long</b> et <b>très dur</b> !</p>
+          </div>
+        )}
+        {i === 4 && (
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: HIST }}>La momie et le trésor</h2>
+            <p className="mt-4 text-2xl text-stone-600">Le corps du pharaon est conservé : on en fait une <b>momie</b>. 🧻</p>
+            <p className="mt-2 text-2xl text-stone-600">On le place dans la pyramide avec un vrai <b>trésor</b> (or, bijoux) pour « l'autre vie ». 💰</p>
+          </div>
+        )}
+        {i === 5 && (
+          <div className="text-center">
+            <div className="mb-2 text-5xl">🔺👑</div>
+            <h1 className="text-4xl font-extrabold" style={{ color: HIST }}>Je retiens</h1>
+            <p className="mt-3 text-2xl font-semibold text-stone-600">Le <b>pharaon</b> est le roi d'Égypte. Les <b>pyramides</b> sont ses <b>tombeaux</b>, d'immenses monuments de pierre construits il y a très longtemps.</p>
+          </div>
+        )}
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: HIST, color: HIST }}>◀</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{ET_PH.length} · {ET_PH[i]}</span>
+        <button onClick={() => setI((n) => Math.min(last, n + 1))} disabled={i === last} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: HIST }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
+export function EgyptePharaonLecon() {
+  const Pastille = ({ e, t }: { e: string; t: React.ReactNode }) => (
+    <div style={{ display: "flex", alignItems: "center", gap: "2mm", border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "1.2mm 2.5mm", background: "#fffdf8" }}>
+      <span style={{ fontSize: "20px" }}>{e}</span><span style={{ fontFamily: CURSIVE, fontSize: "15px", lineHeight: 1.2 }}>{t}</span>
+    </div>
+  );
+  const Titre = ({ children }: { children: React.ReactNode }) => (
+    <div style={{ background: HIST, color: "#fff", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12.5px", textTransform: "uppercase", letterSpacing: "0.03em", borderRadius: "2mm", padding: "1mm 4mm", margin: "3mm 0 1.5mm" }}>{children}</div>
+  );
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <h1 style={{ fontSize: "33px", margin: "0 0 0.5mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: CURSIVE }}>Le pharaon et les pyramides</h1>
+      <div style={{ textAlign: "center", fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700, color: "#92400e", marginBottom: "2mm" }}>Histoire · l'Antiquité égyptienne</div>
+      <div style={{ display: "flex", gap: "4mm", alignItems: "flex-start" }}>
+        <div style={{ flex: 1 }}><WikiImage title="Pyramides de Gizeh" alt="les pyramides" accent={HIST} height="40mm" /></div>
+        <div style={{ flex: 1 }}><WikiImage title="Toutânkhamon" alt="masque d'or de Toutânkhamon" accent={HIST} height="40mm" /></div>
+      </div>
+      <Titre>Qui est le pharaon ?</Titre>
+      <div style={{ fontFamily: CURSIVE, fontSize: "17px", lineHeight: 1.4 }}>Le <b>pharaon</b> est le <b>roi</b> de l'Égypte, il y a très longtemps. C'est l'homme le plus <b>puissant</b> : tout le monde lui obéit.</div>
+      <Titre>Les pyramides</Titre>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5mm" }}>
+        <Pastille e="🔺" t="un immense tombeau de pierre" />
+        <Pastille e="👷" t="des milliers d'ouvriers" />
+        <Pastille e="⏳" t="il y a plus de 4500 ans" />
+        <Pastille e="💰" t="le pharaon, sa momie et son trésor" />
+      </div>
+      <div style={{ marginTop: "3mm", border: `2px dashed ${HIST}`, borderRadius: "3mm", padding: "2mm 4mm", background: "#fffbeb", fontFamily: CONSIGNE_FONT, fontSize: "12px", textAlign: "center" }}>
+        🔑 <b>Mots à retenir :</b> le pharaon · le roi · la pyramide · le tombeau · la momie · le trésor
+      </div>
+    </div>
+  );
+}
+
+export function EgyptePharaonExos() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "5mm 6mm", minHeight: "265mm", boxSizing: "border-box" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "2px solid #111", paddingBottom: "1.5mm", marginBottom: "3mm" }}>
+          <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>Le pharaon et les pyramides</h1>
+          <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : ..................</span>
+        </div>
+        <div style={{ fontSize: "14px", fontWeight: 800, fontFamily: CONSIGNE_FONT }}>1. Complète avec les mots : <i>roi · pyramide · tombeau · pierre</i>.</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 2, marginTop: "1mm" }}>
+          Le pharaon est le ...................... de l'Égypte.<br />
+          La ...................... est un immense ...................... .<br />
+          Elle est construite avec des blocs de ...................... .
+        </div>
+        <div style={{ fontSize: "14px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "3mm" }}>2. Vrai ou faux ? (entoure)</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "19px", lineHeight: 1.9, marginTop: "1mm" }}>
+          a) Le pharaon est un roi. &nbsp; <b>VRAI / FAUX</b><br />
+          b) La pyramide est une maison de paysan. &nbsp; <b>VRAI / FAUX</b><br />
+          c) On faisait une momie du pharaon. &nbsp; <b>VRAI / FAUX</b>
+        </div>
+        <div style={{ fontSize: "14px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "3mm" }}>3. Relie.</div>
+        <div style={{ display: "flex", justifyContent: "space-between", fontFamily: CURSIVE, fontSize: "18px", marginTop: "2mm", padding: "0 6mm" }}>
+          <div style={{ lineHeight: 2.4 }}><div>le pharaon •</div><div>la pyramide •</div><div>la momie •</div></div>
+          <div style={{ textAlign: "right", lineHeight: 2.4 }}><div>• le tombeau du roi</div><div>• le corps conservé</div><div>• le roi d'Égypte</div></div>
+        </div>
+        <div style={{ fontSize: "14px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "3mm" }}>4. Dessine une pyramide avec le soleil et le désert.</div>
+        <div style={{ border: "1.5px dashed #94a3b8", borderRadius: "3mm", height: "45mm", marginTop: "1.5mm" }} />
+      </div>
+    </div>
+  );
+}

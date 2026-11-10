@@ -25,8 +25,8 @@ import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesRef
 import { RituelsMatinSerie } from "./RituelsSerie";
 import { QuizOperations } from "./QuizOperations";
 import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
-import { FormesPhrasesDiapo, FormesPhrasesLecon, FormesPhrasesDecouverte, FicheFormesCE1, FicheFormesCE2 } from "./FormesDePhrases";
-import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2 } from "./Numeration";
+import { FormesPhrasesDiapo, FormesPhrasesLecon, FormesPhrasesDecouverte, FicheFormesCE1, FicheFormesCE2, FicheRevisionTypesFormesCE1, FicheRevisionTypesFormesCE2, EvalTypesFormesCE1, EvalTypesFormesCE2 } from "./FormesDePhrases";
+import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2, SuiteNombresDiapo, SuiteNombresLecon, FicheSuiteCE1, FicheSuiteCE2, EvalCollectionCE1, EvalCollectionCE2 } from "./Numeration";
 import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
 import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre } from "./GeoVillesFrance";
 import { PoesieHiverDiapo, PoesieHiverFiche } from "./PoesieHiver";
@@ -34,7 +34,8 @@ import { AnglaisHiverDiapo, AnglaisHiverCorpus } from "./AnglaisHiver";
 import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVetementsFiche } from "./DicteeFlash";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
-import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos } from "./EgypteNil";
+import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos, EgyptePharaonDiapo, EgyptePharaonLecon, EgyptePharaonExos } from "./EgypteNil";
+import { GeoFranceEuropeDiapo, GeoFranceEuropeLecon, GeoFranceEuropeExos } from "./GeoFranceEurope";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
@@ -1475,6 +1476,42 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "gv-lecon", label: "Les villes de France — Leçon à coller", node: <GeoVillesLecon /> },
         { key: "gv-carte", label: "Carte des grandes villes à apprendre (sur 2 semaines)", node: <CarteVillesAApprendre /> },
         { key: "gv-exos", label: "Les villes de France — Exercices (format « Je m'entraîne »)", node: <GeoVillesExos /> },
+      ];
+
+    /* ===== Semaine du 16 novembre (P2) ===== */
+    case "l16fr":
+      return [
+        { key: "rev-ce1", label: "Révision types + formes (au cas où) — CE1", node: <FicheRevisionTypesFormesCE1 /> },
+        { key: "rev-ce2", label: "Révision types + formes (au cas où) — CE2", node: <FicheRevisionTypesFormesCE2 /> },
+      ];
+    case "l16mu":
+      return [
+        { key: "suite-diapo", label: "La suite des nombres — Diaporama (à projeter)", node: <SuiteNombresDiapo /> },
+        { key: "suite-lecon", label: "La suite des nombres — Leçon à coller (cahier rouge)", node: <SuiteNombresLecon /> },
+        { key: "suite-ce1", label: "La suite des nombres jusqu'à 200 — Fiche CE1", node: <FicheSuiteCE1 /> },
+        { key: "suite-ce2", label: "La suite des nombres jusqu'à 2 000 — Fiche CE2", node: <FicheSuiteCE2 /> },
+      ];
+    case "m17freval":
+      return [
+        { key: "evtf-ce1", label: "Évaluation — Types et formes de phrases · CE1 (grille LSU)", node: <EvalTypesFormesCE1 /> },
+        { key: "evtf-ce2", label: "Évaluation — Types et formes de phrases · CE2 (grille LSU)", node: <EvalTypesFormesCE2 /> },
+      ];
+    case "m17mueval":
+      return [
+        { key: "evcol-ce1", label: "Évaluation — Dénombrer une collection jusqu'à 999 · CE1 (grille LSU)", node: <EvalCollectionCE1 /> },
+        { key: "evcol-ce2", label: "Évaluation — Dénombrer une collection jusqu'à 1 000 · CE2 (grille LSU)", node: <EvalCollectionCE2 /> },
+      ];
+    case "m17hist":
+      return [
+        { key: "ph-diapo", label: "Le pharaon et les pyramides — Diaporama (vraies photos)", node: <EgyptePharaonDiapo /> },
+        { key: "ph-lecon", label: "Le pharaon et les pyramides — Leçon à coller (cahier d'histoire)", node: <EgyptePharaonLecon /> },
+        { key: "ph-exos", label: "Le pharaon et les pyramides — Fiche d'exercices", node: <EgyptePharaonExos /> },
+      ];
+    case "m17geo":
+      return [
+        { key: "fe-diapo", label: "La France en Europe — Diaporama (à projeter)", node: <GeoFranceEuropeDiapo /> },
+        { key: "fe-lecon", label: "La France en Europe — Leçon à coller", node: <GeoFranceEuropeLecon /> },
+        { key: "fe-exos", label: "La France en Europe — Exercices (carte muette)", node: <GeoFranceEuropeExos /> },
       ];
     case "g03":
       return [

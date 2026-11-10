@@ -10,6 +10,7 @@
 import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
 import { FicheModele, SectionBar, Exo, Choix, ListeIntrus, LignesModele, Defi } from "./ficheModele";
+import { EvalFrame, GrilleLSU } from "./EvalEcritureLettres";
 
 const FR = "#1d4ed8";
 const VERT = "#16a34a", ROUGE = "#dc2626";
@@ -242,5 +243,132 @@ export function FicheFormesCE2() {
       </Exo>
       <Defi>Écris deux phrases : une <b>affirmative</b> et sa transformation <b>négative</b>.</Defi>
     </FicheModele>
+  );
+}
+
+/* ======================================================================
+ * RÉVISION « au cas où » — types ET formes de phrases (lundi).
+ * ==================================================================== */
+export function FicheRevisionTypesFormesCE1() {
+  return (
+    <FicheModele matiere="Grammaire" titre="Types et formes de phrases" couleur={FR} dotActif={1} page="Révision — types et formes · CE1">
+      <SectionBar couleur={FR}>Le type : le point final</SectionBar>
+      <Exo n={1} couleur={FR} consigne={<><b>Mets</b> le bon point à la fin : <b>.</b> &nbsp; <b>?</b> &nbsp; <b>!</b></>}>
+        <div style={{ fontSize: "14px", lineHeight: 2, fontFamily: CURSIVE }}>a) Le chat dort ____ &nbsp;&nbsp; b) Tu viens à la piscine ____<br />c) Quelle belle journée ____ &nbsp;&nbsp; d) Range tes affaires ____</div>
+      </Exo>
+      <Exo n={2} couleur={FR} consigne={<><b>Colorie</b> en bleu la phrase qui pose une <b>question</b>.</>}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5mm", fontSize: "13px" }}>
+          <Choix options={["Il fait beau aujourd'hui.", "Est-ce qu'il fait beau ?"]} />
+          <Choix options={["Où vas-tu ?", "Je vais à l'école."]} />
+        </div>
+      </Exo>
+      <SectionBar couleur={FR}>La forme : oui ou non</SectionBar>
+      <Exo n={3} couleur={FR} consigne={<><b>Colorie</b> en vert si la phrase dit OUI, en rouge si elle dit NON.</>}>
+        <div style={{ fontSize: "14px", lineHeight: 2, fontFamily: CURSIVE }}>a) Je joue dans la cour. &nbsp; b) Tu ne cours pas.<br />c) Le chien aboie. &nbsp; d) Je n'aime pas les épinards.</div>
+      </Exo>
+      <Exo n={4} couleur={FR} consigne={<><b>Transforme</b> à la forme négative (ajoute ne … pas).</>}>
+        <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "12px", background: "#eef6ee", border: "1px solid #cfe3cf", borderRadius: "4px", padding: "0.5mm 3mm", width: "fit-content", marginBottom: "1mm" }}>Exemple : Je cours. → Je <b>ne</b> cours <b>pas</b>.</div>
+        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>a) Le chat dort.</div><LignesModele n={1} />
+        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>b) Tu manges une pomme.</div><LignesModele n={1} />
+      </Exo>
+      <Defi>Écris une phrase qui pose une <b>question</b> (avec un <b>?</b>).</Defi>
+    </FicheModele>
+  );
+}
+
+export function FicheRevisionTypesFormesCE2() {
+  return (
+    <FicheModele matiere="Grammaire" titre="Types et formes de phrases" couleur={FR} dotActif={2} page="Révision — types et formes · CE2">
+      <SectionBar couleur={FR}>Les types de phrases</SectionBar>
+      <Exo n={1} couleur={FR} consigne={<><b>Écris</b> le type : déclarative, interrogative, exclamative ou impérative.</>}>
+        <div style={{ fontSize: "13px", lineHeight: 2, fontFamily: CURSIVE }}>a) Viens ici tout de suite. → …………………<br />b) Est-ce que tu as fini ? → …………………<br />c) Comme c'est beau ! → …………………<br />d) Les oiseaux chantent. → …………………</div>
+      </Exo>
+      <Exo n={2} couleur={FR} consigne={<><b>Transforme</b> cette phrase déclarative en phrase interrogative, puis exclamative.</>}>
+        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>Tu as gagné la course.</div>
+        <div style={{ fontSize: "12px", fontFamily: CONSIGNE_FONT }}>→ interrogative :</div><LignesModele n={1} />
+        <div style={{ fontSize: "12px", fontFamily: CONSIGNE_FONT }}>→ exclamative :</div><LignesModele n={1} />
+      </Exo>
+      <SectionBar couleur={FR}>Les formes de phrases</SectionBar>
+      <Exo n={3} couleur={FR} consigne={<><b>Écris</b> A (affirmative) ou N (négative).</>}>
+        <div style={{ fontSize: "13px", lineHeight: 1.9, fontFamily: CURSIVE }}>___ Je comprends la leçon. &nbsp; ___ Tu n'as jamais menti.<br />___ Il ne reste plus de pain. &nbsp; ___ Léa lit un livre.</div>
+      </Exo>
+      <Exo n={4} couleur={FR} consigne={<><b>Transforme</b> à la forme négative, puis à la forme affirmative.</>}>
+        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>a) Les élèves écoutent le maître. (négative)</div><LignesModele n={1} />
+        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>b) Je ne joue pas dehors. (affirmative)</div><LignesModele n={1} />
+      </Exo>
+      <Exo n={5} couleur={FR} consigne={<><b>Récris</b> la phrase avec ne … plus, puis ne … jamais.</>}>
+        <div style={{ fontSize: "13px", fontFamily: CURSIVE }}>Je mange des bonbons.</div><LignesModele n={2} />
+      </Exo>
+      <Defi>Écris une phrase <b>impérative</b> (un ordre) à la forme <b>négative</b>.</Defi>
+    </FicheModele>
+  );
+}
+
+/* ======================================================================
+ * ÉVALUATION — types ET formes de phrases (mardi, grille LSU).
+ * ==================================================================== */
+function ExoEval({ n, consigne, children }: { n: number; consigne: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div style={{ marginBottom: "2mm" }}>
+      <div style={{ fontSize: "13.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}><span style={{ fontWeight: 800 }}>{n}.</span> <span style={{ textDecoration: "underline", textUnderlineOffset: "2px" }}>{consigne}</span></div>
+      <div style={{ marginTop: "1mm", paddingLeft: "4mm" }}>{children}</div>
+    </div>
+  );
+}
+
+export function EvalTypesFormesCE1() {
+  return (
+    <EvalFrame titre="Types et formes de phrases" niveau="CE1" duree="~20 min">
+      <ExoEval n={1} consigne="Mets le bon point à la fin : .  ?  !">
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 2 }}>a) Le soleil brille ____ &nbsp;&nbsp; b) As-tu bien dormi ____<br />c) Quelle chance ____ &nbsp;&nbsp; d) Ferme la porte ____</div>
+      </ExoEval>
+      <ExoEval n={2} consigne="Écris D (déclarative), I (interrogative) ou E (exclamative).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.9 }}>___ Tu as un chien. &nbsp;&nbsp; ___ Est-ce que tu as un chien ? &nbsp;&nbsp; ___ Comme ton chien est mignon !</div>
+      </ExoEval>
+      <ExoEval n={3} consigne="Colorie en vert si la phrase dit OUI (affirmative), en rouge si elle dit NON (négative).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.9 }}>a) Je range mes jouets. &nbsp; b) Tu ne cours pas. &nbsp; c) Il n'aime pas les choux.</div>
+      </ExoEval>
+      <ExoEval n={4} consigne="Transforme à la forme négative (ne … pas).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>a) Le chien dort.</div>
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "7mm", margin: "1mm 0" }} />
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>b) Je mange une pomme.</div>
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "7mm", margin: "1mm 0" }} />
+      </ExoEval>
+      <ExoEval n={5} consigne="Écris une phrase qui pose une question (avec un ?).">
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "8mm", marginTop: "1mm" }} />
+      </ExoEval>
+      <GrilleLSU competences={["Reconnaître le type (mettre le bon point final)", "Distinguer déclarative / interrogative / exclamative", "Reconnaître la forme (affirmative / négative)", "Transformer une phrase à la forme négative", "Produire une phrase d'un type demandé"]} />
+    </EvalFrame>
+  );
+}
+
+export function EvalTypesFormesCE2() {
+  return (
+    <EvalFrame titre="Types et formes de phrases" niveau="CE2" duree="~20 min">
+      <ExoEval n={1} consigne="Écris le type de chaque phrase : déclarative, interrogative, exclamative ou impérative.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.8 }}>a) Range ta chambre. → …………………<br />b) Quel beau jardin ! → …………………<br />c) Est-ce que tu viens ? → …………………<br />d) Nous partons en voyage. → …………………</div>
+      </ExoEval>
+      <ExoEval n={2} consigne="Mets le bon point final.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.9 }}>a) Où habites-tu ____ &nbsp;&nbsp; b) Comme il fait froid ____ &nbsp;&nbsp; c) Le train arrive à midi ____</div>
+      </ExoEval>
+      <ExoEval n={3} consigne="Écris A (affirmative) ou N (négative).">
+        <div style={{ fontFamily: CURSIVE, fontSize: "17px", lineHeight: 1.8 }}>___ Je comprends. &nbsp; ___ Tu n'as jamais menti. &nbsp; ___ Il ne reste plus rien. &nbsp; ___ Léa chante.</div>
+      </ExoEval>
+      <ExoEval n={4} consigne="Transforme à la forme négative, puis à la forme affirmative.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>a) Les élèves écoutent le maître. (négative)</div>
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "7mm", margin: "1mm 0" }} />
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>b) Je ne joue pas dehors. (affirmative)</div>
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "7mm", margin: "1mm 0" }} />
+      </ExoEval>
+      <ExoEval n={5} consigne="Transforme cette phrase déclarative en interrogative, puis en exclamative.">
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Tu as gagné la course.</div>
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "7mm", margin: "1mm 0" }} />
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "7mm", margin: "1mm 0" }} />
+      </ExoEval>
+      <ExoEval n={6} consigne="Écris une phrase impérative (un ordre).">
+        <div style={{ borderBottom: "1.6px solid #9aa4b2", height: "8mm", marginTop: "1mm" }} />
+      </ExoEval>
+      <GrilleLSU competences={["Identifier les 4 types de phrases", "Mettre le point final qui convient", "Reconnaître la forme (affirmative / négative)", "Transformer une phrase (forme négative / affirmative)", "Transformer le type d'une phrase", "Produire une phrase d'un type demandé"]} />
+    </EvalFrame>
   );
 }
