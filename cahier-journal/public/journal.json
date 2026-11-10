@@ -11376,6 +11376,574 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-16",
+   "createdAt": 1794160000000,
+   "updatedAt": 1794160000000,
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": [],
+    "rappels": [],
+    "devoirs": "FRANÇAIS : apprendre la leçon sur les types ET les formes de phrases (ÉVALUATION demain). MATHS : revoir la suite des nombres — compter de 10 en 10 et de 100 en 100 (ÉVALUATION « dénombrer une collection » demain). Mots de dictée. Tables de 3 et de 4 (récitation)."
+   },
+   "slots": [
+    {
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "l16rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "Rituels du matin (voir vue Rituels → Période 2, ouverture sur aujourd'hui).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l16r1",
+         "label": "Rituel (15 min)",
+         "note": "« On démarre par notre rituel : phrase du jour, nombre du jour, calcul mental, petit problème et mini-quiz. »\n« Pour le problème, on repère ensemble les mots qui annoncent l'opération. »\n« Chacun écrit sa réponse sur l'ardoise, je passe vérifier. »\n(déroulé habituel, projeté.)"
+        }
+       ],
+       "materiel": "Vue Rituels → Période 2 (projetable).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "start": "08:50",
+     "end": "10:10",
+     "activities": [
+      {
+       "id": "l16fr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Types et formes de phrases (consolidation)",
+       "objectif": "Consolider : reconnaître le type d'une phrase (point final) ET sa forme (affirmative / négative) avant l'évaluation.",
+       "competence": "Identifier les types de phrases et transformer à la forme affirmative / négative.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Grammaire — La phrase",
+       "progSeance": "Types et formes, consolidation (avant évaluation)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l16f1",
+         "label": "Rappel collectif (15 min)",
+         "note": "« On fait le point : le TYPE, c'est le point final — déclarative, interrogative, exclamative, impérative. »\n« La FORME, c'est autre chose : la phrase dit oui (affirmative) ou non (négative) avec ne … pas. »\n« Je projette des phrases, vous dites le type ET la forme. »\n« Attention au piège : une question peut être affirmative ou négative. »\n(je m'assure que forme ≠ type est bien clair pour tous.)"
+        },
+        {
+         "id": "l16f2",
+         "label": "Entraînement différencié (50 min)",
+         "note": "« Vous prenez votre fiche : CE1 d'un côté, CE2 de l'autre, regardez bien votre niveau. »\n« On lit la consigne, on regarde l'exemple, puis on fait seul. »\n« Mettre le bon point, colorier oui / non, transformer à la forme négative. »\n« Les CE2 nomment les quatre types et transforment aussi le type d'une phrase. »\n« Je passe aider ceux qui bloquent ; on corrige les premiers ensemble. »"
+        }
+       ],
+       "materiel": "Feuilles de révision « Types et formes de phrases » CE1 et CE2 (au cas où) — voir Documents à imprimer. Classeur.",
+       "video": "",
+       "differenciation": "CE1 : reconnaître le type (point) et la forme, ajouter ne … pas. CE2 : nommer les 4 types, transformer type et forme, ne … plus / jamais.",
+       "depassement": "",
+       "correction": "Range ta chambre. → impérative, affirmative. Est-ce que tu viens ? → interrogative, affirmative. Je ne joue pas. → déclarative, négative.",
+       "obstacles": "Erreurs fréquentes : confondre type et forme ; oublier « ne » (ou « n' »). Remédiation : rappeler que le point = type, oui/non = forme ; les DEUX mots encadrent le verbe.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "10:40",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "l16mu",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths — La suite des nombres (découverte)",
+       "objectif": "Connaître et écrire la suite des nombres. CE1 : jusqu'à 200. CE2 : jusqu'à 2 000. Compter de 1 en 1, de 10 en 10, de 100 en 100 ; avant / après ; ranger.",
+       "competence": "Lire, écrire et ordonner les nombres ; connaître la suite (de 1 en 1, 10 en 10, 100 en 100).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Nombres et calculs ». Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Nombres P2 — La suite des nombres",
+       "progSeance": "1 (découverte)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l16m1",
+         "label": "Découverte projetée (20 min)",
+         "note": "« Aujourd'hui, on apprend à bien connaître la SUITE des nombres : ils se suivent toujours dans le même ordre. »\n« Juste avant 100, il y a 99 ; juste après, il y a 101. +1 c'est le nombre d'après, −1 le nombre d'avant. »\n« On compte ensemble de 10 en 10 : 120, 130, 140… qu'est-ce qui change ? Les dizaines ! »\n« Puis de 100 en 100 : 100, 200, 300… jusqu'à 1 000, et pour les CE2 jusqu'à 2 000. »\n(je projette le diaporama et la bande numérique ; je fais venir des élèves compléter.)"
+        },
+        {
+         "id": "l16m2",
+         "label": "Leçon + entraînement (30 min)",
+         "note": "« On colle la leçon : la bande numérique, avant / après, de 10 en 10, de 100 en 100. »\n« Pendant que je guide les CE1 (jusqu'à 200), les CE2 commencent leur fiche en autonomie (jusqu'à 2 000). »\n« Vous complétez les suites, vous écrivez le nombre d'avant et d'après, vous rangez du plus petit au plus grand. »\n« Je passe vérifier et j'aide à placer les nombres sur la bande. »\n(institutionnalisation : on relit la règle « pour ranger, je compare c, puis d, puis u ».)"
+        }
+       ],
+       "materiel": "Diaporama « La suite des nombres » + leçon à coller (cahier rouge) + fiches CE1 (→200) / CE2 (→2 000) — voir Documents à imprimer.",
+       "video": "https://www.youtube.com/watch?v=8XZptO5L3DQ",
+       "differenciation": "CE1 : suite jusqu'à 200, de 10 en 10 et de 100 en 100 avec la bande. CE2 : jusqu'à 2 000, passages de centaines et de milliers (999→1 000, 1 999→2 000).",
+       "depassement": "",
+       "correction": "96·97·98·99·100·101·102. 110·120·130·140·150. 100·200·…·1000. Rangé : 95 < 103 < 118 < 130 < 150.",
+       "obstacles": "Erreurs fréquentes : blocage aux passages (99→100, 199→200, 999→1 000) ; compter « cent-dix, cent-vingt » mal écrits. Remédiation : s'appuyer sur la bande numérique et le tableau c/d/u ; verbaliser « +1 à la centaine ».",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "14:00",
+     "activities": [
+      {
+       "id": "l16dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Révision du vocabulaire + dictée",
+       "objectif": "Mémoriser l'orthographe de mots courants ; s'entraîner à écrire sous la dictée. On retravaille « c'est » et le verbe mettre.",
+       "competence": "Écrire sous la dictée des mots et de courtes phrases ; orthographe (c'est, je mets / il met).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Orthographe — Dictée maison",
+       "progSeance": "Dictée (ardoise + feuille)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l16d1",
+         "label": "Mots flash sur l'ardoise (12 min)",
+         "note": "« Je projette un mot, vous le lisez, vous le mémorisez, puis je cache et vous l'écrivez sur l'ardoise. »\n« On vérifie ensemble lettre par lettre ; on fait attention à « c'est » et à « je mets / il met ». »\n« On fait revenir des mots de l'hiver : manteau, bonnet, écharpe, gants. »\n(je repère les mots les plus fragiles pour la dictée.)"
+        },
+        {
+         "id": "l16d2",
+         "label": "Dictée différenciée (18 min)",
+         "note": "« Je dicte lentement, vous écrivez sur votre feuille ; je relis à la fin pour vérifier. »\n« CE1, le texte court ; CE2, vous avez deux phrases en plus. »\n« On entoure dans sa tête : est-ce « c'est » ? est-ce « je mets » ou « il met » ? »\n(correction individualisée ; cahier de dictée vert.)"
+        }
+       ],
+       "materiel": "Mots flash + feuille de dictée (voir supports « dictée », au cas où). Ardoise. Cahier de dictée vert.",
+       "video": "",
+       "differenciation": "CE1 : mots + texte court. CE2 : mots en plus + deux phrases supplémentaires.",
+       "depassement": "",
+       "correction": "C'est l'hiver, il fait froid. Je mets mon manteau. Il met ses gants.",
+       "obstacles": "Erreurs fréquentes : « cest / sest » au lieu de « c'est » ; « mis » au lieu de « mets ». Remédiation : afficher les formes correctes au tableau et les faire épeler.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "14:00",
+     "end": "14:30",
+     "activities": [
+      {
+       "id": "l16pays",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — L'escale de la semaine (Afrique)",
+       "objectif": "Poursuivre le projet « Autour du monde » : situer et découvrir un pays d'Afrique (culture, monument, spécialité).",
+       "competence": "Se repérer dans l'espace ; découvrir un pays et sa culture (projet Autour du monde).",
+       "competenceRef": "Questionner le monde — questionner l'espace et le temps (programmes 2018/2020).",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Autour du monde — Afrique",
+       "progSeance": "Escale de la semaine",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l16p1",
+         "label": "Escale (15 min)",
+         "note": "« On repart en voyage : on situe notre nouvelle escale sur la carte d'Afrique. »\n« On regarde son drapeau, sa capitale, un monument et une spécialité. »\n« On complète la carte d'identité du pays et on la range dans la pochette du voyage. »\n(diaporama et photos du pays projetés — Projets → Autour du monde.)"
+        }
+       ],
+       "materiel": "Projets → Autour du monde (Afrique) : diaporama + carte d'identité + photos (PDF). Pochette noire.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "15:40",
+     "end": "16:15",
+     "activities": [
+      {
+       "id": "l16ang",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Anglais — Winter: The Mitten (suite)",
+       "objectif": "Poursuivre la séquence Winter autour de l'histoire The Mitten : réemployer le vocabulaire (words to learn), raconter l'histoire.",
+       "competence": "Comprendre et réemployer un vocabulaire simple à l'oral (winter, snow, animals).",
+       "competenceRef": "Langue vivante (anglais) — programmes 2018/2020.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Winter — The Mitten",
+       "progSeance": "Suite (réemploi du vocabulaire)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l16a1",
+         "label": "Warm-up + story (20 min)",
+         "note": "« Hello! Let's remember our winter words: snow, cold, a mitten, a mouse… »\n« On réécoute / raconte l'histoire des mitaines : quels animaux entrent dans la moufle ? »\n« On rejoue l'ordre des animaux avec les flashcards ; on répète les mots. »\n(réemploi du corpus collé dans le cahier violet.)"
+        },
+        {
+         "id": "l16a2",
+         "label": "Jeu de mémoire (15 min)",
+         "note": "« On joue : je montre une carte, vous dites le mot en anglais. »\n« On relit le mini-texte en français avec les mots anglais entre parenthèses. »\n(cahier violet.)"
+        }
+       ],
+       "materiel": "English — Winter « The Mitten » : Words to learn + mini-texte (voir supports anglais de la séquence). Flashcards. Cahier violet.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "anglais"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "date": "2026-11-17",
+   "createdAt": 1794160000000,
+   "updatedAt": 1794160000000,
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": [],
+    "rappels": [],
+    "devoirs": "FRANÇAIS : relire la leçon types et formes de phrases. MATHS : la suite des nombres (de 10 en 10, de 100 en 100). HISTOIRE : relire « Le pharaon et les pyramides ». GÉO : revoir « La France en Europe » (les pays voisins). Mots de dictée. Tables de 3 et de 4."
+   },
+   "slots": [
+    {
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "m17rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin",
+       "objectif": "Rituels du matin (voir vue Rituels → Période 2, ouverture sur aujourd'hui).",
+       "competence": "",
+       "competenceRef": "",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "",
+       "progSeance": "",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m17r1",
+         "label": "Rituel (15 min)",
+         "note": "« On démarre par notre rituel : phrase du jour, nombre du jour, calcul mental, petit problème et mini-quiz. »\n« Pour le problème, on repère ensemble les mots qui annoncent l'opération. »\n« Chacun écrit sa réponse sur l'ardoise, je passe vérifier. »\n(déroulé habituel, projeté.)"
+        }
+       ],
+       "materiel": "Vue Rituels → Période 2 (projetable).",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "start": "08:50",
+     "end": "09:35",
+     "activities": [
+      {
+       "id": "m17freval",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Évaluation : types et formes de phrases",
+       "objectif": "Évaluer : reconnaître le type (point final) et la forme (affirmative / négative), transformer, produire une phrase d'un type demandé.",
+       "competence": "Identifier les types de phrases ; reconnaître et transformer la forme (affirmative / négative).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Grammaire — La phrase",
+       "progSeance": "Évaluation (types et formes)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m17fe1",
+         "label": "Passation (35 min)",
+         "note": "« Aujourd'hui, petite évaluation : vous montrez ce que vous savez sur les phrases, calmement. »\n« On lit chaque consigne ensemble, puis vous travaillez seuls, sans déranger le voisin. »\n« CE1 et CE2 n'ont pas la même feuille : vérifiez votre niveau en haut. »\n« Qui a fini relit sa feuille et attend en lisant. »\n(je reste disponible pour relire une consigne ; évaluation possible au fond pour qui se sent prêt.)"
+        }
+       ],
+       "materiel": "Feuilles d'évaluation CE1 / CE2 « Types et formes de phrases » (grille de compétences LSU) — voir Documents à imprimer. Cahier violet (évaluations de français).",
+       "video": "",
+       "differenciation": "CE1 : 5 exercices (type, oui/non, transformation simple, production). CE2 : 6 exercices (4 types, transformations de type et de forme, production). Élève à besoins : temps majoré, consignes relues, lecture de l'énoncé.",
+       "depassement": "",
+       "correction": "Voir grille LSU de la fiche (4 niveaux de maîtrise, remplis par l'enseignant).",
+       "obstacles": "Erreurs fréquentes : confondre type et forme ; oublier le point adapté. Remédiation (après l'éval) : reprise en petit groupe à partir des erreurs.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "09:35",
+     "end": "10:10",
+     "activities": [
+      {
+       "id": "m17mueval",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths — Évaluation : dénombrer et représenter une collection jusqu'à 1 000",
+       "objectif": "Évaluer : associer une collection (base 10) à son écriture, écrire un nombre à partir de c/d/u (m/c/d/u), comparer, ranger, résoudre un problème de groupements.",
+       "competence": "Dénombrer et représenter une collection ; décomposer, comparer et ranger les nombres (CE1 → 999 ; CE2 → 1 000).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Nombres et calculs ». Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Nombres P2 — Dénombrer une collection",
+       "progSeance": "Évaluation",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m17me1",
+         "label": "Passation (35 min)",
+         "note": "« Deuxième évaluation : les nombres et les collections. On prend son temps, on fait de son mieux. »\n« On lit chaque exercice, on regarde bien les dessins de centaines, dizaines, unités. »\n« CE1, vous allez jusqu'à 999 ; CE2, jusqu'à 1 000 avec le millier. »\n« On vérifie ses comparaisons : je regarde d'abord les centaines. »\n(matériel base 10 disponible au besoin ; évaluation libre au fond pour qui se sent prêt.)"
+        }
+       ],
+       "materiel": "Feuilles d'évaluation CE1 / CE2 « Dénombrer une collection » (grille de compétences LSU) — voir Documents à imprimer. Cahier orange (évaluations de maths).",
+       "video": "",
+       "differenciation": "CE1 : jusqu'à 999 (c/d/u), représenter, comparer, problème. CE2 : jusqu'à 1 000 (m/c/d/u), décomposer, problème. Élève à besoins : matériel base 10, énoncés relus.",
+       "depassement": "",
+       "correction": "Voir grille LSU de la fiche (4 niveaux de maîtrise, remplis par l'enseignant).",
+       "obstacles": "Erreurs fréquentes : oublier le zéro intercalé (307) ; mal gérer 9 c 10 d. Remédiation (après l'éval) : reprise avec le matériel base 10.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "start": "10:40",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "m17hist",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Histoire — L'Égypte : le pharaon et les pyramides",
+       "objectif": "Comprendre qui était le pharaon (le roi) et à quoi servaient les pyramides (les tombeaux), dans l'Égypte de l'Antiquité.",
+       "competence": "Situer l'Égypte ancienne dans le temps ; découvrir le pharaon et les pyramides.",
+       "competenceRef": "Questionner le monde — questionner l'espace et le temps (programmes 2018/2020).",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Histoire — L'Égypte ancienne",
+       "progSeance": "Séance 2 — Le pharaon et les pyramides",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m17h1",
+         "label": "Découverte projetée (20 min)",
+         "note": "« La semaine dernière, on a vu l'Égypte au bord du Nil ; aujourd'hui : qui commandait ? »\n« Le pharaon est le roi d'Égypte, l'homme le plus puissant : tout le monde lui obéit. »\n« Les pyramides sont ses immenses tombeaux de pierre. On regarde de vraies photos. »\n« Comment les a-t-on construites ? Des milliers d'ouvriers, d'énormes blocs, il y a plus de 4500 ans. »\n« À sa mort, on fait une momie du pharaon et on dépose un trésor. »\n(diaporama projeté, vraies photos ; je fais reformuler.)"
+        },
+        {
+         "id": "m17h2",
+         "label": "Leçon + exercices (30 min)",
+         "note": "« On colle la leçon : le pharaon (le roi), la pyramide (le tombeau), la momie, le trésor. »\n« Puis vous faites la fiche : compléter, vrai ou faux, relier, et un dessin. »\n« Je passe aider ; on corrige ensemble à la fin. »\n(cahier d'histoire ; les CE2 écrivent une phrase de plus.)"
+        }
+       ],
+       "materiel": "Diaporama « Le pharaon et les pyramides » (vraies photos) + leçon à coller + fiche d'exercices — voir Documents à imprimer. Cahier d'histoire.",
+       "video": "",
+       "differenciation": "CE1 : vocabulaire et vrai/faux avec aide. CE2 : relier et rédiger une courte phrase (le rôle du pharaon).",
+       "depassement": "",
+       "correction": "Le pharaon = le roi d'Égypte. La pyramide = un immense tombeau de pierre. On faisait une momie du pharaon → VRAI.",
+       "obstacles": "Erreurs fréquentes : croire que la pyramide est une maison ; confondre pharaon et dieu. Remédiation : s'appuyer sur les photos et le mot « tombeau » = là où on enterre.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "activities": [
+      {
+       "id": "m17geo",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géographie — La France en Europe",
+       "objectif": "Situer la France sur le continent européen, nommer les pays voisins et les mers, se repérer avec les points cardinaux (N/S/E/O).",
+       "competence": "Se repérer dans l'espace, du proche au lointain : situer la France en Europe ; points cardinaux.",
+       "competenceRef": "Questionner le monde — questionner l'espace et le temps (programmes 2018/2020).",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Géographie — Se repérer dans l'espace",
+       "progSeance": "Séance 3 — La France en Europe",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m17g1",
+         "label": "Découverte projetée (25 min)",
+         "note": "« On a vu notre commune, puis les villes de France ; aujourd'hui on prend de la hauteur : la France en Europe. »\n« La France est sur le continent de l'Europe. On la repère sur la carte, en rouge. »\n« Qui sont nos voisins ? L'Espagne au sud-ouest, l'Italie au sud-est, l'Allemagne et la Suisse à l'est, la Belgique au nord. »\n« De l'autre côté de la Manche, au nord-ouest : le Royaume-Uni. »\n« Autour : l'océan Atlantique à l'ouest, la mer Méditerranée au sud. On utilise les points cardinaux. »\n(carte d'Europe projetée ; je fais venir des élèves montrer les pays.)"
+        },
+        {
+         "id": "m17g2",
+         "label": "Leçon + carte muette (35 min)",
+         "note": "« On colle la leçon avec la carte et les pays voisins rangés par direction. »\n« Puis, sur la carte muette, vous coloriez la France en rouge et écrivez son nom. »\n« Vous reliez chaque pays à sa direction et vous écrivez une phrase : où se trouve la France ? »\n« Je passe aider ; on corrige ensemble. »\n(production d'écrit courte en fin de séance.)"
+        }
+       ],
+       "materiel": "Diaporama « La France en Europe » + leçon à coller + fiche d'exercices (carte muette) — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : situer la France, nommer 2-3 voisins, colorier la carte muette. CE2 : associer chaque pays à sa direction, rédiger une phrase de localisation.",
+       "depassement": "",
+       "correction": "La France est en Europe. À l'ouest : l'océan Atlantique ; au sud : la mer Méditerranée. Voisins : Espagne (SO), Italie (SE), Allemagne (E), Belgique (N), Royaume-Uni (NO).",
+       "obstacles": "Erreurs fréquentes : confondre pays et continent ; se tromper de direction. Remédiation : rose des vents affichée, repérage N/S/E/O sur la carte.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    }
+   ]
   }
  ],
  "templates": [],

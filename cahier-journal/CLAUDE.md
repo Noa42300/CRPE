@@ -503,3 +503,19 @@ jours. On peut réduire le reste, jamais ces deux-là.
     poème **original libre de droits**), à apprendre pour la dernière semaine
     avant les vacances.
   - **Dictée (au cas où)** : `DicteeFlash.tsx` (mots flash projetés + feuille).
+- **Semaine du 16 novembre (P2) — préparée :**
+  - **Lundi 16** : français = **consolidation types + formes de phrases** (feuilles de
+    révision « au cas où », `FicheRevisionTypesFormes*` dans `FormesDePhrases.tsx`,
+    activité `l16fr`) ; maths = **la suite des nombres** (`SuiteNombres*` dans
+    `Numeration.tsx` : CE1 → 200, CE2 → 2000 ; diapo + leçon + fiches + bande
+    numérique, activité `l16mu`).
+  - **Mardi 17** : **évaluation français** types + formes (`EvalTypesFormes*`,
+    `m17freval`) ; **évaluation maths** « dénombrer / représenter une collection »
+    (CE1 → 999, CE2 → 1000, `EvalCollection*` dans `Numeration.tsx`, `m17mueval`) —
+    toutes deux avec **grille LSU** (`EvalFrame`/`GrilleLSU` exportés depuis
+    `EvalEcritureLettres.tsx`). Histoire = **Égypte séance 2 « Le pharaon et les
+    pyramides »** (`EgyptePharaon*` dans `EgypteNil.tsx`, `m17hist`). Géo = **séance 3
+    « La France en Europe »** (`GeoFranceEurope.tsx`, carte d'Europe maison, `m17geo`).
+  - **Anglais** : on continue *The Mitten* (rien de neuf à préparer).
+  - **Rappel évals** : elles restent **libres / à la demande** (au fond de la classe,
+    quand l'élève se sent prêt) ; feuille d'entraînement pour les autres.
