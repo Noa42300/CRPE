@@ -9978,26 +9978,6 @@
    "updatedAt": 1790703000005
   },
   {
-   "date": "2026-11-17",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261117-cm-elementaire",
-      "texte": "CM élémentaire",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000006
-  },
-  {
    "date": "2026-11-18",
    "info": {
     "effectifPrevu": 23,
@@ -11699,7 +11679,13 @@
     "absents": null,
     "absentsNames": "",
     "events": [],
-    "rappels": [],
+    "rappels": [
+     {
+      "id": "rap-20261117-cm-elementaire",
+      "texte": "CM élémentaire",
+      "type": "reunion"
+     }
+    ],
     "devoirs": "FRANÇAIS : relire la leçon types et formes de phrases. MATHS : la suite des nombres (de 10 en 10, de 100 en 100). HISTOIRE : relire « Le pharaon et les pyramides ». GÉO : revoir « La France en Europe » (les pays voisins). Mots de dictée. Tables de 3 et de 4."
    },
    "slots": [
@@ -11940,6 +11926,57 @@
        "devoirs": "",
        "notesProchaine": "",
        "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "14:40",
+     "end": "15:10",
+     "activities": [
+      {
+       "id": "m17dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Mots flash + dictée (les animaux en hiver)",
+       "objectif": "Mémoriser l'orthographe de mots (thème : les animaux en hiver) et s'entraîner à écrire sous la dictée.",
+       "competence": "Écrire sous la dictée des mots et de courtes phrases ; mémoriser l'orthographe lexicale.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Orthographe — Dictée maison",
+       "progSeance": "Dictée (ardoise + feuille)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m17d1",
+         "label": "Mots flash sur l'ardoise (12 min)",
+         "note": "« Je projette un mot, vous le lisez, vous le mémorisez ; je cache, et vous l'écrivez sur l'ardoise. »\n« On vérifie ensemble lettre par lettre ; on montre son ardoise. »\n« On retrouve des mots de l'hiver : la neige, le froid, la forêt. »\n(je repère les mots fragiles avant de dicter.)"
+        },
+        {
+         "id": "m17d2",
+         "label": "Dictée différenciée (18 min)",
+         "note": "« Je dicte lentement, vous écrivez sur votre feuille ; je relis à la fin. »\n« CE1 : le texte court ; CE2 : deux phrases en plus (l'ours, le hérisson). »\n« On fait attention aux accords et aux points. »\n(correction individualisée ; cahier de dictée vert.)"
+        }
+       ],
+       "materiel": "Mots flash « les animaux en hiver » (à projeter) + feuille de dictée élève — voir Documents à imprimer. Ardoise. Cahier de dictée vert.",
+       "video": "",
+       "differenciation": "CE1 : mots + texte court. CE2 : mots en plus + deux phrases supplémentaires. Élève à besoins : liste réduite, dictée à trous possible.",
+       "depassement": "",
+       "correction": "C'est l'hiver dans la forêt. Le renard et le lapin ont froid. La petite souris se cache sous la neige.",
+       "obstacles": "Erreurs fréquentes : « c'est » mal orthographié ; oublier les accords (le lapin / les animaux). Remédiation : afficher les formes correctes et faire épeler.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
       }
      ]
     }
