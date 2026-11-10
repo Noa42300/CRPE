@@ -1451,8 +1451,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "dic-flash", label: "Mots flash — dictée de l'hiver (à projeter)", node: <MotsFlashDiapo /> },
         { key: "dic-fiche", label: "Dictée de l'hiver — feuille élève", node: <DicteeHiverFiche /> },
-        { key: "dic2-flash", label: "Mots flash n°2 — les vêtements (ardoise, à projeter)", node: <MotsFlashVetementsDiapo /> },
-        { key: "dic2-fiche", label: "Dictée n°2 — les vêtements (remédiation « c'est » · mettre) — feuille élève", node: <DicteeVetementsFiche /> },
+      ];
+    case "m10dic":
+      return [
+        { key: "dicv-flash", label: "Mots flash — les vêtements (ardoise, à projeter)", node: <MotsFlashVetementsDiapo /> },
+        { key: "dicv-fiche", label: "Dictée — les vêtements (remédiation « c'est » · mettre) — feuille élève", node: <DicteeVetementsFiche /> },
       ];
     case "l09poe":
       return [

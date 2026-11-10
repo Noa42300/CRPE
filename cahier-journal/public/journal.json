@@ -11152,6 +11152,57 @@
      ]
     },
     {
+     "start": "11:10",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "m10dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français — Mots flash + dictée (les vêtements)",
+       "objectif": "Mémoriser l'orthographe de mots (thème : les vêtements) et s'entraîner à écrire sous la dictée. Remédiation : « c'est » et le verbe mettre (je mets / il met).",
+       "competence": "Écrire sous la dictée des mots et de courtes phrases ; orthographe (c'est, je mets / il met).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Orthographe — Dictée maison",
+       "progSeance": "Dictée (ardoise + feuille)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m10d1",
+         "label": "Mots flash sur l'ardoise (10 min)",
+         "note": "« Je projette un mot, vous le lisez, vous le mémorisez ; je cache, vous l'écrivez sur l'ardoise. »\n« On vérifie ensemble ; attention à « c'est » et à « je mets / il met ». »\n« On fait revenir des mots de l'hiver : manteau, bonnet, écharpe, gants. »\n(je repère les mots fragiles avant de dicter.)"
+        },
+        {
+         "id": "m10d2",
+         "label": "Dictée différenciée (10 min)",
+         "note": "« Je dicte lentement, vous écrivez sur votre feuille ; je relis à la fin. »\n« CE1 : le texte court ; CE2 : deux phrases en plus. »\n« Dans sa tête : est-ce « c'est » ? est-ce « je mets » ou « il met » ? »\n(correction individualisée ; cahier de dictée vert.)"
+        }
+       ],
+       "materiel": "Mots flash « les vêtements » (à projeter) + feuille de dictée élève — voir Documents à imprimer. Ardoise. Cahier de dictée vert.",
+       "video": "",
+       "differenciation": "CE1 : mots + texte court. CE2 : mots en plus + deux phrases supplémentaires.",
+       "depassement": "",
+       "correction": "C'est l'hiver, il fait froid. Je mets mon manteau, mon bonnet et mon écharpe. Il met ses gants et ses bottes.",
+       "obstacles": "Erreurs fréquentes : « cest / sest » au lieu de « c'est » ; « mis » au lieu de « mets ». Remédiation : afficher les formes correctes et les faire épeler.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
      "start": "13:30",
      "end": "14:10",
      "activities": [
