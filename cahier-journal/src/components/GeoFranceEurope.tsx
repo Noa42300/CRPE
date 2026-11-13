@@ -7,6 +7,7 @@
 import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
 import { FicheModele, SectionBar, Exo, LignesModele } from "./ficheModele";
+import { LeconCahier, MotCle } from "./LeconCahier";
 
 const GEO = "#0e7490";
 const CURSIVE = "'Caveat','Comic Neue',cursive";
@@ -121,28 +122,18 @@ export function GeoFranceEuropeDiapo() {
 
 export function GeoFranceEuropeLecon() {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "34px", margin: "0 0 2mm", textAlign: "center", fontWeight: 700, color: GEO, fontFamily: CURSIVE }}>La France en Europe</h1>
-      <div style={{ display: "flex", gap: "4mm", alignItems: "flex-start" }}>
-        <div style={{ flex: 1.1, textAlign: "center" }}>
-          <CarteEurope w={150} />
-          <div style={{ fontSize: "9px", color: "#94a3b8" }}>Carte simplifiée (France en rouge).</div>
-        </div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "13px", color: GEO }}>Mes pays voisins :</div>
-          <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.45, marginTop: "1mm" }}>
-            • Au <b>sud-ouest</b> : l'Espagne 🇪🇸<br />
-            • Au <b>sud-est</b> : l'Italie 🇮🇹<br />
-            • À l'<b>est</b> : l'Allemagne 🇩🇪, la Suisse 🇨🇭<br />
-            • Au <b>nord</b> : la Belgique 🇧🇪<br />
-            • Au <b>nord-ouest</b> : le Royaume-Uni 🇬🇧 (de l'autre côté de la Manche).
-          </div>
-        </div>
-      </div>
-      <div style={{ marginTop: "2mm", border: `2px dashed ${GEO}`, borderRadius: "3mm", padding: "2.5mm 5mm", fontFamily: CURSIVE, fontSize: "17px", textAlign: "center", background: "#ecfeff" }}>
-        La <b>France</b> est sur le continent de l'<b>Europe</b>. Elle est bordée par l'<b>océan Atlantique</b> (ouest) et la <b>mer Méditerranée</b> (sud).
-      </div>
-    </div>
+    <LeconCahier
+      titre="La France en Europe" emojiL="🗺️" emojiR="🇫🇷" accent={GEO}
+      sousTitre="GÉOGRAPHIE · SE REPÉRER, DU PROCHE AU LOINTAIN"
+      visuel={<CarteEurope w={225} />} visuelMaxH="58mm"
+      legende="Carte simplifiée (France en rouge)."
+      points={[
+        { t: <>Notre pays, la <MotCle accent={GEO}>France</MotCle>, se trouve sur le continent de l'<MotCle accent={GEO}>Europe</MotCle>.</> },
+        { t: <>Ses pays <b>voisins</b> : l'Espagne 🇪🇸 (sud-ouest), l'Italie 🇮🇹 (sud-est), l'Allemagne 🇩🇪 et la Suisse 🇨🇭 (est), la Belgique 🇧🇪 (nord), le Royaume-Uni 🇬🇧 (nord-ouest, de l'autre côté de la Manche).</> },
+        { t: <>La France est bordée par l'<MotCle accent={GEO}>océan Atlantique</MotCle> (à l'ouest) et la <MotCle accent={GEO}>mer Méditerranée</MotCle> (au sud).</> },
+      ]}
+      savaisTu={<>💡 <b style={{ color: GEO }}>Je retiens :</b> pour situer un pays, j'utilise les points cardinaux : <b>N</b>ord, <b>S</b>ud, <b>E</b>st, <b>O</b>uest.</>}
+    />
   );
 }
 

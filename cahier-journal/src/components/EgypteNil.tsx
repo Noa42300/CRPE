@@ -4,9 +4,10 @@
  * Nil) ; comprendre que le Nil permettait la vie (eau, cultures, bateaux).
  *  • Diaporama à projeter (vraies photos) · Leçon à coller · Fiche d'exercices.
  */
-import { Fragment, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
 import { WikiImage } from "./WikiImage";
+import { LeconCahier, MotCle } from "./LeconCahier";
 
 const HIST = "#b45309"; // ambre / sable
 const CURSIVE = "'Caveat','Comic Neue',cursive";
@@ -178,76 +179,19 @@ export function EgypteNilDiapo() {
 }
 
 export function EgypteNilLecon() {
-  const Pastille = ({ e, t }: { e: string; t: React.ReactNode }) => (
-    <div style={{ display: "flex", alignItems: "center", gap: "2mm", border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "1mm 2.5mm", background: "#fffdf8" }}>
-      <span style={{ fontSize: "19px" }}>{e}</span><span style={{ fontFamily: CURSIVE, fontSize: "15px", lineHeight: 1.2 }}>{t}</span>
-    </div>
-  );
-  const Titre = ({ children }: { children: React.ReactNode }) => (
-    <div style={{ background: HIST, color: "#fff", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12.5px", textTransform: "uppercase", letterSpacing: "0.03em", borderRadius: "2mm", padding: "1mm 4mm", margin: "2.8mm 0 1.5mm" }}>{children}</div>
-  );
-  const STEPS: [string, string][] = [
-    ["🌊", "Chaque été, le fleuve monte et déborde."],
-    ["🌱", "Il dépose une terre noire : le limon."],
-    ["🌾", "Les paysans ont de belles récoltes."],
-  ];
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "34px", margin: "0 0 0.5mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: CURSIVE }}>L'Égypte, au bord du Nil</h1>
-      <div style={{ textAlign: "center", fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700, color: "#92400e", marginBottom: "2mm" }}>Histoire · l'Antiquité — il y a plus de 5000 ans</div>
-
-      <div style={{ display: "flex", gap: "5mm", alignItems: "flex-start" }}>
-        <div style={{ flex: 1, textAlign: "center" }}>
-          <CarteEgypte w={148} />
-          <div style={{ fontSize: "9px", color: "#94a3b8", marginTop: "0.5mm" }}>Le Nil traverse l'Égypte, du sud vers la mer.</div>
-        </div>
-        <div style={{ flex: 1.12 }}>
-          <div style={{ border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "2mm 3mm", marginBottom: "2mm", background: "#fffbeb" }}>
-            <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: HIST }}>QUAND ?</div>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1mm", margin: "1.2mm 0", fontFamily: CONSIGNE_FONT, fontSize: "9.5px", fontWeight: 700 }}>
-              <span style={{ background: "#e7e5e4", borderRadius: "2mm", padding: "0.5mm 1.5mm" }}>Préhistoire</span><span>→</span>
-              <span style={{ background: HIST, color: "#fff", borderRadius: "2mm", padding: "0.5mm 1.5mm" }}>Antiquité</span><span>→</span>
-              <span style={{ background: "#e7e5e4", borderRadius: "2mm", padding: "0.5mm 1.5mm" }}>Moyen Âge</span>
-            </div>
-            <div style={{ fontFamily: CURSIVE, fontSize: "15px", textAlign: "center" }}>L'Égypte ancienne, c'est l'<b>Antiquité</b>.</div>
-          </div>
-          <div style={{ border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "2mm 3mm", background: "#fffbeb" }}>
-            <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: HIST }}>OÙ ?</div>
-            <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.4 }}>En <b>Afrique</b>, le long d'un grand fleuve : le <b>Nil</b>. Aujourd'hui, la capitale est <b>Le Caire</b>.</div>
-          </div>
-        </div>
-      </div>
-
-      <Titre>Le Nil donne la vie</Titre>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "1.5mm" }}>
-        <Pastille e="💧" t="de l'eau" /><Pastille e="🌾" t="le blé" /><Pastille e="🐟" t="des poissons" /><Pastille e="⛵" t="des bateaux" />
-      </div>
-      <div style={{ fontFamily: CURSIVE, fontSize: "15px", textAlign: "center", marginTop: "1.5mm" }}>Tout autour, c'est le <b>désert</b> : sans le Nil, personne ne pourrait vivre ici.</div>
-
-      <Titre>La crue : le secret des belles récoltes</Titre>
-      <div style={{ display: "flex", alignItems: "stretch", gap: "1mm" }}>
-        {STEPS.map((s, k) => (
-          <Fragment key={k}>
-            <div style={{ flex: 1, border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "1.5mm", textAlign: "center", background: "#fffdf8", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <div style={{ fontSize: "22px" }}>{s[0]}</div>
-              <div style={{ fontFamily: CURSIVE, fontSize: "14px", lineHeight: 1.25 }}>{s[1]}</div>
-            </div>
-            {k < 2 && <span style={{ fontSize: "18px", fontWeight: 800, color: HIST, alignSelf: "center" }}>→</span>}
-          </Fragment>
-        ))}
-      </div>
-
-      <Titre>La vie au bord du Nil</Titre>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5mm" }}>
-        <Pastille e="👩‍🌾" t="les paysans cultivent le blé" />
-        <Pastille e="⛵" t="on navigue en felouque" />
-        <Pastille e="🧱" t="maisons en briques de terre" />
-      </div>
-
-      <div style={{ marginTop: "2.8mm", border: `2px dashed ${HIST}`, borderRadius: "3mm", padding: "2mm 4mm", background: "#fffbeb", fontFamily: CONSIGNE_FONT, fontSize: "12px", textAlign: "center" }}>
-        🔑 <b>Mots à retenir :</b> le Nil · le désert · la crue · le limon · les paysans
-      </div>
-    </div>
+    <LeconCahier
+      titre="L'Égypte, au bord du Nil" emojiL="🏜️" emojiR="⛵" accent={HIST} variant="cote"
+      sousTitre="HISTOIRE · L'ANTIQUITÉ — IL Y A PLUS DE 5000 ANS"
+      visuel={<CarteEgypte w={200} />} visuelMaxH="150mm"
+      legende="Le Nil traverse l'Égypte, du sud vers la mer."
+      points={[
+        { t: <>Dans l'<MotCle accent={HIST}>Antiquité</MotCle> (il y a plus de 5000 ans), les Égyptiens vivaient en <MotCle accent={HIST}>Afrique</MotCle>, au bord d'un grand fleuve : le <MotCle accent={HIST}>Nil</MotCle>.</> },
+        { t: <>Le Nil <b>donne la vie</b> : il apporte de l'eau 💧, des cultures (le blé 🌾), des poissons 🐟 et permet de se déplacer en bateau ⛵. Tout autour, c'est le <MotCle accent={HIST}>désert</MotCle>.</> },
+        { t: <>Chaque année, la <MotCle accent={HIST}>crue</MotCle> fait monter le fleuve : il dépose une terre noire, le <MotCle accent={HIST}>limon</MotCle>, et les paysans ont de belles récoltes. 🌾</> },
+      ]}
+      savaisTu={<>💡 <b style={{ color: HIST }}>Le savais-tu ?</b> Le Nil est l'un des plus longs fleuves du monde ! On y naviguait déjà sur des barques, les felouques.</>}
+    />
   );
 }
 
@@ -364,41 +308,27 @@ export function EgyptePharaonDiapo() {
 }
 
 export function EgyptePharaonLecon() {
-  const BOREL = "'Borel', cursive";
-  const Num = ({ n }: { n: number }) => (
-    <span style={{ display: "inline-flex", width: "7mm", height: "7mm", borderRadius: "50%", background: HIST, color: "#fff", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "13px", alignItems: "center", justifyContent: "center", verticalAlign: "middle", marginRight: "2mm" }}>{n}</span>
-  );
-  const kw = { color: HIST, fontWeight: 400 } as const; // mot-clé souligné à la main
-  const Mot = ({ children }: { children: React.ReactNode }) => <b style={{ color: HIST, borderBottom: `2px solid ${HIST}` }}>{children}</b>;
-  return (
-    <div className="fiche-a4" style={{ background: "#fffdf9", color: "#1a1a1a", boxSizing: "border-box", fontFamily: BOREL, display: "flex", flexDirection: "column" }}>
-      {/* Titre */}
-      <div style={{ textAlign: "center", marginBottom: "3mm" }}>
-        <h1 style={{ fontSize: "40px", margin: 0, color: HIST, fontFamily: BOREL, lineHeight: 1.1 }}>👑 Le pharaon et les pyramides 🔺</h1>
-        <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11px", fontWeight: 800, color: "#92400e", letterSpacing: "0.12em" }}>HISTOIRE · L'ÉGYPTE DE L'ANTIQUITÉ</div>
-      </div>
-      {/* Images */}
-      <div style={{ display: "flex", gap: "5mm", marginBottom: "4mm" }}>
-        <div style={{ flex: 1 }}>
-          <div style={{ border: `3px solid ${HIST}`, borderRadius: "3mm", overflow: "hidden" }}><WikiImage title="Pyramides de Gizeh" alt="les pyramides de Gizeh" accent={HIST} height="56mm" /></div>
-          <div style={{ textAlign: "center", fontSize: "16px", marginTop: "0.5mm" }}>les pyramides de Gizeh</div>
-        </div>
-        <div style={{ flex: 1 }}>
-          <div style={{ border: `3px solid ${HIST}`, borderRadius: "3mm", overflow: "hidden" }}><WikiImage title="Toutânkhamon" alt="masque d'or de Toutânkhamon" accent={HIST} height="56mm" /></div>
-          <div style={{ textAlign: "center", fontSize: "16px", marginTop: "0.5mm" }}>le masque d'or d'un pharaon</div>
-        </div>
-      </div>
-      {/* Texte façon cahier : marge rouge + paragraphes numérotés, écriture Borel */}
-      <div style={{ flex: 1, borderLeft: "2.5px solid #ef4444", paddingLeft: "7mm", display: "flex", flexDirection: "column", justifyContent: "space-evenly", fontSize: "20px", lineHeight: 1.7 }}>
-        <p style={{ margin: 0 }}><Num n={1} /> Il y a très longtemps, en Égypte, le roi s'appelait le <Mot>pharaon</Mot>. C'était l'homme le plus <b style={kw}>puissant</b> : tout le monde lui obéissait.</p>
-        <p style={{ margin: 0 }}><Num n={2} /> Quand le pharaon mourait, on lui construisait une <Mot>pyramide</Mot> : un immense <Mot>tombeau</Mot> de pierre. Des milliers d'<b style={kw}>ouvriers</b> tiraient d'énormes blocs, il y a plus de <b style={kw}>4500 ans</b>.</p>
-        <p style={{ margin: 0 }}><Num n={3} /> On gardait le corps du pharaon : on en faisait une <Mot>momie</Mot>, placée dans la pyramide avec un <Mot>trésor</Mot>.</p>
-      </div>
-      {/* Le savais-tu ? */}
-      <div style={{ marginTop: "4mm", border: `2.5px solid ${HIST}`, borderRadius: "4mm", padding: "3mm 5mm", background: "#fff4e0", fontSize: "19px" }}>
-        💡 <b style={{ color: HIST }}>Le savais-tu ?</b> La plus grande pyramide, celle de Khéops, est encore debout aujourd'hui, après plus de 4500 ans !
-      </div>
+  const Img = ({ title, alt, leg }: { title: string; alt: string; leg: string }) => (
+    <div style={{ flex: 1 }}>
+      <div style={{ border: `3px solid ${HIST}`, borderRadius: "3mm", overflow: "hidden" }}><WikiImage title={title} alt={alt} accent={HIST} height="56mm" /></div>
+      <div style={{ textAlign: "center", fontSize: "15px", marginTop: "0.5mm", fontFamily: "'Borel',cursive" }}>{leg}</div>
     </div>
+  );
+  return (
+    <LeconCahier
+      titre="Le pharaon et les pyramides" emojiL="👑" emojiR="🔺" accent={HIST}
+      sousTitre="HISTOIRE · L'ÉGYPTE DE L'ANTIQUITÉ" visuelMaxH="66mm"
+      visuel={<div style={{ display: "flex", gap: "5mm", width: "100%" }}>
+        <Img title="Pyramides de Gizeh" alt="les pyramides de Gizeh" leg="les pyramides de Gizeh" />
+        <Img title="Toutânkhamon" alt="masque d'or de Toutânkhamon" leg="le masque d'or d'un pharaon" />
+      </div>}
+      points={[
+        { t: <>Il y a très longtemps, en Égypte, le roi s'appelait le <MotCle accent={HIST}>pharaon</MotCle>. C'était l'homme le plus <b>puissant</b> : tout le monde lui obéissait.</> },
+        { t: <>Quand le pharaon mourait, on lui construisait une <MotCle accent={HIST}>pyramide</MotCle> : un immense <MotCle accent={HIST}>tombeau</MotCle> de pierre, bâti par des milliers d'ouvriers il y a plus de 4500 ans.</> },
+        { t: <>On gardait le corps du pharaon : on en faisait une <MotCle accent={HIST}>momie</MotCle>, placée dans la pyramide avec un <MotCle accent={HIST}>trésor</MotCle>.</> },
+      ]}
+      savaisTu={<>💡 <b style={{ color: HIST }}>Le savais-tu ?</b> La plus grande pyramide, celle de Khéops, est encore debout aujourd'hui, après plus de 4500 ans !</>}
+    />
   );
 }
 

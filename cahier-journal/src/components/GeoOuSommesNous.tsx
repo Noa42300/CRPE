@@ -9,6 +9,7 @@ import { useRef, useState } from "react";
 import { requestFullscreen } from "../lib/board";
 import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
 import { CarteFrance, RoseDesVents } from "./CarteFrance";
+import { LeconCahier, MotCle } from "./LeconCahier";
 
 const GEO = "#0e7490";
 const CURSIVE = "'Caveat','Comic Neue',cursive";
@@ -121,25 +122,18 @@ export function GeoOuSommesNousDiapo() {
 
 export function GeoOuSommesNousLecon() {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "38px", margin: "0 0 2mm", textAlign: "center", fontWeight: 700, color: GEO, fontFamily: CURSIVE }}>Où sommes-nous ?</h1>
-      <div style={{ display: "flex", gap: "5mm", alignItems: "flex-start" }}>
-        <div style={{ flex: 1.15 }}>
-          <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm" }}>Sur la carte de France :</div>
-          <CarteFrance ara loire ecole nomARA rose width="100%" />
-          <Credit />
-        </div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm" }}>Je me situe (poupées russes) :</div>
-          <Emboitement />
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "2mm" }}><RoseDesVents size={120} /></div>
-          <div style={{ fontFamily: CURSIVE, fontSize: "15px", textAlign: "center" }}>la rose des vents : nord, sud, est, ouest</div>
-        </div>
-      </div>
-      <div style={{ marginTop: "3mm", border: `2px dashed ${GEO}`, borderRadius: "3mm", padding: "2.5mm 5mm", fontFamily: CURSIVE, fontSize: "18px", textAlign: "center" }}>
-        J'habite à <b>Saint-Priest-en-Jarez</b>, dans la <b>Loire</b>, en <b>Auvergne-Rhône-Alpes</b>, en <b>France</b> (en Europe).
-      </div>
-    </div>
+    <LeconCahier
+      titre="Où sommes-nous ?" emojiL="📍" emojiR="🇫🇷" accent={GEO} variant="cote"
+      sousTitre="GÉOGRAPHIE · SE REPÉRER DANS L'ESPACE"
+      visuel={<CarteFrance ara loire ecole nomARA rose width="100%" />}
+      visuelMaxH="150mm"
+      points={[
+        { t: <>J'habite en <MotCle accent={GEO}>France</MotCle>, un pays d'<b>Europe</b>.</> },
+        { t: <>Pour me situer, je fais comme des <b>poupées russes</b> : ma <MotCle accent={GEO}>commune</MotCle> (Saint-Priest-en-Jarez) → mon <b>département</b> (la Loire, 42) → ma <MotCle accent={GEO}>région</MotCle> (Auvergne-Rhône-Alpes) → mon <b>pays</b> (la France).</> },
+        { t: <>Pour dire où se trouve un lieu, j'utilise la <MotCle accent={GEO}>rose des vents</MotCle> : nord, sud, est, ouest.</> },
+      ]}
+      savaisTu={<>💡 <b style={{ color: GEO }}>Je retiens :</b> j'habite à Saint-Priest-en-Jarez, dans la Loire, en Auvergne-Rhône-Alpes, en France (en Europe).</>}
+    />
   );
 }
 

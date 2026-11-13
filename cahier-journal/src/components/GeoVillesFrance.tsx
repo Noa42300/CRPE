@@ -10,6 +10,7 @@ import { requestFullscreen } from "../lib/board";
 import { FRANCE_MAP } from "./carteFranceData";
 import { RoseDesVents } from "./CarteFrance";
 import { FicheModele, SectionBar, Exo } from "./ficheModele";
+import { LeconCahier, MotCle } from "./LeconCahier";
 
 const GEO = "#0e7490";
 const CURSIVE = "'Caveat','Comic Neue',cursive";
@@ -133,25 +134,18 @@ export function CarteVillesAApprendre() {
 
 export function GeoVillesLecon() {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "34px", margin: "0 0 2mm", textAlign: "center", fontWeight: 700, color: GEO, fontFamily: CURSIVE }}>Se situer : les villes de France</h1>
-      <div style={{ display: "flex", gap: "4mm", alignItems: "flex-start" }}>
-        <div style={{ flex: 1.2 }}><CarteVilles /><Credit /></div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "13px", color: GEO }}>Je me repère :</div>
-          <div style={{ fontFamily: CURSIVE, fontSize: "17px", lineHeight: 1.5, marginTop: "1mm" }}>
-            • Au <b>nord</b> : Lille, Paris.<br />
-            • Au <b>sud</b> : Marseille, Nice, Toulouse.<br />
-            • À l'<b>est</b> : Strasbourg, Lyon, <b style={{ color: "#dc2626" }}>Saint-Étienne</b>.<br />
-            • À l'<b>ouest</b> : Nantes, Bordeaux, Rennes.
-          </div>
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "2mm" }}><RoseDesVents size={110} /></div>
-        </div>
-      </div>
-      <div style={{ marginTop: "2mm", border: `2px dashed ${GEO}`, borderRadius: "3mm", padding: "2.5mm 5mm", fontFamily: CURSIVE, fontSize: "18px", textAlign: "center", background: "#ecfeff" }}>
-        Pour dire où est une ville, j'utilise : au <b>nord</b>, au <b>sud</b>, à l'<b>est</b>, à l'<b>ouest</b> (ou nord-est, sud-ouest…).
-      </div>
-    </div>
+    <LeconCahier
+      titre="Les villes de France" emojiL="🇫🇷" emojiR="🏙️" accent={GEO} variant="cote"
+      sousTitre="GÉOGRAPHIE · SE SITUER SUR UNE CARTE"
+      visuel={<CarteVilles width="100%" />} visuelMaxH="150mm"
+      legende="Fond de carte © amCharts (licence libre)"
+      points={[
+        { t: <>La France a de grandes <MotCle accent={GEO}>villes</MotCle>. Pour dire où elles se trouvent, j'utilise les <MotCle accent={GEO}>points cardinaux</MotCle> : nord, sud, est, ouest.</> },
+        { t: <>Au <b>nord</b> : Lille, Paris. &nbsp; Au <b>sud</b> : Marseille, Nice, Toulouse.</> },
+        { t: <>À l'<b>est</b> : Strasbourg, Lyon, <b style={{ color: "#dc2626" }}>Saint-Étienne</b> (notre ville). &nbsp; À l'<b>ouest</b> : Nantes, Bordeaux, Rennes.</> },
+      ]}
+      savaisTu={<>💡 <b style={{ color: GEO }}>Je retiens :</b> on peut aussi dire <b>nord-est</b>, <b>sud-ouest</b>… Notre ville, Saint-Étienne, est à l'est, tout près de Lyon.</>}
+    />
   );
 }
 
