@@ -127,8 +127,17 @@ export function DicteeHiverFiche() {
  * ==================================================================== */
 const MOTS_ANI_CE1 = ["un renard", "une souris", "un lapin", "un ours", "la forêt", "la neige", "le froid", "une patte"];
 const MOTS_ANI_CE2 = [...MOTS_ANI_CE1, "un hérisson", "la fourrure", "se cacher"];
-const TEXTE_ANI_CE1 = "C'est l'hiver dans la forêt. Le renard et le lapin ont froid. La petite souris se cache sous la neige.";
-const TEXTE_ANI_CE2_EN_PLUS = "L'ours dort tout l'hiver dans sa tanière. Le hérisson roule en boule pour avoir chaud.";
+// Même corpus, 2 dictées sur 2 jours. On retravaille « c'est » et les accords.
+const TEXTE_ANI = {
+  1: {
+    ce1: "C'est l'hiver dans la forêt. Le renard et le lapin ont froid. La petite souris se cache sous la neige.",
+    plus: "L'ours dort dans sa tanière. Le hérisson roule en boule pour avoir chaud.",
+  },
+  2: {
+    ce1: "Dans la forêt, le renard court vite sur ses pattes. La souris et le lapin se cachent sous la neige. C'est le froid de l'hiver.",
+    plus: "L'ours a une épaisse fourrure. Le hérisson pique quand on le touche.",
+  },
+} as const;
 
 export function MotsFlashAnimauxDiapo() {
   const [i, setI] = useState(0);
@@ -137,7 +146,7 @@ export function MotsFlashAnimauxDiapo() {
   return (
     <div ref={ref} className="flex w-[92vw] max-w-[900px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
       <div className="flex items-center gap-3 px-4 py-2" style={{ background: VERT }}>
-        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Mots flash · les animaux en hiver</span>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Mots flash · les animaux</span>
         <span className="ml-2 text-xs font-bold text-white/80">{i + 1}/{mots.length}</span>
         <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
       </div>
@@ -153,23 +162,25 @@ export function MotsFlashAnimauxDiapo() {
   );
 }
 
-export function DicteeAnimauxFiche() {
+export function DicteeAnimauxFiche({ jour = 1 }: { jour?: 1 | 2 }) {
+  const t = TEXTE_ANI[jour];
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
       <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "5mm 6mm", minHeight: "272mm", boxSizing: "border-box" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: "2px solid #111", paddingBottom: "1.5mm", marginBottom: "3mm" }}>
-          <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>Dictée — les animaux en hiver</h1>
+          <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>Dictée — les animaux <span style={{ fontSize: "16px" }}>(jour {jour})</span></h1>
           <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .................. &nbsp; Date : ............</span>
         </div>
+        <div style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT, color: VERT, marginBottom: "2mm" }}>Je fais attention : <b>c'est</b> et les <b>accords</b> (le / les, s au pluriel).</div>
         <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT }}>Les mots</div>
         <Lignes n={4} />
         <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "4mm" }}>La dictée</div>
-        <Lignes n={10} />
+        <Lignes n={9} />
         <div style={{ marginTop: "5mm", fontSize: "10px", color: "#64748b", fontFamily: CONSIGNE_FONT, lineHeight: 1.6 }}>
-          <b>Réservé à l'enseignant</b> — Mots CE1 : {MOTS_ANI_CE1.join(" · ")}. Mots CE2 (en plus) : {MOTS_ANI_CE2.slice(MOTS_ANI_CE1.length).join(" · ")}.<br />
-          <b>Texte CE1 :</b> {TEXTE_ANI_CE1}<br />
-          <b>Texte CE2 :</b> {TEXTE_ANI_CE1} <span style={{ fontWeight: 700, color: "#111" }}>{TEXTE_ANI_CE2_EN_PLUS}</span>
-          <br /><span style={{ fontStyle: "italic" }}>(Le texte reste côté enseignant ; l'élève écrit sur sa feuille. Cahier de dictée vert.)</span>
+          <b>Réservé à l'enseignant</b> — Mots (mêmes sur les 2 jours) CE1 : {MOTS_ANI_CE1.join(" · ")}. Mots CE2 (en plus) : {MOTS_ANI_CE2.slice(MOTS_ANI_CE1.length).join(" · ")}.<br />
+          <b>Texte CE1 (jour {jour}) :</b> {t.ce1}<br />
+          <b>Texte CE2 (jour {jour}) :</b> {t.ce1} <span style={{ fontWeight: 700, color: "#111" }}>{t.plus}</span>
+          <br /><span style={{ fontStyle: "italic" }}>(Même corpus de mots les 2 jours ; texte différent. Le texte reste côté enseignant ; l'élève écrit sur sa feuille. Cahier de dictée vert.)</span>
         </div>
       </div>
     </div>

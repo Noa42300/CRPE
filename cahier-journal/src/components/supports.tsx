@@ -28,7 +28,7 @@ import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
 import { FormesPhrasesDiapo, FormesPhrasesLecon, FormesPhrasesDecouverte, FicheFormesCE1, FicheFormesCE2, FicheRevisionTypesFormesCE1, FicheRevisionTypesFormesCE2, EvalTypesFormesCE1, EvalTypesFormesCE2 } from "./FormesDePhrases";
 import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2, SuiteNombresDiapo, SuiteNombresLecon, FicheSuiteCE1, FicheSuiteCE2, EvalCollectionCE1, EvalCollectionCE2 } from "./Numeration";
 import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
-import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre } from "./GeoVillesFrance";
+import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre, CarteVillesMuetteFiche } from "./GeoVillesFrance";
 import { PoesieHiverDiapo, PoesieHiverFiche } from "./PoesieHiver";
 import { AnglaisHiverDiapo, AnglaisHiverCorpus } from "./AnglaisHiver";
 import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVetementsFiche, MotsFlashAnimauxDiapo, DicteeAnimauxFiche } from "./DicteeFlash";
@@ -1512,14 +1512,20 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m17geo":
       return [
+        { key: "gv-muette", label: "Les villes de France — Carte à compléter (placer les villes)", node: <CarteVillesMuetteFiche /> },
         { key: "fe-diapo", label: "La France en Europe — Diaporama (à projeter)", node: <GeoFranceEuropeDiapo /> },
         { key: "fe-lecon", label: "La France en Europe — Leçon à coller", node: <GeoFranceEuropeLecon /> },
         { key: "fe-exos", label: "La France en Europe — Exercices (carte muette)", node: <GeoFranceEuropeExos /> },
       ];
+    case "l16dic":
+      return [
+        { key: "dica-flash", label: "Mots flash — les animaux (ardoise, à projeter) — mêmes mots lundi & mardi", node: <MotsFlashAnimauxDiapo /> },
+        { key: "dica-fiche1", label: "Dictée — les animaux (jour 1 / lundi) — feuille élève", node: <DicteeAnimauxFiche jour={1} /> },
+      ];
     case "m17dic":
       return [
-        { key: "dic3-flash", label: "Mots flash — les animaux en hiver (ardoise, à projeter)", node: <MotsFlashAnimauxDiapo /> },
-        { key: "dic3-fiche", label: "Dictée — les animaux en hiver (feuille élève)", node: <DicteeAnimauxFiche /> },
+        { key: "dica-flash2", label: "Mots flash — les animaux (ardoise, à projeter) — mêmes mots que lundi", node: <MotsFlashAnimauxDiapo /> },
+        { key: "dica-fiche2", label: "Dictée — les animaux (jour 2 / mardi) — feuille élève", node: <DicteeAnimauxFiche jour={2} /> },
       ];
     case "g03":
       return [
