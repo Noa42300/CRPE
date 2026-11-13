@@ -11747,6 +11747,27 @@
    "updatedAt": 1790600000003
   },
   {
+   "date": "2026-12-18",
+   "createdAt": 1794160000000,
+   "updatedAt": 1794160000000,
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": [],
+    "rappels": [
+     {
+      "id": "rap-20261218-eval-peac",
+      "texte": "Évaluation M2 MEE — projet interdisciplinaire en lien avec le PEAC (écrit, 1 h)",
+      "type": "rdv"
+     }
+    ],
+    "devoirs": ""
+   },
+   "slots": []
+  },
+  {
    "date": "2027-01-12",
    "info": {
     "effectifPrevu": 23,
