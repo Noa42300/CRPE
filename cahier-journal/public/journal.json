@@ -11675,6 +11675,11 @@
       "id": "rap-20261204-devoir-irs-ei",
       "texte": "Devoir IRS/EI à rendre : identifier une difficulté dans la conception d'une séance d'apprentissage",
       "type": "autre"
+     },
+     {
+      "id": "rap-20261204-visite-corbusier",
+      "texte": "Visite du site Le Corbusier",
+      "type": "rdv"
      }
     ],
     "devoirs": ""
