@@ -9978,523 +9978,6 @@
    "updatedAt": 1790703000005
   },
   {
-   "date": "2026-11-18",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261118-formation-pes-montbrison",
-      "texte": "Formation PES — Entrée dans le métier (session 2/3) · 9h-12h · École Estiallet, 10 rue de la blanchisserie, 42600 Montbrison",
-      "type": "reunion",
-      "heure": "09:00"
-     },
-     {
-      "id": "rap-20261118-om-emargement",
-      "texte": "Apporter l'ordre de mission (OM) imprimé + le laisser au formateur avec la feuille d'émargement (obligatoire pour le remboursement des frais).",
-      "type": "autre",
-      "heure": "09:00"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790318817545,
-   "updatedAt": 1790321446071
-  },
-  {
-   "date": "2026-11-24",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261124-cm-maternelle",
-      "texte": "CM maternelle",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000007
-  },
-  {
-   "date": "2026-11-30",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261130-cm-ebep-c2",
-      "texte": "CM EBEP C2",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000008
-  },
-  {
-   "date": "2026-12-01",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261201-cm-ebep-c3",
-      "texte": "CM EBEP C3",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000009
-  },
-  {
-   "date": "2026-12-07",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261207-ess-4-entretiens-9h15-10",
-      "texte": "ESS — 4 entretiens (9h15 · 10h00 · 10h45 · 11h30)",
-      "type": "reunion"
-     },
-     {
-      "id": "rap-20261207-vente-lire-demain-10-sem",
-      "texte": "Vente Lire Demain (−10%) — semaine du 7 au 11",
-      "type": "autre"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000010
-  },
-  {
-   "date": "2026-12-08",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261208-cm-ebep-c1",
-      "texte": "CM EBEP C1",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000011
-  },
-  {
-   "date": "2026-12-14",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-ppms-1412",
-      "texte": "PPMS risque majeur — exercice",
-      "type": "securite"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790600000000,
-   "updatedAt": 1790600000003
-  },
-  {
-   "date": "2027-01-12",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270112-cm-elementaire",
-      "texte": "CM élémentaire",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000012
-  },
-  {
-   "date": "2027-01-18",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-incendie-1801",
-      "texte": "Exercice incendie — évacuation",
-      "type": "securite"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790600000000,
-   "updatedAt": 1790600000004
-  },
-  {
-   "date": "2027-01-19",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270119-cm-maternelle",
-      "texte": "CM maternelle",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000013
-  },
-  {
-   "date": "2027-01-25",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270125-cm-ebep-c2",
-      "texte": "CM EBEP C2",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000014
-  },
-  {
-   "date": "2027-01-26",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270126-cm-ebep-c3",
-      "texte": "CM EBEP C3",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000015
-  },
-  {
-   "date": "2027-02-02",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270202-cm-ebep-c1",
-      "texte": "CM EBEP C1",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000016
-  },
-  {
-   "date": "2027-03-02",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270302-cm-elementaire",
-      "texte": "CM élémentaire",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000017
-  },
-  {
-   "date": "2027-03-09",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270309-cm-maternelle",
-      "texte": "CM maternelle",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000018
-  },
-  {
-   "date": "2027-03-15",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270315-cm-ebep-c2",
-      "texte": "CM EBEP C2",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000019
-  },
-  {
-   "date": "2027-03-16",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270316-cm-ebep-c3",
-      "texte": "CM EBEP C3",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000020
-  },
-  {
-   "date": "2027-03-23",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270323-cm-ebep-c1",
-      "texte": "CM EBEP C1",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000021
-  },
-  {
-   "date": "2027-04-05",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-incendie-0504",
-      "texte": "Exercice incendie — évacuation",
-      "type": "securite"
-     },
-     {
-      "id": "rap-ess-0504",
-      "texte": "ESS — 3 entretiens (9h15 · 10h00 · 10h45)",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790600000000,
-   "updatedAt": 1790600000005
-  },
-  {
-   "date": "2027-05-11",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270511-cm-maternelle",
-      "texte": "CM maternelle",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000022
-  },
-  {
-   "date": "2027-05-18",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270518-cm-elementaire",
-      "texte": "CM élémentaire",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000023
-  },
-  {
-   "date": "2027-05-24",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270524-cm-ebep-c2",
-      "texte": "CM EBEP C2",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000024
-  },
-  {
-   "date": "2027-05-25",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270525-cm-ebep-c3",
-      "texte": "CM EBEP C3",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000025
-  },
-  {
-   "date": "2027-06-08",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270608-cm-ebep-c1",
-      "texte": "CM EBEP C1",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000026
-  },
-  {
-   "date": "2027-06-22",
-   "info": {
-    "effectifPrevu": 23,
-    "presents": null,
-    "absents": null,
-    "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20270622-conseil-d-ecole-n3",
-      "texte": "Conseil d'école n°3",
-      "type": "reunion"
-     }
-    ],
-    "events": []
-   },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000027
-  },
-  {
    "date": "2026-11-09",
    "createdAt": 1794155782210,
    "updatedAt": 1794155782210,
@@ -12089,6 +11572,544 @@
      ]
     }
    ]
+  },
+  {
+   "date": "2026-11-18",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261118-formation-pes-montbrison",
+      "texte": "Formation PES — Entrée dans le métier (session 2/3) · 9h-12h · École Estiallet, 10 rue de la blanchisserie, 42600 Montbrison",
+      "type": "reunion",
+      "heure": "09:00"
+     },
+     {
+      "id": "rap-20261118-om-emargement",
+      "texte": "Apporter l'ordre de mission (OM) imprimé + le laisser au formateur avec la feuille d'émargement (obligatoire pour le remboursement des frais).",
+      "type": "autre",
+      "heure": "09:00"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790318817545,
+   "updatedAt": 1790321446071
+  },
+  {
+   "date": "2026-11-24",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261124-cm-maternelle",
+      "texte": "CM maternelle",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000007
+  },
+  {
+   "date": "2026-11-30",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261130-cm-ebep-c2",
+      "texte": "CM EBEP C2",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000008
+  },
+  {
+   "date": "2026-12-01",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261201-cm-ebep-c3",
+      "texte": "CM EBEP C3",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000009
+  },
+  {
+   "date": "2026-12-04",
+   "createdAt": 1794160000000,
+   "updatedAt": 1794160000000,
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "events": [],
+    "rappels": [
+     {
+      "id": "rap-20261204-devoir-irs-ei",
+      "texte": "Devoir IRS/EI à rendre : identifier une difficulté dans la conception d'une séance d'apprentissage",
+      "type": "autre"
+     }
+    ],
+    "devoirs": ""
+   },
+   "slots": []
+  },
+  {
+   "date": "2026-12-07",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261207-ess-4-entretiens-9h15-10",
+      "texte": "ESS — 4 entretiens (9h15 · 10h00 · 10h45 · 11h30)",
+      "type": "reunion"
+     },
+     {
+      "id": "rap-20261207-vente-lire-demain-10-sem",
+      "texte": "Vente Lire Demain (−10%) — semaine du 7 au 11",
+      "type": "autre"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000010
+  },
+  {
+   "date": "2026-12-08",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20261208-cm-ebep-c1",
+      "texte": "CM EBEP C1",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000011
+  },
+  {
+   "date": "2026-12-14",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-ppms-1412",
+      "texte": "PPMS risque majeur — exercice",
+      "type": "securite"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790600000000,
+   "updatedAt": 1790600000003
+  },
+  {
+   "date": "2027-01-12",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270112-cm-elementaire",
+      "texte": "CM élémentaire",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000012
+  },
+  {
+   "date": "2027-01-18",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-incendie-1801",
+      "texte": "Exercice incendie — évacuation",
+      "type": "securite"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790600000000,
+   "updatedAt": 1790600000004
+  },
+  {
+   "date": "2027-01-19",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270119-cm-maternelle",
+      "texte": "CM maternelle",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000013
+  },
+  {
+   "date": "2027-01-25",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270125-cm-ebep-c2",
+      "texte": "CM EBEP C2",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000014
+  },
+  {
+   "date": "2027-01-26",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270126-cm-ebep-c3",
+      "texte": "CM EBEP C3",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000015
+  },
+  {
+   "date": "2027-02-02",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270202-cm-ebep-c1",
+      "texte": "CM EBEP C1",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000016
+  },
+  {
+   "date": "2027-03-02",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270302-cm-elementaire",
+      "texte": "CM élémentaire",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000017
+  },
+  {
+   "date": "2027-03-09",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270309-cm-maternelle",
+      "texte": "CM maternelle",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000018
+  },
+  {
+   "date": "2027-03-15",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270315-cm-ebep-c2",
+      "texte": "CM EBEP C2",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000019
+  },
+  {
+   "date": "2027-03-16",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270316-cm-ebep-c3",
+      "texte": "CM EBEP C3",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000020
+  },
+  {
+   "date": "2027-03-23",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270323-cm-ebep-c1",
+      "texte": "CM EBEP C1",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000021
+  },
+  {
+   "date": "2027-04-05",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-incendie-0504",
+      "texte": "Exercice incendie — évacuation",
+      "type": "securite"
+     },
+     {
+      "id": "rap-ess-0504",
+      "texte": "ESS — 3 entretiens (9h15 · 10h00 · 10h45)",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790600000000,
+   "updatedAt": 1790600000005
+  },
+  {
+   "date": "2027-05-11",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270511-cm-maternelle",
+      "texte": "CM maternelle",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000022
+  },
+  {
+   "date": "2027-05-18",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270518-cm-elementaire",
+      "texte": "CM élémentaire",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000023
+  },
+  {
+   "date": "2027-05-24",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270524-cm-ebep-c2",
+      "texte": "CM EBEP C2",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000024
+  },
+  {
+   "date": "2027-05-25",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270525-cm-ebep-c3",
+      "texte": "CM EBEP C3",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000025
+  },
+  {
+   "date": "2027-06-08",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270608-cm-ebep-c1",
+      "texte": "CM EBEP C1",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000026
+  },
+  {
+   "date": "2027-06-22",
+   "info": {
+    "effectifPrevu": 23,
+    "presents": null,
+    "absents": null,
+    "absentsNames": "",
+    "rappels": [
+     {
+      "id": "rap-20270622-conseil-d-ecole-n3",
+      "texte": "Conseil d'école n°3",
+      "type": "reunion"
+     }
+    ],
+    "events": []
+   },
+   "slots": [],
+   "createdAt": 1790700000000,
+   "updatedAt": 1790700000027
   }
  ],
  "templates": [],
