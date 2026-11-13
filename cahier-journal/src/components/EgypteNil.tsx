@@ -364,33 +364,39 @@ export function EgyptePharaonDiapo() {
 }
 
 export function EgyptePharaonLecon() {
-  const Pastille = ({ e, t }: { e: string; t: React.ReactNode }) => (
-    <div style={{ display: "flex", alignItems: "center", gap: "2mm", border: `2px solid ${HIST}`, borderRadius: "3mm", padding: "1.2mm 2.5mm", background: "#fffdf8" }}>
-      <span style={{ fontSize: "20px" }}>{e}</span><span style={{ fontFamily: CURSIVE, fontSize: "15px", lineHeight: 1.2 }}>{t}</span>
-    </div>
+  const BOREL = "'Borel', cursive";
+  const Num = ({ n }: { n: number }) => (
+    <span style={{ display: "inline-flex", width: "7mm", height: "7mm", borderRadius: "50%", background: HIST, color: "#fff", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "13px", alignItems: "center", justifyContent: "center", verticalAlign: "middle", marginRight: "2mm" }}>{n}</span>
   );
-  const Titre = ({ children }: { children: React.ReactNode }) => (
-    <div style={{ background: HIST, color: "#fff", fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12.5px", textTransform: "uppercase", letterSpacing: "0.03em", borderRadius: "2mm", padding: "1mm 4mm", margin: "3mm 0 1.5mm" }}>{children}</div>
-  );
+  const kw = { color: HIST, fontWeight: 400 } as const; // mot-clé souligné à la main
+  const Mot = ({ children }: { children: React.ReactNode }) => <b style={{ color: HIST, borderBottom: `2px solid ${HIST}` }}>{children}</b>;
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "33px", margin: "0 0 0.5mm", textAlign: "center", fontWeight: 700, color: HIST, fontFamily: CURSIVE }}>Le pharaon et les pyramides</h1>
-      <div style={{ textAlign: "center", fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700, color: "#92400e", marginBottom: "2mm" }}>Histoire · l'Antiquité égyptienne</div>
-      <div style={{ display: "flex", gap: "4mm", alignItems: "flex-start" }}>
-        <div style={{ flex: 1 }}><WikiImage title="Pyramides de Gizeh" alt="les pyramides" accent={HIST} height="40mm" /></div>
-        <div style={{ flex: 1 }}><WikiImage title="Toutânkhamon" alt="masque d'or de Toutânkhamon" accent={HIST} height="40mm" /></div>
+    <div className="fiche-a4" style={{ background: "#fffdf9", color: "#1a1a1a", boxSizing: "border-box", fontFamily: BOREL, display: "flex", flexDirection: "column" }}>
+      {/* Titre */}
+      <div style={{ textAlign: "center", marginBottom: "3mm" }}>
+        <h1 style={{ fontSize: "40px", margin: 0, color: HIST, fontFamily: BOREL, lineHeight: 1.1 }}>👑 Le pharaon et les pyramides 🔺</h1>
+        <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11px", fontWeight: 800, color: "#92400e", letterSpacing: "0.12em" }}>HISTOIRE · L'ÉGYPTE DE L'ANTIQUITÉ</div>
       </div>
-      <Titre>Qui est le pharaon ?</Titre>
-      <div style={{ fontFamily: CURSIVE, fontSize: "17px", lineHeight: 1.4 }}>Le <b>pharaon</b> est le <b>roi</b> de l'Égypte, il y a très longtemps. C'est l'homme le plus <b>puissant</b> : tout le monde lui obéit.</div>
-      <Titre>Les pyramides</Titre>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5mm" }}>
-        <Pastille e="🔺" t="un immense tombeau de pierre" />
-        <Pastille e="👷" t="des milliers d'ouvriers" />
-        <Pastille e="⏳" t="il y a plus de 4500 ans" />
-        <Pastille e="💰" t="le pharaon, sa momie et son trésor" />
+      {/* Images */}
+      <div style={{ display: "flex", gap: "5mm", marginBottom: "4mm" }}>
+        <div style={{ flex: 1 }}>
+          <div style={{ border: `3px solid ${HIST}`, borderRadius: "3mm", overflow: "hidden" }}><WikiImage title="Pyramides de Gizeh" alt="les pyramides de Gizeh" accent={HIST} height="56mm" /></div>
+          <div style={{ textAlign: "center", fontSize: "16px", marginTop: "0.5mm" }}>les pyramides de Gizeh</div>
+        </div>
+        <div style={{ flex: 1 }}>
+          <div style={{ border: `3px solid ${HIST}`, borderRadius: "3mm", overflow: "hidden" }}><WikiImage title="Toutânkhamon" alt="masque d'or de Toutânkhamon" accent={HIST} height="56mm" /></div>
+          <div style={{ textAlign: "center", fontSize: "16px", marginTop: "0.5mm" }}>le masque d'or d'un pharaon</div>
+        </div>
       </div>
-      <div style={{ marginTop: "3mm", border: `2px dashed ${HIST}`, borderRadius: "3mm", padding: "2mm 4mm", background: "#fffbeb", fontFamily: CONSIGNE_FONT, fontSize: "12px", textAlign: "center" }}>
-        🔑 <b>Mots à retenir :</b> le pharaon · le roi · la pyramide · le tombeau · la momie · le trésor
+      {/* Texte façon cahier : marge rouge + paragraphes numérotés, écriture Borel */}
+      <div style={{ flex: 1, borderLeft: "2.5px solid #ef4444", paddingLeft: "7mm", display: "flex", flexDirection: "column", justifyContent: "space-evenly", fontSize: "20px", lineHeight: 1.7 }}>
+        <p style={{ margin: 0 }}><Num n={1} /> Il y a très longtemps, en Égypte, le roi s'appelait le <Mot>pharaon</Mot>. C'était l'homme le plus <b style={kw}>puissant</b> : tout le monde lui obéissait.</p>
+        <p style={{ margin: 0 }}><Num n={2} /> Quand le pharaon mourait, on lui construisait une <Mot>pyramide</Mot> : un immense <Mot>tombeau</Mot> de pierre. Des milliers d'<b style={kw}>ouvriers</b> tiraient d'énormes blocs, il y a plus de <b style={kw}>4500 ans</b>.</p>
+        <p style={{ margin: 0 }}><Num n={3} /> On gardait le corps du pharaon : on en faisait une <Mot>momie</Mot>, placée dans la pyramide avec un <Mot>trésor</Mot>.</p>
+      </div>
+      {/* Le savais-tu ? */}
+      <div style={{ marginTop: "4mm", border: `2.5px solid ${HIST}`, borderRadius: "4mm", padding: "3mm 5mm", background: "#fff4e0", fontSize: "19px" }}>
+        💡 <b style={{ color: HIST }}>Le savais-tu ?</b> La plus grande pyramide, celle de Khéops, est encore debout aujourd'hui, après plus de 4500 ans !
       </div>
     </div>
   );

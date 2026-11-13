@@ -11418,7 +11418,13 @@
     "absents": null,
     "absentsNames": "",
     "events": [],
-    "rappels": [],
+    "rappels": [
+     {
+      "id": "rap-20261116-pochette-autonomie",
+      "texte": "Donner une pochette (noire) aux CE1 pour ranger leur dossier d'autonomie",
+      "type": "autre"
+     }
+    ],
     "devoirs": "FRANÇAIS : apprendre la leçon sur les types ET les formes de phrases (ÉVALUATION demain). MATHS : revoir la suite des nombres — compter de 10 en 10 et de 100 en 100 (ÉVALUATION « dénombrer une collection » demain). Mots de dictée. Tables de 3 et de 4 (récitation)."
    },
    "slots": [
@@ -11579,14 +11585,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Français — Révision du vocabulaire + dictée",
-       "objectif": "Mémoriser l'orthographe de mots courants ; s'entraîner à écrire sous la dictée. On retravaille « c'est » et le verbe mettre.",
+       "title": "Français — Mots flash + dictée (les animaux · jour 1)",
+       "objectif": "Travail quotidien de vocabulaire : apprendre le corpus « les animaux » (mots flash sur ardoise) et l'écrire sous la dictée. On retravaille « c'est » et les accords.",
        "competence": "Écrire sous la dictée des mots et de courtes phrases ; orthographe (c'est, je mets / il met).",
        "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
        "progPeriode": "P2",
        "progDomaine": "",
-       "progSequence": "Orthographe — Dictée maison",
-       "progSeance": "Dictée (ardoise + feuille)",
+       "progSequence": "Orthographe / vocabulaire — Dictée maison (corpus sur 2 jours)",
+       "progSeance": "Les animaux — jour 1 (découverte du corpus + dictée 1)",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -11599,20 +11605,20 @@
         {
          "id": "l16d1",
          "label": "Mots flash sur l'ardoise (12 min)",
-         "note": "« Je projette un mot, vous le lisez, vous le mémorisez, puis je cache et vous l'écrivez sur l'ardoise. »\n« On vérifie ensemble lettre par lettre ; on fait attention à « c'est » et à « je mets / il met ». »\n« On fait revenir des mots de l'hiver : manteau, bonnet, écharpe, gants. »\n(je repère les mots les plus fragiles pour la dictée.)"
+         "note": "« Nouveau corpus cette semaine : les animaux. Je projette un mot, vous le lisez, je cache, vous l'écrivez sur l'ardoise. »\n« On vérifie ensemble lettre par lettre ; on montre son ardoise. »\n« Ce sont les mots qu'on travaille lundi ET mardi : il faut bien les mémoriser. »\n(je repère les mots fragiles.)"
         },
         {
          "id": "l16d2",
-         "label": "Dictée différenciée (18 min)",
-         "note": "« Je dicte lentement, vous écrivez sur votre feuille ; je relis à la fin pour vérifier. »\n« CE1, le texte court ; CE2, vous avez deux phrases en plus. »\n« On entoure dans sa tête : est-ce « c'est » ? est-ce « je mets » ou « il met » ? »\n(correction individualisée ; cahier de dictée vert.)"
+         "label": "Dictée 1 différenciée (18 min)",
+         "note": "« Je dicte le texte du jour 1, lentement ; vous écrivez sur votre feuille. »\n« Attention à « c'est » et aux accords : le / les, le s du pluriel. »\n« CE1 le texte court ; CE2 deux phrases en plus. »\n(correction individualisée ; cahier de dictée vert.)"
         }
        ],
-       "materiel": "Mots flash + feuille de dictée (voir supports « dictée », au cas où). Ardoise. Cahier de dictée vert.",
+       "materiel": "Mots flash « les animaux » (à projeter, ardoise) + feuille de dictée jour 1 — voir Documents à imprimer. Cahier de dictée vert.",
        "video": "",
-       "differenciation": "CE1 : mots + texte court. CE2 : mots en plus + deux phrases supplémentaires.",
+       "differenciation": "CE1 : mots + texte court. CE2 : mots en plus + 2 phrases. Même corpus que mardi.",
        "depassement": "",
-       "correction": "C'est l'hiver, il fait froid. Je mets mon manteau. Il met ses gants.",
-       "obstacles": "Erreurs fréquentes : « cest / sest » au lieu de « c'est » ; « mis » au lieu de « mets ». Remédiation : afficher les formes correctes au tableau et les faire épeler.",
+       "correction": "C'est l'hiver dans la forêt. Le renard et le lapin ont froid. La petite souris se cache sous la neige.",
+       "obstacles": "Erreurs fréquentes : « c'est » mal orthographié ; oublier le s du pluriel. Remédiation : afficher les formes et faire épeler.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -11989,14 +11995,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Français — Mots flash + dictée (les animaux en hiver)",
-       "objectif": "Mémoriser l'orthographe de mots (thème : les animaux en hiver) et s'entraîner à écrire sous la dictée.",
+       "title": "Français — Mots flash + dictée (les animaux · jour 2)",
+       "objectif": "Travail quotidien de vocabulaire : réviser le corpus « les animaux » (mêmes mots que lundi, ardoise) et l'écrire sous une 2e dictée. On consolide « c'est » et les accords.",
        "competence": "Écrire sous la dictée des mots et de courtes phrases ; mémoriser l'orthographe lexicale.",
        "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « grammaire et orthographe ».",
        "progPeriode": "P2",
        "progDomaine": "",
-       "progSequence": "Orthographe — Dictée maison",
-       "progSeance": "Dictée (ardoise + feuille)",
+       "progSequence": "Orthographe / vocabulaire — Dictée maison (corpus sur 2 jours)",
+       "progSeance": "Les animaux — jour 2 (révision du corpus + dictée 2)",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -12008,21 +12014,21 @@
        "deroulement": [
         {
          "id": "m17d1",
-         "label": "Mots flash sur l'ardoise (12 min)",
-         "note": "« Je projette un mot, vous le lisez, vous le mémorisez ; je cache, et vous l'écrivez sur l'ardoise. »\n« On vérifie ensemble lettre par lettre ; on montre son ardoise. »\n« On retrouve des mots de l'hiver : la neige, le froid, la forêt. »\n(je repère les mots fragiles avant de dicter.)"
+         "label": "Mots flash sur l'ardoise (10 min)",
+         "note": "« On reprend les mêmes mots qu'hier : les animaux. Je projette, vous écrivez sur l'ardoise. »\n« Cette fois, vous devez les connaître : on vérifie, on corrige les derniers pièges. »\n(révision rapide du corpus avant la dictée.)"
         },
         {
          "id": "m17d2",
-         "label": "Dictée différenciée (18 min)",
-         "note": "« Je dicte lentement, vous écrivez sur votre feuille ; je relis à la fin. »\n« CE1 : le texte court ; CE2 : deux phrases en plus (l'ours, le hérisson). »\n« On fait attention aux accords et aux points. »\n(correction individualisée ; cahier de dictée vert.)"
+         "label": "Dictée 2 différenciée (10 min)",
+         "note": "« Nouveau texte, mêmes mots : je dicte lentement, vous écrivez. »\n« On fait bien attention à « c'est » et aux accords. »\n« CE1 le texte court ; CE2 deux phrases en plus. »\n(correction individualisée ; cahier de dictée vert.)"
         }
        ],
-       "materiel": "Mots flash « les animaux en hiver » (à projeter) + feuille de dictée élève — voir Documents à imprimer. Ardoise. Cahier de dictée vert.",
+       "materiel": "Mots flash « les animaux » (mêmes mots que lundi, à projeter) + feuille de dictée jour 2 — voir Documents à imprimer. Cahier de dictée vert.",
        "video": "",
-       "differenciation": "CE1 : mots + texte court. CE2 : mots en plus + deux phrases supplémentaires. Élève à besoins : liste réduite, dictée à trous possible.",
+       "differenciation": "CE1 : mots + texte court. CE2 : mots en plus + 2 phrases. Même corpus que lundi, texte différent.",
        "depassement": "",
-       "correction": "C'est l'hiver dans la forêt. Le renard et le lapin ont froid. La petite souris se cache sous la neige.",
-       "obstacles": "Erreurs fréquentes : « c'est » mal orthographié ; oublier les accords (le lapin / les animaux). Remédiation : afficher les formes correctes et faire épeler.",
+       "correction": "Dans la forêt, le renard court vite sur ses pattes. La souris et le lapin se cachent sous la neige. C'est le froid de l'hiver.",
+       "obstacles": "Erreurs fréquentes : « c'est » ; accords au pluriel (ses pattes, se cachent). Remédiation : rappel des formes, épellation.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",

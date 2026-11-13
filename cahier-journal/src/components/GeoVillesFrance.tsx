@@ -183,3 +183,26 @@ export function GeoVillesExos() {
     </FicheModele>
   );
 }
+
+/* ---- Carte muette à compléter : placer les villes sur les points ---- */
+export function CarteVillesMuetteFiche() {
+  const noms = VILLES.map((v) => v.nom);
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `2px solid ${GEO}`, paddingBottom: "1.5mm", marginBottom: "2mm" }}>
+        <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE, color: GEO }}>Les villes de France — carte à compléter</h1>
+        <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : ..................</span>
+      </div>
+      <div style={{ fontSize: "13.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT, marginBottom: "2mm" }}>
+        <b>Écris</b> le nom de chaque ville sur le bon point. Aide-toi de la liste et de la rose des vents. <span style={{ color: "#dc2626" }}>Le point rouge, c'est Saint-Étienne (notre ville).</span>
+      </div>
+      <div style={{ width: "150mm", margin: "0 auto" }}><CarteVilles noms={false} ecole={true} rose={true} /></div>
+      <div style={{ marginTop: "3mm", border: `2px dashed ${GEO}`, borderRadius: "3mm", padding: "2.5mm 5mm", background: "#ecfeff" }}>
+        <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: GEO, marginBottom: "1mm" }}>Les villes à placer :</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "2mm 5mm", fontFamily: CURSIVE, fontSize: "18px" }}>
+          {noms.map((n) => <span key={n}>• {n}</span>)}
+        </div>
+      </div>
+    </div>
+  );
+}
