@@ -36,6 +36,7 @@ import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteF
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos, EgyptePharaonDiapo, EgyptePharaonLecon, EgyptePharaonExos } from "./EgypteNil";
 import { GeoFranceEuropeDiapo, GeoFranceEuropeLecon, GeoFranceEuropeExos } from "./GeoFranceEurope";
+import { EcritureMajusculesFiche } from "./EcritureMajuscules";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
@@ -1521,6 +1522,13 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "dica-flash", label: "Mots flash — les animaux (ardoise, à projeter) — mêmes mots lundi & mardi", node: <MotsFlashAnimauxDiapo /> },
         { key: "dica-fiche1", label: "Dictée — les animaux (jour 1 / lundi) — feuille élève", node: <DicteeAnimauxFiche jour={1} /> },
+      ];
+    case "l16ecr":
+      return [
+        { key: "maj-ag", label: "Atelier majuscules — A à G (Seyès)", node: <EcritureMajusculesFiche lettres={["A", "B", "C", "D", "E", "F", "G"]} /> },
+        { key: "maj-hn", label: "Atelier majuscules — H à N (Seyès)", node: <EcritureMajusculesFiche lettres={["H", "I", "J", "K", "L", "M", "N"]} /> },
+        { key: "maj-ou", label: "Atelier majuscules — O à U (Seyès)", node: <EcritureMajusculesFiche lettres={["O", "P", "Q", "R", "S", "T", "U"]} /> },
+        { key: "maj-vz", label: "Atelier majuscules — V à Z (Seyès)", node: <EcritureMajusculesFiche lettres={["V", "W", "X", "Y", "Z"]} /> },
       ];
     case "m17dic":
       return [

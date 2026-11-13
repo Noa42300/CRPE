@@ -11674,6 +11674,57 @@
      ]
     },
     {
+     "start": "14:30",
+     "end": "15:00",
+     "activities": [
+      {
+       "id": "l16ecr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Atelier d'écriture — les lettres majuscules",
+       "objectif": "Apprendre à tracer les lettres majuscules (capitales en attaché) : modèle, repassage, puis écriture autonome sur lignage Seyès.",
+       "competence": "Écrire en cursive les lettres majuscules ; maîtriser le geste graphique.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « écriture ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Écriture / graphisme",
+       "progSeance": "Atelier majuscules",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "modelage",
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l16e1",
+         "label": "Je montre le tracé (10 min)",
+         "note": "« Aujourd'hui, atelier d'écriture : les lettres MAJUSCULES, celles qu'on a du mal à faire. »\n« Je trace la lettre au tableau en expliquant le geste : par où je commence, où je monte, où je tourne. »\n« Vous suivez le modèle avec le doigt en l'air, puis vous repassez le modèle gris sur la feuille. »\n(je montre 2-3 lettres de la page du jour.)"
+        },
+        {
+         "id": "l16e2",
+         "label": "Je m'entraîne (20 min)",
+         "note": "« Vous repassez le modèle, puis vous continuez tout seuls sur la ligne. »\n« On tient bien son crayon, on pose son bras, on prend son temps : c'est l'application qui compte. »\n« À la fin, vous écrivez votre prénom avec une belle majuscule. »\n(je passe corriger la tenue et le geste ; différenciation : moins de lettres pour ceux qui peinent.)"
+        }
+       ],
+       "materiel": "Feuilles « Atelier majuscules » (Seyès, modèle à repasser) — voir Documents à imprimer. Crayon à papier bien taillé.",
+       "video": "",
+       "differenciation": "Élèves en difficulté : 2-3 lettres seulement, modèle repassé plusieurs fois, guidage de la main. Rapides : lettres suivantes + un mot avec majuscule.",
+       "depassement": "",
+       "correction": "Lettres majuscules formées d'un seul geste continu, posées sur la ligne, de bonne taille.",
+       "obstacles": "Erreurs fréquentes : lever le crayon au milieu de la lettre, mauvaise tenue, lettre trop petite/trop grande. Remédiation : reprise du geste au tableau, repassage lent, ligne Seyès comme repère.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
      "start": "15:40",
      "end": "16:15",
      "activities": [
