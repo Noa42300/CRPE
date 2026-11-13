@@ -9,7 +9,12 @@ import { CONSIGNE_FONT } from "./FichePedagogiqueA4";
 const NOIR = "#111";
 const CURSIVE = "'Caveat','Comic Neue',cursive";
 
-const NIVEAUX_LSU = ["Très bonne\nmaîtrise", "Maîtrise\nsatisfaisante", "Maîtrise\nfragile", "Maîtrise\ninsuffisante"];
+const NIVEAUX_LSU: { t: string; bg: string; c: string }[] = [
+  { t: "Très bonne\nmaîtrise", bg: "#dcfce7", c: "#15803d" },
+  { t: "Maîtrise\nsatisfaisante", bg: "#ecfccb", c: "#4d7c0f" },
+  { t: "Maîtrise\nfragile", bg: "#fef3c7", c: "#b45309" },
+  { t: "Maîtrise\ninsuffisante", bg: "#fee2e2", c: "#b91c1c" },
+];
 
 function Exo({ n, consigne, children }: { n: number; consigne: React.ReactNode; children: React.ReactNode }) {
   return (
@@ -20,22 +25,22 @@ function Exo({ n, consigne, children }: { n: number; consigne: React.ReactNode; 
   );
 }
 
-export function GrilleLSU({ competences }: { competences: string[] }) {
+export function GrilleLSU({ competences, accent = "#334155" }: { competences: string[]; accent?: string }) {
   return (
-    <div style={{ marginTop: "3mm" }}>
-      <div style={{ fontSize: "12px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginBottom: "1mm", textTransform: "uppercase", letterSpacing: "0.03em" }}>Réservé à l'enseignant — compétences (LSU)</div>
+    <div style={{ marginTop: "4mm", border: `1.5px solid ${accent}`, borderRadius: "2mm", overflow: "hidden" }}>
+      <div style={{ background: accent, color: "#fff", fontSize: "11px", fontWeight: 800, fontFamily: CONSIGNE_FONT, letterSpacing: "0.04em", padding: "1.3mm 3mm" }}>Bilan de compétences — réservé au maître</div>
       <table style={{ borderCollapse: "collapse", width: "100%", fontFamily: CONSIGNE_FONT }}>
         <thead>
           <tr>
-            <th style={{ border: `1px solid ${NOIR}`, textAlign: "left", padding: "1.5mm", fontSize: "11px", background: "#f1f5f9" }}>Compétence</th>
-            {NIVEAUX_LSU.map((n) => <th key={n} style={{ border: `1px solid ${NOIR}`, padding: "1mm", fontSize: "9px", width: "22mm", whiteSpace: "pre-line", background: "#f1f5f9" }}>{n}</th>)}
+            <th style={{ border: "1px solid #cbd5e1", textAlign: "left", padding: "1.3mm 3mm", fontSize: "10.5px", background: "#fff", fontWeight: 700 }}>Ce que je sais faire</th>
+            {NIVEAUX_LSU.map((n) => <th key={n.t} style={{ border: "1px solid #cbd5e1", padding: "1mm", fontSize: "8.5px", width: "22mm", whiteSpace: "pre-line", background: n.bg, color: n.c, fontWeight: 800 }}>{n.t}</th>)}
           </tr>
         </thead>
         <tbody>
-          {competences.map((c) => (
+          {competences.map((c, i) => (
             <tr key={c}>
-              <td style={{ border: `1px solid ${NOIR}`, padding: "1.5mm", fontSize: "11px" }}>{c}</td>
-              {NIVEAUX_LSU.map((n) => <td key={n} style={{ border: `1px solid ${NOIR}`, textAlign: "center" }}><span style={{ display: "inline-block", width: "4mm", height: "4mm", border: `1.4px solid #555`, borderRadius: "50%" }} /></td>)}
+              <td style={{ border: "1px solid #cbd5e1", padding: "1.4mm 3mm", fontSize: "10.5px", background: i % 2 ? "#f8fafc" : "#fff" }}>{c}</td>
+              {NIVEAUX_LSU.map((n) => <td key={n.t} style={{ border: "1px solid #cbd5e1", textAlign: "center", background: i % 2 ? "#f8fafc" : "#fff" }}><span style={{ display: "inline-block", width: "4mm", height: "4mm", border: `1.5px solid ${n.c}`, borderRadius: "1px" }} /></td>)}
             </tr>
           ))}
         </tbody>
@@ -44,16 +49,24 @@ export function GrilleLSU({ competences }: { competences: string[] }) {
   );
 }
 
-export function EvalFrame({ titre, niveau, duree = "~20 min", children }: { titre: string; niveau: string; duree?: string; children: React.ReactNode }) {
+export function EvalFrame({ titre, niveau, duree = "~20 min", competence, accent = "#334155", children }: { titre: string; niveau: string; duree?: string; competence?: string; accent?: string; children: React.ReactNode }) {
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: NOIR, boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <div style={{ border: `2.5px solid ${NOIR}`, borderRadius: "2mm", padding: "5mm 6mm", minHeight: "272mm", boxSizing: "border-box", display: "flex", flexDirection: "column" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `2px solid ${NOIR}`, paddingBottom: "1.5mm", marginBottom: "3mm" }}>
-          <div><h1 style={{ fontSize: "22px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>{titre}</h1><span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Évaluation · {niveau} · {duree}</span></div>
-          <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .................. &nbsp; Date : ............</span>
+    <div className="fiche-a4" style={{ background: "#fff", color: NOIR, boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif", display: "flex", flexDirection: "column" }}>
+      {/* Bandeau titre */}
+      <div style={{ background: accent, color: "#fff", borderRadius: "2mm", padding: "2.5mm 5mm", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <div style={{ fontSize: "9.5px", fontWeight: 800, letterSpacing: "0.22em", opacity: 0.85 }}>ÉVALUATION</div>
+          <div style={{ fontSize: "21px", fontWeight: 800, lineHeight: 1.1 }}>{titre}</div>
         </div>
-        <div style={{ flex: 1 }}>{children}</div>
+        <div style={{ textAlign: "right", fontSize: "13px", fontWeight: 800 }}>{niveau}<div style={{ fontSize: "10.5px", fontWeight: 600, opacity: 0.85 }}>{duree}</div></div>
       </div>
+      {/* Prénom / Date */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `1.5px solid ${accent}`, padding: "2.5mm 1mm 2mm", fontSize: "12.5px", fontFamily: CONSIGNE_FONT, fontWeight: 700 }}>
+        <span>Prénom : ....................................</span>
+        <span>Date : ....................</span>
+      </div>
+      {competence && <div style={{ fontSize: "10.5px", fontFamily: CONSIGNE_FONT, color: "#64748b", fontStyle: "italic", margin: "1.5mm 1mm 0" }}>Compétence évaluée : {competence}</div>}
+      <div style={{ flex: 1, marginTop: "3mm" }}>{children}</div>
     </div>
   );
 }
