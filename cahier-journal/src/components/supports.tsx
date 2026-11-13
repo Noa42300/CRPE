@@ -37,6 +37,7 @@ import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos, EgyptePharaonDiapo, EgyptePharaonLecon, EgyptePharaonExos } from "./EgypteNil";
 import { GeoFranceEuropeDiapo, GeoFranceEuropeLecon, GeoFranceEuropeExos } from "./GeoFranceEurope";
 import { EcritureMajusculesFiche } from "./EcritureMajuscules";
+import { TablePythagoreFiche } from "./TablePythagore";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
 import { ComparerDiapo, SolideLiquideDiapo, SolideLiquideLecon, DeterminantsLecon, DeterminantsDemoPossDiapo, DeterminantsDemoPossLecon, LeNomLecon } from "./MardiSupports";
 import { GenreNombreDiapo, GenreNombreLecon } from "./GenreNombreSupports";
@@ -1494,6 +1495,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "suite-lecon", label: "La suite des nombres — Leçon à coller (cahier rouge)", node: <SuiteNombresLecon /> },
         { key: "suite-ce1", label: "La suite des nombres jusqu'à 200 — Fiche CE1", node: <FicheSuiteCE1 /> },
         { key: "suite-ce2", label: "La suite des nombres jusqu'à 2 000 — Fiche CE2", node: <FicheSuiteCE2 /> },
+        { key: "pythagore", label: "Table de multiplication (Pythagore, jusqu'à 10) — affiche / à coller (cahier rouge)", node: <TablePythagoreFiche /> },
       ];
     case "m17freval":
       return [
