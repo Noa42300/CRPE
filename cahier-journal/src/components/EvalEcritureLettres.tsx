@@ -52,18 +52,17 @@ export function GrilleLSU({ competences, accent = "#334155" }: { competences: st
 export function EvalFrame({ titre, niveau, duree = "~20 min", competence, accent = "#334155", children }: { titre: string; niveau: string; duree?: string; competence?: string; accent?: string; children: React.ReactNode }) {
   return (
     <div className="fiche-a4" style={{ background: "#fff", color: NOIR, boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif", display: "flex", flexDirection: "column" }}>
-      {/* En-tête sobre : titre + prénom/date + filet */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", borderBottom: `2.5px solid ${accent}`, paddingBottom: "1.5mm" }}>
-        <div>
-          <div style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.14em", color: accent, textTransform: "uppercase", fontFamily: CONSIGNE_FONT }}>Évaluation · {niveau} · {duree}</div>
-          <h1 style={{ fontSize: "24px", fontWeight: 800, margin: "0.5mm 0 0", color: "#1f2937" }}>{titre}</h1>
-        </div>
-        <div style={{ textAlign: "right", fontSize: "12.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT, lineHeight: 1.9 }}>
-          Prénom : ...........................<br />Date : ....................
-        </div>
+      {/* En-tête centré, sans filet, police titre différente */}
+      <div style={{ textAlign: "center" }}>
+        <div style={{ fontSize: "10px", fontWeight: 800, letterSpacing: "0.16em", color: accent, textTransform: "uppercase", fontFamily: CONSIGNE_FONT }}>Évaluation · {niveau} · {duree}</div>
+        <h1 style={{ fontSize: "28px", fontWeight: 900, margin: "0.5mm 0 0", color: "#1f2937", fontFamily: "'Nunito', ui-rounded, system-ui, sans-serif" }}>{titre}</h1>
       </div>
-      {competence && <div style={{ fontSize: "10.5px", fontFamily: CONSIGNE_FONT, color: "#64748b", fontStyle: "italic", margin: "1.5mm 1mm 0" }}>Compétence évaluée : {competence}</div>}
-      <div style={{ flex: 1, marginTop: "3.5mm" }}>{children}</div>
+      <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT, margin: "2.5mm 0 3mm" }}>
+        <span>Prénom : ....................................</span>
+        <span>Date : ....................</span>
+      </div>
+      {competence && <div style={{ fontSize: "10.5px", fontFamily: CONSIGNE_FONT, color: "#64748b", fontStyle: "italic", margin: "-1.5mm 1mm 2mm" }}>Compétence évaluée : {competence}</div>}
+      <div style={{ flex: 1 }}>{children}</div>
     </div>
   );
 }
