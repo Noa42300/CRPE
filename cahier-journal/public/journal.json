@@ -10906,6 +10906,17 @@
       "id": "rap-20261116-pochette-autonomie",
       "texte": "Donner une pochette (noire) aux CE1 pour ranger leur dossier d'autonomie",
       "type": "autre"
+     },
+     {
+      "id": "rap-20261116-tables",
+      "heure": "11:45",
+      "texte": "Faire réciter les tables de multiplication (fin de matinée / début d'après-midi)",
+      "type": "autre"
+     },
+     {
+      "id": "rap-20261116-ateliers-cubes",
+      "texte": "Finir les ateliers cubes (dizaines, centaines, milliers) avec les élèves qui ne sont pas encore passés",
+      "type": "autre"
      }
     ],
     "devoirs": "FRANÇAIS : apprendre la leçon sur les types ET les formes de phrases (ÉVALUATION demain). MATHS : revoir la suite des nombres — compter de 10 en 10 et de 100 en 100 (ÉVALUATION « dénombrer une collection » demain). Mots de dictée. Tables de 3 et de 4 (récitation)."
@@ -11275,6 +11286,11 @@
       "id": "rap-20261117-cm-elementaire",
       "texte": "CM élémentaire",
       "type": "reunion"
+     },
+     {
+      "id": "rap-20261117-qcm-marchande",
+      "texte": "Donner le QCM de lecture sur « La marchande de mots » (à préparer à partir de l'histoire)",
+      "type": "autre"
      }
     ],
     "devoirs": "FRANÇAIS : relire la leçon types et formes de phrases. MATHS : la suite des nombres (de 10 en 10, de 100 en 100). HISTOIRE : relire « Le pharaon et les pyramides ». GÉO : revoir « La France en Europe » (les pays voisins). Mots de dictée. Tables de 3 et de 4."
@@ -11507,7 +11523,7 @@
         }
        ],
        "materiel": "Diaporama « La France en Europe » + leçon à coller + fiche d'exercices (carte muette) — voir Documents à imprimer.",
-       "video": "",
+       "video": "https://www.youtube.com/watch?v=Z7enoBRUt1s",
        "differenciation": "CE1 : situer la France, nommer 2-3 voisins, colorier la carte muette. CE2 : associer chaque pays à sa direction, rédiger une phrase de localisation.",
        "depassement": "",
        "correction": "La France est en Europe. À l'ouest : l'océan Atlantique ; au sud : la mer Méditerranée. Voisins : Espagne (SO), Italie (SE), Allemagne (E), Belgique (N), Royaume-Uni (NO).",

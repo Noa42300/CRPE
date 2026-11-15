@@ -14,7 +14,9 @@ const CONSIGNE_FONT = "'Aptos','Inter','Segoe UI',system-ui,sans-serif";
 export type LeconPoint = { t: React.ReactNode };
 
 export function MotCle({ accent, children }: { accent: string; children: React.ReactNode }) {
-  return <b style={{ color: accent, borderBottom: `2px solid ${accent}` }}>{children}</b>;
+  // Pas de soulignement (il coupe les lettres à jambage de la police Borel) :
+  // on met juste le mot important en GRAS coloré.
+  return <b style={{ color: accent }}>{children}</b>;
 }
 
 export function LeconCahier({
