@@ -35,7 +35,8 @@ import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVeteme
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos, EgyptePharaonDiapo, EgyptePharaonLecon, EgyptePharaonExos } from "./EgypteNil";
-import { GeoFranceEuropeDiapo, GeoFranceEuropeLecon, GeoFranceEuropeExos } from "./GeoFranceEurope";
+import { GeoMersFranceDiapo, GeoMersFranceLecon, GeoMersFranceExos } from "./GeoMersFrance";
+import { FicheProblemesCE1, FicheProblemesCE2 } from "./FicheProblemes";
 import { EcritureMajusculesFiche } from "./EcritureMajuscules";
 import { TablePythagoreFiche } from "./TablePythagore";
 import { EcritPrehistoire, EcritLesDents } from "./ProductionEcrit";
@@ -1508,6 +1509,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "evcol-ce1", label: "Évaluation — Dénombrer une collection jusqu'à 999 · CE1 (grille LSU)", node: <EvalCollectionCE1 /> },
         { key: "evcol-ce2", label: "Évaluation — Dénombrer une collection jusqu'à 1 000 · CE2 (grille LSU)", node: <EvalCollectionCE2 /> },
+        { key: "prob-ce1", label: "Après l'éval — Problèmes (addition / soustraction) · CE1", node: <FicheProblemesCE1 /> },
+        { key: "prob-ce2", label: "Après l'éval — Problèmes (addition / soustraction) · CE2", node: <FicheProblemesCE2 /> },
       ];
     case "m17hist":
       return [
@@ -1518,9 +1521,9 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "m17geo":
       return [
         { key: "gv-muette", label: "Les villes de France — Carte à compléter (placer les villes)", node: <CarteVillesMuetteFiche /> },
-        { key: "fe-diapo", label: "La France en Europe — Diaporama (à projeter)", node: <GeoFranceEuropeDiapo /> },
-        { key: "fe-lecon", label: "La France en Europe — Leçon à coller", node: <GeoFranceEuropeLecon /> },
-        { key: "fe-exos", label: "La France en Europe — Exercices (carte muette)", node: <GeoFranceEuropeExos /> },
+        { key: "mers-diapo", label: "Les mers autour de la France — Diaporama (vraie carte, à projeter)", node: <GeoMersFranceDiapo /> },
+        { key: "mers-lecon", label: "Les mers autour de la France — Leçon à coller (cahier bleu)", node: <GeoMersFranceLecon /> },
+        { key: "mers-exos", label: "Les mers autour de la France — Exercices (carte muette)", node: <GeoMersFranceExos /> },
       ];
     case "l16dic":
       return [

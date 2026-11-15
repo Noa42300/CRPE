@@ -493,6 +493,14 @@ jours. On peut réduire le reste, jamais ces deux-là.
     **apprendre sur 2 semaines**, vocabulaire **nord/sud/est/ouest** (et
     nord-est…), **sans les degrés**. Même **fond de carte** que « où
     sommes-nous » (amCharts, villes reprojetées à l'identique).
+  - **Géo — ON RESTE EN FRANCE (pas l'Europe tout de suite, choix enseignant)** :
+    après les villes → **« Les mers autour de la France »** (`GeoMersFrance.tsx`,
+    `m17geo`) : la Manche, la mer du Nord, l'océan Atlantique, la mer
+    Méditerranée + points cardinaux, sur la **VRAIE carte** de France
+    (`CarteFrance`/`carteFranceData`, amCharts — **jamais de carte dessinée à la
+    main**). L'ancienne séance « La France en Europe » (`GeoFranceEurope.tsx`,
+    carte d'Europe dessinée) est **abandonnée** : l'enseignant veut rester sur la
+    France et de **vraies cartes**.
   - **Anglais** : le lundi (à la place de l'histoire), **séquence libre**
     (hors programmation), thème **Winter** autour d'une petite histoire
     (`AnglaisHiver.tsx` — *The Mitten*) : écoute, jeux, corpus de mots.
@@ -515,7 +523,8 @@ jours. On peut réduire le reste, jamais ces deux-là.
     toutes deux avec **grille LSU** (`EvalFrame`/`GrilleLSU` exportés depuis
     `EvalEcritureLettres.tsx`). Histoire = **Égypte séance 2 « Le pharaon et les
     pyramides »** (`EgyptePharaon*` dans `EgypteNil.tsx`, `m17hist`). Géo = **séance 3
-    « La France en Europe »** (`GeoFranceEurope.tsx`, carte d'Europe maison, `m17geo`).
+    « Les mers autour de la France »** (`GeoMersFrance.tsx`, VRAIE carte, `m17geo`) —
+    on **reste en France** (l'Europe est repoussée).
   - **Anglais** : on continue *The Mitten* (rien de neuf à préparer).
   - **Rappel évals** : elles restent **libres / à la demande** (au fond de la classe,
     quand l'élève se sent prêt) ; feuille d'entraînement pour les autres.

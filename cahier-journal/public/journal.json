@@ -11494,14 +11494,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Géographie — La France en Europe",
-       "objectif": "Situer la France sur le continent européen, nommer les pays voisins et les mers, se repérer avec les points cardinaux (N/S/E/O).",
-       "competence": "Se repérer dans l'espace, du proche au lointain : situer la France en Europe ; points cardinaux.",
+       "title": "Géographie — Les mers autour de la France",
+       "objectif": "Nommer les mers et l'océan qui bordent la France (la Manche, la mer du Nord, l'océan Atlantique, la mer Méditerranée) et les situer avec les points cardinaux (N/S/E/O).",
+       "competence": "Se repérer dans l'espace : connaître les limites maritimes de la France ; points cardinaux (N/S/E/O).",
        "competenceRef": "Questionner le monde — questionner l'espace et le temps (programmes 2018/2020).",
        "progPeriode": "P2",
        "progDomaine": "",
        "progSequence": "Géographie — Se repérer dans l'espace",
-       "progSeance": "Séance 3 — La France en Europe",
+       "progSeance": "Séance 3 — Les mers autour de la France",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -11514,20 +11514,20 @@
         {
          "id": "m17g1",
          "label": "Découverte projetée (25 min)",
-         "note": "« On a vu notre commune, puis les villes de France ; aujourd'hui on prend de la hauteur : la France en Europe. »\n« La France est sur le continent de l'Europe. On la repère sur la carte, en rouge. »\n« Qui sont nos voisins ? L'Espagne au sud-ouest, l'Italie au sud-est, l'Allemagne et la Suisse à l'est, la Belgique au nord. »\n« De l'autre côté de la Manche, au nord-ouest : le Royaume-Uni. »\n« Autour : l'océan Atlantique à l'ouest, la mer Méditerranée au sud. On utilise les points cardinaux. »\n(carte d'Europe projetée ; je fais venir des élèves montrer les pays.)"
+         "note": "« On a vu notre commune, puis les villes de France ; aujourd'hui, on reste en France et on regarde l'eau qui l'entoure. »\n« Regardez la carte : partout où la terre touche l'eau, c'est une côte. La France a beaucoup de côtes. »\n« À l'ouest, à gauche, c'est le grand océan Atlantique. Montrez-le avec le doigt. »\n« En haut, au nord, il y a la Manche, puis la mer du Nord ; de l'autre côté de la Manche, c'est le Royaume-Uni. »\n« En bas, au sud, c'est la mer Méditerranée, une mer plus chaude. »\n« Pour dire où est chaque mer, j'utilise les points cardinaux : nord, sud, est, ouest. »\n(vraie carte de France projetée ; je fais venir des élèves montrer les mers.)"
         },
         {
          "id": "m17g2",
          "label": "Leçon + carte muette (35 min)",
-         "note": "« On colle la leçon avec la carte et les pays voisins rangés par direction. »\n« Puis, sur la carte muette, vous coloriez la France en rouge et écrivez son nom. »\n« Vous reliez chaque pays à sa direction et vous écrivez une phrase : où se trouve la France ? »\n« Je passe aider ; on corrige ensemble. »\n(production d'écrit courte en fin de séance.)"
+         "note": "« On colle la leçon : la vraie carte de la France avec ses mers rangées par direction. »\n« Sur la carte muette, vous écrivez le nom de chaque mer en vous aidant de la liste des mots. »\n« Vous complétez les phrases avec ouest, nord ou sud, puis vous reliez chaque mer à sa direction. »\n« Pour finir, vous écrivez une phrase : par quelles mers la France est-elle bordée ? »\n« Je passe dans les rangs pour aider ; on corrige ensemble au tableau. »\n(production d'écrit courte en fin de séance.)"
         }
        ],
-       "materiel": "Diaporama « La France en Europe » + leçon à coller + fiche d'exercices (carte muette) — voir Documents à imprimer.",
-       "video": "https://www.youtube.com/watch?v=Z7enoBRUt1s",
-       "differenciation": "CE1 : situer la France, nommer 2-3 voisins, colorier la carte muette. CE2 : associer chaque pays à sa direction, rédiger une phrase de localisation.",
+       "materiel": "Diaporama « Les mers autour de la France » (vraie carte) + leçon à coller + fiche d'exercices (carte muette) — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : nommer et placer 2-3 mers en s'aidant de la liste, colorier la carte. CE2 : associer chaque mer à sa direction et rédiger une phrase de localisation.",
        "depassement": "",
-       "correction": "La France est en Europe. À l'ouest : l'océan Atlantique ; au sud : la mer Méditerranée. Voisins : Espagne (SO), Italie (SE), Allemagne (E), Belgique (N), Royaume-Uni (NO).",
-       "obstacles": "Erreurs fréquentes : confondre pays et continent ; se tromper de direction. Remédiation : rose des vents affichée, repérage N/S/E/O sur la carte.",
+       "correction": "La France est bordée par : l'océan Atlantique (à l'ouest), la Manche puis la mer du Nord (au nord), la mer Méditerranée (au sud).",
+       "obstacles": "Erreurs fréquentes : confondre une mer et l'océan ; se tromper de direction (gauche = ouest). Remédiation : rose des vents affichée, repérage N/S/E/O sur la carte, montrer du doigt avant d'écrire.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
