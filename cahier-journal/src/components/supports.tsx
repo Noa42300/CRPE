@@ -26,7 +26,7 @@ import { RituelsMatinSerie } from "./RituelsSerie";
 import { QuizOperations } from "./QuizOperations";
 import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
 import { FormesPhrasesDiapo, FormesPhrasesLecon, FormesPhrasesDecouverte, FicheFormesCE1, FicheFormesCE2, FicheRevisionTypesFormesCE1, FicheRevisionTypesFormesCE2, EvalTypesFormesCE1, EvalTypesFormesCE2 } from "./FormesDePhrases";
-import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2, SuiteNombresDiapo, SuiteNombresLecon, FicheSuiteCE1, FicheSuiteCE2, EvalCollectionCE1, EvalCollectionCE2 } from "./Numeration";
+import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2, SuiteNombresDiapo, SuiteNombresLecon, SuiteNombresLeconX2, FicheSuiteCE1, FicheSuiteCE2, EvalCollectionCE1, EvalCollectionCE2, AtelierEchanges } from "./Numeration";
 import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
 import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre, CarteVillesMuetteFiche } from "./GeoVillesFrance";
 import { PoesieHiverDiapo, PoesieHiverFiche } from "./PoesieHiver";
@@ -1492,9 +1492,11 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "l16mu":
       return [
         { key: "suite-diapo", label: "La suite des nombres — Diaporama (à projeter)", node: <SuiteNombresDiapo /> },
-        { key: "suite-lecon", label: "La suite des nombres — Leçon à coller (cahier rouge)", node: <SuiteNombresLecon /> },
+        { key: "suite-lecon2", label: "La suite des nombres — Leçon à coller, 2 par feuille (cahier rouge) — imprimer, découper au milieu", node: <SuiteNombresLeconX2 /> },
+        { key: "suite-lecon", label: "La suite des nombres — Leçon à coller, 1 par feuille (cahier rouge)", node: <SuiteNombresLecon /> },
         { key: "suite-ce1", label: "La suite des nombres jusqu'à 200 — Fiche CE1", node: <FicheSuiteCE1 /> },
         { key: "suite-ce2", label: "La suite des nombres jusqu'à 2 000 — Fiche CE2", node: <FicheSuiteCE2 /> },
+        { key: "atelier-echanges", label: "Atelier des échanges (cubes) — casser / échanger en base 10 · CE1-CE2", node: <AtelierEchanges /> },
         { key: "pythagore", label: "Table de multiplication (Pythagore, jusqu'à 10) — affiche / à coller (cahier rouge)", node: <TablePythagoreFiche /> },
       ];
     case "m17freval":

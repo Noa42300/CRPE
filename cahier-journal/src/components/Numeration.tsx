@@ -15,7 +15,9 @@ const CURSIVE = "'Caveat','Comic Neue',cursive";
 const CONSIGNE_FONT = "'Aptos','Inter','Segoe UI',system-ui,sans-serif";
 
 /* Base 10 dessinée : plaque (100, bleu), barre (10, orange), cube (1, vert). */
-function Plaque() { return <span style={{ display: "inline-grid", gridTemplateColumns: "repeat(5,2px)", gridAutoRows: "2px", gap: "0.5px", border: `1.5px solid ${BLEU}`, padding: "1px", background: "#dbeafe", width: "fit-content", verticalAlign: "middle", margin: "0 1px" }}>{Array.from({ length: 25 }).map((_, i) => <span key={i} style={{ width: 2, height: 2, background: BLEU }} />)}</span>; }
+// Plaque (centaine) : carré PLEIN bleu (pas de quadrillage blanc → les élèves ne
+// se perdent pas à l'impression). Barre = orange, cube = vert, pour distinguer les rangs.
+function Plaque() { return <span style={{ display: "inline-block", width: 15, height: 15, background: BLEU, border: `1.5px solid #1e40af`, verticalAlign: "middle", margin: "0 1px" }} />; }
 function Barre() { return <span style={{ display: "inline-block", width: 4, height: 20, background: "#fdba74", border: `1.5px solid ${ORANGE}`, verticalAlign: "middle", margin: "0 1px" }} />; }
 function Cube() { return <span style={{ display: "inline-block", width: 5, height: 5, background: "#86efac", border: `1px solid ${VERT}`, verticalAlign: "middle", margin: "0 1px" }} />; }
 function Base10({ c = 0, d = 0, u = 0 }: { c?: number; d?: number; u?: number }) {
@@ -128,6 +130,15 @@ function CduTab({ cols }: { cols: string[] }) {
       <thead><tr>{cols.map((e) => <th key={e} style={{ border: "1.3px solid #111", background: "#eef2f6", fontSize: "11px", fontWeight: 800, padding: "0.5mm 0", width: "9mm" }}>{e}</th>)}</tr></thead>
       <tbody><tr>{cols.map((e) => <td key={e} style={{ border: "1.3px solid #111", height: "9mm" }} />)}</tr></tbody>
     </table>
+  );
+}
+/* Lignes de réponse pointillées — généreuses (les élèves écrivent gros). */
+function RepLignes({ n = 1, label, hauteur = "9mm" }: { n?: number; label?: string; hauteur?: string }) {
+  return (
+    <div style={{ marginTop: "1.5mm" }}>
+      {label && <div style={{ fontFamily: CURSIVE, fontSize: "16px", marginBottom: "0.5mm" }}>{label}</div>}
+      {Array.from({ length: n }).map((_, i) => <div key={i} style={{ borderBottom: "2px dotted #94a3b8", height: hauteur }} />)}
+    </div>
   );
 }
 function CarteNbr({ v }: { v: number }) {
@@ -302,7 +313,8 @@ export function SuiteNombresDiapo() {
   );
 }
 
-export function SuiteNombresLecon() {
+/* Corps de la leçon (sans cadre A4) — réutilisé en 1 ou 2 exemplaires par feuille. */
+function SuiteNombresLeconCorps() {
   const Carte = ({ titre, ex }: { titre: React.ReactNode; ex: React.ReactNode }) => (
     <div style={{ flex: 1, border: `2px solid ${MA}`, borderRadius: "3mm", padding: "2mm 2.5mm", background: "#f0fdff", textAlign: "center" }}>
       <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12.5px", color: MA }}>{titre}</div>
@@ -310,19 +322,41 @@ export function SuiteNombresLecon() {
     </div>
   );
   return (
-    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
-      <h1 style={{ fontSize: "34px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: MA, fontFamily: CURSIVE }}>La suite des nombres</h1>
-      <div style={{ textAlign: "center", fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700, color: "#0e7490", marginBottom: "2.5mm" }}>CE1 : jusqu'à 200 · CE2 : jusqu'à 2 000</div>
-      <BandeNombres cases={[97, 98, 99, 100, 101, 102, 103]} large="18mm" />
-      <div style={{ textAlign: "center", fontFamily: CURSIVE, fontSize: "15px", margin: "1.5mm 0 3mm" }}>Les nombres se suivent toujours dans le même ordre.</div>
+    <div style={{ fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <h1 style={{ fontSize: "30px", margin: "0 0 1mm", textAlign: "center", fontWeight: 700, color: MA, fontFamily: CURSIVE }}>La suite des nombres</h1>
+      <div style={{ textAlign: "center", fontFamily: CONSIGNE_FONT, fontSize: "11px", fontWeight: 700, color: "#0e7490", marginBottom: "2mm" }}>CE1 : jusqu'à 200 · CE2 : jusqu'à 2 000</div>
+      <BandeNombres cases={[97, 98, 99, 100, 101, 102, 103]} large="16mm" />
+      <div style={{ textAlign: "center", fontFamily: CURSIVE, fontSize: "14px", margin: "1.5mm 0 2.5mm" }}>Les nombres se suivent toujours dans le même ordre.</div>
       <div style={{ display: "flex", gap: "3mm" }}>
         <Carte titre="Avant / après" ex={<>99 ← <b>100</b> → 101<br />(−1) &nbsp;&nbsp; (+1)</>} />
         <Carte titre="De 10 en 10" ex={<>120 · 130 · <b>140</b> · 150<br />(+10)</>} />
         <Carte titre="De 100 en 100" ex={<>100 · 200 · <b>300</b> · 400<br />(+100)</>} />
       </div>
-      <div style={{ marginTop: "3mm", border: `2px dashed ${MA}`, borderRadius: "3mm", padding: "2.5mm 5mm", fontFamily: CURSIVE, fontSize: "17px", textAlign: "center", background: "#ecfeff" }}>
+      <div style={{ marginTop: "2.5mm", border: `2px dashed ${MA}`, borderRadius: "3mm", padding: "2mm 5mm", fontFamily: CURSIVE, fontSize: "16px", textAlign: "center", background: "#ecfeff" }}>
         Pour <b>ranger</b>, je compare : je regarde d'abord les <b>centaines</b>, puis les <b>dizaines</b>, puis les <b>unités</b>. &nbsp; 58 &lt; 85 &lt; 108 &lt; 180.
       </div>
+    </div>
+  );
+}
+
+export function SuiteNombresLecon() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box" }}>
+      <SuiteNombresLeconCorps />
+    </div>
+  );
+}
+
+/* Deux exemplaires de la leçon sur une même feuille A4 (moins de gaspillage de
+ * papier : on imprime, on coupe au milieu, chaque élève en colle une). */
+export function SuiteNombresLeconX2() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box" }}>
+      <div style={{ border: "1.5px solid #e2e8f0", borderRadius: "3mm", padding: "4mm" }}><SuiteNombresLeconCorps /></div>
+      <div style={{ position: "relative", borderTop: "2px dashed #94a3b8", margin: "5mm 0" }}>
+        <span style={{ position: "absolute", left: "50%", top: "-3mm", transform: "translateX(-50%)", background: "#fff", padding: "0 3mm", fontSize: "11px", fontWeight: 700, color: "#64748b", letterSpacing: "0.06em" }}>✂ — — — à découper — — —</span>
+      </div>
+      <div style={{ border: "1.5px solid #e2e8f0", borderRadius: "3mm", padding: "4mm" }}><SuiteNombresLeconCorps /></div>
     </div>
   );
 }
@@ -387,26 +421,29 @@ export function EvalCollectionCE1() {
     <EvalFrame titre="Dénombrer une collection" niveau="CE1" duree="~20 min">
       <div style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
         <ExM n={1} consigne={<><b>Écris</b> le nombre représenté.</>}>
-          <div style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "2mm" }}><Base10 c={2} d={3} u={4} /><CduTab cols={["c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "17px" }}>= ……</span></div>
-          <div style={{ display: "flex", alignItems: "center", gap: "3mm" }}><Base10 c={3} d={0} u={6} /><CduTab cols={["c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "17px" }}>= ……</span></div>
+          <div style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "3mm" }}><Base10 c={2} d={3} u={4} /><CduTab cols={["c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "19px" }}>= ............</span></div>
+          <div style={{ display: "flex", alignItems: "center", gap: "3mm" }}><Base10 c={3} d={0} u={6} /><CduTab cols={["c", "d", "u"]} /><span style={{ fontFamily: CURSIVE, fontSize: "19px" }}>= ............</span></div>
         </ExM>
         <ExM n={2} consigne={<><b>Écris</b> ces nombres en chiffres.</>}>
-          <div style={{ fontFamily: CURSIVE, fontSize: "17px", lineHeight: 1.9 }}>4 centaines 5 dizaines 2 unités = …… &nbsp;&nbsp; 7 centaines 0 dizaine 8 unités = ……</div>
+          <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 2.2 }}>4 centaines 5 dizaines 2 unités = ............<br />7 centaines 0 dizaine 8 unités = ............</div>
         </ExM>
         <ExM n={3} consigne={<><b>Dessine</b> le nombre 215 en centaines (▢), dizaines (|) et unités (•).</>}>
-          <div style={{ border: "1.3px solid #94a3b8", borderRadius: "2mm", height: "20mm" }} />
+          <div style={{ border: "1.3px solid #94a3b8", borderRadius: "2mm", height: "22mm" }} />
         </ExM>
         <ExM n={4} consigne={<><b>Complète</b> : le nombre juste avant et juste après.</>}>
-          <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>…… · 200 · …… &nbsp;&nbsp;&nbsp; …… · 439 · …… &nbsp;&nbsp;&nbsp; …… · 700 · ……</div>
+          <div style={{ fontFamily: CURSIVE, fontSize: "20px", lineHeight: 2.1 }}>…… · 200 · …… &nbsp;&nbsp;&nbsp;&nbsp; …… · 439 · …… &nbsp;&nbsp;&nbsp;&nbsp; …… · 700 · ……</div>
         </ExM>
         <ExM n={5} consigne={<><b>Compare</b> (&lt; , &gt; ou =), puis range du plus petit au plus grand.</>}>
-          <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>234 …… 243 &nbsp;&nbsp; 500 …… 500 &nbsp;&nbsp; 618 …… 168</div>
-          <div style={{ fontFamily: CURSIVE, fontSize: "17px", marginTop: "1.5mm" }}>305 · 350 · 53 · 135 → …………………………</div>
+          <div style={{ fontFamily: CURSIVE, fontSize: "20px" }}>234 …… 243 &nbsp;&nbsp;&nbsp; 500 …… 500 &nbsp;&nbsp;&nbsp; 618 …… 168</div>
+          <RepLignes label="305 · 350 · 53 · 135 →" n={1} />
         </ExM>
-        <ExM n={6} consigne={<><b>Problème.</b></>}>
-          <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Dans la classe, il y a 2 boîtes de 100 crayons, 5 paquets de 10 crayons et 3 crayons seuls. Combien de crayons en tout ? ……</div>
+        <ExM n={6} consigne={<><b>Problème.</b> Fais ton calcul et écris une phrase réponse.</>}>
+          <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Dans la classe, il y a 2 boîtes de 100 crayons, 5 paquets de 10 crayons et 3 crayons seuls. Combien de crayons y a-t-il en tout ?</div>
+          <RepLignes label="Mon calcul :" n={2} />
+          <RepLignes label="Réponse :" n={1} />
         </ExM>
       </div>
+      <div className="fiche-pagebreak" style={{ breakBefore: "page", height: 0 }} />
       <GrilleLSU competences={["Associer une collection (base 10) à son écriture chiffrée", "Écrire un nombre à partir de c/d/u", "Représenter un nombre jusqu'à 999", "Connaître les nombres voisins et comparer / ranger", "Résoudre un problème de groupements (centaines, dizaines, unités)"]} />
     </EvalFrame>
   );
@@ -433,11 +470,80 @@ export function EvalCollectionCE2() {
           <div style={{ fontFamily: CURSIVE, fontSize: "18px" }}>648 …… 684 &nbsp;&nbsp; 999 …… 1 000 &nbsp;&nbsp; 705 …… 750</div>
           <div style={{ fontFamily: CURSIVE, fontSize: "17px", marginTop: "1.5mm" }}>512 · 125 · 251 · 521 · 1 000 → …………………………</div>
         </ExM>
-        <ExM n={6} consigne={<><b>Problème.</b></>}>
-          <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Pour la fête, on range les bonbons : 9 sachets de 100 bonbons et 10 sachets de 10 bonbons. Combien de bonbons en tout ? ……</div>
+        <ExM n={6} consigne={<><b>Problème.</b> Fais ton calcul et écris une phrase réponse.</>}>
+          <div style={{ fontFamily: CURSIVE, fontSize: "16px" }}>Pour la fête, on range les bonbons : 9 sachets de 100 bonbons et 10 sachets de 10 bonbons. Combien de bonbons y a-t-il en tout ?</div>
+          <RepLignes label="Mon calcul :" n={2} />
+          <RepLignes label="Réponse :" n={1} />
         </ExM>
       </div>
+      <div className="fiche-pagebreak" style={{ breakBefore: "page", height: 0 }} />
       <GrilleLSU competences={["Associer une collection (base 10) à son écriture chiffrée", "Écrire un nombre à partir de m/c/d/u", "Décomposer un nombre jusqu'à 1 000", "Connaître les nombres voisins et comparer / ranger", "Résoudre un problème de groupements"]} />
     </EvalFrame>
+  );
+}
+
+/* ======================================================================
+ * ATELIER DES ÉCHANGES (manipulation cubes) — « casser » en base 10.
+ *   Dès qu'un rang a 10 ou plus, on échange : 10 u = 1 d, 10 d = 1 c, 10 c = 1 m.
+ *   Fiche de trace : règle + exemple résolu + collections à regrouper.
+ * ==================================================================== */
+function EchangeRow({ depart, cols }: { depart: string; cols: string[] }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "3mm", marginBottom: "3mm", flexWrap: "wrap" }}>
+      <span style={{ fontFamily: CURSIVE, fontSize: "19px", minWidth: "58mm" }}>{depart}</span>
+      <span style={{ fontSize: "20px", fontWeight: 800, color: MA }}>→</span>
+      <CduTab cols={cols} />
+      <span style={{ fontFamily: CURSIVE, fontSize: "19px" }}>= ............</span>
+    </div>
+  );
+}
+
+export function AtelierEchanges() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", padding: "9mm 10mm", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "3mm" }}>
+        <span style={{ fontSize: "30px" }}>🧱</span>
+        <div>
+          <h1 style={{ fontSize: "28px", margin: 0, fontWeight: 700, color: MA, fontFamily: CURSIVE }}>L'atelier des échanges</h1>
+          <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "11px", fontWeight: 800, color: "#64748b", letterSpacing: "0.1em" }}>JE CASSE ET J'ÉCHANGE EN BASE 10 · CE1 · CE2</div>
+        </div>
+        <span style={{ marginLeft: "auto", fontSize: "11px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : ..............</span>
+      </div>
+      <div style={{ borderBottom: `2px solid ${MA}`, margin: "2mm 0 3mm" }} />
+
+      {/* La règle du jeu */}
+      <div style={{ border: `2px solid ${MA}`, borderRadius: "3mm", background: "#f0fdff", padding: "2.5mm 4mm", display: "flex", alignItems: "center", gap: "5mm", flexWrap: "wrap" }}>
+        <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12.5px", color: MA }}>La règle</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "17px" }}>Dès que j'ai <b>10</b> dans un rang, j'échange :</div>
+        <div style={{ display: "flex", alignItems: "center", gap: "4mm", fontFamily: CURSIVE, fontSize: "16px" }}>
+          <span>10 <Cube /> = 1 <Barre /></span>
+          <span>10 <Barre /> = 1 <Plaque /></span>
+          <span>10 <Plaque /> = 1 millier</span>
+        </div>
+      </div>
+
+      {/* Exemple résolu */}
+      <div style={{ marginTop: "3mm", border: "1.5px solid #cbd5e1", borderRadius: "3mm", padding: "2.5mm 4mm" }}>
+        <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: "#2f6b34", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: "1mm" }}>Exemple</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "18px", lineHeight: 1.5 }}>
+          J'ai <b>4 centaines, 9 dizaines et 12 unités</b>. <Base10 c={4} d={9} u={12} /><br />
+          J'ai 12 unités : j'échange <b>10 unités contre 1 dizaine</b>. Il reste 2 unités, et j'ai 10 dizaines.<br />
+          J'ai 10 dizaines : j'échange <b>10 dizaines contre 1 centaine</b>. → <b>5 centaines, 0 dizaine, 2 unités = 502</b>.
+        </div>
+      </div>
+
+      {/* À toi de jouer */}
+      <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "13px", marginTop: "3.5mm", marginBottom: "2mm" }}>
+        <b>Échange</b> à chaque fois qu'un rang a 10 ou plus, puis <b>écris le nombre</b>.
+      </div>
+      <EchangeRow depart="2 centaines, 4 dizaines, 13 unités" cols={["c", "d", "u"]} />
+      <EchangeRow depart="1 centaine, 12 dizaines, 5 unités" cols={["c", "d", "u"]} />
+      <EchangeRow depart="3 centaines, 9 dizaines, 11 unités" cols={["c", "d", "u"]} />
+      <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: MA, margin: "1mm 0 2mm" }}>Pour les CE2 (jusqu'au millier) :</div>
+      <EchangeRow depart="4 centaines, 15 dizaines, 6 unités" cols={["m", "c", "d", "u"]} />
+      <EchangeRow depart="9 centaines, 8 dizaines, 12 unités" cols={["m", "c", "d", "u"]} />
+      <EchangeRow depart="10 centaines, 3 dizaines, 4 unités" cols={["m", "c", "d", "u"]} />
+      <div style={{ borderTop: "1px solid #cbd5e1", marginTop: "2mm", paddingTop: "1mm", fontSize: "9px", color: "#94a3b8", fontFamily: CONSIGNE_FONT }}>Nombres entiers · échanger / regrouper en base 10 (10 d'un rang = 1 du rang supérieur)</div>
+    </div>
   );
 }
