@@ -12,6 +12,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useStore } from "../lib/store";
 import type { Student, StudentNote } from "../lib/types";
 import { AutoTextarea, Copy } from "./ui";
+import { CompetencesGrid } from "./CompetencesLSU";
 
 /** Normalise un prénom (minuscule, sans accents) + alias d'orthographe. */
 const normName = (s: string) =>
@@ -36,6 +37,7 @@ export function InfoElevesView() {
     [settings.classe.roster],
   );
   const [query, setQuery] = useState("");
+  const [mode, setMode] = useState<"suivi" | "competences">("suivi");
   const [bulk, setBulk] = useState("");
   const [showImport, setShowImport] = useState(false);
   const [report, setReport] = useState("");
@@ -116,6 +118,19 @@ export function InfoElevesView() {
       </div>
 
       {roster.length > 0 && (
+        <div className="mb-3 flex gap-1.5">
+          <button onClick={() => setMode("suivi")} className="rounded-full px-3 py-1 text-xs font-bold"
+            style={mode === "suivi" ? { background: "#334155", color: "#fff" } : { background: "#f1f5f9", color: "#334155" }}>📝 Suivi (observations)</button>
+          <button onClick={() => setMode("competences")} className="rounded-full px-3 py-1 text-xs font-bold"
+            style={mode === "competences" ? { background: "#334155", color: "#fff" } : { background: "#f1f5f9", color: "#334155" }}>✅ Compétences (grille LSU)</button>
+        </div>
+      )}
+
+      {mode === "competences" && roster.length > 0 && (
+        <CompetencesGrid roster={filtered} noteFor={noteFor} onSave={saveStudentNote} />
+      )}
+
+      {mode === "suivi" && roster.length > 0 && (
         <div className="mb-3">
           <button onClick={() => setShowImport((v) => !v)} className="btn-outline py-1.5 text-xs">
             📋 Importer un bilan (coller)
@@ -145,7 +160,7 @@ export function InfoElevesView() {
         </div>
       )}
 
-      {roster.length === 0 ? (
+      {roster.length === 0 && (
         <div className="mx-auto max-w-xl rounded-2xl border border-dashed border-slate-300 bg-white/60 p-8 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/40">
           <div className="mb-2 text-3xl">🧑‍🎓</div>
           <p className="font-semibold text-slate-700 dark:text-slate-200">La liste des élèves est vide</p>
@@ -157,7 +172,8 @@ export function InfoElevesView() {
             (Les noms restent sur ton appareil : ils ne sont jamais publiés.)
           </p>
         </div>
-      ) : (
+      )}
+      {mode === "suivi" && roster.length > 0 && (
         <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
           {/* En-tête du tableau */}
           <div className="grid grid-cols-[minmax(120px,180px)_1fr] gap-px bg-slate-200 text-xs font-bold uppercase tracking-wide text-slate-500 dark:bg-slate-800 dark:text-slate-400">
