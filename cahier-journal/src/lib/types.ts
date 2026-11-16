@@ -337,10 +337,12 @@ export interface StudentNote {
   /** Synthèse / profil libre, réutilisable pour le LSU. */
   synthese: string;
   entries: StudentNoteEntry[];
-  /** Suivi des compétences (grille LSU) : idCompétence → niveau de maîtrise
-   *  ("tb" | "s" | "f" | "i"). DONNÉE SENSIBLE, strictement locale (retirée par
-   *  sanitizeForPublic avec tout le studentNote). */
+  /** Suivi des compétences (grille LSU) : "<semestre>·<idCompétence>" → niveau
+   *  atteint ("na" | "pa" | "a" | "d"). DONNÉE SENSIBLE, strictement locale. */
   competences?: Record<string, string>;
+  /** Appréciation LSU par semestre : "S1" | "S2" → texte de l'appréciation
+   *  (à coller dans le LSU). DONNÉE SENSIBLE, strictement locale. */
+  appreciations?: Record<string, string>;
   updatedAt: number;
 }
 

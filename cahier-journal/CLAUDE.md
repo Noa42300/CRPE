@@ -401,9 +401,16 @@ jours. On peut réduire le reste, jamais ces deux-là.
     Les niveaux sont rangés par semestre dans `studentNotes.competences`
     (clé `"S1·<idComp>"`), donc local. **Workflow validé : l'enseignant dicte au
     micro DANS l'appli (jamais à Claude en ligne : données de mineurs + non
-    durable)** ; je fournis la grille au format LSU + (à venir) une banque de
-    formulations d'appréciations par domaine/niveau. En fin de semestre il reporte
-    dans le LSU (son propre accès ; ne pas utiliser les codes d'un collègue).
+    durable)**. En fin de semestre il reporte dans le LSU (son propre accès ; ne
+    pas utiliser les codes d'un collègue).
+  - **Onglet « Appréciations (LSU) »** (`AppreciationsLSU` dans `CompetencesLSU.tsx`) :
+    un **commentaire par élève et par semestre** (`studentNotes.appreciations["S1"|"S2"]`),
+    dicté au micro / tapé, bouton **Copier** (par élève et « copier toutes »), à
+    coller dans l'appréciation LSU. Claude peut **aider à FORMULER** les
+    appréciations (c'est sa valeur ajoutée) à partir de ce que l'enseignant dicte,
+    mais **ne stocke jamais** noms + résultats dans le dépôt : il rend le texte en
+    chat, l'enseignant le garde en local. Les trois onglets d'Info élèves = Suivi
+    (observations courantes) · Compétences (niveaux NA/PA/A/D) · Appréciations.
 - **Idées séances** (`IdeesSeancesView` + `lib/generateSeance.ts`) : générateur
   **local et déterministe** qui assemble une fiche de séance conforme (objectifs,
   compétences + réf. programmes 2020, déroulement à la 1re personne, différenciation
