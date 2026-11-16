@@ -393,6 +393,17 @@ jours. On peut réduire le reste, jamais ces deux-là.
   **DONNÉE SENSIBLE (mineurs)** : strictement locale, **jamais** dans `journal.json`
   ni publiée (`sanitizeForPublic` vide `studentNotes` ; le suivi n'est restauré
   qu'en import « replace », jamais en « merge »).
+  - **Onglet « Compétences (grille LSU) »** (`CompetencesLSU.tsx`) : grand tableau
+    élèves × compétences, un clic coche le **niveau atteint**. **LSU RÉEL (vérifié
+    sur le portail ac-lyon) : saisie par SEMESTRE (S1/S2)** et 4 niveaux **Non
+    atteints / Partiellement atteints / Atteints / Dépassés** (NA/PA/A/D) — c'est
+    CE barème (pas « maîtrise satisfaisante… », qui est le bilan de fin de cycle).
+    Les niveaux sont rangés par semestre dans `studentNotes.competences`
+    (clé `"S1·<idComp>"`), donc local. **Workflow validé : l'enseignant dicte au
+    micro DANS l'appli (jamais à Claude en ligne : données de mineurs + non
+    durable)** ; je fournis la grille au format LSU + (à venir) une banque de
+    formulations d'appréciations par domaine/niveau. En fin de semestre il reporte
+    dans le LSU (son propre accès ; ne pas utiliser les codes d'un collègue).
 - **Idées séances** (`IdeesSeancesView` + `lib/generateSeance.ts`) : générateur
   **local et déterministe** qui assemble une fiche de séance conforme (objectifs,
   compétences + réf. programmes 2020, déroulement à la 1re personne, différenciation

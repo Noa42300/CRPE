@@ -12,14 +12,15 @@
 import { useMemo, useState } from "react";
 import type { Student, StudentNote } from "../lib/types";
 
-/** Les 4 niveaux de maîtrise du LSU (mêmes couleurs que les grilles d'éval). */
+/** Les 4 niveaux « atteints » du LSU périodique (exactement comme la saisie des
+ *  niveaux atteints : Non atteints / Partiellement atteints / Atteints / Dépassés). */
 export const NIVEAUX_LSU = [
-  { id: "tb", court: "TB", label: "Très bonne maîtrise", bg: "#dcfce7", c: "#15803d" },
-  { id: "s", court: "S", label: "Maîtrise satisfaisante", bg: "#ecfccb", c: "#4d7c0f" },
-  { id: "f", court: "F", label: "Maîtrise fragile", bg: "#fef3c7", c: "#b45309" },
-  { id: "i", court: "I", label: "Maîtrise insuffisante", bg: "#fee2e2", c: "#b91c1c" },
+  { id: "na", court: "NA", label: "Non atteints", bg: "#fee2e2", c: "#b91c1c" },
+  { id: "pa", court: "PA", label: "Partiellement atteints", bg: "#ffedd5", c: "#c2410c" },
+  { id: "a", court: "A", label: "Atteints", bg: "#dcfce7", c: "#15803d" },
+  { id: "d", court: "D", label: "Dépassés", bg: "#dbeafe", c: "#1d4ed8" },
 ] as const;
-const CYCLE = ["", "tb", "s", "f", "i"]; // clic → niveau suivant (puis vide)
+const CYCLE = ["", "na", "pa", "a", "d"]; // clic → niveau suivant (puis vide)
 const niv = (id: string) => NIVEAUX_LSU.find((n) => n.id === id);
 
 type Comp = { id: string; label: string };
@@ -90,23 +91,26 @@ export function CompetencesGrid({
   onSave: (n: StudentNote) => Promise<void>;
 }) {
   const [mi, setMi] = useState(0);
+  const [sem, setSem] = useState<"S1" | "S2">("S1");
   const [copied, setCopied] = useState(false);
   const mat = CATALOGUE[mi];
 
+  // On range chaque niveau par SEMESTRE (le LSU se remplit par semestre).
+  const K = (compId: string) => `${sem}·${compId}`;
   const cycle = (student: Student, compId: string) => {
     const note = noteFor(student.id);
-    const cur = note.competences?.[compId] ?? "";
+    const cur = note.competences?.[K(compId)] ?? "";
     const next = CYCLE[(CYCLE.indexOf(cur) + 1) % CYCLE.length];
     const competences = { ...(note.competences ?? {}) };
-    if (next) competences[compId] = next; else delete competences[compId];
+    if (next) competences[K(compId)] = next; else delete competences[K(compId)];
     void onSave({ ...note, competences });
   };
 
   const copier = async () => {
-    const lines: string[] = [`Grille LSU — ${mat.matiere}`];
+    const lines: string[] = [`Niveaux atteints — ${mat.matiere} · ${sem}`];
     for (const s of roster) {
       const c = noteFor(s.id).competences ?? {};
-      const got = mat.comps.filter((k) => c[k.id]).map((k) => `${k.label} = ${niv(c[k.id])?.label}`);
+      const got = mat.comps.filter((k) => c[K(k.id)]).map((k) => `${k.label} = ${niv(c[K(k.id)])?.label}`);
       if (got.length) lines.push(`• ${s.prenom} (${s.niveau}) : ${got.join(" ; ")}`);
     }
     try {
@@ -118,12 +122,21 @@ export function CompetencesGrid({
   const counts = useMemo(() => {
     // Combien de cases remplies pour la matière courante (toute la classe).
     let filled = 0;
-    for (const s of roster) { const c = noteFor(s.id).competences ?? {}; filled += mat.comps.filter((k) => c[k.id]).length; }
+    for (const s of roster) { const c = noteFor(s.id).competences ?? {}; filled += mat.comps.filter((k) => c[K(k.id)]).length; }
     return filled;
-  }, [roster, mat, noteFor]);
+  }, [roster, mat, sem, noteFor]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>
+      {/* Semestre (le LSU se remplit par semestre) */}
+      <div className="mb-2 flex items-center gap-2">
+        <span className="text-xs font-bold text-slate-500 dark:text-slate-400">Semestre :</span>
+        {(["S1", "S2"] as const).map((x) => (
+          <button key={x} onClick={() => setSem(x)} className="rounded-full px-3 py-1 text-xs font-bold transition"
+            style={sem === x ? { background: "#0f172a", color: "#fff" } : { background: "#f1f5f9", color: "#0f172a" }}>{x}</button>
+        ))}
+        <span className="text-[11px] text-slate-400">(comme dans le LSU)</span>
+      </div>
       {/* Filtre matière */}
       <div className="mb-2 flex flex-wrap items-center gap-1.5">
         {CATALOGUE.map((m, i) => (
@@ -140,7 +153,7 @@ export function CompetencesGrid({
 
       {/* Légende */}
       <div className="mb-2 flex flex-wrap items-center gap-2 text-[11px]">
-        <span className="text-slate-500 dark:text-slate-400">Je tape sur une case pour changer le niveau :</span>
+        <span className="text-slate-500 dark:text-slate-400">Je tape sur une case → le niveau atteint (comme le LSU) :</span>
         {NIVEAUX_LSU.map((n) => (
           <span key={n.id} className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 font-bold" style={{ background: n.bg, color: n.c }}>
             {n.court} · {n.label}
@@ -174,7 +187,7 @@ export function CompetencesGrid({
                     <span className="ml-1 text-[10px] font-bold text-slate-400">{s.niveau}</span>
                   </td>
                   {mat.comps.map((k) => {
-                    const n = niv(c[k.id] ?? "");
+                    const n = niv(c[K(k.id)] ?? "");
                     return (
                       <td key={k.id} className="p-0.5 text-center">
                         <button onClick={() => cycle(s, k.id)} title={k.label}
@@ -192,7 +205,7 @@ export function CompetencesGrid({
         </table>
       </div>
       <p className="mt-2 text-[11px] text-slate-400">
-        🔒 100 % local (jamais publié). Ce relevé te sert à <b>synthétiser</b> en fin de période dans le LSU officiel.
+        🔒 100 % local (jamais publié). Je dicte au micro / je tape ici au fur et à mesure ; en fin de semestre je reporte les niveaux dans le LSU (les 4 cases sont les mêmes).
       </p>
     </div>
   );
