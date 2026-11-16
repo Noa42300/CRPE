@@ -337,6 +337,10 @@ export interface StudentNote {
   /** Synthèse / profil libre, réutilisable pour le LSU. */
   synthese: string;
   entries: StudentNoteEntry[];
+  /** Suivi des compétences (grille LSU) : idCompétence → niveau de maîtrise
+   *  ("tb" | "s" | "f" | "i"). DONNÉE SENSIBLE, strictement locale (retirée par
+   *  sanitizeForPublic avec tout le studentNote). */
+  competences?: Record<string, string>;
   updatedAt: number;
 }
 
