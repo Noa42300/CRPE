@@ -12,7 +12,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useStore } from "../lib/store";
 import type { Student, StudentNote } from "../lib/types";
 import { AutoTextarea, Copy } from "./ui";
-import { CompetencesGrid } from "./CompetencesLSU";
+import { CompetencesGrid, AppreciationsLSU } from "./CompetencesLSU";
 
 /** Normalise un prénom (minuscule, sans accents) + alias d'orthographe. */
 const normName = (s: string) =>
@@ -37,7 +37,7 @@ export function InfoElevesView() {
     [settings.classe.roster],
   );
   const [query, setQuery] = useState("");
-  const [mode, setMode] = useState<"suivi" | "competences">("suivi");
+  const [mode, setMode] = useState<"suivi" | "competences" | "appreciations">("suivi");
   const [bulk, setBulk] = useState("");
   const [showImport, setShowImport] = useState(false);
   const [report, setReport] = useState("");
@@ -123,11 +123,17 @@ export function InfoElevesView() {
             style={mode === "suivi" ? { background: "#334155", color: "#fff" } : { background: "#f1f5f9", color: "#334155" }}>📝 Suivi (observations)</button>
           <button onClick={() => setMode("competences")} className="rounded-full px-3 py-1 text-xs font-bold"
             style={mode === "competences" ? { background: "#334155", color: "#fff" } : { background: "#f1f5f9", color: "#334155" }}>✅ Compétences (grille LSU)</button>
+          <button onClick={() => setMode("appreciations")} className="rounded-full px-3 py-1 text-xs font-bold"
+            style={mode === "appreciations" ? { background: "#334155", color: "#fff" } : { background: "#f1f5f9", color: "#334155" }}>📝 Appréciations (LSU)</button>
         </div>
       )}
 
       {mode === "competences" && roster.length > 0 && (
         <CompetencesGrid roster={filtered} noteFor={noteFor} onSave={saveStudentNote} />
+      )}
+
+      {mode === "appreciations" && roster.length > 0 && (
+        <AppreciationsLSU roster={filtered} noteFor={noteFor} onSave={saveStudentNote} />
       )}
 
       {mode === "suivi" && roster.length > 0 && (

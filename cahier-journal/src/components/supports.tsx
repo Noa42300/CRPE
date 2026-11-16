@@ -16,6 +16,7 @@ import { PoesieCopie } from "./PoesieCopie";
 import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_CARRES_M22, EPS_COURIR_CARTONS_BINOME, EPS_COURIR_EVAL } from "./EpsSeanceFiche";
 import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon, ExperienceBouteilleMaison } from "./QlmS4Supports";
 import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
+import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1, ProblemeBandesMardiCE2 } from "./ProblemeBandes";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
 import { FicheTypesPhrasesModele } from "./FicheModeleFrancais";
@@ -1370,9 +1371,17 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "sci-masse-lecon", label: "La masse (1/2) — Leçon imagée à coller (balance, g/kg)", node: <MasseLecon /> },
       ];
     case "probLundi":
-      return [{ key: "prob-l", label: "Problème du jour (× remédiation) — 4 par A4 à découper et coller", node: <ProblemeRituelLundi /> }];
+      return [
+        { key: "prob-l", label: "Problème du jour — grand format à afficher / 4 par A4 (schéma + calcul + réponse)", node: <ProblemeRituelLundi /> },
+        { key: "prob-l-bande-ce1", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE1", node: <ProblemeBandesLundiCE1 /> },
+        { key: "prob-l-bande-ce2", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE2", node: <ProblemeBandesLundiCE2 /> },
+      ];
     case "probMardi":
-      return [{ key: "prob-m", label: "Problème du jour (× remédiation) — 4 par A4 à découper et coller", node: <ProblemeRituelMardi /> }];
+      return [
+        { key: "prob-m", label: "Problème du jour — grand format à afficher / 4 par A4 (schéma + calcul + réponse)", node: <ProblemeRituelMardi /> },
+        { key: "prob-m-bande-ce1", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE1", node: <ProblemeBandesMardiCE1 /> },
+        { key: "prob-m-bande-ce2", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE2", node: <ProblemeBandesMardiCE2 /> },
+      ];
     case "nbEcritL":
       return [
         { key: "nbl-diapo", label: "Les nombres en lettres — Diaporama à projeter", node: <NombresLettresDiapo /> },

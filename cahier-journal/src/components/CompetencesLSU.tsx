@@ -9,8 +9,9 @@
  * DONNÉE SENSIBLE (mineurs) : stockée dans `studentNotes.competences`, donc
  * strictement locale — jamais synchronisée ni publiée (sanitizeForPublic la vide).
  */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Student, StudentNote } from "../lib/types";
+import { AutoTextarea } from "./ui";
 
 /** Les 4 niveaux « atteints » du LSU périodique (exactement comme la saisie des
  *  niveaux atteints : Non atteints / Partiellement atteints / Atteints / Dépassés). */
@@ -207,6 +208,78 @@ export function CompetencesGrid({
       <p className="mt-2 text-[11px] text-slate-400">
         🔒 100 % local (jamais publié). Je dicte au micro / je tape ici au fur et à mesure ; en fin de semestre je reporte les niveaux dans le LSU (les 4 cases sont les mêmes).
       </p>
+    </div>
+  );
+}
+
+/* ======================================================================
+ * APPRÉCIATIONS LSU — un commentaire par élève et par semestre.
+ *   Je dicte au micro / je tape ; bouton « Copier » → je colle dans le LSU,
+ *   élève par élève. 100 % local (studentNotes.appreciations).
+ * ==================================================================== */
+export function AppreciationsLSU({
+  roster, noteFor, onSave,
+}: {
+  roster: Student[];
+  noteFor: (studentId: string) => StudentNote;
+  onSave: (n: StudentNote) => Promise<void>;
+}) {
+  const [sem, setSem] = useState<"S1" | "S2">("S1");
+  const remplies = roster.filter((s) => (noteFor(s.id).appreciations?.[sem] ?? "").trim()).length;
+
+  const copierTout = async () => {
+    const lines = roster
+      .map((s) => ({ s, t: (noteFor(s.id).appreciations?.[sem] ?? "").trim() }))
+      .filter((x) => x.t)
+      .map((x) => `${x.s.prenom} ${x.s.nom} (${x.s.niveau})\n${x.t}\n`);
+    try { await navigator.clipboard.writeText(lines.join("\n")); } catch { /* ignore */ }
+  };
+
+  return (
+    <div>
+      <div className="mb-2 flex items-center gap-2">
+        <span className="text-xs font-bold text-slate-500 dark:text-slate-400">Semestre :</span>
+        {(["S1", "S2"] as const).map((x) => (
+          <button key={x} onClick={() => setSem(x)} className="rounded-full px-3 py-1 text-xs font-bold transition"
+            style={sem === x ? { background: "#0f172a", color: "#fff" } : { background: "#f1f5f9", color: "#0f172a" }}>{x}</button>
+        ))}
+        <span className="text-[11px] text-slate-400">{remplies}/{roster.length} rédigées</span>
+        <button onClick={copierTout} className="btn-outline ml-auto py-1 text-xs">📋 Copier toutes les appréciations</button>
+      </div>
+      <div className="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800">
+        {roster.map((s) => <AppRow key={s.id} student={s} note={noteFor(s.id)} sem={sem} onSave={onSave} />)}
+      </div>
+      <p className="mt-2 text-[11px] text-slate-400">
+        🔒 100 % local. Je dicte au micro (clavier) ou je tape ; en fin de semestre, « Copier » puis je colle dans le LSU (appréciation de l'élève).
+      </p>
+    </div>
+  );
+}
+
+function AppRow({ student, note, sem, onSave }: { student: Student; note: StudentNote; sem: string; onSave: (n: StudentNote) => Promise<void> }) {
+  const current = note.appreciations?.[sem] ?? "";
+  const [text, setText] = useState(current);
+  const [copied, setCopied] = useState(false);
+  useEffect(() => { setText(note.appreciations?.[sem] ?? ""); }, [note.appreciations, sem]);
+
+  const onChange = (v: string) => {
+    setText(v);
+    const appreciations = { ...(note.appreciations ?? {}), [sem]: v };
+    void onSave({ ...note, appreciations });
+  };
+  const copy = async () => {
+    try { await navigator.clipboard.writeText(text.trim()); setCopied(true); setTimeout(() => setCopied(false), 1400); } catch { /* ignore */ }
+  };
+
+  return (
+    <div className="grid grid-cols-[minmax(96px,130px)_1fr_auto] items-start gap-2 border-t border-slate-100 px-3 py-2 first:border-t-0 dark:border-slate-800">
+      <div className="pt-1.5">
+        <span className="font-semibold text-slate-800 dark:text-slate-100">{student.prenom}</span>
+        <span className="ml-1 text-[10px] font-bold text-slate-400">{student.niveau}</span>
+      </div>
+      <AutoTextarea className="min-h-[38px] text-[13px]" value={text} onChange={(e) => onChange(e.target.value)}
+        placeholder={`Appréciation ${sem} de ${student.prenom}… (dictée micro possible)`} />
+      <button onClick={copy} className="btn-outline mt-0.5 py-1 text-xs" title="Copier cette appréciation">{copied ? "✓" : "📋"}</button>
     </div>
   );
 }
