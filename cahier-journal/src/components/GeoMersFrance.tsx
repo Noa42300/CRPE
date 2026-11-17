@@ -132,7 +132,7 @@ export function GeoMersFranceLecon() {
       titre="Les mers autour de la France" emojiL="🌊" emojiR="🇫🇷" accent={GEO}
       sousTitre="GÉOGRAPHIE · SE REPÉRER EN FRANCE" variant="cote" titreSize="30px"
       visuel={<CarteMersFrance w={300} />}
-      legende="La France et ses mers (vraie carte)."
+      legende="La France et ses mers."
       points={[
         { t: <>Là où la <b>terre touche l'eau</b>, c'est une <MotCle accent={GEO}>côte</MotCle>. La France a beaucoup de côtes.</> },
         { t: <>À l'<b>ouest</b> : l'<MotCle accent={GEO}>océan Atlantique</MotCle>.</> },
