@@ -370,6 +370,16 @@ jours. On peut réduire le reste, jamais ces deux-là.
   bâtir les séances (il en a repéré 2-3 bien) : c'est un gage de conformité pour
   l'**inspection / la visite du tuteur**. Citer le BO dans la séance quand une activité
   en est tirée.
+- **BANQUE MATHS OFFICIELLE (fournie, archivée dans le dépôt)** : les **livrets
+  d'accompagnement Éduscol Mathématiques cycle 2 (2025)**, CE1 et CE2 + annexes
+  (supports élèves `.docx`), sont dans **`reference/eduscol-maths-2025/`** (libres
+  de reprise). **Pour fabriquer un exercice / une séance de maths, reprendre la
+  séquence correspondante de ces livrets ET leurs schémas tels quels** : schéma en
+  **barres parties-tout** (problèmes additifs), **bandes/disques de fractions**,
+  calcul mental **+9/+19/+29** (= +10/+20 puis −1), **table de 7** (commutativité /
+  distributivité), résolution de problèmes **comparaison** (CE2). Lire la séquence
+  voulue dans le PDF (via `reference/.../README.md`) avant de bâtir la fiche.
+  Équivalent **français** à réclamer/ajouter quand l'enseignant l'envoie.
 
 ## Programmations annuelles intégrées (référence permanente)
 
