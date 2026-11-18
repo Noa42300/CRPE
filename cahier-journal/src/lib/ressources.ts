@@ -77,6 +77,12 @@ export const RESSOURCES: Ressource[] = [
   { nom: "Poésies cycle 2", cadre: "poésie CE1 CE2 à imprimer", type: "fiches",
     description: "Recueils de poésies à imprimer, illustrer et réciter (CE1-CE2).",
     matieres: ["poésie", "français"] },
+  { nom: "Turbo PE", domaine: "turbope.fr", cadre: "CE1 CE2 cycle 2-3", type: "fiches",
+    description: "Banque de fiches d'exercices classées par niveau et par difficulté, avec correction (français, maths, questionner le monde).",
+    matieres: ["transversal", "français", "maths", "qlm"] },
+  { nom: "Les fichiers des profs", cadre: "fiches exercices à imprimer primaire", type: "fiches",
+    description: "Fiches et exercices à imprimer, toutes matières (plein d'exercices). ⚠ Lien à confirmer : recherche par nom en attendant l'URL exacte.",
+    matieres: ["transversal", "français", "maths", "qlm"] },
 ];
 
 export const MATIERES_RESSOURCE: { id: string; label: string }[] = [

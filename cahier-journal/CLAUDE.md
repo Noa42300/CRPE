@@ -364,6 +364,12 @@ jours. On peut réduire le reste, jamais ces deux-là.
 - Formulation type dans `competenceRef` d'une séance de français :
   « Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (en vigueur rentrée
   2025), domaine "grammaire et orthographe" … ».
+- **S'APPUYER SUR LES ACTIVITÉS DU BO (IMPORTANT, demandé par l'enseignant)** :
+  l'enseignant fournit le **BO complet maths cycle 2 et français cycle 2** (~300 p.).
+  Quand il l'envoie, **privilégier les activités/propositions concrètes du BO** pour
+  bâtir les séances (il en a repéré 2-3 bien) : c'est un gage de conformité pour
+  l'**inspection / la visite du tuteur**. Citer le BO dans la séance quand une activité
+  en est tirée.
 
 ## Programmations annuelles intégrées (référence permanente)
 
