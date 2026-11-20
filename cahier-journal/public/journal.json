@@ -11626,13 +11626,71 @@
     "absents": [],
     "absentsNames": "",
     "events": [],
-    "rappels": [],
-    "devoirs": ""
+    "rappels": [
+     {
+      "id": "rap-20261123-tables",
+      "heure": "11:45",
+      "texte": "Faire réciter les tables de multiplication",
+      "type": "autre"
+     },
+     {
+      "id": "rap-20261123-eps",
+      "texte": "Préparer le matériel EPS (dossards, 2 ballons mousse, plots) avant l'après-midi",
+      "type": "autre"
+     }
+    ],
+    "devoirs": "FRANÇAIS : apprendre la leçon « Les pronoms personnels sujets » (cahier bleu) ; revoir les mots du sport pour la dictée (jour 2). MATHS : apprendre la leçon sur les solides (cahier rouge), savoir nommer cube, pavé, boule, cylindre, cône, pyramide. Tables de multiplication (récitation)."
    },
    "slots": [
     {
-     "start": "13:30",
-     "end": "15:10",
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "l23rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin — phrase du jour + problème du jour",
+       "objectif": "Entrer dans la journée : date, phrase du jour (type/forme), problème du jour (schéma + calcul + réponse).",
+       "competence": "Rituels : repérer le type et la forme d'une phrase ; résoudre un petit problème.",
+       "competenceRef": "Questionner le monde / Français / Maths — rituels",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Rituels quotidiens",
+       "progSeance": "Jour J",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l23r1",
+         "label": "Accueil et rituels (20 min)",
+         "note": "« On s'installe en silence, on sort l'ardoise et le cahier gris. »\n« Quel jour sommes-nous ? Écrivez la date au bon endroit. »\n« Phrase du jour : je la lis, vous me dites si c'est une phrase affirmative ou négative, et son type. »\n« Problème du jour : lisez tout seuls, dessinez le schéma, posez le calcul, écrivez la réponse. »\n« On corrige ensemble : qui vient montrer son schéma au tableau ? »\n(je relève l'ardoise d'un ou deux élèves pour vérifier où ils en sont.)"
+        }
+       ],
+       "materiel": "Bandes rituels (4 par A4 à découper) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise, cahier gris.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : confondre type et forme de phrase ; choisir la mauvaise opération. Remédiation : relire l'affiche types/formes ; reformuler le problème avec ses mots, repérer « en plus / en moins ».",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "start": "08:50",
+     "end": "10:10",
      "activities": [
       {
        "id": "l23fr",
@@ -11683,6 +11741,266 @@
        "disciplineId": "francais"
       }
      ]
+    },
+    {
+     "start": "10:40",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "l23mu",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths (géométrie) — Les solides : reconnaître et nommer",
+       "objectif": "Reconnaître, nommer et décrire des solides (cube, pavé droit, boule, cylindre, cône, pyramide). CE1 : nommer et trier. CE2 : décrire avec faces, arêtes, sommets.",
+       "competence": "Reconnaître et nommer des solides usuels ; décrire un solide (faces, arêtes, sommets au CE2).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (solides). Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Géométrie P2 — Les solides",
+       "progSeance": "Séance 1 — Découverte (reconnaître / nommer)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l23m1",
+         "label": "Manipulation et tri (15 min)",
+         "note": "« Aujourd'hui on fait de la géométrie dans l'espace : on étudie les SOLIDES, les objets en volume. »\n« Je fais passer des objets de la classe : une boîte, un dé, une balle, une boîte de conserve. Touchez, observez. »\n« On va les trier : ceux qui roulent / ceux qui ne roulent pas, ceux qui glissent, ceux qui ont des pointes. »\n« Un solide à faces plates ne roule pas ; un solide rond (boule, cylindre) roule. »\n« Qui peut poser un objet sur un autre ? Pourquoi certains tiennent et pas d'autres ? »\n(je range les objets triés en deux familles au tableau pour amener le vocabulaire.)"
+        },
+        {
+         "id": "l23m2",
+         "label": "Découverte projetée + vocabulaire (15 min)",
+         "note": "« On regarde le diaporama : voici le cube, le pavé droit, la boule, le cylindre, le cône, la pyramide. »\n« Le cube a 6 faces toutes carrées ; le pavé droit a 6 faces rectangulaires. »\n« Une FACE est une surface plate, une ARÊTE est un bord (une ligne), un SOMMET est une pointe. »\n« Cherchez dans la classe : qu'est-ce qui ressemble à un cube ? à un cylindre ? »\n« On nomme chaque solide tous ensemble, puis je le fais redire à quelques-uns. »\n(je montre les mots en étiquettes et je les associe aux images.)"
+        },
+        {
+         "id": "l23m3",
+         "label": "Leçon + fiche (20 min)",
+         "note": "« On colle la leçon des solides dans le cahier rouge et on la relit ensemble. »\n« Les CE1 : vous nommez chaque solide, vous coloriez et vous reliez l'objet à son solide. »\n« Les CE2 : en plus, vous complétez le tableau faces / arêtes / sommets et le vrai-faux. »\n« Pour vous aider, gardez la leçon et les objets sous les yeux. »\n« Je passe vérifier le vocabulaire : montrez-moi une arête, un sommet. »\n(institutionnalisation : on affiche la famille des solides au mur.)"
+        }
+       ],
+       "materiel": "Diaporama « Les solides » + leçon à coller (cahier rouge) + fiche CE1 et fiche CE2 — voir Documents à imprimer. Objets de la classe (boîtes, dé, balle, boîte de conserve, cône).",
+       "video": "https://vimeo.com/527028880",
+       "differenciation": "CE1 : reconnaître et nommer les solides, trier (roule / ne roule pas), relier objet ↔ solide. CE2 : décrire avec faces / arêtes / sommets, distinguer cube et pavé droit, prisme et pyramide. Élèves fragiles : manipuler l'objet réel en nommant à voix haute.",
+       "depassement": "Compter les faces, arêtes et sommets d'un solide moins courant ; dessiner un solide en perspective ; retrouver le solide « caché » à partir de sa description.",
+       "correction": "Cube : 6 faces carrées, 12 arêtes, 8 sommets. Pavé droit : 6 faces rectangulaires, 12 arêtes, 8 sommets. Boule : 0 face plate, roule. Cylindre : 2 faces rondes + roule. Cône : 1 pointe, roule. Pyramide : faces triangulaires + 1 base.",
+       "obstacles": "Erreurs fréquentes : confondre une figure plane (carré) et un solide (cube) ; confondre cube et pavé ; appeler « rond » le cylindre et la boule. Remédiation : opposer « plat » (sur la feuille) et « en volume » (je peux le tenir) ; compter les faces en les touchant une à une ; comparer un dé (cube) et une boîte d'allumettes (pavé).",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Apprendre la leçon sur les solides (cahier rouge) ; savoir nommer cube, pavé, boule, cylindre, cône, pyramide.",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "14:10",
+     "activities": [
+      {
+       "id": "l23dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (orthographe) — Vocabulaire du sport + dictée flash (jour 1)",
+       "objectif": "Enrichir le vocabulaire (thème du sport) et mémoriser l'orthographe de mots courants ; écrire des mots et une courte dictée différenciée CE1/CE2.",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; écrire sous la dictée en respectant les correspondances graphème-phonème et les accords simples.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « vocabulaire » et « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Dictées maison — thème du sport",
+       "progSeance": "Jour 1 (lundi) — mots + dictée",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l23d1",
+         "label": "Révision du vocabulaire (15 min)",
+         "note": "« Cet après-midi, notre dictée parle du SPORT. On revoit d'abord les mots ensemble. »\n« Je projette les mots flash : le ballon, courir, sauter, l'équipe, le terrain, gagner… »\n« À chaque mot, on l'épelle, on repère le piège (les doubles lettres, le son « qu », le « e » muet). »\n« Sur l'ardoise, écrivez : courir, l'équipe, gagner. Montrez-moi. »\n« Qui peut employer le mot « équipe » dans une phrase ? »\n(je corrige les ardoises et je ré-explique les mots encore fragiles.)"
+        },
+        {
+         "id": "l23d2",
+         "label": "Dictée différenciée (20 min)",
+         "note": "« On range l'ardoise, on prend la feuille de dictée et on écrit son prénom. »\n« D'abord la dictée de mots : je dis chaque mot deux fois, vous écrivez sur les lignes « Les mots ». »\n« Ensuite la petite dictée : CE1 vous écrivez les phrases plus courtes, CE2 les phrases plus longues. »\n« Je dicte lentement, deux fois, puis je relis une dernière fois pour que vous vérifiiez. »\n« Relisez : chaque mot a-t-il toutes ses lettres ? Les points et les majuscules sont-ils là ? »\n(je ramasse ; la correction se fera en autocorrection guidée, les phrases restent de mon côté.)"
+        }
+       ],
+       "materiel": "Mots flash « le sport » (à projeter) + feuille de dictée (jour 1) — voir Documents à imprimer. Ardoise. Cahier vert (dictées).",
+       "video": "",
+       "differenciation": "CE1 : liste de mots plus courte + 2 phrases simples. CE2 : mêmes mots + mots supplémentaires + phrases plus longues (attraper, le joueur, marquer un but). Élèves fragiles : dictée à trous ou nombre de mots réduit, aide à la segmentation.",
+       "depassement": "",
+       "correction": "Mots CE1 : le ballon, courir, sauter, l'équipe, le terrain, gagner, le match, lancer. CE2 en plus : attraper, le joueur, marquer un but. Phrases : accord du pluriel (les joueurs courent), « c'est » / « l'équipe ». Correction en autocorrection supervisée (stylo vert).",
+       "obstacles": "Erreurs fréquentes : oublier le « e » muet final, les doubles consonnes (ballon), l'accord du verbe au pluriel. Remédiation : frapper les syllabes, entourer les lettres muettes, rappeler « qui est-ce qui ? » pour l'accord du verbe.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Revoir les mots du sport pour la dictée de demain (jour 2).",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "14:10",
+     "end": "14:30",
+     "activities": [
+      {
+       "id": "l23pays",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — Le pays du jour : le Maroc",
+       "objectif": "Poursuivre le projet « Autour du monde » : situer et découvrir le Maroc (continent, drapeau, capitale, monument, spécialité).",
+       "competence": "Se repérer dans l'espace ; découvrir un pays et sa culture (projet Autour du monde).",
+       "competenceRef": "Questionner le monde — questionner l'espace et le temps (programmes 2018/2020).",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Autour du monde — Afrique",
+       "progSeance": "Escale de la semaine — le Maroc",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l23pa1",
+         "label": "Escale au Maroc (20 min)",
+         "note": "« On repart en voyage : aujourd'hui, escale au MAROC. Où est-ce ? On le cherche sur la carte. »\n« Le Maroc est en Afrique du Nord, de l'autre côté de la mer Méditerranée, au sud de l'Espagne. »\n« On regarde son drapeau (rouge avec une étoile verte), sa capitale Rabat, la grande ville Marrakech. »\n« On découvre un plat : le couscous et le tajine ; et un animal du désert : le dromadaire. »\n« Chacun complète la carte d'identité du pays et la range dans la pochette du voyage. »\n(je projette les photos — Projets → Autour du monde ; on repère le Maroc par rapport à la France.)"
+        }
+       ],
+       "materiel": "Projets → Autour du monde : diaporama + photos du Maroc + carte d'identité à compléter. Pochette noire (voyage).",
+       "video": "",
+       "differenciation": "CE1 : colorier le drapeau, situer le pays, dire le continent. CE2 : compléter la carte d'identité (capitale, monnaie, spécialité) et une phrase.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "14:30",
+     "end": "15:10",
+     "activities": [
+      {
+       "id": "l23eps",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "EPS — Jeux collectifs : 2 ateliers 6 contre 6",
+       "objectif": "S'engager dans un jeu collectif, coopérer et s'opposer : se démarquer, passer, respecter les règles et l'arbitrage. Se dépenser en jouant sur deux ateliers par rotation.",
+       "competence": "Coopérer et s'opposer dans un jeu collectif ; respecter les règles, les partenaires et les adversaires.",
+       "competenceRef": "Programme d'EPS cycle 2 (2018/2020) — champ « conduire et maîtriser un affrontement collectif ou interindividuel ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "EPS P2 — Jeux collectifs",
+       "progSeance": "Séance — 2 ateliers 6 contre 6",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l23e1",
+         "label": "Mise en train et consignes (10 min)",
+         "note": "« Aujourd'hui, en EPS, on va se dépenser avec des jeux collectifs à 6 contre 6, sur deux terrains. »\n« On commence par s'échauffer : trottiner autour du terrain, puis montées de genoux et talons-fesses. »\n« Je forme 4 équipes d'environ 6 : deux équipes jouent sur l'atelier 1, deux sur l'atelier 2. »\n« Atelier 1 « Passe à 10 » : faites 10 passes de suite sans que l'autre équipe prenne le ballon. »\n« Atelier 2 « Ballon prisonnier » : touchez les adversaires avec le ballon, sans leur faire mal. »\n(je donne les dossards, je place les plots ; je rappelle qu'on ne se bouscule pas.)"
+        },
+        {
+         "id": "l23e2",
+         "label": "Jeu sur les deux ateliers + rotation (30 min)",
+         "note": "« C'est parti : chaque match dure environ 8 minutes, puis on change d'atelier. »\n« Atelier 1 : pour réussir vos passes, écartez-vous, démarquez-vous, appelez le ballon. »\n« Atelier 2 : visez sous les épaules ; si vous êtes touché, vous allez dans la prison et un camarade peut vous délivrer. »\n« Je suis l'arbitre : j'annonce les points, les sorties et les fautes ; on respecte mes décisions. »\n« Au signal, on arrête, on boit, et les équipes tournent sur l'autre atelier. »\n(j'observe le fair-play et l'engagement ; je régule les équipes trop déséquilibrées.)"
+        },
+        {
+         "id": "l23e3",
+         "label": "Retour au calme et bilan (10 min)",
+         "note": "« On range le matériel, les ballons dans le filet, les plots près du mur. »\n« On s'assoit en rond, on respire doucement pour faire redescendre le cœur. »\n« Qu'avez-vous réussi aujourd'hui ? Qu'est-ce qui était difficile ? »\n« Dans « Passe à 10 », qu'est-ce qui aide à réussir ses passes ? » (se démarquer, regarder ses camarades.)\n« On s'applaudit : on a joué ensemble et on a respecté les règles. »\n(je note mentalement les élèves qui ont du mal à coopérer pour les aider la prochaine fois.)"
+        }
+       ],
+       "materiel": "Fiche terrain « 2 ateliers 6v6 » (schémas + sécurité) — voir Documents à imprimer. Dossards 2 couleurs, 2 ballons en mousse, plots, sifflet.",
+       "video": "",
+       "differenciation": "Équipes équilibrées (mixer les niveaux de motricité). Pour un élève en difficulté : rôle d'arbitre-assistant ou zone-relais ; ballon plus gros / plus mou pour faciliter la prise. Adapter la taille du terrain au nombre.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : garder le ballon sans passer, se regrouper « en grappe », viser la tête au ballon prisonnier. Remédiation : règle des 3 secondes ballon en main, zones de couleur pour s'écarter, consigne « on vise les jambes », rappels de sécurité.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "eps"
+      }
+     ]
+    },
+    {
+     "start": "15:40",
+     "end": "16:15",
+     "activities": [
+      {
+       "id": "l23ang",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "English — Winter story « The Mitten » (suite)",
+       "objectif": "Poursuivre l'histoire « The Mitten » : réécouter, reconnaître les animaux et les mots de l'hiver, rejouer l'histoire.",
+       "competence": "Comprendre un court récit en anglais ; réemployer un corpus de mots (animaux, hiver).",
+       "competenceRef": "Programme de langue vivante cycle 2 (2018/2020) — compréhension de l'oral, répétition.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Winter — The Mitten",
+       "progSeance": "Séance — réécoute et jeux de langage",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l23a1",
+         "label": "Warm-up (10 min)",
+         "note": "« Hello everyone! How are you today? » (les élèves répondent : « I'm fine, thank you! »)\n« Let's remember our winter words: snow, cold, mitten, mouse, rabbit, fox, bear. »\n« I show a flashcard, you say the word all together. »\n« Touch something… cold! Show me: brrr, it's cold! »\n« Today we continue our story: The Mitten. Listen carefully. »\n(je réactive le corpus avec les flashcards et des gestes.)"
+        },
+        {
+         "id": "l23a2",
+         "label": "Story and game (25 min)",
+         "note": "« Listen to the story again: a boy loses his mitten in the snow… who comes inside? »\n« The mouse, the rabbit, the fox, the bear… the mitten is full! »\n« When you hear an animal, do the action: mouse (small), bear (big). »\n« Now we play: I say an animal, the group makes the noise and the size. »\n« Let's act it out: some of you are the animals, you come into the mitten one by one. »\n(je fais répéter les phrases simples « Can I come in? » et je valorise la participation orale.)"
+        }
+       ],
+       "materiel": "Diaporama « The Mitten » + corpus « Winter words » à coller (cahier violet) — voir Documents à imprimer. Flashcards animaux.",
+       "video": "https://www.youtube.com/watch?v=f-RFbxOmdj4",
+       "differenciation": "CE1 : répéter les mots, faire les gestes. CE2 : produire une courte phrase (« It's a fox », « Can I come in? »). Valoriser l'oral, pas d'écrit noté.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "anglais"
+      }
+     ]
     }
    ]
   },
@@ -11700,12 +12018,59 @@
       "type": "reunion"
      }
     ],
-    "events": []
+    "events": [],
+    "devoirs": "FRANÇAIS : finir le fichier des pronoms si besoin et relire la leçon ; nouvelle liste de mots à apprendre pour lundi prochain. GÉOGRAPHIE : revoir « Lire une carte » (titre, légende, orientation). HISTOIRE : relire « Au bord du Nil ». MATHS : savoir décrire les solides."
    },
    "slots": [
     {
-     "start": "13:30",
-     "end": "14:30",
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "m24rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin — phrase du jour + problème du jour",
+       "objectif": "Entrer dans la journée : date, phrase du jour (type/forme), problème du jour (schéma + calcul + réponse).",
+       "competence": "Rituels : repérer le type et la forme d'une phrase ; résoudre un petit problème.",
+       "competenceRef": "Questionner le monde / Français / Maths — rituels",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Rituels quotidiens",
+       "progSeance": "Jour J",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m24r1",
+         "label": "Accueil et rituels (20 min)",
+         "note": "« On s'installe, ardoise et cahier gris sortis, dans le calme. »\n« Écrivez la date. Qui peut la lire à voix haute ? »\n« Phrase du jour : type et forme ? Affirmative ou négative ? »\n« Problème du jour : schéma, calcul, réponse — tout seuls d'abord. »\n« On corrige ensemble : un élève explique sa démarche au tableau. »\n(je passe vérifier deux ou trois ardoises.)"
+        }
+       ],
+       "materiel": "Bandes rituels (4 par A4 à découper) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise, cahier gris.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : mauvaise opération choisie ; type/forme confondus. Remédiation : reformuler le problème, repérer « en plus / en moins » ; relire l'affiche types/formes.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "start": "08:50",
+     "end": "10:10",
      "activities": [
       {
        "id": "m24fr",
@@ -11754,6 +12119,220 @@
        "devoirs": "Finir le fichier des pronoms si besoin ; relire la leçon.",
        "notesProchaine": "",
        "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "10:40",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "m24geo",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géographie — Lire une carte + révision (mers et villes)",
+       "objectif": "Lire une carte : comprendre le titre, la légende, l'orientation (N/S/E/O). Découvrir différents types de cartes (plan de quartier, plan de transports, carte de France). Réviser les mers et les grandes villes.",
+       "competence": "Se repérer dans l'espace et le représenter : lire un plan / une carte (titre, légende, orientation) ; situer mers et villes sur une carte.",
+       "competenceRef": "Questionner le monde — questionner l'espace (programmes 2018/2020) : du proche au lointain, se repérer et représenter l'espace.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Géographie P2 — Lire une carte",
+       "progSeance": "Séance — lire une carte + ateliers",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m24g1",
+         "label": "Révision mers et villes (10 min)",
+         "note": "« Avant de commencer, on vérifie ce qu'on a appris : les mers autour de la France et les grandes villes. »\n« Je distribue la carte muette : placez les 4 mers (Manche, mer du Nord, océan Atlantique, mer Méditerranée). »\n« Maintenant, replacez les grandes villes : Paris, Lyon, Marseille, Saint-Étienne… »\n« On corrige ensemble : qui vient montrer la Méditerranée ? au sud ou au nord ? »\n« Gardez ces cartes, elles vont nous aider aujourd'hui. »\n(je repère vite qui maîtrise, qui a besoin d'y revenir.)"
+        },
+        {
+         "id": "m24g2",
+         "label": "Découverte : qu'est-ce qu'une carte ? (15 min)",
+         "note": "« Aujourd'hui, grande question : comment LIRE une carte ? On regarde le diaporama. »\n« Une carte, c'est un dessin de la réalité vue de dessus, comme un oiseau, en plus petit. »\n« Pour la lire, trois choses : le TITRE (ce qu'elle montre), la LÉGENDE (les symboles), l'ORIENTATION (N/S/E/O). »\n« Regardez ce plan de quartier : où est l'école ? la rivière ? Que veut dire ce symbole ? »\n« Il existe plusieurs cartes : le plan du quartier, la carte de France, le plan de transports. »\n(je fais venir des élèves lire le titre et la légende au tableau.)"
+        },
+        {
+         "id": "m24g3",
+         "label": "Leçon + ateliers de lecture de cartes (25 min)",
+         "note": "« On colle la leçon « Lire une carte » dans le cahier bleu et on la relit. »\n« Maintenant, ateliers : chacun reçoit des cartes et des questions. »\n« Atelier 1 : le plan d'un quartier — vous répondez aux questions (où est la mairie ? à l'est ou à l'ouest ?). »\n« Atelier 2 : un plan de transports — quelle ligne pour aller d'une station à une autre ? combien de stations ? »\n« Vous utilisez la légende et la rose des vents pour répondre. »\n(je circule, je fais verbaliser « je lis la légende, puis je cherche »; on met en commun à la fin.)"
+        }
+       ],
+       "materiel": "Diaporama « Lire une carte » + leçon à coller (cahier bleu) + atelier plan de quartier + atelier plan de transports + cartes muettes de révision (mers, villes) — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : repérer titre et légende, lire un symbole, se repérer avec N/S/E/O sur le plan de quartier. CE2 : lire le plan de transports (itinéraire, correspondance), justifier avec la légende et l'orientation. Élèves fragiles : une seule carte à la fois, légende surlignée.",
+       "depassement": "Inventer une légende pour une carte de la classe ou de l'école ; tracer un itinéraire sur le plan de transports et le décrire.",
+       "correction": "Mers : Manche (N-O), mer du Nord (N), océan Atlantique (O), mer Méditerranée (S). Une carte se lit avec titre + légende + orientation. Plan de quartier : l'école est au nord, la rivière traverse en haut. Plan de transports : la correspondance est à la station « Centre ».",
+       "obstacles": "Erreurs fréquentes : oublier de regarder la légende, confondre les points cardinaux (nord/sud), lire une carte « à l'endroit du lecteur » et non selon le nord. Remédiation : rappeler « le nord est en haut », surligner la légende avant de répondre, placer le doigt sur la rose des vents.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Revoir la leçon « Lire une carte » (titre, légende, orientation).",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "13:30",
+     "end": "14:10",
+     "activities": [
+      {
+       "id": "m24dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (orthographe) — Vocabulaire du sport + dictée flash (jour 2)",
+       "objectif": "Réviser le vocabulaire du sport et consolider l'orthographe ; écrire la dictée différenciée (jour 2) et se corriger.",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; écrire sous la dictée en respectant les correspondances graphème-phonème et les accords simples.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « vocabulaire » et « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Dictées maison — thème du sport",
+       "progSeance": "Jour 2 (mardi) — mots + dictée",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m24d1",
+         "label": "Révision rapide (10 min)",
+         "note": "« On revoit une dernière fois les mots du sport avant la dictée. »\n« Mots flash à l'écran : vous les épelez dans votre tête, puis à voix haute. »\n« Sur l'ardoise : attraper, le joueur, marquer un but. Attention aux pièges ! »\n« Qui me rappelle le piège du mot « équipe » ? et de « ballon » ? »\n« On range l'ardoise, on prend sa feuille. »\n(je cible les 2-3 mots qui ont posé problème hier.)"
+        },
+        {
+         "id": "m24d2",
+         "label": "Dictée + autocorrection (20 min)",
+         "note": "« Dictée de mots d'abord : j'énonce, vous écrivez sur les lignes « Les mots ». »\n« Puis la petite dictée : CE1 les phrases courtes, CE2 les phrases plus longues. »\n« Je dicte deux fois, lentement, puis je relis pour la vérification. »\n« On corrige ensemble au tableau : vous vous relisez au stylo vert. »\n« Comptez vos réussites et repérez le mot à retravailler. »\n(autocorrection supervisée ; je garde une trace des progrès pour le suivi.)"
+        }
+       ],
+       "materiel": "Mots flash « le sport » (à projeter) + feuille de dictée (jour 2) — voir Documents à imprimer. Ardoise, stylo vert. Cahier vert (dictées).",
+       "video": "",
+       "differenciation": "CE1 : liste de mots plus courte + 2 phrases simples. CE2 : mêmes mots + mots supplémentaires + phrases plus longues. Élèves fragiles : dictée à trous ou nombre de mots réduit.",
+       "depassement": "",
+       "correction": "Mots CE1 : le ballon, courir, sauter, l'équipe, le terrain, gagner, le match, lancer. CE2 en plus : attraper, le joueur, marquer un but. Vérifier l'accord du verbe au pluriel et les lettres muettes.",
+       "obstacles": "Erreurs fréquentes : lettres muettes oubliées, doubles consonnes, accord du verbe. Remédiation : frapper les syllabes, entourer les lettres muettes, « qui est-ce qui ? » pour l'accord.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Nouvelle liste de mots à apprendre (thème suivant) donnée pour lundi prochain.",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "start": "14:10",
+     "end": "14:55",
+     "activities": [
+      {
+       "id": "m24hist",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Histoire — L'Antiquité : au bord du Nil",
+       "objectif": "Découvrir l'Égypte ancienne : situer le Nil, comprendre son rôle (crues, agriculture) et la vie au bord du fleuve.",
+       "competence": "Se repérer dans le temps (l'Antiquité) ; comprendre le rôle d'un fleuve dans la vie des hommes (le Nil en Égypte).",
+       "competenceRef": "Questionner le monde — questionner le temps (programmes 2018/2020) : l'évolution des sociétés, traces du passé (Antiquité).",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Histoire P2 — L'Égypte ancienne",
+       "progSeance": "Séance 1 — Au bord du Nil",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m24h1",
+         "label": "Découverte projetée (15 min)",
+         "note": "« Aujourd'hui on voyage très loin dans le temps : l'Antiquité, en Égypte, il y a des milliers d'années. »\n« On regarde des photos : le désert, et au milieu, un grand fleuve — le Nil. »\n« Que remarquez-vous ? Tout est jaune (le désert) sauf une bande verte le long du fleuve. »\n« Chaque année, le Nil débordait : la crue déposait de la boue noire très riche pour cultiver. »\n« C'est pour ça que les Égyptiens vivaient au bord du Nil : l'eau, les récoltes, les déplacements en barque. »\n(je montre la carte et les images WikiImage ; je fais décrire ce qu'ils voient.)"
+        },
+        {
+         "id": "m24h2",
+         "label": "Leçon + trace écrite (15 min)",
+         "note": "« On construit la leçon : le Nil est un long fleuve d'Égypte, au milieu du désert. »\n« Grâce à ses crues, les Égyptiens cultivaient le blé : sans le Nil, pas de vie possible ici. »\n« On colle la leçon illustrée dans le cahier d'histoire et on relit ensemble. »\n« Je souligne les mots importants : fleuve, désert, crue, récolte. »\n« Qui peut m'expliquer avec ses mots pourquoi on vivait près du Nil ? »\n(institutionnalisation : on repère l'Égypte sur la carte du monde.)"
+        },
+        {
+         "id": "m24h3",
+         "label": "Exercices (15 min)",
+         "note": "« Maintenant, la fiche d'exercices sur le Nil. »\n« Vous légendez l'image (le désert, le fleuve, les cultures) et vous répondez aux questions. »\n« CE1 : vous reliez et vous complétez avec les mots donnés. »\n« CE2 : vous écrivez une phrase pour expliquer le rôle du Nil. »\n« Je passe vérifier et aider à formuler. »\n(les plus rapides colorient la bande fertile en vert et le désert en jaune.)"
+        }
+       ],
+       "materiel": "Diaporama « Au bord du Nil » (vraies photos) + leçon illustrée à coller (cahier d'histoire) + fiche d'exercices — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : légender avec les mots donnés, relier, colorier désert / bande fertile. CE2 : rédiger une phrase expliquant le rôle du Nil (crue → boue fertile → récoltes). Élèves fragiles : étiquettes-mots à placer, moins de questions.",
+       "depassement": "Chercher un autre élément de l'Égypte ancienne (barque, papyrus, blé) ; situer le Nil sur un planisphère et dire sur quel continent se trouve l'Égypte.",
+       "correction": "Le Nil est un long fleuve d'Égypte, au milieu du désert. Sa crue annuelle dépose une boue noire fertile → on cultive le blé. Les Égyptiens vivaient au bord du Nil (eau, récoltes, transport en barque). L'Égypte est en Afrique.",
+       "obstacles": "Erreurs fréquentes : confondre fleuve et mer ; ne pas comprendre le lien crue → récolte ; situer l'Égypte « en France ». Remédiation : s'appuyer sur les photos (bande verte / désert), raconter l'histoire de la crue avec un schéma simple, montrer l'Égypte sur la carte.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Relire la leçon « Au bord du Nil » (cahier d'histoire).",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "start": "15:40",
+     "end": "16:15",
+     "activities": [
+      {
+       "id": "m24mu",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths (géométrie) — Les solides : entraînement",
+       "objectif": "Consolider la reconnaissance des solides : nommer, décrire (faces, arêtes, sommets), trier et associer objet ↔ solide.",
+       "competence": "Reconnaître et nommer des solides usuels ; décrire un solide (faces, arêtes, sommets au CE2).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (solides). Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Géométrie P2 — Les solides",
+       "progSeance": "Séance 2 — Entraînement / consolidation",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m24m1",
+         "label": "Rappel et manipulation (10 min)",
+         "note": "« On reprend les solides vus hier : qui me les nomme ? » (cube, pavé, boule, cylindre, cône, pyramide.)\n« Je montre un objet, vous dites le nom du solide et s'il roule ou non. »\n« Montrez-moi une face, une arête, un sommet sur ce cube. »\n« Combien de faces a un cube ? et un pavé droit ? »\n« Aujourd'hui, on s'entraîne sur la fiche pour bien retenir. »\n(je repose les objets sur la table pour que les élèves manipulent au besoin.)"
+        },
+        {
+         "id": "m24m2",
+         "label": "Fiche d'entraînement (25 min)",
+         "note": "« Chacun prend sa fiche : CE1 la fiche CE1, CE2 la fiche CE2. »\n« CE1 : vous nommez les solides, vous coloriez, vous reliez l'objet à son solide, vous en dessinez un. »\n« CE2 : vous complétez le tableau faces / arêtes / sommets et vous répondez au vrai-faux. »\n« Gardez la leçon à côté pour vous aider ; utilisez les objets si besoin. »\n« Je passe corriger et je vérifie le vocabulaire face / arête / sommet. »\n(ceux qui finissent cherchent des solides cachés dans la classe.)"
+        }
+       ],
+       "materiel": "Leçon des solides (rappel) + fiche CE1 et fiche CE2 — voir Documents à imprimer. Objets solides de la classe.",
+       "video": "https://vimeo.com/527028880",
+       "differenciation": "CE1 : nommer, trier, relier, dessiner un solide simple. CE2 : dénombrer faces / arêtes / sommets, vrai-faux justifié. Élèves fragiles : manipuler l'objet réel et compter les faces en les touchant.",
+       "depassement": "Associer chaque solide à un objet réel de la vie quotidienne ; décrire un solide à un camarade qui doit le deviner.",
+       "correction": "Cube : 6 faces, 12 arêtes, 8 sommets. Pavé droit : 6 faces, 12 arêtes, 8 sommets. Cylindre : 2 faces planes (disques) + roule. Cône : 1 sommet, roule. Pyramide : base + faces triangulaires. Boule : roule, pas de face plane.",
+       "obstacles": "Erreurs fréquentes : confondre cube et pavé, compter deux fois la même face, confondre arête et sommet. Remédiation : compter les faces en tournant l'objet, marquer d'un feutre les arêtes comptées, opposer « ligne » (arête) et « pointe » (sommet).",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Savoir nommer et décrire les solides (faces, arêtes, sommets).",
+       "notesProchaine": "",
+       "disciplineId": "maths"
       }
      ]
     }

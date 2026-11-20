@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 
 const ORANGE = "#c9481f";
 
-export type EpsVariant = "courseLongue" | "vitesse" | "relais" | "saut" | "lancer" | "ateliers";
+export type EpsVariant = "courseLongue" | "vitesse" | "relais" | "saut" | "lancer" | "ateliers" | "sportCo6v6";
 
 export interface EpsFiche {
   variant: EpsVariant;
@@ -150,6 +150,47 @@ function Schema({ variant }: { variant: EpsVariant }) {
     );
   }
 
+  if (variant === "sportCo6v6") {
+    const BL = "#2563eb", RD = "#dc2626";
+    const circ = (x: number, y: number) => <circle cx={x} cy={y} r={7} fill={BL} stroke="#fff" strokeWidth={1.4} />;
+    const tri = (x: number, y: number) => <polygon points={`${x - 7},${y + 6} ${x + 7},${y + 6} ${x},${y - 8}`} fill={RD} stroke="#fff" strokeWidth={1.2} />;
+    const ball = (x: number, y: number) => <circle cx={x} cy={y} r={5} fill="#f59e0b" stroke="#92400e" strokeWidth={1.2} />;
+    const blues1 = [[70, 95], [120, 85], [95, 160], [155, 135]] as const;
+    const reds1 = [[215, 95], [250, 130], [220, 185], [195, 150]] as const;
+    const blues2 = [[345, 95], [385, 150], [360, 205], [405, 110]] as const;
+    const reds2 = [[495, 95], [525, 150], [500, 205], [470, 120]] as const;
+    return (
+      <svg viewBox="0 0 600 360" style={{ width: "100%", height: "auto" }}>
+        {defs}
+        <rect x={6} y={6} width={588} height={322} rx={10} fill="#f2f7ee" stroke="#cfe0c4" />
+        {/* Atelier 1 — Passe à 10 (handball) */}
+        <rect x={20} y={52} width={268} height={198} rx={6} fill="#ecfdf3" stroke="#16a34a" strokeWidth={2} />
+        <rect x={20} y={120} width={16} height={62} fill="#bbf7d0" stroke="#16a34a" />
+        <rect x={272} y={120} width={16} height={62} fill="#fecaca" stroke="#dc2626" />
+        {blues1.map(([x, y], i) => <g key={"b" + i}>{circ(x, y)}</g>)}
+        {reds1.map(([x, y], i) => <g key={"r" + i}>{tri(x, y)}</g>)}
+        {ball(135, 110)}
+        <path d="M120 92 Q140 100 153 128" fill="none" stroke={ORANGE} strokeWidth={2} markerEnd="url(#epsArrow)" />
+        <text x={154} y={44} fontSize={13} fontWeight={800} textAnchor="middle" fill="#15803d">Atelier 1 — Passe à 10 (6 c 6)</text>
+        <text x={28} y={116} fontSize={9} fill="#15803d">but</text><text x={268} y={116} fontSize={9} fill="#dc2626">but</text>
+        {/* Atelier 2 — Ballon prisonnier */}
+        <rect x={312} y={52} width={268} height={198} rx={6} fill="#eff6ff" stroke="#2563eb" strokeWidth={2} />
+        <line x1={446} y1={52} x2={446} y2={250} stroke="#1e3a8a" strokeWidth={2} strokeDasharray="6 4" />
+        <rect x={312} y={52} width={12} height={198} fill="#dbeafe" stroke="#2563eb" strokeDasharray="3 3" />
+        <rect x={568} y={52} width={12} height={198} fill="#fee2e2" stroke="#dc2626" strokeDasharray="3 3" />
+        {blues2.map(([x, y], i) => <g key={"b2" + i}>{circ(x, y)}</g>)}
+        {reds2.map(([x, y], i) => <g key={"r2" + i}>{tri(x, y)}</g>)}
+        {ball(430, 120)}{ball(458, 185)}
+        <text x={446} y={44} fontSize={13} fontWeight={800} textAnchor="middle" fill="#1d4ed8">Atelier 2 — Ballon prisonnier (6 c 6)</text>
+        <text x={318} y={270} fontSize={9} fill="#2563eb">prison</text><text x={548} y={270} fontSize={9} fill="#dc2626">prison</text>
+        {/* légende + rotation (deux lignes) */}
+        <g transform="translate(150,290)"><circle cx={6} cy={-3} r={6} fill={BL} /><text x={16} y={1} fontSize={11} fill="#475569">équipe A / C (×6)</text></g>
+        <g transform="translate(320,290)"><polygon points="0,3 12,3 6,-8" fill={RD} /><text x={18} y={1} fontSize={11} fill="#475569">équipe B / D (×6)</text></g>
+        <text x={300} y={316} fontSize={11.5} textAnchor="middle" fill="#b45309" fontWeight={700}>➜ On change d'atelier toutes les ~8 min · 2 matchs en même temps</text>
+      </svg>
+    );
+  }
+
   // lancer
   const lx = 180, cy = 165;
   return (
@@ -230,4 +271,22 @@ export function EpsTerrainSupport(fiche?: EpsFiche): ReactNode {
       </div>
     </div>
   );
+}
+
+/** EPS — Jeux collectifs : rotation sur 2 ateliers 6 contre 6 (se dépenser). */
+export function EpsSportCo6v6() {
+  return EpsTerrainSupport({
+    variant: "sportCo6v6",
+    titre: "EPS — Jeux collectifs : 2 ateliers 6 contre 6",
+    sousTitre: "Sports collectifs — Période 2 (se dépenser, coopérer, s'opposer)",
+    dispositif: [
+      "4 équipes d'environ 6 joueurs (23 élèves = 6+6+6+5), dossards 2 couleurs.",
+      "2 matchs EN MÊME TEMPS : Atelier 1 « Passe à 10 » (marquer en atteignant la zone-but par des passes, sans courir avec le ballon) · Atelier 2 « Ballon prisonnier ».",
+      "On joue ~8 min, puis les équipes TOURNENT (celles de l'atelier 1 vont à l'atelier 2).",
+      "Je suis l'arbitre d'un terrain, un élève « responsable » compte les points de l'autre.",
+    ],
+    active: ["Échauffement (course, passes) avant de jouer.", "Règles dites et redites : on ne pousse pas, on ne tire pas fort au visage.", "Signal d'arrêt unique (sifflet) testé avant.", "On s'hydrate entre deux rotations."],
+    passive: ["2 terrains bien séparés, dégagés, sans obstacle.", "Zones et prisons délimitées aux plots.", "Ballons en mousse pour le prisonnier.", "Pas de joueur derrière les lignes de fond."],
+    affective: ["Équipes équilibrées, mixtes.", "On change les équipes à chaque rotation pour mélanger.", "On encourage, on ne se moque pas d'une maladresse.", "Chacun touche le ballon : règle « tout le monde a joué »."],
+  });
 }

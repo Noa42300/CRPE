@@ -19,6 +19,10 @@ import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1, ProblemeBandesMardiCE2 } from "./ProblemeBandes";
 import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./FluenceLecture";
 import { PronomsDiapo, PronomsLecon, FichePronomsCE1, FichePronomsCE2 } from "./PronomsPersonnels";
+import { SolidesDiapo as GeoSolidesDiapo, SolidesLecon as GeoSolidesLecon, FicheSolidesCE1, FicheSolidesCE2 } from "./GeoSolides";
+import { GeoCartesDiapo, GeoCartesLecon, AtelierPlanQuartier, AtelierPlanMetro } from "./GeoCartes";
+import { EpsSportCo6v6 } from "./EpsTerrainSupport";
+import { MotsFlashSportDiapo, DicteeSportFiche } from "./DicteeFlash";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
 import { FicheTypesPhrasesModele } from "./FicheModeleFrancais";
@@ -1391,6 +1395,60 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "pp-lecon", label: "Les pronoms personnels — Leçon à coller (cahier bleu)", node: <PronomsLecon /> },
         { key: "pp-ce1", label: "Les pronoms personnels — Fichier CE1 (2 jours, 2 pages : repérer + remplacer)", node: <FichePronomsCE1 /> },
         { key: "pp-ce2", label: "Les pronoms personnels — Fichier CE2 (2 jours, 2 pages : + accord du verbe)", node: <FichePronomsCE2 /> },
+      ];
+    /* ===== Lundi 23 / Mardi 24 novembre ===== */
+    case "l23mu":
+      return [
+        { key: "sol-diapo", label: "Les solides — Diaporama de découverte (cube, pavé, boule, cylindre, cône, pyramide)", node: <GeoSolidesDiapo /> },
+        { key: "sol-lecon", label: "Les solides — Leçon à coller (cahier rouge)", node: <GeoSolidesLecon /> },
+        { key: "sol-ce1", label: "Les solides — Fiche CE1 (nommer, colorier, relier, dessiner)", node: <FicheSolidesCE1 /> },
+        { key: "sol-ce2", label: "Les solides — Fiche CE2 (faces / arêtes / sommets, vrai-faux)", node: <FicheSolidesCE2 /> },
+      ];
+    case "l23dic":
+      return [
+        { key: "dics-flash", label: "Mots flash — le sport (ardoise, à projeter) — mêmes mots lundi & mardi", node: <MotsFlashSportDiapo /> },
+        { key: "dics-fiche1", label: "Dictée — le sport (jour 1 / lundi) — feuille élève", node: <DicteeSportFiche jour={1} /> },
+      ];
+    case "l23eps":
+      return [
+        { key: "eps-6v6", label: "EPS — Jeux collectifs : 2 ateliers 6 contre 6 (schémas de terrain + sécurité)", node: <EpsSportCo6v6 /> },
+      ];
+    case "l23ang":
+      return [
+        { key: "ang-diapo", label: "English — Winter story « The Mitten » (à projeter, jeux)", node: <AnglaisHiverDiapo /> },
+        { key: "ang-corpus", label: "English — Winter words (corpus à coller, cahier violet)", node: <AnglaisHiverCorpus /> },
+      ];
+    case "m24geo":
+      return [
+        { key: "cartes-diapo", label: "Lire une carte — Diaporama (vue de dessus, titre, légende, orientation)", node: <GeoCartesDiapo /> },
+        { key: "cartes-lecon", label: "Lire une carte — Leçon à coller (cahier bleu)", node: <GeoCartesLecon /> },
+        { key: "cartes-at1", label: "Atelier ① — Lire le plan d'un quartier (fiche + questions)", node: <AtelierPlanQuartier /> },
+        { key: "cartes-at2", label: "Atelier ② — Lire un plan de transports (fiche + questions)", node: <AtelierPlanMetro /> },
+        { key: "rev-mers", label: "Révision — Les mers autour de la France (carte muette à replacer)", node: <GeoMersFranceExos /> },
+        { key: "rev-villes", label: "Révision — Les villes de France (carte muette à replacer)", node: <CarteVillesMuetteFiche /> },
+      ];
+    case "m24mu":
+      return [
+        { key: "sol-lecon2", label: "Les solides — Leçon (rappel à coller)", node: <GeoSolidesLecon /> },
+        { key: "sol-ce1-2", label: "Les solides — Fiche CE1 (nommer, colorier, relier, dessiner)", node: <FicheSolidesCE1 /> },
+        { key: "sol-ce2-2", label: "Les solides — Fiche CE2 (faces / arêtes / sommets, vrai-faux)", node: <FicheSolidesCE2 /> },
+      ];
+    case "l23rit":
+    case "m24rit":
+      return [
+        { key: "rit-serie", label: "Rituels du matin — Période 2 (14 jours) : type de phrase + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
+        { key: "rit-quiz", label: "Mini-quiz « Quelle opération ? » (+ , − ou × · vocabulaire des problèmes)", node: <QuizOperations /> },
+      ];
+    case "m24hist":
+      return [
+        { key: "eg-diapo", label: "Au bord du Nil — Diaporama (vraies photos)", node: <EgypteNilDiapo /> },
+        { key: "eg-lecon", label: "Au bord du Nil — Leçon à coller (cahier d'histoire)", node: <EgypteNilLecon /> },
+        { key: "eg-exos", label: "Au bord du Nil — Fiche d'exercices", node: <EgypteNilExos /> },
+      ];
+    case "m24dic":
+      return [
+        { key: "dics-flash2", label: "Mots flash — le sport (ardoise, à projeter) — mêmes mots que lundi", node: <MotsFlashSportDiapo /> },
+        { key: "dics-fiche2", label: "Dictée — le sport (jour 2 / mardi) — feuille élève", node: <DicteeSportFiche jour={2} /> },
       ];
     case "fluLecture":
       return [
