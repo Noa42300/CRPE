@@ -41,6 +41,11 @@ export function PrintDay({
   );
 }
 
+/** Coercition défensive : certains champs peuvent être stockés en chaîne dans
+ *  d'anciennes données ; on évite tout .map()/.join() qui planterait l'impression. */
+const arr = (v: unknown): string[] =>
+  Array.isArray(v) ? v.filter((x) => typeof x === "string") : typeof v === "string" && v.trim() ? [v] : [];
+
 export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
   const period = periodForDate(settings, day.date);
   const teacher = [settings.profile.prenom, settings.profile.nom]
@@ -88,7 +93,7 @@ export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
             {slot.activities.map((a) => (
               <div key={a.id} className="mt-1.5 pl-2">
                 <div className="font-semibold">
-                  [{(a.niveaux ?? []).map((n) => niveauLabel(settings, n)).join(" / ")}]{" "}
+                  [{arr(a.niveaux).map((n) => niveauLabel(settings, n)).join(" / ")}]{" "}
                   {a.title}
                 </div>
                 {a.objectif && (
@@ -101,16 +106,16 @@ export function DayPrint({ day, settings }: { day: Day; settings: Settings }) {
                     <b>Compétence :</b> {a.competence}
                   </div>
                 )}
-                {((a.organisation?.length ?? 0) > 0 || (a.roleEnseignant?.length ?? 0) > 0) && (
+                {(arr(a.organisation).length > 0 || arr(a.roleEnseignant).length > 0) && (
                   <div>
-                    {(a.organisation?.length ?? 0) > 0 && (
+                    {arr(a.organisation).length > 0 && (
                       <span>
-                        <b>Organisation :</b> {a.organisation.join(", ")}.{" "}
+                        <b>Organisation :</b> {arr(a.organisation).join(", ")}.{" "}
                       </span>
                     )}
-                    {(a.roleEnseignant?.length ?? 0) > 0 && (
+                    {arr(a.roleEnseignant).length > 0 && (
                       <span>
-                        <b>Rôle :</b> {a.roleEnseignant.join(", ")}.
+                        <b>Rôle :</b> {arr(a.roleEnseignant).join(", ")}.
                       </span>
                     )}
                   </div>
