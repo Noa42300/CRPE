@@ -18,6 +18,7 @@ import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon,
 import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1, ProblemeBandesMardiCE2 } from "./ProblemeBandes";
 import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./FluenceLecture";
+import { PronomsDiapo, PronomsLecon, FichePronomsCE1, FichePronomsCE2 } from "./PronomsPersonnels";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
 import { FicheTypesPhrasesModele } from "./FicheModeleFrancais";
@@ -1382,6 +1383,14 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "prob-m", label: "Problème du jour — grand format à afficher / 4 par A4 (schéma + calcul + réponse)", node: <ProblemeRituelMardi /> },
         { key: "prob-m-bande-ce1", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE1", node: <ProblemeBandesMardiCE1 /> },
         { key: "prob-m-bande-ce2", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE2", node: <ProblemeBandesMardiCE2 /> },
+      ];
+    case "l23fr":
+    case "m24fr":
+      return [
+        { key: "pp-diapo", label: "Les pronoms personnels — Diaporama de découverte (à projeter)", node: <PronomsDiapo /> },
+        { key: "pp-lecon", label: "Les pronoms personnels — Leçon à coller (cahier bleu)", node: <PronomsLecon /> },
+        { key: "pp-ce1", label: "Les pronoms personnels — Fichier CE1 (2 jours, 2 pages : repérer + remplacer)", node: <FichePronomsCE1 /> },
+        { key: "pp-ce2", label: "Les pronoms personnels — Fichier CE2 (2 jours, 2 pages : + accord du verbe)", node: <FichePronomsCE2 /> },
       ];
     case "fluLecture":
       return [
