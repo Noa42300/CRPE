@@ -52,16 +52,28 @@ export function normalizeDay(d: Day): Day {
   if (!d || !Array.isArray(d.slots)) return d;
   return {
     ...d,
-    slots: d.slots.map((s) => ({
-      ...s,
-      activities: (Array.isArray(s.activities) ? s.activities : []).map((a) => ({
+    slots: d.slots.map((s, i) => {
+      const activities = (Array.isArray(s.activities) ? s.activities : []).map((a) => ({
         ...a,
         niveaux: toStrArray(a.niveaux),
         organisation: toStrArray(a.organisation),
         roleEnseignant: toStrArray(a.roleEnseignant),
         deroulement: Array.isArray(a.deroulement) ? a.deroulement : [],
-      })),
-    })),
+      }));
+      return {
+        ...s,
+        // id manquant → tous les créneaux auraient le même id (undefined) et
+        // s'écraseraient mutuellement à la moindre édition. On en garantit un, stable.
+        id: s.id || `slot-${s.start || "x"}-${s.end || i}`,
+        // discipline du créneau absente → on la déduit de la 1re activité, pour
+        // que la matière (nom + couleur) s'affiche bien dans la journée.
+        disciplineId:
+          s.disciplineId ||
+          (activities[0] as { disciplineId?: string } | undefined)?.disciplineId ||
+          "",
+        activities,
+      };
+    }),
   };
 }
 

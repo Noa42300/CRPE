@@ -11619,7 +11619,7 @@
   {
    "date": "2026-11-23",
    "createdAt": 1795162975550,
-   "updatedAt": 1795162975550,
+   "updatedAt": 1795178299885,
    "info": {
     "effectifPrevu": 23,
     "presents": [],
@@ -11686,7 +11686,9 @@
        "notesProchaine": "",
        "disciplineId": "autre"
       }
-     ]
+     ],
+     "id": "slot-20261123-0",
+     "disciplineId": "autre"
     },
     {
      "start": "08:50",
@@ -11742,7 +11744,9 @@
        "notesProchaine": "",
        "disciplineId": "francais"
       }
-     ]
+     ],
+     "id": "slot-20261123-1",
+     "disciplineId": "francais"
     },
     {
      "start": "10:40",
@@ -11753,14 +11757,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Maths (géométrie) — Les solides : reconnaître et nommer",
-       "objectif": "Reconnaître, nommer et décrire des solides (cube, pavé droit, boule, cylindre, cône, pyramide). CE1 : nommer et trier. CE2 : décrire avec faces, arêtes, sommets.",
-       "competence": "Reconnaître et nommer des solides usuels ; décrire un solide (faces, arêtes, sommets au CE2).",
-       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (solides). Méthode Tandem.",
+       "title": "Maths (géométrie) — Les formes : reconnaître les figures planes",
+       "objectif": "Reconnaître, nommer et décrire les figures planes (carré, rectangle, triangle, cercle). CE1 : nommer et compter les côtés. CE2 : côtés et sommets, angle droit, distinguer carré et rectangle, tracer à la règle.",
+       "competence": "Reconnaître et nommer des figures planes ; décrire (côtés, sommets, angle droit au CE2).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (figures planes). Méthode Tandem.",
        "progPeriode": "P2",
        "progDomaine": "",
-       "progSequence": "Géométrie P2 — Les solides",
-       "progSeance": "Séance 1 — Découverte (reconnaître / nommer)",
+       "progSequence": "Géométrie P2 — Les formes (figures planes)",
+       "progSeance": "Séance 1 — Les formes (avant les solides)",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -11772,33 +11776,35 @@
        "deroulement": [
         {
          "id": "l23m1",
-         "label": "Manipulation et tri (15 min)",
-         "note": "« Aujourd'hui on fait de la géométrie dans l'espace : on étudie les SOLIDES, les objets en volume. »\n« Je fais passer des objets de la classe : une boîte, un dé, une balle, une boîte de conserve. Touchez, observez. »\n« On va les trier : ceux qui roulent / ceux qui ne roulent pas, ceux qui glissent, ceux qui ont des pointes. »\n« Un solide à faces plates ne roule pas ; un solide rond (boule, cylindre) roule. »\n« Qui peut poser un objet sur un autre ? Pourquoi certains tiennent et pas d'autres ? »\n(je range les objets triés en deux familles au tableau pour amener le vocabulaire.)"
+         "label": "Tri et manipulation (15 min)",
+         "note": "« Aujourd'hui, en géométrie, on étudie les FORMES : les figures planes, celles qui sont plates, dessinées sur la feuille. »\n« Je distribue des étiquettes-formes. Observez : combien de côtés ? combien de coins ? »\n« On trie : d'un côté celles qui ont des côtés droits, de l'autre celles qui sont rondes. »\n« Le carré, le rectangle, le triangle ont des côtés ; le cercle est tout rond, il n'a pas de côté. »\n« Qui vient classer une étiquette au tableau et dire pourquoi ? »\n(je fais verbaliser « côté » et « sommet / coin » en montrant du doigt.)"
         },
         {
          "id": "l23m2",
          "label": "Découverte projetée + vocabulaire (15 min)",
-         "note": "« On regarde le diaporama : voici le cube, le pavé droit, la boule, le cylindre, le cône, la pyramide. »\n« Le cube a 6 faces toutes carrées ; le pavé droit a 6 faces rectangulaires. »\n« Une FACE est une surface plate, une ARÊTE est un bord (une ligne), un SOMMET est une pointe. »\n« Cherchez dans la classe : qu'est-ce qui ressemble à un cube ? à un cylindre ? »\n« On nomme chaque solide tous ensemble, puis je le fais redire à quelques-uns. »\n(je montre les mots en étiquettes et je les associe aux images.)"
+         "note": "« On regarde le diaporama : voici le carré, le rectangle, le triangle, le cercle. »\n« Le carré a 4 côtés égaux ; le rectangle a 2 longs côtés et 2 courts ; le triangle a 3 côtés. »\n« Un côté, c'est un bord droit ; un sommet, c'est un coin. On compte ensemble. »\n« Pour les CE2 : un angle droit, c'est un coin « bien carré », comme le coin de la feuille ; on le vérifie à l'équerre. »\n« Cherchez dans la classe : qu'est-ce qui a la forme d'un rectangle ? d'un cercle ? »\n(j'associe chaque forme à son nom en étiquettes.)"
         },
         {
          "id": "l23m3",
-         "label": "Leçon + fiche (20 min)",
-         "note": "« On colle la leçon des solides dans le cahier rouge et on la relit ensemble. »\n« Les CE1 : vous nommez chaque solide, vous coloriez et vous reliez l'objet à son solide. »\n« Les CE2 : en plus, vous complétez le tableau faces / arêtes / sommets et le vrai-faux. »\n« Pour vous aider, gardez la leçon et les objets sous les yeux. »\n« Je passe vérifier le vocabulaire : montrez-moi une arête, un sommet. »\n(institutionnalisation : on affiche la famille des solides au mur.)"
+         "label": "Leçon + fiche différenciée (20 min)",
+         "note": "« On colle la leçon des formes dans le cahier rouge et on la relit. »\n« Les CE1 (niveau simple) : vous nommez les formes, vous les coloriez par famille et vous comptez les côtés. »\n« Les CE2 (niveau poussé) : vous complétez le tableau côtés / sommets / angle droit, puis vous tracez à la règle sur le quadrillage. »\n« Gardez la leçon sous les yeux pour vous aider ; sortez la règle. »\n« Je passe vérifier : montrez-moi un sommet, un côté, un angle droit. »\n(institutionnalisation : on affiche la famille des formes au mur.)"
         }
        ],
-       "materiel": "Diaporama « Les solides » + leçon à coller (cahier rouge) + fiche CE1 et fiche CE2 — voir Documents à imprimer. Objets de la classe (boîtes, dé, balle, boîte de conserve, cône).",
-       "video": "https://vimeo.com/527028880",
-       "differenciation": "CE1 : reconnaître et nommer les solides, trier (roule / ne roule pas), relier objet ↔ solide. CE2 : décrire avec faces / arêtes / sommets, distinguer cube et pavé droit, prisme et pyramide. Élèves fragiles : manipuler l'objet réel en nommant à voix haute.",
-       "depassement": "Compter les faces, arêtes et sommets d'un solide moins courant ; dessiner un solide en perspective ; retrouver le solide « caché » à partir de sa description.",
-       "correction": "Cube : 6 faces carrées, 12 arêtes, 8 sommets. Pavé droit : 6 faces rectangulaires, 12 arêtes, 8 sommets. Boule : 0 face plate, roule. Cylindre : 2 faces rondes + roule. Cône : 1 pointe, roule. Pyramide : faces triangulaires + 1 base.",
-       "obstacles": "Erreurs fréquentes : confondre une figure plane (carré) et un solide (cube) ; confondre cube et pavé ; appeler « rond » le cylindre et la boule. Remédiation : opposer « plat » (sur la feuille) et « en volume » (je peux le tenir) ; compter les faces en les touchant une à une ; comparer un dé (cube) et une boîte d'allumettes (pavé).",
+       "materiel": "Diaporama « Les formes » + leçon à coller (cahier rouge) + fiche CE1 (simple) et fiche CE2 (poussé) — voir Documents à imprimer. Étiquettes-formes, règle, équerre (CE2).",
+       "video": "",
+       "differenciation": "CE1 (simple) : reconnaître et nommer carré, rectangle, triangle, cercle ; compter les côtés ; trier droit / rond. CE2 (poussé) : côtés et sommets, angle droit à l'équerre, distinguer carré et rectangle, losange, tracer à la règle sur quadrillage. Élèves fragiles : manipuler l'étiquette, suivre le côté avec le doigt.",
+       "depassement": "Reproduire une figure sur quadrillage ; décrire une forme à un camarade qui doit la deviner ; trouver des angles droits dans la classe.",
+       "correction": "Carré : 4 côtés égaux, 4 sommets, 4 angles droits. Rectangle : 4 côtés (2 longs, 2 courts), 4 sommets, 4 angles droits. Triangle : 3 côtés, 3 sommets. Cercle : pas de côté ni de sommet. Carré ≠ rectangle : le carré a tous ses côtés égaux.",
+       "obstacles": "Erreurs fréquentes : confondre carré et rectangle ; appeler « rond » toute forme courbe ; confondre côté et sommet ; compter deux fois un sommet. Remédiation : superposer carré et rectangle pour comparer les côtés, suivre le contour avec le doigt en comptant, opposer « bord » (côté) et « coin » (sommet), vérifier l'angle droit avec le coin d'une feuille.",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "Apprendre la leçon sur les solides (cahier rouge) ; savoir nommer cube, pavé, boule, cylindre, cône, pyramide.",
+       "devoirs": "Apprendre la leçon sur les formes (cahier rouge) ; savoir nommer le carré, le rectangle, le triangle, le cercle.",
        "notesProchaine": "",
        "disciplineId": "maths"
       }
-     ]
+     ],
+     "id": "slot-20261123-2",
+     "disciplineId": "maths"
     },
     {
      "start": "13:30",
@@ -11849,7 +11855,9 @@
        "notesProchaine": "",
        "disciplineId": "francais"
       }
-     ]
+     ],
+     "id": "slot-20261123-3",
+     "disciplineId": "francais"
     },
     {
      "start": "14:10",
@@ -11895,7 +11903,9 @@
        "notesProchaine": "",
        "disciplineId": "qlm"
       }
-     ]
+     ],
+     "id": "slot-20261123-4",
+     "disciplineId": "qlm"
     },
     {
      "start": "14:30",
@@ -11951,7 +11961,9 @@
        "notesProchaine": "",
        "disciplineId": "eps"
       }
-     ]
+     ],
+     "id": "slot-20261123-5",
+     "disciplineId": "eps"
     },
     {
      "start": "15:40",
@@ -12002,7 +12014,9 @@
        "notesProchaine": "",
        "disciplineId": "anglais"
       }
-     ]
+     ],
+     "id": "slot-20261123-6",
+     "disciplineId": "anglais"
     }
    ]
   },
@@ -12068,7 +12082,9 @@
        "notesProchaine": "",
        "disciplineId": "autre"
       }
-     ]
+     ],
+     "id": "slot-20261124-0",
+     "disciplineId": "autre"
     },
     {
      "start": "08:50",
@@ -12124,7 +12140,9 @@
        "notesProchaine": "",
        "disciplineId": "francais"
       }
-     ]
+     ],
+     "id": "slot-20261124-1",
+     "disciplineId": "francais"
     },
     {
      "start": "10:40",
@@ -12180,7 +12198,9 @@
        "notesProchaine": "",
        "disciplineId": "qlm"
       }
-     ]
+     ],
+     "id": "slot-20261124-2",
+     "disciplineId": "qlm"
     },
     {
      "start": "13:30",
@@ -12231,7 +12251,9 @@
        "notesProchaine": "",
        "disciplineId": "francais"
       }
-     ]
+     ],
+     "id": "slot-20261124-3",
+     "disciplineId": "francais"
     },
     {
      "start": "14:10",
@@ -12287,7 +12309,9 @@
        "notesProchaine": "",
        "disciplineId": "qlm"
       }
-     ]
+     ],
+     "id": "slot-20261124-4",
+     "disciplineId": "qlm"
     },
     {
      "start": "15:40",
@@ -12298,14 +12322,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Maths (géométrie) — Les solides : entraînement",
-       "objectif": "Consolider la reconnaissance des solides : nommer, décrire (faces, arêtes, sommets), trier et associer objet ↔ solide.",
-       "competence": "Reconnaître et nommer des solides usuels ; décrire un solide (faces, arêtes, sommets au CE2).",
+       "title": "Maths (géométrie) — Les solides : reconnaître et nommer",
+       "objectif": "Reconnaître, nommer et décrire des solides (cube, pavé droit, boule, cylindre, cône, pyramide) ; les distinguer des figures planes vues hier. CE1 : nommer et trier. CE2 : décrire (faces, arêtes, sommets).",
+       "competence": "Reconnaître et nommer des solides usuels ; les distinguer des figures planes ; décrire (faces, arêtes, sommets au CE2).",
        "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (solides). Méthode Tandem.",
        "progPeriode": "P2",
        "progDomaine": "",
        "progSequence": "Géométrie P2 — Les solides",
-       "progSeance": "Séance 2 — Entraînement / consolidation",
+       "progSeance": "Séance 1 — Découverte (après les formes planes)",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -12317,32 +12341,39 @@
        "deroulement": [
         {
          "id": "m24m1",
-         "label": "Rappel et manipulation (10 min)",
-         "note": "« On reprend les solides vus hier : qui me les nomme ? » (cube, pavé, boule, cylindre, cône, pyramide.)\n« Je montre un objet, vous dites le nom du solide et s'il roule ou non. »\n« Montrez-moi une face, une arête, un sommet sur ce cube. »\n« Combien de faces a un cube ? et un pavé droit ? »\n« Aujourd'hui, on s'entraîne sur la fiche pour bien retenir. »\n(je repose les objets sur la table pour que les élèves manipulent au besoin.)"
+         "label": "Du plat au volume (10 min)",
+         "note": "« Hier, on a vu les formes PLATES (carré, triangle…). Aujourd'hui, on passe au VOLUME : les solides. »\n« Un solide, ce n'est pas plat : on peut le tenir dans la main, il a une épaisseur. »\n« Je fais passer des objets : un dé, une boîte, une balle, une boîte de conserve. Touchez, observez. »\n« On les trie : ceux qui roulent / ceux qui ne roulent pas ; ceux qui ont des pointes. »\n« Attention : le carré est plat (une forme), le cube a du volume (un solide). »\n(je mets côte à côte un carré dessiné et un cube pour bien opposer plan / solide.)"
         },
         {
          "id": "m24m2",
-         "label": "Fiche d'entraînement (25 min)",
-         "note": "« Chacun prend sa fiche : CE1 la fiche CE1, CE2 la fiche CE2. »\n« CE1 : vous nommez les solides, vous coloriez, vous reliez l'objet à son solide, vous en dessinez un. »\n« CE2 : vous complétez le tableau faces / arêtes / sommets et vous répondez au vrai-faux. »\n« Gardez la leçon à côté pour vous aider ; utilisez les objets si besoin. »\n« Je passe corriger et je vérifie le vocabulaire face / arête / sommet. »\n(ceux qui finissent cherchent des solides cachés dans la classe.)"
+         "label": "Découverte projetée + vocabulaire (15 min)",
+         "note": "« On regarde le diaporama : le cube, le pavé droit, la boule, le cylindre, le cône, la pyramide. »\n« Le cube a 6 faces carrées ; le pavé droit a 6 faces rectangulaires. »\n« Une FACE est une surface plate, une ARÊTE est un bord, un SOMMET est une pointe. »\n« Cherchez dans la classe : qu'est-ce qui ressemble à un cube ? à un cylindre ? »\n« On nomme chaque solide tous ensemble, puis je le fais redire. »\n(j'associe les mots en étiquettes aux images.)"
+        },
+        {
+         "id": "m24m3",
+         "label": "Leçon + fiche (20 min)",
+         "note": "« On colle la leçon des solides dans le cahier rouge et on la relit. »\n« Les CE1 : vous nommez chaque solide, vous coloriez et vous reliez l'objet à son solide. »\n« Les CE2 : en plus, vous complétez le tableau faces / arêtes / sommets et le vrai-faux. »\n« Gardez la leçon et les objets sous les yeux pour vous aider. »\n« Je passe vérifier le vocabulaire : montrez-moi une arête, un sommet. »\n(institutionnalisation : on affiche la famille des solides à côté de celle des formes.)"
         }
        ],
-       "materiel": "Leçon des solides (rappel) + fiche CE1 et fiche CE2 — voir Documents à imprimer. Objets solides de la classe.",
+       "materiel": "Diaporama « Les solides » + leçon à coller (cahier rouge) + fiche CE1 et fiche CE2 — voir Documents à imprimer. Objets de la classe (boîtes, dé, balle, boîte de conserve, cône).",
        "video": "https://vimeo.com/527028880",
-       "differenciation": "CE1 : nommer, trier, relier, dessiner un solide simple. CE2 : dénombrer faces / arêtes / sommets, vrai-faux justifié. Élèves fragiles : manipuler l'objet réel et compter les faces en les touchant.",
-       "depassement": "Associer chaque solide à un objet réel de la vie quotidienne ; décrire un solide à un camarade qui doit le deviner.",
-       "correction": "Cube : 6 faces, 12 arêtes, 8 sommets. Pavé droit : 6 faces, 12 arêtes, 8 sommets. Cylindre : 2 faces planes (disques) + roule. Cône : 1 sommet, roule. Pyramide : base + faces triangulaires. Boule : roule, pas de face plane.",
-       "obstacles": "Erreurs fréquentes : confondre cube et pavé, compter deux fois la même face, confondre arête et sommet. Remédiation : compter les faces en tournant l'objet, marquer d'un feutre les arêtes comptées, opposer « ligne » (arête) et « pointe » (sommet).",
+       "differenciation": "CE1 : reconnaître et nommer les solides, trier (roule / ne roule pas), relier objet ↔ solide. CE2 : décrire avec faces / arêtes / sommets, distinguer cube et pavé droit. Élèves fragiles : manipuler l'objet réel en nommant à voix haute.",
+       "depassement": "Compter faces, arêtes et sommets d'un solide moins courant ; retrouver le solide « caché » à partir de sa description.",
+       "correction": "Cube : 6 faces carrées, 12 arêtes, 8 sommets. Pavé droit : 6 faces rectangulaires, 12 arêtes, 8 sommets. Boule : roule, pas de face plane. Cylindre : 2 faces rondes + roule. Cône : 1 pointe, roule. Pyramide : base + faces triangulaires.",
+       "obstacles": "Erreurs fréquentes : confondre une figure plane (carré) et un solide (cube) ; confondre cube et pavé ; appeler « rond » le cylindre et la boule. Remédiation : opposer « plat » (sur la feuille) et « en volume » (je le tiens) ; compter les faces en les touchant ; comparer un dé (cube) et une boîte d'allumettes (pavé).",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "Savoir nommer et décrire les solides (faces, arêtes, sommets).",
+       "devoirs": "Apprendre la leçon sur les solides (cahier rouge) ; savoir nommer cube, pavé, boule, cylindre, cône, pyramide.",
        "notesProchaine": "",
        "disciplineId": "maths"
       }
-     ]
+     ],
+     "id": "slot-20261124-5",
+     "disciplineId": "maths"
     }
    ],
    "createdAt": 1790700000000,
-   "updatedAt": 1795162975550
+   "updatedAt": 1795178299885
   },
   {
    "date": "2026-11-30",
