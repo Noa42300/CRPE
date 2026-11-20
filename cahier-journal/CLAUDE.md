@@ -379,7 +379,13 @@ jours. On peut réduire le reste, jamais ces deux-là.
   calcul mental **+9/+19/+29** (= +10/+20 puis −1), **table de 7** (commutativité /
   distributivité), résolution de problèmes **comparaison** (CE2). Lire la séquence
   voulue dans le PDF (via `reference/.../README.md`) avant de bâtir la fiche.
-  Équivalent **français** à réclamer/ajouter quand l'enseignant l'envoie.
+- **BANQUE FRANÇAIS OFFICIELLE (fournie, archivée)** : livrets d'accompagnement
+  Éduscol **Français cycle 2 (2025)** CE1 + CE2 (+ annexe lecture, + ressource
+  écriture/geste/copie CE1) dans **`reference/eduscol-francais-2025/`**. Séquences
+  clés : **lecture / fluence** (prosodie CE1, fluence expressive + fable de La
+  Fontaine CE2), **vocabulaire** (collecte → catégorisation → réactivation par le
+  jeu, grille d'éval). Même consigne : reprendre la séquence et ses supports/démarches
+  pour bâtir une séance de français (lecture, fluence, vocabulaire, écriture/copie).
 
 ## Programmations annuelles intégrées (référence permanente)
 
