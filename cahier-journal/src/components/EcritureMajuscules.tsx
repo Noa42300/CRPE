@@ -5,7 +5,13 @@
  * couvrir A→Z). Le maître montre le tracé au tableau, l'élève repasse et répète.
  */
 const FR = "#1d4ed8";
-const DANCING = "'Dancing Script', cursive";
+// Modèle de majuscules cursives : on privilégie une VRAIE police d'écriture
+// scolaire française (Belle Allure, Cursive standard, Écriture…) si elle est
+// installée sur la machine qui affiche / imprime. À défaut, repli lisible.
+// Pour un rendu identique partout (y compris le PDF hors ligne), l'enseignant
+// peut m'envoyer son fichier de police et je l'embarque en woff2.
+const DANCING =
+  "'Belle Allure GS','Belle Allure CE','Belle Allure','Cursive Standard','CursiveStandard','Ecriture A','Écriture A','Plumette','Dancing Script',cursive";
 const CONSIGNE_FONT = "'Aptos','Inter','Segoe UI',system-ui,sans-serif";
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
