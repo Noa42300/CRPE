@@ -11710,7 +11710,9 @@
         "collectif",
         "individuel"
        ],
-       "roleEnseignant": "J'anime la découverte projetée, j'institutionnalise avec les élèves, je différencie (CE1 repérer/remplacer, CE2 accord) et je circule pendant le fichier.",
+       "roleEnseignant": [
+        "J'anime la découverte projetée, j'institutionnalise avec les élèves, je différencie (CE1 repérer/remplacer, CE2 accord) et je circule pendant le fichier."
+       ],
        "deroulement": [
         {
          "id": "l23f1",
@@ -12090,7 +12092,9 @@
         "collectif",
         "individuel"
        ],
-       "roleEnseignant": "J'anime la découverte projetée, j'institutionnalise avec les élèves, je différencie (CE1 repérer/remplacer, CE2 accord) et je circule pendant le fichier.",
+       "roleEnseignant": [
+        "J'anime la découverte projetée, j'institutionnalise avec les élèves, je différencie (CE1 repérer/remplacer, CE2 accord) et je circule pendant le fichier."
+       ],
        "deroulement": [
         {
          "id": "m24f1",
@@ -12476,7 +12480,9 @@
         "atelier",
         "individuel"
        ],
-       "roleEnseignant": "Je modélise la lecture fluide, j'anime les groupes de besoin, j'écoute et je guide l'entraînement.",
+       "roleEnseignant": [
+        "Je modélise la lecture fluide, j'anime les groupes de besoin, j'écoute et je guide l'entraînement."
+       ],
        "deroulement": [
         {
          "id": "flu1",
