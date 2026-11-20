@@ -37,6 +37,34 @@ import { emptyActivity } from "./factory";
 
 export type SaveStatus = "idle" | "saving" | "saved" | "error";
 
+/**
+ * Robustesse des données : d'anciennes journées (ou des données synchronisées
+ * d'une version antérieure) peuvent contenir des champs attendus en TABLEAU
+ * mais stockés en chaîne (ex. roleEnseignant). Les rendus (PrintDay, fiche de
+ * prép…) font .map()/.join() dessus → plantage de toute la journée. On
+ * normalise à la lecture pour ne jamais planter, quelle que soit la donnée. */
+function toStrArray(v: unknown): string[] {
+  if (Array.isArray(v)) return v.filter((x) => typeof x === "string");
+  if (typeof v === "string") return v.trim() ? [v] : [];
+  return [];
+}
+export function normalizeDay(d: Day): Day {
+  if (!d || !Array.isArray(d.slots)) return d;
+  return {
+    ...d,
+    slots: d.slots.map((s) => ({
+      ...s,
+      activities: (Array.isArray(s.activities) ? s.activities : []).map((a) => ({
+        ...a,
+        niveaux: toStrArray(a.niveaux),
+        organisation: toStrArray(a.organisation),
+        roleEnseignant: toStrArray(a.roleEnseignant),
+        deroulement: Array.isArray(a.deroulement) ? a.deroulement : [],
+      })),
+    })),
+  };
+}
+
 interface StoreValue {
   ready: boolean;
   storageOK: boolean;
@@ -169,7 +197,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         studentNotesDB.getAll(),
       ]);
     const map: Record<string, Day> = {};
-    for (const d of allDays) map[d.date] = d;
+    for (const d of allDays) map[d.date] = normalizeDay(d);
     setSettings(s);
     setDaysMap(map);
     setTemplates(allTemplates);
