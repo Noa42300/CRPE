@@ -11617,6 +11617,76 @@
    "updatedAt": 1790321446071
   },
   {
+   "date": "2026-11-23",
+   "createdAt": 1795162975550,
+   "updatedAt": 1795162975550,
+   "info": {
+    "effectifPrevu": 23,
+    "presents": [],
+    "absents": [],
+    "absentsNames": "",
+    "events": [],
+    "rappels": [],
+    "devoirs": ""
+   },
+   "slots": [
+    {
+     "start": "13:30",
+     "end": "15:10",
+     "activities": [
+      {
+       "id": "l23fr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (grammaire) — Les pronoms personnels (découverte + leçon)",
+       "objectif": "Connaître et utiliser les pronoms personnels sujets : les repérer, remplacer un nom ou un groupe nominal (il, elle, ils, elles) ; CE2 : accorder le verbe avec le pronom sujet.",
+       "competence": "Identifier le pronom personnel sujet ; remplacer un groupe nominal sujet par un pronom ; CE2 : réaliser l'accord sujet (pronom) – verbe.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), domaine « grammaire et orthographe » : le pronom personnel sujet (identifier, remplacer un nom / groupe nominal ; accord sujet-verbe au CE2).",
+       "progPeriode": "P2",
+       "progDomaine": "Grammaire et orthographe",
+       "progSequence": "Les pronoms personnels sujets",
+       "progSeance": "Séance 1 — Découverte et institutionnalisation",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": "J'anime la découverte projetée, j'institutionnalise avec les élèves, je différencie (CE1 repérer/remplacer, CE2 accord) et je circule pendant le fichier.",
+       "deroulement": [
+        {
+         "id": "l23f1",
+         "label": "Découverte projetée (20 min)",
+         "note": "« Lisez : “Léa prend son cartable. Léa part à l'école.” Qu'est-ce qui vous gêne ? » (la répétition de « Léa ».)\n« On va remplacer le 2ᵉ “Léa” par un petit mot : lequel ? » → « Elle ». « Elle, c'est Léa. »\n« Ce petit mot est un pronom personnel : il remplace un nom pour ne pas le répéter. »\n« Regardons la famille des pronoms : je, tu, il, elle, on / nous, vous, ils, elles. »\n« Image → pronom : un garçon = il, une fille = elle, plusieurs garçons = ils, plusieurs filles = elles, un garçon + une fille = ils. »\n(je projette le diaporama et je fais venir des élèves montrer/dire les pronoms.)"
+        },
+        {
+         "id": "l23f2",
+         "label": "Institutionnalisation — la leçon (15 min)",
+         "note": "« On construit ensemble la leçon, puis on la colle dans le cahier bleu. »\n« Un pronom personnel sujet remplace un nom ou un groupe nominal sujet. »\n« On relit la table des pronoms : singulier (un seul) / pluriel (plusieurs). »\n« Pour les CE2 : le pronom est sujet, il commande le verbe (je chante, nous chantons…). »\n« Vous surlignez les pronoms de la leçon. »\n(je montre la vidéo des Fondamentaux si le temps le permet.)"
+        },
+        {
+         "id": "l23f3",
+         "label": "Fichier — page 1 (35 min)",
+         "note": "« Chacun prend son fichier : les CE1 la version CE1, les CE2 la version CE2. »\n« CE1 : vous écrivez le pronom de l'image, vous entourez les pronoms, vous remplacez les noms (Timoté → …). »\n« CE2 : pareil, puis vous choisissez la bonne forme du verbe selon le pronom. »\n« Vous faites la page 1 aujourd'hui ; on gardera la page 2 pour demain. »\n« Je passe aider ; les élèves qui bloquent regardent la table des pronoms de la leçon. »\n(différenciation : je prends un petit groupe fragile pour le repérage.)"
+        }
+       ],
+       "materiel": "Diaporama « Les pronoms personnels » + leçon à coller (cahier bleu) + fichier CE1 (2 pages) et fichier CE2 (2 pages, avec accord) — voir Documents à imprimer. Le fichier se fait sur les 2 jours.",
+       "video": "https://www.youtube.com/watch?v=pf9gPUVvMm8",
+       "differenciation": "CE1 : repérer les pronoms et remplacer un nom / groupe nominal par il, elle, ils, elles (« Timoté et Alia → ils »). CE2 : même travail + accord du verbe avec le pronom sujet (terminaisons). Élèves fragiles : s'appuyer sur la table des pronoms et sur les images (emoji) ; phrases plus courtes.",
+       "depassement": "Écrire un petit texte en évitant les répétitions grâce aux pronoms ; (CE2) transformer un texte du singulier au pluriel.",
+       "correction": "CE1 : il/elle (un singulier), ils/elles (plusieurs) ; « Timoté et Alia → ils », « la maîtresse → elle », « les oiseaux → ils ». CE2 : accords — je chante, tu chantes, il/elle chante, nous chantons, vous chantez, ils/elles chantent. (Correction orale collective, PAS imprimée sur le fichier élève.)",
+       "obstacles": "Erreurs fréquentes : confondre il/ils et elle/elles (oubli du nombre) ; au CE2, ne pas accorder le verbe (« ils mange »). Remédiation : revenir à la table singulier/pluriel, compter « un seul / plusieurs », épeler la terminaison du verbe en nommant le pronom.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Apprendre la leçon « Les pronoms personnels sujets » (cahier bleu).",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "date": "2026-11-24",
    "info": {
     "effectifPrevu": 23,
@@ -11632,9 +11702,64 @@
     ],
     "events": []
    },
-   "slots": [],
+   "slots": [
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "activities": [
+      {
+       "id": "m24fr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (grammaire) — Les pronoms personnels (consolidation)",
+       "objectif": "Connaître et utiliser les pronoms personnels sujets : les repérer, remplacer un nom ou un groupe nominal (il, elle, ils, elles) ; CE2 : accorder le verbe avec le pronom sujet.",
+       "competence": "Identifier le pronom personnel sujet ; remplacer un groupe nominal sujet par un pronom ; CE2 : réaliser l'accord sujet (pronom) – verbe.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), domaine « grammaire et orthographe » : le pronom personnel sujet (identifier, remplacer un nom / groupe nominal ; accord sujet-verbe au CE2).",
+       "progPeriode": "P2",
+       "progDomaine": "Grammaire et orthographe",
+       "progSequence": "Les pronoms personnels sujets",
+       "progSeance": "Séance 2 — Entraînement et accord (CE2)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": "J'anime la découverte projetée, j'institutionnalise avec les élèves, je différencie (CE1 repérer/remplacer, CE2 accord) et je circule pendant le fichier.",
+       "deroulement": [
+        {
+         "id": "m24f1",
+         "label": "Rappel de la leçon (10 min)",
+         "note": "« Qui me rappelle ce qu'est un pronom personnel sujet ? » (il remplace un nom / GN sujet.)\n« Citez-moi les pronoms : je, tu, il, elle, on, nous, vous, ils, elles. »\n« Un garçon ? → il. Plusieurs filles ? → elles. Un garçon et une fille ? → ils. »\n« CE2 : que fait le pronom au verbe ? » (il commande sa terminaison : ils chantent.)\n« On va finir notre fichier aujourd'hui. »\n(ardoise : je dis un groupe, ils écrivent le pronom.)"
+        },
+        {
+         "id": "m24f2",
+         "label": "Fichier — page 2 (35 min)",
+         "note": "« On reprend le fichier à la page 2. »\n« CE1 : vous réécrivez les phrases en remplaçant le groupe souligné par il, elle, ils ou elles, puis le défi d'écriture. »\n« CE2 : vous accordez le verbe (terminaisons -e, -es, -ons, -ez, -ent), vous récrivez au pluriel, puis le défi. »\n« Attention à bien relire : un seul / plusieurs, et la fin du verbe. »\n« Je passe corriger au fur et à mesure. »\n(les plus rapides font le défi d'écriture / le dépassement.)"
+        },
+        {
+         "id": "m24f3",
+         "label": "Mise en commun (15 min)",
+         "note": "« On corrige ensemble au tableau : je lis, vous donnez le pronom / l'accord. »\n« On vérifie les pièges : “Timoté et Alia → ils”, “les oiseaux → ils”. »\n« CE2 : on épelle les terminaisons des verbes. »\n« Chacun se corrige au stylo vert. »\n« On range le fichier dans le classeur de français. »\n(bilan rapide : pouce en l'air / pouce en bas sur « je sais remplacer par un pronom ».)"
+        }
+       ],
+       "materiel": "Diaporama « Les pronoms personnels » + leçon à coller (cahier bleu) + fichier CE1 (2 pages) et fichier CE2 (2 pages, avec accord) — voir Documents à imprimer. Le fichier se fait sur les 2 jours.",
+       "video": "https://www.youtube.com/watch?v=pf9gPUVvMm8",
+       "differenciation": "CE1 : repérer les pronoms et remplacer un nom / groupe nominal par il, elle, ils, elles (« Timoté et Alia → ils »). CE2 : même travail + accord du verbe avec le pronom sujet (terminaisons). Élèves fragiles : s'appuyer sur la table des pronoms et sur les images (emoji) ; phrases plus courtes.",
+       "depassement": "Écrire un petit texte en évitant les répétitions grâce aux pronoms ; (CE2) transformer un texte du singulier au pluriel.",
+       "correction": "CE1 : il/elle (un singulier), ils/elles (plusieurs) ; « Timoté et Alia → ils », « la maîtresse → elle », « les oiseaux → ils ». CE2 : accords — je chante, tu chantes, il/elle chante, nous chantons, vous chantez, ils/elles chantent. (Correction orale collective, PAS imprimée sur le fichier élève.)",
+       "obstacles": "Erreurs fréquentes : confondre il/ils et elle/elles (oubli du nombre) ; au CE2, ne pas accorder le verbe (« ils mange »). Remédiation : revenir à la table singulier/pluriel, compter « un seul / plusieurs », épeler la terminaison du verbe en nommant le pronom.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Finir le fichier des pronoms si besoin ; relire la leçon.",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    }
+   ],
    "createdAt": 1790700000000,
-   "updatedAt": 1790700000007
+   "updatedAt": 1795162975550
   },
   {
    "date": "2026-11-30",
