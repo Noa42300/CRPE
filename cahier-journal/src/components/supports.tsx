@@ -17,6 +17,7 @@ import { EpsSeanceFiche, EPS_COURIR_VITE_S3, EPS_COURIR_CARRES_L21, EPS_COURIR_C
 import { PrehistoireDiapo, PrehistoireLecon, NeolithiqueDiapo, NeolithiqueLecon, MasseDiapo, MasseLecon, VolTempDiapo, VolTempLecon, ExperienceBouteilleMaison } from "./QlmS4Supports";
 import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1, ProblemeBandesMardiCE2 } from "./ProblemeBandes";
+import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./FluenceLecture";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
 import { FicheTypesPhrasesModele } from "./FicheModeleFrancais";
@@ -1381,6 +1382,13 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "prob-m", label: "Problème du jour — grand format à afficher / 4 par A4 (schéma + calcul + réponse)", node: <ProblemeRituelMardi /> },
         { key: "prob-m-bande-ce1", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE1", node: <ProblemeBandesMardiCE1 /> },
         { key: "prob-m-bande-ce2", label: "Problème du jour — bandes à coller (énoncé seul, ×4) · CE2", node: <ProblemeBandesMardiCE2 /> },
+      ];
+    case "fluLecture":
+      return [
+        { key: "flu-diapo", label: "Bien lire à voix haute (fluence) — Diaporama à projeter", node: <FluenceDiapo /> },
+        { key: "flu-lecon", label: "Bien lire à voix haute (fluence) — Leçon à coller", node: <FluenceLecon /> },
+        { key: "flu-ce1", label: "Fluence — Fiche d'entraînement CE1 (Le Corbeau et le Renard, texte court)", node: <FluenceFicheCE1 /> },
+        { key: "flu-ce2", label: "Fluence — Fiche d'entraînement CE2 (Le Corbeau et le Renard, fable entière)", node: <FluenceFicheCE2 /> },
       ];
     case "nbEcritL":
       return [
