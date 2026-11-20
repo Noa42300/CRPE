@@ -11739,13 +11739,69 @@
       "id": "rap-20261208-cm-ebep-c1",
       "texte": "CM EBEP C1",
       "type": "reunion"
+     },
+     {
+      "id": "rap-20261208-fluence",
+      "texte": "Séance fluence (lecture à voix haute) prête — à faire une fois les livres de lecture en cours terminés",
+      "type": "autre"
      }
     ],
     "events": []
    },
-   "slots": [],
+   "slots": [
+    {
+     "start": "13:30",
+     "end": "14:30",
+     "activities": [
+      {
+       "id": "fluLecture",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (lecture) — Bien lire à voix haute : la fluence",
+       "objectif": "Lire un texte à voix haute avec fluidité : sans erreur, à un débit adapté, en respectant la ponctuation (le ton), à partir d'une fable de La Fontaine.",
+       "competence": "Lire avec fluidité et de manière expressive : respecter la ponctuation, lire par groupes de mots, mettre le ton.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024 (rentrée 2025), « Lecture et compréhension de l'écrit » (lecture à voix haute). D'après le livret d'accompagnement Éduscol 2025, séquence « Lecture : enseigner la fluence à visée expressive ».",
+       "progPeriode": "P2",
+       "progDomaine": "Lecture et compréhension de l'écrit",
+       "progSequence": "Lecture — la fluence (à visée expressive)",
+       "progSeance": "Séance 1 — Lire à voix haute (Le Corbeau et le Renard)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "atelier",
+        "individuel"
+       ],
+       "roleEnseignant": "Je modélise la lecture fluide, j'anime les groupes de besoin, j'écoute et je guide l'entraînement.",
+       "deroulement": [
+        {
+         "id": "flu1",
+         "label": "Découverte + modèle (projeté, 15 min)",
+         "note": "« Aujourd'hui, on apprend à bien lire à voix haute : c'est ce qu'on appelle la fluence. »\n« Bien lire, c'est trois choses : lire tous les mots sans erreur, ni trop vite ni trop lentement, et mettre le ton. »\n« La ponctuation me donne le ton : au point je m'arrête, à la virgule petite pause, le ? fait monter ma voix, le ! je lis plus fort. »\n« Écoutez-moi lire la fable, repérez où je m'arrête et où je respire. » (je lis Le Corbeau et le Renard de façon expressive.)\n« On lit par groupes de mots, pas mot à mot : les barres / montrent où respirer. »\n(je fais relire une ou deux lignes par quelques élèves, je corrige le phrasé.)"
+        },
+        {
+         "id": "flu2",
+         "label": "Leçon + entraînement en ateliers (35 min)",
+         "note": "« On colle la leçon “Bien lire à voix haute”. »\n« Chacun prend sa fiche : les CE1 ont le début de la fable, les CE2 la fable entière. »\n« Vous lisez d'abord à voix basse, puis 3 fois à voix haute : à chaque fois vous lisez mieux. »\n« Par deux : l'un lit, l'autre écoute et coche la grille (sans erreur ? pauses ? le ton ? groupes de mots ?), puis on échange. »\n« Je passe dans les groupes ; je prends les lecteurs les plus fragiles en lecture guidée (décodage puis phrasé). »\n« Pour finir, deux ou trois volontaires lisent devant la classe et on dit ce qui est réussi. »"
+        }
+       ],
+       "materiel": "Diaporama « Bien lire à voix haute (fluence) » + leçon à coller + fiches d'entraînement CE1/CE2 (fable Le Corbeau et le Renard) — voir Documents à imprimer. Cahier bleu (leçon de français).",
+       "video": "",
+       "differenciation": "CE1 : texte raccourci (début de la fable), gros caractères, barres de groupes données ; objectif lire sans erreur puis à la bonne vitesse. CE2 : fable entière, objectif lecture expressive (ton, voix des personnages). Lecteurs fragiles : lecture guidée (décodage syllabique puis phrasé), ligne à ligne.",
+       "depassement": "Lire la fable en « jouant » les deux personnages (voix du Renard / du Corbeau) ; mémoriser les premiers vers.",
+       "correction": "Réussite : lecture sans erreur, pauses à la ponctuation, intonation des ? ! et des paroles « … », lecture par groupes de mots ; progrès sur les 3 lectures successives.",
+       "obstacles": "Erreurs fréquentes : lecture mot à mot (hachée), ponctuation non marquée, lecture trop rapide sans comprendre. Remédiation : relire par groupes (barres /), suivre du doigt, relire 3 fois, modèle de l'adulte puis lecture en écho.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Relire la fable à la maison, à voix haute, 2 fois (bien mettre le ton).",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    }
+   ],
    "createdAt": 1790700000000,
-   "updatedAt": 1790700000011
+   "updatedAt": 1795161768905
   },
   {
    "date": "2026-12-14",
