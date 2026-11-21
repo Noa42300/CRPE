@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 
 const ORANGE = "#c9481f";
 
-export type EpsVariant = "courseLongue" | "vitesse" | "relais" | "saut" | "lancer" | "ateliers" | "sportCo6v6";
+export type EpsVariant = "courseLongue" | "vitesse" | "relais" | "saut" | "lancer" | "ateliers" | "sportCo6v6" | "epervier";
 
 export interface EpsFiche {
   variant: EpsVariant;
@@ -191,6 +191,39 @@ function Schema({ variant }: { variant: EpsVariant }) {
     );
   }
 
+  if (variant === "epervier") {
+    const BL = "#2563eb", RD = "#dc2626";
+    const joueur = (x: number, y: number) => <circle cx={x} cy={y} r={7} fill={BL} stroke="#fff" strokeWidth={1.4} />;
+    const epervier = (x: number, y: number) => <polygon points={`${x - 8},${y + 7} ${x + 8},${y + 7} ${x},${y - 9}`} fill={RD} stroke="#fff" strokeWidth={1.2} />;
+    const joueurs = [[52, 90], [78, 120], [50, 150], [80, 180], [54, 210], [78, 240]] as const;
+    return (
+      <svg viewBox="0 0 600 320" style={{ width: "100%", height: "auto" }}>
+        {defs}
+        <rect x={8} y={8} width={584} height={304} rx={10} fill="#f2f7ee" stroke="#cfe0c4" />
+        {/* maison de départ (gauche) et d'arrivée (droite) */}
+        <rect x={24} y={52} width={96} height={212} rx={6} fill="#dbeafe" stroke="#2563eb" strokeWidth={2} />
+        <rect x={480} y={52} width={96} height={212} rx={6} fill="#dcfce7" stroke="#16a34a" strokeWidth={2} />
+        <text x={72} y={44} fontSize={13} fontWeight={800} textAnchor="middle" fill="#2563eb">maison 1</text>
+        <text x={528} y={44} fontSize={13} fontWeight={800} textAnchor="middle" fill="#15803d">maison 2</text>
+        {/* zone de jeu (le pré) + lignes */}
+        <line x1={120} y1={52} x2={120} y2={264} stroke="#64748b" strokeWidth={1.5} strokeDasharray="5 4" />
+        <line x1={480} y1={52} x2={480} y2={264} stroke="#64748b" strokeWidth={1.5} strokeDasharray="5 4" />
+        <text x={300} y={46} fontSize={12} fontWeight={700} textAnchor="middle" fill="#b45309">le pré (zone des éperviers)</text>
+        {/* joueurs dans la maison 1 */}
+        {joueurs.map(([x, y], i) => <g key={i}>{joueur(x, y)}</g>)}
+        {/* éperviers au milieu */}
+        {epervier(250, 120)}{epervier(360, 200)}{epervier(300, 160)}
+        {/* flèche de traversée */}
+        <path d="M130 158 H470" fill="none" stroke={ORANGE} strokeWidth={3} markerEnd="url(#epsArrow)" strokeDasharray="2 6" />
+        <text x={300} y={150} fontSize={12} fill="#b45309" textAnchor="middle" fontWeight={700}>on traverse au signal</text>
+        {/* légende */}
+        <g transform="translate(150,292)"><circle cx={6} cy={-3} r={6} fill={BL} /><text x={16} y={1} fontSize={11} fill="#475569">les joueurs (ils traversent)</text></g>
+        <g transform="translate(360,292)"><polygon points="0,3 12,3 6,-8" fill={RD} /><text x={18} y={1} fontSize={11} fill="#475569">les éperviers (2 ou 3)</text></g>
+        <text x={300} y={312} fontSize={11} textAnchor="middle" fill="#334155">Sans ballon · touché = je deviens épervier (ou statue qui touche sans bouger)</text>
+      </svg>
+    );
+  }
+
   // lancer
   const lx = 180, cy = 165;
   return (
@@ -288,5 +321,24 @@ export function EpsSportCo6v6() {
     active: ["Échauffement (course, passes) avant de jouer.", "Règles dites et redites : on ne pousse pas, on ne tire pas fort au visage.", "Signal d'arrêt unique (sifflet) testé avant.", "On s'hydrate entre deux rotations."],
     passive: ["2 terrains bien séparés, dégagés, sans obstacle.", "Zones et prisons délimitées aux plots.", "Ballons en mousse pour le prisonnier.", "Pas de joueur derrière les lignes de fond."],
     affective: ["Équipes équilibrées, mixtes.", "On change les équipes à chaque rotation pour mélanger.", "On encourage, on ne se moque pas d'une maladresse.", "Chacun touche le ballon : règle « tout le monde a joué »."],
+  });
+}
+
+/** EPS — Atelier de secours SANS BALLON : l'épervier (si pas assez de dossards/ballons). */
+export function EpsEpervier() {
+  return EpsTerrainSupport({
+    variant: "epervier",
+    titre: "EPS — Atelier de secours (sans ballon) : l'épervier",
+    sousTitre: "Sports collectifs — jeu de course et d'évitement (aucun ballon, aucun dossard nécessaire)",
+    dispositif: [
+      "Un grand rectangle balisé aux plots ; une « maison » (zone refuge) à chaque bout.",
+      "Tous les joueurs dans la maison 1 ; 2 ou 3 éperviers au milieu (le pré).",
+      "L'épervier crie « Épervier, épervier, sortez ! » : tous traversent vers la maison 2 sans se faire toucher.",
+      "Touché = on devient épervier à son tour (variante : on devient une « statue » qui touche sans bouger).",
+      "On rejoue jusqu'à ce qu'il ne reste presque plus de joueurs. Aucun ballon, aucun dossard nécessaire.",
+    ],
+    active: ["Échauffement (course, changements de direction) avant de jouer.", "On touche doucement (main dans le dos), on ne pousse pas, on n'attrape pas les vêtements.", "Signal d'arrêt unique (sifflet) testé avant.", "On s'hydrate entre deux parties."],
+    passive: ["Grand rectangle dégagé, sans obstacle, loin des murs.", "Maisons (refuges) bien délimitées aux plots.", "Un seul sens de traversée à la fois.", "Trousse de secours à portée."],
+    affective: ["Pas d'élimination : touché = on change de rôle, on continue de jouer.", "On encourage, on ne se moque pas de celui qui est pris.", "Les éperviers changent à chaque partie.", "On valorise l'esquive et l'effort, pas seulement « gagner »."],
   });
 }

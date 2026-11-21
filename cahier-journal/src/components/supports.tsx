@@ -20,8 +20,7 @@ import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1,
 import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./FluenceLecture";
 import { PronomsDiapo, PronomsLecon, FichePronomsCE1, FichePronomsCE2 } from "./PronomsPersonnels";
 import { QuadriDiapo, QuadriLecon, FicheQuadriCE1, FicheQuadriCE2, TrianglesTypesDiapo, TrianglesTypesLecon, FicheTrianglesTypesCE1, FicheTrianglesTypesCE2 } from "./GeoFormes";
-import { GeoCartesDiapo, GeoCartesLecon, AtelierPlanQuartier, AtelierPlanMetro } from "./GeoCartes";
-import { EpsSportCo6v6 } from "./EpsTerrainSupport";
+import { EpsSportCo6v6, EpsEpervier } from "./EpsTerrainSupport";
 import { MotsFlashSportDiapo, DicteeSportFiche } from "./DicteeFlash";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
@@ -1412,6 +1411,7 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     case "l23eps":
       return [
         { key: "eps-6v6", label: "EPS — Jeux collectifs : 2 ateliers 6 contre 6 (schémas de terrain + sécurité)", node: <EpsSportCo6v6 /> },
+        { key: "eps-epervier", label: "EPS — Atelier de secours SANS ballon : l'épervier (si pas assez de ballons / dossards)", node: <EpsEpervier /> },
       ];
     case "l23ang":
       return [
@@ -1420,12 +1420,8 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m24geo":
       return [
-        { key: "cartes-diapo", label: "Lire une carte — Diaporama (vue de dessus, titre, légende, orientation)", node: <GeoCartesDiapo /> },
-        { key: "cartes-lecon", label: "Lire une carte — Leçon à coller (cahier bleu)", node: <GeoCartesLecon /> },
-        { key: "cartes-at1", label: "Atelier ① — Lire le plan d'un quartier (fiche + questions)", node: <AtelierPlanQuartier /> },
-        { key: "cartes-at2", label: "Atelier ② — Lire un plan de transports (fiche + questions)", node: <AtelierPlanMetro /> },
-        { key: "rev-mers", label: "Révision — Les mers autour de la France (carte muette à replacer)", node: <GeoMersFranceExos /> },
-        { key: "rev-villes", label: "Révision — Les villes de France (carte muette à replacer)", node: <CarteVillesMuetteFiche /> },
+        { key: "rev-villes", label: "Les villes de France — Carte muette à compléter (vraie carte)", node: <CarteVillesMuetteFiche /> },
+        { key: "rev-mers", label: "Les mers autour de la France — Carte muette à compléter (vraie carte)", node: <GeoMersFranceExos /> },
       ];
     case "m24mu":
       return [
