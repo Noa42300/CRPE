@@ -86,6 +86,13 @@ export interface Activity {
   aReprendre: string;
   devoirs: string;
   notesProchaine: string;
+
+  /**
+   * Clés des supports « fournis » (générés) que l'enseignant a masqués dans
+   * « Documents à imprimer » (ex. pour mettre ses propres fiches à la place).
+   * Masquer n'efface rien d'autre : la séance et les autres documents restent.
+   */
+  supportsMasques?: string[];
 }
 
 /** Un créneau horaire de la journée. Contient une ou plusieurs activités. */

@@ -44,7 +44,10 @@ export function ActivityEditor({
   start?: string;
   end?: string;
 }) {
-  const supports = supportsForActivity(activity.id);
+  const masques = activity.supportsMasques ?? [];
+  const allSupports = supportsForActivity(activity.id);
+  const supports = allSupports.filter((s) => !masques.includes(s.key));
+  const nbMasques = allSupports.length - supports.length;
   const [preview, setPreview] = useState<{ title: string; node: ReactNode; cid: string; name: string } | null>(null);
 
   const downloadPdf = async (containerId: string, name: string) => {
@@ -409,10 +412,31 @@ export function ActivityEditor({
                 </button>
                 <button type="button" onClick={() => void downloadPdf(cid, sup.label)} className="btn-primary py-1 text-xs">⬇️ PDF</button>
                 <button type="button" onClick={() => printArea(cid)} className="btn-outline py-1 text-xs"><Printer className="h-3.5 w-3.5" /> Imprimer</button>
+                <button
+                  type="button"
+                  onClick={() => set("supportsMasques", [...masques, sup.key])}
+                  className="btn-ghost py-1 text-xs text-rose-500"
+                  title="Retirer ce document de la liste"
+                >
+                  <Trash className="h-3.5 w-3.5" /> Supprimer
+                </button>
                 <PrintPortal id={cid}>{sup.node}</PrintPortal>
               </div>
             );
           })}
+
+          {nbMasques > 0 && (
+            <div className="flex items-center gap-2 px-1 text-xs text-stone-400">
+              <span>{nbMasques} document{nbMasques > 1 ? "s" : ""} masqué{nbMasques > 1 ? "s" : ""}.</span>
+              <button
+                type="button"
+                onClick={() => set("supportsMasques", [])}
+                className="font-semibold text-ink-600 underline hover:text-ink-700 dark:text-ink-300"
+              >
+                Tout réafficher
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Mes propres documents ajoutés (PDF/images), au même endroit */}
