@@ -19,8 +19,7 @@ import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1, ProblemeBandesMardiCE2 } from "./ProblemeBandes";
 import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./FluenceLecture";
 import { PronomsDiapo, PronomsLecon, FichePronomsCE1, FichePronomsCE2 } from "./PronomsPersonnels";
-import { SolidesDiapo as GeoSolidesDiapo, SolidesLecon as GeoSolidesLecon, FicheSolidesCE1, FicheSolidesCE2 } from "./GeoSolides";
-import { FormesDiapo, FormesLecon, FicheFormesCE1 as FicheFormesGeoCE1, FicheFormesCE2 as FicheFormesGeoCE2 } from "./GeoFormes";
+import { QuadriDiapo, QuadriLecon, FicheQuadriCE1, FicheQuadriCE2, PlanesDiapo, PlanesLecon, FichePlanesCE1, FichePlanesCE2 } from "./GeoFormes";
 import { GeoCartesDiapo, GeoCartesLecon, AtelierPlanQuartier, AtelierPlanMetro } from "./GeoCartes";
 import { EpsSportCo6v6 } from "./EpsTerrainSupport";
 import { MotsFlashSportDiapo, DicteeSportFiche } from "./DicteeFlash";
@@ -1400,10 +1399,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
     /* ===== Lundi 23 / Mardi 24 novembre ===== */
     case "l23mu":
       return [
-        { key: "for-diapo", label: "Les formes — Diaporama de découverte (carré, rectangle, triangle, cercle)", node: <FormesDiapo /> },
-        { key: "for-lecon", label: "Les formes — Leçon à coller (cahier rouge)", node: <FormesLecon /> },
-        { key: "for-ce1", label: "Les formes — Fiche CE1, niveau simple (reconnaître, nommer, compter les côtés)", node: <FicheFormesGeoCE1 /> },
-        { key: "for-ce2", label: "Les formes — Fiche CE2, niveau poussé (côtés/sommets, angle droit, tracer)", node: <FicheFormesGeoCE2 /> },
+        { key: "quad-diapo", label: "Les quadrilatères — Diaporama de découverte (carré, rectangle, losange)", node: <QuadriDiapo /> },
+        { key: "quad-lecon", label: "Les quadrilatères — Leçon à coller (cahier rouge)", node: <QuadriLecon /> },
+        { key: "quad-ce1", label: "Les quadrilatères — Fiche CE1 (repérer, nommer, commencer à tracer)", node: <FicheQuadriCE1 /> },
+        { key: "quad-ce2", label: "Les quadrilatères — Fiche CE2 (losange, angle droit, décrire, tracer)", node: <FicheQuadriCE2 /> },
       ];
     case "l23dic":
       return [
@@ -1430,10 +1429,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m24mu":
       return [
-        { key: "sol-diapo", label: "Les solides — Diaporama de découverte (cube, pavé, boule, cylindre, cône, pyramide)", node: <GeoSolidesDiapo /> },
-        { key: "sol-lecon", label: "Les solides — Leçon à coller (cahier rouge)", node: <GeoSolidesLecon /> },
-        { key: "sol-ce1", label: "Les solides — Fiche CE1 (nommer, colorier, relier, dessiner)", node: <FicheSolidesCE1 /> },
-        { key: "sol-ce2", label: "Les solides — Fiche CE2 (faces / arêtes / sommets, vrai-faux)", node: <FicheSolidesCE2 /> },
+        { key: "pla-diapo", label: "Triangles & figures planes — Diaporama (le triangle, trier, synthèse)", node: <PlanesDiapo /> },
+        { key: "pla-lecon", label: "Les figures planes — Leçon de synthèse à coller (cahier rouge)", node: <PlanesLecon /> },
+        { key: "pla-ce1", label: "Figures planes — Fiche CE1 (triangle, cercle, trier avec les quadrilatères)", node: <FichePlanesCE1 /> },
+        { key: "pla-ce2", label: "Figures planes — Fiche CE2 (synthèse de toutes les figures, tracer)", node: <FichePlanesCE2 /> },
       ];
     case "l23rit":
     case "m24rit":
