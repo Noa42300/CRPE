@@ -12322,14 +12322,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Maths (géométrie) — Les triangles et les figures planes",
-       "objectif": "Compléter les figures planes. CE1 : découvrir le triangle (3 côtés) et le cercle, puis trier avec les quadrilatères vus lundi. CE2 : synthèse de toutes les figures planes (triangle, quadrilatères, cercle), décrire et tracer.",
-       "competence": "Reconnaître, nommer et trier les figures planes selon le nombre de côtés ; tracer à la règle.",
-       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (figures planes). Méthode Tandem.",
+       "title": "Maths (géométrie) — Les différents types de triangles",
+       "objectif": "Découvrir les triangles et leurs types. CE1 : reconnaître les triangles (3 côtés), repérer le triangle rectangle (angle droit), commencer à tracer. CE2 : distinguer triangle rectangle, isocèle et équilatéral ; décrire et tracer.",
+       "competence": "Reconnaître et nommer des triangles ; distinguer les types (rectangle, isocèle, équilatéral au CE2) ; tracer.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (figures planes, triangles). Méthode Tandem.",
        "progPeriode": "P2",
        "progDomaine": "",
        "progSequence": "Géométrie P2 — Les figures planes",
-       "progSeance": "Séance 2 (mardi) — Le triangle et la synthèse des figures planes",
+       "progSeance": "Séance 2 (mardi) — Les types de triangles",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -12342,28 +12342,28 @@
         {
          "id": "m24m1",
          "label": "Rappel + le triangle (10 min)",
-         "note": "« Hier, on a vu les quadrilatères : combien de côtés ? » (4.)\n« Aujourd'hui, une nouvelle figure : le TRIANGLE. Comptez ses côtés. » (3.)\n« Le triangle a 3 côtés et 3 sommets ; le cercle, lui, est tout rond, il n'a pas de côté. »\n« Montrez-moi un triangle dans la classe (une équerre, un toit dessiné…). »\n« On va maintenant ranger TOUTES les figures planes qu'on connaît. »\n(je ressors les étiquettes de lundi et j'ajoute triangles et cercles.)"
+         "note": "« Hier, les quadrilatères avaient 4 côtés. Et le triangle, combien de côtés ? » (3.)\n« Un triangle a toujours 3 côtés et 3 sommets. Mais aujourd'hui, surprise : il y a PLUSIEURS sortes de triangles ! »\n« Je montre trois triangles différents : un avec un coin bien carré, un « pointu » symétrique, un tout régulier. »\n« Montrez-moi un triangle autour de vous (une équerre, un toit…). »\n« On va apprendre à les reconnaître. »\n(j'affiche les trois triangles au tableau.)"
         },
         {
          "id": "m24m2",
-         "label": "Synthèse + tri (15 min)",
-         "note": "« On regarde le diaporama : triangle (3 côtés), carré / rectangle / losange (4 côtés), cercle (rond). »\n« On trie ensemble : la boîte des 3 côtés, la boîte des 4 côtés, la boîte du rond. »\n« On colle la leçon de synthèse des figures planes dans le cahier rouge. »\n« Pour nommer une figure, je compte toujours ses côtés et ses sommets. »\n« CE2 : vous repérerez l'intrus dans une liste et vous le justifierez. »\n(institutionnalisation : on complète l'affiche des figures planes.)"
+         "label": "Le triangle rectangle + les types CE2 (15 min)",
+         "note": "« Le triangle RECTANGLE a un ANGLE DROIT : un coin bien carré, comme le coin de la feuille. On le vérifie à l'équerre. »\n« Pour les CE2 : le triangle ISOCÈLE a 2 côtés égaux (on les marque d'un petit trait ′). »\n« Le triangle ÉQUILATÉRAL a ses 3 côtés égaux. »\n« On regarde le diaporama et on nomme chaque type ensemble. »\n« On colle la leçon des types de triangles dans le cahier rouge. »\n(j'associe chaque triangle à son nom et à sa propriété.)"
         },
         {
          "id": "m24m3",
-         "label": "Je trace (20 min)",
-         "note": "« On trace à la règle : les CE1 un triangle en reliant les points. »\n« Les CE2 : vous complétez le tableau de toutes les figures, puis vous tracez triangle, carré et rectangle, et vous barrez l'intrus. »\n« Je place les points, je relie bien droit à la règle. »\n« Relisez : la figure a-t-elle le bon nombre de côtés ? »\n« Je passe vérifier les tracés et le vocabulaire. »\n(les plus rapides décrivent une figure à un camarade qui la devine.)"
+         "label": "Je trie et je trace (20 min)",
+         "note": "« Les CE1 : vous entourez les triangles, vous repérez le coin droit du triangle rectangle, puis vous tracez un triangle en reliant les points. »\n« Les CE2 : vous écrivez le type sous chaque triangle, vous reliez chaque triangle à sa propriété, puis vous tracez un triangle rectangle à l'équerre. »\n« Je place les points, je relie bien droit à la règle. »\n« Relisez : le triangle a-t-il bien 3 côtés ? »\n« Je passe vérifier les tracés et le vocabulaire (rectangle / isocèle / équilatéral). »\n(les plus rapides cherchent les trois types de triangles dans la classe.)"
         }
        ],
-       "materiel": "Diaporama « Triangles & figures planes » + leçon de synthèse à coller (cahier rouge) + fiche CE1 (triangle, trier) et fiche CE2 (synthèse, tracer) — voir Documents à imprimer. Règle, étiquettes-figures, quadrillage.",
+       "materiel": "Diaporama « Les types de triangles » + leçon à coller (cahier rouge) + fiche CE1 (reconnaître / tracer) et fiche CE2 (rectangle / isocèle / équilatéral) — voir Documents à imprimer. Règle, équerre, étiquettes-triangles, quadrillage.",
        "video": "",
-       "differenciation": "CE1 : découvrir le triangle et le cercle, trier avec les quadrilatères (3 / 4 côtés / rond), tracer un triangle (points donnés). CE2 : synthèse de toutes les figures planes, tableau complet, intrus justifié, tracés précis. Élèves fragiles : compter les côtés avec le doigt, étiquettes à placer dans les bonnes boîtes.",
-       "depassement": "Classer les figures selon le nombre de côtés ; décrire une figure sans la nommer pour la faire deviner.",
-       "correction": "Triangle : 3 côtés, 3 sommets. Quadrilatères (carré, rectangle, losange) : 4 côtés, 4 sommets. Cercle : 0 côté. Intrus parmi « carré, rectangle, triangle, losange » = le triangle (3 côtés, les autres en ont 4).",
-       "obstacles": "Erreurs fréquentes : confondre nombre de côtés et de sommets ; ranger un triangle avec les quadrilatères ; oublier que le carré est aussi un quadrilatère. Remédiation : compter côtés ET sommets, trier par « nombre de côtés », rappeler « quadri = 4 ».",
+       "differenciation": "CE1 : reconnaître les triangles (3 côtés), repérer l'angle droit du triangle rectangle, tracer un triangle (points donnés). CE2 : nommer et distinguer triangle rectangle / isocèle / équilatéral, décrire la propriété, tracer un triangle rectangle à l'équerre. Élèves fragiles : compter les côtés avec le doigt, superposer les côtés pour voir s'ils sont égaux.",
+       "depassement": "Classer des triangles variés par type ; construire un triangle équilatéral ; chercher les trois types dans la classe.",
+       "correction": "Tous les triangles : 3 côtés, 3 sommets. Triangle rectangle : un angle droit (équerre). Triangle isocèle : 2 côtés égaux. Triangle équilatéral : 3 côtés égaux. (Un triangle équilatéral est aussi isocèle.)",
+       "obstacles": "Erreurs fréquentes : croire que « triangle » = une seule forme ; confondre isocèle (2 égaux) et équilatéral (3 égaux) ; ne pas repérer l'angle droit. Remédiation : comparer les longueurs des côtés (bandes de papier / règle), vérifier l'angle droit à l'équerre, marquer les côtés égaux d'un petit trait.",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "Relire la leçon des figures planes ; savoir trier triangle / quadrilatères / cercle.",
+       "devoirs": "Relire la leçon des types de triangles ; savoir reconnaître le triangle rectangle (CE1), les 3 types (CE2).",
        "notesProchaine": "",
        "disciplineId": "maths"
       }
@@ -12373,7 +12373,7 @@
     }
    ],
    "createdAt": 1790700000000,
-   "updatedAt": 1795220487153
+   "updatedAt": 1795220823300
   },
   {
    "date": "2026-11-30",

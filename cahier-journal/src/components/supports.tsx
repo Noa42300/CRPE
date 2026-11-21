@@ -19,7 +19,7 @@ import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1, ProblemeBandesMardiCE2 } from "./ProblemeBandes";
 import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./FluenceLecture";
 import { PronomsDiapo, PronomsLecon, FichePronomsCE1, FichePronomsCE2 } from "./PronomsPersonnels";
-import { QuadriDiapo, QuadriLecon, FicheQuadriCE1, FicheQuadriCE2, PlanesDiapo, PlanesLecon, FichePlanesCE1, FichePlanesCE2 } from "./GeoFormes";
+import { QuadriDiapo, QuadriLecon, FicheQuadriCE1, FicheQuadriCE2, TrianglesTypesDiapo, TrianglesTypesLecon, FicheTrianglesTypesCE1, FicheTrianglesTypesCE2 } from "./GeoFormes";
 import { GeoCartesDiapo, GeoCartesLecon, AtelierPlanQuartier, AtelierPlanMetro } from "./GeoCartes";
 import { EpsSportCo6v6 } from "./EpsTerrainSupport";
 import { MotsFlashSportDiapo, DicteeSportFiche } from "./DicteeFlash";
@@ -1429,10 +1429,10 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m24mu":
       return [
-        { key: "pla-diapo", label: "Triangles & figures planes — Diaporama (le triangle, trier, synthèse)", node: <PlanesDiapo /> },
-        { key: "pla-lecon", label: "Les figures planes — Leçon de synthèse à coller (cahier rouge)", node: <PlanesLecon /> },
-        { key: "pla-ce1", label: "Figures planes — Fiche CE1 (triangle, cercle, trier avec les quadrilatères)", node: <FichePlanesCE1 /> },
-        { key: "pla-ce2", label: "Figures planes — Fiche CE2 (synthèse de toutes les figures, tracer)", node: <FichePlanesCE2 /> },
+        { key: "tri-diapo", label: "Les types de triangles — Diaporama (rectangle, isocèle, équilatéral)", node: <TrianglesTypesDiapo /> },
+        { key: "tri-lecon", label: "Les types de triangles — Leçon à coller (cahier rouge)", node: <TrianglesTypesLecon /> },
+        { key: "tri-ce1", label: "Les triangles — Fiche CE1 (reconnaître, angle droit, tracer)", node: <FicheTrianglesTypesCE1 /> },
+        { key: "tri-ce2", label: "Les types de triangles — Fiche CE2 (rectangle/isocèle/équilatéral, tracer)", node: <FicheTrianglesTypesCE2 /> },
       ];
     case "l23rit":
     case "m24rit":
