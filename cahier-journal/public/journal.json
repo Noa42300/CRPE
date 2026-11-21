@@ -11619,7 +11619,7 @@
   {
    "date": "2026-11-23",
    "createdAt": 1795162975550,
-   "updatedAt": 1795178299885,
+   "updatedAt": 1795220487153,
    "info": {
     "effectifPrevu": 23,
     "presents": [],
@@ -11757,14 +11757,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Maths (géométrie) — Les formes : reconnaître les figures planes",
-       "objectif": "Reconnaître, nommer et décrire les figures planes (carré, rectangle, triangle, cercle). CE1 : nommer et compter les côtés. CE2 : côtés et sommets, angle droit, distinguer carré et rectangle, tracer à la règle.",
-       "competence": "Reconnaître et nommer des figures planes ; décrire (côtés, sommets, angle droit au CE2).",
+       "title": "Maths (géométrie) — Les quadrilatères",
+       "objectif": "Reconnaître les quadrilatères (figures à 4 côtés). CE1 : repérer et nommer le carré et le rectangle, compter côtés et sommets, commencer à tracer à la règle sur quadrillage. CE2 : + le losange, l'angle droit (équerre), distinguer carré / rectangle / losange.",
+       "competence": "Reconnaître et nommer des quadrilatères ; décrire (côtés, sommets, angle droit au CE2) ; tracer à la règle.",
        "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (figures planes). Méthode Tandem.",
        "progPeriode": "P2",
        "progDomaine": "",
-       "progSequence": "Géométrie P2 — Les formes (figures planes)",
-       "progSeance": "Séance 1 — Les formes (avant les solides)",
+       "progSequence": "Géométrie P2 — Les figures planes",
+       "progSeance": "Séance 1 (lundi) — Les quadrilatères",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -11776,29 +11776,29 @@
        "deroulement": [
         {
          "id": "l23m1",
-         "label": "Tri et manipulation (15 min)",
-         "note": "« Aujourd'hui, en géométrie, on étudie les FORMES : les figures planes, celles qui sont plates, dessinées sur la feuille. »\n« Je distribue des étiquettes-formes. Observez : combien de côtés ? combien de coins ? »\n« On trie : d'un côté celles qui ont des côtés droits, de l'autre celles qui sont rondes. »\n« Le carré, le rectangle, le triangle ont des côtés ; le cercle est tout rond, il n'a pas de côté. »\n« Qui vient classer une étiquette au tableau et dire pourquoi ? »\n(je fais verbaliser « côté » et « sommet / coin » en montrant du doigt.)"
+         "label": "Tri et découverte (15 min)",
+         "note": "« Aujourd'hui en géométrie, on commence les figures planes, et on démarre par une famille : les QUADRILATÈRES, les figures à 4 côtés. »\n« Je distribue des étiquettes-figures. Comptez les côtés de chacune avec le doigt. »\n« On met d'un côté toutes celles qui ont 4 côtés, de l'autre les autres. »\n« Carré, rectangle, losange : ce sont tous des quadrilatères (4 côtés, 4 sommets). »\n« Qui vient classer une étiquette au tableau et dire combien elle a de côtés ? »\n(je fais verbaliser « côté » et « sommet » en montrant.)"
         },
         {
          "id": "l23m2",
-         "label": "Découverte projetée + vocabulaire (15 min)",
-         "note": "« On regarde le diaporama : voici le carré, le rectangle, le triangle, le cercle. »\n« Le carré a 4 côtés égaux ; le rectangle a 2 longs côtés et 2 courts ; le triangle a 3 côtés. »\n« Un côté, c'est un bord droit ; un sommet, c'est un coin. On compte ensemble. »\n« Pour les CE2 : un angle droit, c'est un coin « bien carré », comme le coin de la feuille ; on le vérifie à l'équerre. »\n« Cherchez dans la classe : qu'est-ce qui a la forme d'un rectangle ? d'un cercle ? »\n(j'associe chaque forme à son nom en étiquettes.)"
+         "label": "Le carré et le rectangle (15 min)",
+         "note": "« On regarde le diaporama : le carré a 4 côtés ÉGAUX ; le rectangle a 2 longs côtés et 2 courts. »\n« Les deux ont 4 sommets et 4 angles droits (les coins bien carrés). »\n« Pour les CE2 : on vérifie l'angle droit avec l'équerre, et on ajoute le losange (4 côtés égaux, penchés). »\n« Cherchez dans la classe : qu'est-ce qui a la forme d'un rectangle ? d'un carré ? »\n« On colle la leçon des quadrilatères dans le cahier rouge. »\n(j'associe chaque figure à son nom en étiquettes.)"
         },
         {
          "id": "l23m3",
-         "label": "Leçon + fiche différenciée (20 min)",
-         "note": "« On colle la leçon des formes dans le cahier rouge et on la relit. »\n« Les CE1 (niveau simple) : vous nommez les formes, vous les coloriez par famille et vous comptez les côtés. »\n« Les CE2 (niveau poussé) : vous complétez le tableau côtés / sommets / angle droit, puis vous tracez à la règle sur le quadrillage. »\n« Gardez la leçon sous les yeux pour vous aider ; sortez la règle. »\n« Je passe vérifier : montrez-moi un sommet, un côté, un angle droit. »\n(institutionnalisation : on affiche la famille des formes au mur.)"
+         "label": "Je trace (20 min)",
+         "note": "« Maintenant, on apprend à TRACER à la règle sur le quadrillage. »\n« Je place d'abord les points, puis je relie deux points à la règle, bien droit. »\n« Les CE1 : vous repérez les quadrilatères, vous nommez carré/rectangle, puis vous tracez un carré en reliant les points. »\n« Les CE2 : vous complétez le tableau (côtés, sommets, angles droits) et vous tracez carré, rectangle et losange. »\n« Je passe vérifier la tenue de la règle et les angles. »\n(institutionnalisation : on affiche la famille des quadrilatères au mur.)"
         }
        ],
-       "materiel": "Diaporama « Les formes » + leçon à coller (cahier rouge) + fiche CE1 (simple) et fiche CE2 (poussé) — voir Documents à imprimer. Étiquettes-formes, règle, équerre (CE2).",
+       "materiel": "Diaporama « Les quadrilatères » + leçon à coller (cahier rouge) + fiche CE1 (repérer / tracer) et fiche CE2 (losange, angle droit, tracer) — voir Documents à imprimer. Règle, équerre (CE2), étiquettes-figures, quadrillage.",
        "video": "",
-       "differenciation": "CE1 (simple) : reconnaître et nommer carré, rectangle, triangle, cercle ; compter les côtés ; trier droit / rond. CE2 (poussé) : côtés et sommets, angle droit à l'équerre, distinguer carré et rectangle, losange, tracer à la règle sur quadrillage. Élèves fragiles : manipuler l'étiquette, suivre le côté avec le doigt.",
-       "depassement": "Reproduire une figure sur quadrillage ; décrire une forme à un camarade qui doit la deviner ; trouver des angles droits dans la classe.",
-       "correction": "Carré : 4 côtés égaux, 4 sommets, 4 angles droits. Rectangle : 4 côtés (2 longs, 2 courts), 4 sommets, 4 angles droits. Triangle : 3 côtés, 3 sommets. Cercle : pas de côté ni de sommet. Carré ≠ rectangle : le carré a tous ses côtés égaux.",
-       "obstacles": "Erreurs fréquentes : confondre carré et rectangle ; appeler « rond » toute forme courbe ; confondre côté et sommet ; compter deux fois un sommet. Remédiation : superposer carré et rectangle pour comparer les côtés, suivre le contour avec le doigt en comptant, opposer « bord » (côté) et « coin » (sommet), vérifier l'angle droit avec le coin d'une feuille.",
+       "differenciation": "CE1 : repérer les figures à 4 côtés, nommer carré et rectangle, compter côtés/sommets, commencer à tracer à la règle (points donnés). CE2 : + le losange, l'angle droit à l'équerre, distinguer carré/rectangle/losange, tracer précis sur quadrillage. Élèves fragiles : suivre le côté avec le doigt en comptant, points de départ marqués pour le tracé.",
+       "depassement": "Tracer un quadrilatère de son choix et le décrire ; trouver des quadrilatères dans la classe (fenêtre, porte, cahier).",
+       "correction": "Quadrilatère = 4 côtés, 4 sommets. Carré : 4 côtés égaux, 4 angles droits. Rectangle : 2 longs + 2 courts, 4 angles droits. Losange : 4 côtés égaux, penchés (pas d'angle droit en général). Intrus (3 côtés / rond) = pas des quadrilatères.",
+       "obstacles": "Erreurs fréquentes : confondre carré et rectangle ; appeler « quadrilatère » un triangle ; tracer à main levée (traits qui tremblent) ; mal placer la règle. Remédiation : superposer carré et rectangle pour comparer les côtés ; compter les côtés un à un ; marquer les points avant de relier ; tenir la règle avec la main à plat.",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "Apprendre la leçon sur les formes (cahier rouge) ; savoir nommer le carré, le rectangle, le triangle, le cercle.",
+       "devoirs": "Apprendre la leçon sur les quadrilatères (cahier rouge) ; savoir reconnaître le carré et le rectangle.",
        "notesProchaine": "",
        "disciplineId": "maths"
       }
@@ -12322,14 +12322,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Maths (géométrie) — Les solides : reconnaître et nommer",
-       "objectif": "Reconnaître, nommer et décrire des solides (cube, pavé droit, boule, cylindre, cône, pyramide) ; les distinguer des figures planes vues hier. CE1 : nommer et trier. CE2 : décrire (faces, arêtes, sommets).",
-       "competence": "Reconnaître et nommer des solides usuels ; les distinguer des figures planes ; décrire (faces, arêtes, sommets au CE2).",
-       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (solides). Méthode Tandem.",
+       "title": "Maths (géométrie) — Les triangles et les figures planes",
+       "objectif": "Compléter les figures planes. CE1 : découvrir le triangle (3 côtés) et le cercle, puis trier avec les quadrilatères vus lundi. CE2 : synthèse de toutes les figures planes (triangle, quadrilatères, cercle), décrire et tracer.",
+       "competence": "Reconnaître, nommer et trier les figures planes selon le nombre de côtés ; tracer à la règle.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie » (figures planes). Méthode Tandem.",
        "progPeriode": "P2",
        "progDomaine": "",
-       "progSequence": "Géométrie P2 — Les solides",
-       "progSeance": "Séance 1 — Découverte (après les formes planes)",
+       "progSequence": "Géométrie P2 — Les figures planes",
+       "progSeance": "Séance 2 (mardi) — Le triangle et la synthèse des figures planes",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -12341,29 +12341,29 @@
        "deroulement": [
         {
          "id": "m24m1",
-         "label": "Du plat au volume (10 min)",
-         "note": "« Hier, on a vu les formes PLATES (carré, triangle…). Aujourd'hui, on passe au VOLUME : les solides. »\n« Un solide, ce n'est pas plat : on peut le tenir dans la main, il a une épaisseur. »\n« Je fais passer des objets : un dé, une boîte, une balle, une boîte de conserve. Touchez, observez. »\n« On les trie : ceux qui roulent / ceux qui ne roulent pas ; ceux qui ont des pointes. »\n« Attention : le carré est plat (une forme), le cube a du volume (un solide). »\n(je mets côte à côte un carré dessiné et un cube pour bien opposer plan / solide.)"
+         "label": "Rappel + le triangle (10 min)",
+         "note": "« Hier, on a vu les quadrilatères : combien de côtés ? » (4.)\n« Aujourd'hui, une nouvelle figure : le TRIANGLE. Comptez ses côtés. » (3.)\n« Le triangle a 3 côtés et 3 sommets ; le cercle, lui, est tout rond, il n'a pas de côté. »\n« Montrez-moi un triangle dans la classe (une équerre, un toit dessiné…). »\n« On va maintenant ranger TOUTES les figures planes qu'on connaît. »\n(je ressors les étiquettes de lundi et j'ajoute triangles et cercles.)"
         },
         {
          "id": "m24m2",
-         "label": "Découverte projetée + vocabulaire (15 min)",
-         "note": "« On regarde le diaporama : le cube, le pavé droit, la boule, le cylindre, le cône, la pyramide. »\n« Le cube a 6 faces carrées ; le pavé droit a 6 faces rectangulaires. »\n« Une FACE est une surface plate, une ARÊTE est un bord, un SOMMET est une pointe. »\n« Cherchez dans la classe : qu'est-ce qui ressemble à un cube ? à un cylindre ? »\n« On nomme chaque solide tous ensemble, puis je le fais redire. »\n(j'associe les mots en étiquettes aux images.)"
+         "label": "Synthèse + tri (15 min)",
+         "note": "« On regarde le diaporama : triangle (3 côtés), carré / rectangle / losange (4 côtés), cercle (rond). »\n« On trie ensemble : la boîte des 3 côtés, la boîte des 4 côtés, la boîte du rond. »\n« On colle la leçon de synthèse des figures planes dans le cahier rouge. »\n« Pour nommer une figure, je compte toujours ses côtés et ses sommets. »\n« CE2 : vous repérerez l'intrus dans une liste et vous le justifierez. »\n(institutionnalisation : on complète l'affiche des figures planes.)"
         },
         {
          "id": "m24m3",
-         "label": "Leçon + fiche (20 min)",
-         "note": "« On colle la leçon des solides dans le cahier rouge et on la relit. »\n« Les CE1 : vous nommez chaque solide, vous coloriez et vous reliez l'objet à son solide. »\n« Les CE2 : en plus, vous complétez le tableau faces / arêtes / sommets et le vrai-faux. »\n« Gardez la leçon et les objets sous les yeux pour vous aider. »\n« Je passe vérifier le vocabulaire : montrez-moi une arête, un sommet. »\n(institutionnalisation : on affiche la famille des solides à côté de celle des formes.)"
+         "label": "Je trace (20 min)",
+         "note": "« On trace à la règle : les CE1 un triangle en reliant les points. »\n« Les CE2 : vous complétez le tableau de toutes les figures, puis vous tracez triangle, carré et rectangle, et vous barrez l'intrus. »\n« Je place les points, je relie bien droit à la règle. »\n« Relisez : la figure a-t-elle le bon nombre de côtés ? »\n« Je passe vérifier les tracés et le vocabulaire. »\n(les plus rapides décrivent une figure à un camarade qui la devine.)"
         }
        ],
-       "materiel": "Diaporama « Les solides » + leçon à coller (cahier rouge) + fiche CE1 et fiche CE2 — voir Documents à imprimer. Objets de la classe (boîtes, dé, balle, boîte de conserve, cône).",
-       "video": "https://vimeo.com/527028880",
-       "differenciation": "CE1 : reconnaître et nommer les solides, trier (roule / ne roule pas), relier objet ↔ solide. CE2 : décrire avec faces / arêtes / sommets, distinguer cube et pavé droit. Élèves fragiles : manipuler l'objet réel en nommant à voix haute.",
-       "depassement": "Compter faces, arêtes et sommets d'un solide moins courant ; retrouver le solide « caché » à partir de sa description.",
-       "correction": "Cube : 6 faces carrées, 12 arêtes, 8 sommets. Pavé droit : 6 faces rectangulaires, 12 arêtes, 8 sommets. Boule : roule, pas de face plane. Cylindre : 2 faces rondes + roule. Cône : 1 pointe, roule. Pyramide : base + faces triangulaires.",
-       "obstacles": "Erreurs fréquentes : confondre une figure plane (carré) et un solide (cube) ; confondre cube et pavé ; appeler « rond » le cylindre et la boule. Remédiation : opposer « plat » (sur la feuille) et « en volume » (je le tiens) ; compter les faces en les touchant ; comparer un dé (cube) et une boîte d'allumettes (pavé).",
+       "materiel": "Diaporama « Triangles & figures planes » + leçon de synthèse à coller (cahier rouge) + fiche CE1 (triangle, trier) et fiche CE2 (synthèse, tracer) — voir Documents à imprimer. Règle, étiquettes-figures, quadrillage.",
+       "video": "",
+       "differenciation": "CE1 : découvrir le triangle et le cercle, trier avec les quadrilatères (3 / 4 côtés / rond), tracer un triangle (points donnés). CE2 : synthèse de toutes les figures planes, tableau complet, intrus justifié, tracés précis. Élèves fragiles : compter les côtés avec le doigt, étiquettes à placer dans les bonnes boîtes.",
+       "depassement": "Classer les figures selon le nombre de côtés ; décrire une figure sans la nommer pour la faire deviner.",
+       "correction": "Triangle : 3 côtés, 3 sommets. Quadrilatères (carré, rectangle, losange) : 4 côtés, 4 sommets. Cercle : 0 côté. Intrus parmi « carré, rectangle, triangle, losange » = le triangle (3 côtés, les autres en ont 4).",
+       "obstacles": "Erreurs fréquentes : confondre nombre de côtés et de sommets ; ranger un triangle avec les quadrilatères ; oublier que le carré est aussi un quadrilatère. Remédiation : compter côtés ET sommets, trier par « nombre de côtés », rappeler « quadri = 4 ».",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "Apprendre la leçon sur les solides (cahier rouge) ; savoir nommer cube, pavé, boule, cylindre, cône, pyramide.",
+       "devoirs": "Relire la leçon des figures planes ; savoir trier triangle / quadrilatères / cercle.",
        "notesProchaine": "",
        "disciplineId": "maths"
       }
@@ -12373,7 +12373,7 @@
     }
    ],
    "createdAt": 1790700000000,
-   "updatedAt": 1795178299885
+   "updatedAt": 1795220487153
   },
   {
    "date": "2026-11-30",
