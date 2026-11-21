@@ -12213,14 +12213,14 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Géographie — Révision : les mers et les villes de France",
-       "objectif": "Vérifier et consolider les acquis : replacer les 4 mers (la Manche, la mer du Nord, l'océan Atlantique, la mer Méditerranée) et les grandes villes de France sur une carte muette (vraie carte de France). Se repérer avec les points cardinaux.",
-       "competence": "Se repérer dans l'espace : situer mers et grandes villes sur une carte de France ; utiliser nord/sud/est/ouest.",
-       "competenceRef": "Questionner le monde — questionner l'espace (programmes 2018/2020) : se repérer et représenter l'espace (France).",
+       "title": "Géographie — Lire une carte (vraie carte) + révision mers/villes",
+       "objectif": "Apprendre à lire une vraie carte : repérer le titre, la légende et l'orientation (rose des vents). S'entraîner sur une vraie carte projetée (la commune / la France). Puis réviser mers et villes sur les cartes muettes.",
+       "competence": "Lire une carte (titre, légende, orientation) ; se repérer ; situer mers et villes de France.",
+       "competenceRef": "Questionner le monde — questionner l'espace (programmes 2018/2020) : se repérer et représenter l'espace.",
        "progPeriode": "P2",
        "progDomaine": "",
-       "progSequence": "Géographie P2 — La France (mers et villes)",
-       "progSeance": "Révision — replacer les mers et les villes",
+       "progSequence": "Géographie P2 — Lire une carte / la France",
+       "progSeance": "Lire une carte (vraie carte) + révision mers et villes",
        "progRef": "",
        "organisation": [
         "collectif",
@@ -12232,29 +12232,29 @@
        "deroulement": [
         {
          "id": "m24g1",
-         "label": "Rappel collectif (10 min)",
-         "note": "« On vérifie ce qu'on a appris : les mers autour de la France et les grandes villes. »\n« Je montre la carte de France au tableau : qui vient placer la mer Méditerranée ? au nord ou au sud ? »\n« On redit les 4 mers : la Manche, la mer du Nord, l'océan Atlantique, la mer Méditerranée. »\n« On redit quelques grandes villes : Paris, Lyon, Marseille, et la nôtre, Saint-Étienne. »\n« On se repère avec les points cardinaux : nord en haut, sud en bas. »\n(j'interroge plusieurs élèves pour faire parler tout le monde.)"
+         "label": "Lire une vraie carte (20 min)",
+         "note": "« Aujourd'hui, on apprend à LIRE une carte. Je projette une vraie carte au tableau (notre commune, puis la France). »\n« Pour lire une carte, il y a 3 clés : le TITRE (ce qu'elle montre), la LÉGENDE (les symboles et couleurs), l'ORIENTATION (le Nord en haut). »\n« On colle la leçon « les 3 clés », puis vous prenez la fiche « Je lis une carte ». »\n« Regardez la carte projetée : recopiez le titre, cherchez 3 symboles dans la légende, complétez la rose des vents. »\n« Trouvez un lieu que vous connaissez et dites s'il est au nord, au sud, à l'est ou à l'ouest. »\n(je montre la carte réelle au tableau — OpenStreetMap de la commune ou carte de France ; je circule pour aider.)"
         },
         {
          "id": "m24g2",
-         "label": "Carte muette — les mers (15 min)",
-         "note": "« Je distribue la carte muette de France : vous placez les 4 mers au bon endroit. »\n« Attention à l'orientation : la Méditerranée est au sud, la Manche au nord-ouest. »\n« Vous écrivez le nom de chaque mer sur la bonne flèche. »\n« Ceux qui ont fini colorient la mer en bleu. »\n« On corrige ensemble au tableau. »\n(je passe repérer qui maîtrise, qui doit encore réviser.)"
+         "label": "Révision — les mers (12 min)",
+         "note": "« Maintenant, on révise : je distribue la carte muette de France. »\n« Placez les 4 mers : la Manche, la mer du Nord, l'océan Atlantique, la mer Méditerranée. »\n« Attention à l'orientation : la Méditerranée au sud, la Manche au nord-ouest. »\n« On corrige ensemble au tableau. »\n(je repère qui maîtrise, qui doit encore réviser.)"
         },
         {
          "id": "m24g3",
-         "label": "Carte muette — les villes (15 min)",
-         "note": "« Deuxième carte muette : vous replacez les grandes villes apprises. »\n« Je vous aide avec les points cardinaux : Marseille au sud, Lille au nord, Brest à l'ouest. »\n« Vous reliez chaque point à son nom de ville. »\n« On corrige ensemble ; chacun se corrige au stylo vert. »\n« On range la carte dans la pochette de géographie. »\n(bilan rapide : pouce en l'air / pouce en bas sur « je sais placer les mers et les villes ».)"
+         "label": "Révision — les villes (13 min)",
+         "note": "« Deuxième carte muette : vous replacez les grandes villes apprises. »\n« Aidez-vous des points cardinaux : Marseille au sud, Lille au nord, Brest à l'ouest. »\n« On corrige ensemble ; chacun se corrige au stylo vert. »\n« On range les cartes dans la pochette de géographie. »\n(bilan rapide : pouce en l'air sur « je sais lire une carte et placer les mers et les villes ».)"
         }
        ],
-       "materiel": "Carte muette des villes de France + carte muette des mers (vraies cartes de France, amCharts) — voir Documents à imprimer. Crayons de couleur, stylo vert. Pochette de géographie.",
+       "materiel": "UNE VRAIE CARTE à projeter (OpenStreetMap de Saint-Priest-en-Jarez / Saint-Étienne : openstreetmap.org ; ou Géoportail : geoportail.gouv.fr ; ou une carte de France libre de droits). Leçon « les 3 clés » à coller + fiche « Je lis une carte » + cartes muettes mers et villes — voir Documents à imprimer. Stylo vert, pochette de géographie.",
        "video": "",
-       "differenciation": "CE1 : replacer les 4 mers et 3-4 grandes villes avec l'aide des points cardinaux. CE2 : placer toutes les villes apprises et justifier avec nord/sud/est/ouest. Élèves fragiles : carte avec les initiales déjà placées à relier.",
-       "depassement": "Ajouter un fleuve ou une ville de son choix ; décrire la position d'une ville par rapport à une autre (au nord de…, au sud de…).",
-       "correction": "Mers : la Manche (nord-ouest), la mer du Nord (nord), l'océan Atlantique (ouest), la mer Méditerranée (sud). Villes : Paris (centre-nord), Lyon (centre-est), Marseille (sud-est), Saint-Étienne (centre-est), Lille (nord), Brest (ouest), Bordeaux (sud-ouest).",
-       "obstacles": "Erreurs fréquentes : confondre nord et sud ; placer la Méditerranée au nord ; confondre deux villes proches. Remédiation : rappeler « le nord est en haut », s'appuyer sur Saint-Étienne (ville connue) comme point de repère, replacer d'abord les 4 coins.",
+       "differenciation": "CE1 : repérer titre, légende et orientation ; situer un lieu connu avec nord/sud/est/ouest ; placer les 4 mers et quelques villes. CE2 : lire plus finement la légende, situer précisément plusieurs lieux, placer toutes les villes. Élèves fragiles : une seule consigne à la fois, légende surlignée.",
+       "depassement": "Décrire un trajet sur la carte projetée (de l'école à…) ; situer une ville par rapport à une autre (au nord de…).",
+       "correction": "Les 3 clés : titre, légende, orientation (Nord en haut). Rose des vents : N (haut), S (bas), E (droite), O (gauche). Mers : Manche (nord-ouest), mer du Nord (nord), océan Atlantique (ouest), Méditerranée (sud). Villes : voir carte (Paris, Lyon, Marseille, Saint-Étienne, Lille, Brest, Bordeaux).",
+       "obstacles": "Erreurs fréquentes : oublier de regarder la légende ; confondre nord et sud ; lire la carte « à l'endroit du lecteur ». Remédiation : rappeler « le nord est en haut », surligner la légende avant de répondre, placer le doigt sur la rose des vents.",
        "bilan": "",
        "aReprendre": "",
-       "devoirs": "Revoir les mers et les grandes villes de France (carte).",
+       "devoirs": "Revoir la leçon « Lire une carte » (titre, légende, orientation) et les mers/villes de France.",
        "notesProchaine": "",
        "disciplineId": "qlm"
       }
@@ -12322,7 +12322,7 @@
      "id": "slot-20261124-5",
      "disciplineId": "francais",
      "start": "15:40",
-     "end": "16:10",
+     "end": "16:05",
      "activities": [
       {
        "id": "m24dic",
@@ -12370,10 +12370,62 @@
        "disciplineId": "francais"
       }
      ]
+    },
+    {
+     "id": "slot-20261124-6",
+     "disciplineId": "eps",
+     "start": "16:05",
+     "end": "16:30",
+     "activities": [
+      {
+       "id": "m24eps",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "EPS (séance courte, si le temps le permet) — Jeu sans ballon : l'épervier",
+       "objectif": "Se dépenser en fin de journée avec un jeu collectif de course et d'évitement, sans matériel. Coopérer, s'opposer, respecter les règles. Séance courte, à faire s'il reste du temps après la dictée.",
+       "competence": "Courir, esquiver, s'opposer dans un jeu collectif ; respecter les règles et les autres.",
+       "competenceRef": "Programme d'EPS cycle 2 (2018/2020) — « conduire et maîtriser un affrontement collectif ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "EPS P2 — Jeux collectifs",
+       "progSeance": "Séance courte — l'épervier (sans ballon)",
+       "progRef": "",
+       "organisation": [
+        "collectif"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m24e1",
+         "label": "Mise en train + jeu (20 min)",
+         "note": "« S'il nous reste du temps, on sort se dépenser avec un jeu sans ballon : l'épervier. »\n« On s'échauffe : on trottine, on change de direction au signal. »\n« Tous dans la maison 1 ; 2 ou 3 éperviers au milieu. Au signal « Épervier, sortez ! », vous traversez vers la maison 2 sans vous faire toucher. »\n« Si tu es touché, tu deviens épervier à ton tour (on touche doucement, on ne pousse pas). »\n« On rejoue jusqu'à ce qu'il ne reste presque plus de joueurs. »\n(je suis l'arbitre et je surveille la sécurité ; voir la fiche terrain « l'épervier ».)"
+        },
+        {
+         "id": "m24e2",
+         "label": "Retour au calme (5 min)",
+         "note": "« On s'arrête, on boit, on respire doucement pour faire redescendre le cœur. »\n« Qu'est-ce qui aide à ne pas se faire toucher ? » (regarder l'épervier, changer de direction, accélérer.)\n« On se range dans le calme pour rentrer en classe. »\n« Bravo, on a bien couru et on a respecté les règles. »\n(je repère les élèves à encourager la prochaine fois.)"
+        }
+       ],
+       "materiel": "Fiche terrain « l'épervier » (schéma + sécurité) — voir Documents à imprimer. Plots pour délimiter les 2 maisons. AUCUN ballon, aucun dossard.",
+       "video": "",
+       "differenciation": "Pour un élève en difficulté : rôle d'épervier (au centre, moins de course) ou maison plus proche. Adapter la taille du terrain au nombre.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : attraper les vêtements, pousser, sortir du terrain. Remédiation : « on touche dans le dos, main ouverte » ; rappeler les limites aux plots ; un seul sens de traversée.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "eps"
+      }
+     ]
     }
    ],
    "createdAt": 1790700000000,
-   "updatedAt": 1795264921322
+   "updatedAt": 1795282573097
   },
   {
    "date": "2026-11-30",

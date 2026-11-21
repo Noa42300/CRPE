@@ -21,6 +21,7 @@ import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./
 import { PronomsDiapo, PronomsLecon, FichePronomsCE1, FichePronomsCE2 } from "./PronomsPersonnels";
 import { QuadriDiapo, QuadriLecon, FicheQuadriCE1, FicheQuadriCE2, TrianglesTypesDiapo, TrianglesTypesLecon, FicheTrianglesTypesCE1, FicheTrianglesTypesCE2 } from "./GeoFormes";
 import { EpsSportCo6v6, EpsEpervier } from "./EpsTerrainSupport";
+import { LireCarteLecon, FicheLireCarte } from "./GeoLireCarte";
 import { MotsFlashSportDiapo, DicteeSportFiche } from "./DicteeFlash";
 import { NombresLettresDiapo, NombresLettresLecon, NombresRef0a100, NombresLettresExosL, NombresLettresExosM } from "./NombresEnLettres";
 import { TypesPhrasesDiapo, TypesPhrasesQuiz, TypesPhrasesLecon, QcmTypesPhrases, FicheTypesPhrasesExos } from "./TypesDePhrases";
@@ -1420,8 +1421,14 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       ];
     case "m24geo":
       return [
+        { key: "lire-lecon", label: "Lire une carte — Leçon « les 3 clés » à coller (titre, légende, orientation)", node: <LireCarteLecon /> },
+        { key: "lire-fiche", label: "Je lis une carte — Fiche de questions (à remplir avec une VRAIE carte projetée)", node: <FicheLireCarte /> },
         { key: "rev-villes", label: "Les villes de France — Carte muette à compléter (vraie carte)", node: <CarteVillesMuetteFiche /> },
         { key: "rev-mers", label: "Les mers autour de la France — Carte muette à compléter (vraie carte)", node: <GeoMersFranceExos /> },
+      ];
+    case "m24eps":
+      return [
+        { key: "eps-epervier", label: "EPS (court, sans ballon) — L'épervier : schéma de terrain + sécurité", node: <EpsEpervier /> },
       ];
     case "m24mu":
       return [
