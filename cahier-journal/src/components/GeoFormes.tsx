@@ -528,3 +528,163 @@ export function FichePlanesCE2() {
     </FicheModele>
   );
 }
+
+/* ============================================================================
+ * MARDI (variante validée) — LES DIFFÉRENTS TYPES DE TRIANGLES
+ * CE1 : reconnaître les triangles (3 côtés) ; le triangle rectangle (angle droit).
+ * CE2 : triangle rectangle, isocèle, équilatéral (+ quelconque) ; décrire, tracer.
+ * ========================================================================== */
+export function TriangleType({ kind, s = 80, fill = FILL }: { kind: string; s?: number; fill?: string }) {
+  const tri = (pts: string) => <polygon points={pts} fill={fill} stroke={ST} strokeWidth="2" strokeLinejoin="round" />;
+  const tick = (x: number, y: number, a: number) => <line x1={x - 5} y1={y} x2={x + 5} y2={y} stroke={ST} strokeWidth="1.8" transform={`rotate(${a} ${x} ${y})`} />;
+  let g: React.ReactNode;
+  if (kind === "rectangle") g = <>{tri("24,80 24,26 82,80")}<path d="M24 68 H36 V80" fill="none" stroke={ST} strokeWidth="1.6" /></>;
+  else if (kind === "isocele") g = <>{tri("50,20 22,82 78,82")}{tick(35, 51, 115)}{tick(65, 51, -115)}</>;
+  else if (kind === "equilateral") g = <>{tri("50,18 18,82 82,82")}{tick(33, 50, 117)}{tick(67, 50, -117)}{tick(50, 82, 90)}</>;
+  else g = tri("18,66 44,22 85,76"); // quelconque
+  return <svg viewBox="0 0 100 100" width={s} height={s} style={{ display: "block" }}>{g}</svg>;
+}
+
+const TRITYPES: { kind: string; nom: string; prop: string }[] = [
+  { kind: "rectangle", nom: "triangle rectangle", prop: "un angle droit" },
+  { kind: "isocele", nom: "triangle isocèle", prop: "2 côtés égaux" },
+  { kind: "equilateral", nom: "triangle équilatéral", prop: "3 côtés égaux" },
+];
+
+const ETR = ["Le triangle", "Le triangle rectangle", "Isocèle & équilatéral (CE2)", "Je trie", "Je retiens"];
+export function TrianglesTypesDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const last = ETR.length - 1;
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[980px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: MA }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Géométrie · Les types de triangles</span>
+        <div className="ml-2 flex flex-wrap gap-1.5">{ETR.map((t, k) => <button key={t} onClick={() => setI(k)} title={t} className="h-3 w-3 rounded-full" style={{ background: k === i ? "#fff" : "rgba(255,255,255,.4)" }} />)}</div>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="grid min-h-[62vh] place-items-center p-5 sm:p-8">
+        {i === 0 && (
+          <div className="text-center">
+            <div className="flex justify-center gap-3"><TriangleType kind="rectangle" s={74} fill="#bbf7d0" /><TriangleType kind="isocele" s={74} fill="#bae6fd" /><TriangleType kind="equilateral" s={74} fill="#fde68a" /></div>
+            <h1 className="mt-3 text-4xl font-extrabold sm:text-5xl" style={{ color: MA }}>Les triangles</h1>
+            <p className="mt-2 text-2xl font-semibold text-stone-600">Un triangle a toujours <b>3 côtés</b> et <b>3 sommets</b>. Mais il y a <b>plusieurs sortes</b> de triangles !</p>
+          </div>
+        )}
+        {i === 1 && (
+          <div className="text-center">
+            <h2 className="text-4xl font-extrabold" style={{ color: MA }}>Le triangle rectangle</h2>
+            <div className="mt-3 flex items-center justify-center gap-6">
+              <TriangleType kind="rectangle" s={150} fill="#bbf7d0" />
+              <div className="text-left text-2xl text-stone-700">
+                <p>• il a un <b>angle droit</b> (un coin bien carré ▭)</p>
+                <p>• on le vérifie avec l'<b>équerre</b> 📐</p>
+              </div>
+            </div>
+          </div>
+        )}
+        {i === 2 && (
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold" style={{ color: MA }}>Isocèle & équilatéral <span className="text-lg text-stone-500">(CE2)</span></h2>
+            <div className="mt-3 flex items-center justify-center gap-10 text-xl text-stone-700">
+              <div><TriangleType kind="isocele" s={130} fill="#bae6fd" /><p>le <b>triangle isocèle</b><br />2 côtés égaux (les traits ′)</p></div>
+              <div><TriangleType kind="equilateral" s={130} fill="#fde68a" /><p>le <b>triangle équilatéral</b><br />3 côtés égaux</p></div>
+            </div>
+          </div>
+        )}
+        {i === 3 && (
+          <div className="w-full max-w-2xl text-center">
+            <h2 className="text-3xl font-extrabold" style={{ color: MA }}>Je trie les triangles</h2>
+            <div className="mt-3 grid grid-cols-3 gap-3">
+              {TRITYPES.map((t) => <div key={t.kind} className="rounded-xl border-2 bg-white p-2" style={{ borderColor: MA }}><div className="flex justify-center"><TriangleType kind={t.kind} s={80} /></div><div className="text-base font-bold" style={{ color: MA }}>{t.nom}</div><div className="text-sm text-stone-500">{t.prop}</div></div>)}
+            </div>
+          </div>
+        )}
+        {i === 4 && (
+          <div className="text-center">
+            <div className="mb-2 flex justify-center gap-2"><TriangleType kind="rectangle" s={44} fill="#bbf7d0" /><TriangleType kind="isocele" s={44} fill="#bae6fd" /><TriangleType kind="equilateral" s={44} fill="#fde68a" /></div>
+            <h1 className="text-4xl font-extrabold" style={{ color: MA }}>Je retiens</h1>
+            <p className="mt-3 text-2xl font-semibold text-stone-600">Un triangle a <b>3 côtés</b>. Le <b>triangle rectangle</b> a un angle droit ; le <b>triangle isocèle</b> a 2 côtés égaux ; le <b>triangle équilatéral</b> a 3 côtés égaux.</p>
+          </div>
+        )}
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: MA, color: MA }}>◀</button>
+        <span className="text-sm font-bold uppercase tracking-wide text-stone-500">{i + 1}/{ETR.length} · {ETR[i]}</span>
+        <button onClick={() => setI((n) => Math.min(last, n + 1))} disabled={i === last} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: MA }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
+export function TrianglesTypesLecon() {
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <h1 style={{ fontSize: "30px", margin: "0 0 1mm", textAlign: "center", fontWeight: 800, color: MA, fontFamily: CURSIVE }}>Les types de triangles</h1>
+      <div style={{ textAlign: "center", fontFamily: CONSIGNE_FONT, fontSize: "12px", fontWeight: 700, color: MA, marginBottom: "2mm" }}>GÉOMÉTRIE · un triangle a 3 côtés, mais il y a plusieurs sortes</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "2mm", margin: "2mm 0" }}>
+        {TRITYPES.map((t) => (
+          <div key={t.kind} style={{ border: `1.6px solid ${MA}`, borderRadius: "2mm", padding: "1mm", textAlign: "center", background: "#f8fdff" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}><TriangleType kind={t.kind} s={58} fill="#e0f2fe" /></div>
+            <div style={{ fontFamily: CURSIVE, fontSize: "16px", fontWeight: 700 }}>{t.nom}</div>
+            <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "9.5px", color: "#475569" }}>{t.prop}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ border: `2px solid ${MA}`, borderRadius: "2mm", padding: "2mm 4mm", background: "#f0fdff", fontFamily: CURSIVE, fontSize: "17px", lineHeight: 1.5 }}>
+        Le <b style={{ color: MA }}>triangle rectangle</b> a un <b>angle droit</b> (équerre). Le <b style={{ color: MA }}>triangle isocèle</b> a <b>2 côtés égaux</b> (on les marque d'un petit trait ′). Le <b style={{ color: MA }}>triangle équilatéral</b> a ses <b>3 côtés égaux</b>.
+      </div>
+    </div>
+  );
+}
+
+export function FicheTrianglesTypesCE1() {
+  return (
+    <FicheModele matiere="Géométrie" titre="Les triangles" couleur={MA} dots={4} dotActif={2} page="Les triangles · CE1">
+      <SectionBar couleur={MA}>Je reconnais les triangles</SectionBar>
+      <Exo n={1} couleur={MA} consigne={<><b>Entoure</b> seulement les triangles (les figures à 3 côtés).</>}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "6mm", justifyContent: "space-around", marginTop: "1mm" }}>
+          <Forme type="carre" s={40} fill="#fff" /><TriangleType kind="equilateral" s={40} fill="#fff" /><Forme type="cercle" s={40} fill="#fff" /><TriangleType kind="rectangle" s={40} fill="#fff" /><Forme type="quad" s={40} fill="#fff" /><TriangleType kind="quelconque" s={40} fill="#fff" />
+        </div>
+      </Exo>
+      <Exo n={2} couleur={MA} consigne={<><b>Colorie</b> le coin de l'angle droit du triangle rectangle (le coin « bien carré »).</>}>
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "1mm" }}><TriangleType kind="rectangle" s={60} /></div>
+      </Exo>
+      <Exo n={3} couleur={MA} consigne={<><b>Compte</b> et <b>écris</b> le nombre de côtés et de sommets d'un triangle.</>}>
+        <div style={{ display: "flex", gap: "8mm", alignItems: "center", fontFamily: CURSIVE, fontSize: "17px", marginTop: "1mm", justifyContent: "center" }}>
+          <TriangleType kind="isocele" s={44} /><span>…… côtés</span><span>…… sommets</span>
+        </div>
+      </Exo>
+      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> à la règle un triangle en reliant les points.</>}>
+        <div style={{ ...QUADRILLAGE, height: "34mm", position: "relative", overflow: "hidden" }}>
+          {[[12,26],[33,8],[56,26]].map(([x,y],k)=><span key={k} style={{ position:"absolute", left:`${x}mm`, top:`${y}mm`, width:"2mm", height:"2mm", borderRadius:"50%", background:MA, transform:"translate(-50%,-50%)" }} />)}
+        </div>
+      </Exo>
+    </FicheModele>
+  );
+}
+
+export function FicheTrianglesTypesCE2() {
+  return (
+    <FicheModele matiere="Géométrie" titre="Les types de triangles" couleur={MA} dots={4} dotActif={2} page="Les triangles · CE2">
+      <SectionBar couleur={MA}>Je reconnais et je décris</SectionBar>
+      <Exo n={1} couleur={MA} consigne={<><b>Écris</b> le type sous chaque triangle (rectangle · isocèle · équilatéral).</>}>
+        <div style={{ display: "flex", gap: "10mm", justifyContent: "space-around", marginTop: "1mm" }}>
+          {["isocele", "rectangle", "equilateral"].map((k) => <div key={k} style={{ textAlign: "center" }}><TriangleType kind={k} s={52} /><div style={{ width: "30mm", borderBottom: "1.3px solid #94a3b8", height: "6mm", marginTop: "1mm" }} /></div>)}
+        </div>
+      </Exo>
+      <Exo n={2} couleur={MA} consigne={<><b>Relie</b> chaque triangle à sa propriété.</>}>
+        <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", fontFamily: CURSIVE, fontSize: "16px", marginTop: "1mm" }}>
+          <div style={{ display: "flex", gap: "5mm" }}><TriangleType kind="rectangle" s={40} /><TriangleType kind="isocele" s={40} /><TriangleType kind="equilateral" s={40} /></div>
+          <div style={{ lineHeight: 2.1 }}>• 2 côtés égaux<br />• un angle droit<br />• 3 côtés égaux</div>
+        </div>
+      </Exo>
+      <Exo n={3} couleur={MA} consigne={<><b>Vrai ou faux ?</b> Écris V ou F.</>}>
+        <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 2 }}>Tous les triangles ont 3 côtés. …… &nbsp; Le triangle équilatéral a 3 côtés égaux. …… &nbsp; Le triangle rectangle a un angle droit. ……</div>
+      </Exo>
+      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> à la règle (et à l'équerre) un triangle rectangle.</>}>
+        <div style={{ ...QUADRILLAGE, height: "30mm" }} />
+      </Exo>
+    </FicheModele>
+  );
+}
