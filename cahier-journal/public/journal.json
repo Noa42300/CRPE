@@ -11619,7 +11619,7 @@
   {
    "date": "2026-11-23",
    "createdAt": 1795162975550,
-   "updatedAt": 1795220487153,
+   "updatedAt": 1795344242475,
    "info": {
     "effectifPrevu": 23,
     "presents": [],
@@ -11651,9 +11651,9 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Rituels du matin — phrase du jour + problème du jour",
-       "objectif": "Entrer dans la journée : date, phrase du jour (type/forme), problème du jour (schéma + calcul + réponse).",
-       "competence": "Rituels : repérer le type et la forme d'une phrase ; résoudre un petit problème.",
+       "title": "Rituels du matin — phrase du jour (pronoms) + problème différencié",
+       "objectif": "Entrer dans la journée. Phrase du jour sur les PRONOMS personnels (on manipule : remplacer un groupe nominal sujet par un pronom ; CE2 : transformer / accorder). Problème du jour DIFFÉRENCIÉ : un énoncé CE1 (une étape) et un énoncé CE2 plus difficile (deux étapes, nombres plus grands).",
+       "competence": "Rituels : identifier et manipuler les pronoms personnels sujets ; résoudre un problème (à 1 ou 2 étapes).",
        "competenceRef": "Questionner le monde / Français / Maths — rituels",
        "progPeriode": "P2",
        "progDomaine": "",
@@ -11669,17 +11669,17 @@
        ],
        "deroulement": [
         {
-         "id": "l23r1",
+         "id": "l23rit1",
          "label": "Accueil et rituels (20 min)",
-         "note": "« On s'installe en silence, on sort l'ardoise et le cahier gris. »\n« Quel jour sommes-nous ? Écrivez la date au bon endroit. »\n« Phrase du jour : je la lis, vous me dites si c'est une phrase affirmative ou négative, et son type. »\n« Problème du jour : lisez tout seuls, dessinez le schéma, posez le calcul, écrivez la réponse. »\n« On corrige ensemble : qui vient montrer son schéma au tableau ? »\n(je relève l'ardoise d'un ou deux élèves pour vérifier où ils en sont.)"
+         "note": "« On s'installe en silence, ardoise et cahier gris sortis. »\n« Écrivez la date. »\n« La phrase du jour : « Timoté et Alia … ». Les CE1, par quel pronom on remplace « Timoté et Alia » ? » (→ ils.)\n« Les CE2, vous récrivez la phrase avec le pronom (et vous accordez le verbe). »\n« Le problème du jour : les CE1 font l'énoncé CE1, les CE2 l'énoncé CE2 (plus dur, en deux étapes). Recopiez l'énoncé sans la question, puis cherchez : schéma, calcul, phrase-réponse. »\n« On corrige ensemble : qui vient expliquer sa démarche au tableau ? » (je vérifie quelques ardoises.)"
         }
        ],
-       "materiel": "Bandes rituels (4 par A4 à découper) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise, cahier gris.",
+       "materiel": "Carte « rituel du matin » (phrase du jour pronoms + problème différencié CE1/CE2, 2 par A4 à découper) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise, cahier gris.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "Phrase du jour : CE1 repèrent/remplacent par un pronom ; CE2 transforment et accordent. Problème : CE1 : 4 boîtes de 6 feutres (4×6). CE2 (2 étapes) : 8 tables de 6 places, moins 41 élèves. Élèves fragiles : énoncé CE1, schéma fourni, nombres plus petits si besoin.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "Erreurs fréquentes : confondre type et forme de phrase ; choisir la mauvaise opération. Remédiation : relire l'affiche types/formes ; reformuler le problème avec ses mots, repérer « en plus / en moins ».",
+       "correction": "Pronom : Timoté et Alia → ils. CE1 : 4 boîtes de 6 feutres (4×6). CE2 (2 étapes) : 8 tables de 6 places, moins 41 élèves. (Correction orale collective.)",
+       "obstacles": "Erreurs fréquentes : confondre il/ils, elle/elles ; au CE2, choisir la bonne opération dans un problème à 2 étapes (faire l'étape 1 puis l'étape 2). Remédiation : table des pronoms singulier/pluriel ; pour le problème, souligner ce qu'on cherche, faire un schéma, séparer les 2 étapes.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -12049,9 +12049,9 @@
        "niveaux": [
         "classe"
        ],
-       "title": "Rituels du matin — phrase du jour + problème du jour",
-       "objectif": "Entrer dans la journée : date, phrase du jour (type/forme), problème du jour (schéma + calcul + réponse).",
-       "competence": "Rituels : repérer le type et la forme d'une phrase ; résoudre un petit problème.",
+       "title": "Rituels du matin — phrase du jour (pronoms) + problème différencié",
+       "objectif": "Entrer dans la journée. Phrase du jour sur les PRONOMS personnels (on manipule : remplacer un groupe nominal sujet par un pronom ; CE2 : transformer / accorder). Problème du jour DIFFÉRENCIÉ : un énoncé CE1 (une étape) et un énoncé CE2 plus difficile (deux étapes, nombres plus grands).",
+       "competence": "Rituels : identifier et manipuler les pronoms personnels sujets ; résoudre un problème (à 1 ou 2 étapes).",
        "competenceRef": "Questionner le monde / Français / Maths — rituels",
        "progPeriode": "P2",
        "progDomaine": "",
@@ -12067,17 +12067,17 @@
        ],
        "deroulement": [
         {
-         "id": "m24r1",
+         "id": "m24rit1",
          "label": "Accueil et rituels (20 min)",
-         "note": "« On s'installe, ardoise et cahier gris sortis, dans le calme. »\n« Écrivez la date. Qui peut la lire à voix haute ? »\n« Phrase du jour : type et forme ? Affirmative ou négative ? »\n« Problème du jour : schéma, calcul, réponse — tout seuls d'abord. »\n« On corrige ensemble : un élève explique sa démarche au tableau. »\n(je passe vérifier deux ou trois ardoises.)"
+         "note": "« On s'installe en silence, ardoise et cahier gris sortis. »\n« Écrivez la date. »\n« La phrase du jour : « Les oiseaux … ». Les CE1, par quel pronom on remplace « Les oiseaux » ? » (→ ils.)\n« Les CE2, vous récrivez la phrase avec le pronom (et vous accordez le verbe). »\n« Le problème du jour : les CE1 font l'énoncé CE1, les CE2 l'énoncé CE2 (plus dur, en deux étapes). Recopiez l'énoncé sans la question, puis cherchez : schéma, calcul, phrase-réponse. »\n« On corrige ensemble : qui vient expliquer sa démarche au tableau ? » (je vérifie quelques ardoises.)"
         }
        ],
-       "materiel": "Bandes rituels (4 par A4 à découper) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise, cahier gris.",
+       "materiel": "Carte « rituel du matin » (phrase du jour pronoms + problème différencié CE1/CE2, 2 par A4 à découper) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise, cahier gris.",
        "video": "",
-       "differenciation": "",
+       "differenciation": "Phrase du jour : CE1 repèrent/remplacent par un pronom ; CE2 transforment et accordent. Problème : CE1 : 5 sachets de 5 billes (5×5). CE2 (2 étapes) : 96 pages, moins (48+17) lues. Élèves fragiles : énoncé CE1, schéma fourni, nombres plus petits si besoin.",
        "depassement": "",
-       "correction": "",
-       "obstacles": "Erreurs fréquentes : mauvaise opération choisie ; type/forme confondus. Remédiation : reformuler le problème, repérer « en plus / en moins » ; relire l'affiche types/formes.",
+       "correction": "Pronom : Les oiseaux → ils. CE1 : 5 sachets de 5 billes (5×5). CE2 (2 étapes) : 96 pages, moins (48+17) lues. (Correction orale collective.)",
+       "obstacles": "Erreurs fréquentes : confondre il/ils, elle/elles ; au CE2, choisir la bonne opération dans un problème à 2 étapes (faire l'étape 1 puis l'étape 2). Remédiation : table des pronoms singulier/pluriel ; pour le problème, souligner ce qu'on cherche, faire un schéma, séparer les 2 étapes.",
        "bilan": "",
        "aReprendre": "",
        "devoirs": "",
@@ -12425,7 +12425,7 @@
     }
    ],
    "createdAt": 1790700000000,
-   "updatedAt": 1795282573097
+   "updatedAt": 1795344242475
   },
   {
    "date": "2026-11-30",
