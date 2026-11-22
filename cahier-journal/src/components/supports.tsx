@@ -30,6 +30,7 @@ import { FicheModeleMaths } from "./FicheModeleMaths";
 import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
 import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
+import { RituelsPronomsLundi, RituelsPronomsMardi } from "./RituelsPronoms";
 import { QuizOperations } from "./QuizOperations";
 import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
 import { FormesPhrasesDiapo, FormesPhrasesLecon, FormesPhrasesDecouverte, FicheFormesCE1, FicheFormesCE2, FicheRevisionTypesFormesCE1, FicheRevisionTypesFormesCE2, EvalTypesFormesCE1, EvalTypesFormesCE2 } from "./FormesDePhrases";
@@ -1438,9 +1439,13 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
         { key: "tri-ce2", label: "Les types de triangles — Fiche CE2 (rectangle/isocèle/équilatéral, tracer)", node: <FicheTrianglesTypesCE2 /> },
       ];
     case "l23rit":
+      return [
+        { key: "rit-pronoms-l", label: "Rituel du matin — phrase du jour (pronoms) + problème différencié CE1/CE2 (2 par A4)", node: <RituelsPronomsLundi /> },
+        { key: "rit-quiz", label: "Mini-quiz « Quelle opération ? » (+ , − ou × · vocabulaire des problèmes)", node: <QuizOperations /> },
+      ];
     case "m24rit":
       return [
-        { key: "rit-serie", label: "Rituels du matin — Période 2 (14 jours) : type de phrase + problème (4 par A4 à découper)", node: <RituelsMatinSerie /> },
+        { key: "rit-pronoms-m", label: "Rituel du matin — phrase du jour (pronoms) + problème différencié CE1/CE2 (2 par A4)", node: <RituelsPronomsMardi /> },
         { key: "rit-quiz", label: "Mini-quiz « Quelle opération ? » (+ , − ou × · vocabulaire des problèmes)", node: <QuizOperations /> },
       ];
     case "m24hist":
