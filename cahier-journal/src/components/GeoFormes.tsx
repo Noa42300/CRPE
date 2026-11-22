@@ -213,6 +213,18 @@ const QUADRILLAGE: React.CSSProperties = {
   borderRadius: "2mm",
 };
 
+/** Grande zone de tracé quadrillée (carreaux 5 mm) + points de repère optionnels
+ *  (coordonnées en mm dans la zone). Les points restent contenus (overflow caché). */
+function TraceZone({ h = "36mm", pts = [] as [number, number][] }: { h?: string; pts?: [number, number][] }) {
+  return (
+    <div style={{ ...QUADRILLAGE, height: h, position: "relative", overflow: "hidden", marginTop: "1mm" }}>
+      {pts.map(([x, y], k) => (
+        <span key={k} style={{ position: "absolute", left: `${x}mm`, top: `${y}mm`, width: "2.2mm", height: "2.2mm", borderRadius: "50%", background: MA, transform: "translate(-50%,-50%)" }} />
+      ))}
+    </div>
+  );
+}
+
 const ETQ = ["Les quadrilatères", "Le carré", "Le rectangle", "Je trace", "Je retiens"];
 export function QuadriDiapo() {
   const [i, setI] = useState(0);
@@ -317,27 +329,32 @@ export function QuadriLecon() {
 
 export function FicheQuadriCE1() {
   return (
-    <FicheModele matiere="Géométrie" titre="Les quadrilatères" couleur={MA} dots={4} dotActif={1} page="Les quadrilatères · CE1">
+    <FicheModele matiere="Géométrie" titre="Les quadrilatères" couleur={MA} dots={6} dotActif={1} page="Les quadrilatères · CE1">
       <SectionBar couleur={MA}>Je repère et je nomme</SectionBar>
       <Exo n={1} couleur={MA} consigne={<><b>Entoure</b> seulement les quadrilatères (les figures à 4 côtés).</>}>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "6mm", justifyContent: "space-around", marginTop: "1mm" }}>
-          {["carre", "triangle", "rectangle", "cercle", "quad", "penta"].map((t, k) => <Forme key={k} type={t} s={42} fill="#fff" />)}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "5mm", justifyContent: "space-around", marginTop: "1mm" }}>
+          {["carre", "triangle", "rectangle", "cercle", "quad", "penta"].map((t, k) => <Forme key={k} type={t} s={38} fill="#fff" />)}
         </div>
       </Exo>
       <Exo n={2} couleur={MA} consigne={<><b>Écris</b> le nom : carré ou rectangle ?</>}>
-        <div style={{ display: "flex", gap: "12mm", justifyContent: "center", marginTop: "1mm" }}>
-          {["carre", "rectangle"].map((t) => <div key={t} style={{ textAlign: "center" }}><Forme type={t} s={50} /><div style={{ width: "28mm", borderBottom: "1.3px solid #94a3b8", height: "6mm", marginTop: "1mm" }} /></div>)}
+        <div style={{ display: "flex", gap: "16mm", justifyContent: "center", marginTop: "1mm" }}>
+          {["carre", "rectangle"].map((t) => <div key={t} style={{ textAlign: "center" }}><Forme type={t} s={42} /><div style={{ width: "28mm", borderBottom: "1.3px solid #94a3b8", height: "6mm", marginTop: "1mm" }} /></div>)}
         </div>
       </Exo>
-      <Exo n={3} couleur={MA} consigne={<><b>Compte</b> et <b>écris</b> le nombre de côtés et de sommets du carré.</>}>
+      <Exo n={3} couleur={MA} consigne={<><b>Compte</b> les côtés et les sommets du carré.</>}>
         <div style={{ display: "flex", gap: "8mm", alignItems: "center", fontFamily: CURSIVE, fontSize: "17px", marginTop: "1mm", justifyContent: "center" }}>
-          <Forme type="carre" s={44} /><span>…… côtés</span><span>…… sommets</span>
+          <Forme type="carre" s={38} /><span>…… côtés</span><span>…… sommets</span>
         </div>
       </Exo>
-      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> à la règle un carré de 3 carreaux de côté, en reliant les points.</>}>
-        <div style={{ ...QUADRILLAGE, height: "34mm", position: "relative", overflow: "hidden" }}>
-          {[[12,8],[27,8],[12,23],[27,23]].map(([x,y],k)=><span key={k} style={{ position:"absolute", left:`${x}mm`, top:`${y}mm`, width:"2mm", height:"2mm", borderRadius:"50%", background:MA, transform:"translate(-50%,-50%)" }} />)}
-        </div>
+      <SectionBar couleur={MA}>Je trace à la règle</SectionBar>
+      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> un carré de 3 carreaux de côté, en reliant les points.</>}>
+        <TraceZone h="31mm" pts={[[14, 9], [29, 9], [14, 24], [29, 24]]} />
+      </Exo>
+      <Exo n={5} couleur={MA} consigne={<><b>Trace</b> un rectangle de 4 carreaux sur 2, en reliant les points.</>}>
+        <TraceZone h="31mm" pts={[[12, 11], [32, 11], [12, 21], [32, 21]]} />
+      </Exo>
+      <Exo n={6} couleur={MA} consigne={<><b>Trace</b> toi-même un carré et un rectangle de la taille que tu veux.</>}>
+        <TraceZone h="33mm" />
       </Exo>
     </FicheModele>
   );
@@ -345,28 +362,35 @@ export function FicheQuadriCE1() {
 
 export function FicheQuadriCE2() {
   return (
-    <FicheModele matiere="Géométrie" titre="Les quadrilatères" couleur={MA} dots={4} dotActif={1} page="Les quadrilatères · CE2">
-      <SectionBar couleur={MA}>Je décris et je trace</SectionBar>
+    <FicheModele matiere="Géométrie" titre="Les quadrilatères" couleur={MA} dots={6} dotActif={1} page="Les quadrilatères · CE2">
+      <SectionBar couleur={MA}>Je décris</SectionBar>
       <Exo n={1} couleur={MA} consigne={<><b>Complète</b> le tableau (côtés, sommets, angles droits).</>}>
         <table style={{ borderCollapse: "collapse", width: "100%", fontFamily: CONSIGNE_FONT, textAlign: "center", fontSize: "13px", marginTop: "1mm" }}>
-          <thead><tr>{["Figure", "Côtés", "Sommets", "Angles droits ?"].map((h) => <th key={h} style={{ border: "1.3px solid #94a3b8", padding: "1.5mm", background: "#f0fdff", color: MA }}>{h}</th>)}</tr></thead>
+          <thead><tr>{["Figure", "Côtés", "Sommets", "Angles droits ?"].map((h) => <th key={h} style={{ border: "1.3px solid #94a3b8", padding: "1.2mm", background: "#f0fdff", color: MA }}>{h}</th>)}</tr></thead>
           <tbody>
             {[["le carré", "carre"], ["le rectangle", "rectangle"], ["le losange", "losange"]].map((r, k) => (
               <tr key={k}>
-                <td style={{ border: "1.3px solid #94a3b8", padding: "1mm", display: "flex", alignItems: "center", gap: "2mm", justifyContent: "center", fontFamily: CURSIVE, fontSize: "15px" }}><Forme type={r[1]} s={30} />{r[0]}</td>
-                <td style={{ border: "1.3px solid #94a3b8", height: "11mm" }} /><td style={{ border: "1.3px solid #94a3b8" }} /><td style={{ border: "1.3px solid #94a3b8" }} />
+                <td style={{ border: "1.3px solid #94a3b8", padding: "1mm", display: "flex", alignItems: "center", gap: "2mm", justifyContent: "center", fontFamily: CURSIVE, fontSize: "15px" }}><Forme type={r[1]} s={28} />{r[0]}</td>
+                <td style={{ border: "1.3px solid #94a3b8", height: "10mm" }} /><td style={{ border: "1.3px solid #94a3b8" }} /><td style={{ border: "1.3px solid #94a3b8" }} />
               </tr>
             ))}
           </tbody>
         </table>
       </Exo>
       <Exo n={2} couleur={MA} consigne={<><b>Vrai ou faux ?</b> Écris V ou F.</>}>
-        <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 2 }}>Un quadrilatère a 4 côtés. …… &nbsp; Le carré a 4 côtés égaux. …… &nbsp; Le losange a des angles droits. …… &nbsp; Le rectangle a 2 longs côtés et 2 courts. ……</div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "15px", lineHeight: 1.9 }}>Un quadrilatère a 4 côtés. …… &nbsp; Le carré a 4 côtés égaux. …… &nbsp; Le losange a des angles droits. …… &nbsp; Le rectangle a 2 longs côtés et 2 courts. ……</div>
       </Exo>
-      <Exo n={3} couleur={MA} consigne={<><b>Trace</b> à la règle : un carré de 4 carreaux, un rectangle de 6 sur 3, un losange.</>}>
-        <div style={{ ...QUADRILLAGE, height: "30mm" }} />
+      <SectionBar couleur={MA}>Je trace à la règle (et à l'équerre)</SectionBar>
+      <Exo n={3} couleur={MA} consigne={<><b>Trace</b> un carré de 4 carreaux de côté (vérifie les angles droits à l'équerre).</>}>
+        <TraceZone h="30mm" pts={[[12, 5], [32, 5], [12, 25], [32, 25]]} />
       </Exo>
-      <Exo n={4} couleur={MA} consigne={<><b>Écris</b> : comment reconnaître un carré parmi les quadrilatères ?</>}>
+      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> un rectangle de 6 carreaux sur 3.</>}>
+        <TraceZone h="30mm" pts={[[10, 7], [40, 7], [10, 22], [40, 22]]} />
+      </Exo>
+      <Exo n={5} couleur={MA} consigne={<><b>Trace</b> un losange en reliant les 4 points.</>}>
+        <TraceZone h="32mm" pts={[[26, 5], [41, 16], [26, 27], [11, 16]]} />
+      </Exo>
+      <Exo n={6} couleur={MA} consigne={<><b>Écris</b> : comment reconnaître un carré parmi les quadrilatères ?</>}>
         <LignesModele n={2} />
       </Exo>
     </FicheModele>
@@ -640,25 +664,30 @@ export function TrianglesTypesLecon() {
 
 export function FicheTrianglesTypesCE1() {
   return (
-    <FicheModele matiere="Géométrie" titre="Les triangles" couleur={MA} dots={4} dotActif={2} page="Les triangles · CE1">
+    <FicheModele matiere="Géométrie" titre="Les triangles" couleur={MA} dots={6} dotActif={2} page="Les triangles · CE1">
       <SectionBar couleur={MA}>Je reconnais les triangles</SectionBar>
       <Exo n={1} couleur={MA} consigne={<><b>Entoure</b> seulement les triangles (les figures à 3 côtés).</>}>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "6mm", justifyContent: "space-around", marginTop: "1mm" }}>
-          <Forme type="carre" s={40} fill="#fff" /><TriangleType kind="equilateral" s={40} fill="#fff" /><Forme type="cercle" s={40} fill="#fff" /><TriangleType kind="rectangle" s={40} fill="#fff" /><Forme type="quad" s={40} fill="#fff" /><TriangleType kind="quelconque" s={40} fill="#fff" />
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "5mm", justifyContent: "space-around", marginTop: "1mm" }}>
+          <Forme type="carre" s={36} fill="#fff" /><TriangleType kind="equilateral" s={36} fill="#fff" /><Forme type="cercle" s={36} fill="#fff" /><TriangleType kind="rectangle" s={36} fill="#fff" /><Forme type="quad" s={36} fill="#fff" /><TriangleType kind="quelconque" s={36} fill="#fff" />
         </div>
       </Exo>
-      <Exo n={2} couleur={MA} consigne={<><b>Colorie</b> le coin de l'angle droit du triangle rectangle (le coin « bien carré »).</>}>
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "1mm" }}><TriangleType kind="rectangle" s={60} /></div>
-      </Exo>
-      <Exo n={3} couleur={MA} consigne={<><b>Compte</b> et <b>écris</b> le nombre de côtés et de sommets d'un triangle.</>}>
-        <div style={{ display: "flex", gap: "8mm", alignItems: "center", fontFamily: CURSIVE, fontSize: "17px", marginTop: "1mm", justifyContent: "center" }}>
-          <TriangleType kind="isocele" s={44} /><span>…… côtés</span><span>…… sommets</span>
+      <Exo n={2} couleur={MA} consigne={<><b>Colorie</b> le coin de l'angle droit du triangle rectangle, puis <b>compte</b> les côtés et les sommets.</>}>
+        <div style={{ display: "flex", gap: "10mm", alignItems: "center", justifyContent: "center", fontFamily: CURSIVE, fontSize: "17px", marginTop: "1mm" }}>
+          <TriangleType kind="rectangle" s={50} /><TriangleType kind="isocele" s={44} /><span>…… côtés</span><span>…… sommets</span>
         </div>
       </Exo>
-      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> à la règle un triangle en reliant les points.</>}>
-        <div style={{ ...QUADRILLAGE, height: "34mm", position: "relative", overflow: "hidden" }}>
-          {[[12,26],[33,8],[56,26]].map(([x,y],k)=><span key={k} style={{ position:"absolute", left:`${x}mm`, top:`${y}mm`, width:"2mm", height:"2mm", borderRadius:"50%", background:MA, transform:"translate(-50%,-50%)" }} />)}
-        </div>
+      <SectionBar couleur={MA}>Je trace à la règle</SectionBar>
+      <Exo n={3} couleur={MA} consigne={<><b>Trace</b> un triangle en reliant les 3 points.</>}>
+        <TraceZone h="29mm" pts={[[12, 23], [33, 6], [56, 23]]} />
+      </Exo>
+      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> un autre triangle en reliant les 3 points.</>}>
+        <TraceZone h="29mm" pts={[[12, 8], [46, 8], [29, 24]]} />
+      </Exo>
+      <Exo n={5} couleur={MA} consigne={<><b>Trace</b> un triangle rectangle : relie les points, puis marque le coin « bien carré ».</>}>
+        <TraceZone h="29mm" pts={[[14, 24], [14, 7], [40, 24]]} />
+      </Exo>
+      <Exo n={6} couleur={MA} consigne={<><b>Trace</b> toi-même deux triangles différents de la taille que tu veux.</>}>
+        <TraceZone h="31mm" />
       </Exo>
     </FicheModele>
   );
@@ -666,24 +695,32 @@ export function FicheTrianglesTypesCE1() {
 
 export function FicheTrianglesTypesCE2() {
   return (
-    <FicheModele matiere="Géométrie" titre="Les types de triangles" couleur={MA} dots={4} dotActif={2} page="Les triangles · CE2">
+    <FicheModele matiere="Géométrie" titre="Les types de triangles" couleur={MA} dots={6} dotActif={2} page="Les triangles · CE2">
       <SectionBar couleur={MA}>Je reconnais et je décris</SectionBar>
       <Exo n={1} couleur={MA} consigne={<><b>Écris</b> le type sous chaque triangle (rectangle · isocèle · équilatéral).</>}>
         <div style={{ display: "flex", gap: "10mm", justifyContent: "space-around", marginTop: "1mm" }}>
-          {["isocele", "rectangle", "equilateral"].map((k) => <div key={k} style={{ textAlign: "center" }}><TriangleType kind={k} s={52} /><div style={{ width: "30mm", borderBottom: "1.3px solid #94a3b8", height: "6mm", marginTop: "1mm" }} /></div>)}
+          {["isocele", "rectangle", "equilateral"].map((k) => <div key={k} style={{ textAlign: "center" }}><TriangleType kind={k} s={44} /><div style={{ width: "30mm", borderBottom: "1.3px solid #94a3b8", height: "6mm", marginTop: "1mm" }} /></div>)}
         </div>
       </Exo>
-      <Exo n={2} couleur={MA} consigne={<><b>Relie</b> chaque triangle à sa propriété.</>}>
-        <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", fontFamily: CURSIVE, fontSize: "16px", marginTop: "1mm" }}>
-          <div style={{ display: "flex", gap: "5mm" }}><TriangleType kind="rectangle" s={40} /><TriangleType kind="isocele" s={40} /><TriangleType kind="equilateral" s={40} /></div>
-          <div style={{ lineHeight: 2.1 }}>• 2 côtés égaux<br />• un angle droit<br />• 3 côtés égaux</div>
+      <Exo n={2} couleur={MA} consigne={<><b>Relie</b> chaque triangle à sa propriété, puis <b>vrai ou faux ?</b> (V / F)</>}>
+        <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", fontFamily: CURSIVE, fontSize: "15px", marginTop: "1mm" }}>
+          <div style={{ display: "flex", gap: "5mm" }}><TriangleType kind="rectangle" s={36} /><TriangleType kind="isocele" s={36} /><TriangleType kind="equilateral" s={36} /></div>
+          <div style={{ lineHeight: 2 }}>• 2 côtés égaux<br />• un angle droit<br />• 3 côtés égaux</div>
         </div>
+        <div style={{ fontFamily: CURSIVE, fontSize: "15px", lineHeight: 1.8, marginTop: "1mm" }}>Tous les triangles ont 3 côtés. …… &nbsp; L'équilatéral a 3 côtés égaux. …… &nbsp; Le rectangle a un angle droit. ……</div>
       </Exo>
-      <Exo n={3} couleur={MA} consigne={<><b>Vrai ou faux ?</b> Écris V ou F.</>}>
-        <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 2 }}>Tous les triangles ont 3 côtés. …… &nbsp; Le triangle équilatéral a 3 côtés égaux. …… &nbsp; Le triangle rectangle a un angle droit. ……</div>
+      <SectionBar couleur={MA}>Je trace à la règle (et à l'équerre)</SectionBar>
+      <Exo n={3} couleur={MA} consigne={<><b>Trace</b> un triangle rectangle (angle droit à l'équerre) en reliant les points.</>}>
+        <TraceZone h="28mm" pts={[[14, 23], [14, 6], [40, 23]]} />
       </Exo>
-      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> à la règle (et à l'équerre) un triangle rectangle.</>}>
-        <div style={{ ...QUADRILLAGE, height: "30mm" }} />
+      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> un triangle isocèle (2 côtés égaux) en reliant les points.</>}>
+        <TraceZone h="28mm" pts={[[28, 6], [12, 23], [44, 23]]} />
+      </Exo>
+      <Exo n={5} couleur={MA} consigne={<><b>Trace</b> un triangle équilatéral (3 côtés égaux) en reliant les points.</>}>
+        <TraceZone h="28mm" pts={[[28, 6], [12, 22], [44, 22]]} />
+      </Exo>
+      <Exo n={6} couleur={MA} consigne={<><b>Trace</b> un grand triangle de ton choix et <b>écris</b> son type dessous.</>}>
+        <TraceZone h="29mm" />
       </Exo>
     </FicheModele>
   );
