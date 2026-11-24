@@ -233,6 +233,10 @@ export function TableauView() {
 
   const il = Math.round(size * 0.34);
   const lineHeight = il * 4;
+  // Marge du cahier : on ouvre une bande à gauche et on y trace une grande
+  // ligne rouge verticale, pour que les élèves calent leur écriture dessus.
+  const marginPad = Math.round(il * 2.6);
+  const margeLineLeft = PAD + marginPad - Math.round(il * 0.5);
 
   const [shiftPx, setShiftPx] = useState(0);
   useEffect(() => {
@@ -254,7 +258,7 @@ export function TableauView() {
     fontFamily: fontCss(fontId),
     fontSize: size,
     lineHeight: `${lineHeight}px`,
-    padding: `${PAD}px`,
+    padding: `${PAD}px ${PAD}px ${PAD}px ${PAD + marginPad}px`,
     whiteSpace: "pre-wrap",
     overflowWrap: "break-word",
     wordBreak: "break-word",
@@ -396,6 +400,8 @@ export function TableauView() {
             className="seyes font-ecole relative min-h-[60vh] text-stone-900"
             style={{ ...typo, ["--il" as string]: `${il}px`, ["--seyes-shift" as string]: `${shiftPx}px` }}
           >
+            {/* La marge : grande ligne rouge verticale (comme dans le cahier). */}
+            <div aria-hidden style={{ position: "absolute", top: 0, bottom: 0, left: margeLineLeft, width: 3, background: "#e23b3b", pointerEvents: "none", zIndex: 0 }} />
             {display.nodes}
             {display.pen}
             {text.length === 0 && (
