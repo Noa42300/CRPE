@@ -95,3 +95,27 @@ export function RituelsPronomsLundi() {
 export function RituelsPronomsMardi() {
   return <Page j={MARDI} />;
 }
+
+/* --- Semaine suivante : lundi 30 nov & mardi 1er déc --- */
+const LUNDI2: RituelJour = {
+  label: "lundi 30 novembre",
+  phrase: <><U>Le maître et les élèves</U> regardent le tableau.</>,
+  ce1Fr: <>je remplace « Le maître et les élèves » par un pronom (il, elle, ils, elles).</>,
+  ce2Fr: <>je récris la phrase en remplaçant le groupe souligné par un pronom.</>,
+  probCE1: { enonce: "Dans la classe, il y a 5 rangées de 4 tables.", question: "Combien de tables en tout ? (5 × 4)" },
+  probCE2: { enonce: "Le maître achète 6 paquets de 8 feutres. Il en distribue 37.", question: "Combien de feutres lui reste-t-il ? (6 × 8, puis − 37)" },
+};
+const MARDI2: RituelJour = {
+  label: "mardi 1er décembre",
+  phrase: <><U>Les filles</U> jouent à la marelle dans la cour.</>,
+  ce1Fr: <>je remplace « Les filles » par un pronom (il, elle, ils, elles).</>,
+  ce2Fr: <>je récris la phrase au singulier (« La fille… ») et j'accorde le verbe.</>,
+  probCE1: { enonce: "Un paquet contient 6 gâteaux. Papa achète 4 paquets.", question: "Combien de gâteaux en tout ? (6 × 4)" },
+  probCE2: { enonce: "Une boîte contient 9 crayons. Le maître a 5 boîtes et en casse 8.", question: "Combien de crayons entiers reste-t-il ? (5 × 9, puis − 8)" },
+};
+export function RituelsPronomsLundi2() {
+  return <Page j={LUNDI2} />;
+}
+export function RituelsPronomsMardi2() {
+  return <Page j={MARDI2} />;
+}

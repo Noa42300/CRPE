@@ -19,7 +19,8 @@ import { ProblemeRituelLundi, ProblemeRituelMardi } from "./ProblemeRituel";
 import { ProblemeBandesLundiCE1, ProblemeBandesLundiCE2, ProblemeBandesMardiCE1, ProblemeBandesMardiCE2 } from "./ProblemeBandes";
 import { FluenceDiapo, FluenceLecon, FluenceFicheCE1, FluenceFicheCE2 } from "./FluenceLecture";
 import { PronomsDiapo, PronomsLecon, FichePronomsCE1, FichePronomsCE2 } from "./PronomsPersonnels";
-import { QuadriDiapo, QuadriLecon, FicheQuadriCE1, FicheQuadriCE2, TrianglesTypesDiapo, TrianglesTypesLecon, FicheTrianglesTypesCE1, FicheTrianglesTypesCE2 } from "./GeoFormes";
+import { QuadriDiapo, QuadriLecon, FicheQuadriCE1, FicheQuadriCE2, TrianglesTypesDiapo, TrianglesTypesLecon, FicheTrianglesTypesCE1, FicheTrianglesTypesCE2, FicheTrianglesBonusCE1, FicheTrianglesBonusCE2 } from "./GeoFormes";
+import { EgypteDieuxDiapo, EgypteDieuxLecon, EgypteDieuxExos } from "./EgypteDieux";
 import { EpsSportCo6v6, EpsEpervier } from "./EpsTerrainSupport";
 import { LireCarteLecon, FicheLireCarte } from "./GeoLireCarte";
 import { MotsFlashSportDiapo, DicteeSportFiche } from "./DicteeFlash";
@@ -30,16 +31,16 @@ import { FicheModeleMaths } from "./FicheModeleMaths";
 import { HalloweenDiapo, HalloweenAfficheDiapo, HalloweenLecon, HalloweenFlashcards, HalloweenProjetCarte } from "./AnglaisHalloween";
 import { MultiplicationDiapo, MultiplicationLecon, MultiplicationExos, TablesReference } from "./MultiplicationSens";
 import { RituelsMatinSerie } from "./RituelsSerie";
-import { RituelsPronomsLundi, RituelsPronomsMardi } from "./RituelsPronoms";
+import { RituelsPronomsLundi, RituelsPronomsMardi, RituelsPronomsLundi2, RituelsPronomsMardi2 } from "./RituelsPronoms";
 import { QuizOperations } from "./QuizOperations";
 import { DossierAutonomieCE1 } from "./DossierAutonomieCE1";
 import { FormesPhrasesDiapo, FormesPhrasesLecon, FormesPhrasesDecouverte, FicheFormesCE1, FicheFormesCE2, FicheRevisionTypesFormesCE1, FicheRevisionTypesFormesCE2, EvalTypesFormesCE1, EvalTypesFormesCE2 } from "./FormesDePhrases";
 import { NumerationDiapo, NumerationLecon, FicheNumerationCE1, FicheNumerationCE2, SuiteNombresDiapo, SuiteNombresLecon, SuiteNombresLeconX2, FicheSuiteCE1, FicheSuiteCE2, EvalCollectionCE1, EvalCollectionCE2, AtelierEchanges } from "./Numeration";
 import { EvalLettresCE1, EvalLettresCE2 } from "./EvalEcritureLettres";
-import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre, CarteVillesMuetteFiche } from "./GeoVillesFrance";
+import { GeoVillesDiapo, GeoVillesLecon, GeoVillesExos, CarteVillesAApprendre, CarteVillesMuetteFiche, EvalVillesMersFiche } from "./GeoVillesFrance";
 import { PoesieHiverDiapo, PoesieHiverFiche } from "./PoesieHiver";
 import { AnglaisHiverDiapo, AnglaisHiverCorpus } from "./AnglaisHiver";
-import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVetementsFiche, MotsFlashAnimauxDiapo, DicteeAnimauxFiche } from "./DicteeFlash";
+import { MotsFlashDiapo, DicteeHiverFiche, MotsFlashVetementsDiapo, DicteeVetementsFiche, MotsFlashAnimauxDiapo, DicteeAnimauxFiche, MotsFlashMaisonDiapo, DicteeMaisonFiche } from "./DicteeFlash";
 import { GeoOuSommesNousDiapo, GeoOuSommesNousLecon, GeoOuSommesNousExos, CarteFranceAImprimer } from "./GeoOuSommesNous";
 import { EmcMaireDiapo, EmcMaireLecon } from "./EmcMaire";
 import { EgypteNilDiapo, EgypteNilLecon, EgypteNilExos, EgyptePharaonDiapo, EgyptePharaonLecon, EgyptePharaonExos } from "./EgypteNil";
@@ -1447,6 +1448,62 @@ export function supportsForActivity(activityId: string): SupportFourni[] {
       return [
         { key: "rit-pronoms-m", label: "Rituel du matin — phrase du jour (pronoms) + problème différencié CE1/CE2 (2 par A4)", node: <RituelsPronomsMardi /> },
         { key: "rit-quiz", label: "Mini-quiz « Quelle opération ? » (+ , − ou × · vocabulaire des problèmes)", node: <QuizOperations /> },
+      ];
+
+    /* ===== Semaine suivante : lundi 30 nov & mardi 1er déc ===== */
+    case "l30rit":
+      return [
+        { key: "rit-pronoms-l2", label: "Rituel du matin — phrase du jour (pronoms) + problème différencié CE1/CE2 (2 par A4)", node: <RituelsPronomsLundi2 /> },
+        { key: "rit-quiz", label: "Mini-quiz « Quelle opération ? » (+ , − ou × · vocabulaire des problèmes)", node: <QuizOperations /> },
+      ];
+    case "m01rit":
+      return [
+        { key: "rit-pronoms-m2", label: "Rituel du matin — phrase du jour (pronoms) + problème différencié CE1/CE2 (2 par A4)", node: <RituelsPronomsMardi2 /> },
+        { key: "rit-quiz", label: "Mini-quiz « Quelle opération ? » (+ , − ou × · vocabulaire des problèmes)", node: <QuizOperations /> },
+      ];
+    case "l30mu":
+      return [
+        { key: "tri-diapo", label: "Les types de triangles — Diaporama (rectangle, isocèle, équilatéral)", node: <TrianglesTypesDiapo /> },
+        { key: "tri-lecon", label: "Les types de triangles — Leçon à coller (cahier rouge)", node: <TrianglesTypesLecon /> },
+        { key: "tri-ce1", label: "Les triangles — Fiche CE1 (reconnaître, angle droit, tracer)", node: <FicheTrianglesTypesCE1 /> },
+        { key: "tri-ce2", label: "Les types de triangles — Fiche CE2 (rectangle/isocèle/équilatéral, tracer)", node: <FicheTrianglesTypesCE2 /> },
+      ];
+    case "m01mu":
+      return [
+        { key: "tri-ce1-2", label: "Les triangles — Fiche CE1 (reconnaître, angle droit, tracer)", node: <FicheTrianglesTypesCE1 /> },
+        { key: "tri-ce2-2", label: "Les types de triangles — Fiche CE2 (rectangle/isocèle/équilatéral, tracer)", node: <FicheTrianglesTypesCE2 /> },
+        { key: "tri-bonus-ce1", label: "BONUS (ont fini) — Triangles CE1, axé tracé", node: <FicheTrianglesBonusCE1 /> },
+        { key: "tri-bonus-ce2", label: "BONUS (ont fini) — Triangles CE2, axé tracé", node: <FicheTrianglesBonusCE2 /> },
+      ];
+    case "l30dic":
+      return [
+        { key: "dicm-flash", label: "Mots flash — la maison (ardoise, à projeter) — mêmes mots lundi & mardi", node: <MotsFlashMaisonDiapo /> },
+        { key: "dicm-fiche1", label: "Dictée — la maison (jour 1 / lundi) — feuille élève", node: <DicteeMaisonFiche jour={1} /> },
+      ];
+    case "m01dic":
+      return [
+        { key: "dicm-flash2", label: "Mots flash — la maison (ardoise, à projeter) — mêmes mots que lundi", node: <MotsFlashMaisonDiapo /> },
+        { key: "dicm-fiche2", label: "Dictée — la maison (jour 2 / mardi) — feuille élève", node: <DicteeMaisonFiche jour={2} /> },
+      ];
+    case "l30eps":
+      return [
+        { key: "eps-6v6", label: "EPS — Jeux collectifs : 2 ateliers 6 contre 6 (schémas de terrain + sécurité)", node: <EpsSportCo6v6 /> },
+        { key: "eps-epervier", label: "EPS — Atelier sans ballon : l'épervier (schéma + sécurité)", node: <EpsEpervier /> },
+      ];
+    case "l30ang":
+      return [
+        { key: "ang-diapo", label: "English — Winter story « The Mitten » (à projeter, jeux)", node: <AnglaisHiverDiapo /> },
+        { key: "ang-corpus", label: "English — Winter words (corpus à coller, cahier violet)", node: <AnglaisHiverCorpus /> },
+      ];
+    case "m01geo":
+      return [
+        { key: "eval-villes", label: "Évaluation — Les villes de France à placer (+ bonus : les mers) · vraie carte", node: <EvalVillesMersFiche /> },
+      ];
+    case "m01hist":
+      return [
+        { key: "dieux-diapo", label: "Les dieux de l'Égypte — Diaporama (vraies images : Rê, Anubis, Horus…)", node: <EgypteDieuxDiapo /> },
+        { key: "dieux-lecon", label: "Les dieux de l'Égypte — Leçon à coller (cahier d'histoire)", node: <EgypteDieuxLecon /> },
+        { key: "dieux-exos", label: "Les dieux de l'Égypte — Fiche d'exercices (dont la légende d'Osiris)", node: <EgypteDieuxExos /> },
       ];
     case "m24hist":
       return [

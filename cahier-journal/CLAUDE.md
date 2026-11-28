@@ -544,6 +544,12 @@ jours. On peut réduire le reste, jamais ces deux-là.
   - **Anglais** : le lundi (à la place de l'histoire), **séquence libre**
     (hors programmation), thème **Winter** autour d'une petite histoire
     (`AnglaisHiver.tsx` — *The Mitten*) : écoute, jeux, corpus de mots.
+    - **MÉMOIRE (à venir, IMPORTANT)** : à partir d'une prochaine séance,
+      l'anglais sert aussi aux **expérimentations du mémoire** de l'enseignant
+      (« appropriation de la langue française à travers l'étude de l'anglais »),
+      menées **surtout avec les CE2**. Pendant ce temps, **prévoir une activité
+      d'anglais DIFFÉRENTE pour les CE1**. (Préparer le dispositif quand
+      l'enseignant lancera les expérimentations.)
   - **Histoire** : le **mardi**, **Antiquité / Égypte** (séance 1 « Au bord du
     Nil », `EgypteNil.tsx`). ⚠️ **Leçons d'histoire à rendre plus imagées**
     (vraies photos WikiImage) — l'enseignant enverra un **format** cible.
