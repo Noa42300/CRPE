@@ -251,3 +251,65 @@ export function DicteeSportFiche({ jour = 1 }: { jour?: 1 | 2 }) {
     </div>
   );
 }
+
+/* ===================== Thème : LA MAISON (les pièces de la maison) ===================== */
+const MOTS_MAI_CE1 = ["la maison", "la cuisine", "la chambre", "le salon", "la porte", "la fenêtre", "le jardin", "le toit"];
+const MOTS_MAI_CE2 = [...MOTS_MAI_CE1, "l'escalier", "le grenier", "ranger"];
+const TEXTE_MAI = {
+  1: {
+    ce1: "Dans ma maison, il y a une cuisine, un salon et une chambre. Par la fenêtre, je vois le jardin.",
+    plus: "Je monte l'escalier jusqu'au grenier. Papa range les affaires et ferme la porte.",
+  },
+  2: {
+    ce1: "Ma chambre est à côté du salon. Je ferme la porte et j'ouvre la fenêtre sur le jardin.",
+    plus: "Dans la cuisine, maman prépare le repas. Le soir, toute la famille range la maison.",
+  },
+} as const;
+
+export function MotsFlashMaisonDiapo() {
+  const [i, setI] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const mots = MOTS_MAI_CE2;
+  return (
+    <div ref={ref} className="flex w-[92vw] max-w-[900px] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl" style={{ fontFamily: "'Lexend','Nunito',sans-serif" }}>
+      <div className="flex items-center gap-3 px-4 py-2" style={{ background: VERT }}>
+        <span className="text-sm font-extrabold uppercase tracking-wide text-white">Mots flash · la maison</span>
+        <span className="ml-2 text-xs font-bold text-white/80">{i + 1}/{mots.length}</span>
+        <button onClick={() => requestFullscreen(ref.current)} className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white hover:bg-white/30">Plein écran</button>
+      </div>
+      <div className="grid min-h-[48vh] place-items-center p-6">
+        <div className="text-6xl font-extrabold sm:text-7xl" style={{ color: VERT, fontFamily: CURSIVE }}>{mots[i]}</div>
+      </div>
+      <div className="flex items-center justify-between px-5 py-3">
+        <button onClick={() => setI((n) => Math.max(0, n - 1))} disabled={i === 0} className="rounded-full border-2 px-5 py-2 text-lg font-bold disabled:opacity-30" style={{ borderColor: VERT, color: VERT }}>◀</button>
+        <span className="text-xs font-bold uppercase tracking-wide text-stone-400">J'écris sur mon ardoise, puis j'efface.</span>
+        <button onClick={() => setI((n) => Math.min(mots.length - 1, n + 1))} disabled={i === mots.length - 1} className="rounded-full px-6 py-2 text-lg font-bold text-white disabled:opacity-30" style={{ background: VERT }}>▶</button>
+      </div>
+    </div>
+  );
+}
+
+export function DicteeMaisonFiche({ jour = 1 }: { jour?: 1 | 2 }) {
+  const t = TEXTE_MAI[jour];
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ border: "2.5px solid #111", borderRadius: "2mm", padding: "5mm 6mm", minHeight: "272mm", boxSizing: "border-box" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: "2px solid #111", paddingBottom: "1.5mm", marginBottom: "3mm" }}>
+          <h1 style={{ fontSize: "24px", margin: 0, fontWeight: 700, fontFamily: CURSIVE }}>Dictée — la maison <span style={{ fontSize: "16px" }}>(jour {jour})</span></h1>
+          <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .................. &nbsp; Date : ............</span>
+        </div>
+        <div style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT, color: VERT, marginBottom: "2mm" }}>Je fais attention : les <b>déterminants</b> (la, le, une, un) et les <b>verbes</b> (je vois, il ferme, ils rangent).</div>
+        <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT }}>Les mots</div>
+        <Lignes n={4} />
+        <div style={{ fontSize: "13px", fontWeight: 800, fontFamily: CONSIGNE_FONT, marginTop: "4mm" }}>La dictée</div>
+        <Lignes n={9} />
+        <div style={{ marginTop: "5mm", fontSize: "10px", color: "#64748b", fontFamily: CONSIGNE_FONT, lineHeight: 1.6 }}>
+          <b>Réservé à l'enseignant</b> — Mots (mêmes sur les 2 jours) CE1 : {MOTS_MAI_CE1.join(" · ")}. Mots CE2 (en plus) : {MOTS_MAI_CE2.slice(MOTS_MAI_CE1.length).join(" · ")}.<br />
+          <b>Texte CE1 (jour {jour}) :</b> {t.ce1}<br />
+          <b>Texte CE2 (jour {jour}) :</b> {t.ce1} <span style={{ fontWeight: 700, color: "#111" }}>{t.plus}</span>
+          <br /><span style={{ fontStyle: "italic" }}>(Même corpus les 2 jours ; texte différent. Cahier de dictée vert.)</span>
+        </div>
+      </div>
+    </div>
+  );
+}

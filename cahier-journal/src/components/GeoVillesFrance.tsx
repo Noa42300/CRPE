@@ -200,3 +200,36 @@ export function CarteVillesMuetteFiche() {
     </div>
   );
 }
+
+/* ---- ÉVALUATION : placer les villes (+ bonus : les mers) ---- */
+export function EvalVillesMersFiche() {
+  const noms = VILLES.map((v) => v.nom);
+  const mers = ["la Manche", "la mer du Nord", "l'océan Atlantique", "la mer Méditerranée"];
+  return (
+    <div className="fiche-a4" style={{ background: "#fff", color: "#111", boxSizing: "border-box", fontFamily: "'Lexend','Nunito',system-ui,sans-serif" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `2px solid ${GEO}`, paddingBottom: "1.5mm", marginBottom: "2mm" }}>
+        <h1 style={{ fontSize: "23px", margin: 0, fontWeight: 700, fontFamily: CURSIVE, color: GEO }}>Évaluation — Les villes de France</h1>
+        <span style={{ fontSize: "12px", fontWeight: 700, fontFamily: CONSIGNE_FONT }}>Prénom : .............. · Date : ........</span>
+      </div>
+      <div style={{ fontSize: "13.5px", fontWeight: 700, fontFamily: CONSIGNE_FONT, marginBottom: "2mm" }}>
+        <b>Écris</b> le nom de chaque ville sur le bon point (aide-toi de la liste et de la rose des vents). <span style={{ color: "#dc2626" }}>Le point rouge = Saint-Étienne.</span>
+      </div>
+      <div style={{ width: "148mm", margin: "0 auto" }}><CarteVilles noms={false} ecole={true} rose={true} /></div>
+      <div style={{ marginTop: "2.5mm", display: "flex", gap: "3mm" }}>
+        <div style={{ flex: 2, border: `2px dashed ${GEO}`, borderRadius: "3mm", padding: "2mm 4mm", background: "#ecfeff" }}>
+          <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: GEO, marginBottom: "1mm" }}>Les villes à placer :</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5mm 5mm", fontFamily: CURSIVE, fontSize: "17px" }}>
+            {noms.map((n) => <span key={n}>• {n}</span>)}
+          </div>
+        </div>
+        <div style={{ flex: 1, border: `2px dashed #b45309`, borderRadius: "3mm", padding: "2mm 4mm", background: "#fff7ed" }}>
+          <div style={{ fontFamily: CONSIGNE_FONT, fontWeight: 800, fontSize: "12px", color: "#b45309", marginBottom: "1mm" }}>★ Bonus — les 4 mers :</div>
+          <div style={{ fontFamily: CURSIVE, fontSize: "16px", lineHeight: 1.5 }}>
+            {mers.map((m) => <div key={m}>• {m}</div>)}
+          </div>
+          <div style={{ fontFamily: CONSIGNE_FONT, fontSize: "9.5px", color: "#92400e", marginTop: "1mm" }}>Écris-les dans l'eau, au bon endroit.</div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -725,3 +725,49 @@ export function FicheTrianglesTypesCE2() {
     </FicheModele>
   );
 }
+
+/* ============================================================================
+ * FICHES BONUS « au cas où ils ont fini » — triangles (mardi), axées tracé.
+ * ========================================================================== */
+export function FicheTrianglesBonusCE1() {
+  return (
+    <FicheModele matiere="Géométrie" titre="Triangles — bonus" couleur={MA} dots={4} dotActif={1} page="Triangles bonus · CE1">
+      <SectionBar couleur={MA}>J'ai fini : je m'entraîne encore</SectionBar>
+      <Exo n={1} couleur={MA} consigne={<><b>Colorie</b> chaque triangle d'une couleur différente (et laisse les autres figures en blanc).</>}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "5mm", justifyContent: "space-around", marginTop: "1mm" }}>
+          <TriangleType kind="rectangle" s={40} fill="#fff" /><Forme type="carre" s={38} fill="#fff" /><TriangleType kind="equilateral" s={40} fill="#fff" /><Forme type="cercle" s={38} fill="#fff" /><TriangleType kind="isocele" s={40} fill="#fff" /><TriangleType kind="quelconque" s={40} fill="#fff" />
+        </div>
+      </Exo>
+      <SectionBar couleur={MA}>Je trace à la règle</SectionBar>
+      <Exo n={2} couleur={MA} consigne={<><b>Trace</b> un triangle en reliant les 3 points, puis un deuxième, plus grand.</>}>
+        <TraceZone h="36mm" pts={[[12, 28], [30, 9], [50, 28]]} />
+      </Exo>
+      <Exo n={3} couleur={MA} consigne={<><b>Défi :</b> trace un triangle à l'intérieur du carré (relie le point du haut aux deux coins du bas).</>}>
+        <TraceZone h="40mm" pts={[[14, 8], [38, 8], [14, 30], [38, 30], [26, 8]]} />
+      </Exo>
+      <Exo n={4} couleur={MA} consigne={<><b>Trace</b> deux triangles de la taille que tu veux.</>}>
+        <TraceZone h="38mm" />
+      </Exo>
+    </FicheModele>
+  );
+}
+
+export function FicheTrianglesBonusCE2() {
+  return (
+    <FicheModele matiere="Géométrie" titre="Triangles — bonus" couleur={MA} dots={4} dotActif={1} page="Triangles bonus · CE2">
+      <SectionBar couleur={MA}>J'ai fini : je vais plus loin</SectionBar>
+      <Exo n={1} couleur={MA} consigne={<><b>Trace</b> un triangle rectangle (angle droit à l'équerre) en reliant les points.</>}>
+        <TraceZone h="34mm" pts={[[14, 31], [14, 10], [42, 31]]} />
+      </Exo>
+      <Exo n={2} couleur={MA} consigne={<><b>Trace</b> un triangle isocèle (2 côtés égaux), puis un équilatéral (3 côtés égaux).</>}>
+        <TraceZone h="36mm" pts={[[16, 31], [6, 10], [26, 10], [52, 31], [38, 9], [66, 31]]} />
+      </Exo>
+      <Exo n={3} couleur={MA} consigne={<><b>Défi :</b> trace un carré, puis une diagonale (relie deux coins opposés). Tu obtiens 2 triangles : colorie-les de 2 couleurs.</>}>
+        <TraceZone h="40mm" pts={[[12, 8], [36, 8], [12, 32], [36, 32]]} />
+      </Exo>
+      <Exo n={4} couleur={MA} consigne={<><b>Écris</b> : combien de triangles as-tu obtenus en traçant la diagonale du carré ?</>}>
+        <LignesModele n={1} />
+      </Exo>
+    </FicheModele>
+  );
+}

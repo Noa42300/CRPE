@@ -12429,43 +12429,739 @@
   },
   {
    "date": "2026-11-30",
+   "updatedAt": 1795861241559,
    "info": {
     "effectifPrevu": 23,
     "presents": null,
     "absents": null,
     "absentsNames": "",
+    "events": [],
     "rappels": [
      {
-      "id": "rap-20261130-cm-ebep-c2",
-      "texte": "CM EBEP C2",
-      "type": "reunion"
+      "id": "rap-20261130-tables",
+      "heure": "11:45",
+      "texte": "Faire réciter les tables de multiplication",
+      "type": "autre"
+     },
+     {
+      "id": "rap-20261130-eps",
+      "texte": "Préparer le matériel EPS (dossards, ballons mousse, plots) pour l'après-midi",
+      "type": "autre"
      }
     ],
-    "events": []
+    "devoirs": "FRANÇAIS : revoir la leçon des pronoms ; revoir les mots de la maison pour la dictée (jour 2). MATHS : apprendre la leçon des triangles (types : rectangle, isocèle, équilatéral). Tables de multiplication."
    },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000008
+   "slots": [
+    {
+     "id": "slot-20261130-0",
+     "disciplineId": "autre",
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "l30rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin — phrase du jour (pronoms) + problème différencié",
+       "objectif": "Entrer dans la journée. Phrase du jour sur les pronoms personnels (on les manipule) ; problème du jour différencié CE1 (1 étape) / CE2 (2 étapes).",
+       "competence": "Manipuler les pronoms personnels ; résoudre un problème à 1 ou 2 étapes.",
+       "competenceRef": "Rituels quotidiens",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Rituels quotidiens",
+       "progSeance": "Jour J",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l30r1",
+         "label": "Accueil et rituels (20 min)",
+         "note": "« On s'installe en silence, ardoise et cahier gris sortis. »\n« Écrivez la date. »\n« La phrase du jour : « Le maître et les élèves regardent le tableau. » Les CE1, par quel pronom on remplace « Le maître et les élèves » ? » (→ ils.)\n« Les CE2, vous récrivez la phrase avec le pronom. »\n« Le problème du jour : les CE1 font l'énoncé CE1, les CE2 l'énoncé CE2 (en deux étapes). Recopiez l'énoncé sans la question, puis cherchez. »\n« On corrige ensemble ; je vérifie quelques ardoises. »"
+        }
+       ],
+       "materiel": "Carte « rituel du matin » (pronoms + problème différencié, 2 par A4) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : confondre il/ils, elle/elles ; au CE2, mal enchaîner les 2 étapes. Remédiation : table des pronoms singulier/pluriel ; séparer étape 1 et étape 2, souligner ce qu'on cherche.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261130-1",
+     "disciplineId": "francais",
+     "start": "08:50",
+     "end": "10:10",
+     "activities": [
+      {
+       "id": "l30fr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (grammaire) — Les pronoms personnels (avec ma méthode)",
+       "objectif": "Poursuivre les pronoms personnels sujets (repérer, remplacer, accorder au CE2), à partir de la méthode « 1, 2, 3 Étude de la langue ».",
+       "competence": "Identifier et employer les pronoms personnels sujets ; CE2 : accord sujet-verbe.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, domaine « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Les pronoms personnels sujets",
+       "progSeance": "Séance — entraînement (méthode 1,2,3 ÉdL)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l30f1",
+         "label": "Rappel et vidéo (15 min)",
+         "note": "« Qui me rappelle ce qu'est un pronom personnel sujet ? » (il remplace un nom / GN sujet.)\n« On récite la famille : je, tu, il, elle, on, nous, vous, ils, elles. »\n« On regarde la petite vidéo pour bien se remettre en tête. »\n« Un garçon ? → il. Plusieurs filles ? → elles. »\n« Aujourd'hui, on s'entraîne avec notre fichier. »\n(je projette la vidéo des Fondamentaux, puis je distribue les fichiers.)"
+        },
+        {
+         "id": "l30f2",
+         "label": "Travail sur fichier (50 min)",
+         "note": "« Chacun prend son fichier « 1, 2, 3 Étude de la langue » à la bonne page. »\n« Les CE1 : vous repérez et vous remplacez les groupes par un pronom. »\n« Les CE2 : même travail, puis vous accordez le verbe avec le pronom. »\n« Vous travaillez seuls ; je passe aider ceux qui bloquent. »\n« On corrige au fur et à mesure, puis mise en commun au tableau. »\n(différenciation : je prends un petit groupe fragile sur le repérage.)"
+        }
+       ],
+       "materiel": "Fichier « 1, 2, 3 Étude de la langue » (pronoms) — fourni par l'enseignant. Vidéo (voir ci-dessous). Cahier bleu pour la leçon déjà collée.",
+       "video": "https://www.youtube.com/watch?v=pf9gPUVvMm8",
+       "differenciation": "CE1 : repérer / remplacer par il, elle, ils, elles. CE2 : + accord du verbe avec le pronom sujet. Élèves fragiles : table des pronoms et images sous les yeux.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : confondre il/ils et elle/elles ; au CE2 oublier d'accorder le verbe. Remédiation : compter « un seul / plusieurs », épeler la terminaison en nommant le pronom.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Revoir la leçon des pronoms personnels.",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261130-2",
+     "disciplineId": "maths",
+     "start": "10:40",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "l30mu",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths (géométrie) — Les différents types de triangles",
+       "objectif": "Découvrir les triangles et leurs types (maintenant que les quadrilatères sont vus). CE1 : reconnaître les triangles (3 côtés), repérer le triangle rectangle, tracer. CE2 : triangle rectangle / isocèle / équilatéral ; décrire et tracer.",
+       "competence": "Reconnaître et nommer des triangles ; distinguer les types (CE2) ; tracer à la règle.",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie ». Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Géométrie P2 — Les figures planes",
+       "progSeance": "Les triangles (après les quadrilatères)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l30m1",
+         "label": "Rappel + le triangle (10 min)",
+         "note": "« La semaine dernière, on a vu les quadrilatères : combien de côtés ? » (4.)\n« Et le triangle ? Comptez ses côtés. » (3.)\n« Un triangle a toujours 3 côtés et 3 sommets ; mais il y a plusieurs sortes de triangles. »\n« Montrez-moi un triangle autour de vous (une équerre, un toit…). »\n« On va apprendre à les reconnaître et à les tracer. »\n(j'affiche trois triangles différents au tableau.)"
+        },
+        {
+         "id": "l30m2",
+         "label": "Les types + leçon (15 min)",
+         "note": "« Le triangle RECTANGLE a un angle droit (un coin bien carré), vérifié à l'équerre. »\n« Pour les CE2 : l'ISOCÈLE a 2 côtés égaux, l'ÉQUILATÉRAL a 3 côtés égaux. »\n« On regarde le diaporama et on nomme chaque type. »\n« On colle la leçon des types de triangles dans le cahier rouge. »\n« Je montre comment on marque un angle droit et des côtés égaux. »\n(j'associe chaque triangle à sa propriété.)"
+        },
+        {
+         "id": "l30m3",
+         "label": "Je trie et je trace (25 min)",
+         "note": "« Les CE1 : vous entourez les triangles, vous repérez le coin droit, puis vous tracez des triangles en reliant les points. »\n« Les CE2 : vous écrivez le type sous chaque triangle, puis vous tracez un rectangle, un isocèle, un équilatéral. »\n« Je place les points, je relie bien droit à la règle. »\n« Relisez : la figure a-t-elle 3 côtés ? »\n« Je passe vérifier les tracés et le vocabulaire. »\n(ceux qui finissent prennent la fiche bonus.)"
+        }
+       ],
+       "materiel": "Diaporama « Les types de triangles » + leçon à coller (cahier rouge) + fiches CE1 / CE2 — voir Documents à imprimer. Règle, équerre, quadrillage.",
+       "video": "https://vimeo.com/527028880",
+       "differenciation": "CE1 : reconnaître les triangles, l'angle droit du triangle rectangle, tracer (points donnés). CE2 : distinguer rectangle / isocèle / équilatéral, décrire, tracer. Élèves fragiles : compter les côtés avec le doigt, superposer pour comparer.",
+       "depassement": "Classer des triangles par type ; construire un triangle équilatéral ; chercher les trois types dans la classe.",
+       "correction": "Tous les triangles : 3 côtés, 3 sommets. Rectangle : un angle droit. Isocèle : 2 côtés égaux. Équilatéral : 3 côtés égaux.",
+       "obstacles": "Erreurs fréquentes : croire que « triangle » = une seule forme ; confondre isocèle et équilatéral ; ne pas voir l'angle droit. Remédiation : comparer les longueurs des côtés, vérifier à l'équerre, marquer les côtés égaux.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Apprendre la leçon des triangles (cahier rouge).",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261130-3",
+     "disciplineId": "francais",
+     "start": "13:30",
+     "end": "14:10",
+     "activities": [
+      {
+       "id": "l30dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (orthographe) — Vocabulaire de la maison + dictée flash (jour 1)",
+       "objectif": "Enrichir le vocabulaire (thème de la maison) et mémoriser l'orthographe ; écrire des mots et une courte dictée différenciée CE1/CE2.",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; écrire sous la dictée (graphèmes, accords simples).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « vocabulaire » et « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Dictées maison — thème de la maison",
+       "progSeance": "Jour 1 (lundi) — mots + dictée",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l30d1",
+         "label": "Révision du vocabulaire (15 min)",
+         "note": "« Cet après-midi, notre dictée parle de LA MAISON. On revoit d'abord les mots. »\n« Je projette les mots flash : la maison, la cuisine, la chambre, le salon, la fenêtre… »\n« À chaque mot, on l'épelle et on repère le piège (les doubles lettres, le « on » de salon). »\n« Sur l'ardoise : la chambre, la fenêtre, l'escalier. Montrez-moi. »\n« Qui peut employer le mot « escalier » dans une phrase ? »\n(je corrige les ardoises et je ré-explique les mots fragiles.)"
+        },
+        {
+         "id": "l30d2",
+         "label": "Dictée différenciée (20 min)",
+         "note": "« On prend la feuille de dictée et on écrit son prénom. »\n« D'abord la dictée de mots : je dis chaque mot deux fois. »\n« Ensuite la petite dictée : CE1 les phrases courtes, CE2 les phrases plus longues. »\n« Je dicte lentement, deux fois, puis je relis pour vérifier. »\n« Relisez : chaque mot a-t-il toutes ses lettres ? Les majuscules, les points ? »\n(autocorrection supervisée ; les textes restent de mon côté.)"
+        }
+       ],
+       "materiel": "Mots flash « la maison » (à projeter) + feuille de dictée (jour 1) — voir Documents à imprimer. Ardoise. Cahier vert.",
+       "video": "",
+       "differenciation": "CE1 : liste plus courte + 2 phrases simples. CE2 : mots en plus (escalier, grenier, ranger) + phrases plus longues. Élèves fragiles : dictée à trous.",
+       "depassement": "",
+       "correction": "Mots CE1 : la maison, la cuisine, la chambre, le salon, la porte, la fenêtre, le jardin, le toit. CE2 en plus : l'escalier, le grenier, ranger.",
+       "obstacles": "Erreurs fréquentes : « on » de salon/maison, doubles consonnes, accord des déterminants. Remédiation : frapper les syllabes, entourer les lettres muettes.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Revoir les mots de la maison pour la dictée de demain (jour 2).",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261130-4",
+     "disciplineId": "qlm",
+     "start": "14:10",
+     "end": "14:30",
+     "activities": [
+      {
+       "id": "l30pays",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Autour du monde — Le pays du jour : le Sénégal",
+       "objectif": "Poursuivre le projet « Autour du monde » : situer et découvrir le Sénégal (continent, drapeau, capitale, spécialité).",
+       "competence": "Se repérer dans l'espace ; découvrir un pays et sa culture (projet Autour du monde).",
+       "competenceRef": "Questionner le monde — questionner l'espace (programmes 2018/2020).",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Autour du monde — Afrique",
+       "progSeance": "Escale de la semaine — le Sénégal",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l30pa1",
+         "label": "Escale au Sénégal (20 min)",
+         "note": "« On repart en voyage : aujourd'hui, escale au SÉNÉGAL. Où est-ce ? On le cherche sur la carte. »\n« Le Sénégal est tout à l'ouest de l'Afrique, au bord de l'océan Atlantique. On y parle souvent français. »\n« On regarde son drapeau (vert, jaune, rouge avec une étoile), sa capitale Dakar. »\n« On découvre un plat, le thiéboudiène (riz au poisson), et la musique avec les tam-tams. »\n« Chacun complète la carte d'identité du pays et la range dans la pochette du voyage. »\n(je projette les photos — Projets → Autour du monde ; on situe le Sénégal par rapport à la France.)"
+        }
+       ],
+       "materiel": "Projets → Autour du monde : diaporama + photos du Sénégal + carte d'identité. Pochette noire (voyage).",
+       "video": "",
+       "differenciation": "CE1 : colorier le drapeau, situer le pays, dire le continent. CE2 : compléter la carte d'identité (capitale, océan, spécialité) et une phrase.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261130-5",
+     "disciplineId": "eps",
+     "start": "14:30",
+     "end": "15:10",
+     "activities": [
+      {
+       "id": "l30eps",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "EPS — Jeux collectifs : 2 ateliers (ballon prisonnier / l'épervier)",
+       "objectif": "Reprendre la séance de jeux collectifs de la semaine précédente : se dépenser, coopérer et s'opposer sur deux ateliers (ballon prisonnier d'un côté, l'épervier — sans ballon — de l'autre).",
+       "competence": "Coopérer et s'opposer dans un jeu collectif ; respecter les règles, les partenaires et les adversaires.",
+       "competenceRef": "Programme d'EPS cycle 2 (2018/2020) — « conduire et maîtriser un affrontement collectif ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "EPS P2 — Jeux collectifs",
+       "progSeance": "Séance — 2 ateliers (prisonnier / épervier)",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l30e1",
+         "label": "Mise en train et consignes (10 min)",
+         "note": "« On reprend nos jeux collectifs de la semaine dernière, sur deux ateliers. »\n« On s'échauffe : trottiner, montées de genoux, changements de direction. »\n« Atelier 1 — Ballon prisonnier : on touche les adversaires avec le ballon (en mousse), sous les épaules. »\n« Atelier 2 — L'épervier (sans ballon) : on traverse d'une maison à l'autre sans se faire toucher. »\n« Je forme les équipes ; on tourne entre les deux ateliers au signal. »\n(je place les plots, je donne les ballons mousse ; je rappelle qu'on ne pousse pas.)"
+        },
+        {
+         "id": "l30e2",
+         "label": "Jeu sur les deux ateliers + rotation (30 min)",
+         "note": "« C'est parti : chaque jeu dure environ 8 minutes, puis on change d'atelier. »\n« Ballon prisonnier : visez les jambes ; si vous êtes touché, allez en prison, un camarade peut vous délivrer. »\n« Épervier : regardez l'épervier, changez de direction, accélérez pour ne pas être touché. »\n« Je suis l'arbitre ; on respecte le signal d'arrêt (sifflet). »\n« Au signal, on arrête, on boit, et les équipes tournent. »\n(j'observe l'engagement et le fair-play ; je régule les équipes.)"
+        },
+        {
+         "id": "l30e3",
+         "label": "Retour au calme et bilan (10 min)",
+         "note": "« On range le matériel (ballons dans le filet, plots près du mur). »\n« On s'assoit en rond, on respire doucement. »\n« Qu'est-ce qui aide à ne pas se faire toucher ? » (regarder, esquiver, accélérer.)\n« Qu'avez-vous préféré aujourd'hui ? »\n« On s'applaudit : on a bien joué et respecté les règles. »\n(je note les élèves à encourager la prochaine fois.)"
+        }
+       ],
+       "materiel": "Fiche terrain « 2 ateliers 6v6 » (ballon prisonnier) + fiche « l'épervier » (sans ballon) — voir Documents à imprimer. Dossards, ballons mousse, plots, sifflet.",
+       "video": "",
+       "differenciation": "Équipes équilibrées, mixtes. Pour un élève en difficulté : rôle d'arbitre-assistant, ou maison plus proche à l'épervier. Adapter la taille du terrain au nombre.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : viser la tête, pousser, attraper les vêtements, sortir du terrain. Remédiation : « on vise les jambes / on touche dans le dos », rappel des limites aux plots, un seul sens de traversée.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "eps"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261130-6",
+     "disciplineId": "anglais",
+     "start": "15:40",
+     "end": "16:15",
+     "activities": [
+      {
+       "id": "l30ang",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "English — Winter story « The Mitten » (suite)",
+       "objectif": "Poursuivre l'histoire « The Mitten » : réécouter, reconnaître les animaux et les mots de l'hiver, rejouer l'histoire.",
+       "competence": "Comprendre un court récit en anglais ; réemployer un corpus de mots (animaux, hiver).",
+       "competenceRef": "Programme de langue vivante cycle 2 (2018/2020) — compréhension de l'oral, répétition.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Winter — The Mitten",
+       "progSeance": "Séance — réécoute et jeux de langage",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "l30a1",
+         "label": "Warm-up (10 min)",
+         "note": "« Hello everyone! How are you today? » (I'm fine, thank you!)\n« Let's remember our winter words: snow, cold, mitten, mouse, rabbit, fox, bear. »\n« I show a flashcard, you say the word all together. »\n« Show me: brrr, it's cold! »\n« Today we continue our story: The Mitten. »\n(je réactive le corpus avec flashcards et gestes.)"
+        },
+        {
+         "id": "l30a2",
+         "label": "Story and game (25 min)",
+         "note": "« Listen again: who comes inside the mitten? »\n« The mouse, the rabbit, the fox, the bear… the mitten is full! »\n« When you hear an animal, do the action: mouse (small), bear (big). »\n« Let's act it out: some of you are the animals. »\n« Repeat with me: Can I come in? »\n(je valorise la participation orale, pas d'écrit noté.)"
+        }
+       ],
+       "materiel": "Diaporama « The Mitten » + corpus « Winter words » (cahier violet) — voir Documents à imprimer. Flashcards animaux.",
+       "video": "https://www.youtube.com/watch?v=f-RFbxOmdj4",
+       "differenciation": "CE1 : répéter les mots, faire les gestes. CE2 : produire une courte phrase (« It's a fox », « Can I come in? »).",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "À partir d'une prochaine séance : démarrer les EXPÉRIMENTATIONS du mémoire (appropriation de la langue française à travers l'étude de l'anglais), menées surtout avec les CE2. Prévoir une activité d'anglais DIFFÉRENTE pour les CE1 pendant ce temps.",
+       "disciplineId": "anglais"
+      }
+     ]
+    }
+   ]
   },
   {
    "date": "2026-12-01",
+   "updatedAt": 1795861241559,
    "info": {
     "effectifPrevu": 23,
     "presents": null,
     "absents": null,
     "absentsNames": "",
-    "rappels": [
-     {
-      "id": "rap-20261201-cm-ebep-c3",
-      "texte": "CM EBEP C3",
-      "type": "reunion"
-     }
-    ],
-    "events": []
+    "events": [],
+    "rappels": [],
+    "devoirs": "FRANÇAIS : finir le fichier des pronoms si besoin ; nouvelle liste de mots pour lundi prochain. MATHS : savoir tracer les types de triangles. GÉO : revoir les villes de France (éval faite). HISTOIRE : relire « Les dieux de l'Égypte »."
    },
-   "slots": [],
-   "createdAt": 1790700000000,
-   "updatedAt": 1790700000009
+   "slots": [
+    {
+     "id": "slot-20261201-0",
+     "disciplineId": "autre",
+     "start": "08:30",
+     "end": "08:50",
+     "activities": [
+      {
+       "id": "m01rit",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Rituels du matin — phrase du jour (pronoms) + problème différencié",
+       "objectif": "Entrer dans la journée. Phrase du jour (pronoms) ; problème du jour différencié CE1 / CE2 (2 étapes).",
+       "competence": "Manipuler les pronoms personnels ; résoudre un problème à 1 ou 2 étapes.",
+       "competenceRef": "Rituels quotidiens",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Rituels quotidiens",
+       "progSeance": "Jour J",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m01r1",
+         "label": "Accueil et rituels (20 min)",
+         "note": "« On s'installe, ardoise et cahier gris sortis. »\n« Écrivez la date. »\n« Phrase du jour : « Les filles jouent à la marelle. » CE1, par quel pronom on remplace « Les filles » ? » (→ elles.)\n« CE2, vous récrivez la phrase au singulier (« La fille… ») et vous accordez le verbe. »\n« Problème du jour : CE1 l'énoncé CE1, CE2 l'énoncé CE2 (2 étapes). On recopie sans la question, puis on cherche. »\n« On corrige ensemble ; je vérifie quelques ardoises. »"
+        }
+       ],
+       "materiel": "Carte « rituel du matin » (pronoms + problème différencié, 2 par A4) + mini-quiz « Quelle opération ? » — voir Documents à imprimer. Ardoise.",
+       "video": "",
+       "differenciation": "",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : confondre elle/elles ; au CE2, mal accorder au singulier ou mal enchaîner les 2 étapes. Remédiation : table des pronoms, séparer les étapes.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "autre"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261201-1",
+     "disciplineId": "francais",
+     "start": "08:50",
+     "end": "10:10",
+     "activities": [
+      {
+       "id": "m01fr",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (grammaire) — Les pronoms personnels (fichiers)",
+       "objectif": "Poursuivre les pronoms personnels sujets, à partir des fichiers Graphémo / « 1, 2, 3 Étude de la langue ».",
+       "competence": "Identifier et employer les pronoms personnels sujets ; CE2 : accord sujet-verbe.",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, domaine « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Les pronoms personnels sujets",
+       "progSeance": "Séance — entraînement sur fichiers",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m01f1",
+         "label": "Rappel (10 min)",
+         "note": "« Qui me rappelle ce qu'est un pronom personnel sujet ? »\n« On récite : je, tu, il, elle, on, nous, vous, ils, elles. »\n« Un garçon → il ; plusieurs filles → elles ; un garçon et une fille → ils. »\n« CE2 : le pronom commande la terminaison du verbe. »\n« On reprend nos fichiers. »\n(ardoise : je dis un groupe, ils écrivent le pronom.)"
+        },
+        {
+         "id": "m01f2",
+         "label": "Travail sur fichiers (50 min)",
+         "note": "« Chacun prend son fichier (Graphémo / 1, 2, 3 ÉdL) à la bonne page. »\n« CE1 : repérer et remplacer par un pronom. »\n« CE2 : + accorder le verbe. »\n« Vous travaillez seuls ; je passe aider. »\n« Mise en commun au tableau à la fin. »\n(je prends un petit groupe fragile si besoin.)"
+        }
+       ],
+       "materiel": "Fichiers Graphémo / « 1, 2, 3 Étude de la langue » (pronoms) — fournis par l'enseignant. Vidéo (ci-dessous).",
+       "video": "https://www.youtube.com/watch?v=pf9gPUVvMm8",
+       "differenciation": "CE1 : repérer / remplacer. CE2 : + accord du verbe. Élèves fragiles : table des pronoms.",
+       "depassement": "",
+       "correction": "",
+       "obstacles": "Erreurs fréquentes : il/ils, elle/elles ; oubli d'accord au CE2. Remédiation : « un seul / plusieurs », épeler la terminaison.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261201-2",
+     "disciplineId": "maths",
+     "start": "10:40",
+     "end": "11:30",
+     "activities": [
+      {
+       "id": "m01mu",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Maths (géométrie) — Les triangles (suite + fiches bonus)",
+       "objectif": "Consolider les triangles et leurs types ; tracer. Prévoir des fiches bonus pour les élèves qui ont fini.",
+       "competence": "Reconnaître, nommer et tracer des triangles ; distinguer les types (CE2).",
+       "competenceRef": "Programme de mathématiques du cycle 2 — BO n° 41 du 31 octobre 2024, « Espace et géométrie ». Méthode Tandem.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Géométrie P2 — Les figures planes",
+       "progSeance": "Les triangles — consolidation",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m01m1",
+         "label": "Rappel (10 min)",
+         "note": "« On reprend les triangles : combien de côtés ? » (3.)\n« Rappelez-moi les types : rectangle (angle droit), isocèle (2 côtés égaux), équilatéral (3 côtés égaux). »\n« Montrez-moi un angle droit avec l'équerre. »\n« Aujourd'hui, on s'entraîne surtout à tracer. »\n« Ceux qui finissent prendront une fiche bonus. »\n(je laisse les affiches des types sous les yeux.)"
+        },
+        {
+         "id": "m01m2",
+         "label": "Entraînement + tracé (25 min)",
+         "note": "« Chacun reprend sa fiche : CE1 la fiche CE1, CE2 la fiche CE2. »\n« On trace à la règle en reliant les points, bien droit. »\n« CE2 : vérifiez l'angle droit à l'équerre, marquez les côtés égaux. »\n« Je passe corriger et vérifier les tracés. »\n« Quand vous avez fini et que j'ai vérifié, prenez la fiche BONUS. »\n(les plus à l'aise vont sur les défis de tracé.)"
+        }
+       ],
+       "materiel": "Fiches CE1 / CE2 (triangles) + fiches BONUS CE1 / CE2 (axées tracé) — voir Documents à imprimer. Règle, équerre, quadrillage.",
+       "video": "https://vimeo.com/527028880",
+       "differenciation": "CE1 : reconnaître, tracer (points donnés). CE2 : types + tracé précis. Rapides : fiche bonus (défis de tracé). Fragiles : manipuler l'équerre, points marqués.",
+       "depassement": "Fiche bonus : tracer un triangle dans un carré, tracer la diagonale d'un carré (2 triangles).",
+       "correction": "Rectangle : un angle droit. Isocèle : 2 côtés égaux. Équilatéral : 3 côtés égaux. La diagonale d'un carré donne 2 triangles.",
+       "obstacles": "Erreurs fréquentes : tracé à main levée, mauvaise tenue de la règle, confusion isocèle/équilatéral. Remédiation : marquer les points avant de relier, comparer les longueurs.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Savoir nommer et tracer les types de triangles.",
+       "notesProchaine": "",
+       "disciplineId": "maths"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261201-3",
+     "disciplineId": "francais",
+     "start": "13:30",
+     "end": "14:00",
+     "activities": [
+      {
+       "id": "m01dic",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Français (orthographe) — Vocabulaire de la maison + dictée flash (jour 2)",
+       "objectif": "Réviser le vocabulaire de la maison et consolider l'orthographe ; écrire la dictée différenciée (jour 2) et se corriger.",
+       "competence": "Mémoriser l'orthographe de mots fréquents ; écrire sous la dictée (graphèmes, accords simples).",
+       "competenceRef": "Programme de français du cycle 2 — BO n° 41 du 31 octobre 2024, « vocabulaire » et « grammaire et orthographe ».",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Dictées maison — thème de la maison",
+       "progSeance": "Jour 2 (mardi) — mots + dictée",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m01d1",
+         "label": "Révision rapide (10 min)",
+         "note": "« On revoit une dernière fois les mots de la maison avant la dictée. »\n« Mots flash à l'écran : vous les épelez dans votre tête puis à voix haute. »\n« Sur l'ardoise : l'escalier, le grenier, ranger. Attention aux pièges ! »\n« Qui me rappelle le piège du mot « salon » ? et de « fenêtre » ? »\n« On range l'ardoise, on prend sa feuille. »\n(je cible les 2-3 mots qui ont posé problème hier.)"
+        },
+        {
+         "id": "m01d2",
+         "label": "Dictée + autocorrection (20 min)",
+         "note": "« Dictée de mots d'abord : j'énonce, vous écrivez. »\n« Puis la petite dictée : CE1 les phrases courtes, CE2 les phrases plus longues (texte différent d'hier). »\n« Je dicte deux fois, lentement, puis je relis pour la vérification. »\n« On corrige ensemble au tableau ; vous vous relisez au stylo vert. »\n« Comptez vos réussites et repérez le mot à retravailler. »\n(autocorrection supervisée ; je garde une trace des progrès.)"
+        }
+       ],
+       "materiel": "Mots flash « la maison » (à projeter) + feuille de dictée (jour 2) — voir Documents à imprimer. Ardoise, stylo vert. Cahier vert.",
+       "video": "",
+       "differenciation": "CE1 : liste plus courte + 2 phrases simples. CE2 : mots en plus + phrases plus longues. Élèves fragiles : dictée à trous.",
+       "depassement": "",
+       "correction": "Mots CE1 : la maison, la cuisine, la chambre, le salon, la porte, la fenêtre, le jardin, le toit. CE2 en plus : l'escalier, le grenier, ranger. Texte jour 2 différent du jour 1.",
+       "obstacles": "Erreurs fréquentes : « on » (salon, maison), doubles consonnes, accord des déterminants. Remédiation : frapper les syllabes, entourer les lettres muettes.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Nouvelle liste de mots pour lundi prochain (thème suivant).",
+       "notesProchaine": "",
+       "disciplineId": "francais"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261201-4",
+     "disciplineId": "qlm",
+     "start": "14:00",
+     "end": "14:45",
+     "activities": [
+      {
+       "id": "m01geo",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Géographie — Évaluation : placer les villes de France (+ bonus les mers)",
+       "objectif": "Évaluer : replacer les grandes villes de France sur une carte muette à points, à partir d'une liste de villes proposée. Bonus : placer les 4 mers. Utiliser les points cardinaux.",
+       "competence": "Se repérer dans l'espace : situer des villes (et des mers) sur une carte de France ; utiliser nord/sud/est/ouest.",
+       "competenceRef": "Questionner le monde — questionner l'espace (programmes 2018/2020).",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Géographie P2 — La France (villes et mers)",
+       "progSeance": "Évaluation — placer les villes",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m01g1",
+         "label": "Consignes de l'évaluation (10 min)",
+         "note": "« Aujourd'hui, petite évaluation de géographie : vous allez placer les villes de France sur la carte. »\n« Je distribue la carte muette avec des points, et la liste des villes à placer. »\n« Vous écrivez le nom de chaque ville au bon point ; aidez-vous de la rose des vents (le nord en haut). »\n« Le point rouge, c'est notre ville, Saint-Étienne. »\n« Bonus pour ceux qui savent : placez aussi les 4 mers, dans l'eau, au bon endroit. »\n« On travaille seul et en silence ; prenez votre temps. »"
+        },
+        {
+         "id": "m01g2",
+         "label": "Évaluation individuelle (25 min)",
+         "note": "« Vous placez d'abord les villes que vous êtes sûrs de connaître, puis les autres. »\n« Pensez aux repères : Paris au centre-nord, Marseille au sud, Brest à l'ouest. »\n« Ceux qui finissent font le bonus des mers. »\n« Je passe ramasser quand vous avez terminé ; relisez-vous d'abord. »\n« Pas de panique : c'est pour voir ce qu'on a appris et ce qu'on doit revoir. »\n(je surveille, je rassure ; évaluation libre, au calme, pour déstresser.)"
+        },
+        {
+         "id": "m01g3",
+         "label": "Correction collective (10 min)",
+         "note": "« On corrige ensemble au tableau : qui vient placer Lyon ? Marseille ? »\n« On vérifie avec les points cardinaux. »\n« Chacun regarde ses réponses ; ce n'est pas grave de s'être trompé, on retient. »\n« On range la carte dans la pochette de géographie. »\n« Bravo, vous connaissez déjà beaucoup de villes ! »\n(je repère qui doit encore réviser ; report possible dans le suivi.)"
+        }
+       ],
+       "materiel": "Évaluation « Les villes de France à placer » (+ bonus les mers) — vraie carte muette à points, voir Documents à imprimer. Crayon, stylo vert pour la correction.",
+       "video": "",
+       "differenciation": "CE1 : placer les villes principales et quelques mers avec la liste et les points cardinaux. CE2 : placer toutes les villes et les 4 mers, justifier la position. Élèves fragiles : liste réduite, initiales déjà placées si besoin.",
+       "depassement": "Placer un fleuve connu (le Rhône) ; situer une ville par rapport à une autre.",
+       "correction": "Villes : Paris (centre-nord), Lyon (centre-est), Marseille (sud-est), Saint-Étienne (centre-est), Lille (nord), Brest (ouest), Bordeaux (sud-ouest). Mers : Manche (nord-ouest), mer du Nord (nord), océan Atlantique (ouest), Méditerranée (sud).",
+       "obstacles": "Erreurs fréquentes : confondre nord et sud ; placer deux villes proches l'une pour l'autre. Remédiation : placer d'abord les 4 coins (Brest, Lille, Marseille, Bordeaux), s'appuyer sur Saint-Étienne.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "—",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    },
+    {
+     "id": "slot-20261201-5",
+     "disciplineId": "qlm",
+     "start": "15:40",
+     "end": "16:20",
+     "activities": [
+      {
+       "id": "m01hist",
+       "niveaux": [
+        "classe"
+       ],
+       "title": "Histoire — L'Égypte ancienne : les dieux (et la légende d'Osiris)",
+       "objectif": "Découvrir un point marquant de l'Égypte ancienne : les dieux (souvent à tête d'animal) — Rê, Anubis, Horus, Isis, Osiris — et la célèbre légende d'Osiris.",
+       "competence": "Se repérer dans le temps (l'Antiquité) ; découvrir les croyances des Égyptiens (les dieux, un mythe).",
+       "competenceRef": "Questionner le monde — questionner le temps (programmes 2018/2020) : traces du passé, Antiquité.",
+       "progPeriode": "P2",
+       "progDomaine": "",
+       "progSequence": "Histoire P2 — L'Égypte ancienne",
+       "progSeance": "Les dieux de l'Égypte",
+       "progRef": "",
+       "organisation": [
+        "collectif",
+        "individuel"
+       ],
+       "roleEnseignant": [
+        "étayage"
+       ],
+       "deroulement": [
+        {
+         "id": "m01h1",
+         "label": "Découverte projetée (15 min)",
+         "note": "« On continue notre voyage en Égypte ancienne. Aujourd'hui : les DIEUX des Égyptiens. »\n« Regardez ces images : que remarquez-vous ? » (beaucoup de dieux, souvent une tête d'animal.)\n« Les Égyptiens priaient des centaines de dieux : on dit qu'ils étaient polythéistes. »\n« Voici Rê, le dieu du Soleil ; Anubis, à tête de chacal, le dieu des morts et des momies ; Horus, à tête de faucon. »\n« Et je vais vous raconter une grande légende : celle d'Osiris. »\n(je projette les vraies images — WikiImage ; je fais décrire ce qu'ils voient.)"
+        },
+        {
+         "id": "m01h2",
+         "label": "La légende d'Osiris + leçon (15 min)",
+         "note": "« Osiris était un roi aimé. Son frère Seth, jaloux, le fit disparaître. »\n« Isis, son épouse magicienne, le ramena à la vie ; leur fils Horus vengea son père. »\n« Osiris devint alors le roi du royaume des morts. »\n« On construit la leçon : les Égyptiens avaient beaucoup de dieux, souvent à tête d'animal. »\n« On colle la leçon illustrée dans le cahier d'histoire et on souligne les mots importants. »\n(institutionnalisation : on nomme les dieux à partir des images.)"
+        },
+        {
+         "id": "m01h3",
+         "label": "Exercices (15 min)",
+         "note": "« Maintenant, la fiche d'exercices sur les dieux. »\n« Vous reliez chaque dieu à son rôle, vous complétez le texte. »\n« Vous remettez la légende d'Osiris dans l'ordre (1 à 4). »\n« Pour finir : inventez et dessinez VOTRE dieu égyptien, avec une tête d'animal et un rôle. »\n« Je passe aider et vérifier. »\n(les plus rapides ajoutent un détail à leur dieu inventé.)"
+        }
+       ],
+       "materiel": "Diaporama « Les dieux de l'Égypte » (vraies images) + leçon illustrée à coller (cahier d'histoire) + fiche d'exercices (dont la légende d'Osiris) — voir Documents à imprimer.",
+       "video": "",
+       "differenciation": "CE1 : relier dieu ↔ rôle, compléter avec les mots donnés, dessiner son dieu. CE2 : + remettre la légende dans l'ordre et rédiger le rôle de son dieu inventé. Élèves fragiles : étiquettes-mots à placer.",
+       "depassement": "Chercher un autre dieu égyptien (Bastet, Thot) ; expliquer pourquoi les Égyptiens faisaient des momies.",
+       "correction": "Rê = dieu du Soleil ; Anubis (chacal) = dieu des morts/momies ; Horus (faucon) = dieu du ciel. Polythéistes, tête d'animal. Légende d'Osiris : Seth le fait disparaître → Isis le ramène → Horus le venge → Osiris roi des morts.",
+       "obstacles": "Erreurs fréquentes : croire qu'il n'y a qu'un seul dieu ; confondre les dieux. Remédiation : s'appuyer sur l'animal (chacal = Anubis, faucon = Horus), relire la leçon illustrée.",
+       "bilan": "",
+       "aReprendre": "",
+       "devoirs": "Relire la leçon « Les dieux de l'Égypte ».",
+       "notesProchaine": "",
+       "disciplineId": "qlm"
+      }
+     ]
+    }
+   ]
   },
   {
    "date": "2026-12-04",
